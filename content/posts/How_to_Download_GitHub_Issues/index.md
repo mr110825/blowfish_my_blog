@@ -2,6 +2,7 @@
 date = '2025-08-03T01:55:16+09:00'
 draft = false
 title = 'Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法'
+tags = ["Github"]
 +++
 私は普段、Githubのプライベートリポジトリにメモやアイデアを書き溜めています。
 リポジトリには、清書したメモなどを保管。Issuesに一時メモや作業メモをまとめています。
