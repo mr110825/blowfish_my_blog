@@ -1,6 +1,6 @@
 +++
 date = '2025-08-03T01:55:16+09:00'
-draft = true
+draft = false
 title = 'Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法'
 +++
 私は普段、Githubのプライベートリポジトリにメモやアイデアを書き溜めています。
