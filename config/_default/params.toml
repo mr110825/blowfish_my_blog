@@ -1,4 +1,4 @@
-colorScheme = "fire"
+colorScheme = "blowfish"
 defaultAppearance = "dark"
 autoSwitchAppearance = true
 
@@ -41,9 +41,9 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showRecentItems = 5
   showMoreLink = false
   showMoreLinkDest = "/posts/"
-  cardView = false
+  cardView = true
   cardViewScreenWidth = false
-  layoutBackgroundBlur = false # only used when layout equals background
+  layoutBackgroundBlur = true
   disableHeroImageFilter = false # only used when layout equals hero
 
 [article]
@@ -67,7 +67,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showHeadingAnchors = true
   showPagination = true
   invertPagination = false
-  showReadingTime = true
+  showReadingTime = false
   showTableOfContents = true
   # showRelatedContent = false
   # relatedContentLimit = 3
