@@ -4,6 +4,7 @@ draft = false
 title = 'Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法'
 tags = ["Github"]
 +++
+## 概要
 私は普段、Githubのプライベートリポジトリにメモやアイデアを書き溜めています。
 リポジトリには、清書したメモなどを保管。Issuesに一時メモや作業メモをまとめています。
 （IssuesについてはZennのスクラップと同じような感じで利用しています。）
@@ -12,22 +13,28 @@ tags = ["Github"]
 
 この問題を解決するため、Issuesをmarkdownファイルとしてダウンロードして、ローカル環境で管理することを決めました。この記事では、GitHub CLIを使ってGitHubのIssuesをmarkdownファイルとしてダウンロードする方法を紹介します。
 
+最終的には下記コマンドを実行すればIssuesを取得することが可能です。
+```
+# Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）
+gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > <FILENAME>.md
+
+```
+
 **対象読者：**
 
 - Github CLIの基本的な使い方を知っている方
 - ドキュメント作成や記事執筆の素材としてIssuesを活用したい方
 
-:::message
-Isseusを取得する対象としてはプライベートリポジトリかつ、Githubの無料プランを利用しているユーザーを想定しております。
-
+{{< alert icon="lightbulb" cardColor="#d9ff00be" iconColor="#1d3557" textColor="#000000ff" >}}
+Isseusを取得する対象としてはプライベートリポジトリかつ、Githubの無料プランを利用しているユーザーを想定しております。<br>
 パブリックリポジトリまたは有料プランユーザーの場合は、Github Wiki機能など互換性のある機能があるため、そちらを利用するほうが手順も簡単で、効率的にドキュメント運用できると考えられます。
-:::
+{{< /alert >}}
 
 **前提条件**
 
 - **OS**: Linux（Ubuntu）環境（WSL2含む）
 - **権限**: GitHubにて対象リポジトリへのアクセス権限を保有している
-- **サンプル**: 当記事では[サンプルリポジトリ（mr110825/github-issues-to-markdown）](https://github.com/mr110825/github-issues-to-markdown/issues/1)を例として説明します
+- **サンプル**: 当記事では[サンプルリポジトリ（mr110825/gemini-cli-test-repo）](https://github.com/mr110825/gemini-cli-test-repo/issues/1)を例として説明します
 
 ## 環境セットアップ
 
@@ -51,13 +58,10 @@ gh auth status
 gh auth login
 ```
 
-:::message
 GitHub CLIへのログイン手順の詳細については、以下の記事をご参照ください。
-
 - [【Git のセットアップ】GitHub CLI を使って GitHub に接続する](https://zenn.dev/babyjob/articles/3faf85c33b8725)
 - [GitHub CLIのクイックスタート](https://docs.github.com/ja/enterprise-cloud@latest/github-cli/github-cli/quickstart)
 
-:::
 
 ## リポジトリのIssues一覧確認
 
@@ -68,8 +72,8 @@ gh issue list --repo <OWNER/REPO>
 ### 実行例
 
 ```bash
-# サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssueを対象とする
-gh issue list --repo mr110825/github-issues-to-markdown
+# サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssueを対象とする
+gh issue list --repo mr110825/gemini-cli-test-repo
 ```
 
 #### 出力例
@@ -88,8 +92,8 @@ gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments > <FILENAME>.md
 ### 実行例
 
 ```bash
-# サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssues#1を「test1.md」として取得する
-gh issue view 1 --repo mr110825/github-issues-to-markdown --comments > test1.md
+# サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test1.md」として取得する
+gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments > test1.md
 ```
 
 #### 出力例
@@ -116,9 +120,10 @@ status:	none
 --
 ```
 
-:::message
-この方法は最もシンプルですが、出力されるファイルには多くのメタデータが含まれており、実際の内容を読みにくく感じました。特に、複数のコメントがある場合、どのコメントがどのタイミングで投稿されたのかが分かりにくいという問題があります。
-:::
+{{< alert icon="lightbulb" cardColor="#d9ff00be" iconColor="#1d3557" textColor="#000000ff" >}}
+この方法は最もシンプルですが、出力されるファイルには多くのメタデータが含まれており、実際の内容を読みにくく感じました。<br>
+特に、複数のコメントがある場合、どのコメントがどのタイミングで投稿されたのかが分かりにくいという問題があります。
+{{< /alert >}}
 
 ## Issueの取得（不要なプロパティを除外してISO形式でコメントのみを取得）
 
@@ -134,8 +139,8 @@ gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments --te
 ### 実行例
 
 ```bash
-# サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssues#1を「test2.md」として取得する
-gh issue view 1 --repo mr110825/github-issues-to-markdown --comments --json comments --template '{{range .comments}}## コメント ({{.createdAt}})
+# サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test2.md」として取得する
+gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments --template '{{range .comments}}## コメント ({{.createdAt}})
 
 {{.body}}
 
@@ -163,9 +168,10 @@ gh issue view 1 --repo mr110825/github-issues-to-markdown --comments --json comm
 ---
 ```
 
-:::message
-この方法では、メタデータが除去され、コメントの内容と投稿日時が明確に表示されるようになりました。しかし、ISO形式の日時表記は読みづらいため、さらに改善が必要です。
-:::
+{{< alert icon="lightbulb" cardColor="#d9ff00be" iconColor="#1d3557" textColor="#000000ff" >}}
+この方法では、メタデータが除去され、コメントの内容と投稿日時が明確に表示されるようになりました。<br>
+しかし、ISO形式の日時表記は読みづらいため、さらに改善が必要です。
+{{< /alert >}}
 
 ## Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）
 
@@ -181,8 +187,8 @@ sudo apt install jq
 ### 実行例
 
 ```bash
-# サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssues#1を「test3.md」として取得する
-gh issue view 1 --repo mr110825/github-issues-to-markdown --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > test3.md
+# サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test3.md」として取得する
+gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > test3.md
 ```
 
 #### 出力例
@@ -205,9 +211,9 @@ gh issue view 1 --repo mr110825/github-issues-to-markdown --comments --json comm
 ---
 ```
 
-:::message
+{{< alert icon="lightbulb" cardColor="#d9ff00be" iconColor="#1d3557" textColor="#000000ff" >}}
 この方法が最も実用的です。日本語表記により、日時が直感的に理解でき、ドキュメントとして保存した際にも読みやすくなります。ただし、`jq`コマンドのインストールが必要になるため、環境によっては追加のセットアップが必要になります。
-:::
+{{< /alert >}}
 
 ## コマンドのまとめ
 
