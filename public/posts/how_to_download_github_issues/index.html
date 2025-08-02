@@ -140,7 +140,7 @@
     "keywords": ["Github"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "412"
+    "wordCount": "441"
   }]
   </script>
 
@@ -570,7 +570,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-08-03T01:55:16&#43;09:00">2025年 8月 3日</time><span class="px-2 text-primary-500">&middot;</span><span>412 文字</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-08-03T01:55:16&#43;09:00">2025年 8月 3日</time><span class="px-2 text-primary-500">&middot;</span><span>441 文字</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -657,6 +657,7 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#概要">概要</a></li>
     <li><a href="#環境セットアップ">環境セットアップ</a>
       <ul>
         <li><a href="#github-cliのインストール">GitHub CLIのインストール</a></li>
@@ -714,6 +715,7 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
+    <li><a href="#概要">概要</a></li>
     <li><a href="#環境セットアップ">環境セットアップ</a>
       <ul>
         <li><a href="#github-cliのインストール">GitHub CLIのインストール</a></li>
@@ -860,29 +862,74 @@
 
 
         <div class="article-content max-w-prose mb-20">
-          <p>私は普段、Githubのプライベートリポジトリにメモやアイデアを書き溜めています。
+          
+<h2 class="relative group">概要 
+    <div id="概要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%a6%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>私は普段、Githubのプライベートリポジトリにメモやアイデアを書き溜めています。
 リポジトリには、清書したメモなどを保管。Issuesに一時メモや作業メモをまとめています。
 （IssuesについてはZennのスクラップと同じような感じで利用しています。）
 しかし、Issuesの作業メモなどは書き溜めた後、コピー&amp;ペーストするような方法ばかりで、
 効率的に活用できていませんでした。</p>
 <p>この問題を解決するため、Issuesをmarkdownファイルとしてダウンロードして、ローカル環境で管理することを決めました。この記事では、GitHub CLIを使ってGitHubのIssuesをmarkdownファイルとしてダウンロードする方法を紹介します。</p>
-<p><strong>対象読者：</strong></p>
+<p>最終的には下記コマンドを実行すればIssuesを取得することが可能です。</p>
+<pre tabindex="0"><code># Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）
+gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments | jq -r &#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39; &gt; &lt;FILENAME&gt;.md
+</code></pre><p><strong>対象読者：</strong></p>
 <ul>
 <li>Github CLIの基本的な使い方を知っている方</li>
 <li>ドキュメント作成や記事執筆の素材としてIssuesを活用したい方</li>
 </ul>
-<p>:::message
-Isseusを取得する対象としてはプライベートリポジトリかつ、Githubの無料プランを利用しているユーザーを想定しております。</p>
-<p>パブリックリポジトリまたは有料プランユーザーの場合は、Github Wiki機能など互換性のある機能があるため、そちらを利用するほうが手順も簡単で、効率的にドキュメント運用できると考えられます。
-:::</p>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    >Isseusを取得する対象としてはプライベートリポジトリかつ、Githubの無料プランを利用しているユーザーを想定しております。<br>
+パブリックリポジトリまたは有料プランユーザーの場合は、Github Wiki機能など互換性のある機能があるため、そちらを利用するほうが手順も簡単で、効率的にドキュメント運用できると考えられます。</span>
+</div>
+
 <p><strong>前提条件</strong></p>
 <ul>
 <li><strong>OS</strong>: Linux（Ubuntu）環境（WSL2含む）</li>
 <li><strong>権限</strong>: GitHubにて対象リポジトリへのアクセス権限を保有している</li>
 <li><strong>サンプル</strong>: 当記事では<a
-  href="https://github.com/mr110825/github-issues-to-markdown/issues/1"
+  href="https://github.com/mr110825/gemini-cli-test-repo/issues/1"
     target="_blank"
-  >サンプルリポジトリ（mr110825/github-issues-to-markdown）</a>を例として説明します</li>
+  >サンプルリポジトリ（mr110825/gemini-cli-test-repo）</a>を例として説明します</li>
 </ul>
 
 <h2 class="relative group">環境セットアップ 
@@ -924,8 +971,7 @@ Isseusを取得する対象としてはプライベートリポジトリかつ�
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl"><span class="c1"># GitHub CLIへログイン実行</span>
 </span></span><span class="line"><span class="cl">gh auth login
-</span></span></code></pre></div><p>:::message
-GitHub CLIへのログイン手順の詳細については、以下の記事をご参照ください。</p>
+</span></span></code></pre></div><p>GitHub CLIへのログイン手順の詳細については、以下の記事をご参照ください。</p>
 <ul>
 <li><a
   href="https://zenn.dev/babyjob/articles/3faf85c33b8725"
@@ -936,7 +982,6 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
     target="_blank"
   >GitHub CLIのクイックスタート</a></li>
 </ul>
-<p>:::</p>
 
 <h2 class="relative group">リポジトリのIssues一覧確認 
     <div id="リポジトリのissues一覧確認" class="anchor"></div>
@@ -958,8 +1003,8 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssueを対象とする</span>
-</span></span><span class="line"><span class="cl">gh issue list --repo mr110825/github-issues-to-markdown
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssueを対象とする</span>
+</span></span><span class="line"><span class="cl">gh issue list --repo mr110825/gemini-cli-test-repo
 </span></span></code></pre></div>
 <h4 class="relative group">出力例 
     <div id="出力例" class="anchor"></div>
@@ -993,8 +1038,8 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssues#1を「test1.md」として取得する</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/github-issues-to-markdown --comments &gt; test1.md
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test1.md」として取得する</span>
+</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments &gt; test1.md
 </span></span></code></pre></div>
 <h4 class="relative group">出力例 
     <div id="出力例-1" class="anchor"></div>
@@ -1024,9 +1069,42 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
 </span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事作成
 </span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事投稿
 </span></span><span class="line"><span class="cl">--
-</span></span></code></pre></div><p>:::message
-この方法は最もシンプルですが、出力されるファイルには多くのメタデータが含まれており、実際の内容を読みにくく感じました。特に、複数のコメントがある場合、どのコメントがどのタイミングで投稿されたのかが分かりにくいという問題があります。
-:::</p>
+</span></span></code></pre></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    >この方法は最もシンプルですが、出力されるファイルには多くのメタデータが含まれており、実際の内容を読みにくく感じました。<br>
+特に、複数のコメントがある場合、どのコメントがどのタイミングで投稿されたのかが分かりにくいという問題があります。</span>
+</div>
+
 
 <h2 class="relative group">Issueの取得（不要なプロパティを除外してISO形式でコメントのみを取得） 
     <div id="issueの取得不要なプロパティを除外してiso形式でコメントのみを取得" class="anchor"></div>
@@ -1053,8 +1131,8 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssues#1を「test2.md」として取得する</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/github-issues-to-markdown --comments --json comments --template <span class="s1">&#39;{{range .comments}}## コメント ({{.createdAt}})
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test2.md」として取得する</span>
+</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments --template <span class="s1">&#39;{{range .comments}}## コメント ({{.createdAt}})
 </span></span></span><span class="line"><span class="cl"><span class="s1">
 </span></span></span><span class="line"><span class="cl"><span class="s1">{{.body}}
 </span></span></span><span class="line"><span class="cl"><span class="s1">
@@ -1085,9 +1163,42 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
 </span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事投稿
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">---
-</span></span></code></pre></div><p>:::message
-この方法では、メタデータが除去され、コメントの内容と投稿日時が明確に表示されるようになりました。しかし、ISO形式の日時表記は読みづらいため、さらに改善が必要です。
-:::</p>
+</span></span></code></pre></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    >この方法では、メタデータが除去され、コメントの内容と投稿日時が明確に表示されるようになりました。<br>
+しかし、ISO形式の日時表記は読みづらいため、さらに改善が必要です。</span>
+</div>
+
 
 <h2 class="relative group">Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換） 
     <div id="issueの取得jqコマンドで日時フォーマットを日本語表記に変換" class="anchor"></div>
@@ -1111,8 +1222,8 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/github-issues-to-markdown）のIssues#1を「test3.md」として取得する</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/github-issues-to-markdown --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; test3.md
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test3.md」として取得する</span>
+</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; test3.md
 </span></span></code></pre></div>
 <h4 class="relative group">出力例 
     <div id="出力例-3" class="anchor"></div>
@@ -1138,9 +1249,41 @@ GitHub CLIへのログイン手順の詳細については、以下の記事を�
 </span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事投稿
 </span></span><span class="line"><span class="cl">
 </span></span><span class="line"><span class="cl">---
-</span></span></code></pre></div><p>:::message
-この方法が最も実用的です。日本語表記により、日時が直感的に理解でき、ドキュメントとして保存した際にも読みやすくなります。ただし、<code>jq</code>コマンドのインストールが必要になるため、環境によっては追加のセットアップが必要になります。
-:::</p>
+</span></span></code></pre></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    >この方法が最も実用的です。日本語表記により、日時が直感的に理解でき、ドキュメントとして保存した際にも読みやすくなります。ただし、<code>jq</code>コマンドのインストールが必要になるため、環境によっては追加のセットアップが必要になります。</span>
+</div>
+
 
 <h2 class="relative group">コマンドのまとめ 
     <div id="コマンドのまとめ" class="anchor"></div>
