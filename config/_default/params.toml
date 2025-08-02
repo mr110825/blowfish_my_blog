@@ -1,5 +1,5 @@
 colorScheme = "blowfish"
-defaultAppearance = "dark"
+defaultAppearance = "light"
 autoSwitchAppearance = true
 
 enableSearch = true
@@ -36,7 +36,8 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showScrollToTop = true
 
 [homepage]
-  layout = "profile"
+  layout = "hero"
+  homepageImage = "img/blog_background4.jpg"
   showRecent = true
   showRecentItems = 5
   showMoreLink = false
@@ -44,7 +45,7 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true
-  disableHeroImageFilter = false # only used when layout equals hero
+  disableHeroImageFilter = true
 
 [article]
   showDate = true
@@ -54,9 +55,9 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   showDateUpdated = false
   showAuthor = false
   # showAuthorBottom = false
-  showHero = false
-  # heroStyle = "basic" # valid options: basic, big, background, thumbAndBackground
-  layoutBackgroundBlur = true # only used when heroStyle equals background or thumbAndBackground
+  showHero = true
+  heroStyle = "background"
+  layoutBackgroundBlur = true
   layoutBackgroundHeaderSpace = false
   showBreadcrumbs = false
   showDraftLabel = true
