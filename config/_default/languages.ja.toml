@@ -17,7 +17,7 @@ title = "技術的デジャブ回避メモ帳"
  [params.author]
    name = "フミ"
    email = "ptin110825@gmail.com"
-   image = "avater.png"
+   image = "img/avater.png"
    imageQuality = 96
    headline = "I'm only human"
    bio = "A little bit about you"
