@@ -1,0 +1,89 @@
+# Hugoによって生成されるビルド成果物やメタデータファイルを無視
+/public/                    # 公開用の生成物ディレクトリ
+/resources/_gen/            # Hugoのリソース生成ディレクトリ
+/assets/jsconfig.json       # JavaScriptの設定ファイル（ビルドで生成される可能性あり）
+hugo_stats.json             # Hugoの統計情報ファイル（毎回変わるため管理不要）
+
+# Hugoの実行ファイル（OS毎）
+// リポジトリに入れる場合があるが、通常は無視することが多い
+hugo.exe                   # Windows用実行ファイル
+hugo.darwin                # macOS用実行ファイル
+hugo.linux                 # Linux用実行ファイル
+
+# ビルド中に作成されるロックファイルを無視
+/.hugo_build.lock          # Hugoのビルドロックファイル（一時的ファイル）
+
+# 一般的なOSや環境依存の不要ファイルを無視
+.DS_Store                  # macOSのフォルダ設定ファイル
+.AppleDouble               # macOSでリソースフォークを保存するファイル
+.LSOverride                # macOSのシステムフォルダキャッシュ
+
+# アイコン関連（macOS特有）
+// Iconファイルは末尾に2つの改行コードが必要であるため無視
+Icon
+
+# サムネイルキャッシュ（macOS特有）
+// ファイル名先頭に "._" がつくもの
+._*
+
+# ボリュームルートに作成される特殊ファイル（macOS特有）
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# AFP（Apple File Protocol）ネットワーク共有で作成されるディレクトリ
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windowsのサムネイルキャッシュ
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# プログラムのクラッシュダンプファイル
+*.stackdump
+
+# Windowsのフォルダ設定ファイル
+[Dd]esktop.ini
+
+# ネットワーク共有上のごみ箱フォルダ（Windows）
+$RECYCLE.BIN/
+
+# Windowsインストーラーに関係するファイル
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windowsショートカットファイル
+*.lnk
+
+# エディターや一時作業ファイル
+*~                         # 一時バックアップファイル（多くのエディターで自動生成）
+.fuse_hidden*              # Linuxで削除されてアクセス中のファイルが隠れるもの
+.directory                 # KDEのディレクトリ設定ファイル
+.Trash-*                   # Linuxのゴミ箱ディレクトリ
+.nfs*                      # NFSで使われる削除保留ファイル
+
+# 一般的な一時ファイルやバックアップファイル
+*.tmp                     # 拡張子tmpの一時ファイル
+
+# Office等の一時・バックアップファイル
+~$*.doc*                  # Wordの一時ファイル
+Backup of *.doc*          # Wordの自動バックアップファイル
+~$*.xls*                  # Excelの一時ファイル
+*.xlk                     # Excelのバックアップファイル
+~$*.ppt*                  # PowerPointの一時ファイル
+*.~vsd*                   # Visioの自動保存ファイル
+
+# MarkDownの下書きファイルを無視（プロジェクト規則により）
+*draft*.md
