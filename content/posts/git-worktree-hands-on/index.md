@@ -1,10 +1,10 @@
 +++
 date = '2025-08-07T07:25:37+09:00'
 draft = false
-title = 'Git Worktree ハンズオン教材'
+title = 'git worktree ハンズオン教材'
 tags = ["Git"]
 +++
-# Git Worktree ハンズオン教材
+# git worktree ハンズオン教材
 
 ## 1. はじめに
 
