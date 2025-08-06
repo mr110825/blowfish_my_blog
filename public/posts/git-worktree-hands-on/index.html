@@ -14,8 +14,8 @@
   <meta name="theme-color">
 
   
-  <title>Git Worktree ハンズオン教材 &middot; 技術的デジャブ回避メモ帳</title>
-    <meta name="title" content="Git Worktree ハンズオン教材 &middot; 技術的デジャブ回避メモ帳">
+  <title>git worktree ハンズオン &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="git worktree ハンズオン &middot; 技術的デジャブ回避メモ帳">
 
   
   <meta name="description" content="技術的デジャブを回避するためにメモや備忘録">
@@ -99,7 +99,7 @@
   
   <meta property="og:url" content="//localhost:1313/posts/git-worktree-hands-on/">
   <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
-  <meta property="og:title" content="Git Worktree ハンズオン教材">
+  <meta property="og:title" content="git worktree ハンズオン">
   <meta property="og:description" content="技術的デジャブを回避するためにメモや備忘録">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
@@ -112,7 +112,7 @@
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
-  <meta name="twitter:title" content="Git Worktree ハンズオン教材">
+  <meta name="twitter:title" content="git worktree ハンズオン">
   <meta name="twitter:description" content="技術的デジャブを回避するためにメモや備忘録">
 <meta name="twitter:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
     <meta property="og:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
@@ -121,8 +121,8 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Git Worktree ハンズオン教材",
-    "headline": "Git Worktree ハンズオン教材",
+    "name": "git worktree ハンズオン",
+    "headline": "git worktree ハンズオン",
     
     
     "inLanguage": "ja",
@@ -140,7 +140,7 @@
     "keywords": ["Git"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "266"
+    "wordCount": "272"
   }]
   </script>
 
@@ -517,7 +517,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Git Worktree ハンズオン教材
+        git worktree ハンズオン
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -570,7 +570,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-08-07T07:25:37&#43;09:00">2025年 8月 7日</time><span class="px-2 text-primary-500">&middot;</span><span>266 文字</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-08-07T07:25:37&#43;09:00">2025年 8月 7日</time><span class="px-2 text-primary-500">&middot;</span><span>272 文字</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -809,12 +809,12 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h1 class="relative group">Git Worktree ハンズオン教材 
-    <div id="git-worktree-ハンズオン教材" class="anchor"></div>
+<h1 class="relative group">git worktree ハンズオン 
+    <div id="git-worktree-ハンズオン" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#git-worktree-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3%e6%95%99%e6%9d%90" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#git-worktree-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3" aria-label="アンカー">#</a>
     </span>        
     
 </h1>
@@ -1011,29 +1011,16 @@
     </span>        
     
 </h2>
-<ul>
-<li><code>git worktree add &lt;path&gt; -b &lt;branch-name&gt;</code>
-<ul>
-<li>指定したパスに新しいワークツリーを作成し、同時に新しいブランチを作成してチェックアウトします。</li>
-</ul>
-</li>
-<li><code>git worktree list</code>
-<ul>
-<li>現在のリポジトリに存在するすべてのワークツリーの一覧を表示します。</li>
-</ul>
-</li>
-<li><code>git worktree remove &lt;path&gt;</code>
-<ul>
-<li>指定したパスのワークツリーを削除します。（ディレクトリは残ります）</li>
-</ul>
-</li>
-<li><code>git worktree prune</code>
-<ul>
-<li>実体がないのに残ってしまっているワークツリーの管理情報をクリーンアップします。</li>
-</ul>
-</li>
-</ul>
-
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 指定したパスに新しいワークツリーを作成</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 同時に新しいブランチを作成してチェックアウトする</span>
+</span></span><span class="line"><span class="cl">git worktree add &lt;path&gt; -b &lt;branch-name&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ワークツリーの一覧を表示</span>
+</span></span><span class="line"><span class="cl">git worktree list
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 指定したパスのワークツリーを削除</span>
+</span></span><span class="line"><span class="cl">git worktree remove &lt;path&gt;
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ワークツリーの管理情報をクリーンアップ</span>
+</span></span><span class="line"><span class="cl">git worktree prune
+</span></span></code></pre></div>
 <h2 class="relative group">5. 参考リンク 
     <div id="5-参考リンク" class="anchor"></div>
     

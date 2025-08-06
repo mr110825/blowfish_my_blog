@@ -1,10 +1,10 @@
 +++
 date = '2025-08-07T07:25:37+09:00'
 draft = false
-title = 'git worktree ハンズオン教材'
+title = 'git worktree ハンズオン'
 tags = ["Git"]
 +++
-# git worktree ハンズオン教材
+# git worktree ハンズオン
 
 ## 1. はじめに
 
@@ -141,14 +141,26 @@ rm -rf feature-a-worktree
 
 ## 4. コマンドリファレンス
 
-*   `git worktree add <path> -b <branch-name>`
-    *   指定したパスに新しいワークツリーを作成し、同時に新しいブランチを作成してチェックアウトします。
-*   `git worktree list`
-    *   現在のリポジトリに存在するすべてのワークツリーの一覧を表示します。
-*   `git worktree remove <path>`
-    *   指定したパスのワークツリーを削除します。（ディレクトリは残ります）
-*   `git worktree prune`
-    *   実体がないのに残ってしまっているワークツリーの管理情報をクリーンアップします。
+```bash
+# 指定したパスに新しいワークツリーを作成
+# 同時に新しいブランチを作成してチェックアウトする
+git worktree add <path> -b <branch-name>
+```
+
+```bash
+# ワークツリーの一覧を表示
+git worktree list
+```
+
+```bash
+# 指定したパスのワークツリーを削除
+git worktree remove <path>
+```
+
+```bash
+# ワークツリーの管理情報をクリーンアップ
+git worktree prune
+```
 
 ## 5. 参考リンク
 - [Qiita：徹底解説：git worktree の使い方](https://qiita.com/syukan3/items/dab71e88ce91bca44432)
