@@ -4,10 +4,13 @@ draft = false
 title = 'BlowfishでFaviconを設定する方法'
 tags = ["Hugo", "Blowfish"]
 +++
-## 概要
+## はじめに
+
 Blowfishではデフォルトで「フグ」のアイコンがfaviconとして設定されています。
 <img src="blowfish_favicon.png" alt="Blowfishのデフォルトのfavicon" width="300"/>
 デフォルトから自分好みのfaviconへ変更する手順を下記にまとめます。
+
+---
 
 ## 設定方法
 
@@ -60,6 +63,8 @@ faviconの変更は、プロジェクトの `static` ディレクトリに独自
 
 **[ICOON MONO](https://icooon-mono.com/)**<br>
 各種アイコン素材をダウンロードできます。
+
+---
 
 ## 参考リンク
 [Blowfish_favicon](https://blowfish.page/ja/docs/partials/#%E3%83%95%E3%82%A1%E3%83%93%E3%82%B3%E3%83%B3)

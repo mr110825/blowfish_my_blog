@@ -2,9 +2,9 @@
 date = '2025-08-03T01:55:16+09:00'
 draft = false
 title = 'Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法'
-tags = ["Github"]
+tags = ["Git","Github"]
 +++
-## 概要
+## はじめに
 私は普段、Githubのプライベートリポジトリにメモやアイデアを書き溜めています。
 リポジトリには、清書したメモなどを保管。Issuesに一時メモや作業メモをまとめています。
 （IssuesについてはZennのスクラップと同じような感じで利用しています。）
@@ -35,6 +35,8 @@ Isseusを取得する対象としてはプライベートリポジトリかつ�
 - **OS**: Linux（Ubuntu）環境（WSL2含む）
 - **権限**: GitHubにて対象リポジトリへのアクセス権限を保有している
 - **サンプル**: 当記事では[サンプルリポジトリ（mr110825/gemini-cli-test-repo）](https://github.com/mr110825/gemini-cli-test-repo/issues/1)を例として説明します
+
+---
 
 ## 環境セットアップ
 
@@ -215,7 +217,9 @@ gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments 
 この方法が最も実用的です。日本語表記により、日時が直感的に理解でき、ドキュメントとして保存した際にも読みやすくなります。ただし、`jq`コマンドのインストールが必要になるため、環境によっては追加のセットアップが必要になります。
 {{< /alert >}}
 
-## コマンドのまとめ
+---
+
+## コマンドリファレンス
 
 ```bash
 # Issues一覧確認
@@ -241,6 +245,7 @@ gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments --te
 # Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）
 gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > <FILENAME>.md
 ```
+---
 
 ## まとめ
 
