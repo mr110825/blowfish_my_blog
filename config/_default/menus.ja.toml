@@ -1,7 +1,12 @@
 [[main]]
-  name = "Post"
+  name = "Posts"
   pageRef = "posts"
   weight = 10
+
+[[main]]
+  name = "Scraps"
+  pageRef = "scraps"
+  weight = 20
 
 #[[subnavigation]]
 #  name = "An interesting topic"
