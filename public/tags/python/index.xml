@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Python on 技術的デジャブ回避メモ帳</title>
-    <link>//localhost:1313/tags/python/</link>
+    <link>/tags/python/</link>
     <description>Recent content in Python on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Mon, 01 Sep 2025 08:36:45 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Sep 2025 08:36:45 +0900</lastBuildDate><atom:link href="/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>学習メモ-Numpy</title>
-      <link>//localhost:1313/scraps/study-numpy/</link>
+      <title>NumPy 解説付きチートシート</title>
+      <link>/posts/study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-numpy/</guid>
+      <guid>/posts/study-numpy/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/study-numpy/feature.jpg" />
     </item>
     
   </channel>
