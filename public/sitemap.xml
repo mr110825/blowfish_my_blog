@@ -3,6 +3,24 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>/scraps/</loc>
+    <lastmod>2025-09-01T13:59:43+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>/</loc>
+    <lastmod>2025-09-01T13:59:43+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>/scraps/ouyoujouhou-memo/</loc>
+    <lastmod>2025-09-01T13:59:43+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>/posts/study-numpy/</loc>
     <lastmod>2025-09-01T08:36:45+09:00</lastmod>
     <changefreq>daily</changefreq>
@@ -11,18 +29,6 @@
   <url>
     <loc>/posts/</loc>
     <lastmod>2025-09-01T08:36:45+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>/</loc>
-    <lastmod>2025-09-01T08:36:45+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>/scraps/</loc>
-    <lastmod>2025-08-19T07:45:54+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
