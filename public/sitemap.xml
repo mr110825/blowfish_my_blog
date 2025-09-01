@@ -3,49 +3,55 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>/scraps/</loc>
+    <loc>//localhost:1313/scraps/</loc>
+    <lastmod>2025-09-01T08:36:45+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/study-numpy/</loc>
+    <lastmod>2025-09-01T08:36:45+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2025-09-01T08:36:45+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/memo-take-notes/</loc>
     <lastmod>2025-08-19T07:45:54+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>/</loc>
-    <lastmod>2025-08-19T07:45:54+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>/scraps/memo-take-notes/</loc>
-    <lastmod>2025-08-19T07:45:54+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>/posts/how-to-record-pc-internal-audio/</loc>
+    <loc>//localhost:1313/posts/how-to-record-pc-internal-audio/</loc>
     <lastmod>2025-08-10T20:50:45+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>/posts/</loc>
+    <loc>//localhost:1313/posts/</loc>
     <lastmod>2025-08-10T20:50:45+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>/posts/git-worktree-hands-on/</loc>
+    <loc>//localhost:1313/posts/git-worktree-hands-on/</loc>
     <lastmod>2025-08-07T07:25:37+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>/posts/favicon_settings/</loc>
+    <loc>//localhost:1313/posts/favicon_settings/</loc>
     <lastmod>2025-08-03T12:09:09+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>/posts/how_to_download_github_issues/</loc>
+    <loc>//localhost:1313/posts/how_to_download_github_issues/</loc>
     <lastmod>2025-08-03T01:55:16+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
