@@ -1,6 +1,6 @@
 +++
 date = '2025-09-03T07:52:57+09:00'
-draft = true
+draft = false
 title = 'Python勉強メモ'
 +++
 
