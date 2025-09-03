@@ -139,7 +139,7 @@
     
     
     "mainEntityOfPage": "true",
-    "wordCount": "82"
+    "wordCount": "188"
   }]
   </script>
 
@@ -599,7 +599,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-09-03T07:52:57&#43;09:00">2025年 9月 3日</time><span class="px-2 text-primary-500">&middot;</span><span>82 文字</span><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-09-03T07:52:57&#43;09:00">2025年 9月 3日</time><span class="px-2 text-primary-500">&middot;</span><span>188 文字</span><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -695,6 +695,21 @@
       </ul>
     </li>
     <li><a href="#numpy">Numpy</a></li>
+    <li><a href="#pyenvとは">pyenvとは？</a></li>
+    <li><a href="#pyenvのインストール手順-ubuntu">pyenvのインストール手順 (Ubuntu)</a>
+      <ul>
+        <li><a href="#依存パッケージのインストール">依存パッケージのインストール</a></li>
+        <li><a href="#pyenvのインストール">pyenvのインストール</a></li>
+        <li><a href="#パスを通す">パスを通す</a></li>
+        <li><a href="#pythonのインストール">Pythonのインストール</a></li>
+        <li><a href="#pyenvインストール時のトラブルシューティング">pyenvインストール時のトラブルシューティング</a>
+          <ul>
+            <li><a href="#configure-error-no-acceptable-c-compiler-found-in-path"><code>configure: error: no acceptable C compiler found in $PATH</code></a></li>
+            <li><a href="#zipimportzipimporterror-cant-decompress-data-zlib-not-available"><code>zipimport.ZipImportError: can&#39;t decompress data; zlib not available</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -717,6 +732,21 @@
       </ul>
     </li>
     <li><a href="#numpy">Numpy</a></li>
+    <li><a href="#pyenvとは">pyenvとは？</a></li>
+    <li><a href="#pyenvのインストール手順-ubuntu">pyenvのインストール手順 (Ubuntu)</a>
+      <ul>
+        <li><a href="#依存パッケージのインストール">依存パッケージのインストール</a></li>
+        <li><a href="#pyenvのインストール">pyenvのインストール</a></li>
+        <li><a href="#パスを通す">パスを通す</a></li>
+        <li><a href="#pythonのインストール">Pythonのインストール</a></li>
+        <li><a href="#pyenvインストール時のトラブルシューティング">pyenvインストール時のトラブルシューティング</a>
+          <ul>
+            <li><a href="#configure-error-no-acceptable-c-compiler-found-in-path"><code>configure: error: no acceptable C compiler found in $PATH</code></a></li>
+            <li><a href="#zipimportzipimporterror-cant-decompress-data-zlib-not-available"><code>zipimport.ZipImportError: can&#39;t decompress data; zlib not available</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
   </ul>
 </nav>
   </div>
@@ -918,6 +948,10 @@ Hello, Python!
 </h2>
 
 
+
+  
+
+
   <section class="space-y-10 w-full">
     
 
@@ -1030,6 +1064,120 @@ Hello, Python!
 
 
 
+<h2 class="relative group">pyenvとは？ 
+    <div id="pyenvとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pyenv%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Pythonのバージョン管理を簡単にするツール。</p>
+
+<h2 class="relative group">pyenvのインストール手順 (Ubuntu) 
+    <div id="pyenvのインストール手順-ubuntu" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pyenv%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e6%89%8b%e9%a0%86-ubuntu" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">依存パッケージのインストール 
+    <div id="依存パッケージのインストール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%be%9d%e5%ad%98%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Pythonのビルドに必要なパッケージをインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install build-essential libffi-dev libssl-dev zlib1g-dev liblzma-dev libbz2-dev libreadline-dev libsqlite3-dev tk-dev git
+</span></span></code></pre></div><p>※<a
+  href="https://zenn.dev/hr0t15/articles/8ae3564bde2cce"
+    target="_blank"
+  >参考記事：Ubuntuにpyenvをインストール</a></p>
+
+<h3 class="relative group">pyenvのインストール 
+    <div id="pyenvのインストール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pyenv%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+</span></span></code></pre></div>
+<h3 class="relative group">パスを通す 
+    <div id="パスを通す" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%82%b9%e3%82%92%e9%80%9a%e3%81%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>~/.bashrc</code> に以下を追記します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;command -v pyenv &gt;/dev/null || export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span></code></pre></div><p>ターミナルを再起動するか、<code>source ~/.bashrc</code> を実行して設定を反映させます。</p>
+
+<h3 class="relative group">Pythonのインストール 
+    <div id="pythonのインストール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#python%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># インストール可能なバージョン一覧を表示</span>
+</span></span><span class="line"><span class="cl">pyenv install --list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 指定したバージョンをインストール</span>
+</span></span><span class="line"><span class="cl">pyenv install 3.10.4
+</span></span></code></pre></div>
+<h3 class="relative group">pyenvインストール時のトラブルシューティング 
+    <div id="pyenvインストール時のトラブルシューティング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pyenv%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e6%99%82%e3%81%ae%e3%83%88%e3%83%a9%e3%83%96%e3%83%ab%e3%82%b7%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>pyenv install</code> 時にエラーが出た場合の対処法です。多くは依存パッケージ不足が原因です。</p>
+
+<h4 class="relative group"><code>configure: error: no acceptable C compiler found in $PATH</code> 
+    <div id="configure-error-no-acceptable-c-compiler-found-in-path" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#configure-error-no-acceptable-c-compiler-found-in-path" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>Cコンパイラがありません。<code>build-essential</code>をインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install build-essential
+</span></span></code></pre></div>
+<h4 class="relative group"><code>zipimport.ZipImportError: can't decompress data; zlib not available</code> 
+    <div id="zipimportzipimporterror-cant-decompress-data-zlib-not-available" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#zipimportzipimporterror-cant-decompress-data-zlib-not-available" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>zlibライブラリがありません。<code>zlib1g-dev</code>をインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install zlib1g-dev
+</span></span></code></pre></div>
           
           
           
