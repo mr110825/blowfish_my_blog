@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>勉強メモ on 技術的デジャブ回避メモ帳</title>
-    <link>/tags/%E5%8B%89%E5%BC%B7%E3%83%A1%E3%83%A2/</link>
+    <link>//localhost:1313/tags/%E5%8B%89%E5%BC%B7%E3%83%A1%E3%83%A2/</link>
     <description>Recent content in 勉強メモ on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Mon, 01 Sep 2025 13:59:43 +0900</lastBuildDate><atom:link href="/tags/%E5%8B%89%E5%BC%B7%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 01 Sep 2025 13:59:43 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%8B%89%E5%BC%B7%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>勉強メモ-応用情報技術者試験</title>
-      <link>/scraps/ouyoujouhou-memo/</link>
+      <link>//localhost:1313/scraps/ouyoujouhou-memo/</link>
       <pubDate>Mon, 01 Sep 2025 13:59:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/ouyoujouhou-memo/</guid>
+      <guid>//localhost:1313/scraps/ouyoujouhou-memo/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/ouyoujouhou-memo/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ouyoujouhou-memo/feature.jpg" />
     </item>
     
   </channel>

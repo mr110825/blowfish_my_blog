@@ -2,33 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Scraps on 技術的デジャブ回避メモ帳</title>
-    <link>/scraps/</link>
+    <link>//localhost:1313/scraps/</link>
     <description>Recent content in Scraps on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 03 Sep 2025 07:52:57 +0900</lastBuildDate><atom:link href="/scraps/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Sep 2025 07:52:57 +0900</lastBuildDate><atom:link href="//localhost:1313/scraps/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Python勉強メモ</title>
+      <link>//localhost:1313/scraps/styudy-python/</link>
+      <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/styudy-python/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/styudy-python/feature.jpg" />
+    </item>
     
     <item>
       <title>勉強メモ-応用情報技術者試験</title>
-      <link>/scraps/ouyoujouhou-memo/</link>
+      <link>//localhost:1313/scraps/ouyoujouhou-memo/</link>
       <pubDate>Mon, 01 Sep 2025 13:59:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/ouyoujouhou-memo/</guid>
+      <guid>//localhost:1313/scraps/ouyoujouhou-memo/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/ouyoujouhou-memo/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ouyoujouhou-memo/feature.jpg" />
     </item>
     
     <item>
       <title>読書メモ：TAKE NOTES!</title>
-      <link>/scraps/memo-take-notes/</link>
+      <link>//localhost:1313/scraps/memo-take-notes/</link>
       <pubDate>Tue, 19 Aug 2025 07:45:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/memo-take-notes/</guid>
+      <guid>//localhost:1313/scraps/memo-take-notes/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/memo-take-notes/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/memo-take-notes/feature.jpg" />
     </item>
     
   </channel>
