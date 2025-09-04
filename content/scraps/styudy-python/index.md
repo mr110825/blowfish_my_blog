@@ -2,6 +2,7 @@
 date = '2025-09-03T07:52:57+09:00'
 draft = false
 title = '勉強メモ：Python'
+tags = ["python"]
 +++
 
 ## はじめに
@@ -64,9 +65,9 @@ Hello, Python!
 ## Numpy
 NumpyではPythonで科学技術計算を効率的に行うためのコアライブラリ
 
-スクラップメモ [Numpy解説付きチートシート]({{< ref "scraps/study-numpy/" >}})
+スクラップメモは[こちら]({{< ref "scraps/study-numpy/" >}})
 
 ## pyenv
 pyenvとは、Pythonのバージョン管理を簡単にするツール
 
-スクラップメモ [勉強メモ：pyenv]({{< ref "scraps/study-pyenv/" >}})
+スクラップメモは[こちら]({{< ref "scraps/study-pyenv/" >}})

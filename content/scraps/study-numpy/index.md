@@ -1,7 +1,7 @@
 +++
 date = '2025-09-01T08:36:45+09:00'
 draft = false
-title = 'NumPy 解説付きチートシート'
+title = '勉強メモ：numpy'
 tags = ["python"]
 +++
 
