@@ -63,8 +63,10 @@ Hello, Python!
 
 ## Numpy
 NumpyではPythonで科学技術計算を効率的に行うためのコアライブラリ
-{{< article link="/scraps/study-numpy/" >}}
+
+スクラップメモ [Numpy解説付きチートシート]({{< ref "scraps/study-numpy/" >}})
 
 ## pyenv
 pyenvとは、Pythonのバージョン管理を簡単にするツール
-{{< article link="/scraps/study-pyenv/" >}}
+
+スクラップメモ [勉強メモ：pyenv]({{< ref "scraps/study-pyenv/" >}})

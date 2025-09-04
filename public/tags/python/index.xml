@@ -13,12 +13,12 @@
     
     <item>
       <title>NumPy 解説付きチートシート</title>
-      <link>//localhost:1313/posts/study-numpy/</link>
+      <link>//localhost:1313/scraps/study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/study-numpy/</guid>
+      <guid>//localhost:1313/scraps/study-numpy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/study-numpy/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-numpy/feature.jpg" />
     </item>
     
   </channel>
