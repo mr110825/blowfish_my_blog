@@ -3,7 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/posts/hugoblowfish%E3%82%B5%E3%82%A4%E3%83%88%E3%82%92google%E3%81%AB%E3%82%A4%E3%83%B3%E3%83%87%E3%83%83%E3%82%AF%E3%82%B9%E3%81%95%E3%81%9B%E3%82%8B%E6%89%8B%E9%A0%86/</loc>
+    <loc>//localhost:1313/scraps/</loc>
+    <lastmod>2025-09-06T22:12:25+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/</loc>
+    <lastmod>2025-09-06T22:12:25+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/study-pip/</loc>
+    <lastmod>2025-09-06T22:12:25+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/study-venv/</loc>
+    <lastmod>2025-09-06T16:28:35+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</loc>
     <lastmod>2025-09-06T12:54:32+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
@@ -11,18 +35,6 @@
   <url>
     <loc>//localhost:1313/posts/</loc>
     <lastmod>2025-09-06T12:54:32+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>//localhost:1313/</loc>
-    <lastmod>2025-09-06T12:54:32+09:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>//localhost:1313/scraps/</loc>
-    <lastmod>2025-09-04T20:22:08+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>

@@ -76,3 +76,8 @@ pyenvとは、Pythonのバージョン管理を簡単にするツール
 venvとは、仮想環境を管理するためのツール
 
 スクラップメモは[こちら]({{< ref "scraps/study-venv/" >}})
+
+## pipコマンド
+pipはPythonの公式パッケージ管理ツール
+
+スクラップメモは[こちら]({{< ref "scraps/study-pip/" >}})
