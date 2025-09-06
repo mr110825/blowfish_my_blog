@@ -178,7 +178,8 @@ gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments 
 ## Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）
 
 ```bash
-gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > <FILENAME>.md
+gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---
+"' > <FILENAME>.md
 ```
 
 ```bash
@@ -190,7 +191,8 @@ sudo apt install jq
 
 ```bash
 # サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test3.md」として取得する
-gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > test3.md
+gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---
+"' > test3.md
 ```
 
 #### 出力例
@@ -217,9 +219,20 @@ gh issue view 1 --repo mr110825/gemini-cli-test-repo --comments --json comments 
 この方法が最も実用的です。日本語表記により、日時が直感的に理解でき、ドキュメントとして保存した際にも読みやすくなります。ただし、`jq`コマンドのインストールが必要になるため、環境によっては追加のセットアップが必要になります。
 {{< /alert >}}
 
+## Issueの本文とコメントを取得（jqコマンドで日時フォーマットを日本語表記に変換）
+Issueの本文とコメントの両方を取得したい場合は、`gh` コマンドで取得するJSONフィールドに`title`と`body`を追加し、`jq`のフィルタを修正します。
+
+```bash
+# Issueのタイトル、本文、コメントを取得（jqコマンドで日時フォーマットを日本語表記に変換）
+gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json title,body,comments | jq -r '"# " + .title + "\n\n" + "## Issue本文\n\n" + .body + "\n\n---", (.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---")' > <FILENAME>.md
+```
+
+これにより、最初にIssueのタイトルと本文が出力され、その後に整形されたコメントが続くMarkdownファイルが生成されます。
+
 ---
 
 ## コマンドリファレンス
+
 
 ```bash
 # Issues一覧確認
@@ -243,7 +256,8 @@ gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments --te
 
 ```bash
 # Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）
-gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---\n"' > <FILENAME>.md
+gh issue view <ISSUE_NUMBER> --repo <OWNER/REPO> --comments --json comments | jq -r '.comments[] | "## コメント (" + (.createdAt | strptime("%Y-%m-%dT%H:%M:%SZ") | strftime("%Y年%m月%d日 %H時%M分")) + ")\n\n" + .body + "\n\n---
+"' > <FILENAME>.md
 ```
 ---
 
