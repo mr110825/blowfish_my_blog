@@ -71,3 +71,8 @@ NumpyではPythonで科学技術計算を効率的に行うためのコアライ
 pyenvとは、Pythonのバージョン管理を簡単にするツール
 
 スクラップメモは[こちら]({{< ref "scraps/study-pyenv/" >}})
+
+## venv
+venvとは、仮想環境を管理するためのツール
+
+スクラップメモは[こちら]({{< ref "scraps/study-venv/" >}})

@@ -141,7 +141,7 @@
     "keywords": ["Git","Github"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "441"
+    "wordCount": "496"
   }]
   </script>
 
@@ -731,6 +731,7 @@
         </li>
       </ul>
     </li>
+    <li><a href="#issueの本文とコメントを取得jqコマンドで日時フォーマットを日本語表記に変換">Issueの本文とコメントを取得（jqコマンドで日時フォーマットを日本語表記に変換）</a></li>
     <li><a href="#コマンドリファレンス">コマンドリファレンス</a></li>
     <li><a href="#まとめ">まとめ</a></li>
   </ul>
@@ -789,6 +790,7 @@
         </li>
       </ul>
     </li>
+    <li><a href="#issueの本文とコメントを取得jqコマンドで日時フォーマットを日本語表記に変換">Issueの本文とコメントを取得（jqコマンドで日時フォーマットを日本語表記に変換）</a></li>
     <li><a href="#コマンドリファレンス">コマンドリファレンス</a></li>
     <li><a href="#まとめ">まとめ</a></li>
   </ul>
@@ -1241,7 +1243,8 @@ gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json c
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># jqコマンドのインストール（必要な場合）</span>
 </span></span><span class="line"><span class="cl">sudo apt install jq
 </span></span></code></pre></div>
@@ -1255,7 +1258,8 @@ gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json c
     
 </h3>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルのリポジトリ（mr110825/gemini-cli-test-repo）のIssues#1を「test3.md」として取得する</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; test3.md
+</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;&#39;</span> &gt; test3.md
 </span></span></code></pre></div>
 <h4 class="relative group">出力例 
     <div id="出力例-3" class="anchor"></div>
@@ -1316,6 +1320,20 @@ gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json c
     >この方法が最も実用的です。日本語表記により、日時が直感的に理解でき、ドキュメントとして保存した際にも読みやすくなります。ただし、<code>jq</code>コマンドのインストールが必要になるため、環境によっては追加のセットアップが必要になります。</span>
 </div>
 
+
+<h2 class="relative group">Issueの本文とコメントを取得（jqコマンドで日時フォーマットを日本語表記に変換） 
+    <div id="issueの本文とコメントを取得jqコマンドで日時フォーマットを日本語表記に変換" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#issue%e3%81%ae%e6%9c%ac%e6%96%87%e3%81%a8%e3%82%b3%e3%83%a1%e3%83%b3%e3%83%88%e3%82%92%e5%8f%96%e5%be%97jq%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%81%a7%e6%97%a5%e6%99%82%e3%83%95%e3%82%a9%e3%83%bc%e3%83%9e%e3%83%83%e3%83%88%e3%82%92%e6%97%a5%e6%9c%ac%e8%aa%9e%e8%a1%a8%e8%a8%98%e3%81%ab%e5%a4%89%e6%8f%9b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Issueの本文とコメントの両方を取得したい場合は、<code>gh</code> コマンドで取得するJSONフィールドに<code>title</code>と<code>body</code>を追加し、<code>jq</code>のフィルタを修正します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Issueのタイトル、本文、コメントを取得（jqコマンドで日時フォーマットを日本語表記に変換）</span>
+</span></span><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments <span class="p">|</span> jq -r <span class="s1">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span> &gt; &lt;FILENAME&gt;.md
+</span></span></code></pre></div><p>これにより、最初にIssueのタイトルと本文が出力され、その後に整形されたコメントが続くMarkdownファイルが生成されます。</p>
 <hr>
 
 <h2 class="relative group">コマンドリファレンス 
@@ -1339,7 +1357,8 @@ gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json c
 </span></span></span><span class="line"><span class="cl"><span class="s1">---
 </span></span></span><span class="line"><span class="cl"><span class="s1">{{end}}&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
+</span></span><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---
+</span></span></span><span class="line"><span class="cl"><span class="s1">&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><hr>
 
 <h2 class="relative group">まとめ 
