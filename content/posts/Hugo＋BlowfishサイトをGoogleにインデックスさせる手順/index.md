@@ -12,11 +12,6 @@ HugoとBlowfishテーマで作成し、GitHub Pagesで公開しているブロ�
 1.  **Hugo/Blowfishの設定**: 検索エンジンにサイトのクロールを許可します。
 2.  **Google Search Consoleでの設定**: Googleにサイトを認識させ、所有権の確認とサイトマップの送信を行います。
 
-## 参考記事
-
-- [Blowfish：サイト設定](https://blowfish.page/ja/docs/configuration/#%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A)
-- [エンベーター：Googleサーチコンソールとは？基本的な使い方や導入方法を解説](https://envader.plus/article/74)
-
 ## ステップ1：robots.txtの有効化
 
 まず、検索エンジンがサイトをクロールできるように、Hugoの設定ファイルで`robots.txt`の生成を有効にします。
@@ -71,3 +66,8 @@ enableRobotsTXT = true
 - **反映までの時間**: サイトが検索結果に表示されるまでには、数日から数週間かかる場合があります。インデックス状況はSearch Consoleで確認できます。
 
 これで、サイトがGoogle検索に表示されるための基本的な設定は完了。
+
+## 参考記事
+
+- [Blowfish：サイト設定](https://blowfish.page/ja/docs/configuration/#%E3%82%B5%E3%82%A4%E3%83%88%E8%A8%AD%E5%AE%9A)
+- [エンベーター：Googleサーチコンソールとは？基本的な使い方や導入方法を解説](https://envader.plus/article/74)
