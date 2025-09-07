@@ -2,7 +2,7 @@
 date = '2025-09-03T07:52:57+09:00'
 draft = false
 title = '勉強メモ：Python'
-tags = ["python"]
+tags = ["python","勉強メモ"]
 +++
 
 ## はじめに
@@ -62,22 +62,21 @@ Hello, Python!
 
 対話モードを終了するには、`exit()`と入力するか、`Ctrl + D`を押します。
 
-## Numpy
-NumpyではPythonで科学技術計算を効率的に行うためのコアライブラリ
+## 関連ライブラリ・ツール
 
-スクラップメモは[こちら]({{< ref "scraps/study-numpy/" >}})
+Python関連のスクラップへリンクを下記にまとめます。
 
-## pyenv
-pyenvとは、Pythonのバージョン管理を簡単にするツール
+### [Numpy]({{< ref "scraps/study-numpy/" >}})
+Pythonで科学技術計算を効率的に行うためのコアライブラリ
 
-スクラップメモは[こちら]({{< ref "scraps/study-pyenv/" >}})
+### [pyenv]({{< ref "scraps/study-pyenv/" >}})
+Pythonのバージョン管理を簡単にするツール
 
-## venv
-venvとは、仮想環境を管理するためのツール
+### [venv]({{< ref "scraps/study-venv/" >}})
+仮想環境を管理するためのツール
 
-スクラップメモは[こちら]({{< ref "scraps/study-venv/" >}})
+### [virtualenv]({{< ref "scraps/study-virtualenv/" >}})
+仮想環境を管理するためのツール（venvと類似している）
 
-## pipコマンド
+### [pipコマンド]({{< ref "scraps/study-pip/" >}})
 pipはPythonの公式パッケージ管理ツール
-
-スクラップメモは[こちら]({{< ref "scraps/study-pip/" >}})

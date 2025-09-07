@@ -2,7 +2,7 @@
 date = '2025-09-04T20:22:08+09:00'
 draft = false
 title = '勉強メモ：pyenv'
-tags = ["python"]
+tags = ["python","勉強メモ"]
 +++
 ## pyenvとは？
 pyenvは、Pythonの複数のバージョンを簡単に切り替えて管理するためのツールです。プロジェクトごとに異なるPythonバージョンを利用したい場合などに役立ちます。

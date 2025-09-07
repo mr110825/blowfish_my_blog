@@ -2,7 +2,7 @@
 date = '2025-09-01T08:36:45+09:00'
 draft = false
 title = '勉強メモ：numpy'
-tags = ["python"]
+tags = ["python","勉強メモ"]
 +++
 
 ## 0.はじめに

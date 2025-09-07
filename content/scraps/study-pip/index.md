@@ -2,7 +2,7 @@
 date = '2025-09-06T22:12:25+09:00'
 draft = false
 title = '勉強メモ：pipコマンド'
-tags = ["python"]
+tags = ["python","勉強メモ"]
 +++
 ## pipとは何か？
 - **pip**はPythonの公式パッケージ管理ツールで、Pythonコミュニティで広く採用されています。  
