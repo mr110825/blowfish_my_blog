@@ -83,3 +83,128 @@ pipはPythonの公式パッケージ管理ツール
 
 ### [requirements.txt]({{< ref "scraps/study-requirements/" >}})
 Pythonプロジェクトで使用しているパッケージ名とバージョンを記述したテキストファイル
+
+## 入門レベルのハンズオン
+
+### 文字の連結
+
+<details>
+  <summary>名前と挨拶を結合して「Hello, Taro!」と出力してください</summary>
+
+```python
+name = "Taro"
+greeting = "Hello, " + name + "!"
+print(greeting)
+```
+
+</details>
+
+### 変数
+
+<details>
+  <summary>りんごの数が3個、みかんの数が5個あるとき、合計を変数に代入して表示してください。</summary>
+
+```python
+apples = 3
+oranges = 5
+total = apples + oranges
+print(total)
+
+```
+
+</details>
+
+### print() 関数
+
+<details>
+  <summary> 「Pythonを学習中」と表示してください。</summary>
+
+```python
+print("Pythonを学習中")
+
+```
+
+</details>
+
+### input() 関数
+
+<details>
+  <summary>名前を入力すると「こんにちは ○○ さん」と表示するプログラムを作ってください。</summary>
+
+```python
+name = input("あなたの名前は？: ")
+print("こんにちは " + name + " さん")
+
+```
+
+</details>
+
+### 論理演算子
+
+<details>
+  <summary>年齢を入力し、20歳以上かつ30歳未満なら「20代です」と表示、それ以外は「20代ではありません」と表示してください。</summary>
+
+```python
+age = int(input("年齢を入力してください: "))
+if age >= 20 and age < 30:
+    print("20代です")
+else:
+    print("20代ではありません")
+```
+
+</details>
+
+
+### if文
+
+<details>
+  <summary>点数を入力し、60点以上なら「合格」、それ未満なら「不合格」と表示してください。</summary>
+
+```python
+score = int(input("点数を入力してください: "))
+if score >= 60:
+    print("合格")
+else:
+    print("不合格")
+```
+
+</details>
+
+### 配列（リスト）
+
+<details>
+  <summary>配列の「10, 20, 30, 40」平均値を計算して表示してください。</summary>
+
+```python
+numbers = [10, 20, 30, 40]
+average = sum(numbers) / len(numbers)
+print("平均:", average)
+```
+
+</details>
+
+### 繰り返し（for）
+
+<details>
+  <summary>1から5までの数をすべて出力してください。</summary>
+
+```python
+for i in range(1, 6):
+    print(i)
+```
+
+</details>
+
+### 繰り返し（while）
+
+<details>
+  <summary>入力された数が0になるまで、その数を表示し続けるプログラムを作ってください。</summary>
+
+```python
+num = int(input("数を入力してください(0で終了): "))
+while num != 0:
+    print("入力された数:", num)
+    num = int(input("数を入力してください(0で終了): "))
+```
+
+</details>
