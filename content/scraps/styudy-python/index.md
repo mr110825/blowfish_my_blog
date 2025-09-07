@@ -80,3 +80,6 @@ Pythonのバージョン管理を簡単にするツール
 
 ### [pipコマンド]({{< ref "scraps/study-pip/" >}})
 pipはPythonの公式パッケージ管理ツール
+
+### [requirements.txt]({{< ref "scraps/study-requirements/" >}})
+Pythonプロジェクトで使用しているパッケージ名とバージョンを記述したテキストファイル
