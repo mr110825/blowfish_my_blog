@@ -3,14 +3,26 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
+    <loc>//localhost:1313/scraps/python-practice2/</loc>
+    <lastmod>2025-09-07T15:38:49+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>//localhost:1313/scraps/</loc>
-    <lastmod>2025-09-07T12:08:59+09:00</lastmod>
+    <lastmod>2025-09-07T15:38:49+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2025-09-07T12:08:59+09:00</lastmod>
+    <lastmod>2025-09-07T15:38:49+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/python-practice/</loc>
+    <lastmod>2025-09-07T14:25:43+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
