@@ -265,6 +265,10 @@ pipはPythonの公式パッケージ管理ツール
 Pythonプロジェクトで使用しているパッケージ名とバージョンを記述したテキストファイル
 <br>スクラップメモは[こちら]({{< ref "scraps/study-requirements/" >}})
 
+### pandas
+データを扱う際によく用いられるライブラリ
+<br>スクラップメモは[こちら]({{< ref "scraps/study-pandas/" >}})
+
 ## 練習問題
 
 - [入門レベルのハンズオン]({{< ref "scraps/python-practice/" >}})
