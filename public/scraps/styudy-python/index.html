@@ -141,7 +141,7 @@
     "keywords": ["python","勉強メモ"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "227"
+    "wordCount": "492"
   }]
   </script>
 
@@ -719,6 +719,26 @@
         <li><a href="#繰り返しwhile">繰り返し（while）</a></li>
       </ul>
     </li>
+    <li><a href="#関数-functions">関数 (Functions)</a>
+      <ul>
+        <li><a href="#例あいさつする関数">例：あいさつする関数</a></li>
+        <li><a href="#練習問題">練習問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#クラス-classes">クラス (Classes)</a>
+      <ul>
+        <li><a href="#例人物を表すクラス">例：人物を表すクラス</a></li>
+        <li><a href="#練習問題-1">練習問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#モジュールとインポート-modules--import">モジュールとインポート (Modules &amp; Import)</a>
+      <ul>
+        <li><a href="#モジュールの作成">モジュールの作成</a></li>
+        <li><a href="#モジュールの利用-インポート">モジュールの利用 (インポート)</a></li>
+        <li><a href="#練習問題-2">練習問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
   </div>
@@ -763,6 +783,26 @@
         <li><a href="#繰り返しwhile">繰り返し（while）</a></li>
       </ul>
     </li>
+    <li><a href="#関数-functions">関数 (Functions)</a>
+      <ul>
+        <li><a href="#例あいさつする関数">例：あいさつする関数</a></li>
+        <li><a href="#練習問題">練習問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#クラス-classes">クラス (Classes)</a>
+      <ul>
+        <li><a href="#例人物を表すクラス">例：人物を表すクラス</a></li>
+        <li><a href="#練習問題-1">練習問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#モジュールとインポート-modules--import">モジュールとインポート (Modules &amp; Import)</a>
+      <ul>
+        <li><a href="#モジュールの作成">モジュールの作成</a></li>
+        <li><a href="#モジュールの利用-インポート">モジュールの利用 (インポート)</a></li>
+        <li><a href="#練習問題-2">練習問題</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
   </div>
@@ -1191,6 +1231,238 @@ Hello, Python!
 </span></span><span class="line"><span class="cl">    <span class="nb">print</span><span class="p">(</span><span class="s2">&#34;入力された数:&#34;</span><span class="p">,</span> <span class="n">num</span><span class="p">)</span>
 </span></span><span class="line"><span class="cl">    <span class="n">num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">(</span><span class="s2">&#34;数を入力してください(0で終了): &#34;</span><span class="p">))</span>
 </span></span></code></pre></div></details>
+
+<h2 class="relative group">関数 (Functions) 
+    <div id="関数-functions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%96%a2%e6%95%b0-functions" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>関数は、特定の処理をひとまとめにしたものです。同じ処理を何度も書きたいときに便利です。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">関数名</span><span class="p">(</span><span class="n">引数</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># ここに処理を書く</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">戻り</span>
+</span></span></code></pre></div><ul>
+<li><strong>引数 (argument):</strong> 関数に渡す値。</li>
+<li><strong>戻り値 (return value):</strong> 関数の処理結果として返される値。</li>
+</ul>
+
+<h3 class="relative group">例：あいさつする関数 
+    <div id="例あいさつする関数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%be%8b%e3%81%82%e3%81%84%e3%81%95%e3%81%a4%e3%81%99%e3%82%8b%e9%96%a2%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;名前を受け取って、あいさつのメッセージを返す関数&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;こんにちは、</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">さん！&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">message</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 関数を呼び出して、戻り値を変数に受け取る</span>
+</span></span><span class="line"><span class="cl"><span class="n">greeting</span> <span class="o">=</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&#34;山田&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: こんにちは、山田さん！</span>
+</span></span></code></pre></div>
+<h3 class="relative group">練習問題 
+    <div id="練習問題" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%b7%b4%e7%bf%92%e5%95%8f%e9%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>2つの数値を受け取り、その積（掛け算の結果）を返す <code>multiply</code> という名前の関数を作成してください。
+その後、その関数を使って <code>5</code> と <code>8</code> の積を計算し、結果をコンソールに出力してください。</p>
+<details>
+<summary>解答例</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 2つの数値の積を返す関数</span>
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 関数を呼び出して結果を計算</span>
+</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;5と8の積は </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> です。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: 5と8の積は 40 です。</span>
+</span></span></code></pre></div></details>
+
+<h2 class="relative group">クラス (Classes) 
+    <div id="クラス-classes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%a9%e3%82%b9-classes" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>クラスは、オブジェクトの「設計図」です。データ（属性）と処理（メソッド）を一つにまとめることができます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">クラス名</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="c1"># コンストラクタ (初期化メソッド)</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">引数</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">インスタンス変数</span> <span class="o">=</span> <span class="n">引数</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="c1"># メソッド</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">メソッド名</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="c1"># 処理</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">インスタンス変数</span>
+</span></span></code></pre></div><ul>
+<li><strong>インスタンス:</strong> クラス（設計図）から作られた実体のこと。</li>
+<li><code>__init__</code>: インスタンスが作られるときに最初に呼ばれる特別なメソッド。</li>
+<li><code>self</code>: インスタンス自身を指す特別な変数。</li>
+</ul>
+
+<h3 class="relative group">例：人物を表すクラス 
+    <div id="例人物を表すクラス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%be%8b%e4%ba%ba%e7%89%a9%e3%82%92%e8%a1%a8%e3%81%99%e3%82%af%e3%83%a9%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>  <span class="c1"># 属性 (インスタンス変数)</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># メソッド</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;私の名前は</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">、</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">歳です。&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Personクラスから「インスタンス」を作成</span>
+</span></span><span class="line"><span class="cl"><span class="n">person1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;鈴木&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 属性やメソッドを使う</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">person1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">person1</span><span class="o">.</span><span class="n">introduce</span><span class="p">())</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力:</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 鈴木</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 私の名前は鈴木、25歳です。</span>
+</span></span></code></pre></div>
+<h3 class="relative group">練習問題 
+    <div id="練習問題-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%b7%b4%e7%bf%92%e5%95%8f%e9%a1%8c-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>Dog</code> というクラスを作成してください。</p>
+<ul>
+<li><code>__init__</code> メソッドで犬の名前(<code>name</code>)を受け取り、インスタンス変数に設定してください。</li>
+<li><code>bark</code> というメソッドを定義し、呼び出されると「(名前)はワン！と鳴いた」という文字列を返すようにしてください。</li>
+</ul>
+<p>その後、<code>Dog</code> クラスから &ldquo;ポチ&rdquo; という名前のインスタンスを作成し、<code>bark</code> メソッドを呼び出して結果を出力してください。</p>
+<details>
+<summary>解答例</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">はワン！と鳴いた&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># インスタンスを作成</span>
+</span></span><span class="line"><span class="cl"><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&#34;ポチ&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># メソッドを呼び出し</span>
+</span></span><span class="line"><span class="cl"><span class="n">message</span> <span class="o">=</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: ポチはワン！と鳴いた</span>
+</span></span></code></pre></div></details>
+
+<h2 class="relative group">モジュールとインポート (Modules &amp; Import) 
+    <div id="モジュールとインポート-modules--import" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%a8%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88-modules--import" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>モジュールは、関数やクラスをまとめたPythonファイル（<code>.py</code>ファイル）のことです。他のファイルから再利用できます。</p>
+
+<h3 class="relative group">モジュールの作成 
+    <div id="モジュールの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>例えば、<code>utils.py</code> という名前で以下のファイルを作成したとします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python:utils.py" data-lang="python:utils.py"><span class="line"><span class="cl"><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;円の面積を計算する&#34;&#34;&#34;</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 class="relative group">モジュールの利用 (インポート) 
+    <div id="モジュールの利用-インポート" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ae%e5%88%a9%e7%94%a8-%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>同じディレクトリにある別のファイル (<code>main.py</code>など) から、<code>utils.py</code> の中身をインポートして使えます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python:main.py" data-lang="python:main.py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utils</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># utilsモジュールの中の変数や関数を使う</span>
+</span></span><span class="line"><span class="cl"><span class="n">radius</span> <span class="o">=</span> <span class="mi">5</span>
+</span></span><span class="line"><span class="cl"><span class="n">area</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;半径</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s2">の円の面積は </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2"> です。&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;円周率は </span><span class="si">{</span><span class="n">utils</span><span class="o">.</span><span class="n">PI</span><span class="si">}</span><span class="s2"> です。&#34;</span><span class="p">)</span>
+</span></span></code></pre></div>
+<h3 class="relative group">練習問題 
+    <div id="練習問題-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%b7%b4%e7%bf%92%e5%95%8f%e9%a1%8c-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>string_utils.py</code> というモジュールがあると仮定します。このモジュールには、文字列を逆にする <code>reverse</code> という関数が定義されています。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python:string_utils.py" data-lang="python:string_utils.py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
+</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">text</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</span></span></code></pre></div><p><code>from ... import ...</code> 構文を使って <code>string_utils</code> モジュールから <code>reverse</code> 関数だけをインポートし、<code>&quot;hello&quot;</code> という文字列を逆にして出力してください。</p>
+<details>
+<summary>解答例</summary>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># string_utils から reverse 関数だけをインポート</span>
+</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">string_utils</span> <span class="kn">import</span> <span class="n">reverse</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># インポートした関数を直接使える</span>
+</span></span><span class="line"><span class="cl"><span class="n">reversed_text</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">reversed_text</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: olleh</span>
+</span></span></code></pre></div></details>
+
+<h2 class="relative group">参考リンク 
+    <div id="参考リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://www.python.jp/train/index.html"
+    target="_blank"
+  >ゼロからのPython入門講座</a></li>
+</ul>
+
           
           
           
