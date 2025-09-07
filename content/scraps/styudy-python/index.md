@@ -241,23 +241,29 @@ print(reversed_text)
 
 Python関連のスクラップへリンクを下記にまとめます。
 
-### [Numpy]({{< ref "scraps/study-numpy/" >}})
+### Numpy
 Pythonで科学技術計算を効率的に行うためのコアライブラリ
+<br>スクラップメモは[こちら]({{< ref "scraps/study-numpy/" >}})
 
-### [pyenv]({{< ref "scraps/study-pyenv/" >}})
+### pyenv
 Pythonのバージョン管理を簡単にするツール
+<br>スクラップメモは[こちら]({{< ref "scraps/study-pyenv/" >}})
 
-### [venv]({{< ref "scraps/study-venv/" >}})
+### venv
 仮想環境を管理するためのツール
+<br>スクラップメモは[こちら]({{< ref "scraps/study-venv/" >}})
 
-### [virtualenv]({{< ref "scraps/study-virtualenv/" >}})
+### virtualenv
 仮想環境を管理するためのツール（venvと類似している）
+<br>スクラップメモは[こちら]({{< ref "scraps/study-virtualenv/" >}})
 
-### [pipコマンド]({{< ref "scraps/study-pip/" >}})
+### pipコマンド
 pipはPythonの公式パッケージ管理ツール
+<br>スクラップメモは[こちら]({{< ref "scraps/study-pip/" >}})
 
-### [requirements.txt]({{< ref "scraps/study-requirements/" >}})
+### requirements.txt
 Pythonプロジェクトで使用しているパッケージ名とバージョンを記述したテキストファイル
+<br>スクラップメモは[こちら]({{< ref "scraps/study-requirements/" >}})
 
 ## 練習問題
 
