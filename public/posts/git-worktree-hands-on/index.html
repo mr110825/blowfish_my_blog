@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="light"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="ja">
@@ -22,7 +22,7 @@
   <meta name="keywords" content="Git,">
   
   
-  <link rel="canonical" href="//localhost:1313/posts/git-worktree-hands-on/">
+  <link rel="canonical" href="/posts/git-worktree-hands-on/">
   
   
   
@@ -97,7 +97,7 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/posts/git-worktree-hands-on/">
+  <meta property="og:url" content="/posts/git-worktree-hands-on/">
   <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
   <meta property="og:title" content="git worktree ハンズオン">
   <meta property="og:description" content="技術的デジャブを回避するためにメモや備忘録">
@@ -107,15 +107,15 @@
     <meta property="article:published_time" content="2025-08-07T07:25:37+09:00">
     <meta property="article:modified_time" content="2025-08-07T07:25:37+09:00">
     <meta property="article:tag" content="Git">
-    <meta property="og:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
+    <meta property="og:image" content="/posts/git-worktree-hands-on/feature.jpg">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
+  <meta name="twitter:image" content="/posts/git-worktree-hands-on/feature.jpg">
   <meta name="twitter:title" content="git worktree ハンズオン">
   <meta name="twitter:description" content="技術的デジャブを回避するためにメモや備忘録">
-<meta name="twitter:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
-    <meta property="og:image" content="//localhost:1313/posts/git-worktree-hands-on/feature.jpg">
+<meta name="twitter:image" content="/posts/git-worktree-hands-on/feature.jpg">
+    <meta property="og:image" content="/posts/git-worktree-hands-on/feature.jpg">
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
@@ -126,7 +126,7 @@
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/posts\/git-worktree-hands-on\/",
+    "url" : "\/posts\/git-worktree-hands-on\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
@@ -140,7 +140,7 @@
     "keywords": ["Git"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "272"
+    "wordCount": "455"
   }]
   </script>
 
@@ -687,24 +687,43 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-はじめに">1. はじめに</a>
+    <li><a href="#はじめに">はじめに</a>
       <ul>
-        <li><a href="#git-worktree-とは"><code>git worktree</code> とは？</a></li>
-        <li><a href="#git-worktree-はどのような時に便利か"><code>git worktree</code> はどのような時に便利か？</a></li>
+        <li><a href="#解決する課題">解決する課題</a></li>
+        <li><a href="#この記事で学べること">この記事で学べること</a></li>
+        <li><a href="#対象読者">対象読者</a></li>
       </ul>
     </li>
-    <li><a href="#2-ハンズオン">2. ハンズオン</a>
+    <li><a href="#前提条件">前提条件</a></li>
+    <li><a href="#ハンズオン">ハンズオン</a>
       <ul>
         <li><a href="#step-0-準備">Step 0: 準備</a></li>
-        <li><a href="#step-1-feature-a-のためのワークツリー作成">Step 1: <code>feature-A</code> のためのワークツリー作成</a></li>
-        <li><a href="#step-2-feature-a-ワークツリーでの作業">Step 2: <code>feature-A</code> ワークツリーでの作業</a></li>
-        <li><a href="#step-3-feature-a-のマージ">Step 3: <code>feature-A</code> のマージ</a></li>
+        <li><a href="#step-1-新機能開発用ワークツリーの作成">Step 1: 新機能開発用ワークツリーの作成</a></li>
+        <li><a href="#step-2-feature-aワークツリーでの開発作業">Step 2: feature-Aワークツリーでの開発作業</a></li>
+        <li><a href="#step-3-開発完了後のマージ作業">Step 3: 開発完了後のマージ作業</a></li>
         <li><a href="#step-4-ワークツリーのクリーンアップ">Step 4: ワークツリーのクリーンアップ</a></li>
       </ul>
     </li>
-    <li><a href="#3-まとめ">3. まとめ</a></li>
-    <li><a href="#4-コマンドリファレンス">4. コマンドリファレンス</a></li>
-    <li><a href="#5-参考リンク">5. 参考リンク</a></li>
+    <li><a href="#実践的な活用パターン">実践的な活用パターン</a>
+      <ul>
+        <li><a href="#パターン1-緊急バグ修正と機能開発の並行作業">パターン1: 緊急バグ修正と機能開発の並行作業</a></li>
+        <li><a href="#パターン2-複数バージョンの同時保守">パターン2: 複数バージョンの同時保守</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
+      <ul>
+        <li><a href="#よくある問題と解決法">よくある問題と解決法</a></li>
+      </ul>
+    </li>
+    <li><a href="#コマンドリファレンス">コマンドリファレンス</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#主要ポイント">主要ポイント</a></li>
+        <li><a href="#実践的な価値">実践的な価値</a></li>
+        <li><a href="#次のステップ">次のステップ</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
   </div>
@@ -718,24 +737,43 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#1-はじめに">1. はじめに</a>
+    <li><a href="#はじめに">はじめに</a>
       <ul>
-        <li><a href="#git-worktree-とは"><code>git worktree</code> とは？</a></li>
-        <li><a href="#git-worktree-はどのような時に便利か"><code>git worktree</code> はどのような時に便利か？</a></li>
+        <li><a href="#解決する課題">解決する課題</a></li>
+        <li><a href="#この記事で学べること">この記事で学べること</a></li>
+        <li><a href="#対象読者">対象読者</a></li>
       </ul>
     </li>
-    <li><a href="#2-ハンズオン">2. ハンズオン</a>
+    <li><a href="#前提条件">前提条件</a></li>
+    <li><a href="#ハンズオン">ハンズオン</a>
       <ul>
         <li><a href="#step-0-準備">Step 0: 準備</a></li>
-        <li><a href="#step-1-feature-a-のためのワークツリー作成">Step 1: <code>feature-A</code> のためのワークツリー作成</a></li>
-        <li><a href="#step-2-feature-a-ワークツリーでの作業">Step 2: <code>feature-A</code> ワークツリーでの作業</a></li>
-        <li><a href="#step-3-feature-a-のマージ">Step 3: <code>feature-A</code> のマージ</a></li>
+        <li><a href="#step-1-新機能開発用ワークツリーの作成">Step 1: 新機能開発用ワークツリーの作成</a></li>
+        <li><a href="#step-2-feature-aワークツリーでの開発作業">Step 2: feature-Aワークツリーでの開発作業</a></li>
+        <li><a href="#step-3-開発完了後のマージ作業">Step 3: 開発完了後のマージ作業</a></li>
         <li><a href="#step-4-ワークツリーのクリーンアップ">Step 4: ワークツリーのクリーンアップ</a></li>
       </ul>
     </li>
-    <li><a href="#3-まとめ">3. まとめ</a></li>
-    <li><a href="#4-コマンドリファレンス">4. コマンドリファレンス</a></li>
-    <li><a href="#5-参考リンク">5. 参考リンク</a></li>
+    <li><a href="#実践的な活用パターン">実践的な活用パターン</a>
+      <ul>
+        <li><a href="#パターン1-緊急バグ修正と機能開発の並行作業">パターン1: 緊急バグ修正と機能開発の並行作業</a></li>
+        <li><a href="#パターン2-複数バージョンの同時保守">パターン2: 複数バージョンの同時保守</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
+      <ul>
+        <li><a href="#よくある問題と解決法">よくある問題と解決法</a></li>
+      </ul>
+    </li>
+    <li><a href="#コマンドリファレンス">コマンドリファレンス</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#主要ポイント">主要ポイント</a></li>
+        <li><a href="#実践的な価値">実践的な価値</a></li>
+        <li><a href="#次のステップ">次のステップ</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
   </div>
@@ -839,68 +877,83 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h1 class="relative group">git worktree ハンズオン 
-    <div id="git-worktree-ハンズオン" class="anchor"></div>
+<h2 class="relative group">はじめに 
+    <div id="はじめに" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#git-worktree-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3" aria-label="アンカー">#</a>
-    </span>        
-    
-</h1>
-
-<h2 class="relative group">1. はじめに 
-    <div id="1-はじめに" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
+<p><strong>Git worktree</strong>は、1つのGitリポジトリに対して複数のワーキングツリー（作業ディレクトリ）を同時に作成・管理するための強力な機能です。この記事では、git worktreeの基本的な使い方を実践的なハンズオンで学びます。</p>
 
-<h3 class="relative group"><code>git worktree</code> とは？ 
-    <div id="git-worktree-とは" class="anchor"></div>
+<h3 class="relative group">解決する課題 
+    <div id="解決する課題" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#git-worktree-%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b1%ba%e3%81%99%e3%82%8b%e8%aa%b2%e9%a1%8c" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p><code>git worktree</code> は、1つのGitリポジトリに対して、複数のワーキングツリー（作業ディレクトリ）を同時に作成し、管理するためのGitコマンドです。</p>
-<p>通常、<code>git checkout</code> を使ってブランチを切り替えると、現在のワーキングツリーの内容が対象ブランチのものに完全に置き換わります。しかし、<code>git worktree</code> を利用すると、異なるブランチをそれぞれ別のディレクトリにチェックアウトした状態に保つことができます。</p>
+<ul>
+<li>ブランチ切り替え時の作業内容の退避・復元の手間</li>
+<li>複数機能を並行開発する際の効率性の問題</li>
+<li>緊急バグ修正と通常開発作業の両立</li>
+</ul>
 
-<h3 class="relative group"><code>git worktree</code> はどのような時に便利か？ 
-    <div id="git-worktree-はどのような時に便利か" class="anchor"></div>
+<h3 class="relative group">この記事で学べること 
+    <div id="この記事で学べること" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#git-worktree-%e3%81%af%e3%81%a9%e3%81%ae%e3%82%88%e3%81%86%e3%81%aa%e6%99%82%e3%81%ab%e4%be%bf%e5%88%a9%e3%81%8b" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e5%ad%a6%e3%81%b9%e3%82%8b%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>この機能は、以下のような状況で非常に役立ちます。</p>
 <ul>
-<li><strong>機能開発とバグ修正の並行作業:</strong>
-<ul>
-<li>大規模な新機能（例: <code>feature-A</code>）の開発中に、本番環境で発生した緊急のバグ（例: <code>hotfix</code>）にすぐ対応する必要がある場合。<code>feature-A</code>の作業を<code>git stash</code>などで退避させることなく、別のディレクトリで<code>hotfix</code>ブランチの作業をすぐに始められます。</li>
+<li>git worktreeの基本概念と仕組み</li>
+<li>複数ワーキングツリーの作成・管理方法</li>
+<li>実際の開発現場での活用パターン</li>
 </ul>
-</li>
-<li><strong>複数の機能の同時開発:</strong>
-<ul>
-<li>複数のフィーチャーブランチを並行して開発し、それぞれの動作確認を簡単に行いたい場合。ブランチごとにディレクトリが分かれているため、ビルド成果物などが混ざり合うこともありません。</li>
-</ul>
-</li>
-</ul>
-<hr>
 
-<h2 class="relative group">2. ハンズオン 
-    <div id="2-ハンズオン" class="anchor"></div>
+<h3 class="relative group">対象読者 
+    <div id="対象読者" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%af%be%e8%b1%a1%e8%aa%ad%e8%80%85" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Gitの基本操作（add, commit, merge）を理解している方</li>
+<li>複数ブランチでの並行作業を効率化したい方</li>
+<li>git worktreeを初めて使用する開発者</li>
+</ul>
+
+<h2 class="relative group">前提条件 
+    <div id="前提条件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%89%8d%e6%8f%90%e6%9d%a1%e4%bb%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><strong>Git</strong>: v2.5以降（git worktreeコマンド対応版）</li>
+<li><strong>OS</strong>: Windows, macOS, Linux</li>
+<li><strong>必要な知識</strong>: Gitの基本操作（clone, checkout, merge等）</li>
+</ul>
+
+<h2 class="relative group">ハンズオン 
+    <div id="ハンズオン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
@@ -914,83 +967,131 @@
     </span>        
     
 </h3>
-<p>まず、ハンズオン用のリポジトリを準備します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. 作業用のディレクトリを作成し、移動します</span>
+<p>ハンズオン用のリポジトリを準備します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 作業用ディレクトリの作成と初期化</span>
 </span></span><span class="line"><span class="cl">mkdir git-worktree-handson-tutorial
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> git-worktree-handson-tutorial
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 2. Gitリポジトリを初期化します</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Gitリポジトリの初期化</span>
 </span></span><span class="line"><span class="cl">git init
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 3. 最初のファイルを作成してコミットします</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 初期ファイルの作成とコミット</span>
 </span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Hello World&#34;</span> &gt; main.txt
 </span></span><span class="line"><span class="cl">git add main.txt
 </span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;first commit&#34;</span>
 </span></span></code></pre></div>
-<h3 class="relative group">Step 1: <code>feature-A</code> のためのワークツリー作成 
-    <div id="step-1-feature-a-のためのワークツリー作成" class="anchor"></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    >このハンズオンではローカルリポジトリを使用しますが、実際の開発ではリモートリポジトリをクローンした環境でも同様に利用できます。</span>
+</div>
+
+
+<h3 class="relative group">Step 1: 新機能開発用ワークツリーの作成 
+    <div id="step-1-新機能開発用ワークツリーの作成" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-feature-a-%e3%81%ae%e3%81%9f%e3%82%81%e3%81%ae%e3%83%af%e3%83%bc%e3%82%af%e3%83%84%e3%83%aa%e3%83%bc%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-%e6%96%b0%e6%a9%9f%e8%83%bd%e9%96%8b%e7%99%ba%e7%94%a8%e3%83%af%e3%83%bc%e3%82%af%e3%83%84%e3%83%aa%e3%83%bc%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p><code>main</code>ブランチとは別の場所で、新しい機能 <code>feature-A</code> の開発に着手します。そのために、専用のワークツリーを作成しましょう。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># &#39;feature-A&#39; という名前の新しいブランチを、&#39;feature-a-worktree&#39; というディレクトリに作成します</span>
+<p><code>main</code>ブランチとは独立した場所で新機能<code>feature-A</code>の開発を行うため、専用ワークツリーを作成します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># feature-A用のワークツリーとブランチを同時作成</span>
 </span></span><span class="line"><span class="cl">git worktree add ./feature-a-worktree -b feature-A
-</span></span></code></pre></div><ul>
-<li><code>./feature-a-worktree</code>: 新しく作成されるディレクトリのパスです。</li>
-<li><code>-b feature-A</code>: 新しく作成するブランチの名前です。このブランチが <code>feature-a-worktree</code> ディレクトリにチェックアウトされます。</li>
+</span></span></code></pre></div><p><strong>パラメータ説明:</strong></p>
+<ul>
+<li><code>./feature-a-worktree</code>: 新規作成するディレクトリのパス</li>
+<li><code>-b feature-A</code>: 新規作成するブランチ名</li>
 </ul>
-<p><code>git worktree list</code> コマンドで、現在のワークツリーの状態を確認してみましょう。</p>
+<p>作成されたワークツリーの確認：</p>
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git worktree list
-</span></span></code></pre></div><p>以下のような出力が表示され、2つのワークツリーが存在することがわかります。</p>
-<pre tabindex="0"><code>/path/to/git-worktree-handson-tutorial  (bare)
-/path/to/git-worktree-handson-tutorial/feature-a-worktree  [feature-A]
-</code></pre>
-<h3 class="relative group">Step 2: <code>feature-A</code> ワークツリーでの作業 
-    <div id="step-2-feature-a-ワークツリーでの作業" class="anchor"></div>
+</span></span></code></pre></div><p><strong>実行結果例:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">/path/to/git-worktree-handson-tutorial        7a8b9c1 <span class="o">[</span>main<span class="o">]</span>
+</span></span><span class="line"><span class="cl">/path/to/git-worktree-handson-tutorial/feature-a-worktree  7a8b9c1 <span class="o">[</span>feature-A<span class="o">]</span>
+</span></span></code></pre></div><p>この出力から、2つのワークツリーが並存していることが確認できます。</p>
+
+<h3 class="relative group">Step 2: feature-Aワークツリーでの開発作業 
+    <div id="step-2-feature-aワークツリーでの開発作業" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-feature-a-%e3%83%af%e3%83%bc%e3%82%af%e3%83%84%e3%83%aa%e3%83%bc%e3%81%a7%e3%81%ae%e4%bd%9c%e6%a5%ad" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-feature-a%e3%83%af%e3%83%bc%e3%82%af%e3%83%84%e3%83%aa%e3%83%bc%e3%81%a7%e3%81%ae%e9%96%8b%e7%99%ba%e4%bd%9c%e6%a5%ad" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p><code>feature-A</code> の開発作業を進めます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. feature-A のワークツリーに移動します</span>
+<p>作成したワークツリーで実際の機能開発を行います：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># feature-Aワークツリーに移動</span>
 </span></span><span class="line"><span class="cl"><span class="nb">cd</span> feature-a-worktree
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 2. 現在のブランチを確認します</span>
-</span></span><span class="line"><span class="cl">git branch <span class="c1"># =&gt; * feature-A</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 現在のブランチ確認</span>
+</span></span><span class="line"><span class="cl">git branch
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: * feature-A</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 3. feature-A のための新しいファイルを作成し、コミットします</span>
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Goodby World&#34;</span> &gt; feature-A.txt
+</span></span><span class="line"><span class="cl"><span class="c1"># 新機能のファイルを作成</span>
+</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s2">&#34;Feature A implementation&#34;</span> &gt; feature-A.txt
 </span></span><span class="line"><span class="cl">git add feature-A.txt
-</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;feat: Add feature-A file&#34;</span>
-</span></span></code></pre></div><p>これで、<code>feature-A</code>ブランチに新しいコミットが追加されました。</p>
-
-<h3 class="relative group">Step 3: <code>feature-A</code> のマージ 
-    <div id="step-3-feature-a-のマージ" class="anchor"></div>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;feat: Add feature-A implementation&#34;</span>
+</span></span></code></pre></div><p><strong>検証</strong>: 同時に元のディレクトリでも作業が可能であることを確認：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 別のターミナルまたは後で元のディレクトリに戻って確認</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> .. <span class="c1"># 元のディレクトリに戻る</span>
+</span></span><span class="line"><span class="cl">git branch
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: * main</span>
+</span></span><span class="line"><span class="cl">ls <span class="c1"># main.txtのみが存在（feature-A.txtは存在しない）</span>
+</span></span></code></pre></div>
+<h3 class="relative group">Step 3: 開発完了後のマージ作業 
+    <div id="step-3-開発完了後のマージ作業" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-feature-a-%e3%81%ae%e3%83%9e%e3%83%bc%e3%82%b8" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-%e9%96%8b%e7%99%ba%e5%ae%8c%e4%ba%86%e5%be%8c%e3%81%ae%e3%83%9e%e3%83%bc%e3%82%b8%e4%bd%9c%e6%a5%ad" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p><code>feature-A</code>の開発が完了したと仮定して、<code>main</code>ブランチにマージします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. 元のワークツリー（mainブランチ）に移動します</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ..
+<p>feature-Aの開発が完了したため、mainブランチにマージします：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># mainブランチ（元のワークツリー）にいることを確認</span>
+</span></span><span class="line"><span class="cl"><span class="nb">pwd</span> <span class="c1"># /path/to/git-worktree-handson-tutorial</span>
+</span></span><span class="line"><span class="cl">git branch
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: * main</span>
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 2. main ブランチにいることを確認します</span>
-</span></span><span class="line"><span class="cl">git branch <span class="c1"># =&gt; * main</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 3. feature-A ブランチをマージします</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># feature-Aブランチをmainにマージ</span>
 </span></span><span class="line"><span class="cl">git merge feature-A
-</span></span></code></pre></div><p><code>git log --graph --oneline --all</code> を実行すると、<code>feature-A</code>が<code>main</code>ブランチにマージされた歴史を確認できます。</p>
-
+</span></span></code></pre></div><p>マージ結果の確認：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># マージ履歴をグラフで確認</span>
+</span></span><span class="line"><span class="cl">git log --graph --oneline --all
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ファイルが統合されていることを確認</span>
+</span></span><span class="line"><span class="cl">ls
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: main.txt  feature-A.txt</span>
+</span></span></code></pre></div>
 <h3 class="relative group">Step 4: ワークツリーのクリーンアップ 
     <div id="step-4-ワークツリーのクリーンアップ" class="anchor"></div>
     
@@ -1000,75 +1101,243 @@
     </span>        
     
 </h3>
-<p>作業が完了したブランチのワークツリーは不要なので、削除してリポジトリを整理します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ワークツリーの一覧を再度確認</span>
+<p>開発完了後は不要になったワークツリーを削除してリポジトリを整理します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 現在のワークツリー一覧を確認</span>
 </span></span><span class="line"><span class="cl">git worktree list
 </span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 不要になったワークツリーを削除する</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 注意: ワークツリー内に未コミットの変更が残っている場合、削除は失敗します。</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># その場合は --force オプションで強制削除できます。</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># feature-Aワークツリーを削除</span>
 </span></span><span class="line"><span class="cl">git worktree remove feature-a-worktree
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># .gitの管理情報から削除されるだけで、ディレクトリ自体は残るため手動で削除します</span>
-</span></span><span class="line"><span class="cl">rm -rf feature-a-worktree
-</span></span></code></pre></div><p><code>git worktree prune</code> コマンドは、何らかの理由でディレクトリだけが先に削除されてしまった場合に、関連する管理情報をクリーンアップするのに役立ちます。</p>
-<hr>
-
-<h2 class="relative group">3. まとめ 
-    <div id="3-まとめ" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>このハンズオンでは、以下のことを学びました。</p>
-<ul>
-<li><code>git worktree add</code> で新しいワークツリーとブランチを作成する方法</li>
-<li>複数のワークツリー間を <code>cd</code> で自由に移動し、並行して作業を進める方法</li>
-<li>作業が完了したワークツリーを <code>git worktree remove</code> で安全に削除する方法</li>
-</ul>
-<p><code>git worktree</code> を活用することで、ブランチの切り替えに伴う時間のかかるビルドや依存関係の再インストールといった手間を回避し、開発効率を劇的に向上させることができます。ぜひ、日々の開発に取り入れてみてください。</p>
-<hr>
-
-<h2 class="relative group">4. コマンドリファレンス 
-    <div id="4-コマンドリファレンス" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%aa%e3%83%95%e3%82%a1%e3%83%ac%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 指定したパスに新しいワークツリーを作成</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 同時に新しいブランチを作成してチェックアウトする</span>
-</span></span><span class="line"><span class="cl">git worktree add &lt;path&gt; -b &lt;branch-name&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ワークツリーの一覧を表示</span>
-</span></span><span class="line"><span class="cl">git worktree list
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 指定したパスのワークツリーを削除</span>
-</span></span><span class="line"><span class="cl">git worktree remove &lt;path&gt;
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ワークツリーの管理情報をクリーンアップ</span>
-</span></span><span class="line"><span class="cl">git worktree prune
 </span></span></code></pre></div>
-<h2 class="relative group">5. 参考リンク 
-    <div id="5-参考リンク" class="anchor"></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    ><strong>注意</strong>: ワークツリー内に未コミットの変更がある場合、削除は失敗します。その場合は<code>--force</code>オプションで強制削除するか、事前に変更をコミットまたは破棄してください。</span>
+</div>
+
+<p><strong>クリーンアップ完了の確認:</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ワークツリー一覧を再確認（mainのみ残っていることを確認）</span>
+</span></span><span class="line"><span class="cl">git worktree list
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 万が一、ディレクトリが残っている場合は手動削除</span>
+</span></span><span class="line"><span class="cl">rm -rf feature-a-worktree
+</span></span></code></pre></div>
+<h2 class="relative group">実践的な活用パターン 
+    <div id="実践的な活用パターン" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5%e7%9a%84%e3%81%aa%e6%b4%bb%e7%94%a8%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">パターン1: 緊急バグ修正と機能開発の並行作業 
+    <div id="パターン1-緊急バグ修正と機能開発の並行作業" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b31-%e7%b7%8a%e6%80%a5%e3%83%90%e3%82%b0%e4%bf%ae%e6%ad%a3%e3%81%a8%e6%a9%9f%e8%83%bd%e9%96%8b%e7%99%ba%e3%81%ae%e4%b8%a6%e8%a1%8c%e4%bd%9c%e6%a5%ad" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 通常の機能開発中（feature-loginブランチで作業中）</span>
+</span></span><span class="line"><span class="cl">git worktree add ../hotfix-worktree -b hotfix/critical-bug
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># hotfix作業完了後</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../hotfix-worktree
+</span></span><span class="line"><span class="cl"><span class="c1"># バグ修正作業...</span>
+</span></span><span class="line"><span class="cl">git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;fix: critical security issue&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># mainにマージ</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../main-worktree
+</span></span><span class="line"><span class="cl">git merge hotfix/critical-bug
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 元の機能開発に戻る</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../feature-login-worktree
+</span></span><span class="line"><span class="cl"><span class="c1"># 作業を継続...</span>
+</span></span></code></pre></div>
+<h3 class="relative group">パターン2: 複数バージョンの同時保守 
+    <div id="パターン2-複数バージョンの同時保守" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b32-%e8%a4%87%e6%95%b0%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%81%ae%e5%90%8c%e6%99%82%e4%bf%9d%e5%ae%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># v1.0系の保守用ワークツリー</span>
+</span></span><span class="line"><span class="cl">git worktree add ../v1-maintenance origin/release-1.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># v2.0系の保守用ワークツリー</span>
+</span></span><span class="line"><span class="cl">git worktree add ../v2-maintenance origin/release-2.0
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 各バージョンで独立してバグ修正が可能</span>
+</span></span></code></pre></div>
+<h2 class="relative group">トラブルシューティング 
+    <div id="トラブルシューティング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%88%e3%83%a9%e3%83%96%e3%83%ab%e3%82%b7%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">よくある問題と解決法 
+    <div id="よくある問題と解決法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%95%8f%e9%a1%8c%e3%81%a8%e8%a7%a3%e6%b1%ba%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題1: ワークツリーの削除ができない</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># エラー例: &#34;worktree contains modified or untracked files&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 解決法1: 変更を確認して必要に応じてコミット</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> problem-worktree
+</span></span><span class="line"><span class="cl">git status
+</span></span><span class="line"><span class="cl">git add . <span class="o">&amp;&amp;</span> git commit -m <span class="s2">&#34;save changes&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 解決法2: 強制削除</span>
+</span></span><span class="line"><span class="cl">git worktree remove --force problem-worktree
+</span></span></code></pre></div><p><strong>問題2: 同じブランチを複数のワークツリーで使用しようとしてエラー</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># エラー例: &#34;branch &#39;feature-x&#39; is already checked out&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># git worktreeでは同じブランチを複数箇所で同時にチェックアウトできません</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># 解決法: 異なるブランチ名を使用するか、既存のワークツリーを削除</span>
+</span></span></code></pre></div><p><strong>問題3: ディレクトリが残っているがgit worktree listに表示されない</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 管理情報のクリーンアップ</span>
+</span></span><span class="line"><span class="cl">git worktree prune
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 手動でディレクトリ削除</span>
+</span></span><span class="line"><span class="cl">rm -rf orphaned-worktree
+</span></span></code></pre></div>
+<h2 class="relative group">コマンドリファレンス 
+    <div id="コマンドリファレンス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%aa%e3%83%95%e3%82%a1%e3%83%ac%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 基本的なワークツリー操作</span>
+</span></span><span class="line"><span class="cl">git worktree add &lt;path&gt; -b &lt;branch-name&gt;    <span class="c1"># 新規ブランチ作成と同時にワークツリー作成</span>
+</span></span><span class="line"><span class="cl">git worktree add &lt;path&gt; &lt;existing-branch&gt;   <span class="c1"># 既存ブランチからワークツリー作成</span>
+</span></span><span class="line"><span class="cl">git worktree list                           <span class="c1"># ワークツリー一覧表示</span>
+</span></span><span class="line"><span class="cl">git worktree remove &lt;path&gt;                  <span class="c1"># ワークツリー削除</span>
+</span></span><span class="line"><span class="cl">git worktree prune                          <span class="c1"># 孤立した管理情報のクリーンアップ</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 高度な操作</span>
+</span></span><span class="line"><span class="cl">git worktree add --detach &lt;path&gt; &lt;commit&gt;   <span class="c1"># 特定のコミットをワークツリーとして作成</span>
+</span></span><span class="line"><span class="cl">git worktree remove --force &lt;path&gt;          <span class="c1"># 未保存の変更があっても強制削除</span>
+</span></span><span class="line"><span class="cl">git worktree move &lt;path&gt; &lt;new-path&gt;         <span class="c1"># ワークツリーの移動</span>
+</span></span><span class="line"><span class="cl">git worktree lock &lt;path&gt;                    <span class="c1"># ワークツリーをロック（自動削除を防ぐ）</span>
+</span></span><span class="line"><span class="cl">git worktree unlock &lt;path&gt;                  <span class="c1"># ワークツリーのロック解除</span>
+</span></span></code></pre></div>
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>このハンズオンを通じて、git worktreeの基本的な操作から実践的な活用方法まで学習しました。</p>
+
+<h3 class="relative group">主要ポイント 
+    <div id="主要ポイント" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%bb%e8%a6%81%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>複数ワークツリーの同時管理</strong>: 1つのリポジトリで複数のブランチを並行作業</li>
+<li><strong>効率的な開発フロー</strong>: ブランチ切り替えに伴う時間的コストの削減</li>
+<li><strong>適切なクリーンアップ</strong>: 作業完了後のワークツリー削除でリポジトリを整理</li>
+</ul>
+
+<h3 class="relative group">実践的な価値 
+    <div id="実践的な価値" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5%e7%9a%84%e3%81%aa%e4%be%a1%e5%80%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>開発効率向上</strong>: ビルド時間や依存関係の再インストール時間を短縮</li>
+<li><strong>作業の並行性</strong>: 緊急対応と通常開発を同時進行</li>
+<li><strong>コンテキストスイッチの最小化</strong>: 作業内容の退避・復元が不要</li>
+</ul>
+
+<h3 class="relative group">次のステップ 
+    <div id="次のステップ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%ac%a1%e3%81%ae%e3%82%b9%e3%83%86%e3%83%83%e3%83%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>実際のプロジェクトでgit worktreeを試用</li>
+<li>チーム開発でのワークフロー改善に活用</li>
+<li>CI/CDパイプラインとの統合検討</li>
+</ol>
+<p>git worktreeを活用することで、Git操作の効率性が大幅に向上し、より柔軟な開発体験を実現できます。</p>
+
+<h2 class="relative group">参考リンク 
+    <div id="参考リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
 <ul>
+<li><a
+  href="https://git-scm.com/docs/git-worktree"
+    target="_blank"
+  >Git公式ドキュメント - git-worktree</a></li>
 <li><a
   href="https://qiita.com/syukan3/items/dab71e88ce91bca44432"
     target="_blank"
   >Qiita：徹底解説：git worktree の使い方</a></li>
-<li><a
-  href="https://git-scm.com/docs/git-worktree"
-    target="_blank"
-  >git-worktree - Manage multiple working trees</a></li>
 </ul>
 
           
@@ -1227,7 +1496,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="//localhost:1313/">
+  data-url="/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

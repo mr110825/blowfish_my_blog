@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="light"
-  data-auto-appearance="true"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="true"><head>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="ja">
@@ -22,7 +22,7 @@
   <meta name="keywords" content="Hugo,Blowfish,">
   
   
-  <link rel="canonical" href="//localhost:1313/posts/favicon_settings/">
+  <link rel="canonical" href="/posts/favicon_settings/">
   
   
   
@@ -97,7 +97,7 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/posts/favicon_settings/">
+  <meta property="og:url" content="/posts/favicon_settings/">
   <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
   <meta property="og:title" content="BlowfishでFaviconを設定する方法">
   <meta property="og:description" content="技術的デジャブを回避するためにメモや備忘録">
@@ -108,15 +108,15 @@
     <meta property="article:modified_time" content="2025-08-03T12:09:09+09:00">
     <meta property="article:tag" content="Hugo">
     <meta property="article:tag" content="Blowfish">
-    <meta property="og:image" content="//localhost:1313/posts/favicon_settings/feature.jpg">
+    <meta property="og:image" content="/posts/favicon_settings/feature.jpg">
 
   
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:image" content="//localhost:1313/posts/favicon_settings/feature.jpg">
+  <meta name="twitter:image" content="/posts/favicon_settings/feature.jpg">
   <meta name="twitter:title" content="BlowfishでFaviconを設定する方法">
   <meta name="twitter:description" content="技術的デジャブを回避するためにメモや備忘録">
-<meta name="twitter:image" content="//localhost:1313/posts/favicon_settings/feature.jpg">
-    <meta property="og:image" content="//localhost:1313/posts/favicon_settings/feature.jpg">
+<meta name="twitter:image" content="/posts/favicon_settings/feature.jpg">
+    <meta property="og:image" content="/posts/favicon_settings/feature.jpg">
   <script type="application/ld+json">
   [{
     "@context": "https://schema.org",
@@ -127,7 +127,7 @@
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/posts\/favicon_settings\/",
+    "url" : "\/posts\/favicon_settings\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
@@ -141,7 +141,7 @@
     "keywords": ["Hugo","Blowfish"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "72"
+    "wordCount": "234"
   }]
   </script>
 
@@ -688,10 +688,45 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#設定方法">設定方法</a></li>
-    <li><a href="#各ファイルの説明">各ファイルの説明</a></li>
-    <li><a href="#favicon作成に便利なサイト">favicon作成に便利なサイト</a></li>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#解決する課題">解決する課題</a></li>
+        <li><a href="#この記事で学べること">この記事で学べること</a></li>
+        <li><a href="#対象読者">対象読者</a></li>
+      </ul>
+    </li>
+    <li><a href="#対象システム">対象システム</a></li>
+    <li><a href="#favicon設定">favicon設定</a>
+      <ul>
+        <li><a href="#step-0-準備">Step 0: 準備</a></li>
+        <li><a href="#step-1-ファビコンファイルの配置">Step 1: ファビコンファイルの配置</a></li>
+        <li><a href="#step-2-設定の確認">Step 2: 設定の確認</a></li>
+      </ul>
+    </li>
+    <li><a href="#各ファイルの詳細説明">各ファイルの詳細説明</a>
+      <ul>
+        <li><a href="#ブラウザ用favicon">ブラウザ用favicon</a></li>
+        <li><a href="#モバイル用アイコン">モバイル用アイコン</a></li>
+        <li><a href="#webマニフェスト">Webマニフェスト</a></li>
+      </ul>
+    </li>
+    <li><a href="#favicon作成に便利なツール">favicon作成に便利なツール</a>
+      <ul>
+        <li><a href="#オンラインツール">オンラインツール</a></li>
+        <li><a href="#推奨ワークフロー">推奨ワークフロー</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
+      <ul>
+        <li><a href="#よくある問題と解決法">よくある問題と解決法</a></li>
+      </ul>
+    </li>
+    <li><a href="#コマンドリファレンス">コマンドリファレンス</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#主要ポイント">主要ポイント</a></li>
+      </ul>
+    </li>
     <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
@@ -706,10 +741,45 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#設定方法">設定方法</a></li>
-    <li><a href="#各ファイルの説明">各ファイルの説明</a></li>
-    <li><a href="#favicon作成に便利なサイト">favicon作成に便利なサイト</a></li>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#解決する課題">解決する課題</a></li>
+        <li><a href="#この記事で学べること">この記事で学べること</a></li>
+        <li><a href="#対象読者">対象読者</a></li>
+      </ul>
+    </li>
+    <li><a href="#対象システム">対象システム</a></li>
+    <li><a href="#favicon設定">favicon設定</a>
+      <ul>
+        <li><a href="#step-0-準備">Step 0: 準備</a></li>
+        <li><a href="#step-1-ファビコンファイルの配置">Step 1: ファビコンファイルの配置</a></li>
+        <li><a href="#step-2-設定の確認">Step 2: 設定の確認</a></li>
+      </ul>
+    </li>
+    <li><a href="#各ファイルの詳細説明">各ファイルの詳細説明</a>
+      <ul>
+        <li><a href="#ブラウザ用favicon">ブラウザ用favicon</a></li>
+        <li><a href="#モバイル用アイコン">モバイル用アイコン</a></li>
+        <li><a href="#webマニフェスト">Webマニフェスト</a></li>
+      </ul>
+    </li>
+    <li><a href="#favicon作成に便利なツール">favicon作成に便利なツール</a>
+      <ul>
+        <li><a href="#オンラインツール">オンラインツール</a></li>
+        <li><a href="#推奨ワークフロー">推奨ワークフロー</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
+      <ul>
+        <li><a href="#よくある問題と解決法">よくある問題と解決法</a></li>
+      </ul>
+    </li>
+    <li><a href="#コマンドリファレンス">コマンドリファレンス</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#主要ポイント">主要ポイント</a></li>
+      </ul>
+    </li>
     <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
@@ -823,102 +893,450 @@
     </span>        
     
 </h2>
-<p>Blowfishではデフォルトで「フグ」のアイコンがfaviconとして設定されています。
+<p><strong>Blowfish</strong>テーマを使用したHugoサイトでは、デフォルトで「フグ」のアイコンがfaviconとして設定されています。この記事では、デフォルトのfaviconから独自のfaviconに変更する手順を詳しく解説します。</p>
 <img src="blowfish_favicon.png" alt="Blowfishのデフォルトのfavicon" width="300"/>
-デフォルトから自分好みのfaviconへ変更する手順を下記にまとめます。</p>
-<hr>
 
-<h2 class="relative group">設定方法 
-    <div id="設定方法" class="anchor"></div>
+<h3 class="relative group">解決する課題 
+    <div id="解決する課題" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%ae%9a%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b1%ba%e3%81%99%e3%82%8b%e8%aa%b2%e9%a1%8c" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
-<p>faviconの変更は、プロジェクトの <code>static</code> ディレクトリに独自の画像ファイルを配置するだけで完了します。</p>
-<pre tabindex="0"><code>.
-└── static/
-    ├─ android-chrome-192x192.png
-    ├─ android-chrome-512x512.png
-    ├─ apple-touch-icon.png
-    ├─ favicon-16x16.png
-    ├─ favicon-32x32.png
-    ├─ favicon.ico
-    └─ site.webmanifest
-</code></pre><p>これらのファイルと同じ名前で作成したご自身の画像を、プロジェクトのルートにある <code>static</code> フォルダに配置してください。
-ファイルを配置した後、Hugoサーバーを再起動（またはビルド）すると、新しいfaviconがサイトに反d映されます。
-<code>hugo.toml</code>などの設定ファイルでパスを記述する必要はありません。<code>static</code>ディレクトリに置かれたファイルが優先的に読み込まれる仕組みです。</p>
+</h3>
+<ul>
+<li>デフォルトfaviconからオリジナルアイコンへの変更</li>
+<li>複数デバイス・プラットフォームでの適切なアイコン表示</li>
+<li>ブランディング一貫性の確保</li>
+</ul>
 
-<h2 class="relative group">各ファイルの説明 
-    <div id="各ファイルの説明" class="anchor"></div>
+<h3 class="relative group">この記事で学べること 
+    <div id="この記事で学べること" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%90%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%aa%ac%e6%98%8e" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e5%ad%a6%e3%81%b9%e3%82%8b%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
-<p><code>static</code>ディレクトリに配置する各ファイルは、様々なデバイスや状況でサイトのアイコンを表示するために利用されます。</p>
+</h3>
 <ul>
-<li>
-<p><strong><code>favicon.ico</code></strong>:</p>
-<ul>
-<li><strong>用途:</strong> 最も伝統的なfavicon形式。主にPCブラウザのタブやブックマークで使われます。古いブラウザとの互換性のために重要です。</li>
+<li>Hugoサイトでのfavicon設定の仕組み</li>
+<li>複数プラットフォーム対応のfavicon一式の作成方法</li>
+<li>各faviconファイルの用途と必要性</li>
 </ul>
-</li>
-<li>
-<p><strong><code>favicon-16x16.png</code> / <code>favicon-32x32.png</code></strong>:</p>
-<ul>
-<li><strong>用途:</strong> 最新のPCブラウザが使用するPNG形式のfavicon。</li>
-<li><strong>16x16px:</strong> 標準的な解像度のディスプレイのブラウザタブに表示されます。</li>
-<li><strong>32x32px:</strong> Retinaディスプレイのような高解像度の画面や、タスクバーなどで使用されます。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>apple-touch-icon.png</code></strong>:</p>
-<ul>
-<li><strong>用途:</strong> iPhoneやiPadなど、Apple製品で「ホーム画面に追加」した際に表示されるアプリアイコンです。<code>180x180px</code>が推奨サイズです。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>android-chrome-192x192.png</code> / <code>android-chrome-512x512.png</code></strong>:</p>
-<ul>
-<li><strong>用途:</strong> AndroidデバイスのChromeブラウザで「ホーム画面に追加」した際に使われます。</li>
-<li><strong>192x192px:</strong> ホーム画面のアイコンとして表示されます。</li>
-<li><strong>512x512px:</strong> サイト起動時のスプラッシュスクリーンに表示されることがあります。</li>
-</ul>
-</li>
-<li>
-<p><strong><code>site.webmanifest</code></strong>:</p>
-<ul>
-<li><strong>用途:</strong> ウェブアプリマニフェストと呼ばれる設定ファイルです。サイト名やテーマカラー、そして上記のような各アイコンへのパスを定義し、ブラウザにどのアイコンを使うべきかを伝えます。</li>
-</ul>
-</li>
-</ul>
-<p>これらのファイルを揃えることで、あらゆる環境でサイトのアイコンが意図通りに表示されるようになります。</p>
 
-<h2 class="relative group">favicon作成に便利なサイト 
-    <div id="favicon作成に便利なサイト" class="anchor"></div>
+<h3 class="relative group">対象読者 
+    <div id="対象読者" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#favicon%e4%bd%9c%e6%88%90%e3%81%ab%e4%be%bf%e5%88%a9%e3%81%aa%e3%82%b5%e3%82%a4%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%af%be%e8%b1%a1%e8%aa%ad%e8%80%85" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Hugo + Blowfishテーマを使用している方</li>
+<li>Webサイトのfavicon設定を行いたい方</li>
+<li>マルチプラットフォーム対応のアイコン設定を学びたい方</li>
+</ul>
+
+<h2 class="relative group">対象システム 
+    <div id="対象システム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%af%be%e8%b1%a1%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
+<ul>
+<li><strong>Hugo</strong>: v0.80以降</li>
+<li><strong>テーマ</strong>: Blowfish</li>
+<li><strong>対応OS</strong>: Windows, macOS, Linux</li>
+<li><strong>対応ブラウザ</strong>: Chrome, Firefox, Safari, Edge</li>
+</ul>
+
+<h2 class="relative group">favicon設定 
+    <div id="favicon設定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#favicon%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">Step 0: 準備 
+    <div id="step-0-準備" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-0-%e6%ba%96%e5%82%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>favicon変更に必要なファイルを事前に準備します。以下の形式とサイズのファイルが必要です：</p>
+<ul>
+<li><code>favicon.ico</code> - 従来のブラウザ対応用</li>
+<li><code>favicon-16x16.png</code> - 標準解像度用（16×16px）</li>
+<li><code>favicon-32x32.png</code> - 高解像度用（32×32px）</li>
+<li><code>apple-touch-icon.png</code> - iOS用（180×180px）</li>
+<li><code>android-chrome-192x192.png</code> - Android用（192×192px）</li>
+<li><code>android-chrome-512x512.png</code> - Android用（512×512px）</li>
+<li><code>site.webmanifest</code> - Webマニフェストファイル</li>
+</ul>
+
+<h3 class="relative group">Step 1: ファビコンファイルの配置 
+    <div id="step-1-ファビコンファイルの配置" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-%e3%83%95%e3%82%a1%e3%83%93%e3%82%b3%e3%83%b3%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e9%85%8d%e7%bd%ae" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>準備したfaviconファイルをプロジェクトの <code>static</code> ディレクトリに配置します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">└── static/
+</span></span><span class="line"><span class="cl">    ├─ android-chrome-192x192.png
+</span></span><span class="line"><span class="cl">    ├─ android-chrome-512x512.png
+</span></span><span class="line"><span class="cl">    ├─ apple-touch-icon.png
+</span></span><span class="line"><span class="cl">    ├─ favicon-16x16.png
+</span></span><span class="line"><span class="cl">    ├─ favicon-32x32.png
+</span></span><span class="line"><span class="cl">    ├─ favicon.ico
+</span></span><span class="line"><span class="cl">    └─ site.webmanifest
+</span></span></code></pre></div>
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    ><code>static</code>ディレクトリに置かれたファイルは、Hugoビルド時に自動的にサイトルートにコピーされます。設定ファイルでのパス指定は不要です。</span>
+</div>
+
+
+<h3 class="relative group">Step 2: 設定の確認 
+    <div id="step-2-設定の確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-%e8%a8%ad%e5%ae%9a%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ファイル配置後、サイトでfaviconが正しく反映されているかを確認します：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D
+</span></span></code></pre></div><p>ブラウザで <code>http://localhost:1313</code> にアクセスし、以下を確認：</p>
+<ul>
+<li>ブラウザタブにfaviconが表示されている</li>
+<li>ブックマーク時に正しいアイコンが使用される</li>
+<li>モバイルデバイスでのホーム画面追加時の表示</li>
+</ul>
+<p>本番環境への反映：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo
+</span></span></code></pre></div>
+<h2 class="relative group">各ファイルの詳細説明 
+    <div id="各ファイルの詳細説明" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%90%84%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e8%a9%b3%e7%b4%b0%e8%aa%ac%e6%98%8e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">ブラウザ用favicon 
+    <div id="ブラウザ用favicon" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%a9%e3%82%a6%e3%82%b6%e7%94%a8favicon" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p><strong><code>favicon.ico</code></strong></p>
+<ul>
+<li>最も伝統的なfavicon形式</li>
+<li>PCブラウザのタブやブックマークで使用</li>
+<li>古いブラウザとの互換性確保のため必須</li>
+</ul>
+</li>
+<li>
+<p><strong><code>favicon-16x16.png</code></strong></p>
+<ul>
+<li>標準解像度ディスプレイのブラウザタブ用</li>
+<li>PNG形式で軽量</li>
+</ul>
+</li>
+<li>
+<p><strong><code>favicon-32x32.png</code></strong></p>
+<ul>
+<li>高解像度ディスプレイ（Retina等）用</li>
+<li>タスクバーやブックマークでも使用</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">モバイル用アイコン 
+    <div id="モバイル用アイコン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%83%90%e3%82%a4%e3%83%ab%e7%94%a8%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p><strong><code>apple-touch-icon.png</code></strong></p>
+<ul>
+<li>iOSデバイスの「ホーム画面に追加」時に使用</li>
+<li>推奨サイズ：180×180px</li>
+</ul>
+</li>
+<li>
+<p><strong><code>android-chrome-192x192.png</code></strong></p>
+<ul>
+<li>Androidのホーム画面アイコン用</li>
+<li>サイズ：192×192px</li>
+</ul>
+</li>
+<li>
+<p><strong><code>android-chrome-512x512.png</code></strong></p>
+<ul>
+<li>Android用大サイズアイコン</li>
+<li>スプラッシュスクリーンで使用される場合がある</li>
+<li>サイズ：512×512px</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">Webマニフェスト 
+    <div id="webマニフェスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#web%e3%83%9e%e3%83%8b%e3%83%95%e3%82%a7%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong><code>site.webmanifest</code></strong>
+<ul>
+<li>PWA（Progressive Web App）用設定ファイル</li>
+<li>サイト名、テーマカラー、アイコンパスを定義</li>
+<li>ブラウザが適切なアイコンを選択するための情報を提供</li>
+</ul>
+</li>
+</ul>
+
+<h2 class="relative group">favicon作成に便利なツール 
+    <div id="favicon作成に便利なツール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#favicon%e4%bd%9c%e6%88%90%e3%81%ab%e4%be%bf%e5%88%a9%e3%81%aa%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">オンラインツール 
+    <div id="オンラインツール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
 <p><strong><a
   href="https://favicon.io/"
     target="_blank"
-  >favicon.io</a></strong><br>
-1つの画像から、主要なプラットフォーム向けのfavicon一式を生成してくれます。</p>
+  >favicon.io</a></strong></p>
+<ul>
+<li>1つの画像から主要プラットフォーム向けfavicon一式を自動生成</li>
+<li>多様な入力形式に対応（画像、テキスト、絵文字）</li>
+</ul>
+</li>
+<li>
 <p><strong><a
   href="https://icooon-mono.com/"
     target="_blank"
-  >ICOON MONO</a></strong><br>
-各種アイコン素材をダウンロードできます。</p>
-<hr>
+  >ICOON MONO</a></strong></p>
+<ul>
+<li>豊富なアイコン素材を無料でダウンロード可能</li>
+<li>SVGおよびPNG形式で提供</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">推奨ワークフロー 
+    <div id="推奨ワークフロー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8e%a8%e5%a5%a8%e3%83%af%e3%83%bc%e3%82%af%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>元となる高解像度画像（512×512px以上）を用意</li>
+<li>favicon.ioで各サイズのファイルを一括生成</li>
+<li>生成されたファイルを <code>static</code> ディレクトリに配置</li>
+<li>サイトを再起動して動作確認</li>
+</ol>
+
+<h2 class="relative group">トラブルシューティング 
+    <div id="トラブルシューティング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%88%e3%83%a9%e3%83%96%e3%83%ab%e3%82%b7%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">よくある問題と解決法 
+    <div id="よくある問題と解決法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%95%8f%e9%a1%8c%e3%81%a8%e8%a7%a3%e6%b1%ba%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題1: ブラウザでfaviconが更新されない</strong></p>
+<ul>
+<li><strong>原因</strong>: ブラウザキャッシュが残っている</li>
+<li><strong>解決法</strong>: ハードリロード（Ctrl+Shift+R または Cmd+Shift+R）を実行</li>
+</ul>
+<p><strong>問題2: 一部のサイズのfaviconが表示されない</strong></p>
+<ul>
+<li><strong>原因</strong>: ファイル名が正しくない、またはサイズが仕様と異なる</li>
+<li><strong>解決法</strong>: ファイル名とサイズを再確認し、必要に応じて再生成</li>
+</ul>
+<p><strong>問題3: モバイルでアイコンが正しく表示されない</strong></p>
+<ul>
+<li><strong>原因</strong>: <code>site.webmanifest</code> の設定が不適切</li>
+<li><strong>解決法</strong>: マニフェストファイルのパスとサイズ指定を確認</li>
+</ul>
+
+  
+  
+  
+  
+
+
+
+<div
+  
+    class="flex px-4 py-3 rounded-md" style="background-color: #d9ff00be"
+  
+  >
+  <span
+    
+      class="ltr:pr-3 rtl:pl-3 flex items-center" style="color: #1d3557"
+    
+    >
+    
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M112.1 454.3c0 6.297 1.816 12.44 5.284 17.69l17.14 25.69c5.25 7.875 17.17 14.28 26.64 14.28h61.67c9.438 0 21.36-6.401 26.61-14.28l17.08-25.68c2.938-4.438 5.348-12.37 5.348-17.7L272 415.1h-160L112.1 454.3zM191.4 .0132C89.44 .3257 16 82.97 16 175.1c0 44.38 16.44 84.84 43.56 115.8c16.53 18.84 42.34 58.23 52.22 91.45c.0313 .25 .0938 .5166 .125 .7823h160.2c.0313-.2656 .0938-.5166 .125-.7823c9.875-33.22 35.69-72.61 52.22-91.45C351.6 260.8 368 220.4 368 175.1C368 78.61 288.9-.2837 191.4 .0132zM192 96.01c-44.13 0-80 35.89-80 79.1C112 184.8 104.8 192 96 192S80 184.8 80 176c0-61.76 50.25-111.1 112-111.1c8.844 0 16 7.159 16 16S200.8 96.01 192 96.01z"/></svg>
+
+  </span>
+
+
+  </span>
+
+  <span
+    
+      style="color: #000000ff"
+    
+    >favicon変更後は必ずシークレットモード（プライベートブラウジング）でも確認することをお勧めします。キャッシュの影響を受けずに正確な表示を確認できます。</span>
+</div>
+
+
+<h2 class="relative group">コマンドリファレンス 
+    <div id="コマンドリファレンス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e3%83%aa%e3%83%95%e3%82%a1%e3%83%ac%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Hugo開発サーバーの起動</span>
+</span></span><span class="line"><span class="cl">hugo server -D
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 本番ビルド</span>
+</span></span><span class="line"><span class="cl">hugo
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ビルド成果物のクリーンアップ</span>
+</span></span><span class="line"><span class="cl">hugo --cleanDestinationDir
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 特定ポートでの起動</span>
+</span></span><span class="line"><span class="cl">hugo server -D -p <span class="m">8080</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ブラウザキャッシュクリア（開発者ツールで実行）</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Chrome/Firefox: Ctrl+Shift+R (Windows/Linux) または Cmd+Shift+R (macOS)</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Safari: Cmd+Option+R</span>
+</span></span></code></pre></div>
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Blowfishテーマでのfavicon設定は、<code>static</code> ディレクトリへのファイル配置だけで簡単に実現できます。複数のプラットフォームに対応するため、適切なサイズとフォーマットのファイルを用意することが重要です。</p>
+
+<h3 class="relative group">主要ポイント 
+    <div id="主要ポイント" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%bb%e8%a6%81%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>7種類のfaviconファイルで全プラットフォームをカバー</li>
+<li><code>static</code> ディレクトリへの配置で自動的に適用</li>
+<li>ブラウザキャッシュに注意した確認作業</li>
+</ul>
 
 <h2 class="relative group">参考リンク 
     <div id="参考リンク" class="anchor"></div>
@@ -929,10 +1347,20 @@
     </span>        
     
 </h2>
-<p><a
+<ul>
+<li><a
   href="https://blowfish.page/ja/docs/partials/#%E3%83%95%E3%82%A1%E3%83%93%E3%82%B3%E3%83%B3"
     target="_blank"
-  >Blowfish_favicon</a></p>
+  >Blowfish公式ドキュメント - ファビコン</a></li>
+<li><a
+  href="https://favicon.io/"
+    target="_blank"
+  >favicon.io</a></li>
+<li><a
+  href="https://icooon-mono.com/"
+    target="_blank"
+  >ICOON MONO</a></li>
+</ul>
 
           
           
@@ -1090,7 +1518,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="//localhost:1313/">
+  data-url="/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
