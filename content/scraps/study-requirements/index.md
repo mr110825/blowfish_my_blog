@@ -2,7 +2,7 @@
 date = '2025-09-07T12:08:59+09:00'
 draft = false
 title = '勉強メモ：requirements.txt'
-tags = ["python","勉強メモ"]
+tags = ["python"]
 +++
 ## requirements.txtとは
 requirements.txtはPythonプロジェクトで使用しているパッケージ名とバージョンを記述したテキストファイルです。

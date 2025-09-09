@@ -1,8 +1,8 @@
 +++
 date = '2025-09-09T15:30:00+09:00'
 draft = false
-title = '勉強メモ：Blowfishテーマでスクラップを「最近の記事」から除外'
-tags = ["hugo", "blowfish", "勉強メモ"]
+title = 'Blowfishテーマでスクラップを「最近の記事」から除外'
+tags = ["hugo", "blowfish"]
 +++
 
 ## はじめに

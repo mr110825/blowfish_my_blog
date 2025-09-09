@@ -2,7 +2,7 @@
 date = '2025-09-07T11:29:35+09:00'
 draft = false
 title = '勉強メモ：virtualenv'
-tags = ["python","勉強メモ"]
+tags = ["python"]
 +++
 ## virtualenvとは？
 
