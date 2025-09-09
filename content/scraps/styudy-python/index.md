@@ -237,43 +237,6 @@ print(reversed_text)
 ```
 </details>
 
-## 関連ライブラリ・ツール
-
-Python関連のスクラップへリンクを下記にまとめます。
-
-### Numpy
-Pythonで科学技術計算を効率的に行うためのコアライブラリ
-<br>スクラップメモは[こちら]({{< ref "scraps/study-numpy/" >}})
-
-### pyenv
-Pythonのバージョン管理を簡単にするツール
-<br>スクラップメモは[こちら]({{< ref "scraps/study-pyenv/" >}})
-
-### venv
-仮想環境を管理するためのツール
-<br>スクラップメモは[こちら]({{< ref "scraps/study-venv/" >}})
-
-### virtualenv
-仮想環境を管理するためのツール（venvと類似している）
-<br>スクラップメモは[こちら]({{< ref "scraps/study-virtualenv/" >}})
-
-### pipコマンド
-pipはPythonの公式パッケージ管理ツール
-<br>スクラップメモは[こちら]({{< ref "scraps/study-pip/" >}})
-
-### requirements.txt
-Pythonプロジェクトで使用しているパッケージ名とバージョンを記述したテキストファイル
-<br>スクラップメモは[こちら]({{< ref "scraps/study-requirements/" >}})
-
-### pandas
-データを扱う際によく用いられるライブラリ
-<br>スクラップメモは[こちら]({{< ref "scraps/study-pandas/" >}})
-
-## 練習問題
-
-- [入門レベルのハンズオン]({{< ref "scraps/python-practice/" >}})
-- [基礎レベルのハンズオン]({{< ref "scraps/python-practice2/" >}})
-
 ## 参考リンク
 - [ゼロからのPython入門講座](https://www.python.jp/train/index.html)
 - [Python チュートリアル](https://docs.python.org/ja/3.13/tutorial/index.html)

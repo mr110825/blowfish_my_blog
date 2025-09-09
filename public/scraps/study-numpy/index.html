@@ -141,7 +141,7 @@
     "keywords": ["python","勉強メモ"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "435"
+    "wordCount": "434"
   }]
   </script>
 
@@ -688,26 +688,27 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#0はじめに">0.はじめに</a></li>
-    <li><a href="#1-numpyとは">1. NumPyとは？</a></li>
-    <li><a href="#2-インストールとインポート">2. インストールとインポート</a>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#インストールとインポート">インストールとインポート</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
         <li><a href="#インポート">インポート</a></li>
       </ul>
     </li>
-    <li><a href="#3-配列-ndarray-の作成">3. 配列 (ndarray) の作成</a></li>
-    <li><a href="#4-配列の基本情報">4. 配列の基本情報</a></li>
-    <li><a href="#5-インデックスとスライシング">5. インデックスとスライシング</a></li>
-    <li><a href="#6-配列の操作">6. 配列の操作</a></li>
-    <li><a href="#7-配列の演算">7. 配列の演算</a>
+    <li><a href="#基本的な使い方">基本的な使い方</a>
       <ul>
+        <li><a href="#1-配列-ndarray-の作成">1. 配列 (ndarray) の作成</a></li>
+        <li><a href="#2-配列の基本情報">2. 配列の基本情報</a></li>
+        <li><a href="#3-インデックスとスライシング">3. インデックスとスライシング</a></li>
+        <li><a href="#4-配列の操作">4. 配列の操作</a></li>
+        <li><a href="#5-配列の演算">5. 配列の演算</a></li>
         <li><a href="#基本的な演算">基本的な演算</a></li>
         <li><a href="#ブロードキャスト">ブロードキャスト</a></li>
       </ul>
     </li>
-    <li><a href="#8-数学統計関数">8. 数学・統計関数</a>
+    <li><a href="#実践的な使い方">実践的な使い方</a>
       <ul>
+        <li><a href="#数学統計関数">数学・統計関数</a></li>
         <li><a href="#統計関数">統計関数</a></li>
         <li><a href="#ユニバーサル関数-ufuncs">ユニバーサル関数 (UFuncs)</a></li>
         <li><a href="#線形代数">線形代数</a></li>
@@ -727,26 +728,27 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#0はじめに">0.はじめに</a></li>
-    <li><a href="#1-numpyとは">1. NumPyとは？</a></li>
-    <li><a href="#2-インストールとインポート">2. インストールとインポート</a>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#インストールとインポート">インストールとインポート</a>
       <ul>
         <li><a href="#インストール">インストール</a></li>
         <li><a href="#インポート">インポート</a></li>
       </ul>
     </li>
-    <li><a href="#3-配列-ndarray-の作成">3. 配列 (ndarray) の作成</a></li>
-    <li><a href="#4-配列の基本情報">4. 配列の基本情報</a></li>
-    <li><a href="#5-インデックスとスライシング">5. インデックスとスライシング</a></li>
-    <li><a href="#6-配列の操作">6. 配列の操作</a></li>
-    <li><a href="#7-配列の演算">7. 配列の演算</a>
+    <li><a href="#基本的な使い方">基本的な使い方</a>
       <ul>
+        <li><a href="#1-配列-ndarray-の作成">1. 配列 (ndarray) の作成</a></li>
+        <li><a href="#2-配列の基本情報">2. 配列の基本情報</a></li>
+        <li><a href="#3-インデックスとスライシング">3. インデックスとスライシング</a></li>
+        <li><a href="#4-配列の操作">4. 配列の操作</a></li>
+        <li><a href="#5-配列の演算">5. 配列の演算</a></li>
         <li><a href="#基本的な演算">基本的な演算</a></li>
         <li><a href="#ブロードキャスト">ブロードキャスト</a></li>
       </ul>
     </li>
-    <li><a href="#8-数学統計関数">8. 数学・統計関数</a>
+    <li><a href="#実践的な使い方">実践的な使い方</a>
       <ul>
+        <li><a href="#数学統計関数">数学・統計関数</a></li>
         <li><a href="#統計関数">統計関数</a></li>
         <li><a href="#ユニバーサル関数-ufuncs">ユニバーサル関数 (UFuncs)</a></li>
         <li><a href="#線形代数">線形代数</a></li>
@@ -856,35 +858,25 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h2 class="relative group">0.はじめに 
-    <div id="0はじめに" class="anchor"></div>
+<h2 class="relative group">はじめに 
+    <div id="はじめに" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#0%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>このチートシートは、NumPyの基本的な使い方から少し応用的な内容までを、解説とコード例付きでまとめたものです。</p>
-
-<h2 class="relative group">1. NumPyとは？ 
-    <div id="1-numpyとは" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-numpy%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
 <p>NumPyは、Pythonで科学技術計算を効率的に行うためのコアライブラリです。特に、<strong>多次元配列</strong>（<code>ndarray</code>）を高速に扱うための機能が豊富に用意されており、データ分析や機械学習の分野で必須のツールとなっています。</p>
+<p>以下に、NumPyの基本的な使い方から応用的な内容まで、実用的な活用方法を解説とコード例付きで説明します。</p>
 <hr>
 
-<h2 class="relative group">2. インストールとインポート 
-    <div id="2-インストールとインポート" class="anchor"></div>
+<h2 class="relative group">インストールとインポート 
+    <div id="インストールとインポート" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%a8%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%a8%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
@@ -914,15 +906,25 @@
 <div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 </span></span></code></pre></div><hr>
 
-<h2 class="relative group">3. 配列 (ndarray) の作成 
-    <div id="3-配列-ndarray-の作成" class="anchor"></div>
+<h2 class="relative group">基本的な使い方 
+    <div id="基本的な使い方" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e9%85%8d%e5%88%97-ndarray-%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e4%bd%bf%e3%81%84%e6%96%b9" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
+
+<h3 class="relative group">1. 配列 (ndarray) の作成 
+    <div id="1-配列-ndarray-の作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e9%85%8d%e5%88%97-ndarray-%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
 <p>NumPyの基本は <code>ndarray</code> オブジェクトです。様々な方法で配列を作成できます。</p>
 <table>
   <thead>
@@ -973,15 +975,15 @@
 </span></span><span class="line"><span class="cl"><span class="c1">#=&gt; [0 1 2 3 4 5 6 7 8 9]</span>
 </span></span></code></pre></div><hr>
 
-<h2 class="relative group">4. 配列の基本情報 
-    <div id="4-配列の基本情報" class="anchor"></div>
+<h3 class="relative group">2. 配列の基本情報 
+    <div id="2-配列の基本情報" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e9%85%8d%e5%88%97%e3%81%ae%e5%9f%ba%e6%9c%ac%e6%83%85%e5%a0%b1" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e9%85%8d%e5%88%97%e3%81%ae%e5%9f%ba%e6%9c%ac%e6%83%85%e5%a0%b1" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>配列がどのようなものかを確認するための属性です。</p>
 <p><code>arr = np.array([[1, 2, 3], [4, 5, 6]])</code> を例とします。</p>
 <table>
@@ -1022,15 +1024,15 @@
 </table>
 <hr>
 
-<h2 class="relative group">5. インデックスとスライシング 
-    <div id="5-インデックスとスライシング" class="anchor"></div>
+<h3 class="relative group">3. インデックスとスライシング 
+    <div id="3-インデックスとスライシング" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e3%82%a4%e3%83%b3%e3%83%87%e3%83%83%e3%82%af%e3%82%b9%e3%81%a8%e3%82%b9%e3%83%a9%e3%82%a4%e3%82%b7%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%82%a4%e3%83%b3%e3%83%87%e3%83%83%e3%82%af%e3%82%b9%e3%81%a8%e3%82%b9%e3%83%a9%e3%82%a4%e3%82%b7%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
+</h3>
 <p>配列から特定の要素や部分を取り出す操作です。</p>
 <p><code>a = np.arange(10)</code> <code>B = np.array([[1,2,3],[4,5,6],[7,8,9]])</code> を例とします。</p>
 <table>
@@ -1071,15 +1073,15 @@
 </table>
 <hr>
 
-<h2 class="relative group">6. 配列の操作 
-    <div id="6-配列の操作" class="anchor"></div>
+<h3 class="relative group">4. 配列の操作 
+    <div id="4-配列の操作" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#6-%e9%85%8d%e5%88%97%e3%81%ae%e6%93%8d%e4%bd%9c" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e9%85%8d%e5%88%97%e3%81%ae%e6%93%8d%e4%bd%9c" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
+</h3>
 <table>
   <thead>
       <tr>
@@ -1136,15 +1138,15 @@
 </span></span><span class="line"><span class="cl"><span class="c1">#    [ 3  7 11]]</span>
 </span></span></code></pre></div><hr>
 
-<h2 class="relative group">7. 配列の演算 
-    <div id="7-配列の演算" class="anchor"></div>
+<h3 class="relative group">5. 配列の演算 
+    <div id="5-配列の演算" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#7-%e9%85%8d%e5%88%97%e3%81%ae%e6%bc%94%e7%ae%97" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e9%85%8d%e5%88%97%e3%81%ae%e6%bc%94%e7%ae%97" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
+</h3>
 
 <h3 class="relative group">基本的な演算 
     <div id="基本的な演算" class="anchor"></div>
@@ -1208,15 +1210,25 @@
 </span></span><span class="line"><span class="cl"><span class="c1">#    [14 25 36]]</span>
 </span></span></code></pre></div><hr>
 
-<h2 class="relative group">8. 数学・統計関数 
-    <div id="8-数学統計関数" class="anchor"></div>
+<h2 class="relative group">実践的な使い方 
+    <div id="実践的な使い方" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#8-%e6%95%b0%e5%ad%a6%e7%b5%b1%e8%a8%88%e9%96%a2%e6%95%b0" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5%e7%9a%84%e3%81%aa%e4%bd%bf%e3%81%84%e6%96%b9" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
+
+<h3 class="relative group">数学・統計関数 
+    <div id="数学統計関数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%95%b0%e5%ad%a6%e7%b5%b1%e8%a8%88%e9%96%a2%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
 
 <h3 class="relative group">統計関数 
     <div id="統計関数" class="anchor"></div>
