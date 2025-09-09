@@ -16,6 +16,9 @@ buildFuture = false
 
 enableEmoji = true
 
+# Only include posts section in recent articles
+mainSections = ["posts"]
+
 # googleAnalytics = "G-XXXXXXXXX"
 
 [pagination]
