@@ -12,13 +12,13 @@
     <lastBuildDate>Tue, 09 Sep 2025 15:30:00 +0900</lastBuildDate><atom:link href="//localhost:1313/scraps/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>勉強メモ：Blowfishテーマでスクラップを「最近の記事」から除外</title>
+      <title>Blowfishテーマでスクラップを「最近の記事」から除外</title>
       <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
       <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/scraps/blowfish-exclude-recent/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/blowfish-exclude-recent/feature.jpg" />
     </item>
     
     <item>
@@ -32,7 +32,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：Python基礎レベルハンズオン</title>
+      <title>Python基礎レベルハンズオン</title>
       <link>//localhost:1313/scraps/python-practice2/</link>
       <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -42,7 +42,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：Python入門レベルハンズオン</title>
+      <title>Python入門レベルハンズオン</title>
       <link>//localhost:1313/scraps/python-practice/</link>
       <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -122,7 +122,7 @@
     </item>
     
     <item>
-      <title>勉強メモ-応用情報技術者試験</title>
+      <title>勉強メモ：応用情報技術者試験</title>
       <link>//localhost:1313/scraps/ouyoujouhou-memo/</link>
       <pubDate>Mon, 01 Sep 2025 13:59:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>

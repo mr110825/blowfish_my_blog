@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sat, 06 Sep 2025 12:54:32 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 09 Sep 2025 15:30:00 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Blowfishテーマでスクラップを「最近の記事」から除外</title>
+      <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
+      <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/blowfish-exclude-recent/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/blowfish-exclude-recent/feature.jpg" />
+    </item>
     
     <item>
       <title>Hugo&#43;Blowfishで構築したサイトをGoogle検索に表示させる手順</title>
