@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -142,7 +142,7 @@
     "keywords": ["python"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "341"
+    "wordCount": "338"
   }]
   </script>
 
@@ -842,8 +842,8 @@
     
 </h2>
 <p>Linux（DebianやUbuntuなど）環境でPython3をインストールする手順です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install -y python3
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install -y python3
 </span></span></code></pre></div><p><strong>コマンドの解説</strong></p>
 <ul>
 <li><code>sudo apt update</code>: インストール可能なパッケージのリストを最新の状態に更新します。</li>
@@ -864,7 +864,7 @@
     
 </h3>
 <p>インストールが正常に完了したかを確認するには、ターミナルで以下のコマンドを実行します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 --version
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 --version
 </span></span></code></pre></div><p>次のように、インストールされたPythonのバージョンが表示されれば成功です。</p>
 <pre tabindex="0"><code>Python 3.x.x
 </code></pre><p>※ <code>x.x</code>の部分には、インストールされたバージョン番号が表示されます。</p>
@@ -902,9 +902,9 @@ Hello, Python!
     
 </h2>
 <p>関数は、特定の処理をひとまとめにしたものです。同じ処理を何度も書きたいときに便利です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">関数名</span><span class="p">(</span><span class="n">引数</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># ここに処理を書く</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">戻り</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">関数名</span>(引数):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># ここに処理を書く</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> 戻り
 </span></span></code></pre></div><ul>
 <li><strong>引数 (argument):</strong> 関数に渡す値。</li>
 <li><strong>戻り値 (return value):</strong> 関数の処理結果として返される値。</li>
@@ -919,15 +919,15 @@ Hello, Python!
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">greet</span><span class="p">(</span><span class="n">name</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;名前を受け取って、あいさつのメッセージを返す関数&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="n">message</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&#34;こんにちは、</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="s2">さん！&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">message</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 関数を呼び出して、戻り値を変数に受け取る</span>
-</span></span><span class="line"><span class="cl"><span class="n">greeting</span> <span class="o">=</span> <span class="n">greet</span><span class="p">(</span><span class="s2">&#34;山田&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">greeting</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 出力: こんにちは、山田さん！</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">greet</span>(name):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;名前を受け取って、あいさつのメッセージを返す関数&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    message <span style="color:#f92672">=</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;こんにちは、</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">さん！&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> message
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 関数を呼び出して、戻り値を変数に受け取る</span>
+</span></span><span style="display:flex;"><span>greeting <span style="color:#f92672">=</span> greet(<span style="color:#e6db74">&#34;山田&#34;</span>)
+</span></span><span style="display:flex;"><span>print(greeting)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 出力: こんにちは、山田さん！</span>
 </span></span></code></pre></div>
 <h3 class="relative group">練習問題 
     <div id="練習問題" class="anchor"></div>
@@ -940,17 +940,16 @@ Hello, Python!
 </h3>
 <p>2つの数値を受け取り、その積（掛け算の結果）を返す <code>multiply</code> という名前の関数を作成してください。
 その後、その関数を使って <code>5</code> と <code>8</code> の積を計算し、結果をコンソールに出力してください。</p>
-<details>
-<summary>解答例</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># 2つの数値の積を返す関数</span>
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">num1</span> <span class="o">*</span> <span class="n">num2</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 関数を呼び出して結果を計算</span>
-</span></span><span class="line"><span class="cl"><span class="n">result</span> <span class="o">=</span> <span class="n">multiply</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;5と8の積は </span><span class="si">{</span><span class="n">result</span><span class="si">}</span><span class="s2"> です。&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 出力: 5と8の積は 40 です。</span>
-</span></span></code></pre></div></details>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 2つの数値の積を返す関数</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">multiply</span>(num1, num2):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> num1 <span style="color:#f92672">*</span> num2
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 関数を呼び出して結果を計算</span>
+</span></span><span style="display:flex;"><span>result <span style="color:#f92672">=</span> multiply(<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">8</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;5と8の積は </span><span style="color:#e6db74">{</span>result<span style="color:#e6db74">}</span><span style="color:#e6db74"> です。&#34;</span>)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 出力: 5と8の積は 40 です。</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
 
 <h2 class="relative group">クラス (Classes) 
     <div id="クラス-classes" class="anchor"></div>
@@ -962,15 +961,15 @@ Hello, Python!
     
 </h2>
 <p>クラスは、オブジェクトの「設計図」です。データ（属性）と処理（メソッド）を一つにまとめることができます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">クラス名</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="c1"># コンストラクタ (初期化メソッド)</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">引数</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">インスタンス変数</span> <span class="o">=</span> <span class="n">引数</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="c1"># メソッド</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">メソッド名</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="c1"># 処理</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">インスタンス変数</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">クラス名</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># コンストラクタ (初期化メソッド)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, 引数):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>インスタンス変数 <span style="color:#f92672">=</span> 引数
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># メソッド</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">メソッド名</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># 処理</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> self<span style="color:#f92672">.</span>インスタンス変数
 </span></span></code></pre></div><ul>
 <li><strong>インスタンス:</strong> クラス（設計図）から作られた実体のこと。</li>
 <li><code>__init__</code>: インスタンスが作られるときに最初に呼ばれる特別なメソッド。</li>
@@ -986,23 +985,23 @@ Hello, Python!
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Person</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>  <span class="c1"># 属性 (インスタンス変数)</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">age</span> <span class="o">=</span> <span class="n">age</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">introduce</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span> <span class="c1"># メソッド</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;私の名前は</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">、</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">age</span><span class="si">}</span><span class="s2">歳です。&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># Personクラスから「インスタンス」を作成</span>
-</span></span><span class="line"><span class="cl"><span class="n">person1</span> <span class="o">=</span> <span class="n">Person</span><span class="p">(</span><span class="s2">&#34;鈴木&#34;</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 属性やメソッドを使う</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">person1</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">person1</span><span class="o">.</span><span class="n">introduce</span><span class="p">())</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 出力:</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 鈴木</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 私の名前は鈴木、25歳です。</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, name, age):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name  <span style="color:#75715e"># 属性 (インスタンス変数)</span>
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>age <span style="color:#f92672">=</span> age
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">introduce</span>(self): <span style="color:#75715e"># メソッド</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;私の名前は</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">、</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>age<span style="color:#e6db74">}</span><span style="color:#e6db74">歳です。&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Personクラスから「インスタンス」を作成</span>
+</span></span><span style="display:flex;"><span>person1 <span style="color:#f92672">=</span> Person(<span style="color:#e6db74">&#34;鈴木&#34;</span>, <span style="color:#ae81ff">25</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 属性やメソッドを使う</span>
+</span></span><span style="display:flex;"><span>print(person1<span style="color:#f92672">.</span>name)
+</span></span><span style="display:flex;"><span>print(person1<span style="color:#f92672">.</span>introduce())
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 出力:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 鈴木</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 私の名前は鈴木、25歳です。</span>
 </span></span></code></pre></div>
 <h3 class="relative group">練習問題 
     <div id="練習問題-1" class="anchor"></div>
@@ -1019,23 +1018,22 @@ Hello, Python!
 <li><code>bark</code> というメソッドを定義し、呼び出されると「(名前)はワン！と鳴いた」という文字列を返すようにしてください。</li>
 </ul>
 <p>その後、<code>Dog</code> クラスから &ldquo;ポチ&rdquo; という名前のインスタンスを作成し、<code>bark</code> メソッドを呼び出して結果を出力してください。</p>
-<details>
-<summary>解答例</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="k">class</span> <span class="nc">Dog</span><span class="p">:</span>
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">    <span class="k">def</span> <span class="nf">bark</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">        <span class="k">return</span> <span class="sa">f</span><span class="s2">&#34;</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">はワン！と鳴いた&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># インスタンスを作成</span>
-</span></span><span class="line"><span class="cl"><span class="n">my_dog</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="s2">&#34;ポチ&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># メソッドを呼び出し</span>
-</span></span><span class="line"><span class="cl"><span class="n">message</span> <span class="o">=</span> <span class="n">my_dog</span><span class="o">.</span><span class="n">bark</span><span class="p">()</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 出力: ポチはワン！と鳴いた</span>
-</span></span></code></pre></div></details>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Dog</span>:
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">__init__</span>(self, name):
+</span></span><span style="display:flex;"><span>        self<span style="color:#f92672">.</span>name <span style="color:#f92672">=</span> name
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> <span style="color:#a6e22e">bark</span>(self):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> <span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{</span>self<span style="color:#f92672">.</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">はワン！と鳴いた&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># インスタンスを作成</span>
+</span></span><span style="display:flex;"><span>my_dog <span style="color:#f92672">=</span> Dog(<span style="color:#e6db74">&#34;ポチ&#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># メソッドを呼び出し</span>
+</span></span><span style="display:flex;"><span>message <span style="color:#f92672">=</span> my_dog<span style="color:#f92672">.</span>bark()
+</span></span><span style="display:flex;"><span>print(message)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 出力: ポチはワン！と鳴いた</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
 
 <h2 class="relative group">モジュールとインポート (Modules &amp; Import) 
     <div id="モジュールとインポート-modules--import" class="anchor"></div>
@@ -1058,11 +1056,11 @@ Hello, Python!
     
 </h3>
 <p>例えば、<code>utils.py</code> という名前で以下のファイルを作成したとします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python:utils.py" data-lang="python:utils.py"><span class="line"><span class="cl"><span class="n">PI</span> <span class="o">=</span> <span class="mf">3.14159</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="s2">&#34;&#34;&#34;円の面積を計算する&#34;&#34;&#34;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">PI</span> <span class="o">*</span> <span class="p">(</span><span class="n">radius</span> <span class="o">**</span> <span class="mi">2</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python:utils.py" data-lang="python:utils.py"><span style="display:flex;"><span>PI <span style="color:#f92672">=</span> <span style="color:#ae81ff">3.14159</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">circle_area</span>(radius):
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#34;&#34;&#34;円の面積を計算する&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> PI <span style="color:#f92672">*</span> (radius <span style="color:#f92672">**</span> <span style="color:#ae81ff">2</span>)
 </span></span></code></pre></div>
 <h3 class="relative group">モジュールの利用 (インポート) 
     <div id="モジュールの利用-インポート" class="anchor"></div>
@@ -1074,14 +1072,14 @@ Hello, Python!
     
 </h3>
 <p>同じディレクトリにある別のファイル (<code>main.py</code>など) から、<code>utils.py</code> の中身をインポートして使えます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python:main.py" data-lang="python:main.py"><span class="line"><span class="cl"><span class="kn">import</span> <span class="nn">utils</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># utilsモジュールの中の変数や関数を使う</span>
-</span></span><span class="line"><span class="cl"><span class="n">radius</span> <span class="o">=</span> <span class="mi">5</span>
-</span></span><span class="line"><span class="cl"><span class="n">area</span> <span class="o">=</span> <span class="n">utils</span><span class="o">.</span><span class="n">circle_area</span><span class="p">(</span><span class="n">radius</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;半径</span><span class="si">{</span><span class="n">radius</span><span class="si">}</span><span class="s2">の円の面積は </span><span class="si">{</span><span class="n">area</span><span class="si">}</span><span class="s2"> です。&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&#34;円周率は </span><span class="si">{</span><span class="n">utils</span><span class="o">.</span><span class="n">PI</span><span class="si">}</span><span class="s2"> です。&#34;</span><span class="p">)</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python:main.py" data-lang="python:main.py"><span style="display:flex;"><span><span style="color:#f92672">import</span> utils
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># utilsモジュールの中の変数や関数を使う</span>
+</span></span><span style="display:flex;"><span>radius <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+</span></span><span style="display:flex;"><span>area <span style="color:#f92672">=</span> utils<span style="color:#f92672">.</span>circle_area(radius)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;半径</span><span style="color:#e6db74">{</span>radius<span style="color:#e6db74">}</span><span style="color:#e6db74">の円の面積は </span><span style="color:#e6db74">{</span>area<span style="color:#e6db74">}</span><span style="color:#e6db74"> です。&#34;</span>)
+</span></span><span style="display:flex;"><span>print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;円周率は </span><span style="color:#e6db74">{</span>utils<span style="color:#f92672">.</span>PI<span style="color:#e6db74">}</span><span style="color:#e6db74"> です。&#34;</span>)
 </span></span></code></pre></div>
 <h3 class="relative group">練習問題 
     <div id="練習問題-2" class="anchor"></div>
@@ -1093,19 +1091,18 @@ Hello, Python!
     
 </h3>
 <p><code>string_utils.py</code> というモジュールがあると仮定します。このモジュールには、文字列を逆にする <code>reverse</code> という関数が定義されています。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python:string_utils.py" data-lang="python:string_utils.py"><span class="line"><span class="cl"><span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
-</span></span><span class="line"><span class="cl">    <span class="k">return</span> <span class="n">text</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python:string_utils.py" data-lang="python:string_utils.py"><span style="display:flex;"><span><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">reverse</span>(text):
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> text[::<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>]
 </span></span></code></pre></div><p><code>from ... import ...</code> 構文を使って <code>string_utils</code> モジュールから <code>reverse</code> 関数だけをインポートし、<code>&quot;hello&quot;</code> という文字列を逆にして出力してください。</p>
-<details>
-<summary>解答例</summary>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-python" data-lang="python"><span class="line"><span class="cl"><span class="c1"># string_utils から reverse 関数だけをインポート</span>
-</span></span><span class="line"><span class="cl"><span class="kn">from</span> <span class="nn">string_utils</span> <span class="kn">import</span> <span class="n">reverse</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># インポートした関数を直接使える</span>
-</span></span><span class="line"><span class="cl"><span class="n">reversed_text</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="s2">&#34;hello&#34;</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="nb">print</span><span class="p">(</span><span class="n">reversed_text</span><span class="p">)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 出力: olleh</span>
-</span></span></code></pre></div></details>
+<!-- raw HTML omitted -->
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># string_utils から reverse 関数だけをインポート</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> string_utils <span style="color:#f92672">import</span> reverse
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># インポートした関数を直接使える</span>
+</span></span><span style="display:flex;"><span>reversed_text <span style="color:#f92672">=</span> reverse(<span style="color:#e6db74">&#34;hello&#34;</span>)
+</span></span><span style="display:flex;"><span>print(reversed_text)
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 出力: olleh</span>
+</span></span></code></pre></div><!-- raw HTML omitted -->
 
 <h2 class="relative group">参考リンク 
     <div id="参考リンク" class="anchor"></div>

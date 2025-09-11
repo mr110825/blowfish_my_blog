@@ -1,76 +1,286 @@
-# -- Site Configuration --
-# Refer to the theme docs for more details about each of these parameters.
-# https://blowfish.page/docs/getting-started/
+# ------------------------------------------------------------------------------------
+# Hugo 全体設定
+# サイトの基本的な動作やビルドに関するグローバルな設定を行います。
+# ------------------------------------------------------------------------------------
 
+# 使用するテーマを指定します。
 theme = "blowfish"
-# baseURL = "https://your_domain.com/"
+# サイトのデフォルト言語を設定します。
 defaultContentLanguage = "ja"
-
-# pluralizeListTitles = "true" # hugo function useful for non-english languages, find out more in  https://gohugo.io/getting-started/configuration/#pluralizelisttitles
-
+# robots.txt を自動的に生成します。検索エンジンのクローラーを制御します。
 enableRobotsTXT = true
+# 記事の自動要約を無効にします (0 = 無効)。手動で description を設定する場合に推奨されます。
 summaryLength = 0
-
+# `hugo server` 実行時にドラフト記事（draft: true）をビルド対象に含めるか。
 buildDrafts = false
+# 未来の日付の記事をビルド対象に含めるか。
 buildFuture = false
-
+# コンテンツ内で絵文字を使用できるようにします。
 enableEmoji = true
-
-# Only include posts section in recent articles
+# ホームページの「最新記事」セクションに表示するコンテンツのセクションを指定します。
 mainSections = ["posts"]
 
-# googleAnalytics = "G-XXXXXXXXX"
+# baseURL = "https://your_domain.com/" # デプロイ先のURL。公開時にコメントを外して設定してください。
+# pluralizeListTitles = "true" # 英語など、複数形が存在する言語でタイトルを自動的に複数形にします。
+# googleAnalytics = "G-XXXXXXXXX" # Google Analytics のトラッキングID。
 
+# ページネーション設定
 [pagination]
+  # 1ページあたりの表示アイテム数。
   pagerSize = 100
 
+# 画像処理設定
 [imaging]
+  # 画像リサイズ時の基準点を設定します。
   anchor = 'Center'
 
+# タクソノミー（分類）設定
 [taxonomies]
+  # `tags` という名前のタクソノミーを有効にします。
   tag = "tags"
   # category = "categories"
   # author = "authors"
   # series = "series"
 
+# サイトマップ設定
 [sitemap]
+  # クローラー向けの更新頻度情報。
   changefreq = 'daily'
+  # 出力されるサイトマップのファイル名。
   filename = 'sitemap.xml'
+  # ページの優先度。
   priority = 0.5
 
+# 出力フォーマット設定
 [outputs]
+  # ホームページで生成するファイルのフォーマット。
   home = ["HTML", "RSS", "JSON"]
 
+# 関連記事の生成設定
 [related]
+  # 関連度スコアの閾値。0は全記事を対象にします。
   threshold = 0
+  # 比較時に小文字に変換するか。
   toLower = false
+  # 関連度を計算する際の重み付け。
+  [[related.indices]]
+    name = "tags"
+    weight = 100
+  [[related.indices]]
+    name = "categories"
+    weight = 100
+  [[related.indices]]
+    name = "series"
+    weight = 50
+  [[related.indices]]
+    name = "authors"
+    weight = 20
+  [[related.indices]]
+    name = "date"
+    weight = 10
+  [[related.indices]]
+    applyFilter = false
+    name = 'fragmentrefs'
+    type = 'fragments'
+    weight = 10
 
-    [[related.indices]]
-        name = "tags"
-        weight = 100
-
-    [[related.indices]]
-        name = "categories"
-        weight = 100
-
-    [[related.indices]]
-        name = "series"
-        weight = 50
-
-    [[related.indices]]
-        name = "authors"
-        weight = 20
-
-    [[related.indices]]
-        name = "date"
-        weight = 10
-
-    [[related.indices]]
-      applyFilter = false
-      name = 'fragmentrefs'
-      type = 'fragments'
-      weight = 10
-
+# キャッシュ設定
 [caches]
   [caches.images]
+    # 画像処理のキャッシュディレクトリ。
     dir = ':cacheDir/images'
+
+# ------------------------------------------------------------------------------------
+# マークダウンのレンダリング設定
+# ------------------------------------------------------------------------------------
+[goldmark]
+  [goldmark.renderer]
+    # `unsafe = true` にすると、Markdown内でHTMLタグを直接記述できます。
+    unsafe = true
+  [goldmark.extensions]
+    [goldmark.extensions.passthrough]
+      enable = true
+      [goldmark.extensions.passthrough.delimiters]
+        block = [['\[', '\]'], ['$$', '$$']]
+        inline = [['\(', '\)']]
+
+# コードブロックのハイライト設定
+[highlight]
+  # `true` にすると、シンタックスハイライトにCSSクラスが付与されなくなります。
+  noClasses = false
+
+# 目次（Table of Contents）の設定
+[tableOfContents]
+  # 目次に含める見出しのレベル（h2からh4まで）。
+  startLevel = 2
+  endLevel = 4
+
+# ------------------------------------------------------------------------------------
+# 多言語設定（日本語）
+# ------------------------------------------------------------------------------------
+[languages.ja]
+  disabled = false
+  languageCode = "ja"
+  languageName = "Japanese"
+  weight = 1
+  # ブラウザのタブなどに表示されるサイトタイトル。
+  title = "技術的デジャブ回避メモ帳"
+  [languages.ja.params]
+    displayName = "Ja"
+    isoCode = "ja"
+    rtl = false
+    # 日付の表示フォーマット。
+    dateFormat = "2006年 1月 2日"
+    # サイトの概要。SEO（検索エンジン最適化）で利用されます。
+    description = "SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。"
+    # 著者情報
+    [languages.ja.params.author]
+      name = "フミ"
+      email = "ptin110825@gmail.com"
+      image = "img/avater.png"
+      imageQuality = 96
+      headline = "2023年よりSES企業に勤務。RareTECH第55期生。<br> 自分の学習内容やエラー対応などをこのブログにまとめていきます。"
+      links = [
+        { link = "https://zenn.dev/mr110825"}, # Zennへのリンク
+        { github = "https://github.com/mr110825" },
+        { x-twitter = "https://x.com/mr110825" }
+      ]
+
+# ------------------------------------------------------------------------------------
+# メニュー設定（日本語）
+# ------------------------------------------------------------------------------------
+[languages.ja.menu]
+  # ヘッダーに表示されるナビゲーションメニュー。
+  [[languages.ja.menu.main]]
+    name = "Posts"
+    pageRef = "posts" # `content/posts` ディレクトリを参照
+    weight = 10
+  [[languages.ja.menu.main]]
+    name = "Scraps"
+    pageRef = "scraps" # `content/scraps` ディレクトリを参照
+    weight = 20
+  [[languages.ja.menu.main]]
+    name = "Tags"
+    pageRef = "tags" # `/tags` ページを参照
+    weight = 20
+
+# ------------------------------------------------------------------------------------
+# テーマ（Blowfish）のパラメータ設定
+# サイトの見た目や機能に関する詳細な設定を行います。
+# ------------------------------------------------------------------------------------
+[params]
+  # カラースキーム（テーマの配色）
+  colorScheme = "blowfish"
+  # デフォルトの表示モード (dark or light)
+  defaultAppearance = "dark"
+  # OSの設定に合わせて自動でモードを切り替えるか
+  autoSwitchAppearance = false
+  # サイト内検索機能の有効化
+  enableSearch = true
+  # コードブロックのコピーボタンを有効化
+  enableCodeCopy = true
+  # メールでの返信機能を無効化
+  replyByEmail = false
+  # 画像の最適化を有効化
+  disableImageOptimization = false
+  disableImageOptimizationMD = false
+  # ヘッダーにテキストを表示
+  disableTextInHeader = false
+  # スマートな目次表示を有効化
+  smartTOC = true
+  # ファイルの整合性を検証するためのハッシュアルゴリズム
+  fingerprintAlgorithm = "sha512"
+  giteaDefaultServer = "https://git.fsfe.org"
+  forgejoDefaultServer = "https://v11.next.forgejo.org"
+  # 読み込むカスタムCSSファイル
+  customCSS = ["css/custom.css"]
+
+  # ヘッダーのレイアウト設定
+  [params.header]
+    layout = "basic"
+  # フッターの表示設定
+  [params.footer]
+    showMenu = true
+    showCopyright = true
+    showThemeAttribution = true
+    showAppearanceSwitcher = false
+    showScrollToTop = true
+  # ホームページのレイアウト設定
+  [params.homepage]
+    layout = "hero" # ヒーローイメージを大きく表示するレイアウト
+    homepageImage = "img/blog_background.jpg" # ホームページの背景画像
+    showRecent = true # 最新記事を表示
+    showRecentItems = 3 # 表示する最新記事の数
+    showMoreLink = false # 「もっと見る」リンクを非表示
+    showMoreLinkDest = "/posts/"
+    cardView = true # 記事をカード形式で表示
+    cardViewScreenWidth = false
+    layoutBackgroundBlur = true # 背景画像をぼかす
+    disableHeroImageFilter = false
+  # 記事ページの表示設定
+  [params.article]
+    showDate = true # 日付を表示
+    showViews = false # 閲覧数を非表示
+    showLikes = false # いいね数を非表示
+    showDateOnlyInArticle = false
+    showDateUpdated = false # 更新日を非表示
+    showAuthor = false # 著者情報を非表示
+    showHero = true # ヒーローイメージを表示
+    heroStyle = "background" # ヒーローイメージのスタイル
+    layoutBackgroundBlur = true
+    layoutBackgroundHeaderSpace = false
+    showBreadcrumbs = false # パンくずリストを非表示
+    showDraftLabel = true # ドラフトラベルを表示
+    showEdit = false # 編集ボタンを非表示
+    editAppendPath = true
+    seriesOpened = false
+    showHeadingAnchors = true # 見出しのアンカーリンクを表示
+    showPagination = true # 前後の記事へのページネーションを表示
+    invertPagination = false
+    showReadingTime = false # 読了時間を非表示
+    showTableOfContents = true # 目次を表示
+    showTaxonomies = false # タクソノミー（タグなど）を非表示
+    showCategoryOnly = false
+    showAuthorsBadges = false
+    showWordCount = false # 文字数を非表示
+    showZenMode = true # 禅モード（集中モード）を有効化
+  # 記事一覧ページの表示設定
+  [params.list]
+    showHero = false
+    layoutBackgroundBlur = true
+    layoutBackgroundHeaderSpace = true
+    showBreadcrumbs = true
+    showSummary = false
+    showViews = false
+    showLikes = false
+    showTableOfContents = false
+    showCards = false
+    orderByWeight = false
+    groupByYear = true # 年ごとに記事をグループ化
+    cardView = false
+    cardViewScreenWidth = false
+    constrainItemsWidth = false
+  # サイトマップから除外するページの種類
+  [params.sitemap]
+    excludedKinds = ["taxonomy", "term"]
+  # タクソノミー一覧ページの設定
+  [params.taxonomy]
+    showTermCount = true # 各タクソノミーに含まれる記事数を表示
+    showHero = true
+    heroStyle = "background"
+    showBreadcrumbs = false
+    showViews = false
+    showLikes = false
+    showTableOfContents = false
+    cardView = true
+  # タクソノミーの各ターム（例：特定のタグ）のページ設定
+  [params.term]
+    showHero = true
+    heroStyle = "background"
+    showBreadcrumbs = true
+    showViews = false
+    showLikes = false
+    showTableOfContents = true
+    groupByYear = false
+    cardView = true
+    cardViewScreenWidth = true

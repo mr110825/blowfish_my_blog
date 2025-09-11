@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -835,16 +835,16 @@
 <li>依存関係の衝突を避け、異なるプロジェクトで別バージョンのパッケージを共存可能にする。</li>
 <li>開発・テスト用のクリーンな環境を手軽に作られる。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir my_project      <span class="c1"># プロジェクトディレクトリ作成</span>
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my_project
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">python3 -m venv venv  <span class="c1"># 仮想環境作成</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="nb">source</span> venv/bin/activate  <span class="c1"># 仮想環境有効化 (Linux/macOS)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Windowsの場合</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># venv\Scripts\activate.bat  # cmd</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># または</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># venv\Scripts\Activate.ps1   # PowerShell</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mkdir my_project      <span style="color:#75715e"># プロジェクトディレクトリ作成</span>
+</span></span><span style="display:flex;"><span>cd my_project
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>python3 -m venv venv  <span style="color:#75715e"># 仮想環境作成</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>source venv/bin/activate  <span style="color:#75715e"># 仮想環境有効化 (Linux/macOS)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Windowsの場合</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># venv\Scripts\activate.bat  # cmd</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># または</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># venv\Scripts\Activate.ps1   # PowerShell</span>
 </span></span></code></pre></div>
 <h2 class="relative group">pipの基本操作 
     <div id="pipの基本操作" class="anchor"></div>
@@ -865,10 +865,10 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip -V  <span class="c1"># pipのバージョンとPython環境を確認</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip -V  <span style="color:#75715e"># pipのバージョンとPython環境を確認</span>
 </span></span></code></pre></div><p>もしpipがない場合や更新したい場合は、以下：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">python3 -m ensurepip --default-pip  <span class="c1"># pipをインストール</span>
-</span></span><span class="line"><span class="cl">pip install --upgrade pip            <span class="c1"># pipのアップグレード</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>python3 -m ensurepip --default-pip  <span style="color:#75715e"># pipをインストール</span>
+</span></span><span style="display:flex;"><span>pip install --upgrade pip            <span style="color:#75715e"># pipのアップグレード</span>
 </span></span></code></pre></div>
 <h3 class="relative group">パッケージのインストール 
     <div id="パッケージのインストール" class="anchor"></div>
@@ -879,9 +879,9 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip install Flask               <span class="c1"># 最新版をインストール</span>
-</span></span><span class="line"><span class="cl">pip install <span class="nv">Flask</span><span class="o">==</span>2.3.3       <span class="c1"># バージョン指定してインストール</span>
-</span></span><span class="line"><span class="cl">pip install <span class="s2">&#34;Flask&gt;=2.2,&lt;3.0&#34;</span>  <span class="c1"># 範囲指定インストール</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip install Flask               <span style="color:#75715e"># 最新版をインストール</span>
+</span></span><span style="display:flex;"><span>pip install Flask<span style="color:#f92672">==</span>2.3.3       <span style="color:#75715e"># バージョン指定してインストール</span>
+</span></span><span style="display:flex;"><span>pip install <span style="color:#e6db74">&#34;Flask&gt;=2.2,&lt;3.0&#34;</span>  <span style="color:#75715e"># 範囲指定インストール</span>
 </span></span></code></pre></div>
 <h3 class="relative group">パッケージのアンインストール 
     <div id="パッケージのアンインストール" class="anchor"></div>
@@ -892,7 +892,7 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip uninstall Flask             <span class="c1"># パッケージ削除</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip uninstall Flask             <span style="color:#75715e"># パッケージ削除</span>
 </span></span></code></pre></div>
 <h3 class="relative group">インストール済みパッケージの確認 
     <div id="インストール済みパッケージの確認" class="anchor"></div>
@@ -906,8 +906,8 @@
 <ul>
 <li>ライブラリ一覧を見たい時は以下コマンドを使う。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip list     <span class="c1"># パッケージとバージョンの一覧</span>
-</span></span><span class="line"><span class="cl">pip freeze   <span class="c1"># requirements.txt形式でパッケージ＋バージョンを表示</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip list     <span style="color:#75715e"># パッケージとバージョンの一覧</span>
+</span></span><span style="display:flex;"><span>pip freeze   <span style="color:#75715e"># requirements.txt形式でパッケージ＋バージョンを表示</span>
 </span></span></code></pre></div><ul>
 <li><code>pip freeze</code> は環境の再現性を確保するのに役立つ。</li>
 </ul>
@@ -921,19 +921,19 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pip show Flask
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 表示される例:</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Name: Flask</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Version: 2.3.3</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Summary: A simple framework for building complex web applications.</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Home-page: https://palletsprojects.com/p/flask/</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Author: Armin Ronacher</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Author-email: armin.ronacher@active-4.com</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># License: BSD-3-Clause</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Location: /path/to/venv/lib/python3.12/site-packages</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Requires: Werkzeug, Jinja2</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Required-by: </span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pip show Flask
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 表示される例:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Name: Flask</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Version: 2.3.3</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Summary: A simple framework for building complex web applications.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Home-page: https://palletsprojects.com/p/flask/</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Author: Armin Ronacher</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Author-email: armin.ronacher@active-4.com</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># License: BSD-3-Clause</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Location: /path/to/venv/lib/python3.12/site-packages</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Requires: Werkzeug, Jinja2</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Required-by: </span>
 </span></span></code></pre></div>
 <h2 class="relative group">requirements.txt の利用 
     <div id="requirementstxt-の利用" class="anchor"></div>
@@ -948,11 +948,11 @@
 <li>複数パッケージをまとめて管理・共有できるテキストファイル。</li>
 <li>チーム開発やCI/CD環境での環境再現に必須。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 現在の環境のパッケージをファイル化</span>
-</span></span><span class="line"><span class="cl">pip freeze &gt; requirements.txt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># ファイルから環境を再現</span>
-</span></span><span class="line"><span class="cl">pip install -r requirements.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 現在の環境のパッケージをファイル化</span>
+</span></span><span style="display:flex;"><span>pip freeze &gt; requirements.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ファイルから環境を再現</span>
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt
 </span></span></code></pre></div>
 <h2 class="relative group">ベストプラクティス・注意点 
     <div id="ベストプラクティス注意点" class="anchor"></div>

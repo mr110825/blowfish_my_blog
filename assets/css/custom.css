@@ -460,3 +460,349 @@ button[aria-expanded],
 .px-1 {
   will-change: transform;
 }
+
+/* モダンなタグページデザイン */
+
+/* カスタムプロパティ（CSS変数）定義 */
+:root {
+    --tag-gradient-start: #667eea;
+    --tag-gradient-end: #764ba2;
+    --tag-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+    --tag-shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.15), 0 15px 20px -10px rgba(0, 0, 0, 0.1);
+    --tag-border-radius: 16px;
+    --tag-spacing: 2rem;
+}
+
+/* ダークモード用の変数 */
+html.dark {
+    --tag-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.3), 0 8px 10px -6px rgba(0, 0, 0, 0.3);
+    --tag-shadow-hover: 0 20px 40px -10px rgba(0, 0, 0, 0.4), 0 15px 20px -10px rgba(0, 0, 0, 0.3);
+}
+
+/* タグ一覧のモダンなグリッドレイアウト */
+.taxonomy section.grid {
+    gap: var(--tag-spacing) !important;
+    margin-top: 3rem;
+    padding: 0 1rem;
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+}
+
+/* タグカードの基本スタイル */
+.taxonomy a {
+    display: block;
+    text-decoration: none;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+/* タグカードのモダンなスタイル */
+.taxonomy a .border {
+    background: rgba(255, 255, 255, 0.95);
+    border: none !important;
+    border-radius: var(--tag-border-radius) !important;
+    box-shadow: var(--tag-shadow);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    overflow: hidden;
+    position: relative;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* ホバー時のモダンな効果 */
+.taxonomy a:hover .border {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: var(--tag-shadow-hover);
+    background: rgba(255, 255, 255, 0.98);
+}
+
+/* カードのグラデーションオーバーレイ */
+.taxonomy a .border::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--tag-gradient-start), var(--tag-gradient-end));
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.taxonomy a:hover .border::before {
+    opacity: 1;
+}
+
+/* タグタイトルのモダンなスタイリング */
+.taxonomy .px-6 {
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 1rem !important;
+    padding-bottom: 1rem !important;
+}
+
+.taxonomy .font-bold {
+    font-weight: 700 !important;
+    font-size: 1.25rem !important;
+    line-height: 1.4;
+    color: #1a202c;
+    margin-bottom: 0.5rem;
+    transition: color 0.3s ease;
+    text-align: left;
+}
+
+html.dark .taxonomy .font-bold {
+    color: #f7fafc;
+}
+
+/* タグ数のモダンなバッジデザイン - 位置調整 */
+.taxonomy .absolute {
+    position: absolute !important;
+    top: 1rem !important;
+    right: 1.5rem !important;
+    bottom: auto !important;
+}
+
+.taxonomy .absolute span span {
+    background: linear-gradient(135deg, var(--tag-gradient-start), var(--tag-gradient-end)) !important;
+    border: none !important;
+    color: white !important;
+    padding: 0.4rem 0.8rem !important;
+    border-radius: 50px !important;
+    font-weight: 600 !important;
+    font-size: 0.8rem !important;
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+/* タグ数バッジのシマー効果 */
+.taxonomy .absolute span span::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.taxonomy a:hover .absolute span span::before {
+    left: 100%;
+}
+
+/* タグページヘッダーのモダンなスタイル */
+.taxonomy header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.taxonomy header h1 {
+    font-size: 3.5rem !important;
+    font-weight: 800 !important;
+    background: linear-gradient(135deg, var(--tag-gradient-start), var(--tag-gradient-end), #ff6b6b);
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    background-clip: text !important;
+    margin-bottom: 1rem !important;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+}
+
+/* サブタイトル追加のスタイル */
+.taxonomy header::after {
+    content: 'Explore topics and discover content';
+    display: block;
+    font-size: 1.1rem;
+    color: #6b7280;
+    font-weight: 400;
+    margin-top: 0.5rem;
+}
+
+html.dark .taxonomy header::after {
+    color: #9ca3af;
+}
+
+/* 個別タグページの記事カード改善 */
+.term section.grid {
+    gap: 1.5rem !important;
+    margin-top: 2rem;
+}
+
+.term article {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+html.dark .term article {
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.term article:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+}
+
+/* レスポンシブデザインの最適化 */
+@media (max-width: 640px) {
+    .taxonomy section.grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+        padding: 0 0.5rem;
+    }
+    
+    .taxonomy header h1 {
+        font-size: 2.5rem !important;
+    }
+    
+    --tag-spacing: 1.5rem;
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+    .taxonomy section.grid {
+        grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+    }
+}
+
+@media (min-width: 1025px) {
+    .taxonomy section.grid {
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+    }
+}
+
+/* スクロール時のパララックス効果（軽量版） */
+@media (prefers-reduced-motion: no-preference) {
+    .taxonomy a {
+        animation: fadeInUp 0.6s ease-out forwards;
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    
+    .taxonomy a:nth-child(1) { animation-delay: 0.1s; }
+    .taxonomy a:nth-child(2) { animation-delay: 0.2s; }
+    .taxonomy a:nth-child(3) { animation-delay: 0.3s; }
+    .taxonomy a:nth-child(4) { animation-delay: 0.4s; }
+    .taxonomy a:nth-child(5) { animation-delay: 0.5s; }
+    .taxonomy a:nth-child(6) { animation-delay: 0.6s; }
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* スマホ記事表示修正 */
+@media (max-width: 1023px) {
+    /* 記事ヘッダーの幅を調整 */
+    #single_header {
+        max-width: 100% !important;
+        padding: 0 1rem;
+    }
+    
+    /* 記事メインセクションのレイアウト修正 */
+    article > section.flex {
+        flex-direction: column !important;
+        max-width: 100% !important;
+        padding: 0 1rem;
+    }
+    
+    /* 記事コンテンツの幅を全幅に */
+    .article-content {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    /* proseクラスの幅制限を解除 */
+    article .prose {
+        max-width: 100% !important;
+    }
+    
+    /* TOC（目次）をモバイルで適切に表示 */
+    .toc {
+        position: static !important;
+        padding: 0 !important;
+        margin: 1rem 0 !important;
+        width: 100% !important;
+    }
+    
+    /* 記事内の要素の幅を調整 */
+    article .min-w-0 {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* スクラップページのモバイル対応も追加 */
+@media (max-width: 640px) {
+    /* スクラップページのヘッダー */
+    .scraps header {
+        padding: 0 1rem;
+    }
+    
+    /* スクラップページのメインセクション */
+    .scraps section.prose {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* スクラップページのコンテンツ */
+    .scraps .min-w-0 {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    /* body要素のパディング調整 */
+    body {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* feature画像付き記事のスマホ対応 - 根本的な修正 */
+@media (max-width: 1023px) {
+    /* 背景画像の表示を無効化 */
+    div.single_hero_background {
+        display: none !important;
+    }
+    
+    /* 背景ブラー効果も無効化 */
+    div#background-blur {
+        display: none !important;
+    }
+    
+    /* ヒーローセクションも非表示 */
+    div#hero {
+        display: none !important;
+    }
+    
+    /* article全体のスタイル調整 */
+    main#main-content > article {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+/* より小さなスマホ画面でも同様の対応 */
+@media (max-width: 640px) {
+    div.single_hero_background,
+    div#background-blur,
+    div#hero {
+        display: none !important;
+    }
+}

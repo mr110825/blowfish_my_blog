@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -889,8 +889,8 @@
 <li>ドキュメント作成や記事執筆の素材としてIssuesを活用したい方</li>
 </ul>
 <p><strong>最適解コマンド（日本語日時フォーマット）:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Issueの取得（jqコマンドで日時フォーマットを日本語表記に変換）</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments | jq -r <span style="color:#e6db74">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div>
   
   
@@ -923,7 +923,7 @@
     
       style="color: #000000ff"
     
-    >Isseusを取得する対象としてはプライベートリポジトリかつ、Githubの無料プランを利用しているユーザーを想定しております。<br>
+    >Isseusを取得する対象としてはプライベートリポジトリかつ、Githubの無料プランを利用しているユーザーを想定しております。<!-- raw HTML omitted -->
 パブリックリポジトリまたは有料プランユーザーの場合は、Github Wiki機能など互換性のある機能があるため、そちらを利用するほうが手順も簡単で、効率的にドキュメント運用できると考えられます。</span>
 </div>
 
@@ -956,11 +956,11 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># インストール状況の確認</span>
-</span></span><span class="line"><span class="cl">gh --version
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># GitHub CLIのインストール（必要な場合）</span>
-</span></span><span class="line"><span class="cl">sudo apt install gh
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># インストール状況の確認</span>
+</span></span><span style="display:flex;"><span>gh --version
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GitHub CLIのインストール（必要な場合）</span>
+</span></span><span style="display:flex;"><span>sudo apt install gh
 </span></span></code></pre></div>
 <h3 class="relative group">GitHub CLIへのログイン 
     <div id="github-cliへのログイン" class="anchor"></div>
@@ -971,11 +971,11 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ログイン状況の確認</span>
-</span></span><span class="line"><span class="cl">gh auth status
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># GitHub CLIへログイン実行</span>
-</span></span><span class="line"><span class="cl">gh auth login
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># ログイン状況の確認</span>
+</span></span><span style="display:flex;"><span>gh auth status
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># GitHub CLIへログイン実行</span>
+</span></span><span style="display:flex;"><span>gh auth login
 </span></span></code></pre></div><p>GitHub CLIへのログイン手順の詳細については、以下の記事をご参照ください。</p>
 <ul>
 <li><a
@@ -1008,13 +1008,13 @@
     
 </h3>
 <p>まず、対象リポジトリのIssues一覧を確認します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh issue list --repo &lt;OWNER/REPO&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh issue list --repo &lt;OWNER/REPO&gt;
 </span></span></code></pre></div><p><strong>実行例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># サンプルリポジトリのIssues確認</span>
-</span></span><span class="line"><span class="cl">gh issue list --repo mr110825/gemini-cli-test-repo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># サンプルリポジトリのIssues確認</span>
+</span></span><span style="display:flex;"><span>gh issue list --repo mr110825/gemini-cli-test-repo
 </span></span></code></pre></div><p><strong>出力例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">ID  TITLE               LABELS  UPDATED         
-</span></span><span class="line"><span class="cl"><span class="c1">#1  サンプル用のIssues          about 1 hour ago</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>ID  TITLE               LABELS  UPDATED         
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#1  サンプル用のIssues          about 1 hour ago</span>
 </span></span></code></pre></div>
 <h3 class="relative group">Step 2: 基本的なIssue取得 
     <div id="step-2-基本的なissue取得" class="anchor"></div>
@@ -1026,30 +1026,30 @@
     
 </h3>
 <p>最もシンプルな方法でIssueを取得します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments &gt; &lt;FILENAME&gt;.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><p><strong>実行例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Issues#1を「test1.md」として取得</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments &gt; test1.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Issues#1を「test1.md」として取得</span>
+</span></span><span style="display:flex;"><span>gh issue view <span style="color:#ae81ff">1</span> --repo mr110825/gemini-cli-test-repo --comments &gt; test1.md
 </span></span></code></pre></div><p><strong>出力例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl">author:	mr110825
-</span></span><span class="line"><span class="cl">association:	owner
-</span></span><span class="line"><span class="cl">edited:	true
-</span></span><span class="line"><span class="cl">status:	none
-</span></span><span class="line"><span class="cl">--
-</span></span><span class="line"><span class="cl">記事を投稿するので構成をまとめる
-</span></span><span class="line"><span class="cl">--
-</span></span><span class="line"><span class="cl">author:	mr110825
-</span></span><span class="line"><span class="cl">association:	owner
-</span></span><span class="line"><span class="cl">edited:	true
-</span></span><span class="line"><span class="cl">status:	none
-</span></span><span class="line"><span class="cl">--
-</span></span><span class="line"><span class="cl">必要な手順
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 文章企画を構成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> サンプルのリポジトリを作成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事作成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事投稿
-</span></span><span class="line"><span class="cl">--
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span>author:	mr110825
+</span></span><span style="display:flex;"><span>association:	owner
+</span></span><span style="display:flex;"><span>edited:	true
+</span></span><span style="display:flex;"><span>status:	none
+</span></span><span style="display:flex;"><span>--
+</span></span><span style="display:flex;"><span>記事を投稿するので構成をまとめる
+</span></span><span style="display:flex;"><span>--
+</span></span><span style="display:flex;"><span>author:	mr110825
+</span></span><span style="display:flex;"><span>association:	owner
+</span></span><span style="display:flex;"><span>edited:	true
+</span></span><span style="display:flex;"><span>status:	none
+</span></span><span style="display:flex;"><span>--
+</span></span><span style="display:flex;"><span>必要な手順
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 文章企画を構成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> サンプルのリポジトリを作成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 記事作成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 記事投稿
+</span></span><span style="display:flex;"><span>--
 </span></span></code></pre></div>
   
   
@@ -1096,36 +1096,36 @@
     
 </h3>
 <p>不要なプロパティを除外し、コメントのみを整形して取得します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments --template <span class="s1">&#39;{{range .comments}}## コメント ({{.createdAt}})
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">{{.body}}
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">---
-</span></span></span><span class="line"><span class="cl"><span class="s1">{{end}}&#39;</span> &gt; &lt;FILENAME&gt;.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments --template <span style="color:#e6db74">&#39;{{range .comments}}## コメント ({{.createdAt}})
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{.body}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">---
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{end}}&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><p><strong>実行例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 整形されたコメントを「test2.md」として取得</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments --template <span class="s1">&#39;{{range .comments}}## コメント ({{.createdAt}})
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">{{.body}}
-</span></span></span><span class="line"><span class="cl"><span class="s1">
-</span></span></span><span class="line"><span class="cl"><span class="s1">---
-</span></span></span><span class="line"><span class="cl"><span class="s1">{{end}}&#39;</span> &gt; test2.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 整形されたコメントを「test2.md」として取得</span>
+</span></span><span style="display:flex;"><span>gh issue view <span style="color:#ae81ff">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments --template <span style="color:#e6db74">&#39;{{range .comments}}## コメント ({{.createdAt}})
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{.body}}
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">---
+</span></span></span><span style="display:flex;"><span><span style="color:#e6db74">{{end}}&#39;</span> &gt; test2.md
 </span></span></code></pre></div><p><strong>出力例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## コメント (2025-06-28T12:24:28Z)
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
-</span></span><span class="line"><span class="cl">記事を投稿するので構成をまとめる
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl"><span class="gu">## コメント (2025-06-28T12:25:50Z)
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
-</span></span><span class="line"><span class="cl">必要な手順
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 文章企画を構成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> サンプルのリポジトリを作成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事作成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事投稿
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## コメント (2025-06-28T12:24:28Z)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>記事を投稿するので構成をまとめる
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## コメント (2025-06-28T12:25:50Z)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>必要な手順
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 文章企画を構成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> サンプルのリポジトリを作成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 記事作成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 記事投稿
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
 </span></span></code></pre></div>
   
   
@@ -1172,28 +1172,28 @@
     
 </h3>
 <p>jqコマンドを使用して、日時を日本語表記に変換します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># jqコマンドのインストール（必要な場合）</span>
-</span></span><span class="line"><span class="cl">sudo apt install jq
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># jqコマンドのインストール（必要な場合）</span>
+</span></span><span style="display:flex;"><span>sudo apt install jq
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments | jq -r <span style="color:#e6db74">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><p><strong>実行例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 日本語日時形式で「test3.md」として取得</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; test3.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 日本語日時形式で「test3.md」として取得</span>
+</span></span><span style="display:flex;"><span>gh issue view <span style="color:#ae81ff">1</span> --repo mr110825/gemini-cli-test-repo --comments --json comments | jq -r <span style="color:#e6db74">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span> &gt; test3.md
 </span></span></code></pre></div><p><strong>出力例:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-markdown" data-lang="markdown"><span class="line"><span class="cl"><span class="gu">## コメント (2025年06月28日 12時24分)
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
-</span></span><span class="line"><span class="cl">記事を投稿するので構成をまとめる
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
-</span></span><span class="line"><span class="cl"><span class="gu">## コメント (2025年06月28日 12時25分)
-</span></span></span><span class="line"><span class="cl"><span class="gu"></span>
-</span></span><span class="line"><span class="cl">必要な手順
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 文章企画を構成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> サンプルのリポジトリを作成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事作成
-</span></span><span class="line"><span class="cl"><span class="k">- [x]</span> 記事投稿
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl">---
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-markdown" data-lang="markdown"><span style="display:flex;"><span><span style="color:#75715e">## コメント (2025年06月28日 12時24分)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>記事を投稿するので構成をまとめる
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## コメント (2025年06月28日 12時25分)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>必要な手順
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 文章企画を構成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> サンプルのリポジトリを作成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 記事作成
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">- [x]</span> 記事投稿
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>---
 </span></span></code></pre></div>
   
   
@@ -1240,8 +1240,8 @@
     
 </h3>
 <p>Issueの全情報を取得したい場合の完全版コマンド：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Issueのタイトル、本文、コメントを完全取得</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments <span class="p">|</span> jq -r <span class="s1">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span> &gt; &lt;FILENAME&gt;.md
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Issueのタイトル、本文、コメントを完全取得</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;ISSUE_NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments | jq -r <span style="color:#e6db74">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span> &gt; &lt;FILENAME&gt;.md
 </span></span></code></pre></div><p>これにより、Issueのタイトル、本文、整形されたコメントが順番に出力されるMarkdownファイルが生成されます。</p>
 
 <h2 class="relative group">応用パターン 
@@ -1263,10 +1263,10 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 全Issuesを一括でMarkdown化</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> issue in <span class="k">$(</span>gh issue list --repo &lt;OWNER/REPO&gt; --json number -q <span class="s1">&#39;.[].number&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  gh issue view <span class="nv">$issue</span> --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments <span class="p">|</span> jq -r <span class="s1">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span> &gt; <span class="s2">&#34;issue-</span><span class="si">${</span><span class="nv">issue</span><span class="si">}</span><span class="s2">.md&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 全Issuesを一括でMarkdown化</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> issue in <span style="color:#66d9ef">$(</span>gh issue list --repo &lt;OWNER/REPO&gt; --json number -q <span style="color:#e6db74">&#39;.[].number&#39;</span><span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  gh issue view $issue --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments | jq -r <span style="color:#e6db74">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span> &gt; <span style="color:#e6db74">&#34;issue-</span><span style="color:#e6db74">${</span>issue<span style="color:#e6db74">}</span><span style="color:#e6db74">.md&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
 </span></span></code></pre></div>
 <h3 class="relative group">特定ラベルのIssues取得 
     <div id="特定ラベルのissues取得" class="anchor"></div>
@@ -1277,8 +1277,8 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 特定ラベル（例：documentation）のIssuesのみ取得</span>
-</span></span><span class="line"><span class="cl">gh issue list --repo &lt;OWNER/REPO&gt; --label <span class="s2">&#34;documentation&#34;</span> --json number -q <span class="s1">&#39;.[].number&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 特定ラベル（例：documentation）のIssuesのみ取得</span>
+</span></span><span style="display:flex;"><span>gh issue list --repo &lt;OWNER/REPO&gt; --label <span style="color:#e6db74">&#34;documentation&#34;</span> --json number -q <span style="color:#e6db74">&#39;.[].number&#39;</span>
 </span></span></code></pre></div>
 <h2 class="relative group">トラブルシューティング 
     <div id="トラブルシューティング" class="anchor"></div>
@@ -1300,27 +1300,27 @@
     
 </h3>
 <p><strong>問題1: GitHub CLI認証エラー</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># エラー例: &#34;authentication required&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># 解決法: 再認証の実行</span>
-</span></span><span class="line"><span class="cl">gh auth login
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># エラー例: &#34;authentication required&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 解決法: 再認証の実行</span>
+</span></span><span style="display:flex;"><span>gh auth login
 </span></span></code></pre></div><p><strong>問題2: jqコマンドが見つからない</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Ubuntu/Debian系</span>
-</span></span><span class="line"><span class="cl">sudo apt install jq
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># CentOS/RHEL系</span>
-</span></span><span class="line"><span class="cl">sudo yum install jq
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># macOS</span>
-</span></span><span class="line"><span class="cl">brew install jq
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Ubuntu/Debian系</span>
+</span></span><span style="display:flex;"><span>sudo apt install jq
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># CentOS/RHEL系</span>
+</span></span><span style="display:flex;"><span>sudo yum install jq
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># macOS</span>
+</span></span><span style="display:flex;"><span>brew install jq
 </span></span></code></pre></div><p><strong>問題3: 日時フォーマットエラー</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># strptime/strftimeが動作しない場合は、シンプルな置換を使用</span>
-</span></span><span class="line"><span class="cl">gh issue view <span class="m">1</span> --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + .createdAt + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># strptime/strftimeが動作しない場合は、シンプルな置換を使用</span>
+</span></span><span style="display:flex;"><span>gh issue view <span style="color:#ae81ff">1</span> --repo &lt;OWNER/REPO&gt; --comments --json comments | jq -r <span style="color:#e6db74">&#39;.comments[] | &#34;## コメント (&#34; + .createdAt + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span>
 </span></span></code></pre></div><p><strong>問題4: プライベートリポジトリへのアクセス権限不足</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 権限スコープの確認</span>
-</span></span><span class="line"><span class="cl">gh auth status
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 必要に応じて追加スコープで再認証</span>
-</span></span><span class="line"><span class="cl">gh auth login --scopes <span class="s2">&#34;repo&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 権限スコープの確認</span>
+</span></span><span style="display:flex;"><span>gh auth status
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 必要に応じて追加スコープで再認証</span>
+</span></span><span style="display:flex;"><span>gh auth login --scopes <span style="color:#e6db74">&#34;repo&#34;</span>
 </span></span></code></pre></div>
 <h2 class="relative group">コマンドリファレンス 
     <div id="コマンドリファレンス" class="anchor"></div>
@@ -1331,34 +1331,34 @@
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 基本操作</span>
-</span></span><span class="line"><span class="cl">gh issue list --repo &lt;OWNER/REPO&gt;                    <span class="c1"># Issues一覧表示</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt;           <span class="c1"># 基本的なIssue表示</span>
-</span></span><span class="line"><span class="cl">gh auth status                                       <span class="c1"># 認証状況確認</span>
-</span></span><span class="line"><span class="cl">gh auth login                                        <span class="c1"># GitHub認証</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># メタデータ付き取得</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments &gt; &lt;FILE&gt;.md
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># JSON形式での取得</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --json title,body,comments
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># テンプレート使用（ISO日時）</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments --template <span class="s1">&#39;{{range .comments}}## コメント ({{.createdAt}})\n\n{{.body}}\n\n---\n{{end}}&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># jq使用（日本語日時・推奨）</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments <span class="p">|</span> jq -r <span class="s1">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 完全版（タイトル・本文・コメント）</span>
-</span></span><span class="line"><span class="cl">gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments <span class="p">|</span> jq -r <span class="s1">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 一括処理</span>
-</span></span><span class="line"><span class="cl"><span class="k">for</span> issue in <span class="k">$(</span>gh issue list --repo &lt;OWNER/REPO&gt; --json number -q <span class="s1">&#39;.[].number&#39;</span><span class="k">)</span><span class="p">;</span> <span class="k">do</span>
-</span></span><span class="line"><span class="cl">  gh issue view <span class="nv">$issue</span> --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments <span class="p">|</span> jq -r <span class="s1">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + .body + &#34;\n\n---&#34;&#39;</span> &gt; <span class="s2">&#34;issue-</span><span class="si">${</span><span class="nv">issue</span><span class="si">}</span><span class="s2">.md&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="k">done</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 特定ラベルでフィルタ</span>
-</span></span><span class="line"><span class="cl">gh issue list --repo &lt;OWNER/REPO&gt; --label <span class="s2">&#34;&lt;LABEL_NAME&gt;&#34;</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 基本操作</span>
+</span></span><span style="display:flex;"><span>gh issue list --repo &lt;OWNER/REPO&gt;                    <span style="color:#75715e"># Issues一覧表示</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt;           <span style="color:#75715e"># 基本的なIssue表示</span>
+</span></span><span style="display:flex;"><span>gh auth status                                       <span style="color:#75715e"># 認証状況確認</span>
+</span></span><span style="display:flex;"><span>gh auth login                                        <span style="color:#75715e"># GitHub認証</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># メタデータ付き取得</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments &gt; &lt;FILE&gt;.md
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># JSON形式での取得</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --json title,body,comments
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># テンプレート使用（ISO日時）</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments --template <span style="color:#e6db74">&#39;{{range .comments}}## コメント ({{.createdAt}})\n\n{{.body}}\n\n---\n{{end}}&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># jq使用（日本語日時・推奨）</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json comments | jq -r <span style="color:#e6db74">&#39;.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---\n&#34;&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 完全版（タイトル・本文・コメント）</span>
+</span></span><span style="display:flex;"><span>gh issue view &lt;NUMBER&gt; --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments | jq -r <span style="color:#e6db74">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + &#34;## Issue本文\n\n&#34; + .body + &#34;\n\n---&#34;, (.comments[] | &#34;## コメント (&#34; + (.createdAt | strptime(&#34;%Y-%m-%dT%H:%M:%SZ&#34;) | strftime(&#34;%Y年%m月%d日 %H時%M分&#34;)) + &#34;)\n\n&#34; + .body + &#34;\n\n---&#34;)&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 一括処理</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> issue in <span style="color:#66d9ef">$(</span>gh issue list --repo &lt;OWNER/REPO&gt; --json number -q <span style="color:#e6db74">&#39;.[].number&#39;</span><span style="color:#66d9ef">)</span>; <span style="color:#66d9ef">do</span>
+</span></span><span style="display:flex;"><span>  gh issue view $issue --repo &lt;OWNER/REPO&gt; --comments --json title,body,comments | jq -r <span style="color:#e6db74">&#39;&#34;# &#34; + .title + &#34;\n\n&#34; + .body + &#34;\n\n---&#34;&#39;</span> &gt; <span style="color:#e6db74">&#34;issue-</span><span style="color:#e6db74">${</span>issue<span style="color:#e6db74">}</span><span style="color:#e6db74">.md&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">done</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 特定ラベルでフィルタ</span>
+</span></span><span style="display:flex;"><span>gh issue list --repo &lt;OWNER/REPO&gt; --label <span style="color:#e6db74">&#34;&lt;LABEL_NAME&gt;&#34;</span>
 </span></span></code></pre></div>
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>

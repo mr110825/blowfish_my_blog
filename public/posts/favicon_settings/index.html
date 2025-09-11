@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -840,7 +840,7 @@
     
 </h2>
 <p><strong>Blowfish</strong>テーマを使用したHugoサイトでは、デフォルトで「フグ」のアイコンがfaviconとして設定されています。この記事では、デフォルトのfaviconから独自のfaviconに変更する手順を詳しく解説します。</p>
-<img src="blowfish_favicon.png" alt="Blowfishのデフォルトのfavicon" width="300"/>
+<!-- raw HTML omitted -->
 
 <h3 class="relative group">解決する課題 
     <div id="解決する課題" class="anchor"></div>
@@ -943,15 +943,15 @@
     
 </h3>
 <p>準備したfaviconファイルをプロジェクトの <code>static</code> ディレクトリに配置します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">.
-</span></span><span class="line"><span class="cl">└── static/
-</span></span><span class="line"><span class="cl">    ├─ android-chrome-192x192.png
-</span></span><span class="line"><span class="cl">    ├─ android-chrome-512x512.png
-</span></span><span class="line"><span class="cl">    ├─ apple-touch-icon.png
-</span></span><span class="line"><span class="cl">    ├─ favicon-16x16.png
-</span></span><span class="line"><span class="cl">    ├─ favicon-32x32.png
-</span></span><span class="line"><span class="cl">    ├─ favicon.ico
-</span></span><span class="line"><span class="cl">    └─ site.webmanifest
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>.
+</span></span><span style="display:flex;"><span>└── static/
+</span></span><span style="display:flex;"><span>    ├─ android-chrome-192x192.png
+</span></span><span style="display:flex;"><span>    ├─ android-chrome-512x512.png
+</span></span><span style="display:flex;"><span>    ├─ apple-touch-icon.png
+</span></span><span style="display:flex;"><span>    ├─ favicon-16x16.png
+</span></span><span style="display:flex;"><span>    ├─ favicon-32x32.png
+</span></span><span style="display:flex;"><span>    ├─ favicon.ico
+</span></span><span style="display:flex;"><span>    └─ site.webmanifest
 </span></span></code></pre></div>
   
   
@@ -998,7 +998,7 @@
     
 </h3>
 <p>ファイル配置後、サイトでfaviconが正しく反映されているかを確認します：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo server -D
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo server -D
 </span></span></code></pre></div><p>ブラウザで <code>http://localhost:1313</code> にアクセスし、以下を確認：</p>
 <ul>
 <li>ブラウザタブにfaviconが表示されている</li>
@@ -1006,7 +1006,7 @@
 <li>モバイルデバイスでのホーム画面追加時の表示</li>
 </ul>
 <p>本番環境への反映：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">hugo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>hugo
 </span></span></code></pre></div>
 <h2 class="relative group">各ファイルの詳細説明 
     <div id="各ファイルの詳細説明" class="anchor"></div>
@@ -1242,21 +1242,21 @@
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Hugo開発サーバーの起動</span>
-</span></span><span class="line"><span class="cl">hugo server -D
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 本番ビルド</span>
-</span></span><span class="line"><span class="cl">hugo
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># ビルド成果物のクリーンアップ</span>
-</span></span><span class="line"><span class="cl">hugo --cleanDestinationDir
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 特定ポートでの起動</span>
-</span></span><span class="line"><span class="cl">hugo server -D -p <span class="m">8080</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># ブラウザキャッシュクリア（開発者ツールで実行）</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Chrome/Firefox: Ctrl+Shift+R (Windows/Linux) または Cmd+Shift+R (macOS)</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Safari: Cmd+Option+R</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Hugo開発サーバーの起動</span>
+</span></span><span style="display:flex;"><span>hugo server -D
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 本番ビルド</span>
+</span></span><span style="display:flex;"><span>hugo
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ビルド成果物のクリーンアップ</span>
+</span></span><span style="display:flex;"><span>hugo --cleanDestinationDir
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 特定ポートでの起動</span>
+</span></span><span style="display:flex;"><span>hugo server -D -p <span style="color:#ae81ff">8080</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># ブラウザキャッシュクリア（開発者ツールで実行）</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Chrome/Firefox: Ctrl+Shift+R (Windows/Linux) または Cmd+Shift+R (macOS)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Safari: Cmd+Option+R</span>
 </span></span></code></pre></div>
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>

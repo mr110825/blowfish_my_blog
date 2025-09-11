@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -806,12 +806,12 @@
     
 </h3>
 <p>まず、プロジェクト用のディレクトリを作成し、その中で仮想環境を構築します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># プロジェクトディレクトリを作成して移動</span>
-</span></span><span class="line"><span class="cl">mkdir my_project
-</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my_project
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 仮想環境を作成（慣習的に`venv`という名前が使われます）</span>
-</span></span><span class="line"><span class="cl">python3 -m venv venv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># プロジェクトディレクトリを作成して移動</span>
+</span></span><span style="display:flex;"><span>mkdir my_project
+</span></span><span style="display:flex;"><span>cd my_project
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 仮想環境を作成（慣習的に`venv`という名前が使われます）</span>
+</span></span><span style="display:flex;"><span>python3 -m venv venv
 </span></span></code></pre></div><p>作成が完了すると、<code>venv</code>という名前のディレクトリができます。このディレクトリは、Gitなどのバージョン管理システムから除外するために、<code>.gitignore</code>ファイルに<code>venv/</code>と追記しておくのが一般的です。</p>
 
 <h3 class="relative group">2. 仮想環境の有効化（activate） 
@@ -825,9 +825,9 @@
 </h3>
 <p>作成した仮想環境は、有効化（activate）することで利用可能になります。コマンドはOSによって異なります。</p>
 <p><strong>macOS/Linux:</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">source</span> venv/bin/activate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>source venv/bin/activate
 </span></span></code></pre></div><p><strong>Windows (コマンドプロンプト):</strong></p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">venv<span class="se">\S</span>cripts<span class="se">\a</span>ctivate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>venv<span style="color:#ae81ff">\S</span>cripts<span style="color:#ae81ff">\a</span>ctivate
 </span></span></code></pre></div><p>コマンドが成功すると、ターミナルのプロンプトの先頭に<code>(venv)</code>のように仮想環境名が表示されます。</p>
 
 <h3 class="relative group">3. パッケージのインストール 
@@ -840,17 +840,17 @@
     
 </h3>
 <p>仮想環境が有効な状態で<code>pip</code>コマンドを使うと、その環境内にのみパッケージがインストールされます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 例としてrequestsパッケージをインストール</span>
-</span></span><span class="line"><span class="cl">pip install requests
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># インストールされたパッケージを確認</span>
-</span></span><span class="line"><span class="cl">pip list
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 例としてrequestsパッケージをインストール</span>
+</span></span><span style="display:flex;"><span>pip install requests
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># インストールされたパッケージを確認</span>
+</span></span><span style="display:flex;"><span>pip list
 </span></span></code></pre></div><p>プロジェクトで利用するパッケージは、<code>requirements.txt</code>というファイルにまとめておくと便利です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 現在の環境にインストールされているパッケージをファイルに出力</span>
-</span></span><span class="line"><span class="cl">pip freeze &gt; requirements.txt
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># requirements.txtからパッケージをまとめてインストール</span>
-</span></span><span class="line"><span class="cl">pip install -r requirements.txt
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 現在の環境にインストールされているパッケージをファイルに出力</span>
+</span></span><span style="display:flex;"><span>pip freeze &gt; requirements.txt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># requirements.txtからパッケージをまとめてインストール</span>
+</span></span><span style="display:flex;"><span>pip install -r requirements.txt
 </span></span></code></pre></div>
 <h3 class="relative group">4. 仮想環境の無効化（deactivate） 
     <div id="4-仮想環境の無効化deactivate" class="anchor"></div>
@@ -862,7 +862,7 @@
     
 </h3>
 <p>仮想環境での作業が終わったら、以下のコマンドで無効化（deactivate）します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">deactivate
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>deactivate
 </span></span></code></pre></div><p>プロンプトの<code>(venv)</code>という表示が消え、元のターミナル環境に戻ります。</p>
 
 <h2 class="relative group">venvとvirtualenvの違い 

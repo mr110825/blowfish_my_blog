@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -832,11 +832,11 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># assetsディレクトリ内にcssフォルダを作成</span>
-</span></span><span class="line"><span class="cl">mkdir -p assets/css
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># カスタムCSSファイルを作成</span>
-</span></span><span class="line"><span class="cl">touch assets/css/custom.css
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># assetsディレクトリ内にcssフォルダを作成</span>
+</span></span><span style="display:flex;"><span>mkdir -p assets/css
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># カスタムCSSファイルを作成</span>
+</span></span><span style="display:flex;"><span>touch assets/css/custom.css
 </span></span></code></pre></div>
 <h3 class="relative group">2. params.tomlでの設定 
     <div id="2-paramstomlでの設定" class="anchor"></div>
@@ -848,10 +848,10 @@
     
 </h3>
 <p><code>config/_default/params.toml</code> に以下を追加：</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="c"># カスタムスタイル設定</span>
-</span></span><span class="line"><span class="cl"><span class="nx">customCSS</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;css/custom.css&#34;</span><span class="p">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75715e"># カスタムスタイル設定</span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">customCSS</span> = [<span style="color:#e6db74">&#34;css/custom.css&#34;</span>]
 </span></span></code></pre></div><p><strong>複数ファイルの場合</strong>:</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="line"><span class="cl"><span class="nx">customCSS</span> <span class="p">=</span> <span class="p">[</span><span class="s2">&#34;css/custom.css&#34;</span><span class="p">,</span> <span class="s2">&#34;css/additional.css&#34;</span><span class="p">]</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#a6e22e">customCSS</span> = [<span style="color:#e6db74">&#34;css/custom.css&#34;</span>, <span style="color:#e6db74">&#34;css/additional.css&#34;</span>]
 </span></span></code></pre></div>
 <h2 class="relative group">基本的な使い方 
     <div id="基本的な使い方" class="anchor"></div>
@@ -909,25 +909,25 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* カスタムカラーパレット */</span>
-</span></span><span class="line"><span class="cl"><span class="p">:</span><span class="nd">root</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">--primary-gradient-start</span><span class="p">:</span> <span class="mh">#4f46e5</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">--primary-gradient-end</span><span class="p">:</span> <span class="mh">#06b6d4</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="nv">--accent-color</span><span class="p">:</span> <span class="mh">#10b981</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c">/* カード要素の改善 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">min-h-full</span><span class="p">.</span><span class="nc">border</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">border</span><span class="p">:</span> <span class="kc">none</span> <span class="cp">!important</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">10</span><span class="kt">px</span> <span class="mi">25</span><span class="kt">px</span> <span class="mi">-3</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">border-radius</span><span class="p">:</span> <span class="mi">12</span><span class="kt">px</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="k">transition</span><span class="p">:</span> <span class="kc">all</span> <span class="mf">0.3</span><span class="kt">s</span> <span class="nb">cubic-bezier</span><span class="p">(</span><span class="mf">0.4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">,</span> <span class="mi">1</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">min-h-full</span><span class="p">.</span><span class="nc">border</span><span class="p">:</span><span class="nd">hover</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">transform</span><span class="p">:</span> <span class="nb">translateY</span><span class="p">(</span><span class="mi">-2</span><span class="kt">px</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="k">box-shadow</span><span class="p">:</span> <span class="mi">0</span> <span class="mi">20</span><span class="kt">px</span> <span class="mi">40</span><span class="kt">px</span> <span class="mi">-12</span><span class="kt">px</span> <span class="nb">rgba</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mf">0.15</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* カスタムカラーパレット */</span>
+</span></span><span style="display:flex;"><span>:<span style="color:#a6e22e">root</span> {
+</span></span><span style="display:flex;"><span>  --primary-gradient-start: <span style="color:#ae81ff">#4f46e5</span>;
+</span></span><span style="display:flex;"><span>  --primary-gradient-end: <span style="color:#ae81ff">#06b6d4</span>;
+</span></span><span style="display:flex;"><span>  --accent-color: <span style="color:#ae81ff">#10b981</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">/* カード要素の改善 */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">min-h-full</span>.<span style="color:#a6e22e">border</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border</span>: <span style="color:#66d9ef">none</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">10</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">25</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">-3</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.1</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">border-radius</span>: <span style="color:#ae81ff">12</span><span style="color:#66d9ef">px</span>;
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">all</span> <span style="color:#ae81ff">0.3</span><span style="color:#66d9ef">s</span> cubic-bezier(<span style="color:#ae81ff">0.4</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.2</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">min-h-full</span>.<span style="color:#a6e22e">border</span>:<span style="color:#a6e22e">hover</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transform</span>: translateY(<span style="color:#ae81ff">-2</span><span style="color:#66d9ef">px</span>);
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">box-shadow</span>: <span style="color:#ae81ff">0</span> <span style="color:#ae81ff">20</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">40</span><span style="color:#66d9ef">px</span> <span style="color:#ae81ff">-12</span><span style="color:#66d9ef">px</span> rgba(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0.15</span>);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <h3 class="relative group">サイトの再生成 
     <div id="サイトの再生成" class="anchor"></div>
@@ -938,11 +938,11 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 開発サーバー再起動</span>
-</span></span><span class="line"><span class="cl">hugo server --port <span class="m">1313</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># または本番ビルド</span>
-</span></span><span class="line"><span class="cl">hugo
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 開発サーバー再起動</span>
+</span></span><span style="display:flex;"><span>hugo server --port <span style="color:#ae81ff">1313</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># または本番ビルド</span>
+</span></span><span style="display:flex;"><span>hugo
 </span></span></code></pre></div>
 <h2 class="relative group">実践的な使い方 
     <div id="実践的な使い方" class="anchor"></div>
@@ -963,13 +963,13 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* モバイル対応 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">grid</span><span class="p">.</span><span class="nc">gap-4</span><span class="p">.</span><span class="nc">sm</span><span class="err">\</span><span class="p">:</span><span class="nd">grid-cols-2</span><span class="p">.</span><span class="nc">md</span><span class="err">\</span><span class="p">:</span><span class="nd">grid-cols-3</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">grid-template-columns</span><span class="p">:</span> <span class="mi">1</span><span class="n">fr</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">    <span class="k">gap</span><span class="p">:</span> <span class="mf">1.5</span><span class="kt">rem</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* モバイル対応 */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">768px</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">grid</span>.<span style="color:#a6e22e">gap-4</span>.<span style="color:#a6e22e">sm</span><span style="color:#960050;background-color:#1e0010">\</span>:<span style="color:#a6e22e">grid-cols-2</span>.<span style="color:#a6e22e">md</span><span style="color:#960050;background-color:#1e0010">\</span>:<span style="color:#a6e22e">grid-cols-3</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">grid-template-columns</span>: <span style="color:#ae81ff">1</span>fr;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">gap</span>: <span style="color:#ae81ff">1.5</span><span style="color:#66d9ef">rem</span>;
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <h3 class="relative group">2. アニメーション効果 
     <div id="2-アニメーション効果" class="anchor"></div>
@@ -980,14 +980,14 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* ホバーエフェクト */</span>
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">thumbnail_card</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">transition</span><span class="p">:</span> <span class="k">transform</span> <span class="mf">0.3</span><span class="kt">s</span> <span class="kc">ease</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">min-h-full</span><span class="p">.</span><span class="nc">border</span><span class="p">:</span><span class="nd">hover</span> <span class="p">.</span><span class="nc">thumbnail_card</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">transform</span><span class="p">:</span> <span class="nb">scale</span><span class="p">(</span><span class="mf">1.05</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* ホバーエフェクト */</span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">thumbnail_card</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transition</span>: <span style="color:#66d9ef">transform</span> <span style="color:#ae81ff">0.3</span><span style="color:#66d9ef">s</span> <span style="color:#66d9ef">ease</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">min-h-full</span>.<span style="color:#a6e22e">border</span>:<span style="color:#a6e22e">hover</span> .<span style="color:#a6e22e">thumbnail_card</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">transform</span>: scale(<span style="color:#ae81ff">1.05</span>);
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <h3 class="relative group">3. ダークモード対応 
     <div id="3-ダークモード対応" class="anchor"></div>
@@ -998,12 +998,12 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* ダークモード対応 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">prefers-color-scheme</span><span class="o">:</span> <span class="nt">dark</span><span class="o">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="p">.</span><span class="nc">min-h-full</span><span class="p">.</span><span class="nc">border</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">    <span class="k">background</span><span class="p">:</span> <span class="nb">linear-gradient</span><span class="p">(</span><span class="mi">145</span><span class="kt">deg</span><span class="p">,</span> <span class="mh">#1f2937</span> <span class="mi">0</span><span class="kt">%</span><span class="p">,</span> <span class="mh">#111827</span> <span class="mi">100</span><span class="kt">%</span><span class="p">);</span>
-</span></span><span class="line"><span class="cl">  <span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* ダークモード対応 */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">prefers-color-scheme</span><span style="color:#f92672">:</span> <span style="color:#f92672">dark</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  .<span style="color:#a6e22e">min-h-full</span>.<span style="color:#a6e22e">border</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">background</span>: linear-gradient(<span style="color:#ae81ff">145</span><span style="color:#66d9ef">deg</span>, <span style="color:#ae81ff">#1f2937</span> <span style="color:#ae81ff">0</span><span style="color:#66d9ef">%</span>, <span style="color:#ae81ff">#111827</span> <span style="color:#ae81ff">100</span><span style="color:#66d9ef">%</span>);
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <h3 class="relative group">問題1: CSSが適用されない 
     <div id="問題1-cssが適用されない" class="anchor"></div>
@@ -1051,10 +1051,10 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 詳細度を上げる */</span>
-</span></span><span class="line"><span class="cl"><span class="nt">body</span> <span class="p">.</span><span class="nc">main-content</span> <span class="p">.</span><span class="nc">card-element</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="k">color</span><span class="p">:</span> <span class="mh">#333</span> <span class="cp">!important</span><span class="p">;</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* 詳細度を上げる */</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">body</span> .<span style="color:#a6e22e">main-content</span> .<span style="color:#a6e22e">card-element</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">color</span>: <span style="color:#ae81ff">#333</span> <span style="color:#75715e">!important</span>;
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <h3 class="relative group">問題3: レスポンシブが効かない 
     <div id="問題3-レスポンシブが効かない" class="anchor"></div>
@@ -1065,13 +1065,13 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* メディアクエリの順序を確認 */</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">max-width</span><span class="o">:</span> <span class="nt">768px</span><span class="o">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="c">/* モバイル用スタイル */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
-</span></span><span class="line"><span class="cl"><span class="p">@</span><span class="k">media</span> <span class="o">(</span><span class="nt">min-width</span><span class="o">:</span> <span class="nt">769px</span><span class="o">)</span> <span class="p">{</span>
-</span></span><span class="line"><span class="cl">  <span class="c">/* デスクトップ用スタイル */</span>
-</span></span><span class="line"><span class="cl"><span class="p">}</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#75715e">/* メディアクエリの順序を確認 */</span>
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">max-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">768px</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* モバイル用スタイル */</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>@<span style="color:#66d9ef">media</span> <span style="color:#f92672">(</span><span style="color:#f92672">min-width</span><span style="color:#f92672">:</span> <span style="color:#f92672">769px</span><span style="color:#f92672">)</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">/* デスクトップ用スタイル */</span>
+</span></span><span style="display:flex;"><span>}
 </span></span></code></pre></div>
 <h2 class="relative group">参考リンク 
     <div id="参考リンク" class="anchor"></div>

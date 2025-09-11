@@ -42,8 +42,8 @@
   <link
     type="text/css"
     rel="stylesheet"
-    href="/css/main.bundle.min.6daebf933444791fab273c8061e03e72ad593e60df14eee3294fd24ef3719462cbd803cbe29d2fb78a8c0e8f8cf5b2363889c6b9b8a885f914bd7b4f785398e1.css"
-    integrity="sha512-ba6/kzREeR&#43;rJzyAYeA&#43;cq1ZPmDfFO7jKU/STvNxlGLL2APL4p0vt4qMDo&#43;M9bI2OInGubiohfkUvXtPeFOY4Q==">
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
 
   
   
@@ -656,12 +656,7 @@
     </li>
     <li><a href="#インストール時のトラブルシューティング">インストール時のトラブルシューティング</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#configure-error-no-acceptable-c-compiler-found-in-path"><code>configure: error: no acceptable C compiler found in $PATH</code></a></li>
-            <li><a href="#zipimportzipimporterror-cant-decompress-data-zlib-not-available"><code>zipimport.ZipImportError: can&#39;t decompress data; zlib not available</code></a></li>
-          </ul>
-        </li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -700,12 +695,7 @@
     </li>
     <li><a href="#インストール時のトラブルシューティング">インストール時のトラブルシューティング</a>
       <ul>
-        <li>
-          <ul>
-            <li><a href="#configure-error-no-acceptable-c-compiler-found-in-path"><code>configure: error: no acceptable C compiler found in $PATH</code></a></li>
-            <li><a href="#zipimportzipimporterror-cant-decompress-data-zlib-not-available"><code>zipimport.ZipImportError: can&#39;t decompress data; zlib not available</code></a></li>
-          </ul>
-        </li>
+        <li></li>
       </ul>
     </li>
   </ul>
@@ -843,8 +833,8 @@
     
 </h3>
 <p>Pythonのビルドに必要なパッケージをあらかじめインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
-</span></span><span class="line"><span class="cl">sudo apt install build-essential libffi-dev libssl-dev zlib1g-dev liblzma-dev libbz2-dev libreadline-dev libsqlite3-dev tk-dev git
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt update
+</span></span><span style="display:flex;"><span>sudo apt install build-essential libffi-dev libssl-dev zlib1g-dev liblzma-dev libbz2-dev libreadline-dev libsqlite3-dev tk-dev git
 </span></span></code></pre></div><p>※<a
   href="https://zenn.dev/hr0t15/articles/8ae3564bde2cce"
     target="_blank"
@@ -860,7 +850,7 @@
     
 </h3>
 <p>GitHubからpyenvのリポジトリをクローンします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/pyenv/pyenv.git ~/.pyenv
 </span></span></code></pre></div>
 <h3 class="relative group">3. 環境変数の設定（パスを通す） 
     <div id="3-環境変数の設定パスを通す" class="anchor"></div>
@@ -872,9 +862,9 @@
     
 </h3>
 <p><code>~/.bashrc</code>（Zshの場合は <code>~/.zshrc</code>）に以下の3行を追記します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.bashrc
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;command -v pyenv &gt;/dev/null || export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
-</span></span><span class="line"><span class="cl"><span class="nb">echo</span> <span class="s1">&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bashrc
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;export PYENV_ROOT=&#34;$HOME/.pyenv&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;command -v pyenv &gt;/dev/null || export PATH=&#34;$PYENV_ROOT/bin:$PATH&#34;&#39;</span> &gt;&gt; ~/.bashrc
+</span></span><span style="display:flex;"><span>echo <span style="color:#e6db74">&#39;eval &#34;$(pyenv init -)&#34;&#39;</span> &gt;&gt; ~/.bashrc
 </span></span></code></pre></div><p>設定を反映させるため、ターミナルを再起動するか、<code>source ~/.bashrc</code> を実行します。</p>
 
 <h2 class="relative group">基本的な使い方 
@@ -896,11 +886,11 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># インストール可能なバージョンの一覧を表示</span>
-</span></span><span class="line"><span class="cl">pyenv install --list
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 指定したバージョンをインストール</span>
-</span></span><span class="line"><span class="cl">pyenv install 3.10.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># インストール可能なバージョンの一覧を表示</span>
+</span></span><span style="display:flex;"><span>pyenv install --list
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 指定したバージョンをインストール</span>
+</span></span><span style="display:flex;"><span>pyenv install 3.10.4
 </span></span></code></pre></div>
 <h3 class="relative group">使用するPythonのバージョンを切り替える 
     <div id="使用するpythonのバージョンを切り替える" class="anchor"></div>
@@ -916,14 +906,14 @@
 <li><code>global</code>: システム全体でデフォルトとして使用するバージョンを設定します。</li>
 <li><code>local</code>: 現在のディレクトリ（プロジェクト）でのみ有効なバージョンを設定します。</li>
 </ul>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># インストール済みのバージョン一覧を確認</span>
-</span></span><span class="line"><span class="cl">pyenv versions
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 全体で使うバージョンを設定</span>
-</span></span><span class="line"><span class="cl">pyenv global 3.10.4
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 現在のディレクトリで使うバージョンを設定（.python-versionファイルが作成される）</span>
-</span></span><span class="line"><span class="cl">pyenv <span class="nb">local</span> 3.9.13
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># インストール済みのバージョン一覧を確認</span>
+</span></span><span style="display:flex;"><span>pyenv versions
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 全体で使うバージョンを設定</span>
+</span></span><span style="display:flex;"><span>pyenv global 3.10.4
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 現在のディレクトリで使うバージョンを設定（.python-versionファイルが作成される）</span>
+</span></span><span style="display:flex;"><span>pyenv local 3.9.13
 </span></span></code></pre></div>
 <h3 class="relative group">Pythonのアンインストール 
     <div id="pythonのアンインストール" class="anchor"></div>
@@ -934,7 +924,7 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">pyenv uninstall 3.10.4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>pyenv uninstall 3.10.4
 </span></span></code></pre></div>
 <h2 class="relative group">pyenvのアップデート 
     <div id="pyenvのアップデート" class="anchor"></div>
@@ -956,11 +946,11 @@
     
 </h3>
 <p><code>pyenv-update</code>というプラグインを導入すると、<code>pyenv update</code>コマンドで簡単に更新できます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. プラグインをインストール（初回のみ）</span>
-</span></span><span class="line"><span class="cl">git clone https://github.com/pyenv/pyenv-update.git <span class="k">$(</span>pyenv root<span class="k">)</span>/plugins/pyenv-update
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 2. pyenvをアップデート</span>
-</span></span><span class="line"><span class="cl">pyenv update
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 1. プラグインをインストール（初回のみ）</span>
+</span></span><span style="display:flex;"><span>git clone https://github.com/pyenv/pyenv-update.git <span style="color:#66d9ef">$(</span>pyenv root<span style="color:#66d9ef">)</span>/plugins/pyenv-update
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 2. pyenvをアップデート</span>
+</span></span><span style="display:flex;"><span>pyenv update
 </span></span></code></pre></div>
 <h3 class="relative group">方法2: gitで直接アップデートする 
     <div id="方法2-gitで直接アップデートする" class="anchor"></div>
@@ -972,8 +962,8 @@
     
 </h3>
 <p>pyenv本体はgitリポジトリなので、<code>git pull</code>で直接更新することも可能です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> <span class="k">$(</span>pyenv root<span class="k">)</span>
-</span></span><span class="line"><span class="cl">git pull
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>cd <span style="color:#66d9ef">$(</span>pyenv root<span style="color:#66d9ef">)</span>
+</span></span><span style="display:flex;"><span>git pull
 </span></span></code></pre></div>
 <h2 class="relative group">インストール時のトラブルシューティング 
     <div id="インストール時のトラブルシューティング" class="anchor"></div>
@@ -996,7 +986,7 @@
     
 </h4>
 <p>Cコンパイラが見つからないエラーです。<code>build-essential</code>をインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install build-essential
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install build-essential
 </span></span></code></pre></div>
 <h4 class="relative group"><code>zipimport.ZipImportError: can't decompress data; zlib not available</code> 
     <div id="zipimportzipimporterror-cant-decompress-data-zlib-not-available" class="anchor"></div>
@@ -1008,7 +998,7 @@
     
 </h4>
 <p>zlibライブラリがないエラーです。<code>zlib1g-dev</code>をインストールします。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt install zlib1g-dev
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install zlib1g-dev
 </span></span></code></pre></div>
           
           
