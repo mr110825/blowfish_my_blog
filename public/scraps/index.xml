@@ -2,173 +2,173 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>スクラップ on 技術的デジャブ回避メモ帳</title>
-    <link>/scraps/</link>
+    <link>//localhost:1313/scraps/</link>
     <description>Recent content in スクラップ on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="/scraps/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1313/scraps/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hugo・BlowfishでカスタムCSS適用</title>
-      <link>/scraps/hugo-blowfish-custom-css-guide/</link>
+      <link>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</link>
       <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/hugo-blowfish-custom-css-guide/</guid>
+      <guid>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hugo&#43;Blowfish｜ダークモードに固定する設定方法</title>
-      <link>/scraps/hugo-blowfish-darkmode-fixed/</link>
+      <link>//localhost:1313/scraps/hugo-blowfish-darkmode-fixed/</link>
       <pubDate>Thu, 11 Sep 2025 20:00:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/hugo-blowfish-darkmode-fixed/</guid>
+      <guid>//localhost:1313/scraps/hugo-blowfish-darkmode-fixed/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>
-      <link>/scraps/blowfish-exclude-recent/</link>
+      <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
       <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/blowfish-exclude-recent/</guid>
+      <guid>//localhost:1313/scraps/blowfish-exclude-recent/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/blowfish-exclude-recent/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/blowfish-exclude-recent/feature.jpg" />
     </item>
     
     <item>
       <title>Pandas入門</title>
-      <link>/scraps/study-pandas/</link>
+      <link>//localhost:1313/scraps/study-pandas/</link>
       <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-pandas/</guid>
+      <guid>//localhost:1313/scraps/study-pandas/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-pandas/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pandas/feature.jpg" />
     </item>
     
     <item>
       <title>Python基礎ハンズオン</title>
-      <link>/scraps/python-practice2/</link>
+      <link>//localhost:1313/scraps/python-practice2/</link>
       <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/python-practice2/</guid>
+      <guid>//localhost:1313/scraps/python-practice2/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/python-practice2/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/python-practice2/feature.jpg" />
     </item>
     
     <item>
       <title>Python入門ハンズオン</title>
-      <link>/scraps/python-practice/</link>
+      <link>//localhost:1313/scraps/python-practice/</link>
       <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/python-practice/</guid>
+      <guid>//localhost:1313/scraps/python-practice/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/python-practice/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/python-practice/feature.jpg" />
     </item>
     
     <item>
       <title>requirements.txt入門</title>
-      <link>/scraps/study-requirements/</link>
+      <link>//localhost:1313/scraps/study-requirements/</link>
       <pubDate>Sun, 07 Sep 2025 12:08:59 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-requirements/</guid>
+      <guid>//localhost:1313/scraps/study-requirements/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-requirements/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-requirements/feature.jpg" />
     </item>
     
     <item>
       <title>virtualenv入門</title>
-      <link>/scraps/study-virtualenv/</link>
+      <link>//localhost:1313/scraps/study-virtualenv/</link>
       <pubDate>Sun, 07 Sep 2025 11:29:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-virtualenv/</guid>
+      <guid>//localhost:1313/scraps/study-virtualenv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-virtualenv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-virtualenv/feature.jpg" />
     </item>
     
     <item>
       <title>【書評】指示通りができない人たち</title>
-      <link>/scraps/memo-sijidourigadekinai/</link>
+      <link>//localhost:1313/scraps/memo-sijidourigadekinai/</link>
       <pubDate>Sun, 07 Sep 2025 10:43:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/memo-sijidourigadekinai/</guid>
+      <guid>//localhost:1313/scraps/memo-sijidourigadekinai/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/memo-sijidourigadekinai/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/memo-sijidourigadekinai/feature.jpg" />
     </item>
     
     <item>
       <title>pipコマンド入門</title>
-      <link>/scraps/study-pip/</link>
+      <link>//localhost:1313/scraps/study-pip/</link>
       <pubDate>Sat, 06 Sep 2025 22:12:25 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-pip/</guid>
+      <guid>//localhost:1313/scraps/study-pip/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-pip/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pip/feature.jpg" />
     </item>
     
     <item>
       <title>仮想環境venv入門</title>
-      <link>/scraps/study-venv/</link>
+      <link>//localhost:1313/scraps/study-venv/</link>
       <pubDate>Sat, 06 Sep 2025 16:28:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-venv/</guid>
+      <guid>//localhost:1313/scraps/study-venv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-venv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-venv/feature.jpg" />
     </item>
     
     <item>
       <title>pyenvでPythonバージョン管理｜インストールから切り替えまで</title>
-      <link>/scraps/study-pyenv/</link>
+      <link>//localhost:1313/scraps/study-pyenv/</link>
       <pubDate>Thu, 04 Sep 2025 20:22:08 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-pyenv/</guid>
+      <guid>//localhost:1313/scraps/study-pyenv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-pyenv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pyenv/feature.jpg" />
     </item>
     
     <item>
       <title>Python概要とインストールなど</title>
-      <link>/scraps/styudy-python/</link>
+      <link>//localhost:1313/scraps/styudy-python/</link>
       <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/styudy-python/</guid>
+      <guid>//localhost:1313/scraps/styudy-python/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/styudy-python/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/styudy-python/feature.jpg" />
     </item>
     
     <item>
       <title>勉強メモ：応用情報技術者試験</title>
-      <link>/scraps/ouyoujouhou-memo/</link>
+      <link>//localhost:1313/scraps/ouyoujouhou-memo/</link>
       <pubDate>Mon, 01 Sep 2025 13:59:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/ouyoujouhou-memo/</guid>
+      <guid>//localhost:1313/scraps/ouyoujouhou-memo/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/ouyoujouhou-memo/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ouyoujouhou-memo/feature.jpg" />
     </item>
     
     <item>
       <title>NumPy入門</title>
-      <link>/scraps/study-numpy/</link>
+      <link>//localhost:1313/scraps/study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/study-numpy/</guid>
+      <guid>//localhost:1313/scraps/study-numpy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-numpy/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-numpy/feature.jpg" />
     </item>
     
     <item>
       <title>【書評】TAKE NOTES! </title>
-      <link>/scraps/memo-take-notes/</link>
+      <link>//localhost:1313/scraps/memo-take-notes/</link>
       <pubDate>Tue, 19 Aug 2025 07:45:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/memo-take-notes/</guid>
+      <guid>//localhost:1313/scraps/memo-take-notes/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/memo-take-notes/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/memo-take-notes/feature.jpg" />
     </item>
     
   </channel>

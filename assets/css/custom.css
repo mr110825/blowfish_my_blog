@@ -178,14 +178,14 @@
     line-height: 1.3;
   }
   
-  .grid.gap-4.sm\\:grid-cols-2.md\\:grid-cols-3 {
+  .grid.gap-4.sm\:grid-cols-2.md\:grid-cols-3 {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
-  .grid.gap-4.sm\\:grid-cols-2.md\\:grid-cols-3 {
+  .grid.gap-4.sm\:grid-cols-2.md\:grid-cols-3 {
     grid-template-columns: repeat(2, 1fr);
   }
 }
@@ -258,7 +258,7 @@
 }
 
 /* CTAボタンの改善 */
-.bg-transparent.hover\\:text-primary-500 {
+.bg-transparent.hover\:text-primary-500 {
   background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
   color: white;
   border: none;
@@ -267,7 +267,7 @@
   transform: translateZ(0);
 }
 
-.bg-transparent.hover\\:text-primary-500:hover {
+.bg-transparent.hover\:text-primary-500:hover {
   transform: translateY(-2px) scale(1.05);
   box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
   background: linear-gradient(135deg, var(--primary-gradient-end), var(--primary-gradient-start));
@@ -368,7 +368,6 @@ button[aria-expanded],
   
   /* ヒーローセクションの z-index を下げる */
   .hero-section,
-  [class*="hero"],
   .relative.overflow-hidden {
     z-index: 1 !important;
   }
