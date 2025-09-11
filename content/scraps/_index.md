@@ -3,7 +3,7 @@ title: "スクラップ"
 description: "学習メモや短いメモの一覧"
 cascade:
   showEdit: false
-  showReadingTime: true
+  showReadingTime: false
   showSummary: true
   showLikes: false
   showViews: false

@@ -3,7 +3,7 @@ title: "投稿記事"
 description: "ブログ記事の一覧"
 cascade:
   showEdit: false
-  showReadingTime: true
+  showReadingTime: false
   showSummary: true
   showLikes: false
   showViews: false
