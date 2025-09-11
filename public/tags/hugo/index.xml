@@ -2,43 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hugo on 技術的デジャブ回避メモ帳</title>
-    <link>//localhost:1313/tags/hugo/</link>
+    <link>//localhost:1314/tags/hugo/</link>
     <description>Recent content in Hugo on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 09 Sep 2025 15:30:00 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1314/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo・BlowfishでカスタムCSS適用</title>
+      <link>//localhost:1314/scraps/hugo-blowfish-custom-css-guide/</link>
+      <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1314/scraps/hugo-blowfish-custom-css-guide/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>
-      <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
+      <link>//localhost:1314/scraps/blowfish-exclude-recent/</link>
       <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/blowfish-exclude-recent/</guid>
+      <guid>//localhost:1314/scraps/blowfish-exclude-recent/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/blowfish-exclude-recent/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1314/scraps/blowfish-exclude-recent/feature.jpg" />
     </item>
     
     <item>
       <title>Hugo&#43;Blowfishで構築したサイトをGoogle検索に表示させる手順</title>
-      <link>//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</link>
+      <link>//localhost:1314/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</link>
       <pubDate>Sat, 06 Sep 2025 12:54:32 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</guid>
+      <guid>//localhost:1314/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1314/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/feature.png" />
     </item>
     
     <item>
       <title>BlowfishでFaviconを設定する方法</title>
-      <link>//localhost:1313/posts/favicon_settings/</link>
+      <link>//localhost:1314/posts/favicon_settings/</link>
       <pubDate>Sun, 03 Aug 2025 12:09:09 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/favicon_settings/</guid>
+      <guid>//localhost:1314/posts/favicon_settings/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/favicon_settings/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1314/posts/favicon_settings/feature.jpg" />
     </item>
     
   </channel>

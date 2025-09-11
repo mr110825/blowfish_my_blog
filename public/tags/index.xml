@@ -2,141 +2,131 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on 技術的デジャブ回避メモ帳</title>
-    <link>//localhost:1313/tags/</link>
+    <link>//localhost:1314/tags/</link>
     <description>Recent content in Tags on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1314/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Blowfish</title>
-      <link>//localhost:1313/tags/blowfish/</link>
+      <link>//localhost:1314/tags/blowfish/</link>
       <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/blowfish/</guid>
+      <guid>//localhost:1314/tags/blowfish/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>CSS</title>
-      <link>//localhost:1313/tags/css/</link>
+      <link>//localhost:1314/tags/css/</link>
       <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/css/</guid>
+      <guid>//localhost:1314/tags/css/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hugo</title>
-      <link>//localhost:1313/tags/hugo/</link>
+      <link>//localhost:1314/tags/hugo/</link>
       <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/hugo/</guid>
+      <guid>//localhost:1314/tags/hugo/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Python</title>
-      <link>//localhost:1313/tags/python/</link>
+      <link>//localhost:1314/tags/python/</link>
       <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/python/</guid>
+      <guid>//localhost:1314/tags/python/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>読書メモ</title>
-      <link>//localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
+      <link>//localhost:1314/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
       <pubDate>Sun, 07 Sep 2025 10:43:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</guid>
+      <guid>//localhost:1314/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Github Pages</title>
-      <link>//localhost:1313/tags/github-pages/</link>
+      <link>//localhost:1314/tags/github-pages/</link>
       <pubDate>Sat, 06 Sep 2025 12:54:32 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/github-pages/</guid>
+      <guid>//localhost:1314/tags/github-pages/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>SEO</title>
-      <link>//localhost:1313/tags/seo/</link>
+      <link>//localhost:1314/tags/seo/</link>
       <pubDate>Sat, 06 Sep 2025 12:54:32 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/seo/</guid>
+      <guid>//localhost:1314/tags/seo/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Voicemeeter</title>
-      <link>//localhost:1313/tags/voicemeeter/</link>
+      <link>//localhost:1314/tags/voicemeeter/</link>
       <pubDate>Sun, 10 Aug 2025 20:50:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/voicemeeter/</guid>
+      <guid>//localhost:1314/tags/voicemeeter/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Windows</title>
-      <link>//localhost:1313/tags/windows/</link>
+      <link>//localhost:1314/tags/windows/</link>
       <pubDate>Sun, 10 Aug 2025 20:50:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/windows/</guid>
+      <guid>//localhost:1314/tags/windows/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>音声録音</title>
-      <link>//localhost:1313/tags/%E9%9F%B3%E5%A3%B0%E9%8C%B2%E9%9F%B3/</link>
+      <link>//localhost:1314/tags/%E9%9F%B3%E5%A3%B0%E9%8C%B2%E9%9F%B3/</link>
       <pubDate>Sun, 10 Aug 2025 20:50:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/%E9%9F%B3%E5%A3%B0%E9%8C%B2%E9%9F%B3/</guid>
+      <guid>//localhost:1314/tags/%E9%9F%B3%E5%A3%B0%E9%8C%B2%E9%9F%B3/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Git</title>
-      <link>//localhost:1313/tags/git/</link>
+      <link>//localhost:1314/tags/git/</link>
       <pubDate>Thu, 07 Aug 2025 07:25:37 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/git/</guid>
+      <guid>//localhost:1314/tags/git/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Github</title>
-      <link>//localhost:1313/tags/github/</link>
+      <link>//localhost:1314/tags/github/</link>
       <pubDate>Sun, 03 Aug 2025 01:55:16 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/github/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>カスタマイズ</title>
-      <link>//localhost:1313/tags/%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/tags/%E3%82%AB%E3%82%B9%E3%82%BF%E3%83%9E%E3%82%A4%E3%82%BA/</guid>
+      <guid>//localhost:1314/tags/github/</guid>
       <description></description>
       
     </item>
