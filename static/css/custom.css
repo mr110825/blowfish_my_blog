@@ -241,3 +241,105 @@ html.dark .term article {
         transform: translateY(0);
     }
 }
+
+/* スマホ記事表示修正 */
+@media (max-width: 1023px) {
+    /* 記事ヘッダーの幅を調整 */
+    #single_header {
+        max-width: 100% !important;
+        padding: 0 1rem;
+    }
+    
+    /* 記事メインセクションのレイアウト修正 */
+    article > section.flex {
+        flex-direction: column !important;
+        max-width: 100% !important;
+        padding: 0 1rem;
+    }
+    
+    /* 記事コンテンツの幅を全幅に */
+    .article-content {
+        max-width: 100% !important;
+        width: 100% !important;
+    }
+    
+    /* proseクラスの幅制限を解除 */
+    article .prose {
+        max-width: 100% !important;
+    }
+    
+    /* TOC（目次）をモバイルで適切に表示 */
+    .toc {
+        position: static !important;
+        padding: 0 !important;
+        margin: 1rem 0 !important;
+        width: 100% !important;
+    }
+    
+    /* 記事内の要素の幅を調整 */
+    article .min-w-0 {
+        min-width: 0 !important;
+        width: 100% !important;
+        max-width: 100% !important;
+    }
+}
+
+/* スクラップページのモバイル対応も追加 */
+@media (max-width: 640px) {
+    /* スクラップページのヘッダー */
+    .scraps header {
+        padding: 0 1rem;
+    }
+    
+    /* スクラップページのメインセクション */
+    .scraps section.prose {
+        max-width: 100% !important;
+        padding: 0 1rem !important;
+    }
+    
+    /* スクラップページのコンテンツ */
+    .scraps .min-w-0 {
+        max-width: 100% !important;
+        width: 100% !important;
+        padding: 0 !important;
+    }
+    
+    /* body要素のパディング調整 */
+    body {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
+
+/* feature画像付き記事のスマホ対応 - 根本的な修正 */
+@media (max-width: 1023px) {
+    /* 背景画像の表示を無効化 */
+    div.single_hero_background {
+        display: none !important;
+    }
+    
+    /* 背景ブラー効果も無効化 */
+    div#background-blur {
+        display: none !important;
+    }
+    
+    /* ヒーローセクションも非表示 */
+    div#hero {
+        display: none !important;
+    }
+    
+    /* article全体のスタイル調整 */
+    main#main-content > article {
+        margin-top: 0 !important;
+        padding-top: 0 !important;
+    }
+}
+
+/* より小さなスマホ画面でも同様の対応 */
+@media (max-width: 640px) {
+    div.single_hero_background,
+    div#background-blur,
+    div#hero {
+        display: none !important;
+    }
+}

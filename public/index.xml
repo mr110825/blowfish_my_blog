@@ -2,223 +2,223 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>技術的デジャブ回避メモ帳</title>
-    <link>//localhost:1313/</link>
+    <link>/</link>
     <description>Recent content on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hugo・BlowfishでカスタムCSS適用</title>
-      <link>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</link>
+      <link>/scraps/hugo-blowfish-custom-css-guide/</link>
       <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</guid>
+      <guid>/scraps/hugo-blowfish-custom-css-guide/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hugo&#43;Blowfish｜ダークモードに固定する設定方法</title>
-      <link>//localhost:1313/scraps/hugo-blowfish-darkmode-fixed/</link>
+      <link>/scraps/hugo-blowfish-darkmode-fixed/</link>
       <pubDate>Thu, 11 Sep 2025 20:00:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/hugo-blowfish-darkmode-fixed/</guid>
+      <guid>/scraps/hugo-blowfish-darkmode-fixed/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>
-      <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
+      <link>/scraps/blowfish-exclude-recent/</link>
       <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/blowfish-exclude-recent/</guid>
+      <guid>/scraps/blowfish-exclude-recent/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/blowfish-exclude-recent/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/blowfish-exclude-recent/feature.jpg" />
     </item>
     
     <item>
       <title>Pandas入門</title>
-      <link>//localhost:1313/scraps/study-pandas/</link>
+      <link>/scraps/study-pandas/</link>
       <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-pandas/</guid>
+      <guid>/scraps/study-pandas/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pandas/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-pandas/feature.jpg" />
     </item>
     
     <item>
       <title>Python基礎ハンズオン</title>
-      <link>//localhost:1313/scraps/python-practice2/</link>
+      <link>/scraps/python-practice2/</link>
       <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/python-practice2/</guid>
+      <guid>/scraps/python-practice2/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/python-practice2/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/python-practice2/feature.jpg" />
     </item>
     
     <item>
       <title>Python入門ハンズオン</title>
-      <link>//localhost:1313/scraps/python-practice/</link>
+      <link>/scraps/python-practice/</link>
       <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/python-practice/</guid>
+      <guid>/scraps/python-practice/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/python-practice/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/python-practice/feature.jpg" />
     </item>
     
     <item>
       <title>requirements.txt入門</title>
-      <link>//localhost:1313/scraps/study-requirements/</link>
+      <link>/scraps/study-requirements/</link>
       <pubDate>Sun, 07 Sep 2025 12:08:59 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-requirements/</guid>
+      <guid>/scraps/study-requirements/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-requirements/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-requirements/feature.jpg" />
     </item>
     
     <item>
       <title>virtualenv入門</title>
-      <link>//localhost:1313/scraps/study-virtualenv/</link>
+      <link>/scraps/study-virtualenv/</link>
       <pubDate>Sun, 07 Sep 2025 11:29:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-virtualenv/</guid>
+      <guid>/scraps/study-virtualenv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-virtualenv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-virtualenv/feature.jpg" />
     </item>
     
     <item>
       <title>【書評】指示通りができない人たち</title>
-      <link>//localhost:1313/scraps/memo-sijidourigadekinai/</link>
+      <link>/scraps/memo-sijidourigadekinai/</link>
       <pubDate>Sun, 07 Sep 2025 10:43:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/memo-sijidourigadekinai/</guid>
+      <guid>/scraps/memo-sijidourigadekinai/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/memo-sijidourigadekinai/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/memo-sijidourigadekinai/feature.jpg" />
     </item>
     
     <item>
       <title>pipコマンド入門</title>
-      <link>//localhost:1313/scraps/study-pip/</link>
+      <link>/scraps/study-pip/</link>
       <pubDate>Sat, 06 Sep 2025 22:12:25 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-pip/</guid>
+      <guid>/scraps/study-pip/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pip/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-pip/feature.jpg" />
     </item>
     
     <item>
       <title>仮想環境venv入門</title>
-      <link>//localhost:1313/scraps/study-venv/</link>
+      <link>/scraps/study-venv/</link>
       <pubDate>Sat, 06 Sep 2025 16:28:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-venv/</guid>
+      <guid>/scraps/study-venv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-venv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-venv/feature.jpg" />
     </item>
     
     <item>
       <title>Hugo&#43;Blowfishで構築したサイトをGoogle検索に表示させる手順</title>
-      <link>//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</link>
+      <link>/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</link>
       <pubDate>Sat, 06 Sep 2025 12:54:32 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</guid>
+      <guid>/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/feature.png" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/feature.png" />
     </item>
     
     <item>
       <title>pyenvでPythonバージョン管理｜インストールから切り替えまで</title>
-      <link>//localhost:1313/scraps/study-pyenv/</link>
+      <link>/scraps/study-pyenv/</link>
       <pubDate>Thu, 04 Sep 2025 20:22:08 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-pyenv/</guid>
+      <guid>/scraps/study-pyenv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pyenv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-pyenv/feature.jpg" />
     </item>
     
     <item>
       <title>Python概要とインストールなど</title>
-      <link>//localhost:1313/scraps/styudy-python/</link>
+      <link>/scraps/styudy-python/</link>
       <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/styudy-python/</guid>
+      <guid>/scraps/styudy-python/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/styudy-python/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/styudy-python/feature.jpg" />
     </item>
     
     <item>
       <title>勉強メモ：応用情報技術者試験</title>
-      <link>//localhost:1313/scraps/ouyoujouhou-memo/</link>
+      <link>/scraps/ouyoujouhou-memo/</link>
       <pubDate>Mon, 01 Sep 2025 13:59:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/ouyoujouhou-memo/</guid>
+      <guid>/scraps/ouyoujouhou-memo/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ouyoujouhou-memo/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/ouyoujouhou-memo/feature.jpg" />
     </item>
     
     <item>
       <title>NumPy入門</title>
-      <link>//localhost:1313/scraps/study-numpy/</link>
+      <link>/scraps/study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-numpy/</guid>
+      <guid>/scraps/study-numpy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-numpy/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/study-numpy/feature.jpg" />
     </item>
     
     <item>
       <title>【書評】TAKE NOTES! </title>
-      <link>//localhost:1313/scraps/memo-take-notes/</link>
+      <link>/scraps/memo-take-notes/</link>
       <pubDate>Tue, 19 Aug 2025 07:45:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/memo-take-notes/</guid>
+      <guid>/scraps/memo-take-notes/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/memo-take-notes/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/memo-take-notes/feature.jpg" />
     </item>
     
     <item>
       <title>【Windows】Voicemeeterを使ってパソコン内音声を録音する手順</title>
-      <link>//localhost:1313/posts/how-to-record-pc-internal-audio/</link>
+      <link>/posts/how-to-record-pc-internal-audio/</link>
       <pubDate>Sun, 10 Aug 2025 20:50:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/how-to-record-pc-internal-audio/</guid>
+      <guid>/posts/how-to-record-pc-internal-audio/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/how-to-record-pc-internal-audio/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/how-to-record-pc-internal-audio/feature.jpg" />
     </item>
     
     <item>
       <title>git worktree ハンズオン</title>
-      <link>//localhost:1313/posts/git-worktree-hands-on/</link>
+      <link>/posts/git-worktree-hands-on/</link>
       <pubDate>Thu, 07 Aug 2025 07:25:37 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/git-worktree-hands-on/</guid>
+      <guid>/posts/git-worktree-hands-on/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/git-worktree-hands-on/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/git-worktree-hands-on/feature.jpg" />
     </item>
     
     <item>
       <title>BlowfishでFaviconを設定する方法</title>
-      <link>//localhost:1313/posts/favicon_settings/</link>
+      <link>/posts/favicon_settings/</link>
       <pubDate>Sun, 03 Aug 2025 12:09:09 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/favicon_settings/</guid>
+      <guid>/posts/favicon_settings/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/favicon_settings/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/favicon_settings/feature.jpg" />
     </item>
     
     <item>
       <title>Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>//localhost:1313/posts/how_to_download_github_issues/</link>
+      <link>/posts/how_to_download_github_issues/</link>
       <pubDate>Sun, 03 Aug 2025 01:55:16 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/how_to_download_github_issues/</guid>
+      <guid>/posts/how_to_download_github_issues/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/how_to_download_github_issues/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/posts/how_to_download_github_issues/feature.jpg" />
     </item>
     
   </channel>
