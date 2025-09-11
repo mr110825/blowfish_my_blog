@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Scraps on 技術的デジャブ回避メモ帳</title>
+    <title>スクラップ on 技術的デジャブ回避メモ帳</title>
     <link>//localhost:1313/scraps/</link>
-    <description>Recent content in Scraps on 技術的デジャブ回避メモ帳</description>
+    <description>Recent content in スクラップ on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
@@ -12,7 +12,7 @@
     <lastBuildDate>Tue, 09 Sep 2025 15:30:00 +0900</lastBuildDate><atom:link href="//localhost:1313/scraps/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Blowfishテーマでスクラップを「最近の記事」から除外</title>
+      <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>
       <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
       <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：Pandas</title>
+      <title>Pandas入門</title>
       <link>//localhost:1313/scraps/study-pandas/</link>
       <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -32,7 +32,7 @@
     </item>
     
     <item>
-      <title>Python基礎レベルハンズオン</title>
+      <title>Python基礎ハンズオン</title>
       <link>//localhost:1313/scraps/python-practice2/</link>
       <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -42,7 +42,7 @@
     </item>
     
     <item>
-      <title>Python入門レベルハンズオン</title>
+      <title>Python入門ハンズオン</title>
       <link>//localhost:1313/scraps/python-practice/</link>
       <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -52,7 +52,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：requirements.txt</title>
+      <title>requirements.txt入門</title>
       <link>//localhost:1313/scraps/study-requirements/</link>
       <pubDate>Sun, 07 Sep 2025 12:08:59 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -62,7 +62,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：virtualenv</title>
+      <title>virtualenv入門</title>
       <link>//localhost:1313/scraps/study-virtualenv/</link>
       <pubDate>Sun, 07 Sep 2025 11:29:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -72,7 +72,7 @@
     </item>
     
     <item>
-      <title>読書メモ：「指示通り」ができない人たち</title>
+      <title>【書評】指示通りができない人たち</title>
       <link>//localhost:1313/scraps/memo-sijidourigadekinai/</link>
       <pubDate>Sun, 07 Sep 2025 10:43:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -82,7 +82,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：pipコマンド</title>
+      <title>pipコマンド入門</title>
       <link>//localhost:1313/scraps/study-pip/</link>
       <pubDate>Sat, 06 Sep 2025 22:12:25 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -92,7 +92,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：venv</title>
+      <title>仮想環境venv入門</title>
       <link>//localhost:1313/scraps/study-venv/</link>
       <pubDate>Sat, 06 Sep 2025 16:28:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -102,7 +102,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：pyenv</title>
+      <title>pyenvでPythonバージョン管理｜インストールから切り替えまで</title>
       <link>//localhost:1313/scraps/study-pyenv/</link>
       <pubDate>Thu, 04 Sep 2025 20:22:08 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -112,7 +112,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：Python</title>
+      <title>Python概要とインストールなど</title>
       <link>//localhost:1313/scraps/styudy-python/</link>
       <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -132,7 +132,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：numpy</title>
+      <title>NumPy入門</title>
       <link>//localhost:1313/scraps/study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -142,7 +142,7 @@
     </item>
     
     <item>
-      <title>読書メモ：TAKE NOTES!</title>
+      <title>【書評】TAKE NOTES! </title>
       <link>//localhost:1313/scraps/memo-take-notes/</link>
       <pubDate>Tue, 19 Aug 2025 07:45:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>

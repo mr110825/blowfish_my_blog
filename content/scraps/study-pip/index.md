@@ -1,7 +1,7 @@
 +++
 date = '2025-09-06T22:12:25+09:00'
 draft = false
-title = '勉強メモ：pipコマンド'
+title = 'pipコマンド入門'
 tags = ["python"]
 +++
 ## pipとは何か？

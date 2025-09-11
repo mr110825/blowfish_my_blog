@@ -1,7 +1,7 @@
 +++
 date = '2025-08-19T07:45:54+09:00'
 draft = false
-title = '読書メモ：TAKE NOTES!'
+title = '【書評】TAKE NOTES! '
 tags = ["読書メモ"]
 +++
 

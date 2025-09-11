@@ -1,7 +1,7 @@
 +++
 date = '2025-09-07T21:48:01+09:00'
 draft = false
-title = '勉強メモ：Pandas'
+title = 'Pandas入門'
 tags = ["python"]
 +++
 

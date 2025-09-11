@@ -1,7 +1,7 @@
 +++
 date = '2025-09-07T15:38:49+09:00'
 draft = false
-title = 'Python基礎レベルハンズオン'
+title = 'Python基礎ハンズオン'
 tags = ["python"]
 +++
 ## はじめに

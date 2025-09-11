@@ -1,7 +1,7 @@
 +++
 date = '2025-09-07T12:08:59+09:00'
 draft = false
-title = '勉強メモ：requirements.txt'
+title = 'requirements.txt入門'
 tags = ["python"]
 +++
 ## requirements.txtとは
