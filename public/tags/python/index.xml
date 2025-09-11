@@ -12,7 +12,7 @@
     <lastBuildDate>Sun, 07 Sep 2025 21:48:01 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/python/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>勉強メモ：Pandas</title>
+      <title>Pandas入門</title>
       <link>//localhost:1313/scraps/study-pandas/</link>
       <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -22,7 +22,7 @@
     </item>
     
     <item>
-      <title>Python基礎レベルハンズオン</title>
+      <title>Python基礎ハンズオン</title>
       <link>//localhost:1313/scraps/python-practice2/</link>
       <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -32,7 +32,7 @@
     </item>
     
     <item>
-      <title>Python入門レベルハンズオン</title>
+      <title>Python入門ハンズオン</title>
       <link>//localhost:1313/scraps/python-practice/</link>
       <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -42,7 +42,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：requirements.txt</title>
+      <title>requirements.txt入門</title>
       <link>//localhost:1313/scraps/study-requirements/</link>
       <pubDate>Sun, 07 Sep 2025 12:08:59 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -52,7 +52,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：virtualenv</title>
+      <title>virtualenv入門</title>
       <link>//localhost:1313/scraps/study-virtualenv/</link>
       <pubDate>Sun, 07 Sep 2025 11:29:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -62,7 +62,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：pipコマンド</title>
+      <title>pipコマンド入門</title>
       <link>//localhost:1313/scraps/study-pip/</link>
       <pubDate>Sat, 06 Sep 2025 22:12:25 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -72,7 +72,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：venv</title>
+      <title>仮想環境venv入門</title>
       <link>//localhost:1313/scraps/study-venv/</link>
       <pubDate>Sat, 06 Sep 2025 16:28:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -82,7 +82,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：pyenv</title>
+      <title>pyenvでPythonバージョン管理｜インストールから切り替えまで</title>
       <link>//localhost:1313/scraps/study-pyenv/</link>
       <pubDate>Thu, 04 Sep 2025 20:22:08 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -92,7 +92,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：Python</title>
+      <title>Python概要とインストールなど</title>
       <link>//localhost:1313/scraps/styudy-python/</link>
       <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
@@ -102,7 +102,7 @@
     </item>
     
     <item>
-      <title>勉強メモ：numpy</title>
+      <title>NumPy入門</title>
       <link>//localhost:1313/scraps/study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>

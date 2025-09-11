@@ -1,0 +1,297 @@
+/* =====================================================
+   カスタムデザイン改善 - 技術的デジャブ回避メモ帳
+   ===================================================== */
+
+/* カラーパレットの統一 */
+:root {
+  --primary-gradient-start: #4f46e5;
+  --primary-gradient-end: #06b6d4;
+  --accent-color: #10b981;
+  --text-primary: #1f2937;
+  --text-secondary: #6b7280;
+  --card-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --hover-transform: translateY(-2px);
+  --border-radius: 12px;
+}
+
+/* ヒーローセクションの改善 */
+.hero-section {
+  background: linear-gradient(135deg, var(--primary-gradient-start) 0%, var(--primary-gradient-end) 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="white" opacity="0.1"/><circle cx="75" cy="75" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+  pointer-events: none;
+}
+
+/* カードデザインの統一と改善 */
+.min-h-full.border {
+  border: none !important;
+  box-shadow: var(--card-shadow);
+  border-radius: var(--border-radius);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+  background: linear-gradient(145deg, #ffffff 0%, #f8fafc 100%);
+}
+
+.min-h-full.border:hover {
+  transform: var(--hover-transform);
+  box-shadow: 0 20px 40px -12px rgba(0, 0, 0, 0.15);
+}
+
+/* サムネイル画像の改善 */
+.thumbnail_card {
+  position: relative;
+  height: 200px;
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  transition: transform 0.3s ease;
+}
+
+.thumbnail_card::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.1) 100%);
+}
+
+.min-h-full.border:hover .thumbnail_card {
+  transform: scale(1.05);
+}
+
+/* タイトルとテキストの改善 */
+.font-bold.text-xl {
+  color: var(--text-primary);
+  line-height: 1.4;
+  margin-bottom: 8px;
+  transition: color 0.2s ease;
+}
+
+.min-h-full.border:hover .font-bold.text-xl {
+  color: var(--primary-gradient-start);
+}
+
+/* メニューとナビゲーションの改善 */
+.main-menu {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.main-menu a {
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.main-menu a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  transition: all 0.3s ease;
+  transform: translateX(-50%);
+}
+
+.main-menu a:hover::after {
+  width: 100%;
+}
+
+/* プロフィールセクションの改善 */
+.rounded-full {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.rounded-full:hover {
+  transform: scale(1.05);
+}
+
+/* ソーシャルリンクの改善 */
+.px-1 {
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.px-1:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+/* 最近の記事セクションの改善 */
+.mt-8.text-2xl.font-extrabold {
+  position: relative;
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+.mt-8.text-2xl.font-extrabold::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--accent-color));
+  border-radius: 2px;
+}
+
+/* グリッドレイアウトの改善 */
+.grid.gap-4 {
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .grid.gap-4 {
+    gap: 1.5rem;
+  }
+}
+
+/* レスポンシブデザインの最適化 */
+@media (max-width: 768px) {
+  .thumbnail_card {
+    height: 160px;
+  }
+  
+  .px-6.py-4 {
+    padding: 1rem;
+  }
+  
+  .font-bold.text-xl {
+    font-size: 1.1rem;
+    line-height: 1.3;
+  }
+  
+  .grid.gap-4.sm\\:grid-cols-2.md\\:grid-cols-3 {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .grid.gap-4.sm\\:grid-cols-2.md\\:grid-cols-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* フッターの改善 */
+#site-footer {
+  background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* ダークモードの改善 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: #f9fafb;
+    --text-secondary: #d1d5db;
+  }
+  
+  .min-h-full.border {
+    background: linear-gradient(145deg, #1f2937 0%, #111827 100%);
+  }
+  
+  .main-menu {
+    background: rgba(31, 41, 55, 0.95);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  
+  #site-footer {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+/* アニメーション効果の追加 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.min-h-full.border {
+  animation: fadeInUp 0.6s ease-out;
+}
+
+/* スクロールバーのカスタマイズ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--primary-gradient-start), var(--primary-gradient-end));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(var(--primary-gradient-end), var(--primary-gradient-start));
+}
+
+/* 記事メタ情報の改善 */
+.text-sm.text-neutral-500 {
+  font-weight: 500;
+}
+
+/* CTAボタンの改善 */
+.bg-transparent.hover\\:text-primary-500 {
+  background: linear-gradient(135deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  color: white;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translateZ(0);
+}
+
+.bg-transparent.hover\\:text-primary-500:hover {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+  background: linear-gradient(135deg, var(--primary-gradient-end), var(--primary-gradient-start));
+}
+
+
+/* 追加のユーティリティクラス */
+.glass-effect {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.gradient-text {
+  background: linear-gradient(90deg, var(--primary-gradient-start), var(--primary-gradient-end));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* パフォーマンス向上のための最適化 */
+.min-h-full.border,
+.thumbnail_card,
+.rounded-full,
+.px-1 {
+  will-change: transform;
+}

@@ -9,7 +9,7 @@ title = "技術的デジャブ回避メモ帳"
   isoCode = "ja"
   rtl = false
   dateFormat = "2006年 1月 2日"
-  description = "技術的デジャブを回避するためにメモや備忘録"
+  description = "SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。"
 
  [params.author]
    name = "フミ"

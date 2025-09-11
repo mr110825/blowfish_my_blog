@@ -26,6 +26,7 @@ cascade:
 ## Hugo・Blowfish関連
 
 - [Hugo+Blowfish｜mainSections設定でコンテンツ分離する方法]({{< ref "blowfish-exclude-recent" >}})
+- [Hugo・BlowfishでカスタムCSS適用]({{< ref "hugo-blowfish-custom-css-guide" >}})
 
 ## 読書メモ
 

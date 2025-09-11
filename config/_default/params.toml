@@ -39,13 +39,13 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
   layout = "hero"
   homepageImage = "img/blog_background.jpg"
   showRecent = true
-  showRecentItems = 5
-  showMoreLink = false
+  showRecentItems = 4
+  showMoreLink = true
   showMoreLinkDest = "/posts/"
   cardView = true
   cardViewScreenWidth = false
   layoutBackgroundBlur = true
-  disableHeroImageFilter = true
+  disableHeroImageFilter = false
 
 [article]
   showDate = true
@@ -164,3 +164,6 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [advertisement]
   # adsense = ""
+
+# カスタムスタイル設定
+customCSS = ["css/custom.css"]

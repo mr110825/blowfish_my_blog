@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 09 Sep 2025 15:30:00 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo・BlowfishでカスタムCSS適用</title>
+      <link>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</link>
+      <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>

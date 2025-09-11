@@ -12,7 +12,7 @@
     <lastBuildDate>Tue, 09 Sep 2025 15:30:00 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/blowfish/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Blowfishテーマでスクラップを「最近の記事」から除外</title>
+      <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>
       <link>//localhost:1313/scraps/blowfish-exclude-recent/</link>
       <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>

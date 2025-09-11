@@ -1,5 +1,5 @@
 ---
-title: "投稿"
+title: "投稿記事"
 description: "ブログ記事の一覧"
 cascade:
   showEdit: false
