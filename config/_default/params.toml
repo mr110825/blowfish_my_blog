@@ -101,24 +101,24 @@ forgejoDefaultServer = "https://v11.next.forgejo.org"
 
 [taxonomy]
   showTermCount = true
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
+  showHero = true
+  heroStyle = "background"
   showBreadcrumbs = false
   showViews = false
   showLikes = false
   showTableOfContents = false
-  cardView = false
+  cardView = true
 
 [term]
-  showHero = false
-  # heroStyle = "background" # valid options: basic, big, background, thumbAndBackground
-  showBreadcrumbs = false
+  showHero = true
+  heroStyle = "background"
+  showBreadcrumbs = true
   showViews = false
   showLikes = false
   showTableOfContents = true
   groupByYear = false
-  cardView = false
-  cardViewScreenWidth = false
+  cardView = true
+  cardViewScreenWidth = true
 
 [firebase]
   # apiKey = "XXXXXX"

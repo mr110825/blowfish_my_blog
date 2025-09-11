@@ -2,7 +2,7 @@
 date = '2025-08-03T01:55:16+09:00'
 draft = false
 title = 'Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法'
-tags = ["Git","Github"]
+tags = ["Git", "GitHub", "GitHub CLI"]
 +++
 ## はじめに
 

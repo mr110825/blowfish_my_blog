@@ -2,7 +2,7 @@
 date = '2025-09-06T12:54:32+09:00'
 draft = false
 title = 'Hugo+Blowfishで構築したサイトをGoogle検索に表示させる手順'
-tags = ["Hugo", "Blowfish", "Github Pages", "SEO"]
+tags = ["Hugo", "Blowfish", "GitHub Pages", "SEO", "Google Search Console"]
 +++
 
 ## はじめに
