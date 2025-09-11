@@ -21,6 +21,12 @@
     <priority>0.5</priority>
   </url>
   <url>
+    <loc>//localhost:1313/scraps/hugo-blowfish-darkmode-fixed/</loc>
+    <lastmod>2025-09-11T20:00:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
     <loc>//localhost:1313/scraps/blowfish-exclude-recent/</loc>
     <lastmod>2025-09-09T15:30:00+09:00</lastmod>
     <changefreq>daily</changefreq>

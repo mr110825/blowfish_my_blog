@@ -288,6 +288,172 @@
   background-clip: text;
 }
 
+/* ハンバーガーメニューの z-index 修正 */
+/* モバイルメニューの表示優先度を最上位に設定 */
+.mobile-menu,
+[id*="mobile-menu"],
+[class*="mobile-menu"],
+nav[class*="mobile"],
+.menu-dropdown,
+.dropdown-menu {
+  z-index: 99999 !important;
+  position: fixed !important;
+}
+
+/* ハンバーガーメニューボタンの表示優先度 */
+.hamburger-button,
+[class*="hamburger"],
+button[aria-label*="menu"],
+button[aria-expanded],
+.menu-toggle,
+.nav-toggle {
+  z-index: 100000 !important;
+  position: relative;
+}
+
+/* Blowfishテーマ特有のメニュー要素 */
+.menu,
+.navigation-menu,
+[data-menu],
+[role="menu"],
+.dropdown {
+  z-index: 99998 !important;
+}
+
+/* 展開されたメニューの強制的な最前面表示 */
+.open .mobile-menu,
+.show .mobile-menu,
+[aria-expanded="true"] + .mobile-menu,
+[aria-expanded="true"] ~ .mobile-menu,
+.mobile-menu.is-open,
+.mobile-menu[style*="display: block"],
+.mobile-menu:not([style*="display: none"]) {
+  z-index: 999999 !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+}
+
+/* モバイル時のナビゲーションメニュー */
+@media (max-width: 768px) {
+  /* すべてのメニュー関連要素を最前面に強制 */
+  .mobile-menu,
+  [id*="mobile-menu"],
+  [class*="mobile-menu"],
+  nav[class*="mobile"],
+  .menu-dropdown,
+  .dropdown-menu,
+  [data-mobile-menu],
+  .navigation-menu {
+    z-index: 999999 !important;
+    position: fixed !important;
+    isolation: isolate;
+  }
+
+  /* メニューオーバーレイの設定 */
+  .menu-overlay,
+  [class*="menu"][class*="mobile"],
+  [class*="nav"][class*="mobile"] {
+    z-index: 999998 !important;
+    position: fixed !important;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+  }
+  
+  /* ヒーローセクションの z-index を下げる */
+  .hero-section,
+  [class*="hero"],
+  .relative.overflow-hidden {
+    z-index: 1 !important;
+  }
+  
+  /* プロフィールセクションの z-index を調整 */
+  .rounded-full,
+  .profile-section,
+  [class*="profile"] {
+    z-index: 2 !important;
+  }
+  
+  /* メニューが開いた時のスタイル改善 */
+  body.menu-open {
+    overflow: hidden;
+  }
+}
+
+/* Blowfish テーマ特有のクラスに対する修正 */
+/* ヘッダーとナビゲーション */
+#site-header,
+.header,
+.navbar {
+  z-index: 1000 !important;
+}
+
+/* モバイルメニューの詳細スタイリング */
+@media (max-width: 768px) {
+  /* メニューアイテムの見た目改善 */
+  .mobile-menu a,
+  [class*="mobile-menu"] a {
+    padding: 12px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.2s ease;
+  }
+  
+  .mobile-menu a:hover,
+  [class*="mobile-menu"] a:hover {
+    background-color: rgba(79, 70, 229, 0.1);
+  }
+  
+  /* メニュー背景のぼかし効果強化 */
+  .menu-overlay {
+    backdrop-filter: blur(15px) saturate(180%);
+    background: rgba(31, 41, 55, 0.95);
+  }
+
+  /* 汎用的なメニュー要素の強制最前面表示 */
+  div[id*="menu"],
+  div[class*="menu"],
+  nav[role="navigation"],
+  ul[role="menu"],
+  .nav-menu,
+  .navbar-menu,
+  .site-navigation,
+  [data-toggle="collapse"][aria-expanded="true"] ~ *,
+  [data-bs-toggle="collapse"][aria-expanded="true"] ~ * {
+    z-index: 999999 !important;
+  }
+
+  /* 特定の表示状態でのメニュー */
+  .collapse.show,
+  .collapsing,
+  [style*="display: block"][class*="menu"],
+  [style*="display: flex"][class*="menu"],
+  .is-active[class*="menu"] {
+    z-index: 999999 !important;
+    position: fixed !important;
+  }
+
+  /* フルスクリーンオーバーレイメニュー */
+  .menu-fullscreen,
+  .overlay-menu,
+  [class*="menu"][class*="overlay"],
+  [class*="menu"][class*="fullscreen"] {
+    z-index: 999999 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100vw !important;
+    height: 100vh !important;
+    background: rgba(31, 41, 55, 0.98) !important;
+    backdrop-filter: blur(20px) !important;
+  }
+}
+
 /* パフォーマンス向上のための最適化 */
 .min-h-full.border,
 .thumbnail_card,
