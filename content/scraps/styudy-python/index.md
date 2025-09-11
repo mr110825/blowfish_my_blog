@@ -1,7 +1,7 @@
 +++
 date = '2025-09-03T07:52:57+09:00'
 draft = false
-title = '勉強メモ：Python'
+title = 'Python概要とインストールなど'
 tags = ["python"]
 +++
 

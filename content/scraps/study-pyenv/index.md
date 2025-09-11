@@ -1,7 +1,7 @@
 +++
 date = '2025-09-04T20:22:08+09:00'
 draft = false
-title = '勉強メモ：pyenv'
+title = 'pyenvでPythonバージョン管理｜インストールから切り替えまで'
 tags = ["python"]
 +++
 ## はじめに

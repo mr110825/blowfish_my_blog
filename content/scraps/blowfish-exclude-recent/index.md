@@ -1,7 +1,7 @@
 +++
 date = '2025-09-09T15:30:00+09:00'
 draft = false
-title = 'Blowfishテーマでスクラップを「最近の記事」から除外'
+title = 'Hugo+Blowfish｜mainSections設定でコンテンツ分離する方法'
 tags = ["hugo", "blowfish"]
 +++
 

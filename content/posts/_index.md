@@ -8,9 +8,4 @@ cascade:
   showLikes: false
   showViews: false
 ---
-
-{{< lead >}}
-ブログ記事の一覧です。
-{{< /lead >}}
-
 このセクションには、技術記事やチュートリアル、開発に関する記事などを投稿しています。
