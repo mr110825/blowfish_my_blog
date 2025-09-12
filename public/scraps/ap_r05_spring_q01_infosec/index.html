@@ -1,0 +1,1513 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>応用情報技術者試験 R05春Q01（情報セキュリティ）解説 &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="応用情報技術者試験 R05春Q01（情報セキュリティ）解説 &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta name="keywords" content="応用情報技術者試験,情報セキュリティ,サイバー攻撃,ランサムウェア,インシデント対応,CSIRT,EDR,">
+  
+  
+  <link rel="canonical" href="/scraps/ap_r05_spring_q01_infosec/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="/scraps/ap_r05_spring_q01_infosec/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="応用情報技術者試験 R05春Q01（情報セキュリティ）解説">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="scraps">
+    <meta property="article:published_time" content="2025-09-12T18:32:02+09:00">
+    <meta property="article:modified_time" content="2025-09-12T18:32:02+09:00">
+    <meta property="article:tag" content="応用情報技術者試験">
+    <meta property="article:tag" content="情報セキュリティ">
+    <meta property="article:tag" content="サイバー攻撃">
+    <meta property="article:tag" content="ランサムウェア">
+    <meta property="article:tag" content="インシデント対応">
+    <meta property="article:tag" content="CSIRT">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="応用情報技術者試験 R05春Q01（情報セキュリティ）解説">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "スクラップ",
+    "name": "応用情報技術者試験 R05春Q01（情報セキュリティ）解説",
+    "headline": "応用情報技術者試験 R05春Q01（情報セキュリティ）解説",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/scraps\/ap_r05_spring_q01_infosec\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-12T18:32:02\u002b09:00",
+    "datePublished": "2025-09-12T18:32:02\u002b09:00",
+    
+    "dateModified": "2025-09-12T18:32:02\u002b09:00",
+    
+    "keywords": ["応用情報技術者試験","情報セキュリティ","サイバー攻撃","ランサムウェア","インシデント対応","CSIRT","EDR"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "292"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        応用情報技術者試験 R05春Q01（情報セキュリティ）解説
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-09-12T18:32:02&#43;09:00">2025年 9月 12日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#問題の全体像">問題の全体像</a>
+      <ul>
+        <li><a href="#登場人物組織">登場人物・組織</a></li>
+        <li><a href="#システム構成">システム構成</a></li>
+        <li><a href="#攻撃シナリオの時系列">攻撃シナリオの時系列</a></li>
+      </ul>
+    </li>
+    <li><a href="#設問ごとの解説">設問ごとの解説</a>
+      <ul>
+        <li><a href="#設問11-初動対応の優先事項">設問1(1): 初動対応の優先事項</a></li>
+        <li><a href="#設問12-サイバーキルチェーンの段階">設問1(2): サイバーキルチェーンの段階</a></li>
+        <li><a href="#設問21-課題と改善策の対応">設問2(1): 課題と改善策の対応</a></li>
+        <li><a href="#設問22-エンドポイント監視技術">設問2(2): エンドポイント監視技術</a></li>
+        <li><a href="#設問31-インシデント対応組織">設問3(1): インシデント対応組織</a></li>
+        <li><a href="#設問32-改善策の具体化">設問3(2): 改善策の具体化</a></li>
+        <li><a href="#設問33-技術的対策改善のための調査">設問3(3): 技術的対策改善のための調査</a></li>
+        <li><a href="#設問41-全従業員対象の訓練">設問4(1): 全従業員対象の訓練</a></li>
+        <li><a href="#設問42-バックアップ媒体の保管">設問4(2): バックアップ媒体の保管</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-本問題からの教訓と学習ポイント">3. 本問題からの教訓と学習ポイント</a>
+      <ul>
+        <li><a href="#学習すべき重要ポイント">学習すべき重要ポイント</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a></li>
+    <li><a href="#問題の全体像">問題の全体像</a>
+      <ul>
+        <li><a href="#登場人物組織">登場人物・組織</a></li>
+        <li><a href="#システム構成">システム構成</a></li>
+        <li><a href="#攻撃シナリオの時系列">攻撃シナリオの時系列</a></li>
+      </ul>
+    </li>
+    <li><a href="#設問ごとの解説">設問ごとの解説</a>
+      <ul>
+        <li><a href="#設問11-初動対応の優先事項">設問1(1): 初動対応の優先事項</a></li>
+        <li><a href="#設問12-サイバーキルチェーンの段階">設問1(2): サイバーキルチェーンの段階</a></li>
+        <li><a href="#設問21-課題と改善策の対応">設問2(1): 課題と改善策の対応</a></li>
+        <li><a href="#設問22-エンドポイント監視技術">設問2(2): エンドポイント監視技術</a></li>
+        <li><a href="#設問31-インシデント対応組織">設問3(1): インシデント対応組織</a></li>
+        <li><a href="#設問32-改善策の具体化">設問3(2): 改善策の具体化</a></li>
+        <li><a href="#設問33-技術的対策改善のための調査">設問3(3): 技術的対策改善のための調査</a></li>
+        <li><a href="#設問41-全従業員対象の訓練">設問4(1): 全従業員対象の訓練</a></li>
+        <li><a href="#設問42-バックアップ媒体の保管">設問4(2): バックアップ媒体の保管</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-本問題からの教訓と学習ポイント">3. 本問題からの教訓と学習ポイント</a>
+      <ul>
+        <li><a href="#学習すべき重要ポイント">学習すべき重要ポイント</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">はじめに 
+    <div id="はじめに" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>応用情報技術者試験の情報セキュリティ分野は、近年のサイバー攻撃の深刻化に伴い、その重要性がますます高まっている。本稿では、令和5年春期午後問題の問1「情報セキュリティ」を詳細に解説する。</p>
+<p>この問題は、<strong>ランサムウェア攻撃</strong>を受けた旅行代理店を舞台に、実際のインシデント発生から初動対応、そして組織的な改善策の検討まで、一連のインシデントレスポンスの流れを学べる実践的な内容となっている。</p>
+<p>この問題を通じて、<strong>サイバーキルチェーン</strong>の理解、<strong>インシデントハンドリング</strong>の基本原則、そして<strong>組織的セキュリティ管理</strong>の重要性について、体系的に理解を深めることができる。</p>
+
+<h2 class="relative group">問題の全体像 
+    <div id="問題の全体像" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c%e3%81%ae%e5%85%a8%e4%bd%93%e5%83%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">登場人物・組織 
+    <div id="登場人物組織" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%99%bb%e5%a0%b4%e4%ba%ba%e7%89%a9%e7%b5%84%e7%b9%94" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>組織・人物</th>
+          <th>役割・関係性</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>R社</strong></td>
+          <td>全従業員150名の旅行代理店（被害を受けた中心企業）</td>
+      </tr>
+      <tr>
+          <td><strong>Sさん</strong></td>
+          <td>R社従業員（感染したPCの使用者）</td>
+      </tr>
+      <tr>
+          <td><strong>Tさん</strong></td>
+          <td>R社情報システム部員（インシデント一次対応者）</td>
+      </tr>
+      <tr>
+          <td><strong>U部長</strong></td>
+          <td>R社情報システム部長（Tさんの上司）</td>
+      </tr>
+      <tr>
+          <td><strong>Z社</strong></td>
+          <td>セキュリティ対策支援サービス提供企業</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">システム構成 
+    <div id="システム構成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e6%a7%8b%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>PC-S</strong>: Sさんが使用するPC（ランサムウェア感染対象）</li>
+<li><strong>R社LAN</strong>: 社内ネットワーク</li>
+<li><strong>メールシステム</strong>: 攻撃の侵入経路</li>
+</ul>
+
+<h3 class="relative group">攻撃シナリオの時系列 
+    <div id="攻撃シナリオの時系列" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%94%bb%e6%92%83%e3%82%b7%e3%83%8a%e3%83%aa%e3%82%aa%e3%81%ae%e6%99%82%e7%b3%bb%e5%88%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>感染発覚:</strong> SさんのPC-Sで身代金要求メッセージが表示</li>
+<li><strong>初期対応:</strong> Sさんが情報システム部に連絡、Tさんがランサムウェア感染と判断</li>
+<li><strong>封じ込め:</strong> TさんがPC-Sをネットワークから隔離</li>
+<li><strong>調査開始:</strong> Z社に調査を依頼</li>
+<li><strong>調査結果:</strong> メール経由感染、ファイル暗号化を確認。LAN内スキャンや外部通信は未確認</li>
+<li><strong>改善検討:</strong> U部長指示でZ社がセキュリティ管理全体を評価、改善策を検討</li>
+</ol>
+
+<h2 class="relative group">設問ごとの解説 
+    <div id="設問ごとの解説" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f%e3%81%94%e3%81%a8%e3%81%ae%e8%a7%a3%e8%aa%ac" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">設問1(1): 初動対応の優先事項 
+    <div id="設問11-初動対応の優先事項" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f11-%e5%88%9d%e5%8b%95%e5%af%be%e5%bf%9c%e3%81%ae%e5%84%aa%e5%85%88%e4%ba%8b%e9%a0%85" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> ランサムウェア感染が疑われるPCに対して直ちに実施すべき対策は何か。</p></blockquote>
+<p><strong>【解答】ウ（ネットワークから切り離す）</strong></p>
+<p><strong>【思考プロセス】</strong></p>
+<ol>
+<li><strong>インシデント対応の基本原則</strong>: 被害拡大防止が最優先</li>
+<li><strong>ランサムウェアの特性</strong>: ネットワーク経由で感染を拡大させる可能性</li>
+<li><strong>封じ込め（Containment）</strong>: インシデント対応の初期段階で最も重要な活動</li>
+</ol>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li>原因究明よりも<strong>被害拡大防止</strong>を優先</li>
+<li>物理的または論理的な<strong>ネットワーク隔離</strong>が最も確実</li>
+<li>証拠保全のため、安易にファイル削除は行わない</li>
+</ul>
+
+<h3 class="relative group">設問1(2): サイバーキルチェーンの段階 
+    <div id="設問12-サイバーキルチェーンの段階" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f12-%e3%82%b5%e3%82%a4%e3%83%90%e3%83%bc%e3%82%ad%e3%83%ab%e3%83%81%e3%82%a7%e3%83%bc%e3%83%b3%e3%81%ae%e6%ae%b5%e9%9a%8e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> 今回のインシデントはサイバーキルチェーンのどの段階まで完了したか。</p></blockquote>
+<p><strong>【解答】5（インストール）</strong></p>
+<p><strong>サイバーキルチェーン分析</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>段階</th>
+          <th>内容</th>
+          <th>今回の状況</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>3. デリバリ</td>
+          <td>攻撃コードの送付</td>
+          <td>✅ メール添付ファイルで送付</td>
+      </tr>
+      <tr>
+          <td>4. エクスプロイト</td>
+          <td>脆弱性の悪用・実行</td>
+          <td>✅ Sさんがファイルを開いて実行</td>
+      </tr>
+      <tr>
+          <td>5. インストール</td>
+          <td>マルウェアのインストール</td>
+          <td>✅ PC-Sにランサムウェアがインストール</td>
+      </tr>
+      <tr>
+          <td>6. C&amp;C</td>
+          <td>C&amp;Cサーバとの通信</td>
+          <td>❌ 不審な通信痕跡なし</td>
+      </tr>
+      <tr>
+          <td>7. 目的の実行</td>
+          <td>最終目標の達成</td>
+          <td>❌ 情報窃取・外部送信なし</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li>ファイル暗号化は段階5の一部として解釈</li>
+<li>C&amp;Cサーバとの通信が確認されていない点がポイント</li>
+</ul>
+
+<h3 class="relative group">設問2(1): 課題と改善策の対応 
+    <div id="設問21-課題と改善策の対応" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f21-%e8%aa%b2%e9%a1%8c%e3%81%a8%e6%94%b9%e5%96%84%e7%ad%96%e3%81%ae%e5%af%be%e5%bf%9c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> 「インシデント発生時の対応手順が整備されていない」課題への改善策は何か。</p></blockquote>
+<p><strong>【解答】5（インシデント発生時の対応体制や手順を検討して明文化する）</strong></p>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li>課題と改善策の<strong>直接的な対応関係</strong>を把握</li>
+<li><strong>明文化</strong>による組織的な対応力向上</li>
+</ul>
+
+<h3 class="relative group">設問2(2): エンドポイント監視技術 
+    <div id="設問22-エンドポイント監視技術" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f22-%e3%82%a8%e3%83%b3%e3%83%89%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%e7%9b%a3%e8%a6%96%e6%8a%80%e8%a1%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> PC上の不審な挙動を監視する仕組みの略称は何か。</p></blockquote>
+<p><strong>【解答】イ（EDR）</strong></p>
+<p><strong>技術比較</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>略称</th>
+          <th>正式名称</th>
+          <th>機能</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>EDR</strong></td>
+          <td>Endpoint Detection and Response</td>
+          <td><strong>エンドポイントでの脅威検知・対応</strong></td>
+      </tr>
+      <tr>
+          <td>APT</td>
+          <td>Advanced Persistent Threat</td>
+          <td>高度標的型攻撃（攻撃手法）</td>
+      </tr>
+      <tr>
+          <td>UTM</td>
+          <td>Unified Threat Management</td>
+          <td>統合脅威管理（複合セキュリティ製品）</td>
+      </tr>
+      <tr>
+          <td>WAF</td>
+          <td>Web Application Firewall</td>
+          <td>Webアプリケーション保護</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li><strong>EDR</strong>は従来のアンチウイルスとは異なり、<strong>動作監視</strong>に重点</li>
+<li>未知の脅威に対する<strong>行動ベース</strong>の検知が特徴</li>
+</ul>
+
+<h3 class="relative group">設問3(1): インシデント対応組織 
+    <div id="設問31-インシデント対応組織" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f31-%e3%82%a4%e3%83%b3%e3%82%b7%e3%83%87%e3%83%b3%e3%83%88%e5%af%be%e5%bf%9c%e7%b5%84%e7%b9%94" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> インシデント対応を行う組織の略称は何か。</p></blockquote>
+<p><strong>【解答】イ（CSIRT）</strong></p>
+<p><strong>組織比較</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>略称</th>
+          <th>正式名称</th>
+          <th>役割</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>CSIRT</strong></td>
+          <td>Computer Security Incident Response Team</td>
+          <td><strong>セキュリティインシデント対応チーム</strong></td>
+      </tr>
+      <tr>
+          <td>CASB</td>
+          <td>Cloud Access Security Broker</td>
+          <td>クラウドセキュリティ制御</td>
+      </tr>
+      <tr>
+          <td>MITM</td>
+          <td>Man-in-the-Middle Attack</td>
+          <td>中間者攻撃（攻撃手法）</td>
+      </tr>
+      <tr>
+          <td>RADIUS</td>
+          <td>Remote Authentication Dial-In User Service</td>
+          <td>ネットワーク認証プロトコル</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li><strong>CSIRT</strong>は組織内外のインシデント対応の中核</li>
+<li><strong>専門性</strong>と<strong>組織横断的な権限</strong>が必要</li>
+</ul>
+
+<h3 class="relative group">設問3(2): 改善策の具体化 
+    <div id="設問32-改善策の具体化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f32-%e6%94%b9%e5%96%84%e7%ad%96%e3%81%ae%e5%85%b7%e4%bd%93%e5%8c%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> 表4の具体化案と表3の改善策の対応は何か。</p></blockquote>
+<p><strong>【解答】b:3, c:6, d:5</strong></p>
+<p><strong>対応関係</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>具体化案</th>
+          <th>改善策項番</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>情報機器把握・脆弱性情報収集</td>
+          <td><strong>b:3</strong></td>
+          <td>資産目録の更新</td>
+      </tr>
+      <tr>
+          <td></td>
+          <td><strong>c:6</strong></td>
+          <td>脆弱性情報収集方法確立</td>
+      </tr>
+      <tr>
+          <td>社内外連絡体制の整理・文書化</td>
+          <td><strong>d:5</strong></td>
+          <td>対応体制・手順の明文化</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">設問3(3): 技術的対策改善のための調査 
+    <div id="設問33-技術的対策改善のための調査" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f33-%e6%8a%80%e8%a1%93%e7%9a%84%e5%af%be%e7%ad%96%e6%94%b9%e5%96%84%e3%81%ae%e3%81%9f%e3%82%81%e3%81%ae%e8%aa%bf%e6%9f%bb" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> セキュリティインシデント事例調査で、技術的対策改善のために必要な情報は何か。</p></blockquote>
+<p><strong>【解答】ア（使用された攻撃手法）、ウ（被害を受けた機器の種類）</strong></p>
+<p><strong>調査項目の重要度</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>調査項目</th>
+          <th>技術的対策への寄与</th>
+          <th>重要度</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>攻撃手法</strong></td>
+          <td>対抗技術の選定・設定に直結</td>
+          <td><strong>高</strong></td>
+      </tr>
+      <tr>
+          <td>損害金額</td>
+          <td>投資判断には有用だが技術対策には間接的</td>
+          <td>低</td>
+      </tr>
+      <tr>
+          <td><strong>機器の種類</strong></td>
+          <td>機器固有の脆弱性対策に直結</td>
+          <td><strong>高</strong></td>
+      </tr>
+      <tr>
+          <td>組織の業種</td>
+          <td>攻撃動機の推測には有用だが技術対策には間接的</td>
+          <td>低</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">設問4(1): 全従業員対象の訓練 
+    <div id="設問41-全従業員対象の訓練" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f41-%e5%85%a8%e5%be%93%e6%a5%ad%e5%93%a1%e5%af%be%e8%b1%a1%e3%81%ae%e8%a8%93%e7%b7%b4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> インシデント対応訓練で全従業員が実施すべき対応は何か。</p></blockquote>
+<p><strong>【解答】ア（検知/通報）</strong></p>
+<p><strong>役割分担</strong>:</p>
+<table>
+  <thead>
+      <tr>
+          <th>対象</th>
+          <th>実施すべき対応</th>
+          <th>理由</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>全従業員</strong></td>
+          <td><strong>検知/通報</strong></td>
+          <td>異常の第一発見者として最も重要</td>
+      </tr>
+      <tr>
+          <td>情報システム部・CSIRT</td>
+          <td>トリアージ、インシデントレスポンス</td>
+          <td>専門知識が必要</td>
+      </tr>
+      <tr>
+          <td>経営層・広報</td>
+          <td>報告/情報公開</td>
+          <td>組織的判断が必要</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li>問題文でSさんが「連絡窓口がわからない」状況を改善</li>
+<li><strong>迅速な通報</strong>が被害拡大防止の鍵</li>
+</ul>
+
+<h3 class="relative group">設問4(2): バックアップ媒体の保管 
+    <div id="設問42-バックアップ媒体の保管" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f42-%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e5%aa%92%e4%bd%93%e3%81%ae%e4%bf%9d%e7%ae%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<blockquote>
+<p><strong>問われていること:</strong> バックアップ記録媒体の適切な保管方法は何か。</p></blockquote>
+<p><strong>【解答】PCから切り離して保管する</strong></p>
+<p><strong>重要ポイント</strong>:</p>
+<ul>
+<li><strong>オフラインバックアップ</strong>の概念</li>
+<li><strong>エアギャップ</strong>による物理的隔離</li>
+<li><strong>3-2-1ルール</strong>（3つのコピー、2つの媒体、1つはオフサイト）</li>
+</ul>
+<hr>
+
+<h2 class="relative group">3. 本問題からの教訓と学習ポイント 
+    <div id="3-本問題からの教訓と学習ポイント" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e6%9c%ac%e5%95%8f%e9%a1%8c%e3%81%8b%e3%82%89%e3%81%ae%e6%95%99%e8%a8%93%e3%81%a8%e5%ad%a6%e7%bf%92%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">学習すべき重要ポイント 
+    <div id="学習すべき重要ポイント" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e3%81%99%e3%81%b9%e3%81%8d%e9%87%8d%e8%a6%81%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>
+<p><strong>インシデント対応は「被害拡大防止」最優先</strong></p>
+<ul>
+<li>封じ込め（Containment）が初動の基本原則</li>
+<li>不確実な状況でも最悪ケースを想定した対応</li>
+</ul>
+</li>
+<li>
+<p><strong>課題と対策の論理的関係性を理解</strong></p>
+<ul>
+<li>As-Is（現状の課題） → To-Be（あるべき姿） → Action（具体的対策）</li>
+<li>セキュリティ技術は特定の課題解決のために存在</li>
+</ul>
+</li>
+<li>
+<p><strong>組織的役割分担の明確化</strong></p>
+<ul>
+<li>全従業員：検知・通報</li>
+<li>専門部署：トリアージ・技術対応</li>
+<li>経営層：意思決定・対外対応</li>
+</ul>
+</li>
+<li>
+<p><strong>技術的対策の体系的理解</strong></p>
+<ul>
+<li>EDR、CSIRT等の技術・組織は課題解決手段として理解</li>
+<li>サイバーキルチェーンによる攻撃段階の把握</li>
+</ul>
+</li>
+<li>
+<p><strong>実践的なインシデント対応体制</strong></p>
+<ul>
+<li>事前の準備（手順書、訓練）が被害最小化の鍵</li>
+<li>バックアップ等の事業継続対策の重要性</li>
+</ul>
+</li>
+</ol>
+
+<h2 class="relative group">参考リンク 
+    <div id="参考リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://www.nisc.go.jp/"
+    target="_blank"
+  >NISC（内閣サイバーセキュリティセンター）- インシデント対応ガイドライン</a></li>
+<li><a
+  href="https://www.jpcert.or.jp/csirt_material/"
+    target="_blank"
+  >JPCERT/CC - CSIRTマテリアル</a></li>
+<li><a
+  href="https://www.ipa.go.jp/security/vuln/report/index.html"
+    target="_blank"
+  >IPA - 情報セキュリティ白書</a></li>
+<li><a
+  href="https://www.ap-siken.com/"
+    target="_blank"
+  >応用情報技術者試験 - 過去問道場</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_scraps/ap_r05_spring_q01_infosec/index.md"
+          data-oid-likes="likes_scraps/ap_r05_spring_q01_infosec/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/scraps/ap_r07_spring_q01_infosec/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >応用情報技術者試験 R07春Q01（情報セキュリティ）解説</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-12T14:33:13&#43;09:00">2025年 9月 12日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

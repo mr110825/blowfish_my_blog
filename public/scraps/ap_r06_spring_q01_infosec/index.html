@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="false"><head>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="ja">
@@ -19,10 +19,10 @@
 
   
   <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
-  <meta name="keywords" content="情報セキュリティ,応用情報技術者試験,サイバー攻撃,">
+  <meta name="keywords" content="応用情報技術者試験,情報セキュリティ,サイバー攻撃,">
   
   
-  <link rel="canonical" href="//localhost:1313/scraps/ap_r06_spring_q01_infosec/">
+  <link rel="canonical" href="/scraps/ap_r06_spring_q01_infosec/">
   
   
   
@@ -99,7 +99,7 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/scraps/ap_r06_spring_q01_infosec/">
+  <meta property="og:url" content="/scraps/ap_r06_spring_q01_infosec/">
   <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
   <meta property="og:title" content="応用情報技術者試験 R06春Q01（情報セキュリティ）解説">
   <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
@@ -108,8 +108,8 @@
     <meta property="article:section" content="scraps">
     <meta property="article:published_time" content="2025-09-12T14:30:49+09:00">
     <meta property="article:modified_time" content="2025-09-12T14:30:49+09:00">
-    <meta property="article:tag" content="情報セキュリティ">
     <meta property="article:tag" content="応用情報技術者試験">
+    <meta property="article:tag" content="情報セキュリティ">
     <meta property="article:tag" content="サイバー攻撃">
 
   
@@ -127,7 +127,7 @@
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/scraps\/ap_r06_spring_q01_infosec\/",
+    "url" : "\/scraps\/ap_r06_spring_q01_infosec\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
@@ -138,10 +138,10 @@
     
     "dateModified": "2025-09-12T14:30:49\u002b09:00",
     
-    "keywords": ["情報セキュリティ","応用情報技術者試験","サイバー攻撃"],
+    "keywords": ["応用情報技術者試験","情報セキュリティ","サイバー攻撃"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "144"
+    "wordCount": "145"
   }]
   </script>
 
@@ -630,7 +630,7 @@
         <li><a href="#設問4edrと多要素認証">設問4：EDRと多要素認証</a></li>
       </ul>
     </li>
-    <li><a href="#まとめ">まとめ</a>
+    <li><a href="#3-本問題からの教訓と学習ポイント">3. 本問題からの教訓と学習ポイント</a>
       <ul>
         <li><a href="#1-課題と対策の対応関係を読み取る">1. 「課題」と「対策」の対応関係を読み取る</a></li>
         <li><a href="#2-専門用語は定義と目的をセットで理解する">2. 専門用語は「定義」と「目的」をセットで理解する</a></li>
@@ -669,7 +669,7 @@
         <li><a href="#設問4edrと多要素認証">設問4：EDRと多要素認証</a></li>
       </ul>
     </li>
-    <li><a href="#まとめ">まとめ</a>
+    <li><a href="#3-本問題からの教訓と学習ポイント">3. 本問題からの教訓と学習ポイント</a>
       <ul>
         <li><a href="#1-課題と対策の対応関係を読み取る">1. 「課題」と「対策」の対応関係を読み取る</a></li>
         <li><a href="#2-専門用語は定義と目的をセットで理解する">2. 専門用語は「定義」と「目的」をセットで理解する</a></li>
@@ -791,9 +791,9 @@
     </span>        
     
 </h2>
-<p>応用情報技術者試験の令和6年春期問1「情報セキュリティ」は、現代のIT環境における重要な変化を扱った非常に実践的な問題です。</p>
-<p>この問題では、従来の<strong>境界型防御</strong>から<strong>ゼロトラスト</strong>へのセキュリティモデルの移行という、今日のIT業界で実際に起きている大きな変化を背景としています。リモートワークの普及により、企業のセキュリティ対策がどのように変化しているのかを学べる良問です。</p>
-<p><strong>SaaS利用</strong>、<strong>プロキシ</strong>、<strong>SIEM</strong>、<strong>EDR</strong>、<strong>多要素認証</strong>など、現代のセキュリティ対策に不可欠な技術が数多く登場するため、単なる用語暗記ではなく、実践的なセキュリティ思考力を身につけることができます。</p>
+<p>応用情報技術者試験の情報セキュリティ分野は、実際のセキュリティインシデントに基づく実践的な問題が出題される重要な領域である。本稿では、令和6年春期午後問題の問1「情報セキュリティ」を詳細に解説する。</p>
+<p>この問題は、従来の<strong>境界型防御</strong>から<strong>ゼロトラスト</strong>へのセキュリティモデルの移行という、今日のIT業界で実際に起きている大きな変化を背景とした非常に実践的な内容である。リモートワークの普及により、企業のセキュリティ対策がどのように変化しているのかを学べる良問である。</p>
+<p><strong>SaaS利用</strong>、<strong>プロキシ</strong>、<strong>SIEM</strong>、<strong>EDR</strong>、<strong>多要素認証</strong>など、現代のセキュリティ対策に不可欠な技術が数多く登場するため、単なる用語暗記ではなく、実践的なセキュリティ思考力を身につけることができる。</p>
 
 <h2 class="relative group">問題の全体像 
     <div id="問題の全体像" class="anchor"></div>
@@ -1072,13 +1072,14 @@
 </h4>
 <p><strong>解答：多要素認証</strong></p>
 <p>「IDとパスワード（知識情報）」と「スマートフォンのワンタイムパスワード（所持情報）」という、異なる2つの認証要素を組み合わせているため、<strong>多要素認証</strong>（または2要素認証）です。</p>
+<hr>
 
-<h2 class="relative group">まとめ 
-    <div id="まとめ" class="anchor"></div>
+<h2 class="relative group">3. 本問題からの教訓と学習ポイント 
+    <div id="3-本問題からの教訓と学習ポイント" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e6%9c%ac%e5%95%8f%e9%a1%8c%e3%81%8b%e3%82%89%e3%81%ae%e6%95%99%e8%a8%93%e3%81%a8%e5%ad%a6%e7%bf%92%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
@@ -1311,7 +1312,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="//localhost:1313/">
+  data-url="/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
