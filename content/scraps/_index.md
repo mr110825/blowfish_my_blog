@@ -36,9 +36,4 @@ cascade:
 
 ## 応用情報技術者試験
 
-- [応用情報技術者試験 R07春Q01（情報セキュリティ）解説]({{< ref "ap_r07_spring_q01_infosec" >}})
-- [応用情報技術者試験 R06春Q01（情報セキュリティ）解説]({{< ref "ap_r06_spring_q01_infosec" >}})
-- [応用情報技術者試験 R06秋Q01（情報セキュリティ）解説]({{< ref "ap_r06_autumn_q01_infosec" >}})
-- [応用情報技術者試験 R05秋Q01（情報セキュリティ）解説]({{< ref "ap_r05_autumn_q01_infosec" >}})
-- [応用情報技術者試験 R05春Q01（情報セキュリティ）解説]({{< ref "ap_r05_spring_q01_infosec" >}})
 - [応用情報技術者試験 キーワード集]({{< ref "ouyoujouhou-memo" >}})
