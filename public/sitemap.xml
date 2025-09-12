@@ -3,19 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</loc>
-    <lastmod>2025-09-11T21:25:00+09:00</lastmod>
+    <loc>//localhost:1313/scraps/</loc>
+    <lastmod>2025-09-12T14:33:13+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/scraps/</loc>
-    <lastmod>2025-09-11T21:25:00+09:00</lastmod>
+    <loc>//localhost:1313/scraps/ap_r07_spring_q01_infosec/</loc>
+    <lastmod>2025-09-12T14:33:13+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-09-12T14:33:13+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/ap_r06_autumn_q01_infosec/</loc>
+    <lastmod>2025-09-12T14:30:49+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/ap_r06_spring_q01_infosec/</loc>
+    <lastmod>2025-09-12T14:30:49+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/hugo-blowfish-custom-css-guide/</loc>
     <lastmod>2025-09-11T21:25:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

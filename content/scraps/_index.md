@@ -25,6 +25,7 @@ cascade:
 
 ## Hugo・Blowfish関連
 
+- [Hugo+Blowfish｜ダークモードに固定する設定方法]({{< ref "hugo-blowfish-darkmode-fixed" >}})
 - [Hugo+Blowfish｜mainSections設定でコンテンツ分離する方法]({{< ref "blowfish-exclude-recent" >}})
 - [Hugo・BlowfishでカスタムCSS適用]({{< ref "hugo-blowfish-custom-css-guide" >}})
 
@@ -35,4 +36,7 @@ cascade:
 
 ## 応用情報技術者試験
 
-- [応用情報技術者試験：勉強メモ]({{< ref "ouyoujouhou-memo" >}})
+- [応用情報技術者試験 R07春Q01（情報セキュリティ）解説]({{< ref "ap_r07_spring_q01_infosec" >}})
+- [応用情報技術者試験 R06春Q01（情報セキュリティ）解説]({{< ref "ap_r06_spring_q01_infosec" >}})
+- [応用情報技術者試験 R06秋Q01（情報セキュリティ）解説]({{< ref "ap_r06_autumn_q01_infosec" >}})
+- [勉強メモ：応用情報技術者試験]({{< ref "ouyoujouhou-memo" >}})

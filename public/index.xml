@@ -9,7 +9,37 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 11 Sep 2025 21:25:00 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Sep 2025 14:33:13 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>応用情報技術者試験 R07春Q01（情報セキュリティ）解説</title>
+      <link>//localhost:1313/scraps/ap_r07_spring_q01_infosec/</link>
+      <pubDate>Fri, 12 Sep 2025 14:33:13 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/ap_r07_spring_q01_infosec/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>応用情報技術者試験 R06秋Q01（情報セキュリティ）解説</title>
+      <link>//localhost:1313/scraps/ap_r06_autumn_q01_infosec/</link>
+      <pubDate>Fri, 12 Sep 2025 14:30:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/ap_r06_autumn_q01_infosec/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>応用情報技術者試験 R06春Q01（情報セキュリティ）解説</title>
+      <link>//localhost:1313/scraps/ap_r06_spring_q01_infosec/</link>
+      <pubDate>Fri, 12 Sep 2025 14:30:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/ap_r06_spring_q01_infosec/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Hugo・BlowfishでカスタムCSS適用</title>
