@@ -1,0 +1,1177 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta name="keywords" content="応用情報技術者試験,情報セキュリティ,">
+  
+  
+  <link rel="canonical" href="//localhost:1313/scraps/ap2024a_pm_q1_security/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8ccda816cd294b8efb113d0ff18e33658d4c3d5cb32ebb1c67c42c2bb70f9148fd8fb7e133abcb39ae5027cef3017ddebd58de8d7b93adf6a2f7bf13f5206928.css"
+    integrity="sha512-jM2oFs0pS477ET0P8Y4zZY1MPVyzLrscZ8QsK7cPkUj9j7fhM6vLOa5QJ87zAX3evVjejXuTrfai978T9SBpKA==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/scraps/ap2024a_pm_q1_security/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="scraps">
+    <meta property="article:published_time" content="2025-09-13T06:35:21+09:00">
+    <meta property="article:modified_time" content="2025-09-13T06:35:21+09:00">
+    <meta property="article:tag" content="応用情報技術者試験">
+    <meta property="article:tag" content="情報セキュリティ">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "スクラップ",
+    "name": "【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ",
+    "headline": "【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/scraps\/ap2024a_pm_q1_security\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-13T06:35:21\u002b09:00",
+    "datePublished": "2025-09-13T06:35:21\u002b09:00",
+    
+    "dateModified": "2025-09-13T06:35:21\u002b09:00",
+    
+    "keywords": ["応用情報技術者試験","情報セキュリティ"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "185"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        【応用情報技術者試験」【午後問題解説】令和6年秋期 問1 情報セキュリティ
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-09-13T06:35:21&#43;09:00">2025年 9月 13日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#導入">導入</a></li>
+    <li><a href="#問題の全体像">問題の全体像</a></li>
+    <li><a href="#設問ごとの詳細解説">設問ごとの詳細解説</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#まとめこの問題から盗むべき思考の型">まとめ：この問題から盗むべき「思考の型」</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#導入">導入</a></li>
+    <li><a href="#問題の全体像">問題の全体像</a></li>
+    <li><a href="#設問ごとの詳細解説">設問ごとの詳細解説</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#まとめこの問題から盗むべき思考の型">まとめ：この問題から盗むべき「思考の型」</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">導入 
+    <div id="導入" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%b0%8e%e5%85%a5" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>本稿では、令和6年度秋期 応用情報技術者試験の午後問題 問1「情報セキュリティ」を対象に、解答に至る思考プロセスと関連知識を詳述する。</p>
+<p>この問題は、ECサイトにおける**「パスワードの安全な管理」**をテーマに、ペネトレーションテストの結果を通じて、具体的な攻撃手法と防御策の理解を問う内容である。SQLインジェジェクション、レインボーテーブル攻撃、そしてそれらに対抗するためのソルト、ペッパーといった、現代のWebセキュリティにおいて必須の知識が網羅されている。</p>
+<p>個々の設問を丁寧に読み解き、合格に必要な知識を習得することが本稿の目的である。</p>
+
+<h2 class="relative group">問題の全体像 
+    <div id="問題の全体像" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c%e3%81%ae%e5%85%a8%e4%bd%93%e5%83%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>解答に着手する前に、まず以下の3点を正確に把握することが極めて重要である。</p>
+<ol>
+<li>
+<p><strong>登場人物（組織）と関係性:</strong></p>
+<ul>
+<li><strong>F社:</strong> 日用雑貨を販売するECサイト（本システム）の開発・運営主体。</li>
+<li><strong>D社:</strong> 本システムが構築されているクラウドサービスの提供者。</li>
+<li><strong>U社:</strong> F社がペネトレーションテストを依頼したセキュリティベンダー。</li>
+</ul>
+</li>
+<li>
+<p><strong>システム構成:</strong>
+問題文の「図1 本システムの開発環境のネットワーク構成（抜粋）」から、システムがクラウド上に構築され、外部からのアクセスはFW（ファイアウォール）とWAF（Web Application Firewall）を経由することを理解する。</p>
+</li>
+<li>
+<p><strong>攻撃のシナリオ（時系列）:</strong>
+ペネトレーションテストで確認された攻撃シナリオは、以下の通りである。</p>
+<ul>
+<li><strong>① データ窃取:</strong> SQLインジェクション攻撃により、会員テーブルの全データ（パスワードのハッシュ値を含む）を窃取する。</li>
+<li><strong>② パスワード推測:</strong> 窃取したハッシュ値に対し、レインボーテーブル攻撃を行い、元のパスワードを割り出す。</li>
+<li><strong>③ 不正ログイン:</strong> 割り出したパスワードを利用し、会員になりすましてシステムにログインする。</li>
+</ul>
+</li>
+</ol>
+<p>この全体像を念頭に、各設問を解説する。</p>
+<hr>
+
+<h2 class="relative group">設問ごとの詳細解説 
+    <div id="設問ごとの詳細解説" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f%e3%81%94%e3%81%a8%e3%81%ae%e8%a9%b3%e7%b4%b0%e8%a7%a3%e8%aa%ac" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h4 class="relative group">設問1：ハッシュ化のメリット 
+    <div id="設問1ハッシュ化のメリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f1%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e5%8c%96%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p><strong>問われていること:</strong> パスワードをハッシュ化して保存するメリットは、ハッシュ値のどのような特性によるものか。</p></blockquote>
+<p><strong>【解答】 ハッシュ値からパスワードの割出しは難しい。（または、一方向性を持つため元の値を復元できない。）</strong></p>
+<p><strong>【思考プロセス】</strong>
+ハッシュ関数は、入力値から固定長のハッシュ値を生成するが、そのハッシュ値から元の入力値を復元することは計算上極めて困難である。この性質を**「一方向性」**と呼ぶ。
+万が一、データベースが漏えいしても、パスワードそのものではなくハッシュ値が漏れるだけなので、直ちにパスワードが知られることはない。この点がハッシュ化の最大のメリットである。
+「復元が困難」「割り出しが難しい」「一方向性」といったキーワードを用いて、25字以内で簡潔にまとめる。</p>
+
+<h4 class="relative group">設問2：侵害される情報セキュリティの3要素 
+    <div id="設問2侵害される情報セキュリティの3要素" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f2%e4%be%b5%e5%ae%b3%e3%81%95%e3%82%8c%e3%82%8b%e6%83%85%e5%a0%b1%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae3%e8%a6%81%e7%b4%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p><strong>問われていること:</strong> SQLインジェクション攻撃で会員データが漏えいした場合、情報セキュリティの3要素のうち、どれが直接的に侵害されるか。</p></blockquote>
+<p><strong>【解答】 機密性</strong></p>
+<p><strong>【思考プロセス】</strong>
+まず、情報セキュリティの3要素（CIA）を正確に理解する必要がある。</p>
+<ul>
+<li><strong>機密性 (Confidentiality):</strong> 認可された者だけが情報にアクセスできること。</li>
+<li><strong>完全性 (Integrity):</strong> 情報が破壊、改ざんされていないこと。</li>
+<li><strong>可用性 (Availability):</strong> 認可された者が、必要な時に情報にアクセスできること。</li>
+</ul>
+<p>本件のSQLインジェクション攻撃では、攻撃者が不正に会員テーブルのデータを**「取得」**している。これは、アクセス権限のない者が情報にアクセスしたことを意味し、機密性が侵害された状態である。</p>
+
+<h4 class="relative group">設問3：攻撃手法と対策の専門用語 
+    <div id="設問3攻撃手法と対策の専門用語" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f3%e6%94%bb%e6%92%83%e6%89%8b%e6%b3%95%e3%81%a8%e5%af%be%e7%ad%96%e3%81%ae%e5%b0%82%e9%96%80%e7%94%a8%e8%aa%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p><strong>問われていること:</strong> 空欄<code>a</code>および<code>b</code>に入る適切な字句は何か。</p></blockquote>
+<p><strong>【解答】 a: オ（ブルートフォース） / b: カ（プレースホルダ）</strong></p>
+<p><strong>【思考プロセス】</strong>
+<strong>[空欄 a について]</strong>
+問題文に「パスワードを<strong>総当たりで試行する</strong>」とある。考えられる全ての組み合わせを試す攻撃は**「ブルートフォース攻撃（総当たり攻撃）」**である。これは基本的な用語であり、確実に正解したい。</p>
+<p><strong>[空欄 b について]</strong>
+SQLインジェクション攻撃への対策として、最も標準的で効果的な手法を選ぶ。</p>
+<blockquote>
+<p>外部からの入力値が埋め込まれる箇所を専用の記号に置き換えたSQL文の雛形をあらかじめ作成しておき、…DB管理システム側で外部からの入力値を割り当てる。</p></blockquote>
+<p>これは**「プレースホルダ」**を用いた実装（バインド機構）の説明そのものである。
+学習メモで「サニタイズ」と迷われていたが、両者には明確な違いがある。</p>
+<ul>
+<li><strong>サニタイズ:</strong> SQL文として特別な意味を持つ文字（<code>'</code>や<code>--</code>など）を無害化（エスケープ）する手法。実装に漏れが生じやすい。</li>
+<li><strong>プレースホルダ:</strong> SQL文の「構造」と「値」を完全に分離して扱うため、原理的にSQLインジェクションが発生しない、より安全な対策である。</li>
+</ul>
+
+<h4 class="relative group">設問4：同じパスワードの利用者の特定 
+    <div id="設問4同じパスワードの利用者の特定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f4%e5%90%8c%e3%81%98%e3%83%91%e3%82%b9%e3%83%af%e3%83%bc%e3%83%89%e3%81%ae%e5%88%a9%e7%94%a8%e8%80%85%e3%81%ae%e7%89%b9%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p><strong>問われていること:</strong> 会員番号 &ldquo;21717202&rdquo; のパスワードが推測された場合、同様にリスクが最も高い他の会員は誰か。</p></blockquote>
+<p><strong>【解答】 イ（30781985）</strong></p>
+<p><strong>【思考プロセス】</strong>
+レインボーテーブル攻撃は、特定のパスワードから生成されるハッシュ値を事前に計算しておくことで、ハッシュ値から元のパスワードを高速に特定する手法である。
+会員番号 &ldquo;21717202&rdquo; のパスワードが特定されたということは、そのハッシュ値に対応する元のパスワードが判明したということである。
+表1を見ると、会員番号 &ldquo;30781985&rdquo; のパスワードのハッシュ値が &ldquo;21717202&rdquo; と全く同一である。これは、両者が<strong>同じパスワードを設定している</strong>ことを意味する。したがって、&ldquo;30781985&rdquo; のパスワードも同様に判明しており、不正アクセスのリスクが最も高い。</p>
+
+<h4 class="relative group">設問5：セキュリティ対策の基本原則 
+    <div id="設問5セキュリティ対策の基本原則" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f5%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e5%af%be%e7%ad%96%e3%81%ae%e5%9f%ba%e6%9c%ac%e5%8e%9f%e5%89%87" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p><strong>問われていること:</strong> 複数の対策を組み合わせ、一つの対策が破られても他の対策で攻撃を防ぐという考え方を漢字4字で何というか。</p></blockquote>
+<p><strong>【解答】 多層防御</strong></p>
+<p><strong>【思考プロセス】</strong>
+問題文では「WAFでSQLインジェクション攻撃が検知できていたが、仮にそれが破られても、本システム自体でも対策を行う」と記述されている。
+このように、単一の防御策に依存せず、複数の異なる防御壁を幾重にも設けることで、全体のセキュリティ強度を高める考え方を**「多層防御」**または「深層防御（Defense in Depth）」と呼ぶ。これはセキュリティ設計の基本原則の一つである。</p>
+
+<h4 class="relative group">設問6：ソルトとペッパー、そして計算 
+    <div id="設問6ソルトとペッパーそして計算" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%95%8f6%e3%82%bd%e3%83%ab%e3%83%88%e3%81%a8%e3%83%9a%e3%83%83%e3%83%91%e3%83%bc%e3%81%9d%e3%81%97%e3%81%a6%e8%a8%88%e7%ae%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p><strong>問われていること:</strong> (1) ペッパーがレインボーテーブル攻撃に有効な理由をソルトとの違いに着目して答えよ。(2) パスワード長を6文字から10文字に変更した場合、パターンは何倍になるか。</p></blockquote>
+<p><strong>【解答】</strong></p>
+<ul>
+<li><strong>(1) 会員テーブルの窃取だけではペッパーを得ることができないから。</strong> (35字以内)</li>
+<li><strong>(2) 70⁴</strong></li>
+</ul>
+<p><strong>【思考プロセス】</strong>
+<strong>(1) ペッパーの有効性</strong>
+ソルトとペッパーは共にレインボーテーブル攻撃対策だが、管理方法が決定的に異なる。</p>
+<ul>
+<li><strong>ソルト:</strong> ユーザーごとに異なるランダムな文字列。パスワードと結合してハッシュ化され、<strong>DBの会員テーブル内に一緒に保存される</strong>。</li>
+<li><strong>ペッパー:</strong> 全ユーザーで共通の秘密の文字列。パスワードと結合してハッシュ化されるが、<strong>DBとは別の安全な場所（設定ファイルなど）に保存される</strong>。</li>
+</ul>
+<p>この違いにより、攻撃者が会員テーブルを窃取した場合、ソルトは入手できるがペッパーは入手できない。攻撃者はペッパーを知らないため、正しいハッシュ値を計算できず、事前に用意したレインボーテーブルが無意味になる。この点を簡潔に記述する。</p>
+<p><strong>(2) パターン数の計算</strong>
+これは数学の基礎的な計算である。</p>
+<ul>
+<li>使用可能な文字種: 70種類</li>
+<li>6文字の場合のパターン数: 70⁶ 通り</li>
+<li>10文字の場合のパターン数: 70¹⁰ 通り</li>
+<li>何倍になったか = (10文字のパターン数) / (6文字のパターン数) = 70¹⁰ / 70⁶ = 70⁽¹⁰⁻⁶⁾ = <strong>70⁴</strong> 倍</li>
+</ul>
+<p>指数法則 <code>aᵐ / aⁿ = aᵐ⁻ⁿ</code> を適用する。</p>
+<hr>
+
+<h2 class="relative group">まとめ：この問題から盗むべき「思考の型」 
+    <div id="まとめこの問題から盗むべき思考の型" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81%e3%81%93%e3%81%ae%e5%95%8f%e9%a1%8c%e3%81%8b%e3%82%89%e7%9b%97%e3%82%80%e3%81%b9%e3%81%8d%e6%80%9d%e8%80%83%e3%81%ae%e5%9e%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>本問は、パスワード管理とWebアプリケーションの脆弱性に関する、非常に実践的で重要な知識を問う良問であった。今後の学習のために、以下の3点は確実に押さえておきたい。</p>
+<ol>
+<li><strong>パスワード保護技術の正確な理解:</strong> ハッシュ化（一方向性）、ソルト（対レインボーテーブル）、ペッパー（対DB漏えい）、ストレッチング（対ブルートフォース）の4つの技術は、それぞれの目的と仕組みをセットで正確に理解することが不可欠である。</li>
+<li><strong>SQLインジェクション対策の王道:</strong> 現代のWebアプリケーション開発において、SQLインジェクション対策としてプレースホルダ（バインド機構）を利用することはもはや常識である。サニタイズとの違いも含めて、その原理を理解しておく必要がある。</li>
+<li><strong>多層防御の考え方:</strong> 単一の完璧なセキュリティ対策は存在しない。WAFのような外部対策と、アプリケーション自身の堅牢化といった内部対策を組み合わせる「多層防御」が、セキュリティの基本原則であることを再認識することが重要である。</li>
+</ol>
+
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://www.ipa.go.jp/shiken/mondai-kaiotu/index.html"
+    target="_blank"
+  >情報処理推進機構（IPA）：過去問</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_scraps/ap2024a_pm_q1_security/index.md"
+          data-oid-likes="likes_scraps/ap2024a_pm_q1_security/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/scraps/ap2022a_pm_q1_security/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >【応用情報技術者試験】【午後問題解説】令和4年秋期 問1 情報セキュリティ</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-13T06:35:21&#43;09:00">2025年 9月 13日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/scraps/ap2023s_pm_q1_security/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >【応用情報技術者試験」【午後問題解説】令和5年春期 問1 情報セキュリティ</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-13T06:35:21&#43;09:00">2025年 9月 13日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
