@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/scraps/ap2024s_pm_q1_security/</loc>
-    <lastmod>2025-09-13T13:32:13+09:00</lastmod>
+    <loc>//localhost:1313/scraps/</loc>
+    <lastmod>2025-09-15T21:22:11+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/scraps/</loc>
-    <lastmod>2025-09-13T13:32:13+09:00</lastmod>
+    <loc>//localhost:1313/scraps/top_10_information_security_threats_2025_for_organizations/</loc>
+    <lastmod>2025-09-15T21:22:11+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-09-15T21:22:11+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/ap2024s_pm_q1_security/</loc>
     <lastmod>2025-09-13T13:32:13+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

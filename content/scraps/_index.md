@@ -37,6 +37,7 @@ cascade:
 ## 応用情報技術者試験
 
 - [【応用情報技術者試験】キーワード集]({{< ref "ouyoujouhou-memo" >}})
+- [学習メモ：情報セキュリティ10大脅威 2025（組織編）]({{< ref "top_10_information_security_threats_2025_for_organizations" >}})
 - [【応用情報技術者試験】【午後問題解説】令和2年秋期 問1 情報セキュリティ]({{< ref "ap2020a_pm_q1_security" >}})
 - [【応用情報技術者試験】【午後問題解説】令和3年春期 問1 情報セキュリティ]({{< ref "ap2021s_pm_q1_security" >}})
 - [【応用情報技術者試験】【午後問題解説】令和3年秋期 問1 情報セキュリティ]({{< ref "ap2021a_pm_q1_security" >}})
