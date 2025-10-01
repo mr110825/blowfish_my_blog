@@ -36,5 +36,5 @@ cascade:
 
 ## 応用情報技術者試験
 
-- [【応用情報技術者試験】テクノロジ系学習メモ]({{< ref "ap2025_tech_study_memo" >}})
+- [【応用情報技術者試験】学習メモ]({{< ref "ap2025_study_memo" >}})
 - [学習メモ：情報セキュリティ10大脅威 2025（組織編）]({{< ref "top_10_information_security_threats_2025_for_organizations" >}})
