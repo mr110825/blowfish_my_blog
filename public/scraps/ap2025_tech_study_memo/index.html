@@ -142,7 +142,7 @@
     "keywords": ["応用情報技術者試験"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1620"
+    "wordCount": "1732"
   }]
   </script>
 
@@ -672,6 +672,7 @@
         <li><a href="#ページ置換の基本的な流れ">ページ置換の基本的な流れ</a></li>
         <li><a href="#lruleast-recently-used">LRU(Least Recently Used)</a></li>
         <li><a href="#fifofirst-in-first-out">FIFO(First In First Out)</a></li>
+        <li><a href="#ベラディの異常">ベラディの異常</a></li>
         <li><a href="#lfuleast-frequently-used">LFU(Least Frequently Used)</a></li>
         <li><a href="#フラグメンテーション">フラグメンテーション</a></li>
         <li><a href="#スラッシング">スラッシング</a></li>
@@ -837,6 +838,11 @@
         <li><a href="#色数h17春午前問22">色数（H17春午前問22）</a></li>
         <li><a href="#音声サンプリングh18春午前問55">音声サンプリング（H18春午前問55）</a></li>
         <li><a href="#アローダイアグラムにおける総余裕日数h31春午前問53">アローダイアグラムにおける総余裕日数（H31春午前問53）</a></li>
+        <li><a href="#acid特性">ACID特性</a></li>
+        <li><a href="#キャッシュメモリの実効アクセス時間">キャッシュメモリの実効アクセス時間</a></li>
+        <li><a href="#3層スキーマ">3層スキーマ</a></li>
+        <li><a href="#関係データベース">関係データベース</a></li>
+        <li><a href="#2相コミット">2相コミット</a></li>
       </ul>
     </li>
   </ul>
@@ -881,6 +887,7 @@
         <li><a href="#ページ置換の基本的な流れ">ページ置換の基本的な流れ</a></li>
         <li><a href="#lruleast-recently-used">LRU(Least Recently Used)</a></li>
         <li><a href="#fifofirst-in-first-out">FIFO(First In First Out)</a></li>
+        <li><a href="#ベラディの異常">ベラディの異常</a></li>
         <li><a href="#lfuleast-frequently-used">LFU(Least Frequently Used)</a></li>
         <li><a href="#フラグメンテーション">フラグメンテーション</a></li>
         <li><a href="#スラッシング">スラッシング</a></li>
@@ -1046,6 +1053,11 @@
         <li><a href="#色数h17春午前問22">色数（H17春午前問22）</a></li>
         <li><a href="#音声サンプリングh18春午前問55">音声サンプリング（H18春午前問55）</a></li>
         <li><a href="#アローダイアグラムにおける総余裕日数h31春午前問53">アローダイアグラムにおける総余裕日数（H31春午前問53）</a></li>
+        <li><a href="#acid特性">ACID特性</a></li>
+        <li><a href="#キャッシュメモリの実効アクセス時間">キャッシュメモリの実効アクセス時間</a></li>
+        <li><a href="#3層スキーマ">3層スキーマ</a></li>
+        <li><a href="#関係データベース">関係データベース</a></li>
+        <li><a href="#2相コミット">2相コミット</a></li>
       </ul>
     </li>
   </ul>
@@ -1597,7 +1609,12 @@
     </span>        
     
 </h3>
-<p>最も長い間参照されていないページを置換</p>
+<p>最も長い間参照されていないページを置換するアルゴリズム</p>
+<ul>
+<li><strong>動作:</strong> 最後に参照されてから最も時間が経過しているページを追い出します。 プログラムが特定の領域を集中してアクセスするという「参照の局所性」の原理に基づいています。</li>
+<li><strong>長所:</strong> 一般的にFIFOよりも効率が良く、性能が高い傾向にあります。</li>
+<li><strong>短所:</strong> どのページがいつ参照されたかをすべて記録しておく必要があるため、実装が複雑になり、システムのオーバーヘッドが大きくなる可能性があります。</li>
+</ul>
 
 <h3 class="relative group">FIFO(First In First Out) 
     <div id="fifofirst-in-first-out" class="anchor"></div>
@@ -1608,7 +1625,28 @@
     </span>        
     
 </h3>
-<p>最も古く読み込まれたページを置換</p>
+<p>最も古く読み込まれたページを置換する最も単純なアルゴリズム</p>
+<ul>
+<li><strong>動作:</strong> メモリに最初に入ってきたページ（最も古くから存在するページ）を最初に追い出します。</li>
+<li><strong>長所:</strong> 実装が非常に簡単です。</li>
+<li><strong>短所:</strong>
+<ul>
+<li>頻繁にアクセスされる重要なページであっても、古くからメモリにあれば追い出されてしまいます。</li>
+<li>物理メモリのサイズを増やしたにもかかわらず、ページフォールト（必要なページがメモリ上にない状態）が増えてしまう「ベラディの異常（Belady&rsquo;s Anomaly）」と呼ばれる現象が発生することがあります。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">ベラディの異常 
+    <div id="ベラディの異常" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%99%e3%83%a9%e3%83%87%e3%82%a3%e3%81%ae%e7%95%b0%e5%b8%b8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>仮想記憶システムにおいて、プロセスのために割り当てる物理メモリのページフレーム数を増やしたにもかかわらず、かえってページフォールトの発生回数が増加してしまうという、直感に反する現象</p>
 
 <h3 class="relative group">LFU(Least Frequently Used) 
     <div id="lfuleast-frequently-used" class="anchor"></div>
@@ -1619,7 +1657,23 @@
     </span>        
     
 </h3>
-<p>参照回数が最も少ないページを置換</p>
+<p>「最も使用頻度が低い」ページを置き換えるアルゴリズムです。</p>
+<ul>
+<li><strong>動作:</strong> これまでの参照回数が最も少ないページを追い出します。</li>
+<li><strong>長所:</strong> 長期間にわたって頻繁に参照されるページをメモリに保持し続けることができます。</li>
+<li><strong>短所:</strong>
+<ul>
+<li>各ページの参照回数を記録・管理する必要があるため、実装が複雑です。</li>
+<li>過去に集中的にアクセスされたページが、その後全く使われなくなっても、参照回数が多いためにメモリに残り続けてしまうという問題があります。</li>
+</ul>
+</li>
+</ul>
+<p>###　LIFO (Last-In, First-Out)</p>
+<p>「後入れ先出し」とも呼ばれ、スタック構造で利用されるアルゴリズム</p>
+<ul>
+<li><strong>動作:</strong> 最後にメモリに入ってきたページを最初に追い出します。</li>
+<li><strong>特徴:</strong> 実際のページ置き換えアルゴリズムとしては<strong>ほとんど使用されません</strong>。理論的な比較対象や、データ構造の概念として重要です。応用情報技術者試験では選択肢として出題される場合があります。</li>
+</ul>
 
 <h3 class="relative group">フラグメンテーション 
     <div id="フラグメンテーション" class="anchor"></div>
@@ -4253,6 +4307,140 @@ H・D・B（30日）</p>
 </ol>
 <p><strong>答え</strong><br>
 <strong>30日</strong></p>
+
+<h3 class="relative group">ACID特性 
+    <div id="acid特性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#acid%e7%89%b9%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データベースのトランザクション（SQLなどの処理における最小単位）処理における必要な4つの特性を指す</p>
+<p><strong>Atomicity</strong>（原子性）<br>
+トランザクション内の処理がすべて実行されるか、または全く実行されないことを保証する性質</p>
+<p><strong>Consistency</strong>（一貫性）<br>
+データに矛盾が発生しないことを保証する性質</p>
+<p><strong>Isolation</strong>（独立性）<br>
+複数のトランザクションを同時に実行した場合と，順番に実行した場合の処理結果が一致する性質</p>
+<p><strong>Durability</strong>（耐久性）<br>
+正常に終了したトランザクションの更新結果は，障害が発生してもデータベースから消失しない性質</p>
+
+<h3 class="relative group">キャッシュメモリの実効アクセス時間 
+    <div id="キャッシュメモリの実効アクセス時間" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%a1%e3%83%a2%e3%83%aa%e3%81%ae%e5%ae%9f%e5%8a%b9%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e6%99%82%e9%96%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>キャッシュメモリを利用したときのアクセス時間のことを実行アクセス時間を呼ぶ</p>
+<ul>
+<li>CPUが主記憶記憶とデータをやり取りする際にかかる時間が「アクセス時間」</li>
+</ul>
+<p><strong>実行アクセス時間の計算</strong><br>
+<code>実効アクセス時間 = (キャッシュメモリへのアクセス時間 * ヒット率) + (主記憶装置へのアクセス時間 * (1 - ヒット率))</code></p>
+<p><strong>具体例（応用情報技術者試験_午前問題_平成19年春期_問題18）</strong><br>
+キャッシュメモリのアクセス時間が10ナノ秒，主記憶のアクセス時間が70ナノ秒，キャッシュメモリのヒット率が90%のとき，実効アクセス時間は何ナノ秒か。</p>
+<p><strong>答え</strong><br>
+実効アクセス時間は <code>16ナノ秒</code></p>
+
+<h3 class="relative group">3層スキーマ 
+    <div id="3層スキーマ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3%e5%b1%a4%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データベースの構造を「外部」「概念」「内部」の3つの視点（層）に分けて定義する考え方。 各層を独立させることで、一方の変更が他方に影響を与えにくくする。</p>
+<p><strong>構成要素</strong></p>
+<ul>
+<li><strong>外部スキーマ（ビュー）</strong>: ユーザーやアプリケーションから見たデータベースの構造。 必要なデータだけを特定の形式で見せるためのもので、SQLのビュー（VIEW）がこれにあたる。</li>
+<li><strong>概念スキーマ（論理構造）</strong>: データベースに格納されるすべてのデータの論理的な構造や関係性を定義したもの。 開発者視点のスキーマであり、テーブル定義などが該当する。</li>
+<li><strong>内部スキーマ（物理構造）</strong>: データがストレージ（HDDなど）に物理的にどのように格納されるかを定義したもの。 インデックスの設定やデータファイルの配置などが含まれる。</li>
+</ul>
+
+<h3 class="relative group">関係データベース 
+    <div id="関係データベース" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%96%a2%e4%bf%82%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データを「リレーション」と呼ばれる二次元の表（テーブル）の形式で管理するデータベース</p>
+<ul>
+<li><strong>基本概念</strong>:
+<ul>
+<li><strong>リレーション（テーブル）</strong>: 行（タプル）と列（属性）で構成される表形式のデータ集合。</li>
+<li><strong>タプル（行）</strong>: テーブル内の一件分のデータ。レコードとも呼ばれる。</li>
+<li><strong>属性（列）</strong>: データの項目。フィールドやカラムとも呼ばれる。</li>
+<li><strong>主キー</strong>: テーブル内の一つの行を一意に識別するための属性（またはその組み合わせ）。</li>
+<li><strong>外部キー</strong>: 他のテーブルの主キーを参照する属性。テーブル間の関連付けに用いられる。</li>
+</ul>
+</li>
+</ul>
+<p>
+
+
+
+
+
+
+<figure>
+      <img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="alt text"
+    srcset="
+      /scraps/ap2025_tech_study_memo/image-1_hu_9fc56438bb379196.png  330w,
+      /scraps/ap2025_tech_study_memo/image-1_hu_6d45ba081364c827.png  660w,
+      /scraps/ap2025_tech_study_memo/image-1_hu_dabbd3a2fdb93cd.png 1280w
+    "
+    data-zoom-src="/scraps/ap2025_tech_study_memo/image-1.png"
+    src="/scraps/ap2025_tech_study_memo/image-1.png">
+
+  
+</figure>
+</p>
+<blockquote>
+<p>引用元：<a
+  href="https://www.sejuku.net/blog/54072"
+    target="_blank"
+  >【SQL入門】外部キーとは？主キーとの関係や作成方法について解説</a></p></blockquote>
+
+<h3 class="relative group">2相コミット 
+    <div id="2相コミット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2%e7%9b%b8%e3%82%b3%e3%83%9f%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ネットワークで接続された複数のデータベース（分散データベース）にまたがるトランザクションの一貫性を保証する仕組み</p>
+<ul>
+<li><strong>フェーズ</strong>:
+<ul>
+<li><strong>準備フェーズ（Phase 1）</strong>: コーディネータが全参加者（各データベース）にコミット可能か問い合わせる。各参加者は処理を実行し、結果（コミット可能か否か）をログに記録して応答する。</li>
+<li><strong>コミットフェーズ（Phase 2）</strong>: 全員から「コミット可能」の応答があれば、コーディネータは全員にコミットを指示。一人でも「不可能」の応答があれば、全員にロールバックを指示する。</li>
+</ul>
+</li>
+<li><strong>参加者</strong>:
+<ul>
+<li><strong>コーディネータ</strong>: トランザクション全体を調整し、コミットかロールバックかを決定する役割。</li>
+<li><strong>パーティシパント</strong>: 各データベースサイトで、トランザクションの一部を実行する役割。</li>
+</ul>
+</li>
+<li><strong>利点と課題</strong>: 分散環境での原子性を確保できる。一方で、準備フェーズで応答不能な参加者がいると、全参加者がその応答を待ち続けるブロッキング状態になる課題がある。</li>
+</ul>
 
           
           
