@@ -2,23 +2,43 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>応用情報技術者試験 on 技術的デジャブ回避メモ帳</title>
-    <link>/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/</link>
+    <link>//localhost:1313/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/</link>
     <description>Recent content in 応用情報技術者試験 on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 01 Oct 2025 21:35:39 +0900</lastBuildDate><atom:link href="/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 06 Oct 2025 07:53:09 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>【応用情報技術者試験】学習メモ</title>
-      <link>/scraps/ap2025_study_memo/</link>
+      <title>【応用情報技術者試験】マネジメント系学習メモ</title>
+      <link>//localhost:1313/scraps/ap2025_manage_study_memo/</link>
+      <pubDate>Mon, 06 Oct 2025 07:53:09 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/ap2025_manage_study_memo/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ap2025_manage_study_memo/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】ストラテジ系学習メモ</title>
+      <link>//localhost:1313/scraps/ap2025_srs_study_memo/</link>
+      <pubDate>Mon, 06 Oct 2025 07:52:46 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/ap2025_srs_study_memo/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ap2025_srs_study_memo/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ</title>
+      <link>//localhost:1313/scraps/ap2025_tech_study_memo/</link>
       <pubDate>Wed, 01 Oct 2025 21:35:39 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/ap2025_study_memo/</guid>
+      <guid>//localhost:1313/scraps/ap2025_tech_study_memo/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="/scraps/ap2025_study_memo/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/ap2025_tech_study_memo/feature.jpg" />
     </item>
     
   </channel>
