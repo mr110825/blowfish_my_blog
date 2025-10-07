@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>ホワイトボックステスト（命令網羅・条件網羅など） &middot; 技術的デジャブ回避メモ帳</title>
-    <meta name="title" content="ホワイトボックステスト（命令網羅・条件網羅など） &middot; 技術的デジャブ回避メモ帳">
+  <title>DFD（Data Flow Diagram） &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="DFD（Data Flow Diagram） &middot; 技術的デジャブ回避メモ帳">
 
   
   <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
   <meta name="keywords" content="応用情報技術者試験,">
   
   
-  <link rel="canonical" href="//localhost:1313/scraps/1759804420_whiteboxtest/">
+  <link rel="canonical" href="//localhost:1313/scraps/1759821280_dfd_data_flow_diagram/">
   
   
   
@@ -99,20 +99,20 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/scraps/1759804420_whiteboxtest/">
+  <meta property="og:url" content="//localhost:1313/scraps/1759821280_dfd_data_flow_diagram/">
   <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
-  <meta property="og:title" content="ホワイトボックステスト（命令網羅・条件網羅など）">
+  <meta property="og:title" content="DFD（Data Flow Diagram）">
   <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="scraps">
-    <meta property="article:published_time" content="2025-10-07T11:33:40+09:00">
-    <meta property="article:modified_time" content="2025-10-07T11:33:40+09:00">
+    <meta property="article:published_time" content="2025-10-07T16:14:40+09:00">
+    <meta property="article:modified_time" content="2025-10-07T16:14:40+09:00">
     <meta property="article:tag" content="応用情報技術者試験">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="ホワイトボックステスト（命令網羅・条件網羅など）">
+  <meta name="twitter:title" content="DFD（Data Flow Diagram）">
   <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
 
   <script type="application/ld+json">
@@ -120,26 +120,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "スクラップ",
-    "name": "ホワイトボックステスト（命令網羅・条件網羅など）",
-    "headline": "ホワイトボックステスト（命令網羅・条件網羅など）",
+    "name": "DFD（Data Flow Diagram）",
+    "headline": "DFD（Data Flow Diagram）",
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/scraps\/1759804420_whiteboxtest\/",
+    "url" : "\/\/localhost:1313\/scraps\/1759821280_dfd_data_flow_diagram\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-10-07T11:33:40\u002b09:00",
-    "datePublished": "2025-10-07T11:33:40\u002b09:00",
+    "dateCreated": "2025-10-07T16:14:40\u002b09:00",
+    "datePublished": "2025-10-07T16:14:40\u002b09:00",
     
-    "dateModified": "2025-10-07T11:33:40\u002b09:00",
+    "dateModified": "2025-10-07T16:14:40\u002b09:00",
     
     "keywords": ["応用情報技術者試験"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "233"
+    "wordCount": "113"
   }]
   </script>
 
@@ -474,7 +474,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        ホワイトボックステスト（命令網羅・条件網羅など）
+        DFD（Data Flow Diagram）
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -525,7 +525,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-10-07T11:33:40&#43;09:00">2025年 10月 7日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-10-07T16:14:40&#43;09:00">2025年 10月 7日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -612,12 +612,19 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#ホワイトボックステスト">ホワイトボックステスト</a></li>
-    <li><a href="#命令網羅">命令網羅</a></li>
-    <li><a href="#分岐網羅">分岐網羅</a></li>
-    <li><a href="#条件網羅">条件網羅</a></li>
-    <li><a href="#判定条件条件網羅">判定条件・条件網羅</a></li>
-    <li><a href="#複数条件網羅">複数条件網羅</a></li>
+    <li><a href="#dfdとは">DFDとは？</a></li>
+    <li><a href="#dfdの使用用途">DFDの使用用途</a></li>
+    <li><a href="#構造化分析">構造化分析</a></li>
+    <li><a href="#dfdの構成要素と記号">DFDの構成要素と記号</a></li>
+    <li><a href="#dfdのレベル分解">DFDのレベル分解</a>
+      <ul>
+        <li><a href="#レベル0コンテキストダイアグラム">レベル0（コンテキストダイアグラム）</a></li>
+        <li><a href="#レベル1">レベル1</a></li>
+        <li><a href="#レベル2以降">レベル2以降</a></li>
+      </ul>
+    </li>
+    <li><a href="#dfd作成のルール">DFD作成のルール</a></li>
+    <li><a href="#具体例ecサイトの注文処理">具体例：ECサイトの注文処理</a></li>
     <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
@@ -632,12 +639,19 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#ホワイトボックステスト">ホワイトボックステスト</a></li>
-    <li><a href="#命令網羅">命令網羅</a></li>
-    <li><a href="#分岐網羅">分岐網羅</a></li>
-    <li><a href="#条件網羅">条件網羅</a></li>
-    <li><a href="#判定条件条件網羅">判定条件・条件網羅</a></li>
-    <li><a href="#複数条件網羅">複数条件網羅</a></li>
+    <li><a href="#dfdとは">DFDとは？</a></li>
+    <li><a href="#dfdの使用用途">DFDの使用用途</a></li>
+    <li><a href="#構造化分析">構造化分析</a></li>
+    <li><a href="#dfdの構成要素と記号">DFDの構成要素と記号</a></li>
+    <li><a href="#dfdのレベル分解">DFDのレベル分解</a>
+      <ul>
+        <li><a href="#レベル0コンテキストダイアグラム">レベル0（コンテキストダイアグラム）</a></li>
+        <li><a href="#レベル1">レベル1</a></li>
+        <li><a href="#レベル2以降">レベル2以降</a></li>
+      </ul>
+    </li>
+    <li><a href="#dfd作成のルール">DFD作成のルール</a></li>
+    <li><a href="#具体例ecサイトの注文処理">具体例：ECサイトの注文処理</a></li>
     <li><a href="#参考リンク">参考リンク</a></li>
   </ul>
 </nav>
@@ -742,166 +756,186 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h2 class="relative group">ホワイトボックステスト 
-    <div id="ホワイトボックステスト" class="anchor"></div>
+<h2 class="relative group">DFDとは？ 
+    <div id="dfdとは" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9b%e3%83%af%e3%82%a4%e3%83%88%e3%83%9c%e3%83%83%e3%82%af%e3%82%b9%e3%83%86%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dfd%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>ホワイトボックステストにおける下記の条件などについて整理する</p>
+<p>DFDとは、業務を構成する処理と受け渡されるデータの流れを3つの要素（プロセス・源泉と吸収・データストア）およびデータフローを図式表現したもの</p>
+
+<h2 class="relative group">DFDの使用用途 
+    <div id="dfdの使用用途" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dfd%e3%81%ae%e4%bd%bf%e7%94%a8%e7%94%a8%e9%80%94" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>デマルコによって提唱された「構造化分析法」はシステム機能間のデータの流れに着目してシステム要求を可視化する技法である。</p>
+<p>この構造化分析においてDFD(Data Flow Diagram：データフローダイアグラム)を用いて単にデータとプロセスを図式表現するだけでなく、構造化仕様書を作成していく。</p>
+
+<h2 class="relative group">構造化分析 
+    <div id="構造化分析" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a7%8b%e9%80%a0%e5%8c%96%e5%88%86%e6%9e%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>現物理モデル</li>
+<li>現論理モデル</li>
+<li>新論理モデル</li>
+<li>新物理モデル</li>
+</ol>
+
+<h2 class="relative group">DFDの構成要素と記号 
+    <div id="dfdの構成要素と記号" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dfd%e3%81%ae%e6%a7%8b%e6%88%90%e8%a6%81%e7%b4%a0%e3%81%a8%e8%a8%98%e5%8f%b7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
 <table>
   <thead>
       <tr>
-          <th style="text-align: left">網羅基準</th>
-          <th style="text-align: left">テスト強度</th>
-          <th style="text-align: left">概要</th>
+          <th style="text-align: left">記号</th>
+          <th style="text-align: left">名称</th>
+          <th style="text-align: left">意味</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td style="text-align: left"><strong>命令網羅</strong></td>
-          <td style="text-align: left">弱い</td>
-          <td style="text-align: left">すべての処理文を1回は実行する</td>
+          <td style="text-align: left"><strong>○</strong></td>
+          <td style="text-align: left"><strong>プロセス（Process）</strong></td>
+          <td style="text-align: left">データを処理・変換する機能や手続き。「～する」という動詞で表現される。（例：受注登録する）</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>分岐網羅</strong></td>
-          <td style="text-align: left">↓</td>
-          <td style="text-align: left">すべての分岐の真/偽を1回は実行する</td>
+          <td style="text-align: left"><strong>→</strong></td>
+          <td style="text-align: left"><strong>データフロー（Data Flow）</strong></td>
+          <td style="text-align: left">データの流れそのもの。矢印で向きを示す。「～データ」「～伝票」といった名詞で表現される。（例：注文データ）</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>条件網羅</strong></td>
-          <td style="text-align: left">中程度</td>
-          <td style="text-align: left">すべての個々の条件の真/偽を1回はとる</td>
+          <td style="text-align: left"><strong>＝</strong></td>
+          <td style="text-align: left"><strong>データストア（Data Store）</strong></td>
+          <td style="text-align: left">データの保管場所。ファイルやデータベースを指す。「～台帳」「～ファイル」といった名詞で表現される。（例：顧客マスタ）</td>
       </tr>
       <tr>
-          <td style="text-align: left"><strong>判定条件・条件網羅</strong></td>
-          <td style="text-align: left">↑</td>
-          <td style="text-align: left">分岐網羅と条件網羅の両方を満たす</td>
-      </tr>
-      <tr>
-          <td style="text-align: left"><strong>複数条件網羅</strong></td>
-          <td style="text-align: left">強い</td>
-          <td style="text-align: left">個々の条件の真/偽の全組み合わせを実行する</td>
+          <td style="text-align: left"><strong>□</strong></td>
+          <td style="text-align: left"><strong>外部実体（External Entity）</strong><!-- raw HTML omitted -->（源泉と吸収）</td>
+          <td style="text-align: left">システムの外部にあって、データの発生源（源泉）や最終的な送り先（吸収）となるもの。人や部署、他システムなど。（例：顧客、取引先）</td>
       </tr>
   </tbody>
 </table>
 
-<h2 class="relative group">命令網羅 
-    <div id="命令網羅" class="anchor"></div>
+<h2 class="relative group">DFDのレベル分解 
+    <div id="dfdのレベル分解" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%91%bd%e4%bb%a4%e7%b6%b2%e7%be%85" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dfd%e3%81%ae%e3%83%ac%e3%83%99%e3%83%ab%e5%88%86%e8%a7%a3" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>すべての処理文を1回は実行するテスト</p>
-<pre tabindex="0"><code>IF (A &gt; 5) THEN
-  処理X  // ←ここを1回通す
-END IF
-処理Y    
-</code></pre><p>上記の例の場合、<code>A=10</code> のようなテストケースを実行すれば、処理Xと処理Yの両方が実行されるため、命令網羅を達成する。</p>
 
-<h2 class="relative group">分岐網羅 
-    <div id="分岐網羅" class="anchor"></div>
+<h3 class="relative group">レベル0（コンテキストダイアグラム） 
+    <div id="レベル0コンテキストダイアグラム" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%86%e5%b2%90%e7%b6%b2%e7%be%85" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ac%e3%83%99%e3%83%ab0%e3%82%b3%e3%83%b3%e3%83%86%e3%82%ad%e3%82%b9%e3%83%88%e3%83%80%e3%82%a4%e3%82%a2%e3%82%b0%e3%83%a9%e3%83%a0" aria-label="アンカー">#</a>
     </span>        
     
-</h2>
-<p>すべての分岐の真/偽を1回は実行するテスト</p>
-<pre tabindex="0"><code>IF (A &gt; 5) THEN  // 分岐1
-  処理X
-END IF
-</code></pre><ul>
-<li><strong>テストケース1</strong>: <code>A=10</code> → 分岐1の**真（True）**のルートを実行</li>
-<li><strong>テストケース2</strong>: <code>A=3</code> → 分岐1の**偽（False）**のルートを実行</li>
-<li>この2つのテストケースで、分岐網羅率100%を達成</li>
-<li>複雑な条件式（ANDやORで結ばれた条件）の内部は確認しない。例えば <code>IF (A &gt; 5 AND B == 10)</code> の場合、<code>A &gt; 5</code> がTrueかFalseか、<code>B == 10</code> がTrueかFalseか、個々の条件の組み合わせまではテストしない。</li>
-</ul>
-
-<h2 class="relative group">条件網羅 
-    <div id="条件網羅" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9d%a1%e4%bb%b6%e7%b6%b2%e7%be%85" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>すべての個々の条件の真/偽を1回はとるテスト</p>
-<pre tabindex="0"><code>IF (A &gt; 5 AND B == 10) THEN ...
-// 条件1: A &gt; 5
-// 条件2: B == 10
-</code></pre><ul>
-<li><strong>テストケース1</strong>: <code>A=10, B=10</code> → 条件1が<strong>True</strong>, 条件2が<strong>True</strong></li>
-<li><strong>テストケース2</strong>: <code>A=3, B=0</code> → 条件1が<strong>False</strong>, 条件2が<strong>False</strong></li>
-<li>この2つのテストケースで、条件1と条件2がそれぞれTrue/Falseを経験するため、条件網羅100%を達成</li>
-<li><strong>注</strong>: 条件網羅では、判定条件全体の真偽は考慮しない（個々の条件がTrue/Falseを経験すれば良い）</li>
-</ul>
-
-<h2 class="relative group">判定条件・条件網羅 
-    <div id="判定条件条件網羅" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%a4%e5%ae%9a%e6%9d%a1%e4%bb%b6%e6%9d%a1%e4%bb%b6%e7%b6%b2%e7%be%85" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>分岐網羅と条件網羅の両方を満たすテスト</p>
-<pre tabindex="0"><code>IF (A &gt; 5 AND B == 10) THEN ...
-// 判定条件全体: (A &gt; 5 AND B == 10)
-// 条件1: A &gt; 5
-// 条件2: B == 10
-</code></pre><ul>
-<li><strong>テストケース1</strong>: <code>A=10, B=10</code>
+</h3>
 <ul>
-<li>判定条件全体 → <strong>True</strong></li>
-<li>条件1 → <strong>True</strong>, 条件2 → <strong>True</strong></li>
-</ul>
-</li>
-<li><strong>テストケース2</strong>: <code>A=3, B=10</code>
-<ul>
-<li>判定条件全体 → <strong>False</strong></li>
-<li>条件1 → <strong>False</strong>, 条件2 → <strong>True</strong></li>
-</ul>
-</li>
-<li><strong>テストケース3</strong>: <code>A=10, B=0</code>
-<ul>
-<li>判定条件全体 → <strong>False</strong></li>
-<li>条件1 → <strong>True</strong>, 条件2 → <strong>False</strong></li>
-</ul>
-</li>
-<li>これで判定条件のTrue/False、および各条件のTrue/Falseがすべて網羅されます。</li>
+<li>システム全体を1つのプロセスとして表現</li>
+<li>外部実体とシステムの入出力関係を明示</li>
+<li>最も抽象度が高い</li>
 </ul>
 
-<h2 class="relative group">複数条件網羅 
-    <div id="複数条件網羅" class="anchor"></div>
+<h3 class="relative group">レベル1 
+    <div id="レベル1" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a4%87%e6%95%b0%e6%9d%a1%e4%bb%b6%e7%b6%b2%e7%be%85" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ac%e3%83%99%e3%83%ab1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>レベル0のプロセスを主要な機能単位に分解</li>
+<li>システムの主要機能の流れを表現</li>
+</ul>
+
+<h3 class="relative group">レベル2以降 
+    <div id="レベル2以降" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ac%e3%83%99%e3%83%ab2%e4%bb%a5%e9%99%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>レベル1のプロセスをさらに詳細に分解</li>
+<li>より具体的な処理内容を表現</li>
+</ul>
+
+<h2 class="relative group">DFD作成のルール 
+    <div id="dfd作成のルール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dfd%e4%bd%9c%e6%88%90%e3%81%ae%e3%83%ab%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>個々の条件の真/偽の全組み合わせを実行するテスト</p>
-<pre tabindex="0"><code>IF (A &gt; 5 AND B == 10) THEN ...
-// 条件①: A &gt; 5
-// 条件②: B == 10
-</code></pre><ul>
-<li>条件が2つなので、2の2乗 = 4通りの組み合わせをテストする</li>
-<li><strong>テストケース1</strong>: 条件①=<strong>True</strong>, 条件②=<strong>True</strong> (<code>A=10, B=10</code>)</li>
-<li><strong>テストケース2</strong>: 条件①=<strong>True</strong>, 条件②=<strong>False</strong> (<code>A=10, B=0</code>)</li>
-<li><strong>テストケース3</strong>: 条件①=<strong>False</strong>, 条件②=<strong>True</strong> (<code>A=3, B=10</code>)</li>
-<li><strong>テストケース4</strong>: 条件①=<strong>False</strong>, 条件②=<strong>False</strong> (<code>A=3, B=0</code>)</li>
-</ul>
+<ol>
+<li><strong>プロセスの番号付け</strong>: 階層的に番号を付ける（1.0 → 1.1, 1.2&hellip;）</li>
+<li><strong>データフローのバランス</strong>: 親プロセスの入出力と子プロセスの入出力は一致させる</li>
+<li><strong>データストアの接続ルール</strong>: データストアはプロセスを経由して接続（データストア同士、外部実体とデータストアの直接接続は禁止）</li>
+<li><strong>外部実体同士の直接接続禁止</strong>: 外部実体同士は直接データフローで結ばない</li>
+<li><strong>データフローの命名</strong>: データの内容が明確に分かる名詞で表現する</li>
+</ol>
 
+<h2 class="relative group">具体例：ECサイトの注文処理 
+    <div id="具体例ecサイトの注文処理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%b7%e4%bd%93%e4%be%8bec%e3%82%b5%e3%82%a4%e3%83%88%e3%81%ae%e6%b3%a8%e6%96%87%e5%87%a6%e7%90%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code>【レベル0】
+┌────────┐
+│  顧客  │─────注文情報────→┌──────────────┐
+└────────┘                  │  注文処理    │
+                            │  システム    │
+┌────────┐←────出荷通知─────│  （全体）    │
+│ 配送業者│                  └──────────────┘
+└────────┘                         │
+                            在庫照会/更新
+                                   ↓
+                            ┌──────────────┐
+                            │ D1:在庫DB     │
+                            └──────────────┘
+
+【レベル1】
+顧客 → 1.注文受付 → D1:注文DB
+          ↓
+     2.在庫確認 ← D2:在庫DB
+          ↓
+     3.出荷指示 → 配送業者
+</code></pre>
 <h2 class="relative group">参考リンク 
     <div id="参考リンク" class="anchor"></div>
     
@@ -950,8 +984,8 @@ END IF
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_scraps/1759804420_whiteboxtest/index.md"
-          data-oid-likes="likes_scraps/1759804420_whiteboxtest/index.md"></script>
+          data-oid="views_scraps/1759821280_dfd_data_flow_diagram/index.md"
+          data-oid-likes="likes_scraps/1759821280_dfd_data_flow_diagram/index.md"></script>
       
 
     </section>
@@ -966,7 +1000,7 @@ END IF
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/scraps/1759800890_earned_value_management/">
+            <a class="flex group mr-3" href="/scraps/1759819417_uml_unified_modeling_language/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -977,22 +1011,6 @@ END IF
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >EVM（Earned_Value_Management）</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-10-07T10:34:50&#43;09:00">2025年 10月 7日</time>
-                  
-                </span>
-              </span>
-            </a>
-          
-        </span>
-        <span>
-          
-            <a class="flex text-right group ml-3" href="/scraps/1759819417_uml_unified_modeling_language/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
                   >UML（Unified Modeling Language）</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
@@ -1001,15 +1019,10 @@ END IF
                   
                 </span>
               </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
             </a>
+          
+        </span>
+        <span>
           
         </span>
       </div>

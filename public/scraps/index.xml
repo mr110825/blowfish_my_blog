@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 07 Oct 2025 11:33:40 +0900</lastBuildDate><atom:link href="//localhost:1313/scraps/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Oct 2025 16:14:40 +0900</lastBuildDate><atom:link href="//localhost:1313/scraps/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>DFD（Data Flow Diagram）</title>
+      <link>//localhost:1313/scraps/1759821280_dfd_data_flow_diagram/</link>
+      <pubDate>Tue, 07 Oct 2025 16:14:40 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/1759821280_dfd_data_flow_diagram/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>UML（Unified Modeling Language）</title>
+      <link>//localhost:1313/scraps/1759819417_uml_unified_modeling_language/</link>
+      <pubDate>Tue, 07 Oct 2025 15:43:37 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/1759819417_uml_unified_modeling_language/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>ホワイトボックステスト（命令網羅・条件網羅など）</title>

@@ -43,3 +43,5 @@ cascade:
 - [JIS_Q_21500:2018]({{< ref "1759799499_JIS_Q_21500_2018" >}})
 - [EVM]({{< ref "1759800890_earned_value_management" >}})
 - [ホワイトボックステスト（命令網羅・条件網羅など）]({{< ref "1759804420_whiteboxtest" >}})
+- [UML（Unified Modeling Language）]({{< ref "1759819417_uml_unified_modeling_language" >}})
+- [DFD（Data Flow Diagram）]({{< ref "1759821280_dfd_data_flow_diagram" >}})
