@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 07 Oct 2025 10:11:39 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 07 Oct 2025 11:33:40 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ホワイトボックステスト（命令網羅・条件網羅など）</title>
+      <link>//localhost:1313/scraps/1759804420_whiteboxtest/</link>
+      <pubDate>Tue, 07 Oct 2025 11:33:40 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/1759804420_whiteboxtest/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EVM（Earned_Value_Management）</title>
+      <link>//localhost:1313/scraps/1759800890_earned_value_management/</link>
+      <pubDate>Tue, 07 Oct 2025 10:34:50 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/1759800890_earned_value_management/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>JIS_Q_21500:2018</title>

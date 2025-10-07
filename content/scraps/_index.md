@@ -42,3 +42,4 @@ cascade:
 - [学習メモ：情報セキュリティ10大脅威 2025（組織編）]({{< ref "1757938931_top_10_information_security_threats_2025_for_organizations" >}})
 - [JIS_Q_21500:2018]({{< ref "1759799499_JIS_Q_21500_2018" >}})
 - [EVM]({{< ref "1759800890_earned_value_management" >}})
+- [ホワイトボックステスト（命令網羅・条件網羅など）]({{< ref "1759804420_whiteboxtest" >}})

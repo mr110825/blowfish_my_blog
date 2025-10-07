@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/scraps/1759800890_earned_value_management/</loc>
-    <lastmod>2025-10-07T10:34:50+09:00</lastmod>
+    <loc>//localhost:1313/scraps/</loc>
+    <lastmod>2025-10-07T11:33:40+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/scraps/</loc>
-    <lastmod>2025-10-07T10:34:50+09:00</lastmod>
+    <loc>//localhost:1313/scraps/1759804420_whiteboxtest/</loc>
+    <lastmod>2025-10-07T11:33:40+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-10-07T11:33:40+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/1759800890_earned_value_management/</loc>
     <lastmod>2025-10-07T10:34:50+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
