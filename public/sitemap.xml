@@ -3,19 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/scraps/1759704789_ap2025_manage_study_memo/</loc>
-    <lastmod>2025-10-06T07:53:09+09:00</lastmod>
+    <loc>//localhost:1313/scraps/1759800890_earned_value_management/</loc>
+    <lastmod>2025-10-07T10:34:50+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/scraps/</loc>
-    <lastmod>2025-10-06T07:53:09+09:00</lastmod>
+    <lastmod>2025-10-07T10:34:50+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-10-07T10:34:50+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/1759799499_jis_q_21500_2018/</loc>
+    <lastmod>2025-10-07T10:11:39+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/scraps/1759704789_ap2025_manage_study_memo/</loc>
     <lastmod>2025-10-06T07:53:09+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -40,3 +40,5 @@ cascade:
 - [【応用情報技術者試験】マネジメント系学習メモ]({{< ref "1759704789_ap2025_manage_study_memo" >}})
 - [【応用情報技術者試験】ストラテジ系学習メモ]({{< ref "1759704766_ap2025_srs_study_memo" >}})
 - [学習メモ：情報セキュリティ10大脅威 2025（組織編）]({{< ref "1757938931_top_10_information_security_threats_2025_for_organizations" >}})
+- [JIS_Q_21500:2018]({{< ref "1759799499_JIS_Q_21500_2018" >}})
+- [EVM]({{< ref "1759800890_earned_value_management" >}})

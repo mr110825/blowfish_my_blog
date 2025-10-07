@@ -34,6 +34,25 @@ hugo new posts/<記事のタイトル>/index.md
 hugo new scraps/<メモのタイトル>/index.md
 ```
 
+**注意**: 上記コマンドでは、記事のフロントマターに`id`（Unixタイムスタンプ）が自動付与されますが、**ディレクトリ名にはIDが反映されません**。
+
+#### ディレクトリ名にIDを含める方法
+
+**推奨**: 記事作成後、一括リネームスクリプトを実行
+
+```bash
+# IDが反映されていないディレクトリを一括リネーム
+python3 rename_dirs_with_id.py
+```
+
+このスクリプトは：
+- `content/posts`と`content/scraps`内の全ディレクトリを検索
+- 各`index.md`からIDを取得
+- `{ID}_ディレクトリ名`形式にリネーム（例: `test-memo` → `1759800890_test-memo`）
+- `git mv`を使用してGit履歴を保持
+
+詳細は [`claude_memo/20251007_hugo_id_system_implementation.md`](claude_memo/20251007_hugo_id_system_implementation.md) を参照してください。
+
 ---
 
 ## 記事品質保証ルール
