@@ -13,22 +13,22 @@
     
     <item>
       <title>git worktree ハンズオン</title>
-      <link>//localhost:1313/posts/git-worktree-hands-on/</link>
+      <link>//localhost:1313/posts/1754519137_git-worktree-hands-on/</link>
       <pubDate>Thu, 07 Aug 2025 07:25:37 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/git-worktree-hands-on/</guid>
+      <guid>//localhost:1313/posts/1754519137_git-worktree-hands-on/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/git-worktree-hands-on/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/1754519137_git-worktree-hands-on/feature.jpg" />
     </item>
     
     <item>
       <title>Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>//localhost:1313/posts/how_to_download_github_issues/</link>
+      <link>//localhost:1313/posts/1754153716_how_to_download_github_issues/</link>
       <pubDate>Sun, 03 Aug 2025 01:55:16 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/how_to_download_github_issues/</guid>
+      <guid>//localhost:1313/posts/1754153716_how_to_download_github_issues/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/how_to_download_github_issues/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/1754153716_how_to_download_github_issues/feature.jpg" />
     </item>
     
   </channel>

@@ -13,102 +13,102 @@
     
     <item>
       <title>Pandas入門</title>
-      <link>//localhost:1313/scraps/study-pandas/</link>
+      <link>//localhost:1313/scraps/1757249281_study-pandas/</link>
       <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-pandas/</guid>
+      <guid>//localhost:1313/scraps/1757249281_study-pandas/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pandas/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757249281_study-pandas/feature.jpg" />
     </item>
     
     <item>
       <title>Python基礎ハンズオン</title>
-      <link>//localhost:1313/scraps/python-practice2/</link>
+      <link>//localhost:1313/scraps/1757227129_python-practice2/</link>
       <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/python-practice2/</guid>
+      <guid>//localhost:1313/scraps/1757227129_python-practice2/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/python-practice2/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757227129_python-practice2/feature.jpg" />
     </item>
     
     <item>
       <title>Python入門ハンズオン</title>
-      <link>//localhost:1313/scraps/python-practice/</link>
+      <link>//localhost:1313/scraps/1757222743_python-practice/</link>
       <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/python-practice/</guid>
+      <guid>//localhost:1313/scraps/1757222743_python-practice/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/python-practice/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757222743_python-practice/feature.jpg" />
     </item>
     
     <item>
       <title>requirements.txt入門</title>
-      <link>//localhost:1313/scraps/study-requirements/</link>
+      <link>//localhost:1313/scraps/1757214539_study-requirements/</link>
       <pubDate>Sun, 07 Sep 2025 12:08:59 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-requirements/</guid>
+      <guid>//localhost:1313/scraps/1757214539_study-requirements/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-requirements/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757214539_study-requirements/feature.jpg" />
     </item>
     
     <item>
       <title>virtualenv入門</title>
-      <link>//localhost:1313/scraps/study-virtualenv/</link>
+      <link>//localhost:1313/scraps/1757212175_study-virtualenv/</link>
       <pubDate>Sun, 07 Sep 2025 11:29:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-virtualenv/</guid>
+      <guid>//localhost:1313/scraps/1757212175_study-virtualenv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-virtualenv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757212175_study-virtualenv/feature.jpg" />
     </item>
     
     <item>
       <title>pipコマンド入門</title>
-      <link>//localhost:1313/scraps/study-pip/</link>
+      <link>//localhost:1313/scraps/1757164345_study-pip/</link>
       <pubDate>Sat, 06 Sep 2025 22:12:25 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-pip/</guid>
+      <guid>//localhost:1313/scraps/1757164345_study-pip/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pip/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757164345_study-pip/feature.jpg" />
     </item>
     
     <item>
       <title>仮想環境venv入門</title>
-      <link>//localhost:1313/scraps/study-venv/</link>
+      <link>//localhost:1313/scraps/1757143715_study-venv/</link>
       <pubDate>Sat, 06 Sep 2025 16:28:35 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-venv/</guid>
+      <guid>//localhost:1313/scraps/1757143715_study-venv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-venv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1757143715_study-venv/feature.jpg" />
     </item>
     
     <item>
       <title>pyenvでPythonバージョン管理｜インストールから切り替えまで</title>
-      <link>//localhost:1313/scraps/study-pyenv/</link>
+      <link>//localhost:1313/scraps/1756984928_study-pyenv/</link>
       <pubDate>Thu, 04 Sep 2025 20:22:08 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-pyenv/</guid>
+      <guid>//localhost:1313/scraps/1756984928_study-pyenv/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-pyenv/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1756984928_study-pyenv/feature.jpg" />
     </item>
     
     <item>
       <title>Python概要とインストールなど</title>
-      <link>//localhost:1313/scraps/styudy-python/</link>
+      <link>//localhost:1313/scraps/1756853577_styudy-python/</link>
       <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/styudy-python/</guid>
+      <guid>//localhost:1313/scraps/1756853577_styudy-python/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/styudy-python/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1756853577_styudy-python/feature.jpg" />
     </item>
     
     <item>
       <title>NumPy入門</title>
-      <link>//localhost:1313/scraps/study-numpy/</link>
+      <link>//localhost:1313/scraps/1756683405_study-numpy/</link>
       <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/study-numpy/</guid>
+      <guid>//localhost:1313/scraps/1756683405_study-numpy/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/study-numpy/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/1756683405_study-numpy/feature.jpg" />
     </item>
     
   </channel>
