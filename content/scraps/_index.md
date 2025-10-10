@@ -53,3 +53,4 @@ cascade:
 - [DFD（Data Flow Diagram）]({{< ref "251007161440_dfd_data_flow_diagram" >}})
 - [アドレス指定方法]({{< ref "251010115620_address_format" >}})
 - [NAND型RSフリップフロップ]({{< ref "251010135128_set-reset-flip-flop" >}})
+- [キャッシュメモリのアドレスマッピング方式]({{< ref "251010221007_cache_mapping_techniques" >}})
