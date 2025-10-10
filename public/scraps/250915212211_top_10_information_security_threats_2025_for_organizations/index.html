@@ -1,0 +1,1715 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>学習メモ：情報セキュリティ10大脅威 2025（組織編） &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="学習メモ：情報セキュリティ10大脅威 2025（組織編） &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  
+  
+  
+  <link rel="canonical" href="//localhost:1313/scraps/250915212211_top_10_information_security_threats_2025_for_organizations/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.e0f637de92215223af8b86c70d49f3dd16791589801e2e918eaab86a08ddcb4fe740506a2019919ec7c0cdf89d764a37489acf68ab2c1c528690be298f297063.css"
+    integrity="sha512-4PY33pIhUiOvi4bHDUnz3RZ5FYmAHi6Rjqq4agjdy0/nQFBqIBmRnsfAzfiddko3SJrPaKssHFKGkL4pjylwYw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/scraps/250915212211_top_10_information_security_threats_2025_for_organizations/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="学習メモ：情報セキュリティ10大脅威 2025（組織編）">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="scraps">
+    <meta property="article:published_time" content="2025-09-15T21:22:11+09:00">
+    <meta property="article:modified_time" content="2025-09-15T21:22:11+09:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="学習メモ：情報セキュリティ10大脅威 2025（組織編）">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "スクラップ",
+    "name": "学習メモ：情報セキュリティ10大脅威 2025（組織編）",
+    "headline": "学習メモ：情報セキュリティ10大脅威 2025（組織編）",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/scraps\/250915212211_top_10_information_security_threats_2025_for_organizations\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-15T21:22:11\u002b09:00",
+    "datePublished": "2025-09-15T21:22:11\u002b09:00",
+    
+    "dateModified": "2025-09-15T21:22:11\u002b09:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "411"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        学習メモ：情報セキュリティ10大脅威 2025（組織編）
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-09-15T21:22:11&#43;09:00">2025年 9月 15日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#10大脅威組織向け">10大脅威（組織向け）</a>
+      <ul>
+        <li><a href="#1-ランサム攻撃による被害"><strong>1. ランサム攻撃による被害</strong></a></li>
+        <li><a href="#2-サプライチェーンや委託先を狙った攻撃"><strong>2. サプライチェーンや委託先を狙った攻撃</strong></a></li>
+        <li><a href="#3-システムの脆弱性を突いた攻撃"><strong>3. システムの脆弱性を突いた攻撃</strong></a></li>
+        <li><a href="#4-内部不正による情報漏えい等"><strong>4. 内部不正による情報漏えい等</strong></a></li>
+        <li><a href="#5-機密情報等を狙った標的型攻撃"><strong>5. 機密情報等を狙った標的型攻撃</strong></a></li>
+        <li><a href="#6-リモートワーク等の環境や仕組みを狙った攻撃"><strong>6. リモートワーク等の環境や仕組みを狙った攻撃</strong></a></li>
+        <li><a href="#7-地政学的リスクに起因するサイバー攻撃"><strong>7. 地政学的リスクに起因するサイバー攻撃</strong></a></li>
+        <li><a href="#8-分散型サービス妨害攻撃ddos攻撃"><strong>8. 分散型サービス妨害攻撃（DDoS攻撃）</strong></a></li>
+        <li><a href="#9-ビジネスメール詐欺bec"><strong>9. ビジネスメール詐欺（BEC）</strong></a></li>
+        <li><a href="#10-不注意による情報漏えい等"><strong>10. 不注意による情報漏えい等</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#脅威への共通対策">脅威への共通対策</a>
+      <ul>
+        <li><a href="#1-適切な認証">1. 適切な認証</a></li>
+        <li><a href="#2-情報リテラシーモラルの向上">2. 情報リテラシー・モラルの向上</a></li>
+        <li><a href="#3-メールの添付ファイルやurlに安易に接続しない">3. メールの添付ファイルやURLに安易に接続しない</a></li>
+        <li><a href="#4-適切な報告連絡相談">4. 適切な報告・連絡・相談</a></li>
+        <li><a href="#5-インシデント対応体制の整備">5. インシデント対応体制の整備</a></li>
+        <li><a href="#6-サーバーやpcネットワークに適切なセキュリティ対策を施す"><strong>6. サーバーやPC・ネットワークに適切なセキュリティ対策を施す</strong></a></li>
+        <li><a href="#7-適切なバックアップ運用"><strong>7. 適切なバックアップ運用</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#10大脅威組織向け">10大脅威（組織向け）</a>
+      <ul>
+        <li><a href="#1-ランサム攻撃による被害"><strong>1. ランサム攻撃による被害</strong></a></li>
+        <li><a href="#2-サプライチェーンや委託先を狙った攻撃"><strong>2. サプライチェーンや委託先を狙った攻撃</strong></a></li>
+        <li><a href="#3-システムの脆弱性を突いた攻撃"><strong>3. システムの脆弱性を突いた攻撃</strong></a></li>
+        <li><a href="#4-内部不正による情報漏えい等"><strong>4. 内部不正による情報漏えい等</strong></a></li>
+        <li><a href="#5-機密情報等を狙った標的型攻撃"><strong>5. 機密情報等を狙った標的型攻撃</strong></a></li>
+        <li><a href="#6-リモートワーク等の環境や仕組みを狙った攻撃"><strong>6. リモートワーク等の環境や仕組みを狙った攻撃</strong></a></li>
+        <li><a href="#7-地政学的リスクに起因するサイバー攻撃"><strong>7. 地政学的リスクに起因するサイバー攻撃</strong></a></li>
+        <li><a href="#8-分散型サービス妨害攻撃ddos攻撃"><strong>8. 分散型サービス妨害攻撃（DDoS攻撃）</strong></a></li>
+        <li><a href="#9-ビジネスメール詐欺bec"><strong>9. ビジネスメール詐欺（BEC）</strong></a></li>
+        <li><a href="#10-不注意による情報漏えい等"><strong>10. 不注意による情報漏えい等</strong></a></li>
+      </ul>
+    </li>
+    <li><a href="#脅威への共通対策">脅威への共通対策</a>
+      <ul>
+        <li><a href="#1-適切な認証">1. 適切な認証</a></li>
+        <li><a href="#2-情報リテラシーモラルの向上">2. 情報リテラシー・モラルの向上</a></li>
+        <li><a href="#3-メールの添付ファイルやurlに安易に接続しない">3. メールの添付ファイルやURLに安易に接続しない</a></li>
+        <li><a href="#4-適切な報告連絡相談">4. 適切な報告・連絡・相談</a></li>
+        <li><a href="#5-インシデント対応体制の整備">5. インシデント対応体制の整備</a></li>
+        <li><a href="#6-サーバーやpcネットワークに適切なセキュリティ対策を施す"><strong>6. サーバーやPC・ネットワークに適切なセキュリティ対策を施す</strong></a></li>
+        <li><a href="#7-適切なバックアップ運用"><strong>7. 適切なバックアップ運用</strong></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">10大脅威（組織向け） 
+    <div id="10大脅威組織向け" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#10%e5%a4%a7%e8%84%85%e5%a8%81%e7%b5%84%e7%b9%94%e5%90%91%e3%81%91" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group"><strong>1. ランサム攻撃による被害</strong> 
+    <div id="1-ランサム攻撃による被害" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e3%83%a9%e3%83%b3%e3%82%b5%e3%83%a0%e6%94%bb%e6%92%83%e3%81%ab%e3%82%88%e3%82%8b%e8%a2%ab%e5%ae%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+PCやサーバーを「ランサムウェア」に感染させ、端末のロックやデータの暗号化を行い、その解除と引き換えに金銭（身代金）を要求するサイバー攻撃。3年連続で脅威の1位となっており、攻撃手法は常に巧妙化しています。</p>
+<ul>
+<li>
+<p><strong>主な攻撃形態:</strong></p>
+<ul>
+<li><strong>RaaS (Ransomware as a Service):</strong> 攻撃ツールがサービスとして提供され、高度な技術がなくても攻撃が可能。</li>
+<li><strong>ノーウェアランサム:</strong> データを暗号化せず、窃取した機密情報を「公開する」と脅迫して金銭を要求する。</li>
+<li><strong>二重脅迫・四重脅迫:</strong> 「データの暗号化」「データの暴露」「DDoS攻撃」「関係者への連絡」など、複数の脅迫を組み合わせる悪質な手口。</li>
+</ul>
+</li>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>脆弱性の悪用:</strong> OSやソフトウェアのセキュリティ上の欠陥を悪用しネットワーク経由で侵入する。</li>
+<li><strong>不正アクセス:</strong> リモートデスクトップなど、外部に公開された設定の不備を突いて侵入する。</li>
+<li><strong>メールやWebサイト:</strong> 業務連絡を装ったメールの添付ファイルや、改ざんされたWebサイトを閲覧させることで感染させる。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>インシデント発生を前提とした対応体制の整備。</li>
+<li>バックアップの適切な運用（オフライン保管、世代管理の徹底）。</li>
+<li>バックアップデータ自体の改ざんを防ぐWORM（Write Once Read Many）機能の導入。</li>
+<li>OSやソフトウェアの迅速なアップデート、多要素認証の導入。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>ランサムウェア、RaaS、ノーウェアランサム、二重脅迫、WORM機能</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>2. サプライチェーンや委託先を狙った攻撃</strong> 
+    <div id="2-サプライチェーンや委託先を狙った攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e3%82%b5%e3%83%97%e3%83%a9%e3%82%a4%e3%83%81%e3%82%a7%e3%83%bc%e3%83%b3%e3%82%84%e5%a7%94%e8%a8%97%e5%85%88%e3%82%92%e7%8b%99%e3%81%a3%e3%81%9f%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+製品の企画から販売に至る一連の商流（サプライチェーン）の中で、セキュリティ対策が手薄な取引先や業務委託先を踏み台にする攻撃。3年連続で2位となっており、自社だけでなく関係各社を含めた対策が不可欠です。</p>
+<ul>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>ビジネス上の繋がりの悪用:</strong> 標的企業よりセキュリティが脆弱な取引先や子会社に侵入し、そこを経由して標的のネットワークへ侵入する。</li>
+<li><strong>ソフトウェアサプライチェーンの悪用:</strong> 多くの企業が利用するソフトウェアの開発元を攻撃し、正規のアップデートなどを通じてマルウェアを広範囲に拡散させる（例：XZ Utilsへのバックドア混入）。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>委託先を含めたサプライチェーン全体でのセキュリティレベルの確認と向上。</li>
+<li>契約時にセキュリティに関する責任範囲を明確化する。</li>
+<li>ソフトウェアの構成要素を管理する「SBOM」の導入を検討する。</li>
+<li>客観的な状況把握のため、セキュリティ評価サービス（SRS）を活用する。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>サプライチェーン、踏み台攻撃、ソフトウェアサプライチェーン、SBOM、SRS</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>3. システムの脆弱性を突いた攻撃</strong> 
+    <div id="3-システムの脆弱性を突いた攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e8%84%86%e5%bc%b1%e6%80%a7%e3%82%92%e7%aa%81%e3%81%84%e3%81%9f%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+OS、ソフトウェア、ネットワーク機器などに存在するセキュリティ上の欠陥（脆弱性）を悪用する攻撃。脆弱性情報が公開されてから攻撃までの時間が短くなっており、迅速な対応が求められます。</p>
+<ul>
+<li>
+<p><strong>代表的な攻撃:</strong></p>
+<ul>
+<li><strong>ゼロデイ攻撃:</strong> 脆弱性が発見されてから、修正プログラム（パッチ）が提供されるまでの無防備な期間を狙う攻撃。</li>
+<li><strong>Nデイ攻撃:</strong> 修正プログラム公開後、利用者がパッチを適用していない「隙」を狙う攻撃。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>脆弱性に関する情報を迅速に収集し、早期にパッチを適用する体制を構築する。</li>
+<li>自組織で利用しているIT資産（サーバー、PC、ソフトウェア等）を正確に把握・管理する。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>脆弱性、ゼロデイ攻撃、Nデイ攻撃、パッチ管理</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>4. 内部不正による情報漏えい等</strong> 
+    <div id="4-内部不正による情報漏えい等" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e5%86%85%e9%83%a8%e4%b8%8d%e6%ad%a3%e3%81%ab%e3%82%88%e3%82%8b%e6%83%85%e5%a0%b1%e6%bc%8f%e3%81%88%e3%81%84%e7%ad%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+従業員や元従業員など、組織の内部関係者が意図的に機密情報や個人情報を持ち出し、漏えいさせる行為。「転職先での優位性確保」や「職場への不満」などが主な動機です。</p>
+<ul>
+<li>
+<p><strong>主な手口:</strong></p>
+<ul>
+<li><strong>アクセス権限の悪用:</strong> 業務上付与された権限を悪用し、顧客情報や技術情報を窃取する。</li>
+<li><strong>退職者アカウントの悪用:</strong> 削除されずに残っている退職者のアカウントを悪用して侵入する。</li>
+<li><strong>情報の不正な持ち出し:</strong> USBメモリやクラウドストレージなどを利用して、データを外部へ持ち出す。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>不正の3要素（動機・機会・正当化）を抑制する就業規則を整備し、周知徹底する。</li>
+<li>アクセス権限を必要最小限に設定し（最小権限の原則）、退職者のアカウントは速やかに削除する。</li>
+<li>重要情報へのアクセスログを監視し、不審な操作を検知できる体制を整える。</li>
+<li>従業員への定期的な情報リテラシー教育を実施する。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>内部不正、不正のトライアングル、最小権限の原則、アクセスログ監視</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>5. 機密情報等を狙った標的型攻撃</strong> 
+    <div id="5-機密情報等を狙った標的型攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e6%a9%9f%e5%af%86%e6%83%85%e5%a0%b1%e7%ad%89%e3%82%92%e7%8b%99%e3%81%a3%e3%81%9f%e6%a8%99%e7%9a%84%e5%9e%8b%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+特定の企業や組織を標的とし、機密情報や知的財産の窃取、または業務妨害を目的として執拗に行われるサイバー攻撃です。</p>
+<ul>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>標的型攻撃メール:</strong> 業務に関連する巧妙な内容でメールを送り、添付ファイル開封やURLクリックによりマルウェアに感染させる。</li>
+<li><strong>水飲み場攻撃:</strong> 標的組織の従業員が頻繁に訪れるWebサイトを改ざんし、アクセスした従業員のPCをマルウェアに感染させる。</li>
+<li><strong>不正アクセス:</strong> VPN機器や公開サーバーの脆弱性を悪用してネットワーク内部へ侵入する。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>従業員への教育（不審なメールやURLを安易に開かない、など）。</li>
+<li>侵入を早期に検知し、迅速に対応するための体制整備（EDR/NDR等の導入）。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>標的型攻撃、APT (Advanced Persistent Threat)、標的型攻撃メール、水飲み場攻撃</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>6. リモートワーク等の環境や仕組みを狙った攻撃</strong> 
+    <div id="6-リモートワーク等の環境や仕組みを狙った攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#6-%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e7%ad%89%e3%81%ae%e7%92%b0%e5%a2%83%e3%82%84%e4%bb%95%e7%b5%84%e3%81%bf%e3%82%92%e7%8b%99%e3%81%a3%e3%81%9f%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+リモートワークの普及に伴い、セキュリティ対策が手薄になりがちな自宅のネットワーク環境や、リモートアクセスに利用されるVPN機器、個人の端末などを標的とする攻撃です。</p>
+<ul>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>VPN機器の脆弱性を悪用:</strong> パッチが適用されていないVPN機器の脆弱性を突き、社内ネットワークへ侵入する。</li>
+<li><strong>認証情報の不正利用:</strong> ID・パスワードへの総当たり攻撃や、漏えいした情報の使い回しにより不正ログインを試みる。</li>
+<li><strong>対策が不十分な端末への攻撃:</strong> 私物端末（BYOD）や管理外の端末を狙い、マルウェアに感染させて侵入の足がかりとする。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>より安全性の高いZTNA（ゼロトラスト・ネットワーク・アクセス）などの導入を検討する。</li>
+<li>リモートアクセス時の多要素認証（MFA）を必須とする。</li>
+<li>使用する機器のOS・ソフトウェアを常に最新の状態に保つ。</li>
+<li>リモートワークに関するセキュリティポリシーを策定し、従業員に周知徹底する。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>VPN、リモートデスクトップ、BYOD、ZTNA、多要素認証 (MFA)</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>7. 地政学的リスクに起因するサイバー攻撃</strong> 
+    <div id="7-地政学的リスクに起因するサイバー攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#7-%e5%9c%b0%e6%94%bf%e5%ad%a6%e7%9a%84%e3%83%aa%e3%82%b9%e3%82%af%e3%81%ab%e8%b5%b7%e5%9b%a0%e3%81%99%e3%82%8b%e3%82%b5%e3%82%a4%e3%83%90%e3%83%bc%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+国家間の対立などを背景に、国家が支援する攻撃グループや、政治的主張を目的とするハクティビストなどが、敵対国の政府機関や重要インフラ企業を標的として行う攻撃。2025年版で初めてランクインした脅威です。</p>
+<ul>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>DDoS攻撃:</strong> 標的のWebサイト等を機能停止させ、社会的な混乱を引き起こす。</li>
+<li><strong>スピアフィッシング:</strong> 巧妙な標的型攻撃メールで、外交・安全保障に関する機密情報を窃取する。</li>
+<li><strong>偽情報の流布:</strong> SNS等で偽情報を拡散し、世論操作や社会不安を煽る。</li>
+<li><strong>LotL戦術 (Living Off The Land):</strong> OS標準の正規ツールを悪用するため、検知が困難な攻撃。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>自社の事業に関する地政学的リスク情報を常に収集し、影響を評価する。</li>
+<li>サービス停止を想定した事業継続計画（BCP）を見直し、訓練を実施する。</li>
+<li>侵入を前提とし、ネットワーク監視を強化して不審な挙動を早期に検知できる体制を整える。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>国家支援型攻撃、ハクティビスト、重要インフラ、偽情報、LotL</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>8. 分散型サービス妨害攻撃（DDoS攻撃）</strong> 
+    <div id="8-分散型サービス妨害攻撃ddos攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#8-%e5%88%86%e6%95%a3%e5%9e%8b%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e5%a6%a8%e5%ae%b3%e6%94%bb%e6%92%83ddos%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+マルウェアに感染させた多数の機器（ボットネット）から、標的のサーバー等に一斉に大量のアクセスを送りつけ、サービスを停止させる攻撃。IoT機器の増加により、攻撃が大規模化しています。</p>
+<ul>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>フラッド攻撃:</strong> 大量のパケットでサーバーやネットワーク機器のリソースを枯渇させる。</li>
+<li><strong>リフレクション攻撃:</strong> 多数のサーバーからの応答が標的に集中するように仕向け、攻撃を増幅させる。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>攻撃トラフィックを検知・遮断するDDoS対策サービスの導入。</li>
+<li>アクセス負荷を分散させるCDN（コンテンツデリバリーネットワーク）の活用。</li>
+<li>攻撃検知時の連絡体制や代替サイトへの切り替え手順などを事前に定めておく。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>DDoS、ボットネット、フラッド攻撃、リフレクション攻撃、CDN</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>9. ビジネスメール詐欺（BEC）</strong> 
+    <div id="9-ビジネスメール詐欺bec" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#9-%e3%83%93%e3%82%b8%e3%83%8d%e3%82%b9%e3%83%a1%e3%83%bc%e3%83%ab%e8%a9%90%e6%ac%babec" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+経営者や取引先になりすました巧妙な偽メールで担当者を騙し、攻撃者が用意した口座へ送金させる詐欺。近年ではAIによるディープフェイク技術が悪用されるケースもあります。</p>
+<ul>
+<li>
+<p><strong>主な攻撃手口:</strong></p>
+<ul>
+<li><strong>経営者へのなりすまし:</strong> 「極秘の買収案件」などと緊急性を装い、送金を指示する。</li>
+<li><strong>取引先へのなりすまし:</strong> 「振込先口座が変更になった」と偽の連絡を行い、送金させる。</li>
+<li><strong>ディープフェイクの悪用:</strong> AIで生成した偽の音声や映像をビデオ会議で使い、担当者を信用させる。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>送金や振込先変更の依頼があった際は、メール以外の手段（電話など）で必ず事実確認を行うルールを徹底する。</li>
+<li>送信ドメイン認証技術（SPF, DKIM, DMARC）を導入し、なりすましメールを低減させる。</li>
+<li>具体的な手口や事例を共有し、従業員への継続的な教育を行う。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>BEC、なりすまし、ディープフェイク、送信ドメイン認証</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>10. 不注意による情報漏えい等</strong> 
+    <div id="10-不注意による情報漏えい等" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#10-%e4%b8%8d%e6%b3%a8%e6%84%8f%e3%81%ab%e3%82%88%e3%82%8b%e6%83%85%e5%a0%b1%e6%bc%8f%e3%81%88%e3%81%84%e7%ad%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>概要:</strong>
+悪意のある攻撃ではなく、従業員の確認ミスや知識不足といったヒューマンエラーが原因で、意図せず機密情報や個人情報が外部に漏えいする事案です。</p>
+<ul>
+<li>
+<p><strong>主な発生要因:</strong></p>
+<ul>
+<li><strong>メールの誤送信:</strong> 宛先（To/Cc/Bcc）の入力ミスや、添付ファイルの取り違え。</li>
+<li><strong>設定の不備:</strong> クラウドストレージ等のアクセス権限の設定誤り。</li>
+<li><strong>媒体の紛失・置き忘れ:</strong> 業務用のPC、スマートフォン、USBメモリ等の紛失。</li>
+<li><strong>不適切な廃棄:</strong> データを完全に消去せずにHDD等を廃棄してしまう。</li>
+</ul>
+</li>
+<li>
+<p><strong>対策:</strong></p>
+<ul>
+<li>メール送信前の警告機能や、設定ミスを検知するツールを導入する。</li>
+<li>DLP（Data Loss Prevention）製品で重要情報の持ち出しを制御する。</li>
+<li>情報の取り扱いに関する明確なルールを定め、全従業員に周知徹底する。</li>
+<li>定期的な研修を実施し、従業員の情報セキュリティ意識とリテラシーを向上させる。</li>
+</ul>
+</li>
+<li>
+<p><strong>キーワード:</strong></p>
+<ul>
+<li>ヒューマンエラー、誤送信、設定ミス、DLP</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<h2 class="relative group">脅威への共通対策 
+    <div id="脅威への共通対策" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%84%85%e5%a8%81%e3%81%b8%e3%81%ae%e5%85%b1%e9%80%9a%e5%af%be%e7%ad%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">1. 適切な認証 
+    <div id="1-適切な認証" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e9%81%a9%e5%88%87%e3%81%aa%e8%aa%8d%e8%a8%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワードの不適切な設定・管理は、不正アクセスの主要な原因です。</p>
+<ul>
+<li><strong>設定:</strong>
+<ul>
+<li><strong>初期設定の変更:</strong> 機器やサービスの初期パスワードは必ず変更する。</li>
+<li><strong>推測されにくいパスワード:</strong> 長く、複雑で、使い回さないパスワードを設定する。</li>
+</ul>
+</li>
+<li><strong>管理:</strong>
+<ul>
+<li><strong>パスワードを教えない、メモを貼らない。</strong></li>
+<li><strong>複数人利用のPCにパスワードを記憶させない。</strong></li>
+</ul>
+</li>
+<li><strong>高度な認証:</strong>
+<ul>
+<li><strong>多要素認証 (MFA):</strong> 知識情報・所持情報・生体情報を組み合わせた認証を導入する。</li>
+<li><strong>パスキー:</strong> パスワードレス認証の利用を推奨する。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">2. 情報リテラシー・モラルの向上 
+    <div id="2-情報リテラシーモラルの向上" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e6%83%85%e5%a0%b1%e3%83%aa%e3%83%86%e3%83%a9%e3%82%b7%e3%83%bc%e3%83%a2%e3%83%a9%e3%83%ab%e3%81%ae%e5%90%91%e4%b8%8a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>意図しないルール違反や不正行為を防ぐため、全従業員に対する継続的な教育が不可欠です。</p>
+<ul>
+<li><strong>教育内容:</strong> SNSの適切な利用、偽情報への対処、フィッシング詐欺の手口、内部不正のリスクなど。</li>
+<li><strong>実施方法:</strong> 定期的な研修の実施、最新の脅威に関する情報提供、緊急時の報告手順の周知徹底。</li>
+</ul>
+
+<h3 class="relative group">3. メールの添付ファイルやURLに安易に接続しない 
+    <div id="3-メールの添付ファイルやurlに安易に接続しない" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%83%a1%e3%83%bc%e3%83%ab%e3%81%ae%e6%b7%bb%e4%bb%98%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%82%84url%e3%81%ab%e5%ae%89%e6%98%93%e3%81%ab%e6%8e%a5%e7%b6%9a%e3%81%97%e3%81%aa%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メールやSMSは、マルウェア感染やフィッシング詐欺の主要な侵入経路です。</p>
+<ul>
+<li><strong>基本動作:</strong>
+<ul>
+<li><strong>差出人を確認:</strong> 知らない相手や不審なメールは開かない。</li>
+<li><strong>安易にクリックしない:</strong> 本文中のURLや添付ファイルを安易に開かない。</li>
+</ul>
+</li>
+<li><strong>確認方法:</strong>
+<ul>
+<li>リンク先のURLにカーソルを合わせ、正規のドメインか確認する。</li>
+<li>公式アプリやブックマークから正規サイトにアクセスし、情報の真偽を確認する。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">4. 適切な報告・連絡・相談 
+    <div id="4-適切な報告連絡相談" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e9%81%a9%e5%88%87%e3%81%aa%e5%a0%b1%e5%91%8a%e9%80%a3%e7%b5%a1%e7%9b%b8%e8%ab%87" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>インシデントの兆候を発見した場合、迅速な報告が被害の拡大を防ぎます。</p>
+<ul>
+<li><strong>体制構築:</strong>
+<ul>
+<li>インシデント発生時の報告先（CSIRT、情報システム部門など）と報告フローを明確にし、全従業員に周知する。</li>
+<li>報告を躊躇させない、隠蔽を許さない組織風土を醸成する。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">5. インシデント対応体制の整備 
+    <div id="5-インシデント対応体制の整備" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e3%82%a4%e3%83%b3%e3%82%b7%e3%83%87%e3%83%b3%e3%83%88%e5%af%be%e5%bf%9c%e4%bd%93%e5%88%b6%e3%81%ae%e6%95%b4%e5%82%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>インシデントは「必ず起きるもの」として、事前の準備が重要です。</p>
+<ul>
+<li><strong>CSIRT (Computer Security Incident Response Team) の構築:</strong> セキュリティ問題を専門に扱うチームを設置する。</li>
+<li><strong>事前準備:</strong>
+<ul>
+<li><strong>責任者の任命 (CISOなど)。</strong></li>
+<li><strong>対応フローの策定:</strong> 「検知」→「トリアージ」→「封じ込め・復旧」→「報告」といった一連の手順を文書化する。</li>
+<li><strong>訓練の実施:</strong> 定期的に訓練を行い、手順の実効性を確認・改善する。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group"><strong>6. サーバーやPC・ネットワークに適切なセキュリティ対策を施す</strong> 
+    <div id="6-サーバーやpcネットワークに適切なセキュリティ対策を施す" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#6-%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%84pc%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e3%81%ab%e9%81%a9%e5%88%87%e3%81%aa%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e5%af%be%e7%ad%96%e3%82%92%e6%96%bd%e3%81%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>組織のサーバー、PC、ネットワークは、重要な情報を保持し事業活動を支える生命線です。これらは攻撃者にとって価値の高い標的であり、多層的かつ継続的なセキュリティ対策が不可欠となります。資料では、以下の具体的な対策が推奨されています。</p>
+
+<h4 class="relative group"><strong>ネットワーク管理の徹底</strong> 
+    <div id="ネットワーク管理の徹底" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e7%ae%a1%e7%90%86%e3%81%ae%e5%be%b9%e5%ba%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>侵入された際の被害を最小限に食い止める（局所化する）ための対策です。</p>
+<ul>
+<li>
+<p><strong>ネットワークの分割とアクセス制御:</strong></p>
+<ul>
+<li><strong>目的:</strong> ある区画でマルウェア感染が発生しても、他の重要なサーバーや部署のネットワークに被害が拡大するのを防ぎます。</li>
+<li><strong>対策:</strong> 事業所や部署、機器の用途（例：開発環境、本番環境、業務用PC）に応じてネットワークを論理的・物理的に分割します。その上で、ファイアウォールを設置し、分割されたネットワーク間の通信を「許可されたもの」だけに制限（アクセス制御）します。</li>
+</ul>
+</li>
+<li>
+<p><strong>Attack Surface Management (ASM) の実施:</strong></p>
+<ul>
+<li><strong>目的:</strong> 組織の管理者が把握していない、あるいは意図せず外部に公開されているIT資産（サーバー、サービスなど）を攻撃者の視点で発見し、リスクを低減します。</li>
+<li><strong>対策:</strong> ASMツールやサービスを利用して、インターネットからアクセス可能な自組織の資産を継続的に棚卸しし、不要な公開や設定ミス、脆弱性を検出・修正します。</li>
+</ul>
+</li>
+<li>
+<p><strong>不要なポートやプロトコルの遮断:</strong></p>
+<ul>
+<li><strong>目的:</strong> 攻撃の侵入口となりうる不要な「扉」を閉ざし、リスクを低減します。</li>
+<li><strong>対策:</strong> サーバーやネットワーク機器で、業務上使用していない通信ポートやプロトコル（通信ルール）を無効化、またはファイアウォールで遮断します。</li>
+</ul>
+</li>
+</ul>
+
+<h4 class="relative group"><strong>脆弱性対策の徹底</strong> 
+    <div id="脆弱性対策の徹底" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%84%86%e5%bc%b1%e6%80%a7%e5%af%be%e7%ad%96%e3%81%ae%e5%be%b9%e5%ba%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>ソフトウェアのセキュリティ上の欠陥を悪用される攻撃を防ぐための基本的な対策です。</p>
+<ul>
+<li>
+<p><strong>サポート切れのソフトウェア・ハードウェアを使用しない:</strong></p>
+<ul>
+<li><strong>目的:</strong> 新たな脆弱性が発見されても修正プログラム（パッチ）が提供されない「無防備な状態」を回避します。</li>
+<li><strong>対策:</strong> 自組織で使用している製品のサポート期限を把握し、期限が切れる前に後継製品への移行計画を立て、実行します。</li>
+</ul>
+</li>
+<li>
+<p><strong>迅速な更新プログラム（パッチ）の適用:</strong></p>
+<ul>
+<li><strong>目的:</strong> 脆弱性が公表されてから攻撃を受けるまでの時間をなくし、Nデイ攻撃のリスクを最小化します。</li>
+<li><strong>対策:</strong> 資産管理台帳を整備し、脆弱性情報を常時収集します。パッチが公開された際は、業務影響を検証した上で、速やかに適用する手順と体制を確立します。特にサーバーへの適用は事前検証や再起動が伴うため、迅速に対応できる計画が必要です。</li>
+</ul>
+</li>
+<li>
+<p><strong>SBOM (Software Bill of Materials) の活用:</strong></p>
+<ul>
+<li><strong>目的:</strong> 利用しているソフトウェアにどのような部品（ライブラリ等）が含まれているかを可視化し、部品に脆弱性が発見された際に迅速な影響範囲の特定と対策を可能にします。</li>
+<li><strong>対策:</strong> ソフトウェアの調達時や開発時にSBOMを導入し、構成要素を管理する体制を整えます。</li>
+</ul>
+</li>
+</ul>
+
+<h4 class="relative group"><strong>多層的なセキュリティ製品の導入</strong> 
+    <div id="多層的なセキュリティ製品の導入" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%a4%9a%e5%b1%a4%e7%9a%84%e3%81%aa%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e8%a3%bd%e5%93%81%e3%81%ae%e5%b0%8e%e5%85%a5" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>単一の対策では防ぎきれない巧妙な攻撃に対し、複数の防御壁を設けます。</p>
+<ul>
+<li><strong>エンドポイント対策 (PC・サーバー):</strong>
+<ul>
+<li><strong>ウイルス対策ソフト:</strong> 定期的なスキャンと定義ファイルの自動更新を徹底します。</li>
+<li><strong>EDR (Endpoint Detection and Response):</strong> PCやサーバー内の不審な挙動を検知し、侵入後の迅速な対応を可能にします。</li>
+</ul>
+</li>
+<li><strong>ネットワーク対策:</strong>
+<ul>
+<li><strong>IDS/IPS (不正侵入検知・防御システム):</strong> ネットワーク上の不審な通信を検知・遮断します。</li>
+<li><strong>WAF (Web Application Firewall):</strong> Webアプリケーションの脆弱性を狙った攻撃を防ぎます。</li>
+<li><strong>UTM (統合脅威管理):</strong> ファイアウォール、IDS/IPS、ウイルス対策など複数のセキュリティ機能を一台に集約した機器です。</li>
+</ul>
+</li>
+</ul>
+
+<h4 class="relative group"><strong>アクセス権限管理の厳格化</strong> 
+    <div id="アクセス権限管理の厳格化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e6%a8%a9%e9%99%90%e7%ae%a1%e7%90%86%e3%81%ae%e5%8e%b3%e6%a0%bc%e5%8c%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>内部不正や、乗っ取られたアカウントによる被害拡大を防ぎます。</p>
+<ul>
+<li><strong>アクセス権限の最小化:</strong>
+<ul>
+<li><strong>目的:</strong> 各アカウントに業務上必要最小限の権限のみを付与し（最小権限の原則）、万が一アカウントが乗っ取られても被害範囲を限定します。</li>
+<li><strong>対策:</strong> 不要な管理者権限を与えず、データの重要性に応じてアクセスできるユーザーを厳密に制限します。</li>
+</ul>
+</li>
+<li><strong>定期的なアカウントの棚卸:</strong>
+<ul>
+<li><strong>目的:</strong> 退職者や異動者の不要なアカウント、過剰な権限が付与されたアカウントを発見し、不正利用のリスクを排除します。</li>
+<li><strong>対策:</strong> 四半期に一度など定期的にすべてのアカウントを確認し、不要なものを削除・無効化します。</li>
+</ul>
+</li>
+<li><strong>多要素認証 (MFA) の有効化:</strong>
+<ul>
+<li><strong>目的:</strong> パスワードが漏えいしても、それだけでは不正ログインさせないようにします。</li>
+<li><strong>対策:</strong> 重要なシステムやリモートアクセスなど、不正ログインによる影響が大きい箇所から優先的にMFAを導入・必須化します。</li>
+</ul>
+</li>
+</ul>
+<hr>
+
+<h3 class="relative group"><strong>7. 適切なバックアップ運用</strong> 
+    <div id="7-適切なバックアップ運用" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#7-%e9%81%a9%e5%88%87%e3%81%aa%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e9%81%8b%e7%94%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データの破損や喪失は、サイバー攻撃だけでなく、操作ミスやハードウェア故障でも発生します。迅速に事業を復旧させるためのバックアップは、最後の砦となる極めて重要な対策です。</p>
+
+<h4 class="relative group"><strong>バックアップの「取得」計画</strong> 
+    <div id="バックアップの取得計画" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%ae%e5%8f%96%e5%be%97%e8%a8%88%e7%94%bb" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>何を残し、どうやって取得するかを明確に計画します。</p>
+<ul>
+<li>
+<p><strong>対象の選定:</strong></p>
+<ul>
+<li>業務データだけでなく、システムの復旧に必要な設定ファイルやプログラムもバックアップの対象とします。データの重要度に応じて、バックアップの優先順位を決定します。</li>
+</ul>
+</li>
+<li>
+<p><strong>取得方法と頻度の検討:</strong></p>
+<ul>
+<li>サーバーの稼働要件に合わせて、オンライン（稼働中）かオフライン（停止後）かを選定します。</li>
+<li>データの更新頻度に応じて、「毎日差分（変更分のみ）＋週末にフル（全体）」など、最適な取得間隔と方法を検討します。</li>
+</ul>
+</li>
+</ul>
+
+<h4 class="relative group"><strong>バックアップの「保管」戦略</strong> 
+    <div id="バックアップの保管戦略" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%ae%e4%bf%9d%e7%ae%a1%e6%88%a6%e7%95%a5" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>取得したバックアップデータを安全に守るための保管方法です。</p>
+<ul>
+<li>
+<p><strong>基本原則「3-2-1ルール」の実践:</strong></p>
+<ul>
+<li><strong>3:</strong> データを3つ（原本＋コピー2つ）保持する。</li>
+<li><strong>2:</strong> そのうち2つは、異なる種類の媒体（例: HDDとクラウドストレージ）に保管する。</li>
+<li><strong>1:</strong> 1つは、必ずオフサイト（物理的に離れた場所やネットワーク的に隔離された場所）に保管する。これは災害対策だけでなく、ランサムウェアがネットワーク経由でバックアップまで暗号化するのを防ぐ上で非常に重要です。</li>
+</ul>
+</li>
+<li>
+<p><strong>世代管理の重要性:</strong></p>
+<ul>
+<li><strong>目的:</strong> 最新のバックアップだけでなく、過去の複数時点のバックアップを保管します。データ破損に気づくのが遅れた場合、最新のバックアップもすでに破損している可能性があるためです。</li>
+<li><strong>対策:</strong> 毎日、毎週、毎月など、複数世代のバックアップを保管し、必要な時点に遡って復旧できる体制を整えます。</li>
+</ul>
+</li>
+</ul>
+
+<h4 class="relative group"><strong>バックアップからの「復旧」準備</strong> 
+    <div id="バックアップからの復旧準備" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%83%e3%83%97%e3%81%8b%e3%82%89%e3%81%ae%e5%be%a9%e6%97%a7%e6%ba%96%e5%82%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>バックアップは取得するだけでは意味がなく、「確実に復旧できること」がゴールです。</p>
+<ul>
+<li>
+<p><strong>復旧計画（リストア計画）の策定:</strong></p>
+<ul>
+<li><strong>目的:</strong> 障害が発生した際に、誰が、どのバックアップを使い、どのような手順で、どのくらいの時間で復旧させるかを事前に明確にします。</li>
+<li><strong>対策:</strong> 想定される障害シナリオごとに、具体的な復旧手順を文書化し、関係者で共有します。</li>
+</ul>
+</li>
+<li>
+<p><strong>定期的な復旧テストの実施:</strong></p>
+<ul>
+<li><strong>目的:</strong> バックアップデータが破損していないか、策定した復旧計画が本当に機能するかを確認します。</li>
+<li><strong>対策:</strong> 半年に一度など定期的に、実際にバックアップからデータを復旧させるテストを実施します。テストを通じて判明した問題点（手順の不備、想定以上の時間がかかる等）を基に、復旧計画を見直し、改善を続けます。</li>
+</ul>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_scraps/250915212211_top_10_information_security_threats_2025_for_organizations/index.md"
+          data-oid-likes="likes_scraps/250915212211_top_10_information_security_threats_2025_for_organizations/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/scraps/250911212500_hugo-blowfish-custom-css-guide/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Hugo・BlowfishでカスタムCSS適用</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-11T21:25:00&#43;09:00">2025年 9月 11日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/scraps/251001213539_ap2025_tech_study_memo_multimedia/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >【応用情報技術者試験】テクノロジ系学習メモ：マルチメディア</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-01T21:35:39&#43;09:00">2025年 10月 1日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

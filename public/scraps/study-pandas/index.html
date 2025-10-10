@@ -1,0 +1,1663 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>Pandas入門 &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="Pandas入門 &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta name="keywords" content="python,">
+  
+  
+  <link rel="canonical" href="/scraps/study-pandas/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.e0f637de92215223af8b86c70d49f3dd16791589801e2e918eaab86a08ddcb4fe740506a2019919ec7c0cdf89d764a37489acf68ab2c1c528690be298f297063.css"
+    integrity="sha512-4PY33pIhUiOvi4bHDUnz3RZ5FYmAHi6Rjqq4agjdy0/nQFBqIBmRnsfAzfiddko3SJrPaKssHFKGkL4pjylwYw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="/scraps/study-pandas/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="Pandas入門">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="scraps">
+    <meta property="article:published_time" content="2025-09-07T21:48:01+09:00">
+    <meta property="article:modified_time" content="2025-09-07T21:48:01+09:00">
+    <meta property="article:tag" content="Python">
+    <meta property="og:image" content="/scraps/study-pandas/feature.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/scraps/study-pandas/feature.jpg">
+  <meta name="twitter:title" content="Pandas入門">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+<meta name="twitter:image" content="/scraps/study-pandas/feature.jpg">
+    <meta property="og:image" content="/scraps/study-pandas/feature.jpg">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "スクラップ",
+    "name": "Pandas入門",
+    "headline": "Pandas入門",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/scraps\/study-pandas\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-09-07T21:48:01\u002b09:00",
+    "datePublished": "2025-09-07T21:48:01\u002b09:00",
+    
+    "dateModified": "2025-09-07T21:48:01\u002b09:00",
+    
+    "keywords": ["python"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "706"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/scraps/study-pandas/feature_hu_830c0a60844a1762.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+
+
+<script type="text/javascript" src="/js/background-blur.min.78ad5090e7c0c2533bac9dd23bdb1f723f834e5c3626627bd31017cc139ce0651b529877862129cee49e380ab2fdcd8baef28ae3e086bc54957fdaa7758775b2.js" integrity="sha512-eK1QkOfAwlM7rJ3SO9sfcj&#43;DTlw2JmJ70xAXzBOc4GUbUph3hiEpzuSeOAqy/c2LrvKK4&#43;CGvFSVf9qndYd1sg==" data-target-id="background-blur"></script>
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Pandas入門
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-09-07T21:48:01&#43;09:00">2025年 9月 7日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#1-データの読み込みと確認">1. データの読み込みと確認</a></li>
+        <li><a href="#2-データの前処理整形クリーニング">2. データの前処理（整形・クリーニング）</a></li>
+        <li><a href="#3-データの抽出と選択">3. データの抽出と選択</a></li>
+        <li><a href="#4-データの集計と分析">4. データの集計と分析</a></li>
+        <li><a href="#5-データの可視化と出力">5. データの可視化と出力</a></li>
+        <li><a href="#pandasハンズオン-20問-解説">Pandasハンズオン 20問 解説</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#1-データの読み込みと確認">1. データの読み込みと確認</a></li>
+        <li><a href="#2-データの前処理整形クリーニング">2. データの前処理（整形・クリーニング）</a></li>
+        <li><a href="#3-データの抽出と選択">3. データの抽出と選択</a></li>
+        <li><a href="#4-データの集計と分析">4. データの集計と分析</a></li>
+        <li><a href="#5-データの可視化と出力">5. データの可視化と出力</a></li>
+        <li><a href="#pandasハンズオン-20問-解説">Pandasハンズオン 20問 解説</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考リンク">参考リンク</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">はじめに 
+    <div id="はじめに" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Pandasは、Pythonでデータを扱う際によく用いられるライブラリであり、データ操作に特化しています。データ分析や機械学習プロジェクトにおける<strong>データ整理、加工、分析</strong>の基礎を築く上で非常に便利です。</p>
+<p>以下に、Pandasライブラリの主要なデータ操作機能とその実用的な活用方法を説明します。</p>
+
+<h3 class="relative group">1. データの読み込みと確認 
+    <div id="1-データの読み込みと確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf%e3%81%a8%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>CSVファイルの読み込み</strong>: <code>pd.read_csv()</code>メソッドを使用して、CSVファイルをデータフレーム（<code>df</code>）として読み込むことができます。これにより、外部の表形式データをPythonで扱えるようになります。</li>
+<li><strong>データフレームの内容確認</strong>:
+<ul>
+<li><code>df.head(n)</code>: データフレームの<strong>先頭から<code>n</code>行</strong>を表示します。通常、データフレーム全体を見ることはないため、データの概要を素早く把握するのに役立ちます。</li>
+<li><code>df.tail(n)</code>: データフレームの<strong>末尾から<code>n</code>行</strong>を表示します。データが時系列順に並んでいる場合など、最新のデータを確認する際に便利です。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">2. データの前処理（整形・クリーニング） 
+    <div id="2-データの前処理整形クリーニング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e5%89%8d%e5%87%a6%e7%90%86%e6%95%b4%e5%bd%a2%e3%82%af%e3%83%aa%e3%83%bc%e3%83%8b%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データ分析において、生データはしばしば不要な情報や不備を含んでいます。これらを整形・クリーニングすることで、データの品質を高め、分析に適した形に整えます。</p>
+<ul>
+<li><strong>不要な行・列の削除（必要な部分の抽出）</strong>:
+<ul>
+<li>特定の<strong>列を抽出</strong>することで、不要な列を実質的に削除できます。これは、データフレームの <code>df[カラム名のリスト]</code> の形式で実現できます。例えば、単位情報や重複した情報を含むカラムなどを削除する際に用います。</li>
+<li>特定の<strong>行を抽出</strong>することで、不要な行を実質的に削除できます。例えば、先頭行が不要なラベル情報である場合、<code>df[1:]</code> のように指定して2行目以降のデータを抽出します。</li>
+</ul>
+</li>
+<li><strong>カラム名の変更</strong>:
+<ul>
+<li><code>df.columns = [新しいカラム名のリスト]</code> を使用すると、データフレームの<strong>全て</strong>のカラム名を一度に変更できます。例えば、カラム名に含まれる単位などの不要な部分を一括で削除し、短く分かりやすい名前に変更する際に有効です。</li>
+<li><code>df.rename(columns={'変更前': '変更後'})</code> メソッドを使用すると、<strong>特定のカラム名のみ</strong>をピンポイントで変更できます。これは、多くのカラムがある中で一部だけ変更したい場合に便利です。ただし、<code>df</code>自体の中身は変わらないため、変更を永続化するには再度代入 (<code>df = df.rename(...)</code>) が必要です。</li>
+</ul>
+</li>
+<li><strong>欠損値の処理</strong>:
+<ul>
+<li><strong>欠損値の確認</strong>: <code>df.isnull()</code> を使用すると、データフレーム内の各要素が欠損値（<code>NaN</code>）であるかどうかがTrue/Falseで判定されます。さらに、<code>.sum()</code> を組み合わせることで、各カラムにいくつ欠損値があるかを確認できます。これは、データ品質の問題を特定する上で重要です。</li>
+<li><strong>欠損値の補完</strong>: <code>df.fillna(値)</code> メソッドは、データフレーム内の欠損値を指定した値で埋めます。例えば、欠損値を<code>0</code>で埋めることができます。実際には、データの性質に応じて中央値や平均値といった統計量で補完することが多いです。</li>
+<li><strong>欠損値の削除</strong>: <code>df.dropna(axis=値)</code> メソッドは、欠損値を含む行または列を削除します。<code>axis=1</code> を指定すると<strong>列方向</strong>に、<code>axis=0</code> を指定すると<strong>行方向</strong>に削除されます。データ分析において、特にデータ数が少ないカラムや、その列全体が欠損値である場合に、その列を削除することでノイズを減らすことができます。</li>
+</ul>
+</li>
+<li><strong>重複の除去</strong>: <code>df.drop_duplicates(subset='カラム名')</code> メソッドを使用すると、指定したカラム（<code>subset</code>）において重複する行を削除し、ユニークな行のみを残すことができます。<code>subset</code>を指定しない場合、全てのカラムが一致する行が削除されます。</li>
+<li><strong>データ型の確認</strong>: <code>df.dtypes</code> を使用すると、データフレームの各カラムのデータ型を確認できます。これにより、データが意図した型で格納されているか、前処理が必要か（例: 文字列型の日付を日付型に変換するなど）を判断できます。</li>
+<li><strong>ダミー変数への変換</strong>: <code>pd.get_dummies(df, columns=['カラム名'])</code> メソッドは、カテゴリカルなデータを機械学習モデルで扱える数値データ（0または1）に変換するダミー変数化を行います。例えば、「国籍」のようなカテゴリカルな列を、「国籍_日本」「国籍_アメリカ」といった0/1の列に変換します。</li>
+</ul>
+
+<h3 class="relative group">3. データの抽出と選択 
+    <div id="3-データの抽出と選択" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e6%8a%bd%e5%87%ba%e3%81%a8%e9%81%b8%e6%8a%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データフレームから特定の条件を満たすデータや、特定の範囲のデータを柔軟に選択・抽出する機能です。</p>
+<ul>
+<li><strong>任意の要素の取得 (iloc, loc)</strong>:
+<ul>
+<li><code>df.iloc[行インデックス, 列インデックス]</code> は、<strong>インデックス番号</strong>（0から始まる位置）で指定して要素を抽出します。</li>
+<li><code>df.loc[行ラベル, 列ラベル]</code> は、**行や列のラベル名（カラム名）**で指定して要素を抽出します。</li>
+<li>これらは、データフレーム内の特定の部分をピンポイントで取得したい場合に非常に強力なツールです。</li>
+</ul>
+</li>
+<li><strong>条件抽出</strong>:
+<ul>
+<li>特定の条件を満たす行を抽出するには、データフレームに対して直接<strong>条件式</strong>（例: <code>df[df['カラム名'] == '値']</code>）を適用する方法が一般的です。複数の条件を組み合わせる場合は <code>&amp;</code> (and) や <code>|</code> (or) で連結し、各条件を括弧で囲みます。</li>
+<li><code>df.query('カラム名 == &quot;値&quot;')</code> メソッドは、文字列形式で条件式を記述することで抽出を行います。</li>
+<li><code>df['カラム名'].isin(['値1', '値2'])</code> メソッドは、指定した値のリストに含まれる要素を持つ行を抽出する際に便利です。
+これらは、特定の条件（例: 「アメリカ国籍の20歳以上30歳未満の人物」など）に合致するデータを絞り込みたい場合に活用されます。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">4. データの集計と分析 
+    <div id="4-データの集計と分析" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e9%9b%86%e8%a8%88%e3%81%a8%e5%88%86%e6%9e%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データから意味のある情報を導き出すための集計や統計分析を行う機能です。</p>
+<ul>
+<li><strong>ユニークな値と出現回数の確認</strong>:
+<ul>
+<li><code>df['カラム名'].unique()</code> メソッドは、指定したカラムに含まれる<strong>ユニークな（重複しない）値</strong>のリストを取得します。</li>
+<li><code>df['カラム名'].value_counts()</code> メソッドは、指定したカラムの<strong>ユニークな値とその出現回数</strong>を一覧で表示します。これは、カテゴリカルデータの分布を理解する上で非常に役立ちます。</li>
+</ul>
+</li>
+<li><strong>グループごとの集計</strong>: <code>df.groupby('グループ化したいカラム名').mean()</code> のように <code>groupby()</code> メソッドを使用すると、指定したカラムのカテゴリごとにデータをグループ化し、それぞれのグループで平均値（<code>mean()</code>）などの統計量を算出できます。これにより、カテゴリ間の比較分析が容易になります。</li>
+<li><strong>統計量の確認</strong>:
+<ul>
+<li><code>df.mean()</code>, <code>df.median()</code>, <code>df.std()</code>, <code>df.max()</code>, <code>df.min()</code> などを使用すると、データフレームの各カラムの<strong>平均値、中央値、標準偏差、最大値、最小値</strong>といった基本的な統計量を個別に算出できます。</li>
+<li><code>df.describe()</code> メソッドは、これらの<strong>主要な統計量を一括で表形式で出力</strong>します。データの全体的な特性を素早く把握する際に非常に便利です。</li>
+</ul>
+</li>
+<li><strong>データの並び替え</strong>: <code>df.sort_values(by='カラム名', ascending=False)</code> メソッドは、指定したカラムの値に基づいてデータフレームの行を並び替えます。<code>ascending=False</code> を設定すると<strong>降順</strong>（高い順）に、<code>True</code>（デフォルト）だと<strong>昇順</strong>（低い順）に並び替えることができます。</li>
+<li><strong>相関係数の算出</strong>: <code>df.corr()</code> メソッドは、データフレーム内の数値型カラム間の<strong>相関係数</strong>を算出します。相関係数は、二つの値がどれだけ関係性があるかを示す指標で、正の相関（一方が増えれば他方も増える）は1に近く、負の相関（一方が増えれば他方が減る）は-1に近く、無相関は0に近くなります。これにより、変数間の関係性を数値で把握できます。</li>
+</ul>
+
+<h3 class="relative group">5. データの可視化と出力 
+    <div id="5-データの可視化と出力" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e5%8f%af%e8%a6%96%e5%8c%96%e3%81%a8%e5%87%ba%e5%8a%9b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>分析結果を視覚的に表現し、また加工したデータを再利用可能な形式で保存します。</p>
+<ul>
+<li><strong>グラフ表示（可視化）</strong>: Pandasのデータフレームは、<code>matplotlib</code>ライブラリと連携して直接グラフを描画する機能を持っています。例えば、<code>df.plot(x='横軸カラム名', y=['縦軸カラム名1', '縦軸カラム名2'], kind='line', legend=False)</code> のように指定することで、折れ線グラフなどを表示できます。データの特徴やトレンドを直感的に理解するために不可欠な機能です。ただし、日本語フォントの設定を行わないと文字化けすることがあります。</li>
+<li><strong>データ出力</strong>: <code>df.to_csv('ファイル名.csv', index=False)</code> メソッドは、加工済みのデータフレームをCSVファイルとして出力します。<code>index=False</code> を指定すると、データフレームのインデックス（左側の数値）は出力されません。これにより、クリーンアップまたは分析されたデータを他のツールやプロジェクトで再利用できます。</li>
+</ul>
+<p>これらの機能を活用することで、データの読み込みから、前処理、分析、可視化、出力までの一連のデータ操作を効率的に行うことができます。</p>
+<hr>
+<p>YouTubeチャンネル「いまにゅのプログラミング塾」の動画「【Pandas徹底講座】この動画1本でデータ操作に特化したPythonライブラリPandasの基礎をマスター！」で出題された20問のハンズオンについて、それぞれの概要と解説を以下にまとめます。この講座は、データ整理、加工、分析の基礎を固める上で非常に実用的な内容となっています。</p>
+<hr>
+
+<h3 class="relative group">Pandasハンズオン 20問 解説 
+    <div id="pandasハンズオン-20問-解説" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pandas%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3-20%e5%95%8f-%e8%a7%a3%e8%aa%ac" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">1. データの読み込み 
+    <div id="1-データの読み込み" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e8%aa%ad%e3%81%bf%e8%be%bc%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>weather.csv</code>ファイルを読み込み、<code>df</code>というデータフレームとして定義する。</li>
+<li><strong>解説</strong>: Pandasライブラリを<code>pd</code>としてインポートした後、<strong><code>pd.read_csv()</code></strong> メソッドを使用してCSVファイルを読み込みます。ファイル名を作業ディレクトリ内に指定するだけで読み込みが可能です。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div>
+<h4 class="relative group">2. データの中身確認 
+    <div id="2-データの中身確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e4%b8%ad%e8%ba%ab%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: 読み込んだデータフレーム<code>df</code>の先頭3行と末尾10行を表示する。</li>
+<li><strong>解説</strong>: データフレーム全体を見ることは稀であるため、データの概要を把握する際に使います。
+<ul>
+<li><strong><code>df.head(n)</code></strong>: データフレームの<strong>先頭から<code>n</code>行</strong>を表示します（<code>n=3</code>）。</li>
+<li><strong><code>df.tail(n)</code></strong>: データフレームの<strong>末尾から<code>n</code>行</strong>を表示します（<code>n=10</code>）。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>head(<span style="color:#ae81ff">3</span>))
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>tail(<span style="color:#ae81ff">10</span>))
+</span></span></code></pre></div>
+<h4 class="relative group">3. 不要な列・行の削除 
+    <div id="3-不要な列行の削除" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e4%b8%8d%e8%a6%81%e3%81%aa%e5%88%97%e8%a1%8c%e3%81%ae%e5%89%8a%e9%99%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: データフレームから不要な先頭行（ラベル情報など）と、特定の不要な列（例: <code>平均気温.1</code>、<code>平均気温.2</code>のように「.数字」が付く列）を削除し、<code>df</code>として再定義する。</li>
+<li><strong>解説</strong>: 一般的な<code>drop</code>メソッドではなく、<strong>必要な部分のみを抽出する</strong>アプローチが推奨されています。
+<ul>
+<li><strong>列の抽出</strong>: 必要なカラム名のみをリストで指定し、<code>df[カラム名のリスト]</code>の形式で抽出します。</li>
+<li><strong>行の抽出</strong>: 先頭行が不要な場合、<code>df[1:]</code>のようにスライス表記を用いて2行目以降のデータを抽出します。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># ラベル情報を抽出</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>columns)
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># 必要なラベルを抽出して表示させる</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df[[
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;年月日&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;最低気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;降水量の合計(mm)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;最深積雪(cm)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均雲量(10分比)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均蒸気圧(hPa)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均風速(m/s)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;日照時間(時間)&#39;</span>,
+</span></span><span style="display:flex;"><span>]]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 1行目から取得する場合</span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df[[
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;年月日&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;最低気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;降水量の合計(mm)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;最深積雪(cm)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均雲量(10分比)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均蒸気圧(hPa)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;平均風速(m/s)&#39;</span>,
+</span></span><span style="display:flex;"><span><span style="color:#e6db74">&#39;日照時間(時間)&#39;</span>
+</span></span><span style="display:flex;"><span>]][<span style="color:#ae81ff">1</span>:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div>
+<h4 class="relative group">4. データの形・サイズ、列名・行名、データ型の確認 
+    <div id="4-データの形サイズ列名行名データ型の確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e5%bd%a2%e3%82%b5%e3%82%a4%e3%82%ba%e5%88%97%e5%90%8d%e8%a1%8c%e5%90%8d%e3%83%87%e3%83%bc%e3%82%bf%e5%9e%8b%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: 各列のデータ型、データフレームのサイズ（行数・列数）、列名（カラム名）、行名（インデックス）を取得する。</li>
+<li><strong>解説</strong>:
+<ul>
+<li><strong>データ型</strong>: <strong><code>df.dtypes</code></strong> を使用し、各カラムのデータ型（数値型、オブジェクト型など）を確認します。</li>
+<li><strong>サイズ</strong>: <strong><code>df.shape</code></strong> を使用し、データフレームの行数と列数を<code>(行数, 列数)</code>のタプル形式で取得します。</li>
+<li><strong>列名</strong>: <strong><code>df.columns</code></strong> を使用し、データフレームのカラム名リストを取得します。</li>
+<li><strong>行名（インデックス）</strong>: <strong><code>df.index</code></strong> を使用し、行のインデックス情報を取得します。現在のインデックスが数値であれば、その範囲と刻みが表示されます。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>dtypes)
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>shape)
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>columns)
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>index)
+</span></span></code></pre></div>
+<h4 class="relative group">5. 任意の要素の取得 
+    <div id="5-任意の要素の取得" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e4%bb%bb%e6%84%8f%e3%81%ae%e8%a6%81%e7%b4%a0%e3%81%ae%e5%8f%96%e5%be%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>の5行目から10行目まで、かつ3列目から6列目まで（<code>最高気温</code>から<code>最深積雪</code>まで）の要素を取得する。</li>
+<li><strong>解説</strong>: 特定の範囲のデータにアクセスするために、主に以下の2つの方法があります。
+<ul>
+<li><strong><code>df.iloc[行インデックス, 列インデックス]</code></strong>: <strong>インデックス番号</strong>（0から始まる位置）で要素を抽出します。例えば、5行目から10行目（インデックス4から9）は<code>4:10</code>、3列目から6列目（インデックス2から5）は<code>2:6</code>と指定します。</li>
+<li><strong><code>df.loc[行ラベル, 列ラベル]</code></strong>: **行ラベル名や列ラベル名（カラム名）**で要素を抽出します。行は<code>5:10</code>のように指定し、列は<code>'最高気温':'最深積雪'</code>のように範囲で指定します。<code>loc</code>の行の範囲指定は終端を含みますが、<code>iloc</code>は含みません。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>iloc[<span style="color:#ae81ff">4</span>:<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">2</span>:<span style="color:#ae81ff">6</span>])
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>loc[<span style="color:#ae81ff">5</span>:<span style="color:#ae81ff">10</span>,<span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>:<span style="color:#e6db74">&#39;最深積雪(cm)&#39;</span>])
+</span></span></code></pre></div>
+<h4 class="relative group">6. 条件抽出 
+    <div id="6-条件抽出" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#6-%e6%9d%a1%e4%bb%b6%e6%8a%bd%e5%87%ba" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>people.csv</code>を<code>df_people</code>として読み込み、以下の条件を満たすデータを抽出する。
+<ul>
+<li><code>Nationality</code>が「America」であるもの。</li>
+<li><code>Age</code>が20以上30未満であるもの。</li>
+</ul>
+</li>
+<li><strong>解説</strong>:
+<ul>
+<li><strong>直接的な条件式</strong>: <code>df_people[df_people['Nationality'] == 'America']</code> のように、データフレームに対して直接条件式を適用する方法がよく使われます。複数の条件を組み合わせる場合は、各条件を括弧で囲み、<code>&amp;</code>（AND）や<code>|</code>（OR）で連結します（例: <code>(df['Age'] &gt;= 20) &amp; (df['Age'] &lt; 30)</code>）。</li>
+<li><strong><code>df.query()</code> メソッド</strong>: <code>df_people.query('Nationality == &quot;America&quot;')</code> のように、文字列形式で条件式を記述して抽出することもできます。</li>
+<li><strong><code>df['カラム名'].isin([])</code> メソッド</strong>: 指定した値のリストに含まれる要素を持つ行を抽出する際に便利です（例: <code>df_people['Nationality'].isin(['America'])</code>）。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_people <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;people.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># n条件に合致したものがTrueとなり、Trueのみ表示させる</span>
+</span></span><span style="display:flex;"><span>print(df_people[df_people[<span style="color:#e6db74">&#39;nationality&#39;</span>] <span style="color:#f92672">==</span> <span style="color:#e6db74">&#39;America&#39;</span>])
+</span></span><span style="display:flex;"><span>print(df_people[(df_people[<span style="color:#e6db74">&#39;age&#39;</span>] <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">20</span>) <span style="color:#f92672">&amp;</span> (df_people[<span style="color:#e6db74">&#39;age&#39;</span>] <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">30</span>)])
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># こちらはクエリを利用した方法</span>
+</span></span><span style="display:flex;"><span>print(df_people<span style="color:#f92672">.</span>query(<span style="color:#e6db74">&#39;nationality == &#34;America&#34;&#39;</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># isinを利用した方法</span>
+</span></span><span style="display:flex;"><span>print(df_people[df_people[<span style="color:#e6db74">&#39;nationality&#39;</span>]<span style="color:#f92672">.</span>isin([<span style="color:#e6db74">&#39;America&#39;</span>])])
+</span></span></code></pre></div>
+<h4 class="relative group">7. ユニークな値の抽出 
+    <div id="7-ユニークな値の抽出" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#7-%e3%83%a6%e3%83%8b%e3%83%bc%e3%82%af%e3%81%aa%e5%80%a4%e3%81%ae%e6%8a%bd%e5%87%ba" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df_people</code>の各カラムについて、ユニークな（固有の）値を抽出する。</li>
+<li><strong>解説</strong>: <strong><code>df['カラム名'].unique()</code></strong> メソッドを使用します。このメソッドはシリーズ（1次元データ）にしか適用できないため、データフレーム全体に直接適用するとエラーになることに注意が必要です。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_people <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;people.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df_people[<span style="color:#e6db74">&#39;nationality&#39;</span>]<span style="color:#f92672">.</span>unique())
+</span></span><span style="display:flex;"><span>print(df_people[<span style="color:#e6db74">&#39;name&#39;</span>]<span style="color:#f92672">.</span>unique())
+</span></span><span style="display:flex;"><span>print(df_people[<span style="color:#e6db74">&#39;age&#39;</span>]<span style="color:#f92672">.</span>unique())
+</span></span></code></pre></div>
+<h4 class="relative group">8. 重複除去 
+    <div id="8-重複除去" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#8-%e9%87%8d%e8%a4%87%e9%99%a4%e5%8e%bb" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df_people</code>の<code>Nationality</code>列において、重複する値を持つ行を削除し、重複がないデータフレームを取得する。</li>
+<li><strong>解説</strong>: <strong><code>df.drop_duplicates(subset='カラム名')</code></strong> メソッドを使用します。
+<ul>
+<li><code>subset</code>引数を指定しない場合、<strong>すべてのカラムの値が一致する行</strong>が重複とみなされます。</li>
+<li><code>subset='Nationality'</code>のように特定のカラム名を指定すると、そのカラムの値が重複する場合に該当する行を削除します。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_people <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;people.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df_people<span style="color:#f92672">.</span>drop_duplicates(subset<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;nationality&#39;</span>))
+</span></span></code></pre></div>
+<h4 class="relative group">9. カラム名変更 
+    <div id="9-カラム名変更" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#9-%e3%82%ab%e3%83%a9%e3%83%a0%e5%90%8d%e5%a4%89%e6%9b%b4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>の各カラム名から、単位部分（例: <code>(℃)</code>、<code>(mm)</code>）を削除する。</li>
+<li><strong>解説</strong>: カラム名を変更する方法はいくつかあります。
+<ul>
+<li><strong>一括変更</strong>: <strong><code>df.columns = [新しいカラム名のリスト]</code></strong> を使用し、すべてのカラム名を新しいリストで上書きします。これはカラム数が少ない場合に手動でリストを作成するのに便利です。</li>
+<li><strong><code>df.rename()</code> メソッド</strong>: <strong><code>df.rename(columns={'変更前':'変更後'})</code></strong> を使用すると、特定のカラム名のみをピンポイントで変更できます。<code>df.rename()</code>はデフォルトではデータフレーム自体を直接変更しないため、変更を永続化するには <code>df = df.rename(...)</code> のように再代入が必要です。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>columns <span style="color:#f92672">=</span> [
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;年月日&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;最低気温(℃)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;降水量の合計(mm)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;最深積雪(cm)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;平均雲量(10分比)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;平均蒸気圧(hPa)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;平均風速(m/s)&#39;</span>,
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;日照時間(時間)&#39;</span>
+</span></span><span style="display:flex;"><span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>rename(columns<span style="color:#f92672">=</span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#e6db74">&#39;平均気温&#39;</span>:<span style="color:#e6db74">&#39;平均&#39;</span>
+</span></span><span style="display:flex;"><span>})
+</span></span></code></pre></div>
+<h4 class="relative group">10. 並び替え 
+    <div id="10-並び替え" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#10-%e4%b8%a6%e3%81%b3%e6%9b%bf%e3%81%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>を<code>最高気温</code>が高い順（降順）に並び替える。</li>
+<li><strong>解説</strong>: <strong><code>df.sort_values(by='カラム名', ascending=False)</code></strong> メソッドを使用します。
+<ul>
+<li><code>by</code>引数で並び替えの基準となるカラムを指定します。</li>
+<li><code>ascending=False</code>を指定すると<strong>降順</strong>（高い順）に並び替えます。<code>True</code>（デフォルト）だと昇順（低い順）になります。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>))
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>sort_values(<span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>,ascending<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>))
+</span></span></code></pre></div>
+<h4 class="relative group">11. ダミー変数への処理 
+    <div id="11-ダミー変数への処理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#11-%e3%83%80%e3%83%9f%e3%83%bc%e5%a4%89%e6%95%b0%e3%81%b8%e3%81%ae%e5%87%a6%e7%90%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df_people</code>の<code>Nationality</code>カラムをダミー変数に変換する。</li>
+<li><strong>解説</strong>: カテゴリカルなデータを0または1で表現するダミー変数化には <strong><code>pd.get_dummies()</code></strong> メソッドを使用します。
+<ul>
+<li><code>pd.get_dummies(df, columns=['カラム名'])</code> のように、変換したいデータフレームとカラム名を指定することで、指定したカラムのみをダミー変数化し、元のデータフレームに結合された形で取得できます。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_people <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;people.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df_people_dummy <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>get_dummies(df_people, columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;nationality&#39;</span>])
+</span></span><span style="display:flex;"><span>print(df_people_dummy)
+</span></span></code></pre></div>
+<h4 class="relative group">12. 欠損値の確認 
+    <div id="12-欠損値の確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#12-%e6%ac%a0%e6%90%8d%e5%80%a4%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>内の欠損値（値が入っていない要素）を確認する。</li>
+<li><strong>解説</strong>: <strong><code>df.isnull()</code></strong> メソッドを使用します。これは、各要素が欠損値であれば<code>True</code>、そうでなければ<code>False</code>となるブール型のデータフレームを返します。さらに、<code>.sum()</code>を組み合わせることで、各カラムの欠損値の合計数を簡単に確認できます（例: <code>df.isnull().sum()</code>）。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum())
+</span></span></code></pre></div>
+<h4 class="relative group">13. 欠損値の補完 
+    <div id="13-欠損値の補完" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#13-%e6%ac%a0%e6%90%8d%e5%80%a4%e3%81%ae%e8%a3%9c%e5%ae%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>の欠損値をすべて<code>0</code>で補完（埋める）する。</li>
+<li><strong>解説</strong>: <strong><code>df.fillna(値)</code></strong> メソッドを使用します。このメソッドの引数に<code>0</code>を指定することで、すべての欠損値が<code>0</code>で埋められます。実用上は、中央値や平均値などの統計量で補完することが多いです。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>fillna(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>print(df<span style="color:#f92672">.</span>isnull()<span style="color:#f92672">.</span>sum())
+</span></span></code></pre></div>
+<h4 class="relative group">14. 欠損値の削除 
+    <div id="14-欠損値の削除" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#14-%e6%ac%a0%e6%90%8d%e5%80%a4%e3%81%ae%e5%89%8a%e9%99%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>の欠損値を含む列を削除する。</li>
+<li><strong>解説</strong>: <strong><code>df.dropna(axis=値)</code></strong> メソッドを使用します。
+<ul>
+<li><strong><code>axis=1</code></strong>: <strong>列方向</strong>（カラム全体）に欠損値が存在する場合、その列を削除します。</li>
+<li><code>axis=0</code>（デフォルト）: 行方向（行全体）に欠損値が存在する場合、その行を削除します。</li>
+<li>今回のケースでは、一部の列がほとんど（またはすべて）欠損値であったため、行を削除するとほとんどのデータが失われるため、列方向の削除が適切でした。<code>df = df.dropna(...)</code>のように再代入しないと、データフレーム自体は変更されません。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>dropna(axis<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>print(df)
+</span></span></code></pre></div>
+<h4 class="relative group">15. ユニークな値と出現回数 
+    <div id="15-ユニークな値と出現回数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#15-%e3%83%a6%e3%83%8b%e3%83%bc%e3%82%af%e3%81%aa%e5%80%a4%e3%81%a8%e5%87%ba%e7%8f%be%e5%9b%9e%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>iris.csv</code>を<code>df_iris</code>として読み込み、<code>Class</code>カラムのユニークな値とそれぞれの出現回数を確認する。</li>
+<li><strong>解説</strong>: <strong><code>df['カラム名'].value_counts()</code></strong> メソッドを使用します。これはシリーズに適用され、ユニークな値とその出現回数を高い順に表示します。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_iris <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;iris.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df_iris[<span style="color:#e6db74">&#39;Class&#39;</span>]<span style="color:#f92672">.</span>value_counts())
+</span></span></code></pre></div>
+<h4 class="relative group">16. グループごとの集計 
+    <div id="16-グループごとの集計" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#16-%e3%82%b0%e3%83%ab%e3%83%bc%e3%83%97%e3%81%94%e3%81%a8%e3%81%ae%e9%9b%86%e8%a8%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df_iris</code>の各<code>Class</code>（<code>Iris-setosa</code>、<code>Iris-versicolor</code>、<code>Iris-virginica</code>）における<code>Sepal Length</code>、<code>Sepal Width</code>、<code>Petal Length</code>、<code>Petal Width</code>の平均値を求める。</li>
+<li><strong>解説</strong>: <strong><code>df.groupby('グループ化したいカラム名').mean()</code></strong> のように、<code>groupby()</code>メソッドと集計メソッドを組み合わせます。<code>groupby()</code>で指定したカラム（例: <code>Class</code>）のカテゴリごとにデータをグループ化し、そのグループに対して平均値（<code>mean()</code>）などの統計量を算出できます。<code>mean()</code>以外にも<code>std()</code>（標準偏差）などが適用可能です。</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_iris <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;iris.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>groupby(<span style="color:#e6db74">&#39;Class&#39;</span>)<span style="color:#f92672">.</span>mean())
+</span></span></code></pre></div>
+<h4 class="relative group">17. 統計量の確認 
+    <div id="17-統計量の確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#17-%e7%b5%b1%e8%a8%88%e9%87%8f%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df_iris</code>の各カラムについて、平均値、中央値、標準偏差、最大値、最小値を算出する。</li>
+<li><strong>解説</strong>:
+<ul>
+<li><strong>個別の統計量</strong>: <strong><code>df.mean()</code></strong>、<strong><code>df.median()</code></strong>、<strong><code>df.std()</code></strong>、<strong><code>df.max()</code></strong>、<strong><code>df.min()</code></strong> など、各統計量に対応するメソッドを直接呼び出すことができます。</li>
+<li><strong>一括統計量</strong>: <strong><code>df.describe()</code></strong> メソッドは、これらの主要な統計量（カウント、平均、標準偏差、最小値、25パーセンタイル、中央値、75パーセンタイル、最大値）をまとめて表形式で出力し、データの全体像を素早く把握するのに非常に便利です。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df_iris <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;iris.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># df_irisのClass列は文字列なので、数値計算の対象外にする</span>
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Class&#39;</span>])<span style="color:#f92672">.</span>mean())
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Class&#39;</span>])<span style="color:#f92672">.</span>median())
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Class&#39;</span>])<span style="color:#f92672">.</span>std())
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Class&#39;</span>])<span style="color:#f92672">.</span>max())
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>drop(columns<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;Class&#39;</span>])<span style="color:#f92672">.</span>min())
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df_iris<span style="color:#f92672">.</span>describe())
+</span></span></code></pre></div>
+<h4 class="relative group">18. 折れ線グラフの表示 
+    <div id="18-折れ線グラフの表示" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#18-%e6%8a%98%e3%82%8c%e7%b7%9a%e3%82%b0%e3%83%a9%e3%83%95%e3%81%ae%e8%a1%a8%e7%a4%ba" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>の最初の50日間のデータにおける<code>平均気温</code>、<code>最高気温</code>、<code>最低気温</code>を折れ線グラフで可視化する。横軸は<code>年月</code>とし、判例は表示しない。</li>
+<li><strong>解説</strong>: Pandasのデータフレームは<code>matplotlib</code>と連携してグラフを描画できます。
+<ul>
+<li><code>matplotlib.pyplot</code>を<code>plt</code>としてインポートします。</li>
+<li>データの最初の50行を抽出し（例: <code>df[:50]</code>）、そのデータフレームに対して <strong><code>df.plot(x='横軸カラム名', y=['縦軸カラム名1', '縦軸カラム名2'], kind='line', legend=False)</code></strong> メソッドを使用します。</li>
+<li><code>kind='line'</code>で折れ線グラフを指定し、<code>legend=False</code>で判例を非表示にします。日本語の文字化けが発生する可能性があるため、その場合はmatplotlibの日本語フォント設定が必要です。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> matplotlib.pyplot <span style="color:#66d9ef">as</span> plt
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df[<span style="color:#ae81ff">1</span>:<span style="color:#ae81ff">51</span>] <span style="color:#75715e"># 1行目から50行目まで</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 日本語の文字化け対策（環境に合わせてフォントを指定）</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># plt.rcParams[&#39;font.sans-serif&#39;] = [&#39;Hiragino Maru Gothic Pro&#39;]</span>
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>plot(x<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;年月日&#39;</span>, y<span style="color:#f92672">=</span>[<span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>, <span style="color:#e6db74">&#39;最高気温(℃)&#39;</span>, <span style="color:#e6db74">&#39;最低気温(℃)&#39;</span>], kind<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;line&#39;</span>, legend<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span><span style="display:flex;"><span>plt<span style="color:#f92672">.</span>show()
+</span></span></code></pre></div>
+<h4 class="relative group">19. 相関係数の算出 
+    <div id="19-相関係数の算出" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#19-%e7%9b%b8%e9%96%a2%e4%bf%82%e6%95%b0%e3%81%ae%e7%ae%97%e5%87%ba" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: <code>df</code>の<code>平均気温</code>、<code>降水量の合計</code>、<code>日照時間</code>の3項目における相関係数を算出する。</li>
+<li><strong>解説</strong>: <strong><code>df.corr()</code></strong> メソッドを使用します。
+<ul>
+<li>相関係数は、2つの変数間の関係性の強さを示す指標で、-1から1の間の値を取ります。</li>
+<li>1に近いほど強い正の相関（一方が増えれば他方も増える）、-1に近いほど強い負の相関（一方が増えれば他方が減る）、0に近いほど相関がないことを示します。</li>
+<li>特定の列の相関を見る場合は、それらの列を抽出したデータフレームに対して<code>corr()</code>を適用します。データフレーム全体に適用すると、すべての数値型カラム間の相関係数を計算します。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df[<span style="color:#ae81ff">1</span>:]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># データ型を数値に変換</span>
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_numeric(df[<span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>], errors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;coerce&#39;</span>)
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;降水量の合計(mm)&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_numeric(df[<span style="color:#e6db74">&#39;降水量の合計(mm)&#39;</span>], errors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;coerce&#39;</span>)
+</span></span><span style="display:flex;"><span>df[<span style="color:#e6db74">&#39;日照時間(時間)&#39;</span>] <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>to_numeric(df[<span style="color:#e6db74">&#39;日照時間(時間)&#39;</span>], errors<span style="color:#f92672">=</span><span style="color:#e6db74">&#39;coerce&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>print(df[[<span style="color:#e6db74">&#39;平均気温(℃)&#39;</span>, <span style="color:#e6db74">&#39;降水量の合計(mm)&#39;</span>, <span style="color:#e6db74">&#39;日照時間(時間)&#39;</span>]]<span style="color:#f92672">.</span>corr())
+</span></span></code></pre></div>
+<h4 class="relative group">20. データの出力 
+    <div id="20-データの出力" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#20-%e3%83%87%e3%83%bc%e3%82%bf%e3%81%ae%e5%87%ba%e5%8a%9b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>概要</strong>: 欠損値を<code>0</code>で補完した<code>df</code>を<code>export.csv</code>というファイル名でCSVファイルとして出力する。この際、データフレームのインデックスは出力しない。</li>
+<li><strong>解説</strong>: <strong><code>df.to_csv('ファイル名.csv', index=False)</code></strong> メソッドを使用します。
+<ul>
+<li>第一引数に出力するファイル名を指定します。</li>
+<li><code>index=False</code>を指定することで、データフレームのインデックス番号がCSVファイルに出力されないようにします。</li>
+</ul>
+</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> pandas <span style="color:#66d9ef">as</span> pd
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>read_csv(<span style="color:#e6db74">&#39;weather.csv&#39;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>df <span style="color:#f92672">=</span> df<span style="color:#f92672">.</span>fillna(<span style="color:#ae81ff">0</span>)
+</span></span><span style="display:flex;"><span>df<span style="color:#f92672">.</span>to_csv(<span style="color:#e6db74">&#39;export.csv&#39;</span>, index<span style="color:#f92672">=</span><span style="color:#66d9ef">False</span>)
+</span></span></code></pre></div>
+<h2 class="relative group">参考リンク 
+    <div id="参考リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p><a
+  href="https://youtu.be/ZQZ38rK28Gk?si=t_O6UyznIBuKxh09"
+    target="_blank"
+  >【Pandas徹底講座】この動画1本でデータ操作に特化したPythonライブラリPandasの基礎をマスター！</a></p>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_scraps/study-pandas/index.md"
+          data-oid-likes="likes_scraps/study-pandas/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/scraps/python-practice2/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Python基礎ハンズオン</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-07T15:38:49&#43;09:00">2025年 9月 7日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/scraps/blowfish-exclude-recent/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Hugo+Blowfish｜mainSections設定でコンテンツ分離する方法</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-09T15:30:00&#43;09:00">2025年 9月 9日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

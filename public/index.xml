@@ -1,0 +1,395 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技術的デジャブ回避メモ帳</title>
+    <link>//localhost:1313/</link>
+    <description>Recent content on 技術的デジャブ回避メモ帳</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
+    <webMaster>ptin110825@gmail.com (フミ)</webMaster>
+    <copyright>© 2025 フミ</copyright>
+    <lastBuildDate>Fri, 10 Oct 2025 22:10:07 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>キャッシュメモリのアドレスマッピング方式</title>
+      <link>//localhost:1313/scraps/251010221007_cache_mapping_techniques/</link>
+      <pubDate>Fri, 10 Oct 2025 22:10:07 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010221007_cache_mapping_techniques/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NAND型RSフリップフロップ</title>
+      <link>//localhost:1313/scraps/251010135128_set-reset-flip-flop/</link>
+      <pubDate>Fri, 10 Oct 2025 13:51:28 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010135128_set-reset-flip-flop/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>アドレス指定方法</title>
+      <link>//localhost:1313/scraps/251010115620_address_format/</link>
+      <pubDate>Fri, 10 Oct 2025 11:56:20 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010115620_address_format/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：セキュリティ・信頼性</title>
+      <link>//localhost:1313/scraps/251010091031_ap2025_tech_study_memo_security/</link>
+      <pubDate>Fri, 10 Oct 2025 09:10:31 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010091031_ap2025_tech_study_memo_security/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：ネットワーク</title>
+      <link>//localhost:1313/scraps/251010090659_ap2025_tech_study_memo_network/</link>
+      <pubDate>Fri, 10 Oct 2025 09:06:59 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010090659_ap2025_tech_study_memo_network/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：データベース</title>
+      <link>//localhost:1313/scraps/251010090349_ap2025_tech_study_memo_database/</link>
+      <pubDate>Fri, 10 Oct 2025 09:03:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010090349_ap2025_tech_study_memo_database/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：ソフトウェア（OS・メモリ管理・開発）</title>
+      <link>//localhost:1313/scraps/251010090115_ap2025_tech_study_memo_software/</link>
+      <pubDate>Fri, 10 Oct 2025 09:01:15 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010090115_ap2025_tech_study_memo_software/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：コンピュータシステム</title>
+      <link>//localhost:1313/scraps/251010085820_ap2025_tech_study_memo_computer/</link>
+      <pubDate>Fri, 10 Oct 2025 08:58:20 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010085820_ap2025_tech_study_memo_computer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：基礎理論</title>
+      <link>//localhost:1313/scraps/251010085550_ap2025_tech_study_memo_fundamental/</link>
+      <pubDate>Fri, 10 Oct 2025 08:55:50 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010085550_ap2025_tech_study_memo_fundamental/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>DFD（Data Flow Diagram）</title>
+      <link>//localhost:1313/scraps/251007161440_dfd_data_flow_diagram/</link>
+      <pubDate>Tue, 07 Oct 2025 16:14:40 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007161440_dfd_data_flow_diagram/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>UML（Unified Modeling Language）</title>
+      <link>//localhost:1313/scraps/251007154337_uml_unified_modeling_language/</link>
+      <pubDate>Tue, 07 Oct 2025 15:43:37 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007154337_uml_unified_modeling_language/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ホワイトボックステスト（命令網羅・条件網羅など）</title>
+      <link>//localhost:1313/scraps/251007113340_whiteboxtest/</link>
+      <pubDate>Tue, 07 Oct 2025 11:33:40 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007113340_whiteboxtest/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EVM（Earned_Value_Management）</title>
+      <link>//localhost:1313/scraps/251007103450_earned_value_management/</link>
+      <pubDate>Tue, 07 Oct 2025 10:34:50 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007103450_earned_value_management/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>JIS_Q_21500:2018</title>
+      <link>//localhost:1313/scraps/251007101139_jis_q_21500_2018/</link>
+      <pubDate>Tue, 07 Oct 2025 10:11:39 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007101139_jis_q_21500_2018/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】マネジメント系学習メモ</title>
+      <link>//localhost:1313/scraps/251006075309_ap2025_manage_study_memo/</link>
+      <pubDate>Mon, 06 Oct 2025 07:53:09 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251006075309_ap2025_manage_study_memo/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/251006075309_ap2025_manage_study_memo/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】ストラテジ系学習メモ</title>
+      <link>//localhost:1313/scraps/251006075246_ap2025_srs_study_memo/</link>
+      <pubDate>Mon, 06 Oct 2025 07:52:46 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251006075246_ap2025_srs_study_memo/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/251006075246_ap2025_srs_study_memo/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：マルチメディア</title>
+      <link>//localhost:1313/scraps/251001213539_ap2025_tech_study_memo_multimedia/</link>
+      <pubDate>Wed, 01 Oct 2025 21:35:39 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251001213539_ap2025_tech_study_memo_multimedia/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/251001213539_ap2025_tech_study_memo_multimedia/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>学習メモ：情報セキュリティ10大脅威 2025（組織編）</title>
+      <link>//localhost:1313/scraps/250915212211_top_10_information_security_threats_2025_for_organizations/</link>
+      <pubDate>Mon, 15 Sep 2025 21:22:11 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250915212211_top_10_information_security_threats_2025_for_organizations/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hugo・BlowfishでカスタムCSS適用</title>
+      <link>//localhost:1313/scraps/250911212500_hugo-blowfish-custom-css-guide/</link>
+      <pubDate>Thu, 11 Sep 2025 21:25:00 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250911212500_hugo-blowfish-custom-css-guide/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hugo&#43;Blowfish｜ダークモードに固定する設定方法</title>
+      <link>//localhost:1313/scraps/250911200000_hugo-blowfish-darkmode-fixed/</link>
+      <pubDate>Thu, 11 Sep 2025 20:00:00 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250911200000_hugo-blowfish-darkmode-fixed/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Hugo&#43;Blowfish｜mainSections設定でコンテンツ分離する方法</title>
+      <link>//localhost:1313/scraps/250909153000_blowfish-exclude-recent/</link>
+      <pubDate>Tue, 09 Sep 2025 15:30:00 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250909153000_blowfish-exclude-recent/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250909153000_blowfish-exclude-recent/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>Pandas入門</title>
+      <link>//localhost:1313/scraps/250907214801_study-pandas/</link>
+      <pubDate>Sun, 07 Sep 2025 21:48:01 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250907214801_study-pandas/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907214801_study-pandas/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>Python基礎ハンズオン</title>
+      <link>//localhost:1313/scraps/250907153849_python-practice2/</link>
+      <pubDate>Sun, 07 Sep 2025 15:38:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250907153849_python-practice2/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907153849_python-practice2/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>Python入門ハンズオン</title>
+      <link>//localhost:1313/scraps/250907142543_python-practice/</link>
+      <pubDate>Sun, 07 Sep 2025 14:25:43 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250907142543_python-practice/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907142543_python-practice/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>requirements.txt入門</title>
+      <link>//localhost:1313/scraps/250907120859_study-requirements/</link>
+      <pubDate>Sun, 07 Sep 2025 12:08:59 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250907120859_study-requirements/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907120859_study-requirements/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>virtualenv入門</title>
+      <link>//localhost:1313/scraps/250907112935_study-virtualenv/</link>
+      <pubDate>Sun, 07 Sep 2025 11:29:35 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250907112935_study-virtualenv/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907112935_study-virtualenv/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【書評】指示通りができない人たち</title>
+      <link>//localhost:1313/scraps/250907104346_memo-sijidourigadekinai/</link>
+      <pubDate>Sun, 07 Sep 2025 10:43:46 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250907104346_memo-sijidourigadekinai/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907104346_memo-sijidourigadekinai/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>pipコマンド入門</title>
+      <link>//localhost:1313/scraps/250906221225_study-pip/</link>
+      <pubDate>Sat, 06 Sep 2025 22:12:25 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250906221225_study-pip/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250906221225_study-pip/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>仮想環境venv入門</title>
+      <link>//localhost:1313/scraps/250906162835_study-venv/</link>
+      <pubDate>Sat, 06 Sep 2025 16:28:35 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250906162835_study-venv/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250906162835_study-venv/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>Hugo&#43;Blowfishで構築したサイトをGoogle検索に表示させる手順</title>
+      <link>//localhost:1313/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</link>
+      <pubDate>Sat, 06 Sep 2025 12:54:32 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/feature.png" />
+    </item>
+    
+    <item>
+      <title>pyenvでPythonバージョン管理｜インストールから切り替えまで</title>
+      <link>//localhost:1313/scraps/250904202208_study-pyenv/</link>
+      <pubDate>Thu, 04 Sep 2025 20:22:08 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250904202208_study-pyenv/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250904202208_study-pyenv/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>Python概要とインストールなど</title>
+      <link>//localhost:1313/scraps/250903075257_styudy-python/</link>
+      <pubDate>Wed, 03 Sep 2025 07:52:57 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250903075257_styudy-python/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250903075257_styudy-python/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>NumPy入門</title>
+      <link>//localhost:1313/scraps/250901083645_study-numpy/</link>
+      <pubDate>Mon, 01 Sep 2025 08:36:45 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250901083645_study-numpy/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250901083645_study-numpy/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【書評】TAKE NOTES! </title>
+      <link>//localhost:1313/scraps/250819074554_memo-take-notes/</link>
+      <pubDate>Tue, 19 Aug 2025 07:45:54 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/250819074554_memo-take-notes/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250819074554_memo-take-notes/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【Windows】Voicemeeterを使ってパソコン内音声を録音する手順</title>
+      <link>//localhost:1313/posts/250810205045_how-to-record-pc-internal-audio/</link>
+      <pubDate>Sun, 10 Aug 2025 20:50:45 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/250810205045_how-to-record-pc-internal-audio/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250810205045_how-to-record-pc-internal-audio/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>git worktree ハンズオン</title>
+      <link>//localhost:1313/posts/250807072537_git-worktree-hands-on/</link>
+      <pubDate>Thu, 07 Aug 2025 07:25:37 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/250807072537_git-worktree-hands-on/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250807072537_git-worktree-hands-on/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>BlowfishでFaviconを設定する方法</title>
+      <link>//localhost:1313/posts/250803120909_favicon_settings/</link>
+      <pubDate>Sun, 03 Aug 2025 12:09:09 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/250803120909_favicon_settings/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250803120909_favicon_settings/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
+      <link>//localhost:1313/posts/250803015516_how_to_download_github_issues/</link>
+      <pubDate>Sun, 03 Aug 2025 01:55:16 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/250803015516_how_to_download_github_issues/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250803015516_how_to_download_github_issues/feature.jpg" />
+    </item>
+    
+  </channel>
+</rss>

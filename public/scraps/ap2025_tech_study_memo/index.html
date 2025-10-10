@@ -1,0 +1,4720 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>【応用情報技術者試験】テクノロジ系学習メモ &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="【応用情報技術者試験】テクノロジ系学習メモ &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta name="keywords" content="応用情報技術者試験,">
+  
+  
+  <link rel="canonical" href="//localhost:1313/scraps/ap2025_tech_study_memo/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.e0f637de92215223af8b86c70d49f3dd16791589801e2e918eaab86a08ddcb4fe740506a2019919ec7c0cdf89d764a37489acf68ab2c1c528690be298f297063.css"
+    integrity="sha512-4PY33pIhUiOvi4bHDUnz3RZ5FYmAHi6Rjqq4agjdy0/nQFBqIBmRnsfAzfiddko3SJrPaKssHFKGkL4pjylwYw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/scraps/ap2025_tech_study_memo/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="【応用情報技術者試験】テクノロジ系学習メモ">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="scraps">
+    <meta property="article:published_time" content="2025-10-01T21:35:39+09:00">
+    <meta property="article:modified_time" content="2025-10-01T21:35:39+09:00">
+    <meta property="article:tag" content="応用情報技術者試験">
+    <meta property="og:image" content="//localhost:1313/scraps/ap2025_tech_study_memo/feature.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/scraps/ap2025_tech_study_memo/feature.jpg">
+  <meta name="twitter:title" content="【応用情報技術者試験】テクノロジ系学習メモ">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+<meta name="twitter:image" content="//localhost:1313/scraps/ap2025_tech_study_memo/feature.jpg">
+    <meta property="og:image" content="//localhost:1313/scraps/ap2025_tech_study_memo/feature.jpg">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "スクラップ",
+    "name": "【応用情報技術者試験】テクノロジ系学習メモ",
+    "headline": "【応用情報技術者試験】テクノロジ系学習メモ",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/scraps\/ap2025_tech_study_memo\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-01T21:35:39\u002b09:00",
+    "datePublished": "2025-10-01T21:35:39\u002b09:00",
+    
+    "dateModified": "2025-10-01T21:35:39\u002b09:00",
+    
+    "keywords": ["応用情報技術者試験"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1758"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+  
+  
+  
+  
+  <script
+    defer
+    type="text/javascript"
+    src="/js/mermaid.bundle.7ba6a6c0bd37bcf130eb1599c5a9e7c634173a87af5afb97bda7139f1f24b9b861c383fd25a9f9154f087b7220051fb330852bb324032e82c4b0b0f8d3913d93.js"
+    integrity="sha512-e6amwL03vPEw6xWZxannxjQXOoevWvuXvacTnx8kubhhw4P9Jan5FU8Ie3IgBR&#43;zMIUrsyQDLoLEsLD405E9kw=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/scraps/ap2025_tech_study_memo/feature_hu_9c46c8135efe69b3.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+
+
+<script type="text/javascript" src="/js/background-blur.min.78ad5090e7c0c2533bac9dd23bdb1f723f834e5c3626627bd31017cc139ce0651b529877862129cee49e380ab2fdcd8baef28ae3e086bc54957fdaa7758775b2.js" integrity="sha512-eK1QkOfAwlM7rJ3SO9sfcj&#43;DTlw2JmJ70xAXzBOc4GUbUph3hiEpzuSeOAqy/c2LrvKK4&#43;CGvFSVf9qndYd1sg==" data-target-id="background-blur"></script>
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        【応用情報技術者試験】テクノロジ系学習メモ
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-10-01T21:35:39&#43;09:00">2025年 10月 1日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#参考資料">参考資料</a></li>
+      </ul>
+    </li>
+    <li><a href="#学習メモ">学習メモ</a>
+      <ul>
+        <li><a href="#基数変換問題で無限小数を素早く判定する方法">基数変換問題で無限小数を素早く判定する方法</a></li>
+        <li><a href="#リスト">リスト</a></li>
+        <li><a href="#配列">配列</a></li>
+        <li><a href="#連結リスト">連結リスト</a></li>
+        <li><a href="#単方向リスト線形リスト片方向リンク">単方向リスト（線形リスト・片方向リンク）</a></li>
+        <li><a href="#双方向リスト双方向リンク">双方向リスト（双方向リンク）</a></li>
+        <li><a href="#循環リスト">循環リスト</a></li>
+        <li><a href="#配列と連結リストの違い">配列と連結リストの違い</a></li>
+        <li><a href="#マージソート">マージソート</a></li>
+        <li><a href="#値呼び出し">値呼び出し</a></li>
+        <li><a href="#参照呼出し">参照呼出し</a></li>
+        <li><a href="#再入可能プログラムリエントラントプログラム">再入可能プログラム（リエントラントプログラム）</a></li>
+        <li><a href="#再入可能プログラムの実現方法">再入可能プログラムの実現方法</a></li>
+        <li><a href="#再帰プログラムリカーシブプログラム">再帰プログラム（リカーシブプログラム）</a></li>
+        <li><a href="#再使用可能プログラムリユーザブルプログラム逐次再使用可能プログラム">再使用可能プログラム（リユーザブルプログラム・逐次再使用可能プログラム）</a></li>
+        <li><a href="#再配置可能プログラムリロケータブルプログラム">再配置可能プログラム（リロケータブルプログラム）</a></li>
+        <li><a href="#ニモニックコード表意コード">ニモニックコード（表意コード）</a></li>
+        <li><a href="#vliwvery-long-instruction-word">VLIW（Very Long Instruction Word）</a></li>
+        <li><a href="#ページング">ページング</a></li>
+        <li><a href="#ページ置換の基本的な流れ">ページ置換の基本的な流れ</a></li>
+        <li><a href="#lruleast-recently-used">LRU(Least Recently Used)</a></li>
+        <li><a href="#fifofirst-in-first-out">FIFO(First In First Out)</a></li>
+        <li><a href="#ベラディの異常">ベラディの異常</a></li>
+        <li><a href="#lfuleast-frequently-used">LFU(Least Frequently Used)</a></li>
+        <li><a href="#フラグメンテーション">フラグメンテーション</a></li>
+        <li><a href="#スラッシング">スラッシング</a></li>
+        <li><a href="#キャッシュメモリにおけるダイレクトマップ方式">キャッシュメモリにおけるダイレクトマップ方式</a></li>
+        <li><a href="#メモリのデータ転送速度の計算h31春午前問10">メモリのデータ転送速度の計算（H31春午前問10）</a></li>
+        <li><a href="#オブジェクトストレージ">オブジェクトストレージ</a></li>
+        <li><a href="#イミュータブルストレージ">イミュータブルストレージ</a></li>
+        <li><a href="#3層クライアントサーバシステム">3層クライアントサーバシステム</a></li>
+        <li><a href="#グリッドコンピューティング">グリッドコンピューティング</a></li>
+        <li><a href="#cap定理">CAP定理</a></li>
+        <li><a href="#mtbfmean-time-between-failure--平均故障間隔">MTBF(Mean Time Between Failure / 平均故障間隔)</a></li>
+        <li><a href="#mttrmean-time-to-repair--平均修理時間">MTTR(Mean Time To Repair / 平均修理時間)</a></li>
+        <li><a href="#稼働率の計算">稼働率の計算</a></li>
+        <li><a href="#故障率の計算">故障率の計算</a></li>
+        <li><a href="#フォールトトレランス">フォールトトレランス</a></li>
+        <li><a href="#フォールトトレラントシステム">フォールトトレラントシステム</a></li>
+        <li><a href="#フォールトアポイダンス">フォールトアポイダンス</a></li>
+        <li><a href="#フェールソフト">フェールソフト</a></li>
+        <li><a href="#フォールバック縮退運転">フォールバック(縮退運転)</a></li>
+        <li><a href="#フェールセーフ">フェールセーフ</a></li>
+        <li><a href="#フェールオーバ">フェールオーバ</a></li>
+        <li><a href="#フォールトマスキング">フォールトマスキング</a></li>
+        <li><a href="#フールプルーフ">フールプルーフ</a></li>
+        <li><a href="#インタロック">インタロック</a></li>
+        <li><a href="#カーネル">カーネル</a></li>
+        <li><a href="#タスクのスケジューリング方式">タスクのスケジューリング方式</a></li>
+        <li><a href="#ノンプリエンション協調的マルチタスク">ノンプリエンション（協調的マルチタスク）</a></li>
+        <li><a href="#プリエンプション強制的プリエンプティブマルチタスク">プリエンプション（強制的(プリエンプティブ)マルチタスク）</a></li>
+        <li><a href="#到着順番方式fcfsfirst-come-first-served">到着順番方式（FCFS(First Come First Served)）</a></li>
+        <li><a href="#優先順位方式">優先順位方式</a></li>
+        <li><a href="#優先順位方式の種類">優先順位方式の種類</a></li>
+        <li><a href="#スタベージョン">スタベージョン</a></li>
+        <li><a href="#リソーススタベーション">リソーススタベーション</a></li>
+        <li><a href="#ラウンドロビン方式">ラウンドロビン方式</a></li>
+        <li><a href="#フィードバック待ち行列方式多段待ち行列方式">フィードバック待ち行列方式（多段待ち行列方式）</a></li>
+        <li><a href="#処理時間順方式sptshortest-proccessing-time-first方式">処理時間順方式（SPT(Shortest Proccessing Time First)方式）</a></li>
+        <li><a href="#hadoop">Hadoop</a></li>
+        <li><a href="#gplgeneral-public-license">GPL（General Public License）</a></li>
+        <li><a href="#コピーレフト">コピーレフト</a></li>
+        <li><a href="#mosトランジスタ">MOSトランジスタ</a></li>
+        <li><a href="#socsystem-on-a-chip">SoC(System on a Chip)</a></li>
+        <li><a href="#hdlhardware-description-language">HDL(Hardware Description Language)</a></li>
+        <li><a href="#dspdigital-signal-processor">DSP(Digital Signal Processor)</a></li>
+        <li><a href="#ユーザー調査手法アンケート">ユーザー調査手法：アンケート</a></li>
+        <li><a href="#思考発話法">思考発話法</a></li>
+        <li><a href="#回顧法">回顧法</a></li>
+        <li><a href="#ログデータ分析法">ログデータ分析法</a></li>
+        <li><a href="#認知的ウォークスルー法">認知的ウォークスルー法</a></li>
+        <li><a href="#ヒューリスティック評価">ヒューリスティック評価</a></li>
+        <li><a href="#パンくずリスト">パンくずリスト</a></li>
+        <li><a href="#パルス符号変調pcm">パルス符号変調(PCM)</a></li>
+        <li><a href="#レンダリング">レンダリング</a></li>
+        <li><a href="#レイトレーシング法">レイトレーシング法</a></li>
+        <li><a href="#スキャンライン法">スキャンライン法</a></li>
+        <li><a href="#スキャンライン法レイトレーシング法との違い">スキャンライン法・レイトレーシング法との違い</a></li>
+        <li><a href="#zバッファ法">Zバッファ法</a></li>
+        <li><a href="#ラジオシティ法">ラジオシティ法</a></li>
+        <li><a href="#アンチエイリアシング">アンチエイリアシング</a></li>
+        <li><a href="#ディザリング">ディザリング</a></li>
+        <li><a href="#メタボール">メタボール</a></li>
+        <li><a href="#帯域幅の計算">帯域幅の計算</a></li>
+        <li><a href="#音声データ容量計算">音声データ容量計算</a></li>
+        <li><a href="#リング型配線">リング型配線</a></li>
+        <li><a href="#スター型配線">スター型配線</a></li>
+        <li><a href="#バス形配線">バス形配線</a></li>
+        <li><a href="#コネクション型通信">コネクション型通信</a></li>
+        <li><a href="#コネクションレス型通信">コネクションレス型通信</a></li>
+        <li><a href="#tcptransmission-control-protocol">TCP(Transmission Control Protocol)</a></li>
+        <li><a href="#udpuser-datagram-protocol">UDP(User Datagram Protocol)</a></li>
+        <li><a href="#rdpremote-desktop-protocol">RDP(Remote Desktop Protocol)</a></li>
+        <li><a href="#ssl-vpn">SSL-VPN</a></li>
+        <li><a href="#mimemultipurpose-internet-mail-extension">MIME(Multipurpose Internet Mail Extension)</a></li>
+        <li><a href="#imapsimap-over-ssltls">IMAPS(IMAP over SSL/TLS)</a></li>
+        <li><a href="#ポート番号">ポート番号</a></li>
+        <li><a href="#ウェルノウンポート">ウェルノウンポート</a></li>
+        <li><a href="#主要なウェルノウンポート一覧">主要なウェルノウンポート一覧</a></li>
+        <li><a href="#dnsレコード">DNSレコード</a></li>
+        <li><a href="#aレコード-address-record">Aレコード (Address Record)</a></li>
+        <li><a href="#aaaaレコード-quad-a-record">AAAAレコード (Quad A Record)</a></li>
+        <li><a href="#cnameレコード-canonical-name-record">CNAMEレコード (Canonical Name Record)</a></li>
+        <li><a href="#mxレコード-mail-exchange-record">MXレコード (Mail Exchange Record)</a></li>
+        <li><a href="#ptrレコード-pointer-record">PTRレコード (Pointer Record)</a></li>
+        <li><a href="#op25boutbound-port-25-blocking">OP25B(Outbound Port 25 Blocking)</a></li>
+        <li><a href="#op25bにおけるサブミッションポートの役割">OP25Bにおけるサブミッションポートの役割</a></li>
+        <li><a href="#op25bの対象外になる対象">OP25Bの対象外になる対象</a></li>
+        <li><a href="#spfsender-policy-framework">SPF(Sender Policy Framework)</a></li>
+        <li><a href="#spfの手順">SPFの手順</a></li>
+        <li><a href="#プロキシサーバ">プロキシサーバ</a></li>
+        <li><a href="#urlフィルタリング">URLフィルタリング</a></li>
+        <li><a href="#ieee-80211an">IEEE 802.11a/n</a></li>
+        <li><a href="#ieee-8021q">IEEE 802.1Q</a></li>
+        <li><a href="#ieee-8021x">IEEE 802.1X</a></li>
+        <li><a href="#nslookup">nslookup</a></li>
+        <li><a href="#ping">ping</a></li>
+        <li><a href="#tracert">tracert</a></li>
+        <li><a href="#arp">arp</a></li>
+        <li><a href="#ipconfig">ipconfig</a></li>
+        <li><a href="#情報セキュリティの3要素cia">情報セキュリティの3要素(CIA)</a></li>
+        <li><a href="#情報セキュリティの3要素cia機密性-confidentiality">情報セキュリティの3要素(CIA)：機密性 (Confidentiality)</a></li>
+        <li><a href="#情報セキュリティの3要素cia完全性-integrity">情報セキュリティの3要素(CIA)：完全性 (Integrity)</a></li>
+        <li><a href="#情報セキュリティの3要素cia可用性-availability">情報セキュリティの3要素(CIA)：可用性 (Availability)</a></li>
+        <li><a href="#否認防止の特性">否認防止の特性</a></li>
+        <li><a href="#cccommon-criteria情報セキュリティ国際評価基準">CC（Common Criteria：情報セキュリティ国際評価基準）</a></li>
+        <li><a href="#耐タンパ性">耐タンパ性</a></li>
+        <li><a href="#境界型防御">境界型防御</a></li>
+        <li><a href="#ゼロトラスト">ゼロトラスト</a></li>
+        <li><a href="#多層防御">多層防御</a></li>
+        <li><a href="#csirt">CSIRT</a></li>
+        <li><a href="#psirt">PSIRT</a></li>
+        <li><a href="#sqlインジェクション">SQLインジェクション</a></li>
+        <li><a href="#辞書攻撃">辞書攻撃</a></li>
+        <li><a href="#ブルートフォース攻撃">ブルートフォース攻撃</a></li>
+        <li><a href="#リバースブルートフォース攻撃">リバースブルートフォース攻撃</a></li>
+        <li><a href="#レインボーテーブル攻撃">レインボーテーブル攻撃</a></li>
+        <li><a href="#サプライチェーン攻撃">サプライチェーン攻撃</a></li>
+        <li><a href="#man-in-the-browsermitb攻撃">Man-in-the-Browser(MITB)攻撃</a></li>
+        <li><a href="#クリプトジャッキング">クリプトジャッキング</a></li>
+        <li><a href="#ppap">PPAP</a></li>
+        <li><a href="#フォールスネガティブ">フォールスネガティブ</a></li>
+        <li><a href="#フォールスポジティブ">フォールスポジティブ</a></li>
+        <li><a href="#多要素認証">多要素認証</a></li>
+        <li><a href="#ロックアウトのしきい値">ロックアウトのしきい値</a></li>
+        <li><a href="#saml認証security-assertion-markup-language">SAML認証（Security Assertion Markup Language）</a></li>
+        <li><a href="#saml認証の仕組みsp起点の認証フロー">SAML認証の仕組み：SP起点の認証フロー</a></li>
+        <li><a href="#saml認証の仕組みidp起点の認証フロー">SAML認証の仕組み：IdP起点の認証フロー</a></li>
+        <li><a href="#saml認証とoauthの違い">SAML認証とOAuthの違い</a></li>
+        <li><a href="#3dセキュア">3Dセキュア</a></li>
+        <li><a href="#ハッシュ関数">ハッシュ関数</a></li>
+        <li><a href="#公開鍵暗号">公開鍵暗号</a></li>
+        <li><a href="#共通鍵暗号">共通鍵暗号</a></li>
+        <li><a href="#ハイブリッド暗号">ハイブリッド暗号</a></li>
+        <li><a href="#電子署名">電子署名</a></li>
+        <li><a href="#smime">S/MIME</a></li>
+        <li><a href="#ソルト">ソルト</a></li>
+        <li><a href="#ペッパー">ペッパー</a></li>
+        <li><a href="#rsaと楕円曲線の違い">RSAと楕円曲線の違い</a></li>
+        <li><a href="#wpa2wi-fi-protected-access-2">WPA2(Wi-Fi Protected Access 2)</a></li>
+        <li><a href="#crlcertificate-revocation-list">CRL（Certificate Revocation List）</a></li>
+        <li><a href="#プレースホルダ">プレースホルダ</a></li>
+        <li><a href="#siemsecurity-information-and-event-management">SIEM（Security Information and Event Management）</a></li>
+        <li><a href="#edrendpoint-detection-and-response">EDR(Endpoint Detection and Response)</a></li>
+        <li><a href="#wafweb-application-firewall">WAF(Web Application Firewall)</a></li>
+        <li><a href="#デジタルフォレンジックス">デジタルフォレンジックス</a></li>
+        <li><a href="#モジュール結合度">モジュール結合度</a></li>
+        <li><a href="#ペトリネットpetri-net">ペトリネット（Petri Net）</a></li>
+        <li><a href="#ocsponline-certificate-status-protocol">OCSP（Online Certificate Status Protocol）</a></li>
+        <li><a href="#dnsキャッシュポイズニング攻撃">DNSキャッシュポイズニング攻撃</a></li>
+        <li><a href="#dnsの基本的な仕組み">DNSの基本的な仕組み</a></li>
+        <li><a href="#dnsキャッシュポイズニング攻撃の仕組み">DNSキャッシュポイズニング攻撃の仕組み</a></li>
+        <li><a href="#dnsキャッシュポイズニング攻撃への対策">DNSキャッシュポイズニング攻撃への対策</a></li>
+        <li><a href="#dnssecdns-security-extensions">DNSSEC(DNS Security Extensions)</a></li>
+        <li><a href="#dnssecについて電子署名による応答の保証">DNSSECについて電子署名による応答の保証</a></li>
+        <li><a href="#サニタイジング">サニタイジング</a></li>
+        <li><a href="#ismap政府情報システムのためのセキュリティ評価制度">ISMAP(政府情報システムのためのセキュリティ評価制度)</a></li>
+        <li><a href="#idsintrusion-detection-system">IDS(Intrusion Detection System)</a></li>
+        <li><a href="#sbomsoftware-bill-of-materials">SBOM(Software Bill Of Materials)</a></li>
+        <li><a href="#cvecommon-vulnerabilities-and-exposures共通脆弱性識別子">CVE(Common Vulnerabilities and Exposures：共通脆弱性識別子)</a></li>
+        <li><a href="#tpmtrusted-platform-module">TPM(Trusted Platform Module)</a></li>
+        <li><a href="#システム監査基準">システム監査基準</a></li>
+        <li><a href="#全般統制">全般統制</a></li>
+        <li><a href="#業務処理統制">業務処理統制</a></li>
+        <li><a href="#帯域幅r6秋午前問26">帯域幅（R6秋午前問26）</a></li>
+        <li><a href="#色数h17春午前問22">色数（H17春午前問22）</a></li>
+        <li><a href="#音声サンプリングh18春午前問55">音声サンプリング（H18春午前問55）</a></li>
+        <li><a href="#アローダイアグラムにおける総余裕日数h31春午前問53">アローダイアグラムにおける総余裕日数（H31春午前問53）</a></li>
+        <li><a href="#acid特性">ACID特性</a></li>
+        <li><a href="#キャッシュメモリの実効アクセス時間">キャッシュメモリの実効アクセス時間</a></li>
+        <li><a href="#3層スキーマ">3層スキーマ</a></li>
+        <li><a href="#関係データベース">関係データベース</a></li>
+        <li><a href="#2相コミット">2相コミット</a></li>
+        <li><a href="#pkipublic-key-infrastructure">PKI(Public Key Infrastructure)</a></li>
+        <li><a href="#cvsscommon-vulnerability-scoring-system共通脆弱性評価システム">CVSS(Common Vulnerability Scoring System：共通脆弱性評価システム)</a></li>
+        <li><a href="#セキュアos">セキュアOS</a></li>
+        <li><a href="#ssidservice-set-identifier">SSID(Service Set Identifier)</a></li>
+        <li><a href="#パーセントエンコーディング">パーセントエンコーディング</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概要">概要</a>
+      <ul>
+        <li><a href="#参考資料">参考資料</a></li>
+      </ul>
+    </li>
+    <li><a href="#学習メモ">学習メモ</a>
+      <ul>
+        <li><a href="#基数変換問題で無限小数を素早く判定する方法">基数変換問題で無限小数を素早く判定する方法</a></li>
+        <li><a href="#リスト">リスト</a></li>
+        <li><a href="#配列">配列</a></li>
+        <li><a href="#連結リスト">連結リスト</a></li>
+        <li><a href="#単方向リスト線形リスト片方向リンク">単方向リスト（線形リスト・片方向リンク）</a></li>
+        <li><a href="#双方向リスト双方向リンク">双方向リスト（双方向リンク）</a></li>
+        <li><a href="#循環リスト">循環リスト</a></li>
+        <li><a href="#配列と連結リストの違い">配列と連結リストの違い</a></li>
+        <li><a href="#マージソート">マージソート</a></li>
+        <li><a href="#値呼び出し">値呼び出し</a></li>
+        <li><a href="#参照呼出し">参照呼出し</a></li>
+        <li><a href="#再入可能プログラムリエントラントプログラム">再入可能プログラム（リエントラントプログラム）</a></li>
+        <li><a href="#再入可能プログラムの実現方法">再入可能プログラムの実現方法</a></li>
+        <li><a href="#再帰プログラムリカーシブプログラム">再帰プログラム（リカーシブプログラム）</a></li>
+        <li><a href="#再使用可能プログラムリユーザブルプログラム逐次再使用可能プログラム">再使用可能プログラム（リユーザブルプログラム・逐次再使用可能プログラム）</a></li>
+        <li><a href="#再配置可能プログラムリロケータブルプログラム">再配置可能プログラム（リロケータブルプログラム）</a></li>
+        <li><a href="#ニモニックコード表意コード">ニモニックコード（表意コード）</a></li>
+        <li><a href="#vliwvery-long-instruction-word">VLIW（Very Long Instruction Word）</a></li>
+        <li><a href="#ページング">ページング</a></li>
+        <li><a href="#ページ置換の基本的な流れ">ページ置換の基本的な流れ</a></li>
+        <li><a href="#lruleast-recently-used">LRU(Least Recently Used)</a></li>
+        <li><a href="#fifofirst-in-first-out">FIFO(First In First Out)</a></li>
+        <li><a href="#ベラディの異常">ベラディの異常</a></li>
+        <li><a href="#lfuleast-frequently-used">LFU(Least Frequently Used)</a></li>
+        <li><a href="#フラグメンテーション">フラグメンテーション</a></li>
+        <li><a href="#スラッシング">スラッシング</a></li>
+        <li><a href="#キャッシュメモリにおけるダイレクトマップ方式">キャッシュメモリにおけるダイレクトマップ方式</a></li>
+        <li><a href="#メモリのデータ転送速度の計算h31春午前問10">メモリのデータ転送速度の計算（H31春午前問10）</a></li>
+        <li><a href="#オブジェクトストレージ">オブジェクトストレージ</a></li>
+        <li><a href="#イミュータブルストレージ">イミュータブルストレージ</a></li>
+        <li><a href="#3層クライアントサーバシステム">3層クライアントサーバシステム</a></li>
+        <li><a href="#グリッドコンピューティング">グリッドコンピューティング</a></li>
+        <li><a href="#cap定理">CAP定理</a></li>
+        <li><a href="#mtbfmean-time-between-failure--平均故障間隔">MTBF(Mean Time Between Failure / 平均故障間隔)</a></li>
+        <li><a href="#mttrmean-time-to-repair--平均修理時間">MTTR(Mean Time To Repair / 平均修理時間)</a></li>
+        <li><a href="#稼働率の計算">稼働率の計算</a></li>
+        <li><a href="#故障率の計算">故障率の計算</a></li>
+        <li><a href="#フォールトトレランス">フォールトトレランス</a></li>
+        <li><a href="#フォールトトレラントシステム">フォールトトレラントシステム</a></li>
+        <li><a href="#フォールトアポイダンス">フォールトアポイダンス</a></li>
+        <li><a href="#フェールソフト">フェールソフト</a></li>
+        <li><a href="#フォールバック縮退運転">フォールバック(縮退運転)</a></li>
+        <li><a href="#フェールセーフ">フェールセーフ</a></li>
+        <li><a href="#フェールオーバ">フェールオーバ</a></li>
+        <li><a href="#フォールトマスキング">フォールトマスキング</a></li>
+        <li><a href="#フールプルーフ">フールプルーフ</a></li>
+        <li><a href="#インタロック">インタロック</a></li>
+        <li><a href="#カーネル">カーネル</a></li>
+        <li><a href="#タスクのスケジューリング方式">タスクのスケジューリング方式</a></li>
+        <li><a href="#ノンプリエンション協調的マルチタスク">ノンプリエンション（協調的マルチタスク）</a></li>
+        <li><a href="#プリエンプション強制的プリエンプティブマルチタスク">プリエンプション（強制的(プリエンプティブ)マルチタスク）</a></li>
+        <li><a href="#到着順番方式fcfsfirst-come-first-served">到着順番方式（FCFS(First Come First Served)）</a></li>
+        <li><a href="#優先順位方式">優先順位方式</a></li>
+        <li><a href="#優先順位方式の種類">優先順位方式の種類</a></li>
+        <li><a href="#スタベージョン">スタベージョン</a></li>
+        <li><a href="#リソーススタベーション">リソーススタベーション</a></li>
+        <li><a href="#ラウンドロビン方式">ラウンドロビン方式</a></li>
+        <li><a href="#フィードバック待ち行列方式多段待ち行列方式">フィードバック待ち行列方式（多段待ち行列方式）</a></li>
+        <li><a href="#処理時間順方式sptshortest-proccessing-time-first方式">処理時間順方式（SPT(Shortest Proccessing Time First)方式）</a></li>
+        <li><a href="#hadoop">Hadoop</a></li>
+        <li><a href="#gplgeneral-public-license">GPL（General Public License）</a></li>
+        <li><a href="#コピーレフト">コピーレフト</a></li>
+        <li><a href="#mosトランジスタ">MOSトランジスタ</a></li>
+        <li><a href="#socsystem-on-a-chip">SoC(System on a Chip)</a></li>
+        <li><a href="#hdlhardware-description-language">HDL(Hardware Description Language)</a></li>
+        <li><a href="#dspdigital-signal-processor">DSP(Digital Signal Processor)</a></li>
+        <li><a href="#ユーザー調査手法アンケート">ユーザー調査手法：アンケート</a></li>
+        <li><a href="#思考発話法">思考発話法</a></li>
+        <li><a href="#回顧法">回顧法</a></li>
+        <li><a href="#ログデータ分析法">ログデータ分析法</a></li>
+        <li><a href="#認知的ウォークスルー法">認知的ウォークスルー法</a></li>
+        <li><a href="#ヒューリスティック評価">ヒューリスティック評価</a></li>
+        <li><a href="#パンくずリスト">パンくずリスト</a></li>
+        <li><a href="#パルス符号変調pcm">パルス符号変調(PCM)</a></li>
+        <li><a href="#レンダリング">レンダリング</a></li>
+        <li><a href="#レイトレーシング法">レイトレーシング法</a></li>
+        <li><a href="#スキャンライン法">スキャンライン法</a></li>
+        <li><a href="#スキャンライン法レイトレーシング法との違い">スキャンライン法・レイトレーシング法との違い</a></li>
+        <li><a href="#zバッファ法">Zバッファ法</a></li>
+        <li><a href="#ラジオシティ法">ラジオシティ法</a></li>
+        <li><a href="#アンチエイリアシング">アンチエイリアシング</a></li>
+        <li><a href="#ディザリング">ディザリング</a></li>
+        <li><a href="#メタボール">メタボール</a></li>
+        <li><a href="#帯域幅の計算">帯域幅の計算</a></li>
+        <li><a href="#音声データ容量計算">音声データ容量計算</a></li>
+        <li><a href="#リング型配線">リング型配線</a></li>
+        <li><a href="#スター型配線">スター型配線</a></li>
+        <li><a href="#バス形配線">バス形配線</a></li>
+        <li><a href="#コネクション型通信">コネクション型通信</a></li>
+        <li><a href="#コネクションレス型通信">コネクションレス型通信</a></li>
+        <li><a href="#tcptransmission-control-protocol">TCP(Transmission Control Protocol)</a></li>
+        <li><a href="#udpuser-datagram-protocol">UDP(User Datagram Protocol)</a></li>
+        <li><a href="#rdpremote-desktop-protocol">RDP(Remote Desktop Protocol)</a></li>
+        <li><a href="#ssl-vpn">SSL-VPN</a></li>
+        <li><a href="#mimemultipurpose-internet-mail-extension">MIME(Multipurpose Internet Mail Extension)</a></li>
+        <li><a href="#imapsimap-over-ssltls">IMAPS(IMAP over SSL/TLS)</a></li>
+        <li><a href="#ポート番号">ポート番号</a></li>
+        <li><a href="#ウェルノウンポート">ウェルノウンポート</a></li>
+        <li><a href="#主要なウェルノウンポート一覧">主要なウェルノウンポート一覧</a></li>
+        <li><a href="#dnsレコード">DNSレコード</a></li>
+        <li><a href="#aレコード-address-record">Aレコード (Address Record)</a></li>
+        <li><a href="#aaaaレコード-quad-a-record">AAAAレコード (Quad A Record)</a></li>
+        <li><a href="#cnameレコード-canonical-name-record">CNAMEレコード (Canonical Name Record)</a></li>
+        <li><a href="#mxレコード-mail-exchange-record">MXレコード (Mail Exchange Record)</a></li>
+        <li><a href="#ptrレコード-pointer-record">PTRレコード (Pointer Record)</a></li>
+        <li><a href="#op25boutbound-port-25-blocking">OP25B(Outbound Port 25 Blocking)</a></li>
+        <li><a href="#op25bにおけるサブミッションポートの役割">OP25Bにおけるサブミッションポートの役割</a></li>
+        <li><a href="#op25bの対象外になる対象">OP25Bの対象外になる対象</a></li>
+        <li><a href="#spfsender-policy-framework">SPF(Sender Policy Framework)</a></li>
+        <li><a href="#spfの手順">SPFの手順</a></li>
+        <li><a href="#プロキシサーバ">プロキシサーバ</a></li>
+        <li><a href="#urlフィルタリング">URLフィルタリング</a></li>
+        <li><a href="#ieee-80211an">IEEE 802.11a/n</a></li>
+        <li><a href="#ieee-8021q">IEEE 802.1Q</a></li>
+        <li><a href="#ieee-8021x">IEEE 802.1X</a></li>
+        <li><a href="#nslookup">nslookup</a></li>
+        <li><a href="#ping">ping</a></li>
+        <li><a href="#tracert">tracert</a></li>
+        <li><a href="#arp">arp</a></li>
+        <li><a href="#ipconfig">ipconfig</a></li>
+        <li><a href="#情報セキュリティの3要素cia">情報セキュリティの3要素(CIA)</a></li>
+        <li><a href="#情報セキュリティの3要素cia機密性-confidentiality">情報セキュリティの3要素(CIA)：機密性 (Confidentiality)</a></li>
+        <li><a href="#情報セキュリティの3要素cia完全性-integrity">情報セキュリティの3要素(CIA)：完全性 (Integrity)</a></li>
+        <li><a href="#情報セキュリティの3要素cia可用性-availability">情報セキュリティの3要素(CIA)：可用性 (Availability)</a></li>
+        <li><a href="#否認防止の特性">否認防止の特性</a></li>
+        <li><a href="#cccommon-criteria情報セキュリティ国際評価基準">CC（Common Criteria：情報セキュリティ国際評価基準）</a></li>
+        <li><a href="#耐タンパ性">耐タンパ性</a></li>
+        <li><a href="#境界型防御">境界型防御</a></li>
+        <li><a href="#ゼロトラスト">ゼロトラスト</a></li>
+        <li><a href="#多層防御">多層防御</a></li>
+        <li><a href="#csirt">CSIRT</a></li>
+        <li><a href="#psirt">PSIRT</a></li>
+        <li><a href="#sqlインジェクション">SQLインジェクション</a></li>
+        <li><a href="#辞書攻撃">辞書攻撃</a></li>
+        <li><a href="#ブルートフォース攻撃">ブルートフォース攻撃</a></li>
+        <li><a href="#リバースブルートフォース攻撃">リバースブルートフォース攻撃</a></li>
+        <li><a href="#レインボーテーブル攻撃">レインボーテーブル攻撃</a></li>
+        <li><a href="#サプライチェーン攻撃">サプライチェーン攻撃</a></li>
+        <li><a href="#man-in-the-browsermitb攻撃">Man-in-the-Browser(MITB)攻撃</a></li>
+        <li><a href="#クリプトジャッキング">クリプトジャッキング</a></li>
+        <li><a href="#ppap">PPAP</a></li>
+        <li><a href="#フォールスネガティブ">フォールスネガティブ</a></li>
+        <li><a href="#フォールスポジティブ">フォールスポジティブ</a></li>
+        <li><a href="#多要素認証">多要素認証</a></li>
+        <li><a href="#ロックアウトのしきい値">ロックアウトのしきい値</a></li>
+        <li><a href="#saml認証security-assertion-markup-language">SAML認証（Security Assertion Markup Language）</a></li>
+        <li><a href="#saml認証の仕組みsp起点の認証フロー">SAML認証の仕組み：SP起点の認証フロー</a></li>
+        <li><a href="#saml認証の仕組みidp起点の認証フロー">SAML認証の仕組み：IdP起点の認証フロー</a></li>
+        <li><a href="#saml認証とoauthの違い">SAML認証とOAuthの違い</a></li>
+        <li><a href="#3dセキュア">3Dセキュア</a></li>
+        <li><a href="#ハッシュ関数">ハッシュ関数</a></li>
+        <li><a href="#公開鍵暗号">公開鍵暗号</a></li>
+        <li><a href="#共通鍵暗号">共通鍵暗号</a></li>
+        <li><a href="#ハイブリッド暗号">ハイブリッド暗号</a></li>
+        <li><a href="#電子署名">電子署名</a></li>
+        <li><a href="#smime">S/MIME</a></li>
+        <li><a href="#ソルト">ソルト</a></li>
+        <li><a href="#ペッパー">ペッパー</a></li>
+        <li><a href="#rsaと楕円曲線の違い">RSAと楕円曲線の違い</a></li>
+        <li><a href="#wpa2wi-fi-protected-access-2">WPA2(Wi-Fi Protected Access 2)</a></li>
+        <li><a href="#crlcertificate-revocation-list">CRL（Certificate Revocation List）</a></li>
+        <li><a href="#プレースホルダ">プレースホルダ</a></li>
+        <li><a href="#siemsecurity-information-and-event-management">SIEM（Security Information and Event Management）</a></li>
+        <li><a href="#edrendpoint-detection-and-response">EDR(Endpoint Detection and Response)</a></li>
+        <li><a href="#wafweb-application-firewall">WAF(Web Application Firewall)</a></li>
+        <li><a href="#デジタルフォレンジックス">デジタルフォレンジックス</a></li>
+        <li><a href="#モジュール結合度">モジュール結合度</a></li>
+        <li><a href="#ペトリネットpetri-net">ペトリネット（Petri Net）</a></li>
+        <li><a href="#ocsponline-certificate-status-protocol">OCSP（Online Certificate Status Protocol）</a></li>
+        <li><a href="#dnsキャッシュポイズニング攻撃">DNSキャッシュポイズニング攻撃</a></li>
+        <li><a href="#dnsの基本的な仕組み">DNSの基本的な仕組み</a></li>
+        <li><a href="#dnsキャッシュポイズニング攻撃の仕組み">DNSキャッシュポイズニング攻撃の仕組み</a></li>
+        <li><a href="#dnsキャッシュポイズニング攻撃への対策">DNSキャッシュポイズニング攻撃への対策</a></li>
+        <li><a href="#dnssecdns-security-extensions">DNSSEC(DNS Security Extensions)</a></li>
+        <li><a href="#dnssecについて電子署名による応答の保証">DNSSECについて電子署名による応答の保証</a></li>
+        <li><a href="#サニタイジング">サニタイジング</a></li>
+        <li><a href="#ismap政府情報システムのためのセキュリティ評価制度">ISMAP(政府情報システムのためのセキュリティ評価制度)</a></li>
+        <li><a href="#idsintrusion-detection-system">IDS(Intrusion Detection System)</a></li>
+        <li><a href="#sbomsoftware-bill-of-materials">SBOM(Software Bill Of Materials)</a></li>
+        <li><a href="#cvecommon-vulnerabilities-and-exposures共通脆弱性識別子">CVE(Common Vulnerabilities and Exposures：共通脆弱性識別子)</a></li>
+        <li><a href="#tpmtrusted-platform-module">TPM(Trusted Platform Module)</a></li>
+        <li><a href="#システム監査基準">システム監査基準</a></li>
+        <li><a href="#全般統制">全般統制</a></li>
+        <li><a href="#業務処理統制">業務処理統制</a></li>
+        <li><a href="#帯域幅r6秋午前問26">帯域幅（R6秋午前問26）</a></li>
+        <li><a href="#色数h17春午前問22">色数（H17春午前問22）</a></li>
+        <li><a href="#音声サンプリングh18春午前問55">音声サンプリング（H18春午前問55）</a></li>
+        <li><a href="#アローダイアグラムにおける総余裕日数h31春午前問53">アローダイアグラムにおける総余裕日数（H31春午前問53）</a></li>
+        <li><a href="#acid特性">ACID特性</a></li>
+        <li><a href="#キャッシュメモリの実効アクセス時間">キャッシュメモリの実効アクセス時間</a></li>
+        <li><a href="#3層スキーマ">3層スキーマ</a></li>
+        <li><a href="#関係データベース">関係データベース</a></li>
+        <li><a href="#2相コミット">2相コミット</a></li>
+        <li><a href="#pkipublic-key-infrastructure">PKI(Public Key Infrastructure)</a></li>
+        <li><a href="#cvsscommon-vulnerability-scoring-system共通脆弱性評価システム">CVSS(Common Vulnerability Scoring System：共通脆弱性評価システム)</a></li>
+        <li><a href="#セキュアos">セキュアOS</a></li>
+        <li><a href="#ssidservice-set-identifier">SSID(Service Set Identifier)</a></li>
+        <li><a href="#パーセントエンコーディング">パーセントエンコーディング</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">概要 
+    <div id="概要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%a6%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>応用情報技術者試験のテクノロジ系学習メモを集約する。</p>
+
+<h3 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><a
+  href="https://www.ap-siken.com/apkakomon.php"
+    target="_blank"
+  >応用情報技術者過去問道場</a></li>
+<li><a
+  href="https://gihyo.jp/book/2024/978-4-297-14620-7"
+    target="_blank"
+  >令和07年【春期】【⁠秋期】応用情報技術者 合格教本</a></li>
+</ul>
+
+<h2 class="relative group">学習メモ 
+    <div id="学習メモ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">基数変換問題で無限小数を素早く判定する方法 
+    <div id="基数変換問題で無限小数を素早く判定する方法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%95%b0%e5%a4%89%e6%8f%9b%e5%95%8f%e9%a1%8c%e3%81%a7%e7%84%a1%e9%99%90%e5%b0%8f%e6%95%b0%e3%82%92%e7%b4%a0%e6%97%a9%e3%81%8f%e5%88%a4%e5%ae%9a%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>基数変換問題で無限小数を判定するような問題では<strong>分母の素因数分解</strong>で判定できる。</p>
+<p><strong>手順</strong>:</p>
+<ol>
+<li>判定対象の数値を分数に変換</li>
+<li>この分数の既約分数(約分してこれ以上割れない形)にする</li>
+<li>分母を因数分解する</li>
+<li>このとき、分母が対象の基数のべき乗のみ場合は有限小数。基数のべき乗以外の場合は無限小数と判断できる</li>
+</ol>
+<p><strong>具体例</strong>:</p>
+<ol>
+<li>0.05</li>
+<li>0.125</li>
+<li>0.5</li>
+</ol>
+<ul>
+<li>上記の3つの10進数小数のうち、2進数に変換すると無限小数になるのは?</li>
+<li>手順に則ってそれぞれ分母を因数分解すると
+<ol>
+<li>0.05 = 5/100 = 1/20 = 1/2^2*<strong>5</strong></li>
+<li>0.125 = 125/1000 = 1/8 = 1/2^3</li>
+<li>0.5 = 5/10 = 1/2 = 1/2^1</li>
+</ol>
+</li>
+<li>「1:0.05」で分母に「5」が紛れていることがわかる。よって、「0.05」が無限小数と判定できる。</li>
+</ul>
+
+<h3 class="relative group">リスト 
+    <div id="リスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%aa%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>順序付けられたデータの並び。主なデータ構造として、配列と連結リストが存在する。</p>
+
+<h3 class="relative group">配列 
+    <div id="配列" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%85%8d%e5%88%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>個々の要素の位置を固定して、要素が格納されている番地(アドレス)を簡単に計算できるようにしたデータ構造</p>
+<p><strong>特徴</strong></p>
+<ul>
+<li>ダイレクトアクセス(任意の要素への直接参照)が可能</li>
+<li>要素の挿入・削除には非効率
+<ul>
+<li>当該位置の要素を一つずつ前後に移動させる必要があるため</li>
+</ul>
+</li>
+<li>予め最大データ数に対応した領域を確保する必要がある</li>
+</ul>
+
+<h3 class="relative group">連結リスト 
+    <div id="連結リスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%80%a3%e7%b5%90%e3%83%aa%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>各要素をポインタでつないだデータ構造</p>
+<ul>
+<li>ポインタの接続方法で3種類に分類できる</li>
+</ul>
+
+<h3 class="relative group">単方向リスト（線形リスト・片方向リンク） 
+    <div id="単方向リスト線形リスト片方向リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8d%98%e6%96%b9%e5%90%91%e3%83%aa%e3%82%b9%e3%83%88%e7%b7%9a%e5%bd%a2%e3%83%aa%e3%82%b9%e3%83%88%e7%89%87%e6%96%b9%e5%90%91%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>各要素は次の要素へのポインタを持つ</p>
+
+<h3 class="relative group">双方向リスト（双方向リンク） 
+    <div id="双方向リスト双方向リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%8c%e6%96%b9%e5%90%91%e3%83%aa%e3%82%b9%e3%83%88%e5%8f%8c%e6%96%b9%e5%90%91%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>各要素は前後両方の要素のポインタを持つ。</p>
+<ul>
+<li>単方向リストとの違いとして、途中要素への挿入・削除は双方向が容易である。</li>
+</ul>
+
+<h3 class="relative group">循環リスト 
+    <div id="循環リスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%be%aa%e7%92%b0%e3%83%aa%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>末尾の用が先頭要素へのポインタを持つ単方向リスト</p>
+
+<h3 class="relative group">配列と連結リストの違い 
+    <div id="配列と連結リストの違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%85%8d%e5%88%97%e3%81%a8%e9%80%a3%e7%b5%90%e3%83%aa%e3%82%b9%e3%83%88%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>記憶域</strong>: 1つのデータあたりの必要な記憶域は連結リストのほうが大きい</p>
+<ul>
+<li>連結リストでは「データ + ポインタ」で管理されるため</li>
+</ul>
+<p><strong>追加・削除</strong>: 要素の追加・削除においては連結リストのほうが容易</p>
+<ul>
+<li>連結レストでは、配列と異なり、番地が固定されていないため、ポインタの値変更のみで済むため</li>
+</ul>
+<p><strong>記憶域の変化</strong>: 連結リストでは必要な記憶域は動的に変化して、データ数に比例する</p>
+<ul>
+<li>連結リストにおける要素の追加・削除
+<ul>
+<li>応用情報技術者試験ではHead(先頭要素へのポインタ)・Tail(末尾要素へのポインタ)について出題される</li>
+<li>Head・Tail・E1～E5のリストを具体例に解説する。
+<ul>
+<li>
+<p>具体例:
+<div class="mermaid" align="center">
+  <pre>
+      graph LR
+      Head --> E1;
+      subgraph "Singly Linked List"
+          E1 --> E2 --> E3 --> E4 --> E5 --> Null([null]);
+      end
+      Tail --> E5;
+
+      style Head fill:#f9f,stroke:#333,stroke-width:2px
+      style Tail fill:#ccf,stroke:#333,stroke-width:2px
+      style Null fill:#eee,stroke:#333,stroke-dasharray: 5 5
+      </pre>
+</div>
+</p>
+</li>
+<li>
+<p>要素E0を先頭に追加する場合</p>
+<ul>
+<li>
+<ol>
+<li>E0のポインタ部でE1を設定</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>HeadでE0のアドレスを設定</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>要素E6を末尾に追加する場合</p>
+<ul>
+<li>
+<ol>
+<li>TailからたどったE5のポインタ部でE6を設定</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>TailでE6のアドレスを設定</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>要素E1を先頭から削除する場合</p>
+<ul>
+<li>
+<ol>
+<li>HeadからたどったE1のポインタ部の値である「E2のアドレス」をHeadに設定</li>
+</ol>
+</li>
+</ul>
+</li>
+<li>
+<p>要素E5を末尾から削除する場合</p>
+<ul>
+<li>
+<ol>
+<li>Headから順番にE4までたどる</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>E4のポインタ部にNULLを設定</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>TailにE4のアドレスを設定</li>
+</ol>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">マージソート 
+    <div id="マージソート" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9e%e3%83%bc%e3%82%b8%e3%82%bd%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データを最小単位(要素が1つ)になるまで半分に分割し、その後、それらを正しい順序で「マージ(併合)」していくことで全体のソートを完成させるソート方法</p>
+
+<h3 class="relative group">値呼び出し 
+    <div id="値呼び出し" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%80%a4%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>引数の渡し方において、関数内で変数の値を上書きしても元の変数の値には反映されない。</p>
+
+<h3 class="relative group">参照呼出し 
+    <div id="参照呼出し" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e7%85%a7%e5%91%bc%e5%87%ba%e3%81%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>引数の渡し方において、関数内で変数の値を上書きすると元の変数の値に反映される。</p>
+
+<h3 class="relative group">再入可能プログラム（リエントラントプログラム） 
+    <div id="再入可能プログラムリエントラントプログラム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%86%8d%e5%85%a5%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e3%83%aa%e3%82%a8%e3%83%b3%e3%83%88%e3%83%a9%e3%83%b3%e3%83%88%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>複数のタスクから同時に呼び出されても、それぞれに対して正しい結果を返すことができるプログラム</p>
+
+<h3 class="relative group">再入可能プログラムの実現方法 
+    <div id="再入可能プログラムの実現方法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%86%8d%e5%85%a5%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e3%81%ae%e5%ae%9f%e7%8f%be%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>プログラムを「手続部分」と「データ部分」に分離する</li>
+<li>複数のタスクで共有するのは「手続部分」・「データ部分」は各タスク単位で用意することで再入可能プログラムを実現できる。</li>
+</ol>
+
+<h3 class="relative group">再帰プログラム（リカーシブプログラム） 
+    <div id="再帰プログラムリカーシブプログラム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%86%8d%e5%b8%b0%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e3%83%aa%e3%82%ab%e3%83%bc%e3%82%b7%e3%83%96%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>手続きの中で自分自身を呼び出して使うことができるプログラム</p>
+<ul>
+<li>自分自身を呼び出すことができる</li>
+<li>実行途中の状態はスタックを用いてLIFO方式で制御</li>
+<li>再入可能</li>
+</ul>
+
+<h3 class="relative group">再使用可能プログラム（リユーザブルプログラム・逐次再使用可能プログラム） 
+    <div id="再使用可能プログラムリユーザブルプログラム逐次再使用可能プログラム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%86%8d%e4%bd%bf%e7%94%a8%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e3%83%aa%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%96%e3%83%ab%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e9%80%90%e6%ac%a1%e5%86%8d%e4%bd%bf%e7%94%a8%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>一度実行したプログラムをロードし直さずに再度実行しても、正しい結果を返すことができるプログラム</p>
+
+<h3 class="relative group">再配置可能プログラム（リロケータブルプログラム） 
+    <div id="再配置可能プログラムリロケータブルプログラム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%86%8d%e9%85%8d%e7%bd%ae%e5%8f%af%e8%83%bd%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0%e3%83%aa%e3%83%ad%e3%82%b1%e3%83%bc%e3%82%bf%e3%83%96%e3%83%ab%e3%83%97%e3%83%ad%e3%82%b0%e3%83%a9%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>プログラムを主記憶上のどのアドレスに配置しても実行できるようにしたプログラム</p>
+<ul>
+<li>多くの場合、ベースアドレス指定方式などを用いて、プログラムが配置された先頭アドレス(ベースアドレス)を軸にアドレス計算を行い、命令やデータへのアクセスが可能になっている。</li>
+</ul>
+
+<h3 class="relative group">ニモニックコード（表意コード） 
+    <div id="ニモニックコード表意コード" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8b%e3%83%a2%e3%83%8b%e3%83%83%e3%82%af%e3%82%b3%e3%83%bc%e3%83%89%e8%a1%a8%e6%84%8f%e3%82%b3%e3%83%bc%e3%83%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>商品の略称や記号など、記憶しやすいように意味を持たせたコード</p>
+<ul>
+<li>具体例：「B5」→ B5用紙</li>
+</ul>
+
+<h3 class="relative group">VLIW（Very Long Instruction Word） 
+    <div id="vliwvery-long-instruction-word" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#vliwvery-long-instruction-word" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>プログラムのコンパイル時に、一つの命令語で複数の命令を同時に実行する手法。</p>
+<ul>
+<li>CPUのオーバーヘッドが減り高速化が可能</li>
+<li>複数の処理を一つの命令に記述するため1命令が非常に長くなる</li>
+</ul>
+
+<h3 class="relative group">ページング 
+    <div id="ページング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メモリ領域を「ページ」と呼ばれる固定サイズの区画に分割して仮想記憶を管理する方式</p>
+<ul>
+<li>仮想アドレス空間と物理アドレス空間をページ単位で対応付けて管理する</li>
+</ul>
+
+<h3 class="relative group">ページ置換の基本的な流れ 
+    <div id="ページ置換の基本的な流れ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e7%bd%ae%e6%8f%9b%e3%81%ae%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e6%b5%81%e3%82%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>ページフォールトが発生</li>
+</ol>
+<ul>
+<li>ページフォールト:CPUがアクセスしようとしたページが主記憶上に存在しないときに発生するハードウェア割り込み</li>
+</ul>
+<ol start="2">
+<li>主記憶に空きがなければ、置換アルゴリズム(LRU、FIFO等)により主記憶上から補助記憶装置に移すページを決定</li>
+<li>手順2で決定したページを補助記憶装置に移動(ページアウト)</li>
+</ol>
+<ul>
+<li>ページアウト:主記憶上のページを補助記憶装置(ディスク)に書き出す処理</li>
+</ul>
+<ol start="4">
+<li>必要なページを補助記憶装置から主記憶に読み込み(ページイン)</li>
+</ol>
+<ul>
+<li>ページイン:補助記憶装置上のページを主記憶に読み込む処理</li>
+</ul>
+
+<h3 class="relative group">LRU(Least Recently Used) 
+    <div id="lruleast-recently-used" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#lruleast-recently-used" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>最も長い間参照されていないページを置換するアルゴリズム</p>
+<ul>
+<li><strong>動作:</strong> 最後に参照されてから最も時間が経過しているページを追い出します。 プログラムが特定の領域を集中してアクセスするという「参照の局所性」の原理に基づいています。</li>
+<li><strong>長所:</strong> 一般的にFIFOよりも効率が良く、性能が高い傾向にあります。</li>
+<li><strong>短所:</strong> どのページがいつ参照されたかをすべて記録しておく必要があるため、実装が複雑になり、システムのオーバーヘッドが大きくなる可能性があります。</li>
+</ul>
+
+<h3 class="relative group">FIFO(First In First Out) 
+    <div id="fifofirst-in-first-out" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#fifofirst-in-first-out" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>最も古く読み込まれたページを置換する最も単純なアルゴリズム</p>
+<ul>
+<li><strong>動作:</strong> メモリに最初に入ってきたページ（最も古くから存在するページ）を最初に追い出します。</li>
+<li><strong>長所:</strong> 実装が非常に簡単です。</li>
+<li><strong>短所:</strong>
+<ul>
+<li>頻繁にアクセスされる重要なページであっても、古くからメモリにあれば追い出されてしまいます。</li>
+<li>物理メモリのサイズを増やしたにもかかわらず、ページフォールト（必要なページがメモリ上にない状態）が増えてしまう「ベラディの異常（Belady&rsquo;s Anomaly）」と呼ばれる現象が発生することがあります。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">ベラディの異常 
+    <div id="ベラディの異常" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%99%e3%83%a9%e3%83%87%e3%82%a3%e3%81%ae%e7%95%b0%e5%b8%b8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>仮想記憶システムにおいて、プロセスのために割り当てる物理メモリのページフレーム数を増やしたにもかかわらず、かえってページフォールトの発生回数が増加してしまうという、直感に反する現象</p>
+
+<h3 class="relative group">LFU(Least Frequently Used) 
+    <div id="lfuleast-frequently-used" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#lfuleast-frequently-used" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>「最も使用頻度が低い」ページを置き換えるアルゴリズムです。</p>
+<ul>
+<li><strong>動作:</strong> これまでの参照回数が最も少ないページを追い出します。</li>
+<li><strong>長所:</strong> 長期間にわたって頻繁に参照されるページをメモリに保持し続けることができます。</li>
+<li><strong>短所:</strong>
+<ul>
+<li>各ページの参照回数を記録・管理する必要があるため、実装が複雑です。</li>
+<li>過去に集中的にアクセスされたページが、その後全く使われなくなっても、参照回数が多いためにメモリに残り続けてしまうという問題があります。</li>
+</ul>
+</li>
+</ul>
+<p>###　LIFO (Last-In, First-Out)</p>
+<p>「後入れ先出し」とも呼ばれ、スタック構造で利用されるアルゴリズム</p>
+<ul>
+<li><strong>動作:</strong> 最後にメモリに入ってきたページを最初に追い出します。</li>
+<li><strong>特徴:</strong> 実際のページ置き換えアルゴリズムとしては<strong>ほとんど使用されません</strong>。理論的な比較対象や、データ構造の概念として重要です。応用情報技術者試験では選択肢として出題される場合があります。</li>
+</ul>
+
+<h3 class="relative group">フラグメンテーション 
+    <div id="フラグメンテーション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%83%a9%e3%82%b0%e3%83%a1%e3%83%b3%e3%83%86%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>主記憶や補助記憶装置にて使用されない記憶領域の断片が多く存在した状態になる現象</p>
+
+<h3 class="relative group">スラッシング 
+    <div id="スラッシング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%83%a9%e3%83%83%e3%82%b7%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メモリ容量が不足している状態で、要求されるメモリ量が多すぎるために、メモリと補助記憶装置間でのデータの入れ替え(ページイン・ページアウト)が非常に頻繁に発生し、システムの処理速度が著しく低下してしまう現象</p>
+<p><strong>発生するケース</strong>: 主記憶の容量が十分でない場合、プログラムの多重度を増加させると、システムのオーバーヘッドが増加するため、発生しやすい。</p>
+
+<h3 class="relative group">キャッシュメモリにおけるダイレクトマップ方式 
+    <div id="キャッシュメモリにおけるダイレクトマップ方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%a1%e3%83%a2%e3%83%aa%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e3%83%80%e3%82%a4%e3%83%ac%e3%82%af%e3%83%88%e3%83%9e%e3%83%83%e3%83%97%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>一つのメモリブロックをキャッシュ内の単一のロケーションに割り当てる。</p>
+
+<h3 class="relative group">メモリのデータ転送速度の計算（H31春午前問10） 
+    <div id="メモリのデータ転送速度の計算h31春午前問10" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%83%a2%e3%83%aa%e3%81%ae%e3%83%87%e3%83%bc%e3%82%bf%e8%bb%a2%e9%80%81%e9%80%9f%e5%ba%a6%e3%81%ae%e8%a8%88%e7%ae%97h31%e6%98%a5%e5%8d%88%e5%89%8d%e5%95%8f10" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題要件</strong></p>
+<ul>
+<li>バス幅:16bit</li>
+<li>メモリサイクルタイム:80ナノ秒</li>
+<li>求められる解答:このメモリのデータ転送速度は何Mbyte/秒</li>
+</ul>
+<p><strong>計算式</strong></p>
+<ul>
+<li>1秒間のデータ転送回数
+<ul>
+<li>1秒/80ナノ秒</li>
+</ul>
+</li>
+<li>16bit = 2byte</li>
+<li>「1秒間のデータ転送回数」*「2byte」
+<ul>
+<li>25Mbyte/秒</li>
+</ul>
+</li>
+</ul>
+<p><strong>正答</strong>:</p>
+<ul>
+<li>25Mbyte/秒</li>
+</ul>
+
+<h3 class="relative group">オブジェクトストレージ 
+    <div id="オブジェクトストレージ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>「オブジェクト」という単位でデータを格納・管理する記憶方式<br>
+（具体例：Amazon S3）</p>
+
+<h3 class="relative group">イミュータブルストレージ 
+    <div id="イミュータブルストレージ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a4%e3%83%9f%e3%83%a5%e3%83%bc%e3%82%bf%e3%83%96%e3%83%ab%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>一度書き込んだデータの変更・削除が不可能な「不変」の特性を持つストレージ</p>
+<p><strong>用途</strong>: ランサムウェア対策としてバックアップデータの保護<br>
+<strong>効果</strong>: 攻撃者に侵入されてもバックアップデータの改ざんを防ぐ</p>
+
+<h3 class="relative group">3層クライアントサーバシステム 
+    <div id="3層クライアントサーバシステム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3%e5%b1%a4%e3%82%af%e3%83%a9%e3%82%a4%e3%82%a2%e3%83%b3%e3%83%88%e3%82%b5%e3%83%bc%e3%83%90%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>システムを3層(プレゼンテーション層・ファンクション層・データベースアクセス層)に分けたシステム</p>
+<ul>
+<li>プレゼンテーション層:
+<ul>
+<li>GUIなどユーザーインターフェース処理を担当</li>
+</ul>
+</li>
+<li>ファンクション層:
+<ul>
+<li>データ処理を担当</li>
+</ul>
+</li>
+<li>データベースアクセス層:
+<ul>
+<li>データベース処理を担当</li>
+</ul>
+</li>
+</ul>
+<p><strong>メリット</strong></p>
+<ul>
+<li>業務ロジックに変更が生じても、クライアントへの影響が少ない</li>
+<li>アプリケーションの修正などが頻繁なシステムでは導入効果が高い</li>
+<li>各層の独立性が高いため、開発作業を並行して実施できる</li>
+</ul>
+
+<h3 class="relative group">グリッドコンピューティング 
+    <div id="グリッドコンピューティング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b0%e3%83%aa%e3%83%83%e3%83%89%e3%82%b3%e3%83%b3%e3%83%94%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>PCから大型コンピュータまで，ネットワーク上にある複数のプロセッサに処理を分散して，大規模な一つの処理を行う方式</p>
+
+<h3 class="relative group">CAP定理 
+    <div id="cap定理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cap%e5%ae%9a%e7%90%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>分散処理システムにおいては、一貫性・可用性・分断耐性の3つの特性のうち、最大でも同時に2つまでしか満たすことができないとする定理</p>
+<p><strong>一貫性(Consistency)</strong>: データの整合性が常に保たれていること<br>
+<strong>可用性(Availability)</strong>: 利用したいときに求める分だけ利用できること<br>
+<strong>分断耐性(Partition Tolerance)</strong>: データを複数のサーバに分散して保管していること</p>
+
+<h3 class="relative group">MTBF(Mean Time Between Failure / 平均故障間隔) 
+    <div id="mtbfmean-time-between-failure--平均故障間隔" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#mtbfmean-time-between-failure--%e5%b9%b3%e5%9d%87%e6%95%85%e9%9a%9c%e9%96%93%e9%9a%94" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>故障してから次に故障するまでの平均時間</p>
+
+<h3 class="relative group">MTTR(Mean Time To Repair / 平均修理時間) 
+    <div id="mttrmean-time-to-repair--平均修理時間" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#mttrmean-time-to-repair--%e5%b9%b3%e5%9d%87%e4%bf%ae%e7%90%86%e6%99%82%e9%96%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>故障時に修理が完了するまでの平均時間</p>
+
+<h3 class="relative group">稼働率の計算 
+    <div id="稼働率の計算" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%a8%bc%e5%83%8d%e7%8e%87%e3%81%ae%e8%a8%88%e7%ae%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>計算式</strong>: MTBF / (MTBF + MTTR)</p>
+<ul>
+<li>計算式が成り立つ理由
+<ul>
+<li>故障してから次の故障するまでの時間を1つのサイクルとする
+<ul>
+<li>1つのサイクルの時間 = MTBF + MTTR</li>
+</ul>
+</li>
+<li>サイクル中にシステムが正常に稼働している時間はMTBFと等しい</li>
+<li>上記より、稼働率の計算式は「稼働率 = 正常にシステムが稼働している時間 / 1つのサイクルの時間」が成り立つ</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">故障率の計算 
+    <div id="故障率の計算" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%95%85%e9%9a%9c%e7%8e%87%e3%81%ae%e8%a8%88%e7%ae%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>計算式</strong>: 1 / MTBF</p>
+<ul>
+<li>計算式が成り立つ理由
+<ul>
+<li>例として、「1000時間稼働させると平均1回故障する部品」があるとする。</li>
+<li>故障率は「1時間あたりに何回故障するかという指標」</li>
+<li>この例におけるMTBFは「1000時間」</li>
+<li>上記より、故障率の計算式は「1/1000」つまり、「1/MTBF」が成立する</li>
+</ul>
+</li>
+<li>補足
+<ul>
+<li>「単位」に着目するとより明確になる
+<ul>
+<li>MTBFの単位: 時間/回 (1回あたりの時間)</li>
+<li>故障率の単位: 回/時間 (1時間あたりの回数)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">フォールトトレランス 
+    <div id="フォールトトレランス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%83%88%e3%83%88%e3%83%ac%e3%83%a9%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>故障してもシステム全体として必要な機能を維持させようとする考え方</p>
+
+<h3 class="relative group">フォールトトレラントシステム 
+    <div id="フォールトトレラントシステム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%83%88%e3%83%88%e3%83%ac%e3%83%a9%e3%83%b3%e3%83%88%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>フォールトトレランスの考えが反映されたシステム</p>
+
+<h3 class="relative group">フォールトアポイダンス 
+    <div id="フォールトアポイダンス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%83%88%e3%82%a2%e3%83%9d%e3%82%a4%e3%83%80%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>構成要素個々の品質を高めて、故障そのものの発生を防ぐこと</p>
+
+<h3 class="relative group">フェールソフト 
+    <div id="フェールソフト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a7%e3%83%bc%e3%83%ab%e3%82%bd%e3%83%95%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>故障発生時に、性能の低下を受け入れて、システム全体を停止させずに稼働を維持させる考え方</p>
+
+<h3 class="relative group">フォールバック(縮退運転) 
+    <div id="フォールバック縮退運転" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%83%90%e3%83%83%e3%82%af%e7%b8%ae%e9%80%80%e9%81%8b%e8%bb%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>フェールソフトにおいて、機能低下状態で稼働をつづけること</p>
+
+<h3 class="relative group">フェールセーフ 
+    <div id="フェールセーフ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a7%e3%83%bc%e3%83%ab%e3%82%bb%e3%83%bc%e3%83%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>誤作動や故障時の影響を最小限にとどめて、システムを安全に制御するという考え方<br>
+<strong>具体例</strong>: 信号機の故障時にすべての信号を赤信号の状態にする。</p>
+
+<h3 class="relative group">フェールオーバ 
+    <div id="フェールオーバ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a7%e3%83%bc%e3%83%ab%e3%82%aa%e3%83%bc%e3%83%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>障害発生時に別システムに自動的に引き継がせて利用者に故障などを悟らせないという考え方</p>
+<ul>
+<li>障害回復時に元のシステムへ戻すことを「フェールバック」と呼ぶ。</li>
+</ul>
+
+<h3 class="relative group">フォールトマスキング 
+    <div id="フォールトマスキング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%83%88%e3%83%9e%e3%82%b9%e3%82%ad%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>障害が発生しても、影響が外部に出ないようにする考え方</p>
+
+<h3 class="relative group">フールプルーフ 
+    <div id="フールプルーフ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%83%bc%e3%83%ab%e3%83%97%e3%83%ab%e3%83%bc%e3%83%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>誤った操作などされても、システムに異常が出ないように設計する考え方</p>
+
+<h3 class="relative group">インタロック 
+    <div id="インタロック" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a4%e3%83%b3%e3%82%bf%e3%83%ad%e3%83%83%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>安全を確保する「連動した制約」<br>
+<strong>より詳細な定義</strong>: ある一定の条件が満たされない限り、次の操作ができないようにする、あるいは特定の動作をさせないようにする仕組み<br>
+<strong>具体例</strong>: 電子レンジについて、ドアが完全に閉まっていないと、マイクロ波の照射が始まらない。</p>
+
+<h3 class="relative group">カーネル 
+    <div id="カーネル" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>OSとしてコンピュータやアプリを制御するための基本的な機能のみを実装したソフトウェア<br>
+<strong>より詳細な定義</strong>:<br>
+カーネルはOSの中核(コア)で、主にハードウェア(CPU、メモリ、デバイス)と<br>
+アプリケーション(プロセス)の橋渡し役を担い、重要なリソース管理やプロセス管理などの基本機能を持つソフトウェア<br>
+<strong>「基本的な機能」の補足</strong>: 基本的な機能とは、プロセス管理、メモリ管理、デバイス管理、ファイルシステム管理、ネットワーク管理などを指す</p>
+
+<h3 class="relative group">タスクのスケジューリング方式 
+    <div id="タスクのスケジューリング方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bf%e3%82%b9%e3%82%af%e3%81%ae%e3%82%b9%e3%82%b1%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%aa%e3%83%b3%e3%82%b0%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>複数のタスクを並列処理する場合の処理方法</p>
+<p><strong>分類</strong>:</p>
+<ul>
+<li>ノンプリエンションなスケジューリング方式
+<ul>
+<li>到着順番方式</li>
+</ul>
+</li>
+<li>プリエンプションなスケジューリング方式
+<ul>
+<li>優先順位方式</li>
+<li>ラウンドロビン方式</li>
+<li>フィードバック待ち行列方式</li>
+<li>処理時間方式</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">ノンプリエンション（協調的マルチタスク） 
+    <div id="ノンプリエンション協調的マルチタスク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8e%e3%83%b3%e3%83%97%e3%83%aa%e3%82%a8%e3%83%b3%e3%82%b7%e3%83%a7%e3%83%b3%e5%8d%94%e8%aa%bf%e7%9a%84%e3%83%9e%e3%83%ab%e3%83%81%e3%82%bf%e3%82%b9%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>一度CPUの使用権を得たタスクが、自らの処理を終えるか、I/O待ちなどで自発的にCPUを解放(手放す)するまで、他のタスクにCPUを横取りされない方式
+<strong>特徴</strong>:
+- OSがタスクを強制的に中断させない
+- CPUを独占するタスクがあると、他のタスクが全く実行できない</p>
+
+<h3 class="relative group">プリエンプション（強制的(プリエンプティブ)マルチタスク） 
+    <div id="プリエンプション強制的プリエンプティブマルチタスク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%aa%e3%82%a8%e3%83%b3%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3%e5%bc%b7%e5%88%b6%e7%9a%84%e3%83%97%e3%83%aa%e3%82%a8%e3%83%b3%e3%83%97%e3%83%86%e3%82%a3%e3%83%96%e3%83%9e%e3%83%ab%e3%83%81%e3%82%bf%e3%82%b9%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>OSのスケジューラが、より優先度の高いタスクが来た場合や、一定の時間が<br>
+経過した場合などに、現在実行中のタスクを強制的に中断させ、<br>
+別のタスクにCPUの使用権を割り当てる方式<br>
+<strong>特徴</strong>:</p>
+<ul>
+<li>OSのスケジューラがタスクの切り替えを実施する</li>
+<li>このとき中断されたタスクが再開されるとき中断された状態から再開される</li>
+</ul>
+
+<h3 class="relative group">到着順番方式（FCFS(First Come First Served)） 
+    <div id="到着順番方式fcfsfirst-come-first-served" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%b0%e7%9d%80%e9%a0%86%e7%95%aa%e6%96%b9%e5%bc%8ffcfsfirst-come-first-served" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>タスクには優先度が設定されず、実行可能状態になったタスクから処理される方式</p>
+
+<h3 class="relative group">優先順位方式 
+    <div id="優先順位方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%84%aa%e5%85%88%e9%a0%86%e4%bd%8d%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>タスクに割り当てられた優先度の高い順に実行する方式</p>
+
+<h3 class="relative group">優先順位方式の種類 
+    <div id="優先順位方式の種類" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%84%aa%e5%85%88%e9%a0%86%e4%bd%8d%e6%96%b9%e5%bc%8f%e3%81%ae%e7%a8%ae%e9%a1%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>静的優先順位方式:優先度をあらかじめきめて変更しない方式
+<ul>
+<li>特徴:スタベージョンが発生する可能性がある。</li>
+</ul>
+</li>
+<li>動的優先度順方式:優先度を変更する方式(待ち時間が一定時間以上のタスクの優先度を高くするなど)
+<ul>
+<li>別名:エージング方式
+<ul>
+<li>優先度を高くして実行の可能性を与えることを「エージング」と呼ぶため。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">スタベージョン 
+    <div id="スタベージョン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>タスクにCPU使用権が割り当てられず、なかなか実行されてない状態</p>
+
+<h3 class="relative group">リソーススタベーション 
+    <div id="リソーススタベーション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%b9%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>タスクの実行に必要なリソースを与えられない状態</p>
+
+<h3 class="relative group">ラウンドロビン方式 
+    <div id="ラウンドロビン方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a9%e3%82%a6%e3%83%b3%e3%83%89%e3%83%ad%e3%83%93%e3%83%b3%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>実行可能待ち行例の先頭のタスクから順番にCPU時間(タイムクウォンタム)を割り当てる方式</p>
+<ul>
+<li>実行タスクがタイムクウォンタム内に終了しない場合は、実行を中断して次のタスクにCPUに割り当てる</li>
+<li>タイムシェアリングシステムのスケジューリングに適している。</li>
+</ul>
+
+<h3 class="relative group">フィードバック待ち行列方式（多段待ち行列方式） 
+    <div id="フィードバック待ち行列方式多段待ち行列方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af%e5%be%85%e3%81%a1%e8%a1%8c%e5%88%97%e6%96%b9%e5%bc%8f%e5%a4%9a%e6%ae%b5%e5%be%85%e3%81%a1%e8%a1%8c%e5%88%97%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ラウンドロビン方式に優先度を加えて方式</p>
+
+<h3 class="relative group">処理時間順方式（SPT(Shortest Proccessing Time First)方式） 
+    <div id="処理時間順方式sptshortest-proccessing-time-first方式" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%87%a6%e7%90%86%e6%99%82%e9%96%93%e9%a0%86%e6%96%b9%e5%bc%8fsptshortest-proccessing-time-first%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>処理時間の短いタスクから順番に実行する方式</p>
+<ul>
+<li>実際には残り処理時間を予測することは不可能のため、フィードバック待ち行列方式として実現されている。</li>
+</ul>
+
+<h3 class="relative group">Hadoop 
+    <div id="hadoop" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#hadoop" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ペタバイト級の大規模データの蓄積・処理の分散処理を実現するミドルウェア</p>
+<p>主に「HDFS(Hadoop Distributed File System)」という分散ファイルシステムと<br>
+「MapReduce」という分散処理プログラミングモデルを中心に構成されている</p>
+
+<h3 class="relative group">GPL（General Public License） 
+    <div id="gplgeneral-public-license" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#gplgeneral-public-license" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>GNUプロジェクトのためにリチャード・ストールマンにより制作されたフリーソフトウェアライセンス</p>
+<ul>
+<li>「コピーレフト」という概念を採用している</li>
+</ul>
+
+<h3 class="relative group">コピーレフト 
+    <div id="コピーレフト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%94%e3%83%bc%e3%83%ac%e3%83%95%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>GPLでライセンスされたソフトウェアを改変またはそれを基にした派生著作物を配布する際に、<br>
+そのソフトウェアや派生著作物もGPLのもとで配布しなければならないというルール</p>
+
+<h3 class="relative group">MOSトランジスタ 
+    <div id="mosトランジスタ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#mos%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b8%e3%82%b9%e3%82%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>金属と半導体の間に酸化物絶縁体を挟んだ構造を持つ半導体素子。金属(M)、酸化膜(O)、半導体(S)の三層構造を持つ。<br>
+<strong>使用用途</strong>: ゲート電圧を変えることで通過する電流量を細かく制御できるため、スイッチや増幅器として多用される。</p>
+
+<h3 class="relative group">SoC(System on a Chip) 
+    <div id="socsystem-on-a-chip" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#socsystem-on-a-chip" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>必要とされる全ての機能(システム)を集積した1個の半導体チップ<br>
+<strong>メリット</strong>:</p>
+<ul>
+<li>専有面積の削減</li>
+<li>高速化</li>
+<li>低消費電力化</li>
+<li>コスト削減</li>
+</ul>
+
+<h3 class="relative group">HDL(Hardware Description Language) 
+    <div id="hdlhardware-description-language" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#hdlhardware-description-language" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>デジタル回路の設計や構成をテキストベースで記述できるハードウェア記述言語の総称<br>
+FPGAなどに実装するデジタル回路を記述し，論理合成するために使用される<br>
+<strong>具体例</strong>: VHDL、Verilog、SystemCなど</p>
+
+<h3 class="relative group">DSP(Digital Signal Processor) 
+    <div id="dspdigital-signal-processor" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dspdigital-signal-processor" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>主にリアルタイムコンピュータで使用される、デジタル信号処理に特化したプロセッサ<br>
+積和演算などの機能を内蔵しているので，デジタルフィルターを実現するのに適している。</p>
+
+<h3 class="relative group">ユーザー調査手法：アンケート 
+    <div id="ユーザー調査手法アンケート" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a6%e3%83%bc%e3%82%b6%e3%83%bc%e8%aa%bf%e6%9f%bb%e6%89%8b%e6%b3%95%e3%82%a2%e3%83%b3%e3%82%b1%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>質問票を配布してユーザーから回答を集める手法。大規模な調査が可能、定量的データの収集</p>
+
+<h3 class="relative group">思考発話法 
+    <div id="思考発話法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%80%9d%e8%80%83%e7%99%ba%e8%a9%b1%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>被験者に操作をしながら考えていることを声に出してもらい、思考プロセスを分析する手法。ユーザーの思考過程を直接把握可能</p>
+
+<h3 class="relative group">回顧法 
+    <div id="回顧法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9b%9e%e9%a1%a7%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>操作後に操作内容やその時の判断、感想などを思い出してもらい、ヒアリングする手法。操作完了後に実施</p>
+
+<h3 class="relative group">ログデータ分析法 
+    <div id="ログデータ分析法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%82%b0%e3%83%87%e3%83%bc%e3%82%bf%e5%88%86%e6%9e%90%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ユーザーの操作ログを収集・解析し、利用状況や問題点を定量的に評価する手法。客観的データに基づく分析</p>
+
+<h3 class="relative group">認知的ウォークスルー法 
+    <div id="認知的ウォークスルー法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%aa%8d%e7%9f%a5%e7%9a%84%e3%82%a6%e3%82%a9%e3%83%bc%e3%82%af%e3%82%b9%e3%83%ab%e3%83%bc%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>専門家がユーザーの視点に立ってタスクを実行し、ユーザーが目標を達成できるか、操作で迷わないかなどを評価する手法</p>
+
+<h3 class="relative group">ヒューリスティック評価 
+    <div id="ヒューリスティック評価" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%92%e3%83%a5%e3%83%bc%e3%83%aa%e3%82%b9%e3%83%86%e3%82%a3%e3%83%83%e3%82%af%e8%a9%95%e4%be%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>専門家が経験則(ヒューリスティックス)に基づいて、UIなどがガイドラインに沿っているかを評価する手法</p>
+
+<h3 class="relative group">パンくずリスト 
+    <div id="パンくずリスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%83%b3%e3%81%8f%e3%81%9a%e3%83%aa%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Webサイト内でユーザーが現在閲覧しているページの位置を、トップページからの階層構造で示したもの<br>
+<strong>名前の由来</strong>: 童話「ヘンゼルとグレーテル」で、主人公が森で迷わないようにパンくずを落として道しるべにした逸話から</p>
+
+<h3 class="relative group">パルス符号変調(PCM) 
+    <div id="パルス符号変調pcm" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%83%ab%e3%82%b9%e7%ac%a6%e5%8f%b7%e5%a4%89%e8%aa%bfpcm" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>アナログ信号をデジタル信号に変換する手法</p>
+<p><strong>手順</strong></p>
+<ol>
+<li>標本化(サンプリング):アナログ信号を一定の時間間隔で区切り、その瞬間の値を取り出す処理。サンプリング周波数(Hz) = 1秒間にサンプリングする回数</li>
+<li>量子化:標本化で得られたアナログ値を、最も近い離散的な値(整数値)に近似する処理。量子化ビット数 = 1つの値を表現するために使うビット数</li>
+<li>符号化:量子化で得られた整数値を、0と1の2進符号に変換する処理</li>
+</ol>
+
+<h3 class="relative group">レンダリング 
+    <div id="レンダリング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ac%e3%83%b3%e3%83%80%e3%83%aa%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>3D空間の物体のデータ(形状、質感、光源など)を基に、2次元の画像を生成する処理</p>
+
+<h3 class="relative group">レイトレーシング法 
+    <div id="レイトレーシング法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ac%e3%82%a4%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%b3%e3%82%b0%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>光源から出た光が物体に反射し、視点に届くまでの経路を逆に追跡することで、リアルな画像を生成するレンダリング手法</p>
+<ul>
+<li>光の反射や屈折を精密に計算できる</li>
+</ul>
+
+<h3 class="relative group">スキャンライン法 
+    <div id="スキャンライン法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%82%ad%e3%83%a3%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>スクリーンの走査線ごとに視点とその走査線を結ぶ走査面を作成し，各走査面と描画の対象となる物体との交差を調べて交差線分を求め，奥行き判定を行うことによって描画する手法</p>
+
+<h3 class="relative group">スキャンライン法・レイトレーシング法との違い 
+    <div id="スキャンライン法レイトレーシング法との違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%82%ad%e3%83%a3%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e6%b3%95%e3%83%ac%e3%82%a4%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%b3%e3%82%b0%e6%b3%95%e3%81%a8%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>スキャンライン法は画面上の走査線ごとに物体の描画を行う手法で、高速にレンダリングできるが、光の複雑な表現が不可能<br>
+レイトレーシング法は光線を追跡してリアルな反射・屈折・影を表現できるが、計算量が多く処理が重い</p>
+
+<h3 class="relative group">Zバッファ法 
+    <div id="zバッファ法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#z%e3%83%90%e3%83%83%e3%83%95%e3%82%a1%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>視点からの奥行き情報(Z値)をピクセルごとに保持し、不要な部分(隠れた部分)を描画しないことで、効率的に隠面消去を行うレンダリング手法</p>
+
+<h3 class="relative group">ラジオシティ法 
+    <div id="ラジオシティ法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a9%e3%82%b8%e3%82%aa%e3%82%b7%e3%83%86%e3%82%a3%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>物体表面での光の相互反射(間接光)を計算することで、柔らかな陰影や、部屋の壁が照らし合う様子などをリアルに表現するレンダリング手法</p>
+
+<h3 class="relative group">アンチエイリアシング 
+    <div id="アンチエイリアシング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%b3%e3%83%81%e3%82%a8%e3%82%a4%e3%83%aa%e3%82%a2%e3%82%b7%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>斜線や曲線の境界に生じる階段状のギザギザ(ジャギー)を、中間色を補うことで滑らかに見せる手法</p>
+
+<h3 class="relative group">ディザリング 
+    <div id="ディザリング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%a3%e3%82%b6%e3%83%aa%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>色数が限られた環境で、異なる色のピクセルを隣接して配置することで、擬似的に中間色や多くの色を表現する手法</p>
+
+<h3 class="relative group">メタボール 
+    <div id="メタボール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%82%bf%e3%83%9c%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>複数の球体を定義し、それらが融合し合うような滑らかで有機的な曲面を生成するモデリング手法<br>
+液体や粘体などの表現に用いられる</p>
+
+<h3 class="relative group">帯域幅の計算 
+    <div id="帯域幅の計算" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%b8%af%e5%9f%9f%e5%b9%85%e3%81%ae%e8%a8%88%e7%ae%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>解像度 × 色深度 × フレームレート</code><br>
+<strong>例</strong>: 800×600×24×30 = 345.6 Mbps</p>
+
+<h3 class="relative group">音声データ容量計算 
+    <div id="音声データ容量計算" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%9f%b3%e5%a3%b0%e3%83%87%e3%83%bc%e3%82%bf%e5%ae%b9%e9%87%8f%e8%a8%88%e7%ae%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>サンプリング周波数 × 量子化ビット数 × 時間</code><br>
+<strong>例</strong>: 11,000Hz × 8bit × 60秒 = 5,280,000ビット = 660,000バイト</p>
+
+<h3 class="relative group">リング型配線 
+    <div id="リング型配線" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%aa%e3%83%b3%e3%82%b0%e5%9e%8b%e9%85%8d%e7%b7%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>LANの代表的な接続形態(トポロジー)の一つで、全てのノードがリング(輪)のように一方向または双方向に接続される方式</p>
+<div class="mermaid" align="center">
+  <pre>
+graph LR
+  %% リング型トポロジー
+  subgraph リング型トポロジー
+    A --- B --- C --- D --- A
+  end
+</pre>
+</div>
+
+
+<h3 class="relative group">スター型配線 
+    <div id="スター型配線" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%82%bf%e3%83%bc%e5%9e%8b%e9%85%8d%e7%b7%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>LANの代表的な接続形態(トポロジー)の一つで、中心となるネットワーク機器(スイッチやハブ)を中心に、各機器が放射状に接続される形態</p>
+<div class="mermaid" align="center">
+  <pre>
+graph LR
+  %% スター型トポロジー
+  subgraph スター型トポロジー
+    S((スイッチ・ハブ))
+    A -- 接続 --> S
+    B -- 接続 --> S
+    C -- 接続 --> S
+    D -- 接続 --> S
+  end
+</pre>
+</div>
+
+
+<h3 class="relative group">バス形配線 
+    <div id="バス形配線" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%90%e3%82%b9%e5%bd%a2%e9%85%8d%e7%b7%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>LANの代表的な接続形態(トポロジー)の一つで、すべてのデバイスが一本の主幹ケーブル(バス)に接続され、データはこのバスを通じて送受信される形式</p>
+<div class="mermaid" align="center">
+  <pre>
+graph LR
+  %% バス型トポロジー
+  subgraph バス型トポロジー
+    direction LR
+    A --- B --- C --- D
+  end
+</pre>
+</div>
+
+
+<h3 class="relative group">コネクション型通信 
+    <div id="コネクション型通信" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%8d%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e5%9e%8b%e9%80%9a%e4%bf%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>回線を確保したまま通信を行う方式<br>
+<strong>具体例</strong>: 電話・回線交換方式</p>
+
+<h3 class="relative group">コネクションレス型通信 
+    <div id="コネクションレス型通信" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%8d%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%ac%e3%82%b9%e5%9e%8b%e9%80%9a%e4%bf%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>通信前に受信相手を確認せずに一方的にデータを送信する方式。<br>
+送信するパケットに宛先を示す情報を付与する必要がある。<br>
+<strong>具体例</strong>: パケット交換方式</p>
+
+<h3 class="relative group">TCP(Transmission Control Protocol) 
+    <div id="tcptransmission-control-protocol" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tcptransmission-control-protocol" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>送信するデータが正確に、かつ送信した順序通りに相手に届くことを保証する、信頼性の高い通信プロトコル</p>
+<ul>
+<li>OSI参照モデルの第4トランスポート層に位置する。</li>
+<li>信頼性を確保するための確認応答や制御が多いため、UDPに比べて通信速度が遅くなる傾向がある。</li>
+<li>コネクション型通信。3ウェイハンドシェイクで通信経路を確立する。</li>
+</ul>
+
+<h3 class="relative group">UDP(User Datagram Protocol) 
+    <div id="udpuser-datagram-protocol" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#udpuser-datagram-protocol" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データの転送速度やリアルタイム性を重視したプロトコル</p>
+<ul>
+<li>OSI参照モデルの第4トランスポート層に位置する。</li>
+<li>プロトコルがシンプルなため、高速で遅延が少ない通信が可能</li>
+<li>コネクションレス型通信。TCPのような事前のコネクション確立を実施しない。</li>
+</ul>
+
+<h3 class="relative group">RDP(Remote Desktop Protocol) 
+    <div id="rdpremote-desktop-protocol" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rdpremote-desktop-protocol" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>リモートデスクトップ接続で使用される通信プロトコル<br>
+遠隔地からのPC操作、サーバ管理にて使用される。<br>
+<strong>ポート番号</strong>: TCP/3389\</p>
+
+<h3 class="relative group">SSL-VPN 
+    <div id="ssl-vpn" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ssl-vpn" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>SSLプロトコルを使用したVPN接続方式</p>
+<ul>
+<li>Webブラウザから接続可能、専用クライアント不要の場合もある</li>
+<li>リモートワーク環境での安全な社内ネットワークアクセスにて使用される。</li>
+</ul>
+
+<h3 class="relative group">MIME(Multipurpose Internet Mail Extension) 
+    <div id="mimemultipurpose-internet-mail-extension" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#mimemultipurpose-internet-mail-extension" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メールでにて日本語の&quot;2バイトコード&quot;や画像データを送信するための仕組み<br>
+<strong>使用用途</strong>: ASCII文字しか使用できないSMTPを利用したメールで利用される。</p>
+
+<h3 class="relative group">IMAPS(IMAP over SSL/TLS) 
+    <div id="imapsimap-over-ssltls" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#imapsimap-over-ssltls" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メール受信プロトコルであるIMAP(Internet Message Access Protocol)にTLSを組み合わせ、<br>
+TLSによって暗号化された通信コネクション上でメール受信を行うプロトコル<br>
+<strong>補足</strong>: バージョン番号を付けてIMAP4Sと表記されることもある。</p>
+
+<h3 class="relative group">ポート番号 
+    <div id="ポート番号" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9d%e3%83%bc%e3%83%88%e7%95%aa%e5%8f%b7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ネットワーク上でデータ通信を行う際に、コンピュータ内で動作している<br>
+特定のプログラムやサービスを識別するための番号<br>
+<strong>URLで宛先のポート番号を指定する場合</strong>: ホスト名の直後に&quot;:&quot;(コロン)と数字で指定する</p>
+
+<h3 class="relative group">ウェルノウンポート 
+    <div id="ウェルノウンポート" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a6%e3%82%a7%e3%83%ab%e3%83%8e%e3%82%a6%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>インターネットプロトコルにおいて、特定のサービスやアプリケーション用に予約された標準的なポート番号(0-1023番)\</p>
+<ul>
+<li>IANA(Internet Assigned Numbers Authority)により管理・割り当て</li>
+<li>システム権限(root権限)でのみバインド可能</li>
+<li>全世界で統一された標準番号</li>
+</ul>
+
+<h3 class="relative group">主要なウェルノウンポート一覧 
+    <div id="主要なウェルノウンポート一覧" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%bb%e8%a6%81%e3%81%aa%e3%82%a6%e3%82%a7%e3%83%ab%e3%83%8e%e3%82%a6%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88%e4%b8%80%e8%a6%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>プロトコル/サービス</th>
+          <th>ポート番号</th>
+          <th>プロトコル</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>FTP(データ用)</td>
+          <td>20</td>
+          <td>TCP</td>
+          <td>ファイル転送のデータ通信</td>
+      </tr>
+      <tr>
+          <td>FTP(制御用)</td>
+          <td>21</td>
+          <td>TCP</td>
+          <td>ファイル転送の制御コマンド</td>
+      </tr>
+      <tr>
+          <td>SSH</td>
+          <td>22</td>
+          <td>TCP</td>
+          <td>安全なリモートログイン・暗号化通信</td>
+      </tr>
+      <tr>
+          <td>Telnet</td>
+          <td>23</td>
+          <td>TCP</td>
+          <td>リモートログイン(平文通信)</td>
+      </tr>
+      <tr>
+          <td>SMTP</td>
+          <td>25</td>
+          <td>TCP</td>
+          <td>メール送信</td>
+      </tr>
+      <tr>
+          <td>DNS</td>
+          <td>53</td>
+          <td>TCP・UDP</td>
+          <td>ドメイン名前解決</td>
+      </tr>
+      <tr>
+          <td>DHCP(サーバ用)</td>
+          <td>67</td>
+          <td>UDP</td>
+          <td>IPアドレス自動割り当て(サーバ側)</td>
+      </tr>
+      <tr>
+          <td>DHCP(クライアント用)</td>
+          <td>68</td>
+          <td>UDP</td>
+          <td>IPアドレス自動割り当て(クライアント側)</td>
+      </tr>
+      <tr>
+          <td>HTTP</td>
+          <td>80</td>
+          <td>TCP</td>
+          <td>Web通信(平文)</td>
+      </tr>
+      <tr>
+          <td>POP3</td>
+          <td>110</td>
+          <td>TCP</td>
+          <td>メール受信</td>
+      </tr>
+      <tr>
+          <td>NTP</td>
+          <td>123</td>
+          <td>UDP</td>
+          <td>時刻同期</td>
+      </tr>
+      <tr>
+          <td>IMAP4</td>
+          <td>143</td>
+          <td>TCP</td>
+          <td>メール受信(サーバ上でメール管理)</td>
+      </tr>
+      <tr>
+          <td>SNMP</td>
+          <td>161</td>
+          <td>UDP</td>
+          <td>ネットワーク機器管理・監視</td>
+      </tr>
+      <tr>
+          <td>SNMP Trap</td>
+          <td>162</td>
+          <td>UDP</td>
+          <td>ネットワーク機器からの通知・アラート</td>
+      </tr>
+      <tr>
+          <td>HTTPS</td>
+          <td>443</td>
+          <td>TCP</td>
+          <td>暗号化Web通信(SSL/TLS)</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">DNSレコード 
+    <div id="dnsレコード" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dns%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ドメイン名とIPアドレスを紐づけるなど、インターネット上でドメイン名を管理するための重要な情報</p>
+
+<h3 class="relative group">Aレコード (Address Record) 
+    <div id="aレコード-address-record" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#a%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89-address-record" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ドメイン名(ホスト名)をIPv4アドレスに対応付ける、最も基本的なDNSレコード\</p>
+<ul>
+<li>ユーザーがブラウザにウェブサイトのドメイン名を入力した際に、そのサイトが置かれているサーバーのIPアドレスを特定</li>
+</ul>
+
+<h3 class="relative group">AAAAレコード (Quad A Record) 
+    <div id="aaaaレコード-quad-a-record" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aaaa%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89-quad-a-record" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>AレコードのIPv6版で、ドメイン名(ホスト名)をIPv6アドレスに対応付ける</p>
+<ul>
+<li>IPv6アドレスでウェブサイトにアクセスするために必要</li>
+</ul>
+
+<h3 class="relative group">CNAMEレコード (Canonical Name Record) 
+    <div id="cnameレコード-canonical-name-record" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cname%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89-canonical-name-record" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>あるドメイン名(エイリアス)を別の正規のドメイン名(Canonical Name)に関連付けるために使用</p>
+<ul>
+<li>複数のドメイン名を一つのウェブサイトに向けたり、管理を簡素化する</li>
+<li>IPアドレスを直接指定するのではなく、別のドメイン名を指し示す</li>
+</ul>
+
+<h3 class="relative group">MXレコード (Mail Exchange Record) 
+    <div id="mxレコード-mail-exchange-record" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#mx%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89-mail-exchange-record" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>そのドメイン宛てのメールを配送するメールサーバーを指定するためのレコード</p>
+<ul>
+<li>メールサーバーがどのサーバーにメールを届ければよいかを確認</li>
+<li>優先度の数値が小さいサーバーから順に配送が試行される</li>
+</ul>
+
+<h3 class="relative group">PTRレコード (Pointer Record) 
+    <div id="ptrレコード-pointer-record" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ptr%e3%83%ac%e3%82%b3%e3%83%bc%e3%83%89-pointer-record" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPアドレスからドメイン名(ホスト名)を特定するために使用される(逆引き)</p>
+<ul>
+<li>メールサーバーが受信したメールの送信元IPアドレスの信頼性を確認</li>
+<li>なりすましメール対策として利用される。設定が正しくないとメールがスパムとして扱われる可能性がある</li>
+</ul>
+
+<h3 class="relative group">OP25B(Outbound Port 25 Blocking) 
+    <div id="op25boutbound-port-25-blocking" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#op25boutbound-port-25-blocking" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ISPが用意したスパムメール対策の仕組み</p>
+<ul>
+<li>ISPが用意したメールサーバーを経由しないメール(高確率でスパムメール)を弾くようになっている。</li>
+</ul>
+
+<h3 class="relative group">OP25Bにおけるサブミッションポートの役割 
+    <div id="op25bにおけるサブミッションポートの役割" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#op25b%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e3%82%b5%e3%83%96%e3%83%9f%e3%83%83%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88%e3%81%ae%e5%bd%b9%e5%89%b2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>OP25Bを回避するための「正規のユーザー専用通用口」</li>
+<li>サブミッションポートは、OP25Bでブロックされるポート25の代替となる、メール送信専用のポートです。ポート番号は587番が標準として定められています。</li>
+</ul>
+
+<h3 class="relative group">OP25Bの対象外になる対象 
+    <div id="op25bの対象外になる対象" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#op25b%e3%81%ae%e5%af%be%e8%b1%a1%e5%a4%96%e3%81%ab%e3%81%aa%e3%82%8b%e5%af%be%e8%b1%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>固定IPからの送信</li>
+<li>SMTP-AUTHで認証済ノードからの送信</li>
+</ul>
+
+<h3 class="relative group">SPF(Sender Policy Framework) 
+    <div id="spfsender-policy-framework" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#spfsender-policy-framework" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メールを送信しようとしてきたメールサーバのIPアドレス情報を検証することで身元検証する技術</p>
+
+<h3 class="relative group">SPFの手順 
+    <div id="spfの手順" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#spf%e3%81%ae%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>送信側は、送信側ドメインのDNSサーバのSPFレコード(またはTXTレコード)に正当なメールサーバのIPアドレスやホスト名を登録し、公開しておく。</li>
+<li>送信側から受信側へ、SMTPメールが送信される。</li>
+<li>受信側メールサーバは、受信側ドメインのDNSサーバを通じて、MAIL FROMコマンドに記載された送信者メールアドレスのドメインを管理するDNSサーバに問い合わせ、SPF情報を取得する。</li>
+<li>SPF情報との照合でSMTP接続してきたメールサーバのIPアドレスの確認に成功すれば、正当なドメインから送信されたと判断する。</li>
+</ol>
+
+<h3 class="relative group">プロキシサーバ 
+    <div id="プロキシサーバ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%82%ad%e3%82%b7%e3%82%b5%e3%83%bc%e3%83%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>クライアントPCの代理としてWebサイトにアクセスする中継サーバ
+利用用途として、「URLフィルタリング」による業務上不要なサイトへの接続禁止などを設定する</p>
+
+<h3 class="relative group">URLフィルタリング 
+    <div id="urlフィルタリング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#url%e3%83%95%e3%82%a3%e3%83%ab%e3%82%bf%e3%83%aa%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>宛先URLをチェックし、許可/禁止リストと照合して通信を検証・フィルタリングする</p>
+
+<h3 class="relative group">IEEE 802.11a/n 
+    <div id="ieee-80211an" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ieee-80211an" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>無線LAN(Wi-Fi)の技術規格</p>
+<ul>
+<li>802.11a:5GHz帯、最大54Mbps</li>
+<li>802.11n:2.4GHz/5GHz両対応、MIMO技術でより高速化</li>
+</ul>
+
+<h3 class="relative group">IEEE 802.1Q 
+    <div id="ieee-8021q" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ieee-8021q" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>タグVLAN(仮想LAN)の技術規格<br>
+<strong>用途</strong>: ネットワークセグメント分離、VLAN間通信制御</p>
+
+<h3 class="relative group">IEEE 802.1X 
+    <div id="ieee-8021x" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ieee-8021x" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>LANに接続する端末の認証規格</p>
+<p><strong>用途</strong>:</p>
+<ul>
+<li>MACアドレス認証</li>
+<li>認証サーバを用いた端末認証</li>
+<li>社内LANへの不正アクセス防止</li>
+</ul>
+<p><strong>実装</strong>: 認証サーバ(RADIUS等)と連携した認証システム</p>
+
+<h3 class="relative group">nslookup 
+    <div id="nslookup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nslookup" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>DNSサーバに名前解決を問い合わせ、結果を確認するコマンド<br>
+<strong>基本形</strong>: <code>nslookup &lt;名前&gt; [DNSサーバ]</code><br>
+<strong>例</strong>: <code>nslookup www.example.com 192.168.11.41</code>\</p>
+<p><strong>用途</strong>:</p>
+<ul>
+<li>DNS名前解決の動作確認</li>
+<li>DNSサーバの応答性能測定</li>
+<li>ドメイン名とIPアドレスの対応関係確認</li>
+</ul>
+<p><strong>類似コマンド</strong>: dig(UNIX系)、host(UNIX系)</p>
+
+<h3 class="relative group">ping 
+    <div id="ping" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ping" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>宛先への到達可否と遅延(往復時間)を確認するコマンド<br>
+<strong>用途</strong>: 基本的な疎通確認</p>
+
+<h3 class="relative group">tracert 
+    <div id="tracert" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tracert" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>宛先までに経由するルータの一覧と遅延を可視化するコマンド<br>
+<strong>用途</strong>: ネットワーク経路の調査</p>
+
+<h3 class="relative group">arp 
+    <div id="arp" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#arp" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPアドレスとMACアドレスの対応表を表示・更新するコマンド<br>
+<strong>用途</strong>: ARPテーブルの確認・操作</p>
+
+<h3 class="relative group">ipconfig 
+    <div id="ipconfig" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ipconfig" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>端末のネットワーク設定の表示・更新するコマンド<br>
+<strong>用途</strong>: ネットワーク設定の確認・変更</p>
+
+<h3 class="relative group">情報セキュリティの3要素(CIA) 
+    <div id="情報セキュリティの3要素cia" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%83%85%e5%a0%b1%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae3%e8%a6%81%e7%b4%a0cia" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>機密性 (Confidentiality)</li>
+<li>完全性 (Integrity)</li>
+<li>可用性 (Availability)</li>
+</ul>
+
+<h3 class="relative group">情報セキュリティの3要素(CIA)：機密性 (Confidentiality) 
+    <div id="情報セキュリティの3要素cia機密性-confidentiality" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%83%85%e5%a0%b1%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae3%e8%a6%81%e7%b4%a0cia%e6%a9%9f%e5%af%86%e6%80%a7-confidentiality" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>認可された者のみが情報にアクセス可能であること<br>
+<strong>脅威</strong>: データ窃取、不正アクセス<br>
+<strong>対策</strong>: アクセス制御、暗号化</p>
+
+<h3 class="relative group">情報セキュリティの3要素(CIA)：完全性 (Integrity) 
+    <div id="情報セキュリティの3要素cia完全性-integrity" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%83%85%e5%a0%b1%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae3%e8%a6%81%e7%b4%a0cia%e5%ae%8c%e5%85%a8%e6%80%a7-integrity" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>情報が破壊・改ざんされていないこと<br>
+<strong>脅威</strong>: データ改ざん、不正な変更<br>
+<strong>対策</strong>: 電子署名、ハッシュ値による検証</p>
+
+<h3 class="relative group">情報セキュリティの3要素(CIA)：可用性 (Availability) 
+    <div id="情報セキュリティの3要素cia可用性-availability" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%83%85%e5%a0%b1%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e3%81%ae3%e8%a6%81%e7%b4%a0cia%e5%8f%af%e7%94%a8%e6%80%a7-availability" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>必要な時に情報にアクセス可能であること<br>
+<strong>脅威</strong>: DoS攻撃、システム障害<br>
+<strong>対策</strong>: 冗長化、負荷分散</p>
+
+<h3 class="relative group">否認防止の特性 
+    <div id="否認防止の特性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%90%a6%e8%aa%8d%e9%98%b2%e6%ad%a2%e3%81%ae%e7%89%b9%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>情報セキュリティマネジメントの付加的な要素で、行った操作や発生した事象を後になって否認されないように証明できる能力
+<strong>補足</strong>: JIS Q 27000:2019(情報セキュリティマネジメントシステム－用語)において定義されている</p>
+
+<h3 class="relative group">CC（Common Criteria：情報セキュリティ国際評価基準） 
+    <div id="cccommon-criteria情報セキュリティ国際評価基準" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cccommon-criteria%e6%83%85%e5%a0%b1%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e5%9b%bd%e9%9a%9b%e8%a9%95%e4%be%a1%e5%9f%ba%e6%ba%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IT製品やシステムのセキュリティ機能を評価し認証するための基準を定めた規格<br>
+ほぼそのままの形でISO 15408(日本版では JIS X 5070)として国際標準化されている。</p>
+
+<h3 class="relative group">耐タンパ性 
+    <div id="耐タンパ性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%80%90%e3%82%bf%e3%83%b3%e3%83%91%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>暗号システムやハードウェアが物理的な不正操作や改ざん(タンパー)に対して耐えられる能力</p>
+
+<h3 class="relative group">境界型防御 
+    <div id="境界型防御" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%a2%83%e7%95%8c%e5%9e%8b%e9%98%b2%e5%be%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>社内ネットワーク(信頼できる)とインターネット(信頼できない)の境界で通信を制御する防御手法<br>
+<strong>実装</strong>: ファイアウォール、IDS/IPS<br>
+<strong>弱点</strong>: 内部犯行、正当な通信を装った攻撃に対応困難</p>
+
+<h3 class="relative group">ゼロトラスト 
+    <div id="ゼロトラスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bc%e3%83%ad%e3%83%88%e3%83%a9%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>「何も信頼しない」を前提とし、全てのアクセス要求に対して厳格な認証と認可を行うセキュリティモデル<br>
+<strong>原則</strong>: いかなる通信も信頼しない<br>
+<strong>適用場面</strong>: クラウド環境、リモートワーク環境</p>
+
+<h3 class="relative group">多層防御 
+    <div id="多層防御" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%a4%9a%e5%b1%a4%e9%98%b2%e5%be%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>複数の対策を組み合わせ、一つの対策が破られても他の対策で攻撃を防ぐ考え方<br>
+<strong>例</strong>:</p>
+<ul>
+<li>ネットワーク層:ファイアウォール、WAF</li>
+<li>アプリケーション層:入力検証、プレースホルダ</li>
+<li>データ層:ハッシュ化、暗号化</li>
+<li>運用層:監視、ログ分析</li>
+</ul>
+
+<h3 class="relative group">CSIRT 
+    <div id="csirt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#csirt" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>対象とする範囲でセキュリティ上の問題が起きていないかどうかを監視するとともに、発生したセキュリティインシデントについて対応するチームや組織の総称</p>
+
+<h3 class="relative group">PSIRT 
+    <div id="psirt" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#psirt" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>製品セキュリティインシデント対応チーム<br>
+<strong>言い換えると</strong>: 自社製品版のCSIRT</p>
+
+<h3 class="relative group">SQLインジェクション 
+    <div id="sqlインジェクション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#sql%e3%82%a4%e3%83%b3%e3%82%b8%e3%82%a7%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Webアプリケーションの入力フィールドに不正なSQL文を挿入し、データベースを不正操作する攻撃<br>
+<strong>影響</strong>: データの窃取、改ざん、削除が可能<br>
+<strong>対策</strong>: プレースホルダ(バインド機構)の使用、入力値検証</p>
+
+<h3 class="relative group">辞書攻撃 
+    <div id="辞書攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%be%9e%e6%9b%b8%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>特定のIDに対して、一般的な単語や頻用されるパスワードをリスト化した「辞書」を用いてログイン試行する攻撃<br>
+<strong>特徴</strong>: IDを固定し、パスワードを総当たりする<br>
+<strong>対策</strong>: アカウントロックアウト、複雑なパスワードポリシー</p>
+
+<h3 class="relative group">ブルートフォース攻撃 
+    <div id="ブルートフォース攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%ab%e3%83%bc%e3%83%88%e3%83%95%e3%82%a9%e3%83%bc%e3%82%b9%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワードを総当たりで試行する攻撃手法<br>
+<strong>特徴</strong>: すべての可能な組み合わせを試行する<br>
+<strong>対策</strong>: アカウントロックアウト、複雑なパスワードポリシー</p>
+
+<h3 class="relative group">リバースブルートフォース攻撃 
+    <div id="リバースブルートフォース攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%aa%e3%83%90%e3%83%bc%e3%82%b9%e3%83%96%e3%83%ab%e3%83%bc%e3%83%88%e3%83%95%e3%82%a9%e3%83%bc%e3%82%b9%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワードを固定し、IDを総当たりする攻撃手法<br>
+<strong>特徴</strong>: 一般的なパスワードを多数のIDに対して試行する<br>
+<strong>対策</strong>: レート制限、異常なアクセスパターンの検知</p>
+
+<h3 class="relative group">レインボーテーブル攻撃 
+    <div id="レインボーテーブル攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ac%e3%82%a4%e3%83%b3%e3%83%9c%e3%83%bc%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>事前に計算したハッシュ値とパスワードの対応表を使用してパスワードを推測する攻撃<br>
+<strong>対象</strong>: ハッシュ化されたパスワードの解析<br>
+<strong>対策</strong>: ソルト、ペッパーの使用</p>
+
+<h3 class="relative group">サプライチェーン攻撃 
+    <div id="サプライチェーン攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%97%e3%83%a9%e3%82%a4%e3%83%81%e3%82%a7%e3%83%bc%e3%83%b3%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>直接の攻撃対象ではなく、関連する業者や取引先を経由して本来の標的にアクセスする攻撃手法<br>
+<strong>特徴</strong>: 信頼関係を悪用し、防御が手薄な経路から侵入する<br>
+<strong>対策</strong>: 取引先のセキュリティ監査、ゼロトラスト原則の適用</p>
+
+<h3 class="relative group">Man-in-the-Browser(MITB)攻撃 
+    <div id="man-in-the-browsermitb攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#man-in-the-browsermitb%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>PCに侵入したマルウェアが，利用者のインターネットバンキングへのログインを<br>
+検知して、Webブラウザから送信される振込先などのデータを改ざんする攻撃</p>
+
+<h3 class="relative group">クリプトジャッキング 
+    <div id="クリプトジャッキング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%82%b8%e3%83%a3%e3%83%83%e3%82%ad%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>マイニング作業（暗号資産を入手するための計算処理）を他のコンピュータに秘密裏に代行させる行為</p>
+
+<h3 class="relative group">PPAP 
+    <div id="ppap" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ppap" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワード付きZIPファイルをメールで送信し、パスワードを別メールで送る方式<br>
+<strong>問題点</strong>: 誤送信時に暗号化ファイルとパスワードが両方とも漏えい、同一経路での盗聴リスクがある<br>
+<strong>対策</strong>: パスワードを電話や携帯メールなど異なる手段で伝達する</p>
+
+<h3 class="relative group">フォールスネガティブ 
+    <div id="フォールスネガティブ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%82%b9%e3%83%8d%e3%82%ac%e3%83%86%e3%82%a3%e3%83%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>本来は検知すべき悪意のある活動を、誤って害のないものとして分類すること。</p>
+<ul>
+<li>自分なりに言い換えると「セキュリティが対象を見逃すこと」</li>
+</ul>
+
+<h3 class="relative group">フォールスポジティブ 
+    <div id="フォールスポジティブ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%82%b9%e3%83%9d%e3%82%b8%e3%83%86%e3%82%a3%e3%83%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>本来は通過させるべき害のない活動を、誤って悪意のあるものとして分類すること。</p>
+<ul>
+<li>自分なりに言い換えると「セキュリティの過剰反応」</li>
+</ul>
+
+<h3 class="relative group">多要素認証 
+    <div id="多要素認証" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%a4%9a%e8%a6%81%e7%b4%a0%e8%aa%8d%e8%a8%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>複数の異なる認証要素を組み合わせる認証方式</p>
+<p><strong>認証3要素</strong>:</p>
+<ul>
+<li>知識情報:ID・パスワード(知っていること)</li>
+<li>所持情報:スマートフォン・ICカード(持っているもの)</li>
+<li>生体情報:指紋・顔認証(自分自身の特性)</li>
+</ul>
+
+<h3 class="relative group">ロックアウトのしきい値 
+    <div id="ロックアウトのしきい値" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%83%83%e3%82%af%e3%82%a2%e3%82%a6%e3%83%88%e3%81%ae%e3%81%97%e3%81%8d%e3%81%84%e5%80%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワード認証に規定回数失敗した際にアカウントを一時的にロックするまでの失敗回数<br>
+<strong>目的</strong>: 辞書攻撃、ブルートフォース攻撃の対策<br>
+<strong>限界</strong>: リバースブルートフォース攻撃(IDを分散させた攻撃)には効果が限定的</p>
+
+<h3 class="relative group">SAML認証（Security Assertion Markup Language） 
+    <div id="saml認証security-assertion-markup-language" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#saml%e8%aa%8d%e8%a8%bcsecurity-assertion-markup-language" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>一度のログインで複数のクラウドサービスやアプリケーションにアクセス可能にする「シングルサインオン(SSO)」を実現するための標準規格</p>
+<p><strong>メリット</strong></p>
+<ul>
+<li>利便性の向上:ユーザーは一度ログインするだけで、SAML連携している複数のサービスに追加のログインなしでアクセスできます。</li>
+<li>セキュリティの強化:IdP側で多要素認証やアクセス制御ポリシーを一元的に設定・管理できるため、全体のセキュリティレベルが向上します。</li>
+<li>管理コストの削減:IT管理者はIdPでアカウント情報を一元管理できるため、サービスごとにIDを発行・管理する手間が省け、運用負荷が軽減されます。</li>
+</ul>
+<p><strong>デメリット</strong></p>
+<ul>
+<li>対応サービスの制約:連携したいクラウドサービス側がSAML認証に対応している必要があります。対応していない場合は、別途開発が必要になることがあります。</li>
+</ul>
+
+<h3 class="relative group">SAML認証の仕組み：SP起点の認証フロー 
+    <div id="saml認証の仕組みsp起点の認証フロー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#saml%e8%aa%8d%e8%a8%bc%e3%81%ae%e4%bb%95%e7%b5%84%e3%81%bfsp%e8%b5%b7%e7%82%b9%e3%81%ae%e8%aa%8d%e8%a8%bc%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>SAML認証の登場人物
+<ul>
+<li>ユーザー: サービスを利用する本人。</li>
+<li>IDプロバイダー (IdP): ユーザーのID情報を管理し、認証を行うサービス(例: Microsoft Entra ID、Oktaなど)</li>
+<li>サービスプロバイダー (SP): ユーザーが利用したいクラウドサービスやアプリケーション(例: Salesforce, Concur, Adobeなど)</li>
+</ul>
+</li>
+<li>SP起点の認証フロー
+<ol>
+<li>ユーザーがSP(例:クラウドサービスA)にアクセスします。</li>
+<li>SPはユーザーが未認証であるため、IdPにリダイレクトさせるための「SAML認証要求」を生成し、ユーザーのブラウザに送り返します。</li>
+<li>ユーザーのブラウザは、受け取ったSAML認証要求をIdPに送信します。</li>
+<li>IdPのログイン画面が表示され、ユーザーはIDとパスワードを入力して認証を行います。</li>
+<li>認証が成功すると、IdPは「SAMLアサーション」と呼ばれるXML形式の認証情報を生成し、ユーザーのブラウザに送ります。</li>
+<li>ユーザーのブラウザは、このSAMLアサーションをSPに送信します。</li>
+<li>SPは受け取ったSAMLアサーションを検証し、正当なユーザーであればログインを許可します。</li>
+</ol>
+</li>
+</ul>
+
+<h3 class="relative group">SAML認証の仕組み：IdP起点の認証フロー 
+    <div id="saml認証の仕組みidp起点の認証フロー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#saml%e8%aa%8d%e8%a8%bc%e3%81%ae%e4%bb%95%e7%b5%84%e3%81%bfidp%e8%b5%b7%e7%82%b9%e3%81%ae%e8%aa%8d%e8%a8%bc%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>
+<p>SAML認証の登場人物</p>
+<ul>
+<li>ユーザー: サービスを利用する本人。</li>
+<li>IDプロバイダー (IdP): ユーザーのID情報を管理し、認証を行うサービス(例: Microsoft Entra ID、Oktaなど)</li>
+<li>サービスプロバイダー (SP): ユーザーが利用したいクラウドサービスやアプリケーション(例: Salesforce, Concur, Adobeなど)</li>
+</ul>
+</li>
+<li>
+<p>IdP起点の認証フロー</p>
+<ol>
+<li>ユーザーはIdPのポータルサイトなどにアクセスし、ログインします。</li>
+<li>ログイン後、IdPの画面に表示されている利用可能なサービス一覧から、利用したいSP(例:クラウドサービスA)を選択します。</li>
+<li>IdPはSAMLアサーションを生成し、ユーザーのブラウザに送ります。</li>
+<li>ユーザーのブラウザは、SAMLアサーションをSPに送信します。</li>
+<li>SPはSAMLアサーションを検証し、ログインを許可します。</li>
+</ol>
+</li>
+</ul>
+
+<h3 class="relative group">SAML認証とOAuthの違い 
+    <div id="saml認証とoauthの違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#saml%e8%aa%8d%e8%a8%bc%e3%81%a8oauth%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>SAMLとよく比較される規格に「OAuth(オーオース)」があります。両者の主な違いは役割</p>
+<ul>
+<li>SAML:ユーザーが誰であるかを証明する「認証」と、そのユーザーに何をする権限があるかを示す「認可」の両方を扱う。</li>
+<li>OAuth:主に「認可」を目的としたプロトコル。例えば、「あるアプリにGoogleアカウントの写真へのアクセスを許可する」といった場面で使われ、ユーザー自身の認証は実施しない。</li>
+</ul>
+
+<h3 class="relative group">3Dセキュア 
+    <div id="3dセキュア" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3d%e3%82%bb%e3%82%ad%e3%83%a5%e3%82%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>オンライン決済時に本人のみが知る情報(パスワードや属性情報等)を入力させることで、利用者本人が取引を行っていることを確認する仕組み</p>
+<p><strong>どうやって3Dセキュアを実現する</strong>？<br>
+事前にカード発行会社に登録したパスワードやワンタイムパスワード、SMS認証、生体認証などで本人確認を行い、不正利用を防ぐ</p>
+<p><strong>名称の由来</strong>: なんで3Dセキュアって呼ぶ？\</p>
+<ul>
+<li>3Dセキュアの「3D」は「3つのドメイン(Domain)」を意味しています。具体的には、
+<ul>
+<li>イシュアドメイン(カード発行会社の領域)</li>
+<li>アクワイアラドメイン(加盟店の領域)</li>
+<li>相互運用ドメイン(これら2つをつなぐ国際カードブランドの領域)</li>
+</ul>
+</li>
+<li>この3つのドメイン間で認証に関わる情報交換の手続きを規定する仕組みであり、「3Dセキュア」と名付けられています</li>
+</ul>
+
+<h3 class="relative group">ハッシュ関数 
+    <div id="ハッシュ関数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8f%e3%83%83%e3%82%b7%e3%83%a5%e9%96%a2%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>任意の長さのデータを固定長の不可逆なデータ(ハッシュ値)に変換する関数<br>
+<strong>特性</strong>: 一方向性(逆算困難)、雪崩効果(わずかな変更で大きく変化)<br>
+<strong>用途</strong>: パスワード保存、デジタル署名、データ完全性確認</p>
+
+<h3 class="relative group">公開鍵暗号 
+    <div id="公開鍵暗号" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%ac%e9%96%8b%e9%8d%b5%e6%9a%97%e5%8f%b7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>基本ルール</strong>:</p>
+<ul>
+<li>署名:送信者の秘密鍵で署名 → 送信者の公開鍵で検証</li>
+<li>暗号化:受信者の公開鍵で暗号化 → 受信者の秘密鍵で復号</li>
+</ul>
+<p><strong>特徴</strong>: 処理速度が遅い<br>
+<strong>用途</strong>: 共通鍵の配送、電子署名\</p>
+
+<h3 class="relative group">共通鍵暗号 
+    <div id="共通鍵暗号" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%b1%e9%80%9a%e9%8d%b5%e6%9a%97%e5%8f%b7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>暗号化と復号に同一の鍵を使用する暗号方式<br>
+<strong>特徴</strong>: 処理速度が速い<br>
+<strong>用途</strong>: 大容量データの暗号化</p>
+
+<h3 class="relative group">ハイブリッド暗号 
+    <div id="ハイブリッド暗号" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8f%e3%82%a4%e3%83%96%e3%83%aa%e3%83%83%e3%83%89%e6%9a%97%e5%8f%b7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>共通鍵暗号と公開鍵暗号を組み合わせた暗号方式<br>
+<strong>仕組み</strong>: データは高速な共通鍵暗号で暗号化し、その共通鍵を公開鍵暗号で保護<br>
+<strong>メリット</strong>: 高速性と安全性の両立</p>
+
+<h3 class="relative group">電子署名 
+    <div id="電子署名" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%9b%bb%e5%ad%90%e7%bd%b2%e5%90%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メッセージの送信者を認証し、内容の改ざんを検知する技術<br>
+<strong>仕組み</strong>: 送信者の秘密鍵で署名、受信者の公開鍵で検証<br>
+<strong>目的</strong>: 認証(誰が送ったか)、完全性(改ざんされていないか)の確保</p>
+
+<h3 class="relative group">S/MIME 
+    <div id="smime" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#smime" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>メールの電子署名と暗号化を行うセキュリティ技術
+<strong>機能</strong>: 認証、完全性、機密性を保証
+<strong>構成要素</strong>: 電子署名、ハイブリッド暗号、電子証明書</p>
+
+<h3 class="relative group">ソルト 
+    <div id="ソルト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bd%e3%83%ab%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワードハッシュ化時にユーザーごとに異なる値を付加する技術<br>
+<strong>目的</strong>: レインボーテーブル攻撃の対策<br>
+<strong>保存場所</strong>: データベースの会員テーブル内</p>
+
+<h3 class="relative group">ペッパー 
+    <div id="ペッパー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%83%e3%83%91%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>パスワードハッシュ化時に全ユーザー共通の秘密値を付加する技術<br>
+<strong>目的</strong>: データベース漏えい時の追加保護<br>
+<strong>保存場所</strong>: 設定ファイルなど、データベースとは別の安全な場所<br>
+<strong>利点</strong>: データベースを窃取されてもペッパーは入手されない</p>
+
+<h3 class="relative group">RSAと楕円曲線の違い 
+    <div id="rsaと楕円曲線の違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rsa%e3%81%a8%e6%a5%95%e5%86%86%e6%9b%b2%e7%b7%9a%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>両者の違い</strong>:</p>
+<ul>
+<li>楕円曲線暗号(ECC)とRSAは、いずれも公開鍵暗号方式ですが、根本的な仕組みと特徴に明確な違いがある。</li>
+<li>RSAは「大きな素数の積の素因数分解が困難」という性質を利用</li>
+<li>楕円曲線暗号(ECC)は「楕円曲線上の離散対数問題が困難」という性質を利用
+<table>
+  <thead>
+      <tr>
+          <th>特徴</th>
+          <th>RSA</th>
+          <th>楕円曲線暗号(ECC)</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>数学的基盤</td>
+          <td>素因数分解の困難さ</td>
+          <td>楕円曲線上の離散対数問題</td>
+      </tr>
+      <tr>
+          <td>鍵サイズ</td>
+          <td>大(2048bit以上推奨)</td>
+          <td>小(256bit程度で高強度)</td>
+      </tr>
+      <tr>
+          <td>計算コスト</td>
+          <td>高い</td>
+          <td>低い</td>
+      </tr>
+      <tr>
+          <td>通信量</td>
+          <td>多い</td>
+          <td>少ない</td>
+      </tr>
+      <tr>
+          <td>普及度</td>
+          <td>歴史長く広く普及</td>
+          <td>近年の新規プロトコルで主流化</td>
+      </tr>
+  </tbody>
+</table>
+</li>
+</ul>
+
+<h3 class="relative group">WPA2(Wi-Fi Protected Access 2) 
+    <div id="wpa2wi-fi-protected-access-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#wpa2wi-fi-protected-access-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>無線LANのセキュリティを保護するための規格</p>
+<ul>
+<li>AESが暗号アルゴリズムとして利用される
+<ul>
+<li>RSAやECCではない理由はAESのほうが処理速度で優れているため。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">CRL（Certificate Revocation List） 
+    <div id="crlcertificate-revocation-list" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#crlcertificate-revocation-list" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>公開鍵基盤(PKI)において失効した(信用性のない)公開鍵証明書のリスト</p>
+
+<h3 class="relative group">プレースホルダ 
+    <div id="プレースホルダ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ac%e3%83%bc%e3%82%b9%e3%83%9b%e3%83%ab%e3%83%80" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>SQLクエリの構造と値を完全に分離する仕組み<br>
+<strong>効果</strong>: SQLインジェクション攻撃を原理的に防ぐ<br>
+<strong>実装</strong>: 外部入力値が埋め込まれる箇所を専用の記号(?など)に置き換える</p>
+
+<h3 class="relative group">SIEM（Security Information and Event Management） 
+    <div id="siemsecurity-information-and-event-management" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#siemsecurity-information-and-event-management" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>様々なIT機器のログを一元的に収集・分析し、セキュリティインシデントの兆候をリアルタイムで検知する仕組み<br>
+<strong>目的</strong>: セキュリティインシデントの発生を迅速に検知する\</p>
+
+<h3 class="relative group">EDR(Endpoint Detection and Response) 
+    <div id="edrendpoint-detection-and-response" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#edrendpoint-detection-and-response" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>PC・サーバ(エンドポイント)での不審な挙動を検知し、インシデント発生後の迅速な対応を支援するソリューション<br>
+<strong>機能</strong>: ネットワーク遮断、不審なプロセス終了<br>
+<strong>対象</strong>: 未知の攻撃による侵入後の対応</p>
+
+<h3 class="relative group">WAF(Web Application Firewall) 
+    <div id="wafweb-application-firewall" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#wafweb-application-firewall" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Webアプリケーションへの攻撃を検知・防御する専用ファイアウォール<br>
+<strong>対象</strong>: SQLインジェクション、XSS等のアプリケーション層攻撃</p>
+
+<h3 class="relative group">デジタルフォレンジックス 
+    <div id="デジタルフォレンジックス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%b8%e3%82%bf%e3%83%ab%e3%83%95%e3%82%a9%e3%83%ac%e3%83%b3%e3%82%b8%e3%83%83%e3%82%af%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>電磁的記録(デジタルデータ)の証拠保全、調査及び分析を行う技術・手続き<br>
+<strong>目的</strong>: サイバー攻撃の原因究明、被害範囲の特定、法的証拠の確保<br>
+<strong>対象</strong>: PC・サーバ内のログ、ファイル等の電子データ<br>
+<strong>補足</strong>: 応用情報技術者試験の情報セキュリティの午後問題にて、たまに記述式の問題で出題されるので覚える</p>
+
+<h3 class="relative group">モジュール結合度 
+    <div id="モジュール結合度" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e7%b5%90%e5%90%88%e5%ba%a6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>モジュール同士の関連性の強さを表す度合い</p>
+<ul>
+<li>モジュール結合度の強弱(1が弱。6が強)
+<ul>
+<li>
+<ol>
+<li>データ結合:データだけ受け渡す</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>スタンプ結合:処理に必要なデータだけをデータ構造として受け渡す</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>制御結合:モジュールの動作を制御するための要素を受け渡す</li>
+</ol>
+</li>
+<li>
+<ol start="4">
+<li>外部結合:大域宣言された単一のデータを複数のモジュールで参照</li>
+</ol>
+</li>
+<li>
+<ol start="5">
+<li>共通結合:大域宣言されたレコードや構造体などのデータ構造を、複数のモジュールが参照</li>
+</ol>
+</li>
+<li>
+<ol start="6">
+<li>内容結合:モジュールの内部を直接参照</li>
+</ol>
+</li>
+<li>
+<p>「データ結合」は頻出</p>
+</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">ペトリネット（Petri Net） 
+    <div id="ペトリネットpetri-net" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%88%e3%83%aa%e3%83%8d%e3%83%83%e3%83%88petri-net" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>プレース、トランジション、トークンの3つの要素を使用した有向グラフでシステムの動作を記述する図法<br>
+<strong>使用例</strong>: 並行する処理同士の制御の流れや同期のタイミングを分析・設計するために使用される。</p>
+
+<h3 class="relative group">OCSP（Online Certificate Status Protocol） 
+    <div id="ocsponline-certificate-status-protocol" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ocsponline-certificate-status-protocol" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>リアルタイムでデジタル証明書の失効情報を検証し、有効性を確認するプロトコル\</p>
+<p><strong>OCSPの確認手順</strong>
+OCSPクライアントは、確認対象となるデジタル証明書のシリアル番号等をOCSPレスポンダに送信し、<br>
+有効性検証の結果を受け取ります。この仕組みを利用することで、クライアント自身がCRL(証明書失効リスト)を取得・検証する手間を省くことができます。</p>
+
+<h3 class="relative group">DNSキャッシュポイズニング攻撃 
+    <div id="dnsキャッシュポイズニング攻撃" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dns%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9d%e3%82%a4%e3%82%ba%e3%83%8b%e3%83%b3%e3%82%b0%e6%94%bb%e6%92%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>DNSサーバーの「キャッシュ」に偽の情報を意図的に注入(ポイズニング＝毒を盛る)することで、<br>
+ユーザーを正規のウェブサイトになりすました悪意のある偽サイトへ誘導するサイバー攻撃</p>
+
+<h3 class="relative group">DNSの基本的な仕組み 
+    <div id="dnsの基本的な仕組み" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dns%e3%81%ae%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e4%bb%95%e7%b5%84%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>DNSの通常処理手順</strong></p>
+<ol>
+<li>ユーザーがブラウザに <code>www.example.com</code> と入力すると、PCは近くのキャッシュDNSサーバー(プロバイダなどが管理)に「<code>www.example.com</code> のIPアドレスは何ですか?」と問い合わせます。</li>
+<li>キャッシュDNSサーバーに答え(キャッシュ)がなければ、目的の情報を管理している権威DNSサーバーに問い合わせに行きます。</li>
+<li>権威DNSサーバーから正しいIPアドレス (<code>93.184.216.34</code>) を受け取ります。</li>
+<li>キャッシュDNSサーバーは、そのIPアドレスを一定期間キャッシュ(一時保存)し、ユーザーに返します。次回同じ問い合わせが来た際は、権威DNSサーバーまで聞きに行かずにキャッシュから素早く応答できます。</li>
+</ol>
+
+<h3 class="relative group">DNSキャッシュポイズニング攻撃の仕組み 
+    <div id="dnsキャッシュポイズニング攻撃の仕組み" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dns%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9d%e3%82%a4%e3%82%ba%e3%83%8b%e3%83%b3%e3%82%b0%e6%94%bb%e6%92%83%e3%81%ae%e4%bb%95%e7%b5%84%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>DNSキャッシュポイズニング攻撃は、上記のステップの<strong>2と3の間</strong>に割り込みます。</p>
+<ol>
+<li>攻撃者は、まず標的となるキャッシュDNSサーバーに、まだキャッシュされていないドメイン名(例: <code>www.victim-bank.com</code>)の問い合わせをさせます。</li>
+<li>キャッシュDNSサーバーが権威DNSサーバーに問い合わせを行っている、ごくわずかな隙を突いて、攻撃者は権威DNSサーバーになりすまし、偽の応答をキャッシュDNSサーバーに送りつけます。</li>
+<li>この偽の応答には、「<code>www.victim-bank.com</code> のIPアドレスは、攻撃者が用意した偽サイトのIPアドレス (<code>10.0.0.99</code>) です」という嘘の情報が含まれています。</li>
+<li>攻撃者は、本物の権威DNSサーバーからの応答よりも先に、かつDNSの通信ルール(トランザクションIDなど)に合った偽の応答を送る必要があります。</li>
+<li>キャッシュDNSサーバーがこの偽の応答を信じてしまうと、偽のIPアドレスをキャッシュに保存してしまいます。</li>
+<li>その後、このキャッシュDNSサーバーを利用している一般のユーザーが <code>www.victim-bank.com</code> にアクセスしようとすると、キャッシュDNSサーバーは汚染されたキャッシュから偽サイトのIPアドレスを返してしまいます。</li>
+<li>ユーザーは、本物の銀行サイトにアクセスしているつもりで、攻撃者が用意したそっくりの偽サイトに誘導され、IDやパスワード、個人情報を盗まれてしまいます。</li>
+</ol>
+<ul>
+<li>被害例
+<ul>
+<li>フィッシング詐欺:偽の銀行サイトやショッピングサイトに誘導し、ログイン情報やクレジットカード情報を盗み取ります。</li>
+<li>マルウェア感染:偽サイトにアクセスしたユーザーに、ウイルスやスパイウェアなどのマルウェアをダウンロードさせます。</li>
+<li>通信の傍受:偽のサーバーを中継させることで、メールなどの通信内容を盗聴します。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">DNSキャッシュポイズニング攻撃への対策 
+    <div id="dnsキャッシュポイズニング攻撃への対策" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dns%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%9d%e3%82%a4%e3%82%ba%e3%83%8b%e3%83%b3%e3%82%b0%e6%94%bb%e6%92%83%e3%81%b8%e3%81%ae%e5%af%be%e7%ad%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>DNSキャッシュポイズニングへの対策は、DNSサーバー管理者側と利用者側の両方で実施する。</p>
+<ul>
+<li>
+<p>サーバー管理者側の対策</p>
+<ul>
+<li>DNSソフトウェアの最新化:既知の脆弱性をなくすため、DNSサーバーのソフトウェアを常に最新の状態に保ちます。</li>
+<li>ソースポートランダマイゼーション
+<ul>
+<li>DNSの問い合わせに使う送信元ポート番号をランダム化し、攻撃者が偽の応答を送り込む際の推測を困難にします。</li>
+</ul>
+</li>
+<li>DNSSEC (DNS Security Extensions) の導入
+<ul>
+<li>DNSの応答に電子署名を付与し、その応答が正当なサーバーから送られ、改ざんされていないことを検証する仕組みです。</li>
+<li>最も効果的な対策の一つとされています。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>利用者側の対策</p>
+<ul>
+<li>信頼できるDNSサービスの利用:ISPが提供するDNSサーバーや、セキュリティ対策が施されたパブリックDNS(例: Google Public DNS <code>8.8.8.8</code>, Cloudflare <code>1.1.1.1</code>)を利用することが推奨されます。</li>
+<li>HTTPSの確認:ウェブサイトを訪れた際、URLが「https://」で始まり、ブラウザのアドレスバーに鍵マークが表示されていることを確認します。DNSキャッシュポイズニングによって偽サイトに誘導されても、攻撃者は正規のSSL/TLS証明書を持つことが困難なため、ブラウザが警告を表示することが多くあります。</li>
+<li>セキュリティソフトの導入:不正なサイトへのアクセスをブロックする機能を持つセキュリティソフトを導入し、常に最新の状態に保ちます。</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">DNSSEC(DNS Security Extensions) 
+    <div id="dnssecdns-security-extensions" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dnssecdns-security-extensions" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>DNSの応答が「正当な管理者から発信され、途中で改ざんされていないこと」を保証するための拡張機能</p>
+<ul>
+<li>DNSに「電子署名」の仕組みを追加することで、DNSの応答に信頼性を与える技術</li>
+</ul>
+
+<h3 class="relative group">DNSSECについて電子署名による応答の保証 
+    <div id="dnssecについて電子署名による応答の保証" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dnssec%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e9%9b%bb%e5%ad%90%e7%bd%b2%e5%90%8d%e3%81%ab%e3%82%88%e3%82%8b%e5%bf%9c%e7%ad%94%e3%81%ae%e4%bf%9d%e8%a8%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>ドメインの管理者(権威DNSサーバーの管理者)は、秘密鍵と公開鍵のペアを作成します。</li>
+<li>管理者は、自分の管理するDNSレコード(例: <a
+  href="https://www.example.com"
+    target="_blank"
+  >www.example.com</a> のIPアドレス情報)に対して、秘密鍵を使って電子署名を作成します。この署名情報はRRSIGレコードとしてDNSに追加されます。</li>
+<li>署名の検証に使う公開鍵は、DNSKEYレコードとしてDNSで公開されます。</li>
+<li>DNSの応答を受け取った側(キャッシュDNSサーバー)は、このDNSKEYレコード(公開鍵)を使って、RRSIGレコード(署名)が正しいかどうかを検証します。</li>
+<li>検証に成功すれば、「このDNSレコードは正当な管理者によって署名され、改ざんされていない」ことが証明されます。</li>
+</ul>
+
+<h3 class="relative group">サニタイジング 
+    <div id="サニタイジング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%8b%e3%82%bf%e3%82%a4%e3%82%b8%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ユーザーが入力したデータや外部から受け取ったデータに含まれる、システムにとって危険な文字列や記号を、無害なものに変換または除去する処理</p>
+
+<h3 class="relative group">ISMAP(政府情報システムのためのセキュリティ評価制度) 
+    <div id="ismap政府情報システムのためのセキュリティ評価制度" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ismap%e6%94%bf%e5%ba%9c%e6%83%85%e5%a0%b1%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e3%81%ae%e3%81%9f%e3%82%81%e3%81%ae%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e8%a9%95%e4%be%a1%e5%88%b6%e5%ba%a6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>国際標準等を踏まえて政府が策定したセキュリティ基準に基づき、各基準が適切に実施されているかを第三者が監査するプロセスを経て、クラウドサービスを登録する国の制度</p>
+
+<h3 class="relative group">IDS(Intrusion Detection System) 
+    <div id="idsintrusion-detection-system" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#idsintrusion-detection-system" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ネットワークやホストをリアルタイムで監視し、異常を検知した場合に管理者に通知するなどの処置を行うシステム</p>
+<ul>
+<li>IDSの種類
+<ul>
+<li>NIDS(Network-Based IDS):ネットワークセグメントに接続しネットワークを流れる通信を監視するIDS</li>
+<li>HIDS(Host-Based IDS):監視対象のサーバ(ホスト)にインストールしてそのサーバで発生するイベントを監視するIDS</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">SBOM(Software Bill Of Materials) 
+    <div id="sbomsoftware-bill-of-materials" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#sbomsoftware-bill-of-materials" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ある製品に含まれるソフトウェアに含まれるすべてのコンポーネントについて、<br>
+それらの名称、バージョン・ビルド情報、ライセンス情報、依存関係、その他関連情報を含めて、機械処理可能なリストにしたもの</p>
+
+<h3 class="relative group">CVE(Common Vulnerabilities and Exposures：共通脆弱性識別子) 
+    <div id="cvecommon-vulnerabilities-and-exposures共通脆弱性識別子" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cvecommon-vulnerabilities-and-exposures%e5%85%b1%e9%80%9a%e8%84%86%e5%bc%b1%e6%80%a7%e8%ad%98%e5%88%a5%e5%ad%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>個別に発見されたコンピューターのソフトウェアやハードウェアの脆弱性(セキュリティ上の欠陥や弱点)に、それぞれ固有の識別番号を割り振るための世界共通の仕組み\</p>
+<p><strong>簡単に言い換えると</strong>: 脆弱性につけられる、ユニークなID番号</p>
+
+<h3 class="relative group">TPM(Trusted Platform Module) 
+    <div id="tpmtrusted-platform-module" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#tpmtrusted-platform-module" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>PCなどの機器に搭載され鍵生成・ハッシュ演算及び暗号処理を行うセキュリティチップ</p>
+
+<h3 class="relative group">システム監査基準 
+    <div id="システム監査基準" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0%e7%9b%a3%e6%9f%bb%e5%9f%ba%e6%ba%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>監査人が従うべき行動規範</p>
+
+<h3 class="relative group">全般統制 
+    <div id="全般統制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%a8%e8%88%ac%e7%b5%b1%e5%88%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>組織や集団全体を対象とした統制</p>
+
+<h3 class="relative group">業務処理統制 
+    <div id="業務処理統制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a5%ad%e5%8b%99%e5%87%a6%e7%90%86%e7%b5%b1%e5%88%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>個々の業務が対象の統制</p>
+
+<h3 class="relative group">帯域幅（R6秋午前問26） 
+    <div id="帯域幅r6秋午前問26" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%b8%af%e5%9f%9f%e5%b9%85r6%e7%a7%8b%e5%8d%88%e5%89%8d%e5%95%8f26" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題</strong></p>
+<ul>
+<li>解像度: 800 × 600 ピクセル</li>
+<li>色深度: 24ビットフルカラー</li>
+<li>フレームレート: 30フレーム/秒</li>
+</ul>
+<p>上記の動画像の配信に最低限必要な帯域幅はいくつか。</p>
+<p><strong>計算</strong></p>
+<ol>
+<li>
+<p><strong>1フレームあたりのデータ量</strong>
+<code>800 × 600 ピクセル × 24 ビット/ピクセル = 11,520,000 ビット = 11.52 Mビット</code></p>
+</li>
+<li>
+<p><strong>1秒あたりのデータ量（帯域幅）</strong>
+<code>11.52 Mビット/フレーム × 30 フレーム/秒 = 345.6 Mビット/秒 (Mbps)</code></p>
+</li>
+</ol>
+<p><strong>答え</strong>
+345.6 Mbps</p>
+
+<h3 class="relative group">色数（H17春午前問22） 
+    <div id="色数h17春午前問22" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%89%b2%e6%95%b0h17%e6%98%a5%e5%8d%88%e5%89%8d%e5%95%8f22" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題</strong>
+あるディスプレイのビデオメモリは、解像度「800 × 600画素」で最大「2^16色」の表示が可能である。このビデオメモリを流用して解像度を「1600 × 1200画素」に変更した場合、表示できる最大の色数はいくつか。</p>
+<p><strong>計算</strong></p>
+<ol>
+<li>
+<p><strong>必要なビデオメモリ容量の計算</strong></p>
+<ul>
+<li>1画素あたりのデータ量: 2^16色を表現するには16ビット（= 2バイト）必要。</li>
+<li>ビデオメモリ容量: <code>800 × 600 画素 × 2 バイト/画素 = 960,000 バイト</code></li>
+</ul>
+</li>
+<li>
+<p><strong>変更後の解像度で1画素あたりに割り当てられるデータ量の計算</strong></p>
+<ul>
+<li>変更後の総画素数: <code>1600 × 1200 画素 = 1,920,000 画素</code></li>
+<li>1画素あたりのデータ量: <code>960,000 バイト / 1,920,000 画素 = 0.5 バイト = 4 ビット</code></li>
+</ul>
+</li>
+<li>
+<p><strong>最大色数の計算</strong>
+4ビットで表現できる色数は <code>2^4</code> 色。</p>
+</li>
+</ol>
+<p><strong>答え</strong>
+2^4色</p>
+
+<h3 class="relative group">音声サンプリング（H18春午前問55） 
+    <div id="音声サンプリングh18春午前問55" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%9f%b3%e5%a3%b0%e3%82%b5%e3%83%b3%e3%83%97%e3%83%aa%e3%83%b3%e3%82%b0h18%e6%98%a5%e5%8d%88%e5%89%8d%e5%95%8f55" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題</strong></p>
+<ul>
+<li>サンプリング周波数: 11,000回/秒</li>
+<li>量子化ビット数: 8ビット</li>
+<li>記録媒体: 32 × 10^6 バイトの容量を持つUSBメモリ</li>
+</ul>
+<p>この条件で、最大何分間の音声を保存できるか。</p>
+<p><strong>計算</strong></p>
+<ol>
+<li>
+<p><strong>1秒あたりのデータ量</strong>
+<code>11,000 回/秒 × 8 ビット/回 = 88,000 ビット/秒</code></p>
+</li>
+<li>
+<p><strong>1分あたりのデータ量（バイト単位）</strong></p>
+<ul>
+<li><code>88,000 ビット/秒 × 60 秒/分 = 5,280,000 ビット/分</code></li>
+<li><code>5,280,000 ビット/分 / 8 ビット/バイト = 660,000 バイト/分</code></li>
+</ul>
+</li>
+<li>
+<p><strong>記録可能な時間（分）</strong>
+<code>32,000,000 バイト / 660,000 バイト/分 ≈ 48.48 分</code></p>
+</li>
+</ol>
+<p><strong>答え</strong>
+最大 <strong>48分</strong></p>
+
+<h3 class="relative group">アローダイアグラムにおける総余裕日数（H31春午前問53） 
+    <div id="アローダイアグラムにおける総余裕日数h31春午前問53" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%ad%e3%83%bc%e3%83%80%e3%82%a4%e3%82%a2%e3%82%b0%e3%83%a9%e3%83%a0%e3%81%ab%e3%81%8a%e3%81%91%e3%82%8b%e7%b7%8f%e4%bd%99%e8%a3%95%e6%97%a5%e6%95%b0h31%e6%98%a5%e5%8d%88%e5%89%8d%e5%95%8f53" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>問題</strong>
+
+
+
+
+
+
+
+<figure>
+      <img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="alt text"
+    srcset="
+      /scraps/ap2025_tech_study_memo/image_hu_f97ad9a087aeb383.png  330w,
+      /scraps/ap2025_tech_study_memo/image_hu_24c0bcbfde30a54d.png  660w,
+      /scraps/ap2025_tech_study_memo/image_hu_e7bcdce184d79019.png 1280w
+    "
+    data-zoom-src="/scraps/ap2025_tech_study_memo/image.png"
+    src="/scraps/ap2025_tech_study_memo/image.png">
+
+  
+</figure>
+</p>
+<blockquote>
+<p>応用情報技術者試験 平成31年春期 午前問53 より引用</p></blockquote>
+<p>上図のアローダイアグラムにおいて、総余裕日数は何日か。</p>
+<p><strong>計算</strong>
+総余裕日数は「その作業の開始をどれだけ遅らせても、プロジェクト全体のスケジュールに影響を与えないか」を示す日数。以下の手順で計算する。</p>
+<ol>
+<li>
+<p><strong>最遅結合点時刻の計算（終点から始点へ）</strong><br>
+B・C・G・H のルート（60日）<br>
+プロジェクトの最短完了日数（クリティカルパス）は <strong>60日</strong></p>
+</li>
+<li>
+<p><strong>最早結合点時刻の計算（始点から終点へ）</strong><br>
+H・D・B（30日）</p>
+</li>
+<li>
+<p><strong>作業Fの総余裕日数の計算</strong>
+<code>総余裕日数 = 最遅結合点時刻 - 最早結合点時刻</code>
+<code>総余裕日数 = 60 - 30 = 30</code></p>
+</li>
+</ol>
+<p><strong>答え</strong><br>
+<strong>30日</strong></p>
+
+<h3 class="relative group">ACID特性 
+    <div id="acid特性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#acid%e7%89%b9%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データベースのトランザクション（SQLなどの処理における最小単位）処理における必要な4つの特性を指す</p>
+<p><strong>Atomicity</strong>（原子性）<br>
+トランザクション内の処理がすべて実行されるか、または全く実行されないことを保証する性質</p>
+<p><strong>Consistency</strong>（一貫性）<br>
+データに矛盾が発生しないことを保証する性質</p>
+<p><strong>Isolation</strong>（独立性）<br>
+複数のトランザクションを同時に実行した場合と，順番に実行した場合の処理結果が一致する性質</p>
+<p><strong>Durability</strong>（耐久性）<br>
+正常に終了したトランザクションの更新結果は，障害が発生してもデータベースから消失しない性質</p>
+
+<h3 class="relative group">キャッシュメモリの実効アクセス時間 
+    <div id="キャッシュメモリの実効アクセス時間" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%a1%e3%83%a2%e3%83%aa%e3%81%ae%e5%ae%9f%e5%8a%b9%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e6%99%82%e9%96%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>キャッシュメモリを利用したときのアクセス時間のことを実行アクセス時間を呼ぶ</p>
+<ul>
+<li>CPUが主記憶記憶とデータをやり取りする際にかかる時間が「アクセス時間」</li>
+</ul>
+<p><strong>実行アクセス時間の計算</strong><br>
+<code>実効アクセス時間 = (キャッシュメモリへのアクセス時間 * ヒット率) + (主記憶装置へのアクセス時間 * (1 - ヒット率))</code></p>
+<p><strong>具体例（応用情報技術者試験_午前問題_平成19年春期_問題18）</strong><br>
+キャッシュメモリのアクセス時間が10ナノ秒，主記憶のアクセス時間が70ナノ秒，キャッシュメモリのヒット率が90%のとき，実効アクセス時間は何ナノ秒か。</p>
+<p><strong>答え</strong><br>
+実効アクセス時間は <code>16ナノ秒</code></p>
+
+<h3 class="relative group">3層スキーマ 
+    <div id="3層スキーマ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3%e5%b1%a4%e3%82%b9%e3%82%ad%e3%83%bc%e3%83%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データベースの構造を「外部」「概念」「内部」の3つの視点（層）に分けて定義する考え方。 各層を独立させることで、一方の変更が他方に影響を与えにくくする。</p>
+<p><strong>構成要素</strong></p>
+<ul>
+<li><strong>外部スキーマ（ビュー）</strong>: ユーザーやアプリケーションから見たデータベースの構造。 必要なデータだけを特定の形式で見せるためのもので、SQLのビュー（VIEW）がこれにあたる。</li>
+<li><strong>概念スキーマ（論理構造）</strong>: データベースに格納されるすべてのデータの論理的な構造や関係性を定義したもの。 開発者視点のスキーマであり、テーブル定義などが該当する。</li>
+<li><strong>内部スキーマ（物理構造）</strong>: データがストレージ（HDDなど）に物理的にどのように格納されるかを定義したもの。 インデックスの設定やデータファイルの配置などが含まれる。</li>
+</ul>
+
+<h3 class="relative group">関係データベース 
+    <div id="関係データベース" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%96%a2%e4%bf%82%e3%83%87%e3%83%bc%e3%82%bf%e3%83%99%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データを「リレーション」と呼ばれる二次元の表（テーブル）の形式で管理するデータベース</p>
+<ul>
+<li><strong>基本概念</strong>:
+<ul>
+<li><strong>リレーション（テーブル）</strong>: 行（タプル）と列（属性）で構成される表形式のデータ集合。</li>
+<li><strong>タプル（行）</strong>: テーブル内の一件分のデータ。レコードとも呼ばれる。</li>
+<li><strong>属性（列）</strong>: データの項目。フィールドやカラムとも呼ばれる。</li>
+<li><strong>主キー</strong>: テーブル内の一つの行を一意に識別するための属性（またはその組み合わせ）。</li>
+<li><strong>外部キー</strong>: 他のテーブルの主キーを参照する属性。テーブル間の関連付けに用いられる。</li>
+</ul>
+</li>
+</ul>
+<p>
+
+
+
+
+
+
+<figure>
+      <img
+    class="my-0 rounded-md"
+    loading="lazy"
+    decoding="async"
+    fetchpriority="low"
+    alt="alt text"
+    srcset="
+      /scraps/ap2025_tech_study_memo/image-1_hu_9fc56438bb379196.png  330w,
+      /scraps/ap2025_tech_study_memo/image-1_hu_6d45ba081364c827.png  660w,
+      /scraps/ap2025_tech_study_memo/image-1_hu_dabbd3a2fdb93cd.png 1280w
+    "
+    data-zoom-src="/scraps/ap2025_tech_study_memo/image-1.png"
+    src="/scraps/ap2025_tech_study_memo/image-1.png">
+
+  
+</figure>
+</p>
+<blockquote>
+<p>引用元：<a
+  href="https://www.sejuku.net/blog/54072"
+    target="_blank"
+  >【SQL入門】外部キーとは？主キーとの関係や作成方法について解説</a></p></blockquote>
+
+<h3 class="relative group">2相コミット 
+    <div id="2相コミット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2%e7%9b%b8%e3%82%b3%e3%83%9f%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ネットワークで接続された複数のデータベース（分散データベース）にまたがるトランザクションの一貫性を保証する仕組み</p>
+<ul>
+<li><strong>フェーズ</strong>:
+<ul>
+<li><strong>準備フェーズ（Phase 1）</strong>: コーディネータが全参加者（各データベース）にコミット可能か問い合わせる。各参加者は処理を実行し、結果（コミット可能か否か）をログに記録して応答する。</li>
+<li><strong>コミットフェーズ（Phase 2）</strong>: 全員から「コミット可能」の応答があれば、コーディネータは全員にコミットを指示。一人でも「不可能」の応答があれば、全員にロールバックを指示する。</li>
+</ul>
+</li>
+<li><strong>参加者</strong>:
+<ul>
+<li><strong>コーディネータ</strong>: トランザクション全体を調整し、コミットかロールバックかを決定する役割。</li>
+<li><strong>パーティシパント</strong>: 各データベースサイトで、トランザクションの一部を実行する役割。</li>
+</ul>
+</li>
+<li><strong>利点と課題</strong>: 分散環境での原子性を確保できる。一方で、準備フェーズで応答不能な参加者がいると、全参加者がその応答を待ち続けるブロッキング状態になる課題がある。</li>
+</ul>
+
+<h3 class="relative group">PKI(Public Key Infrastructure) 
+    <div id="pkipublic-key-infrastructure" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#pkipublic-key-infrastructure" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>公開鍵暗号を安全かつ信頼性の高い形で運用するための基盤となるシステム</p>
+
+<h3 class="relative group">CVSS(Common Vulnerability Scoring System：共通脆弱性評価システム) 
+    <div id="cvsscommon-vulnerability-scoring-system共通脆弱性評価システム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cvsscommon-vulnerability-scoring-system%e5%85%b1%e9%80%9a%e8%84%86%e5%bc%b1%e6%80%a7%e8%a9%95%e4%be%a1%e3%82%b7%e3%82%b9%e3%83%86%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>情報システムの脆弱性に対する標準的な評価方法</p>
+<ul>
+<li><strong>簡単にまとめると？</strong>：脆弱性の危険度を点数（スコア）で表す仕組み</li>
+</ul>
+
+<h3 class="relative group">セキュアOS 
+    <div id="セキュアos" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bb%e3%82%ad%e3%83%a5%e3%82%a2os" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>セキュリティを最優先に考え、不正アクセスやマルウェアによる被害を根本的に防ぐことを目的として設計・構築されたOS</p>
+<ul>
+<li>強制アクセス制御（MAC：Mandatory Access Control）や最小特権という特徴がある。</li>
+</ul>
+
+<h3 class="relative group">SSID(Service Set Identifier) 
+    <div id="ssidservice-set-identifier" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ssidservice-set-identifier" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>最長32オクテットのネットワーク識別子であり，接続するアクセスポイントの選択に用いられる。</p>
+
+<h3 class="relative group">パーセントエンコーディング 
+    <div id="パーセントエンコーディング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%83%bc%e3%82%bb%e3%83%b3%e3%83%88%e3%82%a8%e3%83%b3%e3%82%b3%e3%83%bc%e3%83%87%e3%82%a3%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>一般にURLエンコードと呼ばれ、URLにおいて使用できない文字をURLに記述するために「%」＋16進2桁を組合わせた文字列に変換すること</p>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_scraps/ap2025_tech_study_memo/index.md"
+          data-oid-likes="likes_scraps/ap2025_tech_study_memo/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/scraps/top_10_information_security_threats_2025_for_organizations/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >学習メモ：情報セキュリティ10大脅威 2025（組織編）</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-15T21:22:11&#43;09:00">2025年 9月 15日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/scraps/ap2025_srs_study_memo/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >【応用情報技術者試験】ストラテジ系学習メモ</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-06T07:52:46&#43;09:00">2025年 10月 6日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

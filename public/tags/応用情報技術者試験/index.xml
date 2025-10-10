@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>応用情報技術者試験 on 技術的デジャブ回避メモ帳</title>
+    <link>//localhost:1313/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/</link>
+    <description>Recent content in 応用情報技術者試験 on 技術的デジャブ回避メモ帳</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
+    <webMaster>ptin110825@gmail.com (フミ)</webMaster>
+    <copyright>© 2025 フミ</copyright>
+    <lastBuildDate>Fri, 10 Oct 2025 22:10:07 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>キャッシュメモリのアドレスマッピング方式</title>
+      <link>//localhost:1313/scraps/251010221007_cache_mapping_techniques/</link>
+      <pubDate>Fri, 10 Oct 2025 22:10:07 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010221007_cache_mapping_techniques/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NAND型RSフリップフロップ</title>
+      <link>//localhost:1313/scraps/251010135128_set-reset-flip-flop/</link>
+      <pubDate>Fri, 10 Oct 2025 13:51:28 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010135128_set-reset-flip-flop/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>アドレス指定方法</title>
+      <link>//localhost:1313/scraps/251010115620_address_format/</link>
+      <pubDate>Fri, 10 Oct 2025 11:56:20 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010115620_address_format/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：セキュリティ・信頼性</title>
+      <link>//localhost:1313/scraps/251010091031_ap2025_tech_study_memo_security/</link>
+      <pubDate>Fri, 10 Oct 2025 09:10:31 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010091031_ap2025_tech_study_memo_security/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：ネットワーク</title>
+      <link>//localhost:1313/scraps/251010090659_ap2025_tech_study_memo_network/</link>
+      <pubDate>Fri, 10 Oct 2025 09:06:59 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010090659_ap2025_tech_study_memo_network/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：データベース</title>
+      <link>//localhost:1313/scraps/251010090349_ap2025_tech_study_memo_database/</link>
+      <pubDate>Fri, 10 Oct 2025 09:03:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010090349_ap2025_tech_study_memo_database/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：ソフトウェア（OS・メモリ管理・開発）</title>
+      <link>//localhost:1313/scraps/251010090115_ap2025_tech_study_memo_software/</link>
+      <pubDate>Fri, 10 Oct 2025 09:01:15 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010090115_ap2025_tech_study_memo_software/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：コンピュータシステム</title>
+      <link>//localhost:1313/scraps/251010085820_ap2025_tech_study_memo_computer/</link>
+      <pubDate>Fri, 10 Oct 2025 08:58:20 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010085820_ap2025_tech_study_memo_computer/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：基礎理論</title>
+      <link>//localhost:1313/scraps/251010085550_ap2025_tech_study_memo_fundamental/</link>
+      <pubDate>Fri, 10 Oct 2025 08:55:50 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251010085550_ap2025_tech_study_memo_fundamental/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>DFD（Data Flow Diagram）</title>
+      <link>//localhost:1313/scraps/251007161440_dfd_data_flow_diagram/</link>
+      <pubDate>Tue, 07 Oct 2025 16:14:40 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007161440_dfd_data_flow_diagram/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>UML（Unified Modeling Language）</title>
+      <link>//localhost:1313/scraps/251007154337_uml_unified_modeling_language/</link>
+      <pubDate>Tue, 07 Oct 2025 15:43:37 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007154337_uml_unified_modeling_language/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ホワイトボックステスト（命令網羅・条件網羅など）</title>
+      <link>//localhost:1313/scraps/251007113340_whiteboxtest/</link>
+      <pubDate>Tue, 07 Oct 2025 11:33:40 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007113340_whiteboxtest/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EVM（Earned_Value_Management）</title>
+      <link>//localhost:1313/scraps/251007103450_earned_value_management/</link>
+      <pubDate>Tue, 07 Oct 2025 10:34:50 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007103450_earned_value_management/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>JIS_Q_21500:2018</title>
+      <link>//localhost:1313/scraps/251007101139_jis_q_21500_2018/</link>
+      <pubDate>Tue, 07 Oct 2025 10:11:39 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251007101139_jis_q_21500_2018/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】マネジメント系学習メモ</title>
+      <link>//localhost:1313/scraps/251006075309_ap2025_manage_study_memo/</link>
+      <pubDate>Mon, 06 Oct 2025 07:53:09 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251006075309_ap2025_manage_study_memo/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/251006075309_ap2025_manage_study_memo/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】ストラテジ系学習メモ</title>
+      <link>//localhost:1313/scraps/251006075246_ap2025_srs_study_memo/</link>
+      <pubDate>Mon, 06 Oct 2025 07:52:46 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251006075246_ap2025_srs_study_memo/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/251006075246_ap2025_srs_study_memo/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>【応用情報技術者試験】テクノロジ系学習メモ：マルチメディア</title>
+      <link>//localhost:1313/scraps/251001213539_ap2025_tech_study_memo_multimedia/</link>
+      <pubDate>Wed, 01 Oct 2025 21:35:39 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/scraps/251001213539_ap2025_tech_study_memo_multimedia/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/251001213539_ap2025_tech_study_memo_multimedia/feature.jpg" />
+    </item>
+    
+  </channel>
+</rss>
