@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Darkmode on 技術的デジャブ回避メモ帳</title>
-    <link>/tags/darkmode/</link>
+    <link>//localhost:1313/tags/darkmode/</link>
     <description>Recent content in Darkmode on 技術的デジャブ回避メモ帳</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 11 Sep 2025 20:00:00 +0900</lastBuildDate><atom:link href="/tags/darkmode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 11 Sep 2025 20:00:00 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/darkmode/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Hugo&#43;Blowfish｜ダークモードに固定する設定方法</title>
-      <link>/scraps/250911200000_hugo-blowfish-darkmode-fixed/</link>
+      <link>//localhost:1313/scraps/250911200000_hugo-blowfish-darkmode-fixed/</link>
       <pubDate>Thu, 11 Sep 2025 20:00:00 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/scraps/250911200000_hugo-blowfish-darkmode-fixed/</guid>
+      <guid>//localhost:1313/scraps/250911200000_hugo-blowfish-darkmode-fixed/</guid>
       <description></description>
       
     </item>
