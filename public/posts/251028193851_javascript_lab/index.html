@@ -1,0 +1,1709 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜 &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜 &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta name="keywords" content="javascript,1日1アウトプット,">
+  
+  
+  <link rel="canonical" href="/posts/251028193851_javascript_lab/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.e0f637de92215223af8b86c70d49f3dd16791589801e2e918eaab86a08ddcb4fe740506a2019919ec7c0cdf89d764a37489acf68ab2c1c528690be298f297063.css"
+    integrity="sha512-4PY33pIhUiOvi4bHDUnz3RZ5FYmAHi6Rjqq4agjdy0/nQFBqIBmRnsfAzfiddko3SJrPaKssHFKGkL4pjylwYw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="/posts/251028193851_javascript_lab/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-28T19:38:51+09:00">
+    <meta property="article:modified_time" content="2025-10-28T19:38:51+09:00">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="1日1アウトプット">
+    <meta property="og:image" content="/posts/251028193851_javascript_lab/feature.png">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="/posts/251028193851_javascript_lab/feature.png">
+  <meta name="twitter:title" content="学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+<meta name="twitter:image" content="/posts/251028193851_javascript_lab/feature.png">
+    <meta property="og:image" content="/posts/251028193851_javascript_lab/feature.png">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "投稿記事",
+    "name": "学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜",
+    "headline": "学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/posts\/251028193851_javascript_lab\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-28T19:38:51\u002b09:00",
+    "datePublished": "2025-10-28T19:38:51\u002b09:00",
+    
+    "dateModified": "2025-10-28T19:38:51\u002b09:00",
+    
+    "keywords": ["javascript","1日1アウトプット"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "505"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/posts/251028193851_javascript_lab/feature_hu_81868a80e554ca9a.png);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+
+
+<script type="text/javascript" src="/js/background-blur.min.78ad5090e7c0c2533bac9dd23bdb1f723f834e5c3626627bd31017cc139ce0651b529877862129cee49e380ab2fdcd8baef28ae3e086bc54957fdaa7758775b2.js" integrity="sha512-eK1QkOfAwlM7rJ3SO9sfcj&#43;DTlw2JmJ70xAXzBOc4GUbUph3hiEpzuSeOAqy/c2LrvKK4&#43;CGvFSVf9qndYd1sg==" data-target-id="background-blur"></script>
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-10-28T19:38:51&#43;09:00">2025年 10月 28日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-javascript_lab作成の背景の説明">1. JavaScript_Lab作成の背景の説明</a>
+      <ul>
+        <li><a href="#1日1アウトプットチャレンジとの出会い">1日1アウトプットチャレンジとの出会い</a></li>
+        <li><a href="#現代のjavascriptチュートリアルでの学習">「現代のJavaScriptチュートリアル」での学習</a></li>
+        <li><a href="#セミコロン自動挿入asiの落とし穴">セミコロン自動挿入（ASI）の落とし穴</a></li>
+        <li><a href="#javascript_labの開発">JavaScript_Labの開発</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-javascript_labのサンプル">2. JavaScript_Labのサンプル</a>
+      <ul>
+        <li><a href="#サンプル1-hello-world">サンプル1: Hello World</a></li>
+        <li><a href="#サンプル2-セミコロン問題">サンプル2: セミコロン問題</a></li>
+        <li><a href="#サンプル3-配列操作">サンプル3: 配列操作</a></li>
+        <li><a href="#サンプル4-関数定義">サンプル4: 関数定義</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-サンプル問題と学習メモの照合">3. サンプル問題と学習メモの照合</a>
+      <ul>
+        <li><a href="#サンプル1hello-world--学習メモ21-hello-world">サンプル1「Hello World」 ⇔ 学習メモ「2.1 Hello, world!」</a></li>
+        <li><a href="#サンプル2セミコロン問題--学習メモ22-コード構造">サンプル2「セミコロン問題」 ⇔ 学習メモ「2.2 コード構造」</a></li>
+        <li><a href="#サンプル3配列操作--学習メモ今後学習予定の内容">サンプル3「配列操作」 ⇔ 学習メモ（今後学習予定の内容）</a></li>
+        <li><a href="#サンプル4関数定義--学習メモ今後学習予定の内容">サンプル4「関数定義」 ⇔ 学習メモ（今後学習予定の内容）</a></li>
+        <li><a href="#-学習メモとの相互参照マップ">📝 学習メモとの相互参照マップ</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-まとめ">4. まとめ</a>
+      <ul>
+        <li><a href="#学習の流れ">学習の流れ</a></li>
+        <li><a href="#javascript-labの価値">JavaScript Labの価値</a></li>
+        <li><a href="#学んだこと">学んだこと</a></li>
+        <li><a href="#今後の展開">今後の展開</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-参考リンク">5. 参考リンク</a>
+      <ul>
+        <li><a href="#プロジェクト関連">プロジェクト関連</a></li>
+        <li><a href="#学習リソース">学習リソース</a></li>
+        <li><a href="#アウトプットの着想元">アウトプットの着想元</a></li>
+        <li><a href="#技術リファレンス">技術リファレンス</a></li>
+        <li><a href="#ライセンスクレジット">ライセンス・クレジット</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-javascript_lab作成の背景の説明">1. JavaScript_Lab作成の背景の説明</a>
+      <ul>
+        <li><a href="#1日1アウトプットチャレンジとの出会い">1日1アウトプットチャレンジとの出会い</a></li>
+        <li><a href="#現代のjavascriptチュートリアルでの学習">「現代のJavaScriptチュートリアル」での学習</a></li>
+        <li><a href="#セミコロン自動挿入asiの落とし穴">セミコロン自動挿入（ASI）の落とし穴</a></li>
+        <li><a href="#javascript_labの開発">JavaScript_Labの開発</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-javascript_labのサンプル">2. JavaScript_Labのサンプル</a>
+      <ul>
+        <li><a href="#サンプル1-hello-world">サンプル1: Hello World</a></li>
+        <li><a href="#サンプル2-セミコロン問題">サンプル2: セミコロン問題</a></li>
+        <li><a href="#サンプル3-配列操作">サンプル3: 配列操作</a></li>
+        <li><a href="#サンプル4-関数定義">サンプル4: 関数定義</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-サンプル問題と学習メモの照合">3. サンプル問題と学習メモの照合</a>
+      <ul>
+        <li><a href="#サンプル1hello-world--学習メモ21-hello-world">サンプル1「Hello World」 ⇔ 学習メモ「2.1 Hello, world!」</a></li>
+        <li><a href="#サンプル2セミコロン問題--学習メモ22-コード構造">サンプル2「セミコロン問題」 ⇔ 学習メモ「2.2 コード構造」</a></li>
+        <li><a href="#サンプル3配列操作--学習メモ今後学習予定の内容">サンプル3「配列操作」 ⇔ 学習メモ（今後学習予定の内容）</a></li>
+        <li><a href="#サンプル4関数定義--学習メモ今後学習予定の内容">サンプル4「関数定義」 ⇔ 学習メモ（今後学習予定の内容）</a></li>
+        <li><a href="#-学習メモとの相互参照マップ">📝 学習メモとの相互参照マップ</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-まとめ">4. まとめ</a>
+      <ul>
+        <li><a href="#学習の流れ">学習の流れ</a></li>
+        <li><a href="#javascript-labの価値">JavaScript Labの価値</a></li>
+        <li><a href="#学んだこと">学んだこと</a></li>
+        <li><a href="#今後の展開">今後の展開</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-参考リンク">5. 参考リンク</a>
+      <ul>
+        <li><a href="#プロジェクト関連">プロジェクト関連</a></li>
+        <li><a href="#学習リソース">学習リソース</a></li>
+        <li><a href="#アウトプットの着想元">アウトプットの着想元</a></li>
+        <li><a href="#技術リファレンス">技術リファレンス</a></li>
+        <li><a href="#ライセンスクレジット">ライセンス・クレジット</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">1. JavaScript_Lab作成の背景の説明 
+    <div id="1-javascript_lab作成の背景の説明" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-javascript_lab%e4%bd%9c%e6%88%90%e3%81%ae%e8%83%8c%e6%99%af%e3%81%ae%e8%aa%ac%e6%98%8e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">1日1アウトプットチャレンジとの出会い 
+    <div id="1日1アウトプットチャレンジとの出会い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1%e6%97%a51%e3%82%a2%e3%82%a6%e3%83%88%e3%83%97%e3%83%83%e3%83%88%e3%83%81%e3%83%a3%e3%83%ac%e3%83%b3%e3%82%b8%e3%81%a8%e3%81%ae%e5%87%ba%e4%bc%9a%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><a
+  href="https://note.com/amiotsuka/n/n35ccd06783dc"
+    target="_blank"
+  >100日アウトプット</a>に触発され、「学んだことを形にして残す」という習慣の価値を改めて共感しました。（といっても今回のツールはほぼClaude Codeにより開発されていますが）</p>
+
+<h3 class="relative group">「現代のJavaScriptチュートリアル」での学習 
+    <div id="現代のjavascriptチュートリアルでの学習" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%8f%be%e4%bb%a3%e3%81%aejavascript%e3%83%81%e3%83%a5%e3%83%bc%e3%83%88%e3%83%aa%e3%82%a2%e3%83%ab%e3%81%a7%e3%81%ae%e5%ad%a6%e7%bf%92" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>学習の題材として選んだのは、「<a
+  href="https://ja.javascript.info/"
+    target="_blank"
+  >現代のJavaScriptチュートリアル</a>」です。このチュートリアルは、JavaScriptの基礎から応用まで体系的に学べる優れた教材で、以下の内容を学習しました：</p>
+<p><strong>1. 導入</strong></p>
+<ul>
+<li>1.1 JavaScript入門（エンジンの仕組み、実行環境）</li>
+<li>1.2 マニュアルと仕様（ECMA-262、MDN活用）</li>
+<li>1.3 コードエディタ（エディタの選び方、機能）</li>
+<li>1.4 開発者コンソール（コンソールの使い方、デバッグ）</li>
+</ul>
+<p><strong>2. JavaScript の基礎</strong></p>
+<ul>
+<li>2.1 Hello, world!（scriptタグの基本、外部ファイル、実行方法）</li>
+<li>2.2 <strong>コード構造（セミコロン、文の区切り、コメント）</strong></li>
+</ul>
+<p>特に「2.2 コード構造」で学んだ内容が今回のツールのテーマになっています。</p>
+
+<h3 class="relative group">セミコロン自動挿入（ASI）の落とし穴 
+    <div id="セミコロン自動挿入asiの落とし穴" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bb%e3%83%9f%e3%82%b3%e3%83%ad%e3%83%b3%e8%87%aa%e5%8b%95%e6%8c%bf%e5%85%a5asi%e3%81%ae%e8%90%bd%e3%81%a8%e3%81%97%e7%a9%b4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>JavaScriptには**セミコロン自動挿入（Automatic Semicolon Insertion: ASI）**という仕組みがあります。これは改行を暗黙のセミコロンとして解釈する機能ですが、実は落とし穴があります。</p>
+<p>例えば、以下のようなコードは意図しない動作を引き起こします：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// ❌ エラーが発生
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>)
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>].<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num</span>))
+</span></span></code></pre></div><p>このコードは、JavaScriptエンジンによって以下のように解釈されてしまいます：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;Hello&#34;</span>)[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>].<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num</span>))
+</span></span></code></pre></div><p><code>alert()</code> の戻り値（<code>undefined</code>）に対して配列アクセスを試みるため、意図しない動作になってしまうのです。</p>
+<p><strong>この問題を体験的に理解できるツールがあれば、もっと理解できるのでは？</strong>
+というの今回のツールの出発点です。</p>
+
+<h3 class="relative group">JavaScript_Labの開発 
+    <div id="javascript_labの開発" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#javascript_lab%e3%81%ae%e9%96%8b%e7%99%ba" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>アウトプットの形として、以下の2つの機能を統合したWebアプリ「JavaScript Lab」を開発することにしました：</p>
+<ol>
+<li><strong>JavaScript Playground</strong> - コードをその場で実行できる環境</li>
+<li><strong>JavaScript Code Structure Visualizer</strong> - コード構造を解析し、セミコロンの問題を検出するツール</li>
+</ol>
+<p>開発にあたっては、Claude Codeの力を借りて実装を進めました。約2-3時間で、CodeMirrorとAcornを統合した本格的な学習支援ツールが完成しました。</p>
+<p>完成したツールは、GitHubで公開しています：
+<div class="github-card-wrapper"><a id="github-005b49edb14c2fffb4ad5460ab19efc9" target="_blank" href="https://github.com/mr110825/JavaScript_Lab" class="cursor-pointer">
+      <div
+        class="w-full md:w-auto p-0 m-0 border border-neutral-200 dark:border-neutral-700 border rounded-md shadow-2xl"><div class="w-full nozoom">
+            <img
+              src="https://opengraph.githubassets.com/0/mr110825/JavaScript_Lab"
+              alt="GitHub Repository Thumbnail"
+              class="nozoom mt-0 mb-0 w-full h-full object-cover">
+          </div><div class="w-full md:w-auto pt-3 p-5">
+          <div class="flex items-center">
+            <span class="text-2xl text-neutral-800 dark:text-neutral mr-[10px]">
+              
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+
+  </span>
+
+
+            </span>
+            <div
+              id="github-005b49edb14c2fffb4ad5460ab19efc9-full_name"
+              class="m-0 font-bold text-xl text-neutral-800 decoration-primary-500 hover:underline hover:underline-offset-2 dark:text-neutral">
+              mr110825/JavaScript_Lab
+            </div>
+          </div>
+
+          <p id="github-005b49edb14c2fffb4ad5460ab19efc9-description" class="m-0 mt-2 text-md text-neutral-800 dark:text-neutral">
+            JavaScriptコードの実行と構造解析を同時に行える学習支援ツール
+          </p>
+
+          <div class="m-0 mt-2 flex items-center">
+            
+            
+            <span
+              class="mr-1 inline-block h-3 w-3 rounded-full background-color-686155af75a60a0f6e9d80c1f7edd3e9"></span>
+            <div class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+              JavaScript
+            </div>
+
+            <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
+              
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="currentColor" d="M287.9 0C297.1 0 305.5 5.25 309.5 13.52L378.1 154.8L531.4 177.5C540.4 178.8 547.8 185.1 550.7 193.7C553.5 202.4 551.2 211.9 544.8 218.2L433.6 328.4L459.9 483.9C461.4 492.9 457.7 502.1 450.2 507.4C442.8 512.7 432.1 513.4 424.9 509.1L287.9 435.9L150.1 509.1C142.9 513.4 133.1 512.7 125.6 507.4C118.2 502.1 114.5 492.9 115.1 483.9L142.2 328.4L31.11 218.2C24.65 211.9 22.36 202.4 25.2 193.7C28.03 185.1 35.5 178.8 44.49 177.5L197.7 154.8L266.3 13.52C270.4 5.249 278.7 0 287.9 0L287.9 0zM287.9 78.95L235.4 187.2C231.9 194.3 225.1 199.3 217.3 200.5L98.98 217.9L184.9 303C190.4 308.5 192.9 316.4 191.6 324.1L171.4 443.7L276.6 387.5C283.7 383.7 292.2 383.7 299.2 387.5L404.4 443.7L384.2 324.1C382.9 316.4 385.5 308.5 391 303L476.9 217.9L358.6 200.5C350.7 199.3 343.9 194.3 340.5 187.2L287.9 78.95z"/></svg>
+  </span>
+
+
+            </span>
+            <div id="github-005b49edb14c2fffb4ad5460ab19efc9-stargazers" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+              0
+            </div>
+
+            <span class="text-md mr-1 text-neutral-800 dark:text-neutral">
+              
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M80 104c13.3 0 24-10.7 24-24s-10.7-24-24-24S56 66.7 56 80s10.7 24 24 24zm80-24c0 32.8-19.7 61-48 73.3V192c0 17.7 14.3 32 32 32H304c17.7 0 32-14.3 32-32V153.3C307.7 141 288 112.8 288 80c0-44.2 35.8-80 80-80s80 35.8 80 80c0 32.8-19.7 61-48 73.3V192c0 53-43 96-96 96H256v70.7c28.3 12.3 48 40.5 48 73.3c0 44.2-35.8 80-80 80s-80-35.8-80-80c0-32.8 19.7-61 48-73.3V288H144c-53 0-96-43-96-96V153.3C19.7 141 0 112.8 0 80C0 35.8 35.8 0 80 0s80 35.8 80 80zm208 24c13.3 0 24-10.7 24-24s-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24zM248 432c0-13.3-10.7-24-24-24s-24 10.7-24 24s10.7 24 24 24s24-10.7 24-24z"/></svg>
+  </span>
+
+
+            </span>
+            <div id="github-005b49edb14c2fffb4ad5460ab19efc9-forks" class="m-0 mr-5 text-md text-neutral-800 dark:text-neutral">
+              0
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      
+      <script
+        async
+        type="text/javascript"
+        src="/js/fetch-repo.min.44b885f79fea551b2049e9be9ca41b840614ec4aad399936bf666c88998f1494a6de637470104319338fe5fd24022acfbc60ff019481ae5cf70492e32c8428a8.js"
+        integrity="sha512-RLiF95/qVRsgSem&#43;nKQbhAYU7EqtOZk2v2ZsiJmPFJSm3mN0cBBDGTOP5f0kAirPvGD/AZSBrlz3BJLjLIQoqA=="
+        data-repo-url="https://api.github.com/repos/mr110825/JavaScript_Lab"
+        data-repo-id="github-005b49edb14c2fffb4ad5460ab19efc9"></script>
+    </a></div>
+</p>
+
+<h2 class="relative group">2. JavaScript_Labのサンプル 
+    <div id="2-javascript_labのサンプル" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-javascript_lab%e3%81%ae%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>JavaScript Labには、学習に役立つ4つのサンプル問題が用意されています。ドロップダウンメニューから選択するだけで、コードエディタに自動的に読み込まれます。</p>
+
+<h3 class="relative group">サンプル1: Hello World 
+    <div id="サンプル1-hello-world" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab1-hello-world" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>最もシンプルな例です。JavaScriptの基本である<code>console.log()</code>を使ってメッセージを出力します。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// Hello World の例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;Hello, World!&#39;</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;JavaScriptへようこそ！&#39;</span>);
+</span></span></code></pre></div><p><strong>学習ポイント</strong>:</p>
+<ul>
+<li><code>console.log()</code> の基本的な使い方</li>
+<li>文字列リテラルの書き方</li>
+<li>複数の文を実行する流れ</li>
+</ul>
+
+<h3 class="relative group">サンプル2: セミコロン問題 
+    <div id="サンプル2-セミコロン問題" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab2-%e3%82%bb%e3%83%9f%e3%82%b3%e3%83%ad%e3%83%b3%e5%95%8f%e9%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>最も重要なサンプル</strong>です。セミコロン自動挿入（ASI）の落とし穴を実際に体験できます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// セミコロン問題の例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// ⚠️ この例は意図しない動作を引き起こす可能性があります
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;エラーが発生する例&#34;</span>)
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>].<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num</span>))
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👆 上記は以下のように解釈されます:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// alert(&#34;エラーが発生する例&#34;)[1, 2, 3].forEach(...)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 正しい書き方:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;正しい例&#34;</span>);
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>].<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">num</span>));
+</span></span></code></pre></div><p><strong>学習ポイント</strong>:</p>
+<ul>
+<li>セミコロンがないと、次の行の <code>[</code> が配列アクセスと解釈される</li>
+<li>JavaScript Labの「Semicolon Analysis」タブで警告が表示される</li>
+<li>なぜセミコロンを書くべきか、実例で理解できる</li>
+</ul>
+
+<h3 class="relative group">サンプル3: 配列操作 
+    <div id="サンプル3-配列操作" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab3-%e9%85%8d%e5%88%97%e6%93%8d%e4%bd%9c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>JavaScriptの配列メソッド（<code>forEach</code>, <code>map</code>, <code>filter</code>）の使い方を学べます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 配列操作の例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">numbers</span> <span style="color:#f92672">=</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// forEachで各要素を処理
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">num</span> =&gt; {
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;数値:&#39;</span>, <span style="color:#a6e22e">num</span>);
+</span></span><span style="display:flex;"><span>});
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// mapで新しい配列を作成
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">doubled</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">map</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">num</span> <span style="color:#f92672">*</span> <span style="color:#ae81ff">2</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;2倍:&#39;</span>, <span style="color:#a6e22e">doubled</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// filterで条件に合う要素を抽出
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">evens</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">numbers</span>.<span style="color:#a6e22e">filter</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">num</span> <span style="color:#f92672">%</span> <span style="color:#ae81ff">2</span> <span style="color:#f92672">===</span> <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;偶数:&#39;</span>, <span style="color:#a6e22e">evens</span>);
+</span></span></code></pre></div><p><strong>学習ポイント</strong>:</p>
+<ul>
+<li><code>forEach</code>: 各要素に対して処理を実行</li>
+<li><code>map</code>: 各要素を変換して新しい配列を作成</li>
+<li><code>filter</code>: 条件に合う要素だけを抽出</li>
+<li>アロー関数の書き方</li>
+</ul>
+
+<h3 class="relative group">サンプル4: 関数定義 
+    <div id="サンプル4-関数定義" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab4-%e9%96%a2%e6%95%b0%e5%ae%9a%e7%be%a9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>JavaScriptにおける様々な関数定義の方法を学べます。</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// 関数定義の例
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 関数宣言
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">greet</span>(<span style="color:#a6e22e">name</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#e6db74">`こんにちは、</span><span style="color:#e6db74">${</span><span style="color:#a6e22e">name</span><span style="color:#e6db74">}</span><span style="color:#e6db74">さん！`</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 関数を呼び出し
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#a6e22e">greet</span>(<span style="color:#e6db74">&#39;太郎&#39;</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// アロー関数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">add</span> <span style="color:#f92672">=</span> (<span style="color:#a6e22e">a</span>, <span style="color:#a6e22e">b</span>) =&gt; <span style="color:#a6e22e">a</span> <span style="color:#f92672">+</span> <span style="color:#a6e22e">b</span>;
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">&#39;3 + 5 =&#39;</span>, <span style="color:#a6e22e">add</span>(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">5</span>));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 高階関数
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">repeat</span>(<span style="color:#a6e22e">fn</span>, <span style="color:#a6e22e">times</span>) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">let</span> <span style="color:#a6e22e">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; <span style="color:#a6e22e">i</span> <span style="color:#f92672">&lt;</span> <span style="color:#a6e22e">times</span>; <span style="color:#a6e22e">i</span><span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#a6e22e">fn</span>(<span style="color:#a6e22e">i</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#a6e22e">repeat</span>(<span style="color:#a6e22e">num</span> =&gt; <span style="color:#a6e22e">console</span>.<span style="color:#a6e22e">log</span>(<span style="color:#e6db74">`実行 </span><span style="color:#e6db74">${</span><span style="color:#a6e22e">num</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#e6db74">}</span><span style="color:#e6db74">回目`</span>), <span style="color:#ae81ff">3</span>);
+</span></span></code></pre></div><p><strong>学習ポイント</strong>:</p>
+<ul>
+<li><strong>関数宣言</strong>: <code>function</code> キーワードを使った定義</li>
+<li><strong>アロー関数</strong>: <code>=&gt;</code> を使った簡潔な書き方</li>
+<li><strong>高階関数</strong>: 関数を引数として受け取る関数</li>
+<li><strong>テンプレート文字列</strong>: バッククォート <code>`</code> と <code>${}</code> を使った文字列補間</li>
+</ul>
+
+<h2 class="relative group">3. サンプル問題と学習メモの照合 
+    <div id="3-サンプル問題と学習メモの照合" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab%e5%95%8f%e9%a1%8c%e3%81%a8%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a2%e3%81%ae%e7%85%a7%e5%90%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>JavaScript Labの4つのサンプル問題は、「現代のJavaScriptチュートリアル」の学習内容を実践的に体験できるように設計されています。ここでは、各サンプルがどの学習内容と対応しているかを整理します。</p>
+
+<h3 class="relative group">サンプル1「Hello World」 ⇔ 学習メモ「2.1 Hello, world!」 
+    <div id="サンプル1hello-world--学習メモ21-hello-world" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab1hello-world--%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a221-hello-world" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>学習内容</strong>:</p>
+<ul>
+<li>JavaScriptの基本的な実行方法</li>
+<li><code>console.log()</code> の使い方</li>
+<li>scriptタグの基本、外部ファイルの読み込み</li>
+</ul>
+<p><strong>JavaScript Labでの体験</strong>:</p>
+<ul>
+<li>ブラウザ上で即座にコードを実行</li>
+<li><code>console.log()</code> の出力を確認</li>
+<li>開発者ツールを開かなくても、画面上で結果が見られる</li>
+</ul>
+<p><strong>学びの深化</strong>:
+初心者が最初に書くシンプルなコードですが、JavaScript Labでは「Structure View」タブでコードの構造を確認でき、文がどのように認識されているかを視覚的に理解できます。</p>
+<hr>
+
+<h3 class="relative group">サンプル2「セミコロン問題」 ⇔ 学習メモ「2.2 コード構造」 
+    <div id="サンプル2セミコロン問題--学習メモ22-コード構造" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab2%e3%82%bb%e3%83%9f%e3%82%b3%e3%83%ad%e3%83%b3%e5%95%8f%e9%a1%8c--%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a222-%e3%82%b3%e3%83%bc%e3%83%89%e6%a7%8b%e9%80%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>学習内容（学習メモより）</strong>:</p>
+<ul>
+<li><strong>セミコロンの仕組み</strong>: 改行を暗黙のセミコロンとして解釈（自動セミコロン挿入: ASI）</li>
+<li><strong>自動挿入されないケース</strong>: 角括弧 <code>[</code> で始まる行の前には挿入されない</li>
+<li><strong>実例</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-javascript" data-lang="javascript"><span style="display:flex;"><span><span style="color:#75715e">// ❌ エラーが発生
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#a6e22e">alert</span>(<span style="color:#e6db74">&#34;There will be an error&#34;</span>)
+</span></span><span style="display:flex;"><span>[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>].<span style="color:#a6e22e">forEach</span>(<span style="color:#a6e22e">alert</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// エンジンは以下のように解釈
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// alert(&#34;There will be an error&#34;)[1, 2].forEach(alert)
+</span></span></span></code></pre></div></li>
+</ul>
+<p><strong>JavaScript Labでの体験</strong>:</p>
+<ol>
+<li><strong>実行結果パネル</strong>: エラーが発生することを確認</li>
+<li><strong>Semicolon Analysisタブ</strong>:
+<ul>
+<li>セミコロンなしの行を検出</li>
+<li>次の行が <code>[</code> で始まる場合に警告を表示</li>
+<li>「セミコロンを追加してください」という修正提案</li>
+</ul>
+</li>
+<li><strong>ASTタブ</strong>: コードがどう解釈されているかを抽象構文木で確認</li>
+</ol>
+<p><strong>学びの深化</strong>:
+学習メモで理論を学び、JavaScript Labで実際に体験することで、「なぜセミコロンを書くべきなのか」を腹落ちレベルで理解できます。</p>
+<hr>
+
+<h3 class="relative group">サンプル3「配列操作」 ⇔ 学習メモ（今後学習予定の内容） 
+    <div id="サンプル3配列操作--学習メモ今後学習予定の内容" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab3%e9%85%8d%e5%88%97%e6%93%8d%e4%bd%9c--%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a2%e4%bb%8a%e5%be%8c%e5%ad%a6%e7%bf%92%e4%ba%88%e5%ae%9a%e3%81%ae%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>想定される学習内容</strong>:</p>
+<ul>
+<li>配列の基本操作</li>
+<li><code>forEach</code>, <code>map</code>, <code>filter</code> などの高階関数</li>
+<li>アロー関数の書き方</li>
+</ul>
+<p><strong>JavaScript Labでの体験</strong>:</p>
+<ul>
+<li>各メソッドの動作を実際に確認</li>
+<li><code>console.log()</code> で段階的な処理結果を確認</li>
+<li>実行時間も計測されるため、パフォーマンスの違いも意識できる</li>
+</ul>
+<p><strong>学びの深化</strong>:
+配列メソッドは「読むだけ」では理解しづらいですが、実際に動かすことで、各メソッドの違いや使い分けが明確になります。</p>
+<hr>
+
+<h3 class="relative group">サンプル4「関数定義」 ⇔ 学習メモ（今後学習予定の内容） 
+    <div id="サンプル4関数定義--学習メモ今後学習予定の内容" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%b3%e3%83%97%e3%83%ab4%e9%96%a2%e6%95%b0%e5%ae%9a%e7%be%a9--%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a2%e4%bb%8a%e5%be%8c%e5%ad%a6%e7%bf%92%e4%ba%88%e5%ae%9a%e3%81%ae%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>想定される学習内容</strong>:</p>
+<ul>
+<li>関数宣言とアロー関数の違い</li>
+<li>高階関数の概念</li>
+<li>テンプレート文字列の使い方</li>
+</ul>
+<p><strong>JavaScript Labでの体験</strong>:</p>
+<ul>
+<li>異なる関数定義方法の動作を比較</li>
+<li>高階関数がどのように動くかを確認</li>
+<li>テンプレート文字列による柔軟な文字列生成を体験</li>
+</ul>
+<p><strong>学びの深化</strong>:
+関数は、JavaScriptの中心的な概念です。実際に書いて動かすことで、それぞれの書き方の特徴や使いどころが体感的に分かります。</p>
+<hr>
+
+<h3 class="relative group">📝 学習メモとの相互参照マップ 
+    <div id="-学習メモとの相互参照マップ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e5%ad%a6%e7%bf%92%e3%83%a1%e3%83%a2%e3%81%a8%e3%81%ae%e7%9b%b8%e4%ba%92%e5%8f%82%e7%85%a7%e3%83%9e%e3%83%83%e3%83%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>JavaScript Lab サンプル</th>
+          <th>学習メモの該当箇所</th>
+          <th>学習の重点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Hello World</td>
+          <td>2.1 Hello, world!</td>
+          <td>JavaScriptの基本実行</td>
+      </tr>
+      <tr>
+          <td><strong>セミコロン問題</strong></td>
+          <td><strong>2.2 コード構造</strong></td>
+          <td><strong>ASIの落とし穴（最重要）</strong></td>
+      </tr>
+      <tr>
+          <td>配列操作</td>
+          <td>(今後学習予定)</td>
+          <td>配列メソッド、アロー関数</td>
+      </tr>
+      <tr>
+          <td>関数定義</td>
+          <td>(今後学習予定)</td>
+          <td>関数の定義方法、高階関数</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>最も重要な対応関係</strong>: 「セミコロン問題」サンプルと学習メモ「2.2 コード構造」です。この組み合わせにより、理論と実践が完全に結びつき、深い理解が得られます。</p>
+
+<h2 class="relative group">4. まとめ 
+    <div id="4-まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>このメモでは、「1日1アウトプット」チャレンジの一環として作成した<strong>JavaScript Lab</strong>について、その背景から実装内容まで詳しく記録しました。</p>
+
+<h3 class="relative group">学習の流れ 
+    <div id="学習の流れ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e3%81%ae%e6%b5%81%e3%82%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>インプット</strong>: 「現代のJavaScriptチュートリアル」でJavaScriptの基礎を学習</li>
+<li><strong>気づき</strong>: セミコロン自動挿入（ASI）の落とし穴に興味を持つ</li>
+<li><strong>アイデア</strong>: 学習内容を体験できるツールを作りたい</li>
+<li><strong>実装</strong>: Claude Codeと協力して、約2-3時間でWebアプリを完成</li>
+<li><strong>アウトプット</strong>: GitHubで公開、ブログ記事として発信</li>
+</ol>
+
+<h3 class="relative group">JavaScript Labの価値 
+    <div id="javascript-labの価値" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#javascript-lab%e3%81%ae%e4%be%a1%e5%80%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>JavaScript Labは、単なる「コードを実行するツール」ではありません。以下の3つの価値を提供します：</p>
+<ol>
+<li><strong>体験的学習</strong>: 理論を読むだけでなく、実際に動かして理解を深める</li>
+<li><strong>可視化</strong>: コード構造やAST（抽象構文木）を視覚的に確認できる</li>
+<li><strong>問題発見</strong>: セミコロンの問題を自動検出し、修正提案を表示</li>
+</ol>
+<p>特に<strong>セミコロン自動挿入の落とし穴</strong>については、学習メモで理論を学び、JavaScript Labで実践することで、「なぜセミコロンを書くべきなのか」を深く理解できました。</p>
+
+<h3 class="relative group">学んだこと 
+    <div id="学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">技術面 
+    <div id="技術面" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8a%80%e8%a1%93%e9%9d%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>CodeMirrorを使ったエディタの統合</li>
+<li>Acornパーサーによる構文解析</li>
+<li>カスタムコンソールによる出力キャプチャ</li>
+<li>モジュール分割によるコード設計</li>
+</ul>
+
+<h4 class="relative group">学習姿勢 
+    <div id="学習姿勢" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e5%a7%bf%e5%8b%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><strong>アウトプット駆動学習</strong>の効果を実感</li>
+<li>「作りながら学ぶ」ことで、理解が格段に深まる</li>
+<li>ツールを使って学習内容を形にすることで、記憶に残りやすい</li>
+</ul>
+
+<h3 class="relative group">今後の展開 
+    <div id="今後の展開" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%8a%e5%be%8c%e3%81%ae%e5%b1%95%e9%96%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>このアウトプットをきっかけに、以下のような展開が考えられます：</p>
+<ol>
+<li><strong>ブログ記事として公開</strong>: より多くの学習者に役立ててもらう</li>
+<li><strong>機能拡張</strong>: ローカルストレージでのコード保存、より詳細なエラー解説など</li>
+<li><strong>継続的な学習</strong>: 「現代のJavaScriptチュートリアル」を進めて、新しいサンプル問題を追加</li>
+</ol>
+<p>「1日1アウトプット」の実践により、学習が一方通行ではなく、循環するサイクルになることを実感しました。今後もこのスタイルを継続していきたいと思います。</p>
+<hr>
+
+<h2 class="relative group">5. 参考リンク 
+    <div id="5-参考リンク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e5%8f%82%e8%80%83%e3%83%aa%e3%83%b3%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">プロジェクト関連 
+    <div id="プロジェクト関連" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e9%96%a2%e9%80%a3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>GitHub リポジトリ</strong>: <a
+  href="https://github.com/mr110825/JavaScript_Lab"
+    target="_blank"
+  >JavaScript_Lab</a></li>
+</ul>
+
+<h3 class="relative group">学習リソース 
+    <div id="学習リソース" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>現代のJavaScriptチュートリアル</strong>: <a
+  href="https://ja.javascript.info/"
+    target="_blank"
+  >https://ja.javascript.info/</a></li>
+</ul>
+
+<h3 class="relative group">アウトプットの着想元 
+    <div id="アウトプットの着想元" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%82%a6%e3%83%88%e3%83%97%e3%83%83%e3%83%88%e3%81%ae%e7%9d%80%e6%83%b3%e5%85%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>100日アウトプット</strong>: <a
+  href="https://note.com/amiotsuka/n/n35ccd06783dc"
+    target="_blank"
+  >https://note.com/amiotsuka/n/n35ccd06783dc</a></li>
+</ul>
+
+<h3 class="relative group">技術リファレンス 
+    <div id="技術リファレンス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8a%80%e8%a1%93%e3%83%aa%e3%83%95%e3%82%a1%e3%83%ac%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>CodeMirror</strong>: <a
+  href="https://codemirror.net/5/"
+    target="_blank"
+  >https://codemirror.net/5/</a>
+<ul>
+<li>JavaScriptエディタライブラリ</li>
+</ul>
+</li>
+<li><strong>Acorn</strong>: <a
+  href="https://github.com/acornjs/acorn"
+    target="_blank"
+  >https://github.com/acornjs/acorn</a>
+<ul>
+<li>JavaScriptパーサー（AST生成）</li>
+</ul>
+</li>
+<li><strong>MDN JavaScript リファレンス</strong>: <a
+  href="https://developer.mozilla.org/ja/docs/Web/JavaScript"
+    target="_blank"
+  >https://developer.mozilla.org/ja/docs/Web/JavaScript</a>
+<ul>
+<li>公式ドキュメント</li>
+</ul>
+</li>
+</ul>
+
+<h3 class="relative group">ライセンス・クレジット 
+    <div id="ライセンスクレジット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a9%e3%82%a4%e3%82%bb%e3%83%b3%e3%82%b9%e3%82%af%e3%83%ac%e3%82%b8%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>この記事は以下のリソースを参考に作成した個人的な記事です。</p>
+<ul>
+<li><strong>参考元:</strong> <a
+  href="https://ja.javascript.info/getting-started"
+    target="_blank"
+  >現代のJavaScriptチュートリアル</a></li>
+<li><strong>元サイト:</strong> <a
+  href="https://javascript.info"
+    target="_blank"
+  >javascript.info</a></li>
+<li><strong>ライセンス:</strong> <a
+  href="https://creativecommons.org/licenses/by-nc-sa/4.0/"
+    target="_blank"
+  >CC BY-NC-SA 4.0</a></li>
+</ul>
+<p>この記事も同じCC BY-NC-SA 4.0ライセンスで公開しています。</p>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251028193851_javaScript_lab/index.md"
+          data-oid-likes="likes_posts/251028193851_javaScript_lab/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Hugo+Blowfishで構築したサイトをGoogle検索に表示させる手順</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-09-06T12:54:32&#43;09:00">2025年 9月 6日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
