@@ -3,19 +3,31 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/posts/251028193851_javascript_lab/</loc>
-    <lastmod>2025-10-28T19:38:51+09:00</lastmod>
+    <loc>//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/</loc>
+    <lastmod>2025-10-30T21:44:04+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
-    <lastmod>2025-10-28T19:38:51+09:00</lastmod>
+    <lastmod>2025-10-30T21:44:04+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/posts/</loc>
+    <lastmod>2025-10-30T21:44:04+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/</loc>
+    <lastmod>2025-10-30T21:43:55+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251028193851_javascript_lab/</loc>
     <lastmod>2025-10-28T19:38:51+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

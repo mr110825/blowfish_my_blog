@@ -1,0 +1,1964 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造 &middot; 技術的デジャブ回避メモ帳</title>
+    <meta name="title" content="IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造 &middot; 技術的デジャブ回避メモ帳">
+
+  
+  <meta name="description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta name="keywords" content="IPアドレス,ICMP,">
+  
+  
+  <link rel="canonical" href="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.e0f637de92215223af8b86c70d49f3dd16791589801e2e918eaab86a08ddcb4fe740506a2019919ec7c0cdf89d764a37489acf68ab2c1c528690be298f297063.css"
+    integrity="sha512-4PY33pIhUiOvi4bHDUnz3RZ5FYmAHi6Rjqq4agjdy0/nQFBqIBmRnsfAzfiddko3SJrPaKssHFKGkL4pjylwYw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.98bb8ce8f123e03c4d2171eeec151dd404b5c476beb5ef1068d0e8b1a2afb923065e6552fc14b2d867c85ee4bd8529a43193f729f874d3908517ba03b5d1cc57.js"
+      integrity="sha512-mLuM6PEj4DxNIXHu7BUd1AS1xHa&#43;te8QaNDosaKvuSMGXmVS/BSy2GfIXuS9hSmkMZP3Kfh005CFF7oDtdHMVw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/">
+  <meta property="og:site_name" content="技術的デジャブ回避メモ帳">
+  <meta property="og:title" content="IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造">
+  <meta property="og:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-10-30T21:43:55+09:00">
+    <meta property="article:modified_time" content="2025-10-30T21:43:55+09:00">
+    <meta property="article:tag" content="IPアドレス">
+    <meta property="article:tag" content="ICMP">
+    <meta property="og:image" content="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg">
+
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg">
+  <meta name="twitter:title" content="IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造">
+  <meta name="twitter:description" content="SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。">
+<meta name="twitter:image" content="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg">
+    <meta property="og:image" content="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg">
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "投稿記事",
+    "name": "IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造",
+    "headline": "IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/posts\/251030214355_ip_address_and_icmp_deep_dive_01\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-10-30T21:43:55\u002b09:00",
+    "datePublished": "2025-10-30T21:43:55\u002b09:00",
+    
+    "dateModified": "2025-10-30T21:43:55\u002b09:00",
+    
+    "keywords": ["IPアドレス","ICMP"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "536"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          技術的デジャブ回避メモ帳
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="投稿記事">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/scraps/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="スクラップ">
+    Scraps
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="Tags">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="投稿記事">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/scraps/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="スクラップ">
+      Scraps
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="Tags">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+
+
+
+
+    
+    <div class="fixed inset-x-0 top-0 h-[800px] single_hero_background nozoom"
+    style="background-image:url(/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature_hu_1451db390027c91.jpg);">
+    
+
+
+    <div class="absolute inset-0 bg-gradient-to-t from-neutral dark:from-neutral-800 to-transparent mix-blend-normal">
+    </div>
+    <div
+        class="absolute inset-0 opacity-60 bg-gradient-to-t from-neutral dark:from-neutral-800 to-neutral-100 dark:to-neutral-800 mix-blend-normal">
+    </div>
+</div>
+
+<div id="background-blur" class="fixed opacity-0 inset-x-0 top-0 h-full single_hero_background nozoom backdrop-blur-2xl"></div>
+
+
+<script type="text/javascript" src="/js/background-blur.min.78ad5090e7c0c2533bac9dd23bdb1f723f834e5c3626627bd31017cc139ce0651b529877862129cee49e380ab2fdcd8baef28ae3e086bc54957fdaa7758775b2.js" integrity="sha512-eK1QkOfAwlM7rJ3SO9sfcj&#43;DTlw2JmJ70xAXzBOc4GUbUph3hiEpzuSeOAqy/c2LrvKK4&#43;CGvFSVf9qndYd1sg==" data-target-id="background-blur"></script>
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-10-30T21:43:55&#43;09:00">2025年 10月 30日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-この文書で学べること">📌 この文書で学べること</a></li>
+    <li><a href="#1-ipアドレスの基礎">1. IPアドレスの基礎</a>
+      <ul>
+        <li><a href="#ipアドレスとは">IPアドレスとは</a></li>
+        <li><a href="#ネットワーク層での位置づけ">ネットワーク層での位置づけ</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-ipv4とipv6">2. IPv4とIPv6</a>
+      <ul>
+        <li><a href="#ipv4">IPv4</a></li>
+        <li><a href="#ipv6">IPv6</a></li>
+        <li><a href="#進数についての補足">進数についての補足</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-ipアドレスの種類グローバルとプライベート">3. IPアドレスの種類：グローバルとプライベート</a>
+      <ul>
+        <li><a href="#概要">概要</a></li>
+        <li><a href="#プライベートipアドレスの範囲">プライベートIPアドレスの範囲</a></li>
+        <li><a href="#ネットワーク構成のイメージ">ネットワーク構成のイメージ</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-ipアドレスの内部構造">4. IPアドレスの内部構造</a>
+      <ul>
+        <li><a href="#ネットワーク部とホスト部">ネットワーク部とホスト部</a></li>
+        <li><a href="#クラス分類クラスフルアドレス">クラス分類（クラスフルアドレス）</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-サブネット化とcidr表記">5. サブネット化とCIDR表記</a>
+      <ul>
+        <li><a href="#サブネット化の必要性">サブネット化の必要性</a></li>
+        <li><a href="#サブネットマスク">サブネットマスク</a></li>
+        <li><a href="#cidr表記プレフィックス">CIDR表記（プレフィックス）</a></li>
+        <li><a href="#実践例サブネット分割">実践例：サブネット分割</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-ルーターの役割">6. ルーターの役割</a>
+      <ul>
+        <li><a href="#ルーターとは">ルーターとは</a></li>
+        <li><a href="#ルーティングテーブル">ルーティングテーブル</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-ipアドレス確認方法">7. IPアドレス確認方法</a>
+      <ul>
+        <li><a href="#コマンド例">コマンド例</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-ループバックアドレス">8. ループバックアドレス</a></li>
+    <li><a href="#9-まとめ">9. まとめ</a>
+      <ul>
+        <li><a href="#重要ポイント">重要ポイント</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-この文書で学べること">📌 この文書で学べること</a></li>
+    <li><a href="#1-ipアドレスの基礎">1. IPアドレスの基礎</a>
+      <ul>
+        <li><a href="#ipアドレスとは">IPアドレスとは</a></li>
+        <li><a href="#ネットワーク層での位置づけ">ネットワーク層での位置づけ</a></li>
+      </ul>
+    </li>
+    <li><a href="#2-ipv4とipv6">2. IPv4とIPv6</a>
+      <ul>
+        <li><a href="#ipv4">IPv4</a></li>
+        <li><a href="#ipv6">IPv6</a></li>
+        <li><a href="#進数についての補足">進数についての補足</a></li>
+      </ul>
+    </li>
+    <li><a href="#3-ipアドレスの種類グローバルとプライベート">3. IPアドレスの種類：グローバルとプライベート</a>
+      <ul>
+        <li><a href="#概要">概要</a></li>
+        <li><a href="#プライベートipアドレスの範囲">プライベートIPアドレスの範囲</a></li>
+        <li><a href="#ネットワーク構成のイメージ">ネットワーク構成のイメージ</a></li>
+      </ul>
+    </li>
+    <li><a href="#4-ipアドレスの内部構造">4. IPアドレスの内部構造</a>
+      <ul>
+        <li><a href="#ネットワーク部とホスト部">ネットワーク部とホスト部</a></li>
+        <li><a href="#クラス分類クラスフルアドレス">クラス分類（クラスフルアドレス）</a></li>
+      </ul>
+    </li>
+    <li><a href="#5-サブネット化とcidr表記">5. サブネット化とCIDR表記</a>
+      <ul>
+        <li><a href="#サブネット化の必要性">サブネット化の必要性</a></li>
+        <li><a href="#サブネットマスク">サブネットマスク</a></li>
+        <li><a href="#cidr表記プレフィックス">CIDR表記（プレフィックス）</a></li>
+        <li><a href="#実践例サブネット分割">実践例：サブネット分割</a></li>
+      </ul>
+    </li>
+    <li><a href="#6-ルーターの役割">6. ルーターの役割</a>
+      <ul>
+        <li><a href="#ルーターとは">ルーターとは</a></li>
+        <li><a href="#ルーティングテーブル">ルーティングテーブル</a></li>
+      </ul>
+    </li>
+    <li><a href="#7-ipアドレス確認方法">7. IPアドレス確認方法</a>
+      <ul>
+        <li><a href="#コマンド例">コマンド例</a></li>
+      </ul>
+    </li>
+    <li><a href="#8-ループバックアドレス">8. ループバックアドレス</a></li>
+    <li><a href="#9-まとめ">9. まとめ</a>
+      <ul>
+        <li><a href="#重要ポイント">重要ポイント</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h1 class="relative group">IPアドレスの基礎と構造 
+    <div id="ipアドレスの基礎と構造" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%ae%e5%9f%ba%e7%a4%8e%e3%81%a8%e6%a7%8b%e9%80%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h1>
+
+<h2 class="relative group">📌 この文書で学べること 
+    <div id="-この文書で学べること" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%81%93%e3%81%ae%e6%96%87%e6%9b%b8%e3%81%a7%e5%ad%a6%e3%81%b9%e3%82%8b%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>IPアドレスの基本概念とネットワーク層での位置づけ</li>
+<li>IPv4/IPv6の構造と特徴</li>
+<li>グローバルIPとプライベートIPの違いと使い分け</li>
+<li>IPアドレスの内部構造（ネットワーク部/ホスト部、クラス分類）</li>
+<li>サブネット化とCIDR表記の実践的な理解</li>
+<li>ルーターの役割とIPアドレスの実践的な確認方法</li>
+</ul>
+<hr>
+
+<h2 class="relative group">1. IPアドレスの基礎 
+    <div id="1-ipアドレスの基礎" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%ae%e5%9f%ba%e7%a4%8e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">IPアドレスとは 
+    <div id="ipアドレスとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPアドレスは、ネットワーク上の機器を識別するための <strong>インターネット上の住所</strong> のようなものです。</p>
+<p><strong>役割</strong>：</p>
+<ul>
+<li>データ通信の送信元・送信先を識別</li>
+<li>ルーターがデータを正しい宛先に届けるための情報</li>
+<li>ネットワーク構成を論理的に管理</li>
+</ul>
+<p><strong>重要な特性</strong>：</p>
+<ul>
+<li>IPアドレスはNIC（ネットワークインターフェイスカード）に割り当てられる</li>
+<li>1台のコンピューターが<strong>複数のIPアドレス</strong>を持つことは可能</li>
+<li>同一ネットワーク内でIPアドレスは重複不可</li>
+</ul>
+
+<h3 class="relative group">ネットワーク層での位置づけ 
+    <div id="ネットワーク層での位置づけ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e5%b1%a4%e3%81%a7%e3%81%ae%e4%bd%8d%e7%bd%ae%e3%81%a5%e3%81%91" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPアドレスは、OSI参照モデルの <strong>第3層（ネットワーク層）</strong> で動作します。
+ネットワーク層では異なるネットワーク間の通信を実現します。</p>
+<p><strong>ネットワーク層の機能</strong>：</p>
+<ul>
+<li>パケットのルーティング（経路選択）</li>
+<li>論理アドレス（IPアドレス）の管理</li>
+<li>ネットワーク間の相互接続</li>
+</ul>
+<p><strong>現代のネットワーク層で使用される主要プロトコル</strong>：</p>
+<ul>
+<li><strong>IP (Internet Protocol)</strong>: データのやり取りに使用</li>
+<li><strong>ICMP (Internet Control Message Protocol)</strong>: トラブルシューティング（ping、traceroute等）に使用</li>
+</ul>
+<hr>
+
+<h2 class="relative group">2. IPv4とIPv6 
+    <div id="2-ipv4とipv6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-ipv4%e3%81%a8ipv6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">IPv4 
+    <div id="ipv4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ipv4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>形式</strong>：</p>
+<pre tabindex="0"><code>192.168.1.1
+</code></pre><p><strong>特徴</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>詳細</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>構成</strong></td>
+          <td>4つのオクテット（0〜255の数字）をドット（.）で区切る</td>
+      </tr>
+      <tr>
+          <td><strong>ビット数</strong></td>
+          <td>32ビット（4バイト）</td>
+      </tr>
+      <tr>
+          <td><strong>表現形式</strong></td>
+          <td>10進数表記（内部は2進数）</td>
+      </tr>
+      <tr>
+          <td><strong>例</strong></td>
+          <td><code>192.168.21.22</code>, <code>10.0.0.1</code></td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>2進数との対応</strong>：</p>
+<pre tabindex="0"><code>192.168.1.1 （10進数）
+↓
+11000000.10101000.00000001.00000001 （2進数）
+</code></pre><p>各オクテットは8ビット（0〜255）であり、4つで32ビットを構成します。</p>
+
+<h3 class="relative group">IPv6 
+    <div id="ipv6" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ipv6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>形式</strong>：</p>
+<pre tabindex="0"><code>2001:0db8:85a3:0000:0000:8a2e:0370:7334
+</code></pre><p><strong>特徴</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>詳細</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>構成</strong></td>
+          <td>8つのブロック（16進数）をコロン（:）で区切る</td>
+      </tr>
+      <tr>
+          <td><strong>ビット数</strong></td>
+          <td>128ビット（16バイト）</td>
+      </tr>
+      <tr>
+          <td><strong>表現形式</strong></td>
+          <td>16進数表記</td>
+      </tr>
+      <tr>
+          <td><strong>省略記法</strong></td>
+          <td>連続する0000は<code>::</code>で省略可能</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>省略例</strong>：</p>
+<pre tabindex="0"><code>2001:0db8:0000:0000:0000:0000:0000:0001
+↓
+2001:db8::1
+</code></pre>
+<h3 class="relative group">進数についての補足 
+    <div id="進数についての補足" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%80%b2%e6%95%b0%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6%e3%81%ae%e8%a3%9c%e8%b6%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>進数</th>
+          <th>使用文字</th>
+          <th>基数</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>2進数</strong></td>
+          <td>0, 1</td>
+          <td>2</td>
+          <td>コンピューター内部表現、IPv4内部</td>
+      </tr>
+      <tr>
+          <td><strong>10進数</strong></td>
+          <td>0〜9</td>
+          <td>10</td>
+          <td>日常生活、IPv4表記</td>
+      </tr>
+      <tr>
+          <td><strong>16進数</strong></td>
+          <td>0〜9, A〜F</td>
+          <td>16</td>
+          <td>IPv6表記、MACアドレス</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">3. IPアドレスの種類：グローバルとプライベート 
+    <div id="3-ipアドレスの種類グローバルとプライベート" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%ae%e7%a8%ae%e9%a1%9e%e3%82%b0%e3%83%ad%e3%83%bc%e3%83%90%e3%83%ab%e3%81%a8%e3%83%97%e3%83%a9%e3%82%a4%e3%83%99%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">概要 
+    <div id="概要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a6%82%e8%a6%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPアドレスは<strong>使用される場所</strong>によって2種類に分類されます。
+WANかLANで分かれるイメージです。</p>
+<table>
+  <thead>
+      <tr>
+          <th>特徴</th>
+          <th>グローバルIP（WAN）</th>
+          <th>プライベートIP（LAN）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>用途</strong></td>
+          <td>インターネット通信</td>
+          <td>組織内ネットワーク</td>
+      </tr>
+      <tr>
+          <td><strong>一意性</strong></td>
+          <td>インターネット上で唯一</td>
+          <td>ネットワーク内で唯一（他ネットワークと重複可）</td>
+      </tr>
+      <tr>
+          <td><strong>接続性</strong></td>
+          <td>インターネット直接接続</td>
+          <td>インターネット直接接続不可</td>
+      </tr>
+      <tr>
+          <td><strong>割り当て</strong></td>
+          <td>ISPからレンタル（動的）</td>
+          <td>ネットワーク管理者が設定</td>
+      </tr>
+      <tr>
+          <td><strong>管理団体</strong></td>
+          <td>IANA, APNIC, JPNICなど</td>
+          <td>各組織が独自管理</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">プライベートIPアドレスの範囲 
+    <div id="プライベートipアドレスの範囲" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%a9%e3%82%a4%e3%83%99%e3%83%bc%e3%83%88ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%ae%e7%af%84%e5%9b%b2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>プライベートIPアドレスとして使用できる範囲は<strong>RFC 1918</strong>で厳密に規定されています。
+この範囲外のプライベートIPを使用すると通信が正常に動作しません。</p>
+<table>
+  <thead>
+      <tr>
+          <th>クラス</th>
+          <th>IPアドレス範囲</th>
+          <th>ネットワーク数</th>
+          <th>ホスト数/ネットワーク</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>クラスA</strong></td>
+          <td><code>10.0.0.0</code> 〜 <code>10.255.255.255</code></td>
+          <td>1個</td>
+          <td>約1677万</td>
+          <td>大規模ネットワーク</td>
+      </tr>
+      <tr>
+          <td><strong>クラスB</strong></td>
+          <td><code>172.16.0.0</code> 〜 <code>172.31.255.255</code></td>
+          <td>16個</td>
+          <td>約65,000</td>
+          <td>中規模ネットワーク</td>
+      </tr>
+      <tr>
+          <td><strong>クラスC</strong></td>
+          <td><code>192.168.0.0</code> 〜 <code>192.168.255.255</code></td>
+          <td>256個</td>
+          <td>254</td>
+          <td>小規模ネットワーク（家庭・小企業）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">ネットワーク構成のイメージ 
+    <div id="ネットワーク構成のイメージ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e6%a7%8b%e6%88%90%e3%81%ae%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="ネットワーク構成のイメージ" src="IP%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9%E6%B7%B1%E6%8E%98%E3%82%8A%E6%A7%8B%E6%88%90%E5%9B%B3.drawio.png">
+
+  
+</figure>
+</p>
+<hr>
+
+<h2 class="relative group">4. IPアドレスの内部構造 
+    <div id="4-ipアドレスの内部構造" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e3%81%ae%e5%86%85%e9%83%a8%e6%a7%8b%e9%80%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">ネットワーク部とホスト部 
+    <div id="ネットワーク部とホスト部" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8d%e3%83%83%e3%83%88%e3%83%af%e3%83%bc%e3%82%af%e9%83%a8%e3%81%a8%e3%83%9b%e3%82%b9%e3%83%88%e9%83%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPアドレスは<strong>2つの部分</strong>に分かれています。</p>
+<pre tabindex="0"><code>192.168.   1.   10
+  ↑        ↑    ↑
+ネットワーク部  ホスト部
+</code></pre><table>
+  <thead>
+      <tr>
+          <th>部分</th>
+          <th>役割</th>
+          <th>例え</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>ネットワーク部</strong></td>
+          <td>どのネットワークに属するか</td>
+          <td>郵便番号・都道府県</td>
+      </tr>
+      <tr>
+          <td><strong>ホスト部</strong></td>
+          <td>ネットワーク内のどの機器か</td>
+          <td>番地・建物名</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">クラス分類（クラスフルアドレス） 
+    <div id="クラス分類クラスフルアドレス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%a9%e3%82%b9%e5%88%86%e9%a1%9e%e3%82%af%e3%83%a9%e3%82%b9%e3%83%95%e3%83%ab%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>IPv4をクラスA・B・Cに分類します。</p>
+<table>
+  <thead>
+      <tr>
+          <th>クラス</th>
+          <th>先頭ビット</th>
+          <th>ネットワーク部</th>
+          <th>ホスト部</th>
+          <th>ネットワーク数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>A</strong></td>
+          <td>0</td>
+          <td>8ビット</td>
+          <td>24ビット</td>
+          <td>126個</td>
+      </tr>
+      <tr>
+          <td><strong>B</strong></td>
+          <td>10</td>
+          <td>16ビット</td>
+          <td>16ビット</td>
+          <td>約16,000個</td>
+      </tr>
+      <tr>
+          <td><strong>C</strong></td>
+          <td>110</td>
+          <td>24ビット</td>
+          <td>8ビット</td>
+          <td>約200万個</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>アドレス範囲</strong>：</p>
+<ul>
+<li>クラスA: <code>1.0.0.0</code> 〜 <code>126.255.255.255</code></li>
+<li>クラスB: <code>128.0.0.0</code> 〜 <code>191.255.255.255</code></li>
+<li>クラスC: <code>192.0.0.0</code> 〜 <code>223.255.255.255</code></li>
+</ul>
+<hr>
+
+<h2 class="relative group">5. サブネット化とCIDR表記 
+    <div id="5-サブネット化とcidr表記" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e5%8c%96%e3%81%a8cidr%e8%a1%a8%e8%a8%98" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">サブネット化の必要性 
+    <div id="サブネット化の必要性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e5%8c%96%e3%81%ae%e5%bf%85%e8%a6%81%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>クラスフルアドレスでは、ネットワークサイズを柔軟に調整できませんでしたが、
+サブネット化により、<strong>ネットワークをより細かく分割</strong>できるようになりました。</p>
+
+<h3 class="relative group">サブネットマスク 
+    <div id="サブネットマスク" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e3%83%9e%e3%82%b9%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>サブネットマスクは、<strong>ネットワーク部とホスト部の境界</strong> を定義します。</p>
+<p><strong>仕組み</strong>：</p>
+<ul>
+<li>2進数で「1」が連続する部分がネットワーク部</li>
+<li>「0」の部分がホスト部</li>
+</ul>
+<p><strong>例</strong>：</p>
+<pre tabindex="0"><code>IPアドレス:        192.168.1.10
+サブネットマスク:   255.255.255.0
+
+2進数表記:
+IPアドレス:        11000000.10101000.00000001.00001010
+サブネットマスク:   11111111.11111111.11111111.00000000
+                  ネットワーク部（24ビット）  ホスト部（8ビット）
+</code></pre>
+<h3 class="relative group">CIDR表記（プレフィックス） 
+    <div id="cidr表記プレフィックス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cidr%e8%a1%a8%e8%a8%98%e3%83%97%e3%83%ac%e3%83%95%e3%82%a3%e3%83%83%e3%82%af%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>サブネットマスクを簡潔に表現する方法です。</p>
+<p><strong>形式</strong>：</p>
+<pre tabindex="0"><code>192.168.1.0/24
+</code></pre><p><code>/24</code>は「先頭24ビットがネットワーク部」を意味します。</p>
+<p><strong>CIDR表記とサブネットマスクの対応</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>CIDR</th>
+          <th>サブネットマスク</th>
+          <th>ネットワーク部</th>
+          <th>ホスト部</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>/8</td>
+          <td>255.0.0.0</td>
+          <td>8ビット</td>
+          <td>24ビット</td>
+      </tr>
+      <tr>
+          <td>/16</td>
+          <td>255.255.0.0</td>
+          <td>16ビット</td>
+          <td>16ビット</td>
+      </tr>
+      <tr>
+          <td>/24</td>
+          <td>255.255.255.0</td>
+          <td>24ビット</td>
+          <td>8ビット</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>利用可能ホスト数の計算</strong>：</p>
+<pre tabindex="0"><code>2^(ホスト部ビット数) - 2
+</code></pre><p>※ -2する理由：</p>
+<ul>
+<li>ネットワークアドレス（ホスト部が全て0）</li>
+<li>ブロードキャストアドレス（ホスト部が全て1）</li>
+</ul>
+
+<h3 class="relative group">実践例：サブネット分割 
+    <div id="実践例サブネット分割" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5%e4%be%8b%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e5%88%86%e5%89%b2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>シナリオ</strong>：
+<code>192.168.1.0/24</code>のネットワークを4つのサブネットに分割する</p>
+<p><strong>計算</strong>：</p>
+<ul>
+<li>4つのサブネット → 2² = 4 → 2ビット必要</li>
+<li>元の/24に2ビット追加 → /26</li>
+</ul>
+<p><strong>結果</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>サブネット</th>
+          <th>ネットワークアドレス</th>
+          <th>範囲</th>
+          <th>ブロードキャスト</th>
+          <th>利用可能ホスト数</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>192.168.1.0/26</td>
+          <td>192.168.1.1 〜 192.168.1.62</td>
+          <td>192.168.1.63</td>
+          <td>62</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>192.168.1.64/26</td>
+          <td>192.168.1.65 〜 192.168.1.126</td>
+          <td>192.168.1.127</td>
+          <td>62</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>192.168.1.128/26</td>
+          <td>192.168.1.129 〜 192.168.1.190</td>
+          <td>192.168.1.191</td>
+          <td>62</td>
+      </tr>
+      <tr>
+          <td>4</td>
+          <td>192.168.1.192/26</td>
+          <td>192.168.1.193 〜 192.168.1.254</td>
+          <td>192.168.1.255</td>
+          <td>62</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">6. ルーターの役割 
+    <div id="6-ルーターの役割" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#6-%e3%83%ab%e3%83%bc%e3%82%bf%e3%83%bc%e3%81%ae%e5%bd%b9%e5%89%b2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">ルーターとは 
+    <div id="ルーターとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ab%e3%83%bc%e3%82%bf%e3%83%bc%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ネットワーク層で動作し、<strong>パケットを適切な宛先に転送</strong>する機器です。</p>
+<p><strong>主な機能</strong>：</p>
+<ul>
+<li>パケットのルーティング（経路選択）</li>
+<li>異なるネットワーク間の接続</li>
+<li>NAT/NAPTによるアドレス変換</li>
+<li>ファイアウォール機能</li>
+</ul>
+
+<h3 class="relative group">ルーティングテーブル 
+    <div id="ルーティングテーブル" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ab%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ルーターは <strong>ルーティングテーブル（ルートテーブル）</strong> を参照してパケットの転送先を決定します。</p>
+<p><strong>ルーティングテーブルの例</strong>：</p>
+<table>
+  <thead>
+      <tr>
+          <th>宛先ネットワーク</th>
+          <th>サブネットマスク</th>
+          <th>ゲートウェイ</th>
+          <th>インターフェース</th>
+          <th>メトリック</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0.0.0.0</td>
+          <td>0.0.0.0</td>
+          <td>192.168.1.1</td>
+          <td>eth0</td>
+          <td>1</td>
+      </tr>
+      <tr>
+          <td>192.168.1.0</td>
+          <td>255.255.255.0</td>
+          <td>0.0.0.0</td>
+          <td>eth0</td>
+          <td>0</td>
+      </tr>
+      <tr>
+          <td>10.0.0.0</td>
+          <td>255.0.0.0</td>
+          <td>192.168.1.254</td>
+          <td>eth0</td>
+          <td>10</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>読み方</strong>：</p>
+<ul>
+<li><code>0.0.0.0/0</code>：デフォルトゲートウェイ（該当しない全ての宛先）</li>
+<li><code>192.168.1.0/24</code>：直接接続されたネットワーク</li>
+<li><code>10.0.0.0/8</code>：別のルーター経由でアクセス</li>
+</ul>
+<p><strong>動作の流れ</strong>：</p>
+<ol>
+<li>パケットの宛先IPアドレスを確認</li>
+<li>ルーティングテーブルで最も一致する経路を検索（ロンゲストマッチ）</li>
+<li>該当するゲートウェイ/インターフェースに転送</li>
+</ol>
+<hr>
+
+<h2 class="relative group">7. IPアドレス確認方法 
+    <div id="7-ipアドレス確認方法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#7-ip%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e7%a2%ba%e8%aa%8d%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">コマンド例 
+    <div id="コマンド例" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e4%be%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>自分のIPアドレスを確認</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Linux/Mac</span>
+</span></span><span style="display:flex;"><span>ip addr show
+</span></span><span style="display:flex;"><span>ifconfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span>ipconfig
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># グローバルIPを確認</span>
+</span></span><span style="display:flex;"><span>curl ifconfig.me
+</span></span><span style="display:flex;"><span>curl ipinfo.io
+</span></span></code></pre></div><p><strong>ルーティングテーブルを確認</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Linux/Mac</span>
+</span></span><span style="display:flex;"><span>ip route show
+</span></span><span style="display:flex;"><span>netstat -rn
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Windows</span>
+</span></span><span style="display:flex;"><span>route print
+</span></span></code></pre></div><p><strong>特定のホストへの経路を確認</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>traceroute google.com   <span style="color:#75715e"># Linux/Mac</span>
+</span></span><span style="display:flex;"><span>tracert google.com      <span style="color:#75715e"># Windows</span>
+</span></span></code></pre></div><p><strong>サブネット計算ツール</strong>：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># ipcalcのインストール（Linux）</span>
+</span></span><span style="display:flex;"><span>sudo apt install ipcalc
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># 使用例</span>
+</span></span><span style="display:flex;"><span>ipcalc 192.168.1.0/24
+</span></span></code></pre></div><hr>
+
+<h2 class="relative group">8. ループバックアドレス 
+    <div id="8-ループバックアドレス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#8-%e3%83%ab%e3%83%bc%e3%83%97%e3%83%90%e3%83%83%e3%82%af%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>自分自身のコンピュータを指す特別なIPアドレスです。</p>
+<table>
+  <thead>
+      <tr>
+          <th>プロトコル</th>
+          <th>アドレス</th>
+          <th>ホスト名</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>IPv4</td>
+          <td>127.0.0.1</td>
+          <td>localhost</td>
+      </tr>
+      <tr>
+          <td>IPv6</td>
+          <td>::1</td>
+          <td>localhost</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>パケットは物理的なネットワークから外に出ない（OS内部で完結）</li>
+<li>ネットワーク接続がなくても通信可能</li>
+</ul>
+<p><strong>主な用途</strong>：</p>
+<ul>
+<li>自己診断（<code>ping 127.0.0.1</code>でネットワーク機能をテスト）</li>
+<li>ローカル開発（<code>http://localhost:8080</code>でWebアプリをテスト）</li>
+<li>セキュリティ（サービスを外部から隠蔽）</li>
+</ul>
+<hr>
+
+<h2 class="relative group">9. まとめ 
+    <div id="9-まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#9-%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">重要ポイント 
+    <div id="重要ポイント" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%87%8d%e8%a6%81%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>
+<p><strong>IPアドレスの役割</strong></p>
+<ul>
+<li>ネットワーク上の機器を識別する「住所」</li>
+<li>ネットワーク層（第3層）で動作</li>
+<li>IPとICMPがネットワーク層の主要プロトコル</li>
+</ul>
+</li>
+<li>
+<p><strong>IPv4とIPv6</strong></p>
+<ul>
+<li>IPv4: 32ビット、約43億個（枯渇問題あり）</li>
+<li>IPv6: 128ビット、事実上無限（次世代標準）</li>
+</ul>
+</li>
+<li>
+<p><strong>グローバルIPとプライベートIP</strong></p>
+<ul>
+<li>グローバルIP: インターネット上で一意</li>
+<li>プライベートIP: 組織内ネットワークで使用（RFC 1918で範囲規定）</li>
+<li>適切な使い分けが重要</li>
+</ul>
+</li>
+<li>
+<p><strong>IPアドレスの構造</strong></p>
+<ul>
+<li>ネットワーク部（どのネットワークか）</li>
+<li>ホスト部（ネットワーク内のどの機器か）</li>
+<li>クラス分類（A/B/C）は旧方式</li>
+</ul>
+</li>
+<li>
+<p><strong>サブネット化とCIDR</strong></p>
+<ul>
+<li>サブネットマスクでネットワークを柔軟に分割</li>
+<li>CIDR表記（/24など）が現代の標準</li>
+<li>ネットワーク設計の自由度向上</li>
+</ul>
+</li>
+<li>
+<p><strong>ルーターの役割</strong></p>
+<ul>
+<li>ルーティングテーブルでパケット転送</li>
+<li>サブネット設定の実体</li>
+<li>ネットワーク構成の要</li>
+</ul>
+</li>
+</ol>
+<hr>
+
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>
+<p>『マスタリングTCP/IP 入門編』</p>
+<ul>
+<li>著者: 井上 直也, 村山 公保, 竹下 隆史, 荒井 透, 苅田 幸雄</li>
+<li>出版社: オーム社</li>
+<li>発行年: 2019年</li>
+</ul>
+</li>
+<li>
+<p>『ネットワーク技術の教科書』</p>
+<ul>
+<li>著者: 長谷 和幸</li>
+<li>出版社: アイテック</li>
+<li>発行年：2022年</li>
+</ul>
+</li>
+<li>
+<p>『体験しながら学ぶネットワーク技術入門』</p>
+<ul>
+<li>著者：みやた　ひろし</li>
+<li>出版社：SBクリエイティブ</li>
+<li>発行年：2024/1/13</li>
+</ul>
+</li>
+<li>
+<p>RFC 791（Internet Protocol）</p>
+</li>
+<li>
+<p>RFC 1918（Address Allocation for Private Internets）</p>
+</li>
+<li>
+<p>RFC 4632（Classless Inter-domain Routing - CIDR）</p>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251030214355_ip_address_and_icmp_deep_dive_01/index.md"
+          data-oid-likes="likes_posts/251030214355_ip_address_and_icmp_deep_dive_01/index.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/251028193851_javascript_lab/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-28T19:38:51&#43;09:00">2025年 10月 28日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/251030214404_ip_address_and_icmp_deep_dive_02/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >IPアドレス・ICMPの深掘り学習_02_IPプロトコルとパケット構造の詳細</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-10-30T21:44:04&#43;09:00">2025年 10月 30日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

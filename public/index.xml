@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 28 Oct 2025 19:38:51 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 30 Oct 2025 21:44:04 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>IPアドレス・ICMPの深掘り学習_02_IPプロトコルとパケット構造の詳細</title>
+      <link>//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/</link>
+      <pubDate>Thu, 30 Oct 2025 21:44:04 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/feature.jpg" />
+    </item>
+    
+    <item>
+      <title>IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造</title>
+      <link>//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/</link>
+      <pubDate>Thu, 30 Oct 2025 21:43:55 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/</guid>
+      <description></description>
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg" />
+    </item>
     
     <item>
       <title>学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜</title>
