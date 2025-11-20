@@ -51,7 +51,7 @@ mainSections = ["posts"]
   # ページの優先度。
   priority = 0.5
 
-# 出力フォーマット設定
+# 出力フォーマット設定content/til/_index.md
 [outputs]
   # ホームページで生成するファイルのフォーマット。
   home = ["HTML", "RSS", "JSON"]
@@ -124,7 +124,7 @@ mainSections = ["posts"]
   languageName = "Japanese"
   weight = 1
   # ブラウザのタブなどに表示されるサイトタイトル。
-  title = "技術的デジャブ回避メモ帳"
+  title = "毎日.log"
   [languages.ja.params]
     displayName = "Ja"
     isoCode = "ja"
@@ -132,14 +132,14 @@ mainSections = ["posts"]
     # 日付の表示フォーマット。
     dateFormat = "2006年 1月 2日"
     # サイトの概要。SEO（検索エンジン最適化）で利用されます。
-    description = "SESエンジニアの技術学習記録とトラブルシューティング備忘録。プログラミング、インフラ、開発環境の構築方法など実体験ベースで記録。"
+    description = "SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。"
     # 著者情報
     [languages.ja.params.author]
       name = "フミ"
       email = "ptin110825@gmail.com"
       image = "img/avater.png"
       imageQuality = 96
-      headline = "2023年よりSES企業に勤務。RareTECH第55期生。<br> 自分の学習内容やエラー対応などをこのブログにまとめていきます。"
+      headline = "AWS・クラウドインフラエンジニアを目指して学習中。 ネットワーク監視・可視化、IaC（Terraform）、セキュリティ設計に関心。 CCNP・AWS SAP取得済み。個人プロジェクトでAWS実務経験を積んでいます。"
       links = [
         { link = "https://zenn.dev/mr110825"}, # Zennへのリンク
         { github = "https://github.com/mr110825" },
@@ -153,12 +153,8 @@ mainSections = ["posts"]
   # ヘッダーに表示されるナビゲーションメニュー。
   [[languages.ja.menu.main]]
     name = "Posts"
-    pageRef = "posts" # `content/posts` ディレクトリを参照
+    pageRef = "posts" # `/posts` ページを参照
     weight = 10
-  [[languages.ja.menu.main]]
-    name = "Scraps"
-    pageRef = "scraps" # `content/scraps` ディレクトリを参照
-    weight = 20
   [[languages.ja.menu.main]]
     name = "Tags"
     pageRef = "tags" # `/tags` ページを参照
@@ -210,7 +206,7 @@ mainSections = ["posts"]
     layout = "hero" # ヒーローイメージを大きく表示するレイアウト
     homepageImage = "img/blog_background.jpg" # ホームページの背景画像
     showRecent = true # 最新記事を表示
-    showRecentItems = 3 # 表示する最新記事の数
+    showRecentItems = 5 # 表示する最新記事の数
     showMoreLink = false # 「もっと見る」リンクを非表示
     showMoreLinkDest = "/posts/"
     cardView = true # 記事をカード形式で表示

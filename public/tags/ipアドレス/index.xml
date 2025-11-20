@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>IPアドレス on 技術的デジャブ回避メモ帳</title>
+    <title>IPアドレス on 毎日.log</title>
     <link>//localhost:1313/tags/ip%E3%82%A2%E3%83%89%E3%83%AC%E3%82%B9/</link>
-    <description>Recent content in IPアドレス on 技術的デジャブ回避メモ帳</description>
+    <description>Recent content in IPアドレス on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
@@ -18,7 +18,7 @@
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/feature.jpg" />
     </item>
     
     <item>
@@ -28,7 +28,7 @@
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/</guid>
       <description></description>
-      
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg" />
     </item>
     
   </channel>

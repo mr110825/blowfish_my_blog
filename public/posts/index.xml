@@ -1,94 +1,24 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>投稿記事 on 技術的デジャブ回避メモ帳</title>
+    <title>Posts on 毎日.log</title>
     <link>//localhost:1313/posts/</link>
-    <description>Recent content in 投稿記事 on 技術的デジャブ回避メモ帳</description>
+    <description>Recent content in Posts on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 30 Oct 2025 21:44:04 +0900</lastBuildDate><atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 20 Nov 2025 22:24:27 +0900</lastBuildDate><atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>IPアドレス・ICMPの深掘り学習_02_IPプロトコルとパケット構造の詳細</title>
-      <link>//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/</link>
-      <pubDate>Thu, 30 Oct 2025 21:44:04 +0900</pubDate>
+      <title>My First Post</title>
+      <link>//localhost:1313/posts/my-first-post/</link>
+      <pubDate>Thu, 20 Nov 2025 22:24:27 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/</guid>
+      <guid>//localhost:1313/posts/my-first-post/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251030214404_ip_address_and_icmp_deep_dive_02/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>IPアドレス・ICMPの深掘り学習_01_IPアドレスの基礎と構造</title>
-      <link>//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/</link>
-      <pubDate>Thu, 30 Oct 2025 21:43:55 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251030214355_ip_address_and_icmp_deep_dive_01/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>学習アウトプット：JavaScript Lab 〜セミコロン自動挿入の落とし穴を体験する〜</title>
-      <link>//localhost:1313/posts/251028193851_javascript_lab/</link>
-      <pubDate>Tue, 28 Oct 2025 19:38:51 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251028193851_javascript_lab/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/251028193851_javascript_lab/feature.png" />
-    </item>
-    
-    <item>
-      <title>Hugo&#43;Blowfishで構築したサイトをGoogle検索に表示させる手順</title>
-      <link>//localhost:1313/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</link>
-      <pubDate>Sat, 06 Sep 2025 12:54:32 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250906125432_how-to-get-your-hugo&#43;blowfish-website-indexed-by-google/feature.png" />
-    </item>
-    
-    <item>
-      <title>【Windows】Voicemeeterを使ってパソコン内音声を録音する手順</title>
-      <link>//localhost:1313/posts/250810205045_how-to-record-pc-internal-audio/</link>
-      <pubDate>Sun, 10 Aug 2025 20:50:45 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/250810205045_how-to-record-pc-internal-audio/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250810205045_how-to-record-pc-internal-audio/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>git worktree ハンズオン</title>
-      <link>//localhost:1313/posts/250807072537_git-worktree-hands-on/</link>
-      <pubDate>Thu, 07 Aug 2025 07:25:37 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/250807072537_git-worktree-hands-on/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250807072537_git-worktree-hands-on/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>BlowfishでFaviconを設定する方法</title>
-      <link>//localhost:1313/posts/250803120909_favicon_settings/</link>
-      <pubDate>Sun, 03 Aug 2025 12:09:09 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/250803120909_favicon_settings/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250803120909_favicon_settings/feature.jpg" />
-    </item>
-    
-    <item>
-      <title>Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>//localhost:1313/posts/250803015516_how_to_download_github_issues/</link>
-      <pubDate>Sun, 03 Aug 2025 01:55:16 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/250803015516_how_to_download_github_issues/</guid>
-      <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250803015516_how_to_download_github_issues/feature.jpg" />
+      
     </item>
     
   </channel>

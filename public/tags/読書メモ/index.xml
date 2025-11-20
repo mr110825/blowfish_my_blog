@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>読書メモ on 技術的デジャブ回避メモ帳</title>
+    <title>読書メモ on 毎日.log</title>
     <link>//localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
-    <description>Recent content in 読書メモ on 技術的デジャブ回避メモ帳</description>
+    <description>Recent content in 読書メモ on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
@@ -13,22 +13,22 @@
     
     <item>
       <title>【書評】指示通りができない人たち</title>
-      <link>//localhost:1313/scraps/250907104346_memo-sijidourigadekinai/</link>
+      <link>//localhost:1313/til/250907104346_memo-sijidourigadekinai/</link>
       <pubDate>Sun, 07 Sep 2025 10:43:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/250907104346_memo-sijidourigadekinai/</guid>
+      <guid>//localhost:1313/til/250907104346_memo-sijidourigadekinai/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250907104346_memo-sijidourigadekinai/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/til/250907104346_memo-sijidourigadekinai/feature.jpg" />
     </item>
     
     <item>
       <title>【書評】TAKE NOTES! </title>
-      <link>//localhost:1313/scraps/250819074554_memo-take-notes/</link>
+      <link>//localhost:1313/til/250819074554_memo-take-notes/</link>
       <pubDate>Tue, 19 Aug 2025 07:45:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/scraps/250819074554_memo-take-notes/</guid>
+      <guid>//localhost:1313/til/250819074554_memo-take-notes/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/scraps/250819074554_memo-take-notes/feature.jpg" />
+      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/til/250819074554_memo-take-notes/feature.jpg" />
     </item>
     
   </channel>

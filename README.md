@@ -27,11 +27,7 @@ hugo server -D
 ### 新規記事作成
 
 ```bash
-# 技術記事の作成
-hugo new posts/<記事のタイトル>/index.md
-
-# スクラップメモの作成
-hugo new scraps/<メモのタイトル>/index.md
+hugo new posts/<記事のタイトル>.md
 ```
 
 **注意**: 上記コマンドでは、記事のフロントマターに`id`（Unixタイムスタンプ）が自動付与されますが、**ディレクトリ名にはIDが反映されません**。
