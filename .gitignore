@@ -87,3 +87,6 @@ Backup of *.doc*          # Wordの自動バックアップファイル
 
 # MarkDownの下書きファイルを無視（プロジェクト規則により）
 *draft*.md
+
+# Claude関連
+.claude
