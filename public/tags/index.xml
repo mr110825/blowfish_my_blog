@@ -9,7 +9,57 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Thu, 20 Nov 2025 23:08:22 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Nov 2025 21:16:27 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>プログラミング</title>
+      <link>//localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Sun, 23 Nov 2025 21:16:27 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>まとめ</title>
+      <link>//localhost:1313/tags/%E3%81%BE%E3%81%A8%E3%82%81/</link>
+      <pubDate>Sun, 23 Nov 2025 21:16:27 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E3%81%BE%E3%81%A8%E3%82%81/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>入門</title>
+      <link>//localhost:1313/tags/%E5%85%A5%E9%96%80/</link>
+      <pubDate>Sun, 23 Nov 2025 21:16:27 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E5%85%A5%E9%96%80/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>メモ術</title>
+      <link>//localhost:1313/tags/%E3%83%A1%E3%83%A2%E8%A1%93/</link>
+      <pubDate>Thu, 20 Nov 2025 23:08:22 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E3%83%A1%E3%83%A2%E8%A1%93/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>実践</title>
+      <link>//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/</link>
+      <pubDate>Thu, 20 Nov 2025 23:08:22 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>読書メモ</title>
@@ -17,6 +67,56 @@
       <pubDate>Thu, 20 Nov 2025 23:08:22 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Claude</title>
+      <link>//localhost:1313/tags/claude/</link>
+      <pubDate>Thu, 20 Nov 2025 22:54:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/claude/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ツール</title>
+      <link>//localhost:1313/tags/%E3%83%84%E3%83%BC%E3%83%AB/</link>
+      <pubDate>Thu, 20 Nov 2025 22:54:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E3%83%84%E3%83%BC%E3%83%AB/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>メモ</title>
+      <link>//localhost:1313/tags/%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Thu, 20 Nov 2025 22:54:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E3%83%A1%E3%83%A2/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>仕様確認</title>
+      <link>//localhost:1313/tags/%E4%BB%95%E6%A7%98%E7%A2%BA%E8%AA%8D/</link>
+      <pubDate>Thu, 20 Nov 2025 22:54:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E4%BB%95%E6%A7%98%E7%A2%BA%E8%AA%8D/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Git</title>
+      <link>//localhost:1313/tags/git/</link>
+      <pubDate>Thu, 20 Nov 2025 22:46:17 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/git/</guid>
       <description></description>
       
     </item>

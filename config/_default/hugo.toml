@@ -268,7 +268,7 @@ mainSections = ["posts"]
     showViews = false
     showLikes = false
     showTableOfContents = false
-    cardView = true
+    cardView = false
   # タクソノミーの各ターム（例：特定のタグ）のページ設定
   [params.term]
     showHero = true
