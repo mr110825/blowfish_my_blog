@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 23 Nov 2025 21:16:27 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Nov 2025 22:13:31 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ログ調査_more・less・grep・zgrep</title>
+      <link>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
+      <pubDate>Sun, 23 Nov 2025 22:13:31 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>オブジェクト指向の入門用メモ</title>

@@ -20,7 +20,7 @@ tags = ["ツール", "メモ", "実践"]
 ## サンプルファイルの内容
 
 ### service.log (通常のログファイル)
-```
+```log
 2024-11-20 10:15:32 INFO  Application started successfully
 2024-11-20 10:15:45 INFO  User login: user_id=12345
 2024-11-20 10:16:03 WARN  High memory usage detected: 85%
@@ -35,7 +35,7 @@ tags = ["ツール", "メモ", "実践"]
 2024-11-20 10:22:45 INFO  Backup completed successfully
 ```
 
-### ファイルサイズ
+### ファイルの一覧表示
 ```bash
 $ ls -lh service.log*
 -rw-r--r-- 1 root root 696 Nov 23 13:03 service.log
@@ -54,7 +54,7 @@ grep ERROR service.log
 ```
 
 **実行結果:**
-```
+```bash
 2024-11-20 10:16:28 ERROR Database connection timeout
 2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
 2024-11-20 10:20:15 ERROR Network unreachable: host=192.168.1.100
@@ -68,7 +68,7 @@ zgrep ERROR service.log.gz
 ```
 
 **実行結果:**
-```
+```bash
 2024-11-20 10:16:28 ERROR Database connection timeout
 2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
 2024-11-20 10:20:15 ERROR Network unreachable: host=192.168.1.100
@@ -84,7 +84,7 @@ grep -n ERROR service.log
 ```
 
 **実行結果:**
-```
+```bash
 5:2024-11-20 10:16:28 ERROR Database connection timeout
 6:2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
 10:2024-11-20 10:20:15 ERROR Network unreachable: host=192.168.1.100
@@ -98,7 +98,7 @@ grep -E "ERROR|WARN" service.log
 ```
 
 **実行結果:**
-```
+```bash
 2024-11-20 10:16:03 WARN  High memory usage detected: 85%
 2024-11-20 10:16:28 ERROR Database connection timeout
 2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
@@ -114,7 +114,7 @@ grep -c ERROR service.log
 ```
 
 **実行結果:**
-```
+```bash
 3
 ```
 
@@ -229,11 +229,11 @@ less huge_file.log  # 高速に起動
 
 ## 学んだこと
 
-✅ 圧縮ファイルには`z系コマンド`(zgrep, zless)を直接使う方が効率的  
-✅ `less`は`more`より高機能で検索も可能  
-✅ ログ調査では`less`の方が実用的(前後に移動できるため)  
-✅ `grep -n`で行番号を表示すると、lessで該当行にジャンプしやすい  
-✅ `-A`, `-B`, `-C`オプションで前後の文脈も確認できる  
+- 圧縮ファイルには`z系コマンド`(zgrep, zless)を直接使う方が効率的  
+- `less`は`more`より高機能で検索も可能  
+- ログ調査では`less`の方が実用的(前後に移動できるため)  
+- `grep -n`で行番号を表示すると、lessで該当行にジャンプしやすい  
+- `-A`, `-B`, `-C`オプションで前後の文脈も確認できる  
 
 ---
 
