@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる &middot; 毎日.log</title>
-    <meta name="title" content="TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる &middot; 毎日.log">
+  <title>オブジェクト指向の入門用メモ &middot; 毎日.log</title>
+    <meta name="title" content="オブジェクト指向の入門用メモ &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="読書メモ,">
   
   
-  <link rel="canonical" href="//localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/">
+  
+  <link rel="canonical" href="//localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/">
   
   
   
@@ -99,20 +99,19 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/">
+  <meta property="og:url" content="//localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる">
+  <meta property="og:title" content="オブジェクト指向の入門用メモ">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-11-20T23:08:22+09:00">
-    <meta property="article:modified_time" content="2025-11-20T23:08:22+09:00">
-    <meta property="article:tag" content="読書メモ">
+    <meta property="article:published_time" content="2025-11-23T21:16:27+09:00">
+    <meta property="article:modified_time" content="2025-11-23T21:16:27+09:00">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる">
+  <meta name="twitter:title" content="オブジェクト指向の入門用メモ">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -120,26 +119,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる",
-    "headline": "TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる",
+    "name": "オブジェクト指向の入門用メモ",
+    "headline": "オブジェクト指向の入門用メモ",
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/posts\/251120230822_take-notes-output-naturally-with-memos\/",
+    "url" : "\/\/localhost:1313\/posts\/251123211627_object-oriented-programming-introduction-memo\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-11-20T23:08:22\u002b09:00",
-    "datePublished": "2025-11-20T23:08:22\u002b09:00",
+    "dateCreated": "2025-11-23T21:16:27\u002b09:00",
+    "datePublished": "2025-11-23T21:16:27\u002b09:00",
     
-    "dateModified": "2025-11-20T23:08:22\u002b09:00",
+    "dateModified": "2025-11-23T21:16:27\u002b09:00",
     
-    "keywords": ["読書メモ"],
+    
     
     "mainEntityOfPage": "true",
-    "wordCount": "46"
+    "wordCount": "145"
   }]
   </script>
 
@@ -444,7 +443,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる
+        オブジェクト指向の入門用メモ
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -495,7 +494,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-11-20T23:08:22&#43;09:00">2025年 11月 20日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-11-23T21:16:27&#43;09:00">2025年 11月 23日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -583,16 +582,38 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#書籍情報">書籍情報</a></li>
-    <li><a href="#本書の要点">本書の要点</a>
+    <li><a href="#オブジェクト指向とは">オブジェクト指向とは？</a></li>
+    <li><a href="#オブジェクト指向が誕生した経緯">オブジェクト指向が誕生した経緯</a></li>
+    <li><a href="#クラスインスタンス">クラス・インスタンス</a></li>
+    <li><a href="#基本用語">基本用語</a>
       <ul>
-        <li><a href="#ツェッテルカステンとは">ツェッテルカステンとは</a></li>
-        <li><a href="#メモの処理フロー">メモの処理フロー</a></li>
-        <li><a href="#重要な考え方">重要な考え方</a></li>
+        <li><a href="#プロパティ属性">プロパティ（属性）</a></li>
+        <li><a href="#メソッド">メソッド</a></li>
+        <li><a href="#コンストラクタ">コンストラクタ</a></li>
       </ul>
     </li>
-    <li><a href="#所感">所感</a></li>
-    <li><a href="#実践する3つのアクション">実践する3つのアクション</a></li>
+    <li><a href="#オブジェクト指向の3大要素">オブジェクト指向の3大要素</a>
+      <ul>
+        <li><a href="#継承">継承</a></li>
+        <li><a href="#カプセル化">カプセル化</a></li>
+        <li><a href="#ポリモーフィズム">ポリモーフィズム</a></li>
+      </ul>
+    </li>
+    <li><a href="#オブジェクト指向のメリットデメリット">オブジェクト指向のメリット・デメリット</a>
+      <ul>
+        <li><a href="#メリット">メリット</a></li>
+        <li><a href="#デメリット">デメリット</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#オブジェクト指向">オブジェクト指向</a></li>
+        <li><a href="#クラスとインスタンス">クラスとインスタンス</a></li>
+        <li><a href="#オブジェクト指向の3大要素-1">オブジェクト指向の3大要素</a></li>
+      </ul>
+    </li>
+    <li><a href="#さらに深く学ぶために">さらに深く学ぶために</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
   </ul>
 </nav>
   </div>
@@ -607,16 +628,38 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#書籍情報">書籍情報</a></li>
-    <li><a href="#本書の要点">本書の要点</a>
+    <li><a href="#オブジェクト指向とは">オブジェクト指向とは？</a></li>
+    <li><a href="#オブジェクト指向が誕生した経緯">オブジェクト指向が誕生した経緯</a></li>
+    <li><a href="#クラスインスタンス">クラス・インスタンス</a></li>
+    <li><a href="#基本用語">基本用語</a>
       <ul>
-        <li><a href="#ツェッテルカステンとは">ツェッテルカステンとは</a></li>
-        <li><a href="#メモの処理フロー">メモの処理フロー</a></li>
-        <li><a href="#重要な考え方">重要な考え方</a></li>
+        <li><a href="#プロパティ属性">プロパティ（属性）</a></li>
+        <li><a href="#メソッド">メソッド</a></li>
+        <li><a href="#コンストラクタ">コンストラクタ</a></li>
       </ul>
     </li>
-    <li><a href="#所感">所感</a></li>
-    <li><a href="#実践する3つのアクション">実践する3つのアクション</a></li>
+    <li><a href="#オブジェクト指向の3大要素">オブジェクト指向の3大要素</a>
+      <ul>
+        <li><a href="#継承">継承</a></li>
+        <li><a href="#カプセル化">カプセル化</a></li>
+        <li><a href="#ポリモーフィズム">ポリモーフィズム</a></li>
+      </ul>
+    </li>
+    <li><a href="#オブジェクト指向のメリットデメリット">オブジェクト指向のメリット・デメリット</a>
+      <ul>
+        <li><a href="#メリット">メリット</a></li>
+        <li><a href="#デメリット">デメリット</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#オブジェクト指向">オブジェクト指向</a></li>
+        <li><a href="#クラスとインスタンス">クラスとインスタンス</a></li>
+        <li><a href="#オブジェクト指向の3大要素-1">オブジェクト指向の3大要素</a></li>
+      </ul>
+    </li>
+    <li><a href="#さらに深く学ぶために">さらに深く学ぶために</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
   </ul>
 </nav>
   </div>
@@ -720,6 +763,16 @@
 
         <div class="article-content max-w-prose mb-20">
           
+<h1 class="relative group">オブジェクト指向の入門用メモ 
+    <div id="オブジェクト指向の入門用メモ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e3%81%ae%e5%85%a5%e9%96%80%e7%94%a8%e3%83%a1%e3%83%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h1>
+
 <h2 class="relative group">はじめに 
     <div id="はじめに" class="anchor"></div>
     
@@ -729,105 +782,356 @@
     </span>        
     
 </h2>
-<p>メモをまとめる方法として、「ツェッテルカステン」を勉強するためにこの本で学習。</p>
+<p>オブジェクト指向について、講師役として解説する機会があるため、
+振り返りとしてオブジェクト指向を再学習する。</p>
 
-<h2 class="relative group">書籍情報 
-    <div id="書籍情報" class="anchor"></div>
+<h2 class="relative group">オブジェクト指向とは？ 
+    <div id="オブジェクト指向とは" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9b%b8%e7%b1%8d%e6%83%85%e5%a0%b1" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
 <ul>
-<li><strong>書籍名</strong>: TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる</li>
-<li><strong>著者</strong>: ズンク・アーレンス（翻訳：二木 夢子）</li>
-<li><strong>出版</strong>: 日経BP、2021年10月</li>
+<li>データと関連する処理を「オブジェクト」という単位にまとめて管理するソフトウェア開発手法</li>
+<li>オブジェクトは、クラスから生成される実体（インスタンス）</li>
+<li>（一部のプログラミング言語（Python、Rubyなど）ではクラス自体もオブジェクトとして扱われるが、このメモではオブジェクト=インスタンスとする）</li>
+</ul>
+
+<h2 class="relative group">オブジェクト指向が誕生した経緯 
+    <div id="オブジェクト指向が誕生した経緯" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e3%81%8c%e8%aa%95%e7%94%9f%e3%81%97%e3%81%9f%e7%b5%8c%e7%b7%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>1960～1970年代は「手続き型プログラミング」が主流。
+<ul>
+<li>データと処理を別々で記述する手法で、各データや処理のコーディングに集中できる反面、プログラムが大規模化すると、データと処理の関係性を把握するのに多大なエネルギーを必要としていた。</li>
+<li>構造化プログラミングは制御構造（順次・選択・反復）を整理する手法として同時期に発展したが、データと処理の管理については別の課題として残っていた。</li>
+</ul>
+</li>
+<li>この問題を解決するために「データ」と「処理」をまとめて管理する「オブジェクト」が誕生。このオブジェクトの管理に主眼を置いたのがオブジェクト指向である。</li>
+</ul>
+
+<h2 class="relative group">クラス・インスタンス 
+    <div id="クラスインスタンス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%a9%e3%82%b9%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>オブジェクト指向を成立させるための基本的な概念が<strong>クラス</strong>と<strong>インスタンス</strong></p>
+<ul>
+<li>クラス：設計図やテンプレート</li>
+<li>インスタンス：クラスから生成される実体（オブジェクト）</li>
+</ul>
+<p>車で例えると、設計図から車を製造するようなイメージ</p>
+<ul>
+<li>クラス：車の設計図</li>
+<li>インスタンス：製造された車</li>
+</ul>
+
+<h2 class="relative group">基本用語 
+    <div id="基本用語" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e7%94%a8%e8%aa%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>オブジェクト指向を理解する上で重要な基本用語を説明します。</p>
+
+<h3 class="relative group">プロパティ（属性） 
+    <div id="プロパティ属性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%83%91%e3%83%86%e3%82%a3%e5%b1%9e%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>オブジェクトが持つデータ・状態</strong>を表す変数</li>
+<li>車の例：色、速度、走行距離、燃料残量など</li>
+<li>例：<code>car.color = &quot;red&quot;</code> （車の色は赤）</li>
+</ul>
+
+<h3 class="relative group">メソッド 
+    <div id="メソッド" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%82%bd%e3%83%83%e3%83%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>オブジェクトができる動作・処理</strong>を表す関数</li>
+<li>車の例：走る、止まる、クラクションを鳴らす、給油するなど</li>
+<li>例：<code>car.drive()</code> （車を運転する）</li>
+</ul>
+
+<h3 class="relative group">コンストラクタ 
+    <div id="コンストラクタ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%b3%e3%82%b9%e3%83%88%e3%83%a9%e3%82%af%e3%82%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>オブジェクトを生成する際に初期化処理を行う</strong>特別なメソッド</li>
+<li>新しい車を製造する際の初期設定のようなもの</li>
+<li>車の例：製造時に色、エンジンタイプ、シート数などを設定</li>
+<li>例：<code>car = Car(&quot;red&quot;, &quot;hybrid&quot;, 5)</code> （赤いハイブリッド5人乗りの車を作る）</li>
+</ul>
+
+<h2 class="relative group">オブジェクト指向の3大要素 
+    <div id="オブジェクト指向の3大要素" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e3%81%ae3%e5%a4%a7%e8%a6%81%e7%b4%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ol>
+<li>継承</li>
+<li>カプセル化</li>
+<li>ポリモーフィズム</li>
+</ol>
+<p>クラスとインスタンスを使って上記の3要素が実現できる。</p>
+
+<h3 class="relative group">継承 
+    <div id="継承" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%b6%99%e6%89%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>親クラスから内容を引き継いで新しい子クラスを作成する。</p>
+<p>例えば、親クラスとして「車」があるとした場合、子クラスとして「乗用車」「トラック」「バス」を設定可能。
+さらに「乗用車」から「タクシー」や「パトカー」を作ることもできる。
+このとき、「トラック」には「荷物を積む」、「バス」には「乗客を乗せる」などの個別機能を実装できる。</p>
+
+<h3 class="relative group">カプセル化 
+    <div id="カプセル化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%83%97%e3%82%bb%e3%83%ab%e5%8c%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データと処理を外部から隠蔽して保護する機能</p>
+<p>車の例を引き続き利用すると、「車の走行距離記録（オドメーター）」がある。
+このオドメーターは手動でいじることは違法行為にあたる。走行距離をしっかり測定する必要があるので、
+「車の走行距離記録（オドメーター）」に対して、直接アクセスできないようにして、「車で運転」した場合のみ
+「オドメーター」に追加するようにする。この処理をカプセル化で実現できる。</p>
+
+<h3 class="relative group">ポリモーフィズム 
+    <div id="ポリモーフィズム" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9d%e3%83%aa%e3%83%a2%e3%83%bc%e3%83%95%e3%82%a3%e3%82%ba%e3%83%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>同じ命令で、対象によって異なる動作をする機能</p>
+<p>車の例：「サイレンを鳴らす」という同じ命令でも</p>
+<ul>
+<li>パトカー → 「ウーウー」</li>
+<li>救急車 → 「ピーポーピーポー」</li>
+<li>消防車 → 「ウーカンカン」</li>
+</ul>
+<p>それぞれ違う音が鳴る。</p>
+<p>これが便利な理由は、「サイレンを鳴らす」という共通の命令を覚えるだけで、
+車種ごとの細かい違いを意識せずに使えることである。</p>
+
+<h2 class="relative group">オブジェクト指向のメリット・デメリット 
+    <div id="オブジェクト指向のメリットデメリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88%e3%83%87%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">メリット 
+    <div id="メリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>
+<p><strong>再利用しやすい</strong></p>
+<ul>
+<li>一度作った「車」クラスから、何台でも車を作れる</li>
+</ul>
+</li>
+<li>
+<p><strong>修正が楽</strong></p>
+<ul>
+<li>「車」クラスを修正すれば、全ての車に反映される</li>
+</ul>
+</li>
+<li>
+<p><strong>現実世界に近い</strong></p>
+<ul>
+<li>車、人、建物など、身近なモノとして考えられる</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">デメリット 
+    <div id="デメリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>
+<p><strong>小さなプログラムには大げさ</strong></p>
+<ul>
+<li>簡単な計算だけなら、クラスなしの方が早い</li>
+</ul>
+</li>
+<li>
+<p><strong>最初は難しい</strong></p>
+<ul>
+<li>概念の理解に時間がかかる</li>
+</ul>
+</li>
+<li>
+<p><strong>設計ミスの影響が大きい</strong></p>
+<ul>
+<li>クラスの作り方を間違えると、大幅な修正が必要</li>
+</ul>
+</li>
+</ol>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">オブジェクト指向 
+    <div id="オブジェクト指向" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データと関連する処理を「オブジェクト」という単位にまとめて管理するソフトウェア開発手法</p>
+
+<h3 class="relative group">クラスとインスタンス 
+    <div id="クラスとインスタンス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%a9%e3%82%b9%e3%81%a8%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>クラス：<strong>設計図・テンプレート</strong></li>
+<li>インスタンス：<strong>クラスから生成された実物</strong></li>
+</ul>
+
+<h3 class="relative group">オブジェクト指向の3大要素 
+    <div id="オブジェクト指向の3大要素-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%96%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%8c%87%e5%90%91%e3%81%ae3%e5%a4%a7%e8%a6%81%e7%b4%a0-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>継承：既存のクラスを拡張して再利用</li>
+<li>カプセル化：データと機能をまとめて、外部から保護</li>
+<li>ポリモーフィズム：同じ操作で異なる振る舞い</li>
+</ul>
+
+<h2 class="relative group">さらに深く学ぶために 
+    <div id="さらに深く学ぶために" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%95%e3%82%89%e3%81%ab%e6%b7%b1%e3%81%8f%e5%ad%a6%e3%81%b6%e3%81%9f%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>オブジェクト指向開発の初期に活躍した「アラン・ケイ」によるオブジェクト指向の解説を読むと
+オブジェクト指向について深掘りできると思います。内容が難しいので、このメモでは詳細にまとめないが、参考としてリンクを紹介します。</p>
+<ul>
 <li><a
-  href="https://bookplus.nikkei.com/atcl/catalog/21/S00410/"
+  href="https://note.com/go_fujita/n/n1d157e658f9a"
     target="_blank"
-  >出版社ページ</a></li>
+  >note：アラン・ケイのオブジェクト指向プログラミング</a></li>
+<li><a
+  href="http://userpage.fu-berlin.de/~ram/pub/pub_jf47ht81Ht/doc_kay_oop_en"
+    target="_blank"
+  >Dr. Alan Kay on the Meaning of “Object-Oriented Programming”</a></li>
+<li><a
+  href="https://qiita.com/ukyo-su/items/8c861f114809a96d1378"
+    target="_blank"
+  >Qiita：アラン・ケイのオブジェクト指向とは何だったか？元哲学者のエンジニアがまとめてみた</a></li>
 </ul>
 
-<h2 class="relative group">本書の要点 
-    <div id="本書の要点" class="anchor"></div>
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%ac%e6%9b%b8%e3%81%ae%e8%a6%81%e7%82%b9" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-
-<h3 class="relative group">ツェッテルカステンとは 
-    <div id="ツェッテルカステンとは" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%84%e3%82%a7%e3%83%83%e3%83%86%e3%83%ab%e3%82%ab%e3%82%b9%e3%83%86%e3%83%b3%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>社会学者ルーマンが実践したメモ術。小さな単位のメモを作り、<br>
-相互にリンクさせることで知識のネットワークを構築する手法。</p>
-
-<h3 class="relative group">メモの処理フロー 
-    <div id="メモの処理フロー" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%83%a2%e3%81%ae%e5%87%a6%e7%90%86%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<ol>
-<li><strong>走り書き・文献メモ</strong>: 日常のアイデアや読書内容を一時記録</li>
-<li><strong>永久保存メモ</strong>: 自分の言葉で再構成した独立したメモ</li>
-<li><strong>関連づけ</strong>: 既存メモとリンクし、知識体系を育てる</li>
-<li><strong>アウトプット</strong>: 蓄積したメモから文章や研究へ展開</li>
-</ol>
-
-<h3 class="relative group">重要な考え方 
-    <div id="重要な考え方" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%87%8d%e8%a6%81%e3%81%aa%e8%80%83%e3%81%88%e6%96%b9" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
 <ul>
-<li><strong>アウトプット前提のインプット</strong>: 常にアウトプットを意識して情報を取り込む</li>
-<li><strong>自分の言葉で書く</strong>: 理解度を確認し、思考を深める</li>
-<li><strong>つながりを意識</strong>: メモ同士の関連性を整理することが洞察につながる</li>
+<li><a
+  href="https://www.amazon.co.jp/%E3%80%90%E4%BB%A4%E5%92%8C%EF%BC%97%E5%B9%B4%E5%BA%A6%E3%80%91-%E3%81%84%E3%81%A1%E3%81%B0%E3%82%93%E3%82%84%E3%81%95%E3%81%97%E3%81%84-%E5%9F%BA%E6%9C%AC%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85-%E7%B5%B6%E5%AF%BE%E5%90%88%E6%A0%BC%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%EF%BC%8B%E5%87%BA%E3%82%8B%E9%A0%86%E5%95%8F%E9%A1%8C%E9%9B%86-%E7%B5%B6%E5%AF%BE%E5%90%88%E6%A0%BC%E3%81%AE%E6%95%99%E7%A7%91%E6%9B%B8%E3%82%B7%E3%83%AA%E3%83%BC%E3%82%BA/dp/4815629390/ref=pd_sbs_d_sccl_1_1/355-1721677-4247948?psc=1"
+    target="_blank"
+  >いちばんやさしい基本情報技術者 絶対合格の教科書＋出る順問題集</a>
+<ul>
+<li>著者：高橋 京介</li>
+<li>出版社：SBクリエイティブ</li>
+<li>出版年：2024年</li>
 </ul>
-
-<h2 class="relative group">所感 
-    <div id="所感" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%89%80%e6%84%9f" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>メモ術に関する自己啓発書。システマティックにメモを蓄積することで質の高いアウトプットが可能になるという提案は有益だが、具体的なハウツーより概念的な説明が中心。メモの意義を再確認し、モチベーションを高めるのに適している。</p>
-
-<h2 class="relative group">実践する3つのアクション 
-    <div id="実践する3つのアクション" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5%e3%81%99%e3%82%8b3%e3%81%a4%e3%81%ae%e3%82%a2%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<ol>
-<li>日常的なメモ取りの習慣化</li>
-<li>メモ間のつながりを意識した整理</li>
-<li>自分の言葉での言い換えの徹底</li>
-</ol>
+</li>
+<li><a
+  href="https://qiita.com/yuandesu/items/127a97edf463bd7b819f"
+    target="_blank"
+  >Qiita：[Python] Pythonでオブジェクト指向を完全理解してみる</a></li>
+</ul>
 
           
           
@@ -857,8 +1161,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251120230822_take-notes-output-naturally-with-memos.md"
-          data-oid-likes="likes_posts/251120230822_take-notes-output-naturally-with-memos.md"></script>
+          data-oid="views_posts/251123211627_object-oriented-programming-introduction-memo.md"
+          data-oid-likes="likes_posts/251123211627_object-oriented-programming-introduction-memo.md"></script>
       
 
     </section>
@@ -873,7 +1177,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251120225449_claude-specification-session-continuity-check/">
+            <a class="flex group mr-3" href="/posts/251120230822_take-notes-output-naturally-with-memos/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -884,11 +1188,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Claudeの仕様確認：前回のセッションは引き継げるのか？</span
+                  >TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-11-20T22:54:49&#43;09:00">2025年 11月 20日</time>
+                    <time datetime="2025-11-20T23:08:22&#43;09:00">2025年 11月 20日</time>
                   
                 </span>
               </span>
@@ -896,27 +1200,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/251123211627_object-oriented-programming-introduction-memo/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >オブジェクト指向の入門用メモ</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-11-23T21:16:27&#43;09:00">2025年 11月 23日</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
