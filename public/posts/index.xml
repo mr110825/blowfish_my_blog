@@ -9,7 +9,37 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 23 Nov 2025 22:13:31 +0900</lastBuildDate><atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Nov 2025 03:10:04 +0900</lastBuildDate><atom:link href="//localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Chromeにカスタム検索機能を実装する方法</title>
+      <link>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
+      <pubDate>Wed, 26 Nov 2025 03:10:04 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>IaC（Infrastructure as Code）の5つの分類</title>
+      <link>//localhost:1313/posts/251124162641_iac-five-classifications/</link>
+      <pubDate>Mon, 24 Nov 2025 16:26:41 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251124162641_iac-five-classifications/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>【読書メモ】BCGの育つ力・育てる力：スキルマニアからの脱却</title>
+      <link>//localhost:1313/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</link>
+      <pubDate>Sun, 23 Nov 2025 23:27:47 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>ログ調査_more・less・grep・zgrep</title>

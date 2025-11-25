@@ -3,19 +3,37 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/posts/</loc>
-    <lastmod>2025-11-23T22:13:31+09:00</lastmod>
+    <loc>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</loc>
+    <lastmod>2025-11-26T03:10:04+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</loc>
-    <lastmod>2025-11-23T22:13:31+09:00</lastmod>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2025-11-26T03:10:04+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-11-26T03:10:04+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251124162641_iac-five-classifications/</loc>
+    <lastmod>2025-11-24T16:26:41+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</loc>
+    <lastmod>2025-11-23T23:27:47+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</loc>
     <lastmod>2025-11-23T22:13:31+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
