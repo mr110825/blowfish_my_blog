@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</loc>
-    <lastmod>2025-11-26T03:10:04+09:00</lastmod>
+    <loc>//localhost:1313/posts/</loc>
+    <lastmod>2025-11-27T23:38:55+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/</loc>
-    <lastmod>2025-11-26T03:10:04+09:00</lastmod>
+    <loc>//localhost:1313/posts/251127233855_what-is-terraform/</loc>
+    <lastmod>2025-11-27T23:38:55+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-11-27T23:38:55+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</loc>
     <lastmod>2025-11-26T03:10:04+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>Chromeにカスタム検索機能を実装する方法 &middot; 毎日.log</title>
-    <meta name="title" content="Chromeにカスタム検索機能を実装する方法 &middot; 毎日.log">
+  <title>Terraformとは？ &middot; 毎日.log</title>
+    <meta name="title" content="Terraformとは？ &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="ツール,Chrome,実践,チュートリアル,">
+  <meta name="keywords" content="インフラ,Terraform,読書メモ,入門,">
   
   
-  <link rel="canonical" href="//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/">
+  <link rel="canonical" href="//localhost:1313/posts/251127233855_what-is-terraform/">
   
   
   
@@ -99,23 +99,23 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/">
+  <meta property="og:url" content="//localhost:1313/posts/251127233855_what-is-terraform/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="Chromeにカスタム検索機能を実装する方法">
+  <meta property="og:title" content="Terraformとは？">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-11-26T03:10:04+09:00">
-    <meta property="article:modified_time" content="2025-11-26T03:10:04+09:00">
-    <meta property="article:tag" content="ツール">
-    <meta property="article:tag" content="Chrome">
-    <meta property="article:tag" content="実践">
-    <meta property="article:tag" content="チュートリアル">
+    <meta property="article:published_time" content="2025-11-27T23:38:55+09:00">
+    <meta property="article:modified_time" content="2025-11-27T23:38:55+09:00">
+    <meta property="article:tag" content="インフラ">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="読書メモ">
+    <meta property="article:tag" content="入門">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Chromeにカスタム検索機能を実装する方法">
+  <meta name="twitter:title" content="Terraformとは？">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Chromeにカスタム検索機能を実装する方法",
-    "headline": "Chromeにカスタム検索機能を実装する方法",
+    "name": "Terraformとは？",
+    "headline": "Terraformとは？",
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/posts\/251126031004_implement-custom-search-feature-in-chrome\/",
+    "url" : "\/\/localhost:1313\/posts\/251127233855_what-is-terraform\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-11-26T03:10:04\u002b09:00",
-    "datePublished": "2025-11-26T03:10:04\u002b09:00",
+    "dateCreated": "2025-11-27T23:38:55\u002b09:00",
+    "datePublished": "2025-11-27T23:38:55\u002b09:00",
     
-    "dateModified": "2025-11-26T03:10:04\u002b09:00",
+    "dateModified": "2025-11-27T23:38:55\u002b09:00",
     
-    "keywords": ["ツール","Chrome","実践","チュートリアル"],
+    "keywords": ["インフラ","Terraform","読書メモ","入門"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "143"
+    "wordCount": "114"
   }]
   </script>
 
@@ -447,7 +447,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Chromeにカスタム検索機能を実装する方法
+        Terraformとは？
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -498,7 +498,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-11-26T03:10:04&#43;09:00">2025年 11月 26日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-11-27T23:38:55&#43;09:00">2025年 11月 27日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -585,31 +585,18 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#chromeカスタム検索エンジンの設定手順">Chromeカスタム検索エンジンの設定手順</a>
+    <li><a href="#はじめにterraformとは">はじめに：Terraformとは？</a></li>
+    <li><a href="#terraformはiacツールの中でどこに位置するか">TerraformはIaCツールの中でどこに位置するか</a></li>
+    <li><a href="#terraformの特徴">Terraformの特徴</a>
       <ul>
-        <li><a href="#ステップ1設定画面を開く">ステップ1：設定画面を開く</a></li>
-        <li><a href="#ステップ2検索エンジンを追加">ステップ2：検索エンジンを追加</a></li>
-        <li><a href="#ステップ3動作確認">ステップ3：動作確認</a></li>
+        <li><a href="#動作の仕組み">動作の仕組み</a></li>
+        <li><a href="#他のiacツールとの違い">他のIaCツールとの違い</a></li>
+        <li><a href="#terraformを選ぶ理由">Terraformを選ぶ理由</a></li>
       </ul>
     </li>
-    <li><a href="#カスタム検索一覧">カスタム検索一覧</a>
-      <ul>
-        <li><a href="#googleドライブ検索">Googleドライブ検索</a></li>
-        <li><a href="#ai検索開発ツール">AI検索・開発ツール</a></li>
-      </ul>
-    </li>
-    <li><a href="#検索演算子の活用">検索演算子の活用</a></li>
-    <li><a href="#他のサービスをカスタム検索に追加する方法">他のサービスをカスタム検索に追加する方法</a>
-      <ul>
-        <li><a href="#urlの調べ方">URLの調べ方</a></li>
-      </ul>
-    </li>
-    <li><a href="#まとめ">まとめ</a>
-      <ul>
-        <li><a href="#実現できたこと">実現できたこと</a></li>
-      </ul>
-    </li>
+    <li><a href="#実際の使われ方">実際の使われ方</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
   </ul>
 </nav>
   </div>
@@ -623,31 +610,18 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#chromeカスタム検索エンジンの設定手順">Chromeカスタム検索エンジンの設定手順</a>
+    <li><a href="#はじめにterraformとは">はじめに：Terraformとは？</a></li>
+    <li><a href="#terraformはiacツールの中でどこに位置するか">TerraformはIaCツールの中でどこに位置するか</a></li>
+    <li><a href="#terraformの特徴">Terraformの特徴</a>
       <ul>
-        <li><a href="#ステップ1設定画面を開く">ステップ1：設定画面を開く</a></li>
-        <li><a href="#ステップ2検索エンジンを追加">ステップ2：検索エンジンを追加</a></li>
-        <li><a href="#ステップ3動作確認">ステップ3：動作確認</a></li>
+        <li><a href="#動作の仕組み">動作の仕組み</a></li>
+        <li><a href="#他のiacツールとの違い">他のIaCツールとの違い</a></li>
+        <li><a href="#terraformを選ぶ理由">Terraformを選ぶ理由</a></li>
       </ul>
     </li>
-    <li><a href="#カスタム検索一覧">カスタム検索一覧</a>
-      <ul>
-        <li><a href="#googleドライブ検索">Googleドライブ検索</a></li>
-        <li><a href="#ai検索開発ツール">AI検索・開発ツール</a></li>
-      </ul>
-    </li>
-    <li><a href="#検索演算子の活用">検索演算子の活用</a></li>
-    <li><a href="#他のサービスをカスタム検索に追加する方法">他のサービスをカスタム検索に追加する方法</a>
-      <ul>
-        <li><a href="#urlの調べ方">URLの調べ方</a></li>
-      </ul>
-    </li>
-    <li><a href="#まとめ">まとめ</a>
-      <ul>
-        <li><a href="#実現できたこと">実現できたこと</a></li>
-      </ul>
-    </li>
+    <li><a href="#実際の使われ方">実際の使われ方</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
   </ul>
 </nav>
   </div>
@@ -751,261 +725,183 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h2 class="relative group">はじめに 
-    <div id="はじめに" class="anchor"></div>
+<h2 class="relative group">はじめに：Terraformとは？ 
+    <div id="はじめにterraformとは" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%abterraform%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>仕事の効率化のために、Googleドライブ内の検索をもっとスマートにできないかなと考えて、
-Chromeのアドレスバーから直接検索できる機能を実装しました。
-その結果、資料へのアクセスが劇的に向上したので、設定方法をメモします。</p>
+<p>TerraformはHashiCorp社が開発したオープンソースの<strong>Infrastructure as Code（IaC）ツール</strong>。<br>
+サーバ、ネットワーク、データベースなどのインフラをコードで定義し、自動的に構築・変更・バージョン管理できる。</p>
 
-<h2 class="relative group">Chromeカスタム検索エンジンの設定手順 
-    <div id="chromeカスタム検索エンジンの設定手順" class="anchor"></div>
+<h2 class="relative group">TerraformはIaCツールの中でどこに位置するか 
+    <div id="terraformはiacツールの中でどこに位置するか" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#chrome%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%a0%e6%a4%9c%e7%b4%a2%e3%82%a8%e3%83%b3%e3%82%b8%e3%83%b3%e3%81%ae%e8%a8%ad%e5%ae%9a%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform%e3%81%afiac%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e4%b8%ad%e3%81%a7%e3%81%a9%e3%81%93%e3%81%ab%e4%bd%8d%e7%bd%ae%e3%81%99%e3%82%8b%e3%81%8b" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-
-<h3 class="relative group">ステップ1：設定画面を開く 
-    <div id="ステップ1設定画面を開く" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%83%86%e3%83%83%e3%83%971%e8%a8%ad%e5%ae%9a%e7%94%bb%e9%9d%a2%e3%82%92%e9%96%8b%e3%81%8f" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>以下のいずれかの方法で設定画面を開きます</p>
-<p><strong>方法A</strong>：URL<code>chrome://settings/searchEngines</code>へ直接アクセス</p>
-<p><strong>方法B</strong>：メニューから操作</p>
-<ol>
-<li>Chromeの右上の「⋮」（3点メニュー）をクリック</li>
-<li>「設定」を選択</li>
-<li>左側メニューから「検索エンジン」を選択</li>
-<li>「検索エンジンとサイト内検索を管理する」をクリック</li>
-</ol>
-<blockquote>
-<p><strong>注意</strong>：Chromeのバージョンによって表記が「サイト検索を管理」など微妙に異なる場合があります</p>
-</blockquote>
-
-<h3 class="relative group">ステップ2：検索エンジンを追加 
-    <div id="ステップ2検索エンジンを追加" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%83%86%e3%83%83%e3%83%972%e6%a4%9c%e7%b4%a2%e3%82%a8%e3%83%b3%e3%82%b8%e3%83%b3%e3%82%92%e8%bf%bd%e5%8a%a0" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>「サイト内検索」セクションの「追加」ボタンをクリックし、以下の項目を入力します</p>
+<p>IaCツールは大きく5つに分類される</p>
 <table>
   <thead>
       <tr>
-          <th>項目</th>
-          <th>説明</th>
-          <th>例</th>
+          <th>分類</th>
+          <th>主な用途</th>
+          <th>代表例</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td><strong>検索エンジン名</strong></td>
-          <td>管理用の名前（任意）</td>
-          <td><code>Drive Title Search</code></td>
+          <td>アドホックなスクリプト</td>
+          <td>シンプルな自動化</td>
+          <td>Bash, Python</td>
       </tr>
       <tr>
-          <td><strong>ショートカット</strong></td>
-          <td>アドレスバーで使う短縮コマンド</td>
-          <td><code>d</code></td>
+          <td>設定管理ツール</td>
+          <td>既存サーバの設定</td>
+          <td>Ansible, Chef</td>
       </tr>
       <tr>
-          <td><strong>URL（%s=検索語句）</strong></td>
-          <td>検索用URL（<code>%s</code>が検索キーワードに置き換わる）</td>
-          <td><code>https://drive.google.com/drive/search?q=title:%s</code></td>
+          <td>サーバテンプレーティング</td>
+          <td>イメージからサーバ構築</td>
+          <td>Docker, Packer</td>
+      </tr>
+      <tr>
+          <td>オーケストレーション</td>
+          <td>コンテナ管理</td>
+          <td>Kubernetes</td>
+      </tr>
+      <tr>
+          <td>プロビジョニングツール</td>
+          <td>インフラ全体の作成</td>
+          <td><strong>Terraform</strong>, CloudFormation</td>
       </tr>
   </tbody>
 </table>
+<p>Terraformは<strong>プロビジョニングツール</strong>に分類される。<br>
+サーバ「上」に何かをインストールするのではなく、サーバ「自体」を作成するツール。</p>
 
-<h3 class="relative group">ステップ3：動作確認 
-    <div id="ステップ3動作確認" class="anchor"></div>
+<h2 class="relative group">Terraformの特徴 
+    <div id="terraformの特徴" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b9%e3%83%86%e3%83%83%e3%83%973%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<ol>
-<li>Chromeのアドレスバーにショートカット（例：<code>d</code>）を入力</li>
-<li><strong>スペース</strong>または<strong>Tab</strong>を押す → 検索モードに切り替わる</li>
-<li>検索キーワードを入力してEnter</li>
-</ol>
-
-<h2 class="relative group">カスタム検索一覧 
-    <div id="カスタム検索一覧" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%a0%e6%a4%9c%e7%b4%a2%e4%b8%80%e8%a6%a7" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform%e3%81%ae%e7%89%b9%e5%be%b4" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>自分が実際に登録した設定一覧が下記です。</p>
 
-<h3 class="relative group">Googleドライブ検索 
-    <div id="googleドライブ検索" class="anchor"></div>
+<h3 class="relative group">動作の仕組み 
+    <div id="動作の仕組み" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#google%e3%83%89%e3%83%a9%e3%82%a4%e3%83%96%e6%a4%9c%e7%b4%a2" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8b%95%e4%bd%9c%e3%81%ae%e4%bb%95%e7%b5%84%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>TerraformはGo言語で書かれたOSS。<br>
+各端末の<code>terraform</code>バイナリから、AWSやAzureなどのクラウドプロバイダへAPIコールして動作する。</p>
+
+<h3 class="relative group">他のIaCツールとの違い 
+    <div id="他のiacツールとの違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%96%e3%81%aeiac%e3%83%84%e3%83%bc%e3%83%ab%e3%81%a8%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 <table>
   <thead>
       <tr>
-          <th>コマンド</th>
-          <th>設定名</th>
-          <th>URL</th>
-          <th>用途</th>
+          <th>比較軸</th>
+          <th>Terraform</th>
+          <th>Ansible</th>
+          <th>CloudFormation</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td><strong>d</strong></td>
-          <td>Drive Title Search</td>
-          <td><code>https://drive.google.com/drive/search?q=title:%s</code></td>
-          <td><strong>タイトル検索</strong></td>
+          <td>ツール種別</td>
+          <td>プロビジョニング</td>
+          <td>設定管理</td>
+          <td>プロビジョニング</td>
       </tr>
       <tr>
-          <td><strong>da</strong></td>
-          <td>Drive All Search</td>
-          <td><code>https://drive.google.com/drive/search?q=%s</code></td>
-          <td><strong>全文検索</strong></td>
+          <td>インフラの扱い</td>
+          <td>イミュータブル</td>
+          <td>ミュータブル</td>
+          <td>イミュータブル</td>
       </tr>
       <tr>
-          <td><strong>ds</strong></td>
-          <td>Drive Sheets</td>
-          <td><code>https://drive.google.com/drive/search?q=type:spreadsheet+%s</code></td>
-          <td><strong>スプレッドシート限定</strong></td>
+          <td>言語スタイル</td>
+          <td>宣言型</td>
+          <td>手続き型/宣言型</td>
+          <td>宣言型</td>
       </tr>
       <tr>
-          <td><strong>dd</strong></td>
-          <td>Drive Docs</td>
-          <td><code>https://drive.google.com/drive/search?q=type:document+%s</code></td>
-          <td><strong>ドキュメント限定</strong></td>
-      </tr>
-  </tbody>
-</table>
-<blockquote>
-<p>URL内の<code>+</code>はスペース扱いになります（例：<code>type:spreadsheet+%s</code> → <code>type:spreadsheet 検索語</code>）</p>
-</blockquote>
-
-<h3 class="relative group">AI検索・開発ツール 
-    <div id="ai検索開発ツール" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ai%e6%a4%9c%e7%b4%a2%e9%96%8b%e7%99%ba%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<table>
-  <thead>
-      <tr>
-          <th>ショートカット</th>
-          <th>検索エンジン名</th>
-          <th>URL</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><strong>pa</strong></td>
-          <td>Perplexity AI</td>
-          <td><code>https://www.perplexity.ai/?q=%s</code></td>
-          <td>AI対話型検索</td>
+          <td>言語</td>
+          <td>HCL（DSL）</td>
+          <td>YAML</td>
+          <td>JSON/YAML</td>
       </tr>
       <tr>
-          <td><strong>gh</strong></td>
-          <td>GitHub</td>
-          <td><code>https://github.com/search?q=%s</code></td>
-          <td>リポジトリ・コード検索</td>
+          <td>マスタサーバ</td>
+          <td>不要</td>
+          <td>不要</td>
+          <td>不要（AWS管理）</td>
       </tr>
       <tr>
-          <td><strong>qi</strong></td>
-          <td>Qiita</td>
-          <td><code>https://qiita.com/search?q=%s</code></td>
-          <td>技術記事検索</td>
+          <td>エージェント</td>
+          <td>不要</td>
+          <td>不要</td>
+          <td>不要</td>
       </tr>
       <tr>
-          <td><strong>wiki</strong></td>
-          <td>Wikipedia</td>
-          <td><code>https://ja.wikipedia.org/wiki/Special:Search?search=%s</code></td>
-          <td>Wikipedia内検索</td>
+          <td>マルチクラウド</td>
+          <td>◯</td>
+          <td>◯</td>
+          <td>✕（AWS専用）</td>
       </tr>
   </tbody>
 </table>
 
-<h2 class="relative group">検索演算子の活用 
-    <div id="検索演算子の活用" class="anchor"></div>
+<h3 class="relative group">Terraformを選ぶ理由 
+    <div id="terraformを選ぶ理由" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a4%9c%e7%b4%a2%e6%bc%94%e7%ae%97%e5%ad%90%e3%81%ae%e6%b4%bb%e7%94%a8" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>以下の演算子を組み合わせることで検索の精度を上げることができます。</p>
-<ul>
-<li><code>title:</code> - タイトル限定検索
-<ul>
-<li><code>title:VPN</code>：ファイル名に「VPN」を含むものだけを表示</li>
-</ul>
-</li>
-<li><code>&quot;&quot;</code> - 完全一致検索（フレーズ検索）
-<ul>
-<li><code>&quot;エラー 503&quot;</code>：その並び順のフレーズしかヒットしない</li>
-</ul>
-</li>
-<li><code>-</code> - 除外検索
-<ul>
-<li><code>VPN -旧手順 -2023</code>：「旧手順」「2023」を含むファイルを除外</li>
-</ul>
-</li>
-</ul>
-
-<h2 class="relative group">他のサービスをカスタム検索に追加する方法 
-    <div id="他のサービスをカスタム検索に追加する方法" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%96%e3%81%ae%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%82%92%e3%82%ab%e3%82%b9%e3%82%bf%e3%83%a0%e6%a4%9c%e7%b4%a2%e3%81%ab%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-
-<h3 class="relative group">URLの調べ方 
-    <div id="urlの調べ方" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#url%e3%81%ae%e8%aa%bf%e3%81%b9%e6%96%b9" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform%e3%82%92%e9%81%b8%e3%81%b6%e7%90%86%e7%94%b1" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 <ol>
-<li>追加したいサイトで実際に検索を実行（例：「test」で検索）</li>
-<li>検索結果ページのURLをコピー</li>
-<li>URL内の検索キーワード部分（<code>test</code>など）を<code>%s</code>に置き換える</li>
+<li><strong>エージェントレス</strong>：クラウドプロバイダのAPIを直接呼び出すため、各サーバにエージェントをインストールする必要がない</li>
+<li><strong>マスタレス</strong>：マスタサーバの運用・メンテナンスが不要</li>
+<li><strong>宣言型言語</strong>：「こうなってほしい」を書くだけで、Terraformが差分を計算して適用してくれる</li>
+<li><strong>マルチクラウド対応</strong>：AWS、Azure、GCPなど複数のプロバイダを同じ言語で管理できる</li>
 </ol>
+
+<h2 class="relative group">実際の使われ方 
+    <div id="実際の使われ方" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e9%9a%9b%e3%81%ae%e4%bd%bf%e3%82%8f%e3%82%8c%e6%96%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Terraformは単体で使うこともあるが、他のツールと組み合わせることが多い：</p>
+<ul>
+<li><strong>Packer + Terraform</strong>：Packerでサーバイメージを作成 → Terraformでそのイメージを使ってインフラ構築</li>
+<li><strong>Docker + Kubernetes + Terraform</strong>：Terraformでインフラ構築（K8sクラスタ含む） → Kubernetesでコンテナ管理</li>
+</ul>
 
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -1016,40 +912,35 @@ Chromeのアドレスバーから直接検索できる機能を実装しまし�
     </span>        
     
 </h2>
-<p>Chromeのカスタム検索エンジン機能を活用することで、<strong>アドレスバーから直接検索</strong>できる環境を構築しました。</p>
+<ul>
+<li>Terraformは<strong>インフラをコードで管理する</strong>プロビジョニングツール</li>
+<li><strong>宣言型・マスタレス・エージェントレス</strong>という特徴を持つ</li>
+<li>クラウドプロバイダのAPIを直接呼び出すシンプルな仕組み</li>
+<li>他のIaCツール（Docker、Kubernetesなど）と組み合わせて使われることが多い</li>
+</ul>
 
-<h3 class="relative group">実現できたこと 
-    <div id="実現できたこと" class="anchor"></div>
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e7%8f%be%e3%81%a7%e3%81%8d%e3%81%9f%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
     </span>        
     
-</h3>
-<ol>
-<li>
-<p><strong>Googleドライブ検索の高速化</strong></p>
+</h2>
 <ul>
-<li>タイトル検索（<code>d</code>）、全文検索（<code>da</code>）、ファイル種別検索（<code>ds</code>, <code>dd</code>）を設定</li>
-<li>資料へのアクセス時間を体感10～15秒短縮</li>
+<li><a
+  href="https://www.oreilly.co.jp/books/9784814400522/"
+    target="_blank"
+  >詳解 Terraform 第3版 ―Infrastructure as Codeを実現する</a>
+<ul>
+<li>著者：Yevgeniy Brikman</li>
+<li>訳者：松浦 隼人</li>
+<li>出版社：オライリージャパン</li>
+<li>出版年：2023年</li>
 </ul>
 </li>
-<li>
-<p><strong>AI検索・開発ツールへの即座アクセス</strong></p>
-<ul>
-<li>Perplexity AI、GitHub、Qiita、Wikipediaなどを登録</li>
-<li>情報収集・技術調査の効率化</li>
 </ul>
-</li>
-<li>
-<p><strong>検索演算子との組み合わせ</strong></p>
-<ul>
-<li><code>title:</code>, <code>&quot;&quot;</code>, <code>-</code> を活用して検索精度を向上</li>
-<li>ノイズの多い検索結果から必要な情報を素早く抽出</li>
-</ul>
-</li>
-</ol>
 
           
           
@@ -1079,8 +970,8 @@ Chromeのアドレスバーから直接検索できる機能を実装しまし�
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251126031004_implement-custom-search-feature-in-chrome.md"
-          data-oid-likes="likes_posts/251126031004_implement-custom-search-feature-in-chrome.md"></script>
+          data-oid="views_posts/251127233855_what-is-terraform.md"
+          data-oid-likes="likes_posts/251127233855_what-is-terraform.md"></script>
       
 
     </section>
@@ -1095,7 +986,7 @@ Chromeのアドレスバーから直接検索できる機能を実装しまし�
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251124162641_iac-five-classifications/">
+            <a class="flex group mr-3" href="/posts/251126031004_implement-custom-search-feature-in-chrome/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1106,11 +997,11 @@ Chromeのアドレスバーから直接検索できる機能を実装しまし�
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >IaC（Infrastructure as Code）の5つの分類</span
+                  >Chromeにカスタム検索機能を実装する方法</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-11-24T16:26:41&#43;09:00">2025年 11月 24日</time>
+                    <time datetime="2025-11-26T03:10:04&#43;09:00">2025年 11月 26日</time>
                   
                 </span>
               </span>
@@ -1118,27 +1009,6 @@ Chromeのアドレスバーから直接検索できる機能を実装しまし�
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/251127233855_what-is-terraform/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Terraformとは？</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-11-27T23:38:55&#43;09:00">2025年 11月 27日</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
