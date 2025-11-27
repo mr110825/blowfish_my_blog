@@ -93,24 +93,23 @@ mainSections = ["posts"]
 # ------------------------------------------------------------------------------------
 # マークダウンのレンダリング設定
 # ------------------------------------------------------------------------------------
-[goldmark]
-  [goldmark.renderer]
-    # `unsafe = true` にすると、Markdown内でHTMLタグを直接記述できます。
-    unsafe = true
-  [goldmark.extensions]
-    [goldmark.extensions.passthrough]
-      enable = true
-      [goldmark.extensions.passthrough.delimiters]
-        block = [['\[', '\]'], ['$$', '$$']]
-        inline = [['\(', '\)']]
+[markup.goldmark.renderer]
+  # `unsafe = true` にすると、Markdown内でHTMLタグを直接記述できます。
+  unsafe = true
+
+[markup.goldmark.extensions.passthrough]
+  enable = true
+  [markup.goldmark.extensions.passthrough.delimiters]
+    block = [['\[', '\]'], ['$$', '$$']]
+    inline = [['\(', '\)']]
 
 # コードブロックのハイライト設定
-[highlight]
+[markup.highlight]
   # `true` にすると、シンタックスハイライトにCSSクラスが付与されなくなります。
   noClasses = false
 
 # 目次（Table of Contents）の設定
-[tableOfContents]
+[markup.tableOfContents]
   # 目次に含める見出しのレベル（h2からh4まで）。
   startLevel = 2
   endLevel = 4

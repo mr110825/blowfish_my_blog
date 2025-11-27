@@ -838,9 +838,9 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ ls -lh service.log*
-</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">696</span> Nov <span style="color:#ae81ff">23</span> 13:03 service.log
-</span></span><span style="display:flex;"><span>-rw-r--r-- <span style="color:#ae81ff">1</span> root root <span style="color:#ae81ff">375</span> Nov <span style="color:#ae81ff">23</span> 13:03 service.log.gz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ ls -lh service.log*
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> root root <span class="m">696</span> Nov <span class="m">23</span> 13:03 service.log
+</span></span><span class="line"><span class="cl">-rw-r--r-- <span class="m">1</span> root root <span class="m">375</span> Nov <span class="m">23</span> 13:03 service.log.gz
 </span></span></code></pre></div><hr>
 
 <h2 class="relative group">使用コマンドと実行例 
@@ -863,11 +863,11 @@
     
 </h3>
 <p><strong>コマンド:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep ERROR service.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep ERROR service.log
 </span></span></code></pre></div><p><strong>実行結果:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2024-11-20 10:16:28 ERROR Database connection timeout
-</span></span><span style="display:flex;"><span>2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
-</span></span><span style="display:flex;"><span>2024-11-20 10:20:15 ERROR Network unreachable: host<span style="color:#f92672">=</span>192.168.1.100
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2024-11-20 10:16:28 ERROR Database connection timeout
+</span></span><span class="line"><span class="cl">2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
+</span></span><span class="line"><span class="cl">2024-11-20 10:20:15 ERROR Network unreachable: <span class="nv">host</span><span class="o">=</span>192.168.1.100
 </span></span></code></pre></div>
 <h3 class="relative group">2. 圧縮ログファイル(.gz)からERRORを検索 
     <div id="2-圧縮ログファイルgzからerrorを検索" class="anchor"></div>
@@ -879,11 +879,11 @@
     
 </h3>
 <p><strong>コマンド:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>zgrep ERROR service.log.gz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">zgrep ERROR service.log.gz
 </span></span></code></pre></div><p><strong>実行結果:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2024-11-20 10:16:28 ERROR Database connection timeout
-</span></span><span style="display:flex;"><span>2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
-</span></span><span style="display:flex;"><span>2024-11-20 10:20:15 ERROR Network unreachable: host<span style="color:#f92672">=</span>192.168.1.100
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2024-11-20 10:16:28 ERROR Database connection timeout
+</span></span><span class="line"><span class="cl">2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
+</span></span><span class="line"><span class="cl">2024-11-20 10:20:15 ERROR Network unreachable: <span class="nv">host</span><span class="o">=</span>192.168.1.100
 </span></span></code></pre></div><p>💡 <code>.log</code>でも<code>.gz</code>でも同じ結果が得られる!</p>
 
 <h3 class="relative group">3. 行番号付きで検索 
@@ -896,11 +896,11 @@
     
 </h3>
 <p><strong>コマンド:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -n ERROR service.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep -n ERROR service.log
 </span></span></code></pre></div><p><strong>実行結果:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>5:2024-11-20 10:16:28 ERROR Database connection timeout
-</span></span><span style="display:flex;"><span>6:2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
-</span></span><span style="display:flex;"><span>10:2024-11-20 10:20:15 ERROR Network unreachable: host<span style="color:#f92672">=</span>192.168.1.100
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">5:2024-11-20 10:16:28 ERROR Database connection timeout
+</span></span><span class="line"><span class="cl">6:2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
+</span></span><span class="line"><span class="cl">10:2024-11-20 10:20:15 ERROR Network unreachable: <span class="nv">host</span><span class="o">=</span>192.168.1.100
 </span></span></code></pre></div>
 <h3 class="relative group">4. 複数パターンを同時に検索 (ERROR または WARN) 
     <div id="4-複数パターンを同時に検索-error-または-warn" class="anchor"></div>
@@ -912,13 +912,13 @@
     
 </h3>
 <p><strong>コマンド:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -E <span style="color:#e6db74">&#34;ERROR|WARN&#34;</span> service.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep -E <span class="s2">&#34;ERROR|WARN&#34;</span> service.log
 </span></span></code></pre></div><p><strong>実行結果:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>2024-11-20 10:16:03 WARN  High memory usage detected: 85%
-</span></span><span style="display:flex;"><span>2024-11-20 10:16:28 ERROR Database connection timeout
-</span></span><span style="display:flex;"><span>2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
-</span></span><span style="display:flex;"><span>2024-11-20 10:18:45 WARN  Response time exceeded threshold: 3.5s
-</span></span><span style="display:flex;"><span>2024-11-20 10:20:15 ERROR Network unreachable: host<span style="color:#f92672">=</span>192.168.1.100
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">2024-11-20 10:16:03 WARN  High memory usage detected: 85%
+</span></span><span class="line"><span class="cl">2024-11-20 10:16:28 ERROR Database connection timeout
+</span></span><span class="line"><span class="cl">2024-11-20 10:16:30 ERROR Failed to execute query: SELECT * FROM users
+</span></span><span class="line"><span class="cl">2024-11-20 10:18:45 WARN  Response <span class="nb">time</span> exceeded threshold: 3.5s
+</span></span><span class="line"><span class="cl">2024-11-20 10:20:15 ERROR Network unreachable: <span class="nv">host</span><span class="o">=</span>192.168.1.100
 </span></span></code></pre></div>
 <h3 class="relative group">5. 検索結果の件数をカウント 
     <div id="5-検索結果の件数をカウント" class="anchor"></div>
@@ -930,9 +930,9 @@
     
 </h3>
 <p><strong>コマンド:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>grep -c ERROR service.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">grep -c ERROR service.log
 </span></span></code></pre></div><p><strong>実行結果:</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#ae81ff">3</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="m">3</span>
 </span></span></code></pre></div><hr>
 
 <h2 class="relative group">よく使うgrepオプション 
@@ -1084,7 +1084,7 @@
     </span>        
     
 </h3>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>less service.log
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">less service.log
 </span></span></code></pre></div><p>less内で:</p>
 <pre tabindex="0"><code>/ERROR    # 「ERROR」を前方検索
 n         # 次のERRORへジャンプ
@@ -1163,19 +1163,19 @@ N         # 前のERRORへ戻る
     
 </h2>
 <p>❌ <strong>パイプの誤用</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>more service.log | zgrep ERROR
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">more service.log <span class="p">|</span> zgrep ERROR
 </span></span></code></pre></div><p>→ zgrepは圧縮ファイル専用。パイプで渡されたデータは圧縮されていない</p>
 <p>⭕ <strong>正しい使い方</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 通常ファイル</span>
-</span></span><span style="display:flex;"><span>grep ERROR service.log
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># 圧縮ファイル</span>
-</span></span><span style="display:flex;"><span>zgrep ERROR service.log.gz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 通常ファイル</span>
+</span></span><span class="line"><span class="cl">grep ERROR service.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 圧縮ファイル</span>
+</span></span><span class="line"><span class="cl">zgrep ERROR service.log.gz
 </span></span></code></pre></div><hr>
 <p>❌ <strong>大きなログファイルにmore</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>more huge_file.log  <span style="color:#75715e"># 読み込みが遅い</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">more huge_file.log  <span class="c1"># 読み込みが遅い</span>
 </span></span></code></pre></div><p>⭕ <strong>lessを使う</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>less huge_file.log  <span style="color:#75715e"># 高速に起動</span>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">less huge_file.log  <span class="c1"># 高速に起動</span>
 </span></span></code></pre></div><hr>
 
 <h2 class="relative group">学んだこと 
@@ -1205,20 +1205,20 @@ N         # 前のERRORへ戻る
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># パターン1: エラーログを抽出して別ファイルに保存</span>
-</span></span><span style="display:flex;"><span>grep ERROR service.log &gt; error_only.log
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># パターン2: 最新のエラーを確認</span>
-</span></span><span style="display:flex;"><span>grep ERROR service.log | tail -5
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># パターン3: エラーとその前後2行を表示</span>
-</span></span><span style="display:flex;"><span>grep -C <span style="color:#ae81ff">2</span> ERROR service.log
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># パターン4: 複数ファイルからエラーを検索</span>
-</span></span><span style="display:flex;"><span>grep ERROR service*.log
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># パターン5: 圧縮ファイルも含めて検索</span>
-</span></span><span style="display:flex;"><span>zgrep ERROR service.log.gz
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># パターン1: エラーログを抽出して別ファイルに保存</span>
+</span></span><span class="line"><span class="cl">grep ERROR service.log &gt; error_only.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># パターン2: 最新のエラーを確認</span>
+</span></span><span class="line"><span class="cl">grep ERROR service.log <span class="p">|</span> tail -5
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># パターン3: エラーとその前後2行を表示</span>
+</span></span><span class="line"><span class="cl">grep -C <span class="m">2</span> ERROR service.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># パターン4: 複数ファイルからエラーを検索</span>
+</span></span><span class="line"><span class="cl">grep ERROR service*.log
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># パターン5: 圧縮ファイルも含めて検索</span>
+</span></span><span class="line"><span class="cl">zgrep ERROR service.log.gz
 </span></span></code></pre></div>
           
           

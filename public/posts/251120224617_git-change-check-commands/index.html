@@ -734,18 +734,18 @@
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 全体把握</span>
-</span></span><span style="display:flex;"><span>git status
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># すべての変更を確認</span>
-</span></span><span style="display:flex;"><span>git diff HEAD --stat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># まだ git add していない変更を確認</span>
-</span></span><span style="display:flex;"><span>git diff --stat
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># git add した変更を確認</span>
-</span></span><span style="display:flex;"><span>git diff --staged --stat
-</span></span><span style="display:flex;"><span>git diff --cached --stat
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 全体把握</span>
+</span></span><span class="line"><span class="cl">git status
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># すべての変更を確認</span>
+</span></span><span class="line"><span class="cl">git diff HEAD --stat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># まだ git add していない変更を確認</span>
+</span></span><span class="line"><span class="cl">git diff --stat
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># git add した変更を確認</span>
+</span></span><span class="line"><span class="cl">git diff --staged --stat
+</span></span><span class="line"><span class="cl">git diff --cached --stat
 </span></span></code></pre></div>
 <h2 class="relative group">変更を確定するコマンド 
     <div id="変更を確定するコマンド" class="anchor"></div>
@@ -756,11 +756,11 @@
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># コミット</span>
-</span></span><span style="display:flex;"><span>git commit -m <span style="color:#e6db74">&#34;...&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># リモートリポジトリへプッシュ</span>
-</span></span><span style="display:flex;"><span>git push
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># コミット</span>
+</span></span><span class="line"><span class="cl">git commit -m <span class="s2">&#34;...&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># リモートリポジトリへプッシュ</span>
+</span></span><span class="line"><span class="cl">git push
 </span></span></code></pre></div>
 <h2 class="relative group">日本語ファイル名の表示設定 
     <div id="日本語ファイル名の表示設定" class="anchor"></div>
@@ -773,11 +773,11 @@
 </h2>
 <p>デフォルトでは日本語ファイル名がエスケープされて表示される問題を解決
 実行後、日本語ファイル名が正常に表示される。</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># グローバル設定（全リポジトリに適用）</span>
-</span></span><span style="display:flex;"><span>git config --global core.quotePath false
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># または、このリポジトリだけ設定</span>
-</span></span><span style="display:flex;"><span>git config core.quotePath false
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># グローバル設定（全リポジトリに適用）</span>
+</span></span><span class="line"><span class="cl">git config --global core.quotePath <span class="nb">false</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># または、このリポジトリだけ設定</span>
+</span></span><span class="line"><span class="cl">git config core.quotePath <span class="nb">false</span>
 </span></span></code></pre></div>
 <h2 class="relative group">その他の有用な設定（オプション） 
     <div id="その他の有用な設定オプション" class="anchor"></div>
@@ -788,11 +788,11 @@
     </span>        
     
 </h2>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># 日本語コミットメッセージも正常表示</span>
-</span></span><span style="display:flex;"><span>git config --global core.pager <span style="color:#e6db74">&#34;less -R&#34;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#75715e"># git log で日本語を正しく表示</span>
-</span></span><span style="display:flex;"><span>git config --global i18n.logOutputEncoding utf-8
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 日本語コミットメッセージも正常表示</span>
+</span></span><span class="line"><span class="cl">git config --global core.pager <span class="s2">&#34;less -R&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># git log で日本語を正しく表示</span>
+</span></span><span class="line"><span class="cl">git config --global i18n.logOutputEncoding utf-8
 </span></span></code></pre></div>
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
