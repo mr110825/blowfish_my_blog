@@ -287,6 +287,8 @@ EOF
 nohup python3 -m http.server ${server_port} &
 ```
 
+> **注意**: このコードは `terraform_remote_state` の動作確認用サンプルです。ブラウザでアクセスするとDBの接続情報が画面に表示されます。実際の運用環境では、このような機密情報をHTMLページに表示せず、アプリケーション内部でのみ使用してください。
+
 ### variables.tf
 
 ```hcl
