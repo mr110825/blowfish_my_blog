@@ -1,0 +1,2311 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state &middot; 毎日.log</title>
+    <meta name="title" content="Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state &middot; 毎日.log">
+
+  
+  <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta name="keywords" content="インフラ,Terraform,AWS,ハンズオン,">
+  
+  
+  <link rel="canonical" href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.61491ede535d04b7d87b39e2413c19557ffdd98fcc24a7d789af1c8eaedd1cca90dc576e161fe1b308349ec7bf2741875c1f999febd9452ab7a97bd3dc3539f4.css"
+    integrity="sha512-YUke3lNdBLfYezniQTwZVX/92Y/MJKfXia8cjq7dHMqQ3FduFh/hswg0nse/J0GHXB&#43;Zn&#43;vZRSq3qXvT3DU59A==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.b363d716a7ea4bad623779c04878b62e384759903bf0e247658d199ca391ca711253abc6e0b593fe91b9cc9b7e1b36fb85730691a0d891ae9a8cfee6a986e58f.js"
+      integrity="sha512-s2PXFqfqS61iN3nASHi2LjhHWZA78OJHZY0ZnKORynESU6vG4LWT/pG5zJt&#43;Gzb7hXMGkaDYka6ajP7mqYbljw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">
+  <meta property="og:site_name" content="毎日.log">
+  <meta property="og:title" content="Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state">
+  <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-28T19:31:49+09:00">
+    <meta property="article:modified_time" content="2025-11-28T19:31:49+09:00">
+    <meta property="article:tag" content="インフラ">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="ハンズオン">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state">
+  <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state",
+    "headline": "Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/posts\/251128193149_terraform-file-layout-separation\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-11-28T19:31:49\u002b09:00",
+    "datePublished": "2025-11-28T19:31:49\u002b09:00",
+    
+    "dateModified": "2025-11-28T19:31:49\u002b09:00",
+    
+    "keywords": ["インフラ","Terraform","AWS","ハンズオン"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1732"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          毎日.log
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-11-28T19:31:49&#43;09:00">2025年 11月 28日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#前回の振り返り-ワークスペースの限界">前回の振り返り: ワークスペースの限界</a></li>
+    <li><a href="#ファイルレイアウトによる分離とは">ファイルレイアウトによる分離とは</a>
+      <ul>
+        <li><a href="#なぜコンポーネントも分離するのか">なぜコンポーネントも分離するのか</a></li>
+        <li><a href="#分離されたコンポーネント間の連携">分離されたコンポーネント間の連携</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-1-rdsの構築">Step 1: RDSの構築</a>
+      <ul>
+        <li><a href="#ディレクトリ構成">ディレクトリ構成</a></li>
+        <li><a href="#variablestf">variables.tf</a></li>
+        <li><a href="#maintf">main.tf</a></li>
+        <li><a href="#outputstf重要">outputs.tf（重要）</a></li>
+        <li><a href="#デプロイ">デプロイ</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-2-webサーバークラスタの構築">Step 2: Webサーバークラスタの構築</a>
+      <ul>
+        <li><a href="#ディレクトリ構成-1">ディレクトリ構成</a></li>
+        <li><a href="#terraform_remote_stateとは">terraform_remote_stateとは</a>
+          <ul>
+            <li><a href="#なぜ必要なのか">なぜ必要なのか</a></li>
+            <li><a href="#仕組み">仕組み</a></li>
+            <li><a href="#基本構文">基本構文</a></li>
+            <li><a href="#参照方法">参照方法</a></li>
+            <li><a href="#ハードコードとの比較">ハードコードとの比較</a></li>
+            <li><a href="#注意点">注意点</a></li>
+          </ul>
+        </li>
+        <li><a href="#templatefile関数">templatefile関数</a></li>
+        <li><a href="#user-datash">user-data.sh</a></li>
+        <li><a href="#variablestf-1">variables.tf</a></li>
+        <li><a href="#maintf-1">main.tf</a></li>
+        <li><a href="#outputstf">outputs.tf</a></li>
+        <li><a href="#デプロイ-1">デプロイ</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-動作確認">Step 3: 動作確認</a>
+      <ul>
+        <li><a href="#terraform-consoleで確認">terraform consoleで確認</a></li>
+        <li><a href="#ブラウザで確認">ブラウザで確認</a></li>
+      </ul>
+    </li>
+    <li><a href="#クリーンアップ-依存関係と削除順序">クリーンアップ: 依存関係と削除順序</a>
+      <ul>
+        <li><a href="#なぜ削除順序が重要なのか">なぜ削除順序が重要なのか</a></li>
+      </ul>
+    </li>
+    <li><a href="#構築したアーキテクチャ">構築したアーキテクチャ</a></li>
+    <li><a href="#完成形のコード">完成形のコード</a>
+      <ul>
+        <li><a href="#ディレクトリ構成-2">ディレクトリ構成</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#学んだこと">学んだこと</a></li>
+        <li><a href="#ワークスペース-vs-ファイルレイアウト">ワークスペース vs ファイルレイアウト</a></li>
+        <li><a href="#チェックリスト">チェックリスト</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#前回の振り返り-ワークスペースの限界">前回の振り返り: ワークスペースの限界</a></li>
+    <li><a href="#ファイルレイアウトによる分離とは">ファイルレイアウトによる分離とは</a>
+      <ul>
+        <li><a href="#なぜコンポーネントも分離するのか">なぜコンポーネントも分離するのか</a></li>
+        <li><a href="#分離されたコンポーネント間の連携">分離されたコンポーネント間の連携</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-1-rdsの構築">Step 1: RDSの構築</a>
+      <ul>
+        <li><a href="#ディレクトリ構成">ディレクトリ構成</a></li>
+        <li><a href="#variablestf">variables.tf</a></li>
+        <li><a href="#maintf">main.tf</a></li>
+        <li><a href="#outputstf重要">outputs.tf（重要）</a></li>
+        <li><a href="#デプロイ">デプロイ</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-2-webサーバークラスタの構築">Step 2: Webサーバークラスタの構築</a>
+      <ul>
+        <li><a href="#ディレクトリ構成-1">ディレクトリ構成</a></li>
+        <li><a href="#terraform_remote_stateとは">terraform_remote_stateとは</a>
+          <ul>
+            <li><a href="#なぜ必要なのか">なぜ必要なのか</a></li>
+            <li><a href="#仕組み">仕組み</a></li>
+            <li><a href="#基本構文">基本構文</a></li>
+            <li><a href="#参照方法">参照方法</a></li>
+            <li><a href="#ハードコードとの比較">ハードコードとの比較</a></li>
+            <li><a href="#注意点">注意点</a></li>
+          </ul>
+        </li>
+        <li><a href="#templatefile関数">templatefile関数</a></li>
+        <li><a href="#user-datash">user-data.sh</a></li>
+        <li><a href="#variablestf-1">variables.tf</a></li>
+        <li><a href="#maintf-1">main.tf</a></li>
+        <li><a href="#outputstf">outputs.tf</a></li>
+        <li><a href="#デプロイ-1">デプロイ</a></li>
+      </ul>
+    </li>
+    <li><a href="#step-3-動作確認">Step 3: 動作確認</a>
+      <ul>
+        <li><a href="#terraform-consoleで確認">terraform consoleで確認</a></li>
+        <li><a href="#ブラウザで確認">ブラウザで確認</a></li>
+      </ul>
+    </li>
+    <li><a href="#クリーンアップ-依存関係と削除順序">クリーンアップ: 依存関係と削除順序</a>
+      <ul>
+        <li><a href="#なぜ削除順序が重要なのか">なぜ削除順序が重要なのか</a></li>
+      </ul>
+    </li>
+    <li><a href="#構築したアーキテクチャ">構築したアーキテクチャ</a></li>
+    <li><a href="#完成形のコード">完成形のコード</a>
+      <ul>
+        <li><a href="#ディレクトリ構成-2">ディレクトリ構成</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#学んだこと">学んだこと</a></li>
+        <li><a href="#ワークスペース-vs-ファイルレイアウト">ワークスペース vs ファイルレイアウト</a></li>
+        <li><a href="#チェックリスト">チェックリスト</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">今日学んだこと 
+    <div id="今日学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%8a%e6%97%a5%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>前回の記事でワークスペースによるステート分離を学んだが、本番環境の分離には不十分だった。今回は<strong>ファイルレイアウトによる分離</strong>を実践し、RDSとWebサーバーを別々に管理しながら<code>terraform_remote_state</code>で連携させる方法を学んだ。</p>
+
+<h2 class="relative group">前回の振り返り: ワークスペースの限界 
+    <div id="前回の振り返り-ワークスペースの限界" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%89%8d%e5%9b%9e%e3%81%ae%e6%8c%af%e3%82%8a%e8%bf%94%e3%82%8a-%e3%83%af%e3%83%bc%e3%82%af%e3%82%b9%e3%83%9a%e3%83%bc%e3%82%b9%e3%81%ae%e9%99%90%e7%95%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p><a
+  href="/posts/251128185824_terraform-state-management-intro/">Part1</a>でワークスペースの欠点を確認した。</p>
+<table>
+  <thead>
+      <tr>
+          <th>欠点</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>同一バックエンド</td>
+          <td>全環境が同じS3/DynamoDBを使用（権限分離が困難）</td>
+      </tr>
+      <tr>
+          <td>可視性が低い</td>
+          <td>今どのワークスペースにいるか分かりにくい</td>
+      </tr>
+      <tr>
+          <td>誤操作リスク</td>
+          <td><code>terraform workspace select prod</code> を忘れて本番を破壊する可能性</td>
+      </tr>
+  </tbody>
+</table>
+<p>これらの問題を解決するのが<strong>ファイルレイアウトによる分離</strong>。</p>
+<hr>
+
+<h2 class="relative group">ファイルレイアウトによる分離とは 
+    <div id="ファイルレイアウトによる分離とは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%83%ac%e3%82%a4%e3%82%a2%e3%82%a6%e3%83%88%e3%81%ab%e3%82%88%e3%82%8b%e5%88%86%e9%9b%a2%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>環境ごと・コンポーネントごとに<strong>別のディレクトリで管理</strong>する方法。</p>
+<pre tabindex="0"><code>terraform-project/
+├── stage/                            # ステージング環境
+│   ├── data-stores/mysql/            # DB層（変更頻度: 低）
+│   └── services/webserver-cluster/   # App層（変更頻度: 高）
+└── prod/                             # 本番環境（完全に別管理）
+    ├── data-stores/mysql/
+    └── services/webserver-cluster/
+</code></pre>
+<h3 class="relative group">なぜコンポーネントも分離するのか 
+    <div id="なぜコンポーネントも分離するのか" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9c%e3%82%b3%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%8d%e3%83%b3%e3%83%88%e3%82%82%e5%88%86%e9%9b%a2%e3%81%99%e3%82%8b%e3%81%ae%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>レイヤー</th>
+          <th>変更頻度</th>
+          <th>リスク</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>VPC/ネットワーク</td>
+          <td>月1回程度</td>
+          <td>高（全体に影響）</td>
+      </tr>
+      <tr>
+          <td>データベース</td>
+          <td>週1回程度</td>
+          <td>高（データ損失）</td>
+      </tr>
+      <tr>
+          <td>Webサーバー</td>
+          <td>1日数回</td>
+          <td>低（再デプロイ可能）</td>
+      </tr>
+  </tbody>
+</table>
+<p>頻繁に変更するWebサーバーと、めったに変更しないDBを同じステートで管理すると、<strong>Webサーバーの変更時に誤ってDBを破壊するリスク</strong>がある。</p>
+
+<h3 class="relative group">分離されたコンポーネント間の連携 
+    <div id="分離されたコンポーネント間の連携" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%86%e9%9b%a2%e3%81%95%e3%82%8c%e3%81%9f%e3%82%b3%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%8d%e3%83%b3%e3%83%88%e9%96%93%e3%81%ae%e9%80%a3%e6%90%ba" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>問題: RDSとWebサーバーが別プロジェクトになると、WebサーバーはRDSの接続情報をどうやって知るのか？</p>
+<p>解決: <strong>terraform_remote_state</strong>で別プロジェクトのステートからoutputを参照する。</p>
+<pre tabindex="0"><code>[mysql/]                              [webserver-cluster/]
+   │                                         │
+   └── outputs.tf で address/port を出力    │
+              │                              │
+              └──────────────────────────────┼──→ terraform_remote_state で参照
+</code></pre><hr>
+
+<h2 class="relative group">Step 1: RDSの構築 
+    <div id="step-1-rdsの構築" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-rds%e3%81%ae%e6%a7%8b%e7%af%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">ディレクトリ構成 
+    <div id="ディレクトリ構成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e6%a7%8b%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p stage/data-stores/mysql
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> stage/data-stores/mysql
+</span></span></code></pre></div>
+<h3 class="relative group">variables.tf 
+    <div id="variablestf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#variablestf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベース名&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;example_database&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_username&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースのユーザー名&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  sensitive</span>   <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_password&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースのパスワード&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  sensitive</span>   <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>sensitive = true</code>を指定すると、<code>terraform plan</code>や<code>terraform apply</code>の出力でマスクされる。</p>
+
+<h3 class="relative group">main.tf 
+    <div id="maintf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#maintf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">provider</span> <span class="s2">&#34;aws&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">backend</span> <span class="s2">&#34;s3&#34;</span> {<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">    # 重要: keyはRDS専用のパスにする
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">    key</span>            <span class="o">=</span> <span class="s2">&#34;stage/data-stores/mysql/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span>         <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    region</span>         <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    dynamodb_table</span> <span class="o">=</span> <span class="s2">&#34;tf-state-locks&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    encrypt</span>        <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_db_instance&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  identifier_prefix</span>   <span class="o">=</span> <span class="s2">&#34;terraform-up-and-running&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  engine</span>              <span class="o">=</span> <span class="s2">&#34;mysql&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  allocated_storage</span>   <span class="o">=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">  instance_class</span>      <span class="o">=</span> <span class="s2">&#34;db.t3.micro&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  skip_final_snapshot</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_name</span>             <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  username</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_username</span>
+</span></span><span class="line"><span class="cl"><span class="n">  password</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_password</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">outputs.tf（重要） 
+    <div id="outputstf重要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#outputstf%e9%87%8d%e8%a6%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Webサーバーから参照するために、接続情報を<strong>output</strong>として公開する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;address&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_db_instance</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">address</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースの接続エンドポイント&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;port&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_db_instance</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">port</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースのポート番号&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">デプロイ 
+    <div id="デプロイ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform init
+</span></span><span class="line"><span class="cl">terraform apply
+</span></span><span class="line"><span class="cl"><span class="c1"># var.db_username: admin</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># var.db_password: yourpassword123</span>
+</span></span></code></pre></div><p>RDSの作成には5-10分かかる。完了したら<code>terraform output</code>で接続情報を確認できる。</p>
+<hr>
+
+<h2 class="relative group">Step 2: Webサーバークラスタの構築 
+    <div id="step-2-webサーバークラスタの構築" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-web%e3%82%b5%e3%83%bc%e3%83%90%e3%83%bc%e3%82%af%e3%83%a9%e3%82%b9%e3%82%bf%e3%81%ae%e6%a7%8b%e7%af%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">ディレクトリ構成 
+    <div id="ディレクトリ構成-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e6%a7%8b%e6%88%90-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">mkdir -p stage/services/webserver-cluster
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> stage/services/webserver-cluster
+</span></span></code></pre></div>
+<h3 class="relative group">terraform_remote_stateとは 
+    <div id="terraform_remote_stateとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform_remote_state%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">なぜ必要なのか 
+    <div id="なぜ必要なのか" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9c%e5%bf%85%e8%a6%81%e3%81%aa%e3%81%ae%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>ファイルレイアウトで分離すると、RDSとWebサーバーは<strong>別々のTerraformプロジェクト</strong>になる。それぞれが独自のステートファイルを持つため、通常の方法では互いのリソース情報にアクセスできない。</p>
+<pre tabindex="0"><code>[mysql/]                         [webserver-cluster/]
+terraform.tfstate                terraform.tfstate
+    │                                │
+    └── RDSのaddress/portを保持      └── RDSの情報が必要だが...？
+</code></pre><p>WebサーバーがRDSに接続するには、RDSのエンドポイント（address/port）が必要。これを解決するのが<code>terraform_remote_state</code>。</p>
+
+<h4 class="relative group">仕組み 
+    <div id="仕組み" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%95%e7%b5%84%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><code>terraform_remote_state</code>は<strong>読み取り専用のデータソース</strong>で、別プロジェクトのステートファイルから<code>output</code>で公開された値を取得する。</p>
+<pre tabindex="0"><code>[mysql/]                                    [webserver-cluster/]
+    │                                              │
+    ├── outputs.tf で address/port を公開          │
+    │       │                                      │
+    │       ▼                                      │
+    │   S3に保存されたステート ◀─────────────────────┤
+    │   (stage/data-stores/mysql/                  │
+    │    terraform.tfstate)                        │
+    │       │                                      │
+    │       │  terraform_remote_state で読み取り   │
+    │       └──────────────────────────────────────▶ db_address, db_port として使用
+</code></pre><p><strong>重要</strong>: <code>terraform_remote_state</code>で読み取れるのは<code>output</code>で明示的に公開された値のみ。ステートファイル内の全リソース情報にアクセスできるわけではない。</p>
+
+<h4 class="relative group">基本構文 
+    <div id="基本構文" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e6%a7%8b%e6%96%87" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;terraform_remote_state&#34; &#34;db&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  backend</span> <span class="o">=</span> <span class="s2">&#34;s3&#34;</span><span class="c1">  # バックエンドの種類
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">  config</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span> <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>    <span class="o">=</span> <span class="s2">&#34;stage/data-stores/mysql/terraform.tfstate&#34;</span><span class="c1">  # RDSのステートのkey
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">    region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>backend</code></td>
+          <td>参照先のバックエンド種類（s3, gcs, azurerm等）</td>
+      </tr>
+      <tr>
+          <td><code>config.bucket</code></td>
+          <td>S3バケット名</td>
+      </tr>
+      <tr>
+          <td><code>config.key</code></td>
+          <td>参照先プロジェクトのステートファイルのkey</td>
+      </tr>
+      <tr>
+          <td><code>config.region</code></td>
+          <td>S3バケットのリージョン</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">参照方法 
+    <div id="参照方法" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e7%85%a7%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># outputs.address を参照
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">address</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># outputs.port を参照
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">port</span>
+</span></span></code></pre></div>
+<h4 class="relative group">ハードコードとの比較 
+    <div id="ハードコードとの比較" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8f%e3%83%bc%e3%83%89%e3%82%b3%e3%83%bc%e3%83%89%e3%81%a8%e3%81%ae%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>方式</th>
+          <th>コード例</th>
+          <th>問題点</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ハードコード</td>
+          <td><code>db_address = &quot;terraform-xxx.rds.amazonaws.com&quot;</code></td>
+          <td>RDS再作成時に手動更新が必要</td>
+      </tr>
+      <tr>
+          <td>terraform_remote_state</td>
+          <td><code>db_address = data.terraform_remote_state.db.outputs.address</code></td>
+          <td>自動的に最新値を取得</td>
+      </tr>
+  </tbody>
+</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># NG: ハードコード
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">db_address</span> <span class="o">=</span> <span class="s2">&#34;terraform-xxx.rds.amazonaws.com&#34;</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># → RDSを再作成するとアドレスが変わり、手動更新が必要
+</span></span></span><span class="line"><span class="cl"><span class="c1"># → 複数環境で異なる値を管理する必要がある
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># OK: terraform_remote_state
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">db_address</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">address</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># → RDSが変わっても terraform plan/apply 時に最新のアドレスを取得
+</span></span></span><span class="line"><span class="cl"><span class="c1"># → 環境ごとにkeyを変えるだけで対応可能
+</span></span></span></code></pre></div>
+<h4 class="relative group">注意点 
+    <div id="注意点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%b3%a8%e6%84%8f%e7%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>注意点</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>keyの一致</strong></td>
+          <td><code>terraform_remote_state</code>の<code>key</code>は、参照先プロジェクトの<code>backend</code>設定と完全に一致させること</td>
+      </tr>
+      <tr>
+          <td><strong>outputの公開</strong></td>
+          <td>参照したい値は参照先で<code>output</code>として定義する必要がある</td>
+      </tr>
+      <tr>
+          <td><strong>依存関係</strong></td>
+          <td>参照先（RDS）を先にデプロイしてからWebサーバーをデプロイすること</td>
+      </tr>
+      <tr>
+          <td><strong>読み取り専用</strong></td>
+          <td>ステートの読み取りのみ可能。変更はできない</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">templatefile関数 
+    <div id="templatefile関数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#templatefile%e9%96%a2%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>外部ファイルを読み込み、変数を埋め込む関数。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="n">user_data</span> <span class="o">=</span> <span class="k">base64encode</span><span class="p">(</span><span class="k">templatefile</span><span class="p">(</span><span class="s2">&#34;user-data.sh&#34;</span><span class="p">,</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  server_port</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_address</span>  <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">address</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_port</span>     <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">port</span>
+</span></span><span class="line"><span class="cl">}<span class="p">))</span>
+</span></span></code></pre></div><p>HCLとbashを分離することで可読性が向上し、スクリプト単体でのテストも可能になる。</p>
+
+<h3 class="relative group">user-data.sh 
+    <div id="user-datash" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#user-datash" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">cd</span> /home/ec2-user
+</span></span><span class="line"><span class="cl">cat &gt; index.html <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;h1&gt;Hello, World&lt;/h1&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;p&gt;DB address: ${db_address}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;p&gt;DB port: ${db_port}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">nohup python3 -m http.server <span class="si">${</span><span class="nv">server_port</span><span class="si">}</span> <span class="p">&amp;</span>
+</span></span></code></pre></div>
+<h3 class="relative group">variables.tf 
+    <div id="variablestf-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#variablestf-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;server_port&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;HTTPリクエストを受け付けるポート番号&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">number</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="m">8080</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;alb_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ALBの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;terraform-asg-example&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;alb_security_group_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ALB用セキュリティグループの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;terraform-example-alb&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;instance_security_group_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;EC2インスタンス用セキュリティグループの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;terraform-example-instance&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">main.tf 
+    <div id="maintf-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#maintf-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">provider</span> <span class="s2">&#34;aws&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">backend</span> <span class="s2">&#34;s3&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span>         <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>            <span class="o">=</span> <span class="s2">&#34;stage/services/webserver-cluster/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    region</span>         <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    dynamodb_table</span> <span class="o">=</span> <span class="s2">&#34;tf-state-locks&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    encrypt</span>        <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Data Sources
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;aws_vpc&#34; &#34;default&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  default</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;aws_subnets&#34; &#34;default&#34;</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">filter</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    name</span>   <span class="o">=</span> <span class="s2">&#34;vpc-id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    values</span> <span class="o">=</span> <span class="p">[</span><span class="k">data</span><span class="p">.</span><span class="k">aws_vpc</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># RDSの状態をリモートステートから取得
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span> <span class="s2">&#34;terraform_remote_state&#34; &#34;db&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  backend</span> <span class="o">=</span> <span class="s2">&#34;s3&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  config</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span> <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>    <span class="o">=</span> <span class="s2">&#34;stage/data-stores/mysql/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Launch Template &amp; Auto Scaling Group
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_launch_template&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  image_id</span>      <span class="o">=</span> <span class="s2">&#34;ami-03852a41f1e05c8e4&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  instance_type</span> <span class="o">=</span> <span class="s2">&#34;t2.micro&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_security_group_ids</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_security_group</span><span class="p">.</span><span class="k">instance</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  user_data</span> <span class="o">=</span> <span class="k">base64encode</span><span class="p">(</span><span class="k">templatefile</span><span class="p">(</span><span class="s2">&#34;user-data.sh&#34;</span><span class="p">,</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    server_port</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">    db_address</span>  <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">address</span>
+</span></span><span class="line"><span class="cl"><span class="n">    db_port</span>     <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">port</span>
+</span></span><span class="line"><span class="cl">  }<span class="p">))</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_autoscaling_group&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_zone_identifier</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">aws_subnets</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">ids</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">launch_template</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    id</span>      <span class="o">=</span> <span class="k">aws_launch_template</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">    version</span> <span class="o">=</span> <span class="s2">&#34;$Latest&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  target_group_arns</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_lb_target_group</span><span class="p">.</span><span class="k">asg</span><span class="p">.</span><span class="k">arn</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">  health_check_type</span> <span class="o">=</span> <span class="s2">&#34;ELB&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  min_size</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">  max_size</span> <span class="o">=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">tag</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>                 <span class="o">=</span> <span class="s2">&#34;Name&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    value</span>               <span class="o">=</span> <span class="s2">&#34;terraform-asg-example&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    propagate_at_launch</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Security Groups
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group&#34; &#34;instance&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">instance_security_group_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">ingress</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    from_port</span>   <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group&#34; &#34;alb&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">alb_security_group_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">ingress</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    from_port</span>   <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">egress</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    from_port</span>   <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Application Load Balancer
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>               <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">alb_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  load_balancer_type</span> <span class="o">=</span> <span class="s2">&#34;application&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  subnets</span>            <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">aws_subnets</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">ids</span>
+</span></span><span class="line"><span class="cl"><span class="n">  security_groups</span>    <span class="o">=</span> <span class="p">[</span><span class="k">aws_security_group</span><span class="p">.</span><span class="k">alb</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb_listener&#34; &#34;http&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  load_balancer_arn</span> <span class="o">=</span> <span class="k">aws_lb</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl"><span class="n">  port</span>              <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span>          <span class="o">=</span> <span class="s2">&#34;HTTP&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">default_action</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    type</span> <span class="o">=</span> <span class="s2">&#34;fixed-response&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fixed_response</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      content_type</span> <span class="o">=</span> <span class="s2">&#34;text/plain&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      message_body</span> <span class="o">=</span> <span class="s2">&#34;404: page not found&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      status_code</span>  <span class="o">=</span> <span class="m">404</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb_target_group&#34; &#34;asg&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>     <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">alb_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  port</span>     <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span> <span class="o">=</span> <span class="s2">&#34;HTTP&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_id</span>   <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">aws_vpc</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">health_check</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    path</span>                <span class="o">=</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>            <span class="o">=</span> <span class="s2">&#34;HTTP&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    matcher</span>             <span class="o">=</span> <span class="s2">&#34;200&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    interval</span>            <span class="o">=</span> <span class="m">15</span>
+</span></span><span class="line"><span class="cl"><span class="n">    timeout</span>             <span class="o">=</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">    healthy_threshold</span>   <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">    unhealthy_threshold</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb_listener_rule&#34; &#34;asg&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  listener_arn</span> <span class="o">=</span> <span class="k">aws_lb_listener</span><span class="p">.</span><span class="k">http</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl"><span class="n">  priority</span>     <span class="o">=</span> <span class="m">100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">condition</span> {
+</span></span><span class="line"><span class="cl">    <span class="k">path_pattern</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">action</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    type</span>             <span class="o">=</span> <span class="s2">&#34;forward&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    target_group_arn</span> <span class="o">=</span> <span class="k">aws_lb_target_group</span><span class="p">.</span><span class="k">asg</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">outputs.tf 
+    <div id="outputstf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#outputstf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;alb_dns_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_lb</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">dns_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ロードバランサーのDNS名&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;asg_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_autoscaling_group</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;Auto Scaling Groupの名前&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">デプロイ 
+    <div id="デプロイ-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform init
+</span></span><span class="line"><span class="cl">terraform apply
+</span></span></code></pre></div><hr>
+
+<h2 class="relative group">Step 3: 動作確認 
+    <div id="step-3-動作確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">terraform consoleで確認 
+    <div id="terraform-consoleで確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform-console%e3%81%a7%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform console
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="err">&gt;</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span>
+</span></span><span class="line"><span class="cl">{
+</span></span><span class="line"><span class="cl"><span class="n">  &#34;address&#34;</span> <span class="o">=</span> <span class="s2">&#34;terraform-up-and-running-xxx.rds.amazonaws.com&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  &#34;port&#34;</span> <span class="o">=</span> <span class="m">3306</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl"><span class="err">&gt;</span> <span class="k">exit</span>
+</span></span></code></pre></div>
+<h3 class="relative group">ブラウザで確認 
+    <div id="ブラウザで確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%a9%e3%82%a6%e3%82%b6%e3%81%a7%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ALBのDNS名を取得</span>
+</span></span><span class="line"><span class="cl">terraform output alb_dns_name
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># curlで確認</span>
+</span></span><span class="line"><span class="cl">curl http://&lt;ALB_DNS_NAME&gt;
+</span></span></code></pre></div><p>「Hello, World」と「DB address」「DB port」が表示されれば成功。</p>
+<hr>
+
+<h2 class="relative group">クリーンアップ: 依存関係と削除順序 
+    <div id="クリーンアップ-依存関係と削除順序" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97-%e4%be%9d%e5%ad%98%e9%96%a2%e4%bf%82%e3%81%a8%e5%89%8a%e9%99%a4%e9%a0%86%e5%ba%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">なぜ削除順序が重要なのか 
+    <div id="なぜ削除順序が重要なのか" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9c%e5%89%8a%e9%99%a4%e9%a0%86%e5%ba%8f%e3%81%8c%e9%87%8d%e8%a6%81%e3%81%aa%e3%81%ae%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Terraformリソースには<strong>依存関係</strong>がある。依存されているリソースを先に削除しようとするとエラーになる。</p>
+<pre tabindex="0"><code>[Webサーバー] ──依存──→ [RDS]
+      │                    │
+      │                    └── 接続情報（address/port）を参照
+      │
+      └── terraform_remote_state でRDSのステートを参照
+
+[S3/DynamoDB]
+      │
+      └── 全プロジェクトのステートを保管・ロック
+</code></pre><p><strong>正しい削除順序</strong>: 依存する側 → 依存される側</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 1. Webサーバー（RDSに依存）</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> stage/services/webserver-cluster
+</span></span><span class="line"><span class="cl">terraform destroy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 2. RDS</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> ../../../stage/data-stores/mysql
+</span></span><span class="line"><span class="cl">terraform destroy
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 3. S3/DynamoDB（全体のバックエンド）- 必要な場合のみ</span>
+</span></span></code></pre></div><p><strong>逆順で削除しようとした場合</strong>:</p>
+<ul>
+<li>S3を先に削除 → Webサーバーのステートにアクセスできずエラー</li>
+<li>RDSを先に削除 → Webサーバーの <code>terraform_remote_state</code> がエラー</li>
+</ul>
+<hr>
+
+<h2 class="relative group">構築したアーキテクチャ 
+    <div id="構築したアーキテクチャ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a7%8b%e7%af%89%e3%81%97%e3%81%9f%e3%82%a2%e3%83%bc%e3%82%ad%e3%83%86%e3%82%af%e3%83%81%e3%83%a3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<pre tabindex="0"><code>┌─────────────────────────────────────────────────────────────────┐
+│                         S3 Backend                               │
+│  ├── stage/data-stores/mysql/terraform.tfstate    ← RDSの状態    │
+│  └── stage/services/webserver-cluster/terraform.tfstate          │
+└────────────────────────────────────────────────────────────────┘
+                              │
+                              │ terraform_remote_state で参照
+                              ▼
+┌─────────────────────────────────────────────────────────────────┐
+│                        Webサーバー                               │
+│  ┌──────────────────┐    ┌──────────────────┐                   │
+│  │   ALB (port 80)   │───▶│   ASG (EC2 x2)   │                   │
+│  └──────────────────┘    └──────────────────┘                   │
+│                                   │                              │
+│                                   │ DB接続情報を取得             │
+│                                   ▼                              │
+│                          ┌──────────────────┐                   │
+│                          │   RDS (MySQL)     │                   │
+│                          └──────────────────┘                   │
+└─────────────────────────────────────────────────────────────────┘
+</code></pre><hr>
+
+<h2 class="relative group">完成形のコード 
+    <div id="完成形のコード" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%8c%e6%88%90%e5%bd%a2%e3%81%ae%e3%82%b3%e3%83%bc%e3%83%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">ディレクトリ構成 
+    <div id="ディレクトリ構成-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e6%a7%8b%e6%88%90-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>stage/
+├── data-stores/
+│   └── mysql/
+│       ├── main.tf
+│       ├── variables.tf
+│       └── outputs.tf
+└── services/
+    └── webserver-cluster/
+        ├── main.tf
+        ├── variables.tf
+        ├── outputs.tf
+        └── user-data.sh
+</code></pre><details>
+<summary>stage/data-stores/mysql/</summary>
+<p><strong>main.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">provider</span> <span class="s2">&#34;aws&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">backend</span> <span class="s2">&#34;s3&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>            <span class="o">=</span> <span class="s2">&#34;stage/data-stores/mysql/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span>         <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    region</span>         <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    dynamodb_table</span> <span class="o">=</span> <span class="s2">&#34;tf-state-locks&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    encrypt</span>        <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_db_instance&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  identifier_prefix</span>   <span class="o">=</span> <span class="s2">&#34;terraform-up-and-running&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  engine</span>              <span class="o">=</span> <span class="s2">&#34;mysql&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  allocated_storage</span>   <span class="o">=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">  instance_class</span>      <span class="o">=</span> <span class="s2">&#34;db.t3.micro&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  skip_final_snapshot</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_name</span>             <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  username</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_username</span>
+</span></span><span class="line"><span class="cl"><span class="n">  password</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_password</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>variables.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベース名&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;example_database&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_username&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースのユーザー名&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  sensitive</span>   <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_password&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースのパスワード&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  sensitive</span>   <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>outputs.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;address&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_db_instance</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">address</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースの接続エンドポイント&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;port&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_db_instance</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">port</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;データベースのポート番号&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div></details>
+<details>
+<summary>stage/services/webserver-cluster/</summary>
+<p><strong>main.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">provider</span> <span class="s2">&#34;aws&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">terraform</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">backend</span> <span class="s2">&#34;s3&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span>         <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>            <span class="o">=</span> <span class="s2">&#34;stage/services/webserver-cluster/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    region</span>         <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    dynamodb_table</span> <span class="o">=</span> <span class="s2">&#34;tf-state-locks&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    encrypt</span>        <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Data Sources
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;aws_vpc&#34; &#34;default&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  default</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;aws_subnets&#34; &#34;default&#34;</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">filter</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    name</span>   <span class="o">=</span> <span class="s2">&#34;vpc-id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    values</span> <span class="o">=</span> <span class="p">[</span><span class="k">data</span><span class="p">.</span><span class="k">aws_vpc</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;terraform_remote_state&#34; &#34;db&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  backend</span> <span class="o">=</span> <span class="s2">&#34;s3&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  config</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span> <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>    <span class="o">=</span> <span class="s2">&#34;stage/data-stores/mysql/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Launch Template &amp; Auto Scaling Group
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_launch_template&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  image_id</span>      <span class="o">=</span> <span class="s2">&#34;ami-03852a41f1e05c8e4&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  instance_type</span> <span class="o">=</span> <span class="s2">&#34;t2.micro&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_security_group_ids</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_security_group</span><span class="p">.</span><span class="k">instance</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  user_data</span> <span class="o">=</span> <span class="k">base64encode</span><span class="p">(</span><span class="k">templatefile</span><span class="p">(</span><span class="s2">&#34;user-data.sh&#34;</span><span class="p">,</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    server_port</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">    db_address</span>  <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">address</span>
+</span></span><span class="line"><span class="cl"><span class="n">    db_port</span>     <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">terraform_remote_state</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">outputs</span><span class="p">.</span><span class="k">port</span>
+</span></span><span class="line"><span class="cl">  }<span class="p">))</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_autoscaling_group&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_zone_identifier</span> <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">aws_subnets</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">ids</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">launch_template</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    id</span>      <span class="o">=</span> <span class="k">aws_launch_template</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">    version</span> <span class="o">=</span> <span class="s2">&#34;$Latest&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  target_group_arns</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_lb_target_group</span><span class="p">.</span><span class="k">asg</span><span class="p">.</span><span class="k">arn</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">  health_check_type</span> <span class="o">=</span> <span class="s2">&#34;ELB&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  min_size</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">  max_size</span> <span class="o">=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">tag</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    key</span>                 <span class="o">=</span> <span class="s2">&#34;Name&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    value</span>               <span class="o">=</span> <span class="s2">&#34;terraform-asg-example&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    propagate_at_launch</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Security Groups
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group&#34; &#34;instance&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">instance_security_group_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">ingress</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    from_port</span>   <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group&#34; &#34;alb&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">alb_security_group_name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">ingress</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    from_port</span>   <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">egress</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    from_port</span>   <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Application Load Balancer
+</span></span></span><span class="line"><span class="cl"><span class="c1"># -----------------------------------------------------------------------------
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb&#34; &#34;example&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>               <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">alb_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  load_balancer_type</span> <span class="o">=</span> <span class="s2">&#34;application&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  subnets</span>            <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">aws_subnets</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">ids</span>
+</span></span><span class="line"><span class="cl"><span class="n">  security_groups</span>    <span class="o">=</span> <span class="p">[</span><span class="k">aws_security_group</span><span class="p">.</span><span class="k">alb</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb_listener&#34; &#34;http&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  load_balancer_arn</span> <span class="o">=</span> <span class="k">aws_lb</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl"><span class="n">  port</span>              <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span>          <span class="o">=</span> <span class="s2">&#34;HTTP&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">default_action</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    type</span> <span class="o">=</span> <span class="s2">&#34;fixed-response&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">fixed_response</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      content_type</span> <span class="o">=</span> <span class="s2">&#34;text/plain&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      message_body</span> <span class="o">=</span> <span class="s2">&#34;404: page not found&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      status_code</span>  <span class="o">=</span> <span class="m">404</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb_target_group&#34; &#34;asg&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>     <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">alb_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  port</span>     <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">server_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span> <span class="o">=</span> <span class="s2">&#34;HTTP&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_id</span>   <span class="o">=</span> <span class="k">data</span><span class="p">.</span><span class="k">aws_vpc</span><span class="p">.</span><span class="k">default</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">health_check</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    path</span>                <span class="o">=</span> <span class="s2">&#34;/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>            <span class="o">=</span> <span class="s2">&#34;HTTP&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    matcher</span>             <span class="o">=</span> <span class="s2">&#34;200&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    interval</span>            <span class="o">=</span> <span class="m">15</span>
+</span></span><span class="line"><span class="cl"><span class="n">    timeout</span>             <span class="o">=</span> <span class="m">3</span>
+</span></span><span class="line"><span class="cl"><span class="n">    healthy_threshold</span>   <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">    unhealthy_threshold</span> <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_lb_listener_rule&#34; &#34;asg&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  listener_arn</span> <span class="o">=</span> <span class="k">aws_lb_listener</span><span class="p">.</span><span class="k">http</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl"><span class="n">  priority</span>     <span class="o">=</span> <span class="m">100</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">condition</span> {
+</span></span><span class="line"><span class="cl">    <span class="k">path_pattern</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      values</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;*&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">action</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    type</span>             <span class="o">=</span> <span class="s2">&#34;forward&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    target_group_arn</span> <span class="o">=</span> <span class="k">aws_lb_target_group</span><span class="p">.</span><span class="k">asg</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>variables.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;server_port&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;HTTPリクエストを受け付けるポート番号&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">number</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="m">8080</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;alb_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ALBの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;terraform-asg-example&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;alb_security_group_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ALB用セキュリティグループの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;terraform-example-alb&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;instance_security_group_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;EC2インスタンス用セキュリティグループの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  default</span>     <span class="o">=</span> <span class="s2">&#34;terraform-example-instance&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>outputs.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;alb_dns_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_lb</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">dns_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ロードバランサーのDNS名&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;asg_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_autoscaling_group</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;Auto Scaling Groupの名前&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>user-data.sh</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="cp">#!/bin/bash
+</span></span></span><span class="line"><span class="cl"><span class="cp"></span><span class="nb">cd</span> /home/ec2-user
+</span></span><span class="line"><span class="cl">cat &gt; index.html <span class="s">&lt;&lt;EOF
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;h1&gt;Hello, World&lt;/h1&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;p&gt;DB address: ${db_address}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;p&gt;DB port: ${db_port}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">nohup python3 -m http.server <span class="si">${</span><span class="nv">server_port</span><span class="si">}</span> <span class="p">&amp;</span>
+</span></span></code></pre></div></details>
+<hr>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">学んだこと 
+    <div id="学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>ファイルレイアウト分離</td>
+          <td>環境・コンポーネントごとにディレクトリを分けて完全分離</td>
+      </tr>
+      <tr>
+          <td>outputs.tf</td>
+          <td>他プロジェクトに公開したい値を定義</td>
+      </tr>
+      <tr>
+          <td>terraform_remote_state</td>
+          <td>別プロジェクトのoutputを参照</td>
+      </tr>
+      <tr>
+          <td>templatefile</td>
+          <td>外部ファイルに変数を埋め込む</td>
+      </tr>
+      <tr>
+          <td>削除順序</td>
+          <td>依存する側 → 依存される側の順で削除</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">ワークスペース vs ファイルレイアウト 
+    <div id="ワークスペース-vs-ファイルレイアウト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%af%e3%83%bc%e3%82%af%e3%82%b9%e3%83%9a%e3%83%bc%e3%82%b9-vs-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%83%ac%e3%82%a4%e3%82%a2%e3%82%a6%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>ワークスペース</th>
+          <th>ファイルレイアウト</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>設定の手軽さ</td>
+          <td>簡単</td>
+          <td>ディレクトリ構成が必要</td>
+      </tr>
+      <tr>
+          <td>権限分離</td>
+          <td>困難（同一バックエンド）</td>
+          <td>可能（別バックエンド）</td>
+      </tr>
+      <tr>
+          <td>可視性</td>
+          <td>低い</td>
+          <td>高い（ディレクトリ名で明確）</td>
+      </tr>
+      <tr>
+          <td>コード重複</td>
+          <td>なし</td>
+          <td>あり（ch4のモジュールで解決）</td>
+      </tr>
+      <tr>
+          <td>推奨用途</td>
+          <td>個人開発・実験</td>
+          <td>本番環境・チーム開発</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">チェックリスト 
+    <div id="チェックリスト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%81%e3%82%a7%e3%83%83%e3%82%af%e3%83%aa%e3%82%b9%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><input disabled="" type="checkbox"> 各コンポーネントの<code>key</code>は一意か</li>
+<li><input disabled="" type="checkbox"> RDSの<code>outputs.tf</code>でaddress/portを出力しているか</li>
+<li><input disabled="" type="checkbox"> <code>terraform_remote_state</code>のkeyはRDSと一致しているか</li>
+<li><input disabled="" type="checkbox"> 削除は依存関係の逆順で行っているか</li>
+</ul>
+<hr>
+
+<h2 class="relative group">参考 
+    <div id="参考" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://www.oreilly.co.jp/books/9784814400522/"
+    target="_blank"
+  >詳解 Terraform 第3版 ―Infrastructure as Codeを実現する</a>
+<ul>
+<li>著者：Yevgeniy Brikman</li>
+<li>訳者：松浦 隼人</li>
+<li>出版社：オライリージャパン</li>
+<li>出版年：2023年</li>
+</ul>
+</li>
+<li><a
+  href="https://developer.hashicorp.com/terraform/docs"
+    target="_blank"
+  >Terraform公式ドキュメント</a></li>
+<li><a
+  href="/posts/251128185824_terraform-state-management-intro/">Part1: S3リモートバックエンドとワークスペース</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251128193149_terraform-file-layout-separation.md"
+          data-oid-likes="likes_posts/251128193149_terraform-file-layout-separation.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/251128185824_terraform-state-management-intro/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-28T18:58:24&#43;09:00">2025年 11月 28日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

@@ -9,12 +9,12 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Fri, 28 Nov 2025 00:43:23 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Nov 2025 19:31:49 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AWS</title>
       <link>//localhost:1313/tags/aws/</link>
-      <pubDate>Fri, 28 Nov 2025 00:43:23 +0900</pubDate>
+      <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/tags/aws/</guid>
       <description></description>
@@ -24,7 +24,7 @@
     <item>
       <title>Terraform</title>
       <link>//localhost:1313/tags/terraform/</link>
-      <pubDate>Fri, 28 Nov 2025 00:43:23 +0900</pubDate>
+      <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/tags/terraform/</guid>
       <description></description>
@@ -34,9 +34,19 @@
     <item>
       <title>インフラ</title>
       <link>//localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/</link>
-      <pubDate>Fri, 28 Nov 2025 00:43:23 +0900</pubDate>
+      <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ハンズオン</title>
+      <link>//localhost:1313/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/</link>
+      <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/</guid>
       <description></description>
       
     </item>

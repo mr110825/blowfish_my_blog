@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>AWS on 毎日.log</title>
-    <link>//localhost:1313/tags/aws/</link>
-    <description>Recent content in AWS on 毎日.log</description>
+    <title>ハンズオン on 毎日.log</title>
+    <link>//localhost:1313/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/</link>
+    <description>Recent content in ハンズオン on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Fri, 28 Nov 2025 19:31:49 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Nov 2025 19:31:49 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</title>
@@ -27,16 +27,6 @@
       <pubDate>Fri, 28 Nov 2025 18:58:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>//localhost:1313/posts/251128185824_terraform-state-management-intro/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>TerraformでAWS環境を構築して削除するまで - 入門ハンズオン</title>
-      <link>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</link>
-      <pubDate>Fri, 28 Nov 2025 00:43:23 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</guid>
       <description></description>
       
     </item>

@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Fri, 28 Nov 2025 00:43:23 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 28 Nov 2025 19:31:49 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</title>
+      <link>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</link>
+      <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース</title>
+      <link>//localhost:1313/posts/251128185824_terraform-state-management-intro/</link>
+      <pubDate>Fri, 28 Nov 2025 18:58:24 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251128185824_terraform-state-management-intro/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>TerraformでAWS環境を構築して削除するまで - 入門ハンズオン</title>
