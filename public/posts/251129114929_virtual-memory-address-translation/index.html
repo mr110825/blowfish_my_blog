@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>IaC（Infrastructure as Code）の5つの分類 &middot; 毎日.log</title>
-    <meta name="title" content="IaC（Infrastructure as Code）の5つの分類 &middot; 毎日.log">
+  <title>仮想記憶のアドレス変換 &middot; 毎日.log</title>
+    <meta name="title" content="仮想記憶のアドレス変換 &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="インフラ,Terraform,入門,まとめ,">
+  <meta name="keywords" content="インフラ,応用情報技術者試験,まとめ,">
   
   
-  <link rel="canonical" href="//localhost:1313/posts/251124162641_iac-five-classifications/">
+  <link rel="canonical" href="//localhost:1313/posts/251129114929_virtual-memory-address-translation/">
   
   
   
@@ -99,23 +99,22 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/posts/251124162641_iac-five-classifications/">
+  <meta property="og:url" content="//localhost:1313/posts/251129114929_virtual-memory-address-translation/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="IaC（Infrastructure as Code）の5つの分類">
+  <meta property="og:title" content="仮想記憶のアドレス変換">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-11-24T16:26:41+09:00">
-    <meta property="article:modified_time" content="2025-11-24T16:26:41+09:00">
+    <meta property="article:published_time" content="2025-11-29T11:49:29+09:00">
+    <meta property="article:modified_time" content="2025-11-29T11:49:29+09:00">
     <meta property="article:tag" content="インフラ">
-    <meta property="article:tag" content="Terraform">
-    <meta property="article:tag" content="入門">
+    <meta property="article:tag" content="応用情報技術者試験">
     <meta property="article:tag" content="まとめ">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="IaC（Infrastructure as Code）の5つの分類">
+  <meta name="twitter:title" content="仮想記憶のアドレス変換">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +122,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "IaC（Infrastructure as Code）の5つの分類",
-    "headline": "IaC（Infrastructure as Code）の5つの分類",
+    "name": "仮想記憶のアドレス変換",
+    "headline": "仮想記憶のアドレス変換",
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/posts\/251124162641_iac-five-classifications\/",
+    "url" : "\/\/localhost:1313\/posts\/251129114929_virtual-memory-address-translation\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-11-24T16:26:41\u002b09:00",
-    "datePublished": "2025-11-24T16:26:41\u002b09:00",
+    "dateCreated": "2025-11-29T11:49:29\u002b09:00",
+    "datePublished": "2025-11-29T11:49:29\u002b09:00",
     
-    "dateModified": "2025-11-24T16:26:41\u002b09:00",
+    "dateModified": "2025-11-29T11:49:29\u002b09:00",
     
-    "keywords": ["インフラ","Terraform","入門","まとめ"],
+    "keywords": ["インフラ","応用情報技術者試験","まとめ"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "130"
+    "wordCount": "145"
   }]
   </script>
 
@@ -447,7 +446,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        IaC（Infrastructure as Code）の5つの分類
+        仮想記憶のアドレス変換
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -498,7 +497,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-11-24T16:26:41&#43;09:00">2025年 11月 24日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-11-29T11:49:29&#43;09:00">2025年 11月 29日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -555,23 +554,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Terraform
-  </span>
-</span>
-
-              </span>
-            
-              <span
-                class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E5%85%A5%E9%96%80/&#34;,'_self');return false;">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    入門
+    応用情報技術者試験
   </span>
 </span>
 
@@ -643,21 +630,35 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#書籍情報">書籍情報</a></li>
-    <li><a href="#5つの分類">5つの分類</a>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#正解主記憶に存在するページをアクセスするとき">正解：主記憶に存在するページをアクセスするとき</a>
       <ul>
-        <li><a href="#アドホックなスクリプト">アドホックなスクリプト</a></li>
-        <li><a href="#設定管理ツール">設定管理ツール</a></li>
-        <li><a href="#サーバテンプレーティングツール">サーバテンプレーティングツール</a></li>
-        <li><a href="#オーケストレーションツール">オーケストレーションツール</a></li>
-        <li><a href="#プロビジョニングツール">プロビジョニングツール</a></li>
+        <li><a href="#基本的な仕組み">基本的な仕組み</a></li>
+        <li><a href="#他の選択肢が不正解な理由">他の選択肢が不正解な理由</a>
+          <ul>
+            <li><a href="#ページアウト">ページアウト</a></li>
+            <li><a href="#ページフォールト">ページフォールト</a></li>
+            <li><a href="#ページイン">ページイン</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#まとめiacの概要">まとめ：IaCの概要</a>
+    <li><a href="#qaよくある誤解">Q&amp;A：よくある誤解</a>
       <ul>
-        <li><a href="#各ツールの特徴と使い分け">各ツールの特徴と使い分け</a></li>
-        <li><a href="#ツール選択の基本方針">ツール選択の基本方針</a></li>
+        <li><a href="#q1-ページインページアウトでも変換が発生する">Q1. ページイン・ページアウトでも変換が発生する？</a></li>
+        <li><a href="#q2-アドレス変換が失敗したらどうなる">Q2. アドレス変換が失敗したらどうなる？</a></li>
+      </ul>
+    </li>
+    <li><a href="#詳細各処理とアドレス変換の関係">詳細：各処理とアドレス変換の関係</a>
+      <ul>
+        <li><a href="#アドレス変換が行われるタイミング">アドレス変換が行われるタイミング</a></li>
+        <li><a href="#ページインとアドレス変換">ページインとアドレス変換</a></li>
+        <li><a href="#ページアウトとアドレス変換">ページアウトとアドレス変換</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#仮想記憶の処理フロー">仮想記憶の処理フロー</a></li>
       </ul>
     </li>
   </ul>
@@ -673,21 +674,35 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#はじめに">はじめに</a></li>
-    <li><a href="#書籍情報">書籍情報</a></li>
-    <li><a href="#5つの分類">5つの分類</a>
+    <li><a href="#問題">問題</a></li>
+    <li><a href="#正解主記憶に存在するページをアクセスするとき">正解：主記憶に存在するページをアクセスするとき</a>
       <ul>
-        <li><a href="#アドホックなスクリプト">アドホックなスクリプト</a></li>
-        <li><a href="#設定管理ツール">設定管理ツール</a></li>
-        <li><a href="#サーバテンプレーティングツール">サーバテンプレーティングツール</a></li>
-        <li><a href="#オーケストレーションツール">オーケストレーションツール</a></li>
-        <li><a href="#プロビジョニングツール">プロビジョニングツール</a></li>
+        <li><a href="#基本的な仕組み">基本的な仕組み</a></li>
+        <li><a href="#他の選択肢が不正解な理由">他の選択肢が不正解な理由</a>
+          <ul>
+            <li><a href="#ページアウト">ページアウト</a></li>
+            <li><a href="#ページフォールト">ページフォールト</a></li>
+            <li><a href="#ページイン">ページイン</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
-    <li><a href="#まとめiacの概要">まとめ：IaCの概要</a>
+    <li><a href="#qaよくある誤解">Q&amp;A：よくある誤解</a>
       <ul>
-        <li><a href="#各ツールの特徴と使い分け">各ツールの特徴と使い分け</a></li>
-        <li><a href="#ツール選択の基本方針">ツール選択の基本方針</a></li>
+        <li><a href="#q1-ページインページアウトでも変換が発生する">Q1. ページイン・ページアウトでも変換が発生する？</a></li>
+        <li><a href="#q2-アドレス変換が失敗したらどうなる">Q2. アドレス変換が失敗したらどうなる？</a></li>
+      </ul>
+    </li>
+    <li><a href="#詳細各処理とアドレス変換の関係">詳細：各処理とアドレス変換の関係</a>
+      <ul>
+        <li><a href="#アドレス変換が行われるタイミング">アドレス変換が行われるタイミング</a></li>
+        <li><a href="#ページインとアドレス変換">ページインとアドレス変換</a></li>
+        <li><a href="#ページアウトとアドレス変換">ページアウトとアドレス変換</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#仮想記憶の処理フロー">仮想記憶の処理フロー</a></li>
       </ul>
     </li>
   </ul>
@@ -793,267 +808,276 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h2 class="relative group">はじめに 
-    <div id="はじめに" class="anchor"></div>
+<h2 class="relative group">問題 
+    <div id="問題" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>Terraformの勉強のために「詳解Terraform」を購入。
-すこしずつ内容をTILとしてアウトプットして知識を定着させます。
-今回のテーマは「IaC（Infrastructure as Code）の5つの分類」
-※IaCとは、インフラなどの環境をコードで記述できるようにしたツール全般を指す。</p>
+<blockquote>
+<p>出典：応用情報技術者平成26年春期問18
+仮想記憶方式において、論理アドレスから物理アドレスへの変換を行うのはいつか。</p>
+</blockquote>
+<p><strong>選択肢</strong></p>
+<ol>
+<li>ページを補助記憶にページアウトするとき</li>
+<li>ページフォールトが発生したとき</li>
+<li>主記憶に存在するページをアクセスするとき</li>
+<li>ページを主記憶にページインするとき</li>
+</ol>
+<hr>
 
-<h2 class="relative group">書籍情報 
-    <div id="書籍情報" class="anchor"></div>
+<h2 class="relative group">正解：主記憶に存在するページをアクセスするとき 
+    <div id="正解主記憶に存在するページをアクセスするとき" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9b%b8%e7%b1%8d%e6%83%85%e5%a0%b1" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%ad%a3%e8%a7%a3%e4%b8%bb%e8%a8%98%e6%86%b6%e3%81%ab%e5%ad%98%e5%9c%a8%e3%81%99%e3%82%8b%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%92%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e3%81%99%e3%82%8b%e3%81%a8%e3%81%8d" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<ul>
-<li><a
-  href="https://www.oreilly.co.jp/books/9784814400522/"
-    target="_blank"
-  >詳解 Terraform 第3版 ―Infrastructure as Codeを実現する</a></li>
-<li>著者：Yevgeniy Brikman</li>
-<li>訳者：松浦 隼人</li>
-<li>出版社：オライリージャパン</li>
-<li>出版年：2023年</li>
-</ul>
 
-<h2 class="relative group">5つの分類 
-    <div id="5つの分類" class="anchor"></div>
+<h3 class="relative group">基本的な仕組み 
+    <div id="基本的な仕組み" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5%e3%81%a4%e3%81%ae%e5%88%86%e9%a1%9e" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e4%bb%95%e7%b5%84%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>論理アドレスから物理アドレスへの変換は、<strong>CPUがメモリアクセスを行うたび</strong>に実行されます。</p>
+<ul>
+<li><strong>担当ハードウェア</strong>: MMU（メモリ管理ユニット）</li>
+<li><strong>使用する対応表</strong>: ページテーブル</li>
+<li><strong>実行タイミング</strong>: 主記憶上のページへアクセスするとき（毎回）</li>
+<li><strong>処理速度</strong>: 高速（ハードウェア処理）</li>
+</ul>
+
+<h3 class="relative group">他の選択肢が不正解な理由 
+    <div id="他の選択肢が不正解な理由" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%96%e3%81%ae%e9%81%b8%e6%8a%9e%e8%82%a2%e3%81%8c%e4%b8%8d%e6%ad%a3%e8%a7%a3%e3%81%aa%e7%90%86%e7%94%b1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">ページアウト 
+    <div id="ページアウト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%a2%e3%82%a6%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>主記憶の空き容量確保のため、使用頻度の低いページを補助記憶に退避する処理</li>
+<li><strong>OSによるメモリ管理動作</strong>であり、アドレス変換処理そのものではない</li>
+</ul>
+
+<h4 class="relative group">ページフォールト 
+    <div id="ページフォールト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%95%e3%82%a9%e3%83%bc%e3%83%ab%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>アドレス変換を<strong>試みた結果、失敗したとき</strong>に発生する例外（割り込み）</li>
+<li>変換が行われるタイミングではなく、変換失敗の結果発生する事象</li>
+</ul>
+
+<h4 class="relative group">ページイン 
+    <div id="ページイン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%a4%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>ページフォールト発生後、補助記憶から主記憶にページを読み込む処理</li>
+<li>ページイン<strong>完了後</strong>に、改めてアドレス変換が行われる</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Q&amp;A：よくある誤解 
+    <div id="qaよくある誤解" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#qa%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e8%aa%a4%e8%a7%a3" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>IaCツールは以下の5つのカテゴリに分類されます。これらは対立するものではなく、それぞれ異なる役割を持ち、実際の開発現場では組み合わせて使用することが一般的です。</p>
-<ul>
-<li>アドホックなスクリプト</li>
-<li>設定管理ツール</li>
-<li>サーバテンプレーティングツール</li>
-<li>オーケストレーションツール</li>
-<li>プロビジョニングツール</li>
-</ul>
 
-<h3 class="relative group">アドホックなスクリプト 
-    <div id="アドホックなスクリプト" class="anchor"></div>
+<h3 class="relative group">Q1. ページイン・ページアウトでも変換が発生する？ 
+    <div id="q1-ページインページアウトでも変換が発生する" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%89%e3%83%9b%e3%83%83%e3%82%af%e3%81%aa%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#q1-%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%a4%e3%83%b3%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%a2%e3%82%a6%e3%83%88%e3%81%a7%e3%82%82%e5%a4%89%e6%8f%9b%e3%81%8c%e7%99%ba%e7%94%9f%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>作業や処理をpythonやshファイルとして作成して実行するスクリプト</p>
-<p>最もシンプルな自動化の方法
-単純な処理を実装するなら向いているが、サーバ設定からデプロイまで処理するような複雑な
-処理を実装する場合は、一から自力でコードを書く必要があるため、労力がかかる。</p>
+<p><strong>A. いいえ、厳密には異なります。</strong></p>
+<p>アドレス変換は<strong>CPUの命令実行に伴う処理</strong>であり、ページイン・ページアウトの最中に行われるわけではありません。</p>
 
-<h3 class="relative group">設定管理ツール 
-    <div id="設定管理ツール" class="anchor"></div>
+<h3 class="relative group">Q2. アドレス変換が失敗したらどうなる？ 
+    <div id="q2-アドレス変換が失敗したらどうなる" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%ae%9a%e7%ae%a1%e7%90%86%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#q2-%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e5%a4%89%e6%8f%9b%e3%81%8c%e5%a4%b1%e6%95%97%e3%81%97%e3%81%9f%e3%82%89%e3%81%a9%e3%81%86%e3%81%aa%e3%82%8b" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>既存のサーバ上にソフトウェアなどをインストールするためのツール</p>
-<ul>
-<li>例：Chef・Puppet・Ansible</li>
-<li>コーディング規約によりファイル内容に一貫性を持たせることが可能</li>
-<li>冪等性がある
-<ul>
-<li>1回限りの処理であればアドホックなスクリプトでも十分だが、何度実行しても同じ結果をもたらす冪等性が必要な場合は、Ansibleなどの設定管理ツールのほうが向いている
-<ul>
-<li>Ansibleのモジュールには冪等性が組み込まれているため</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>配布
-<ul>
-<li>コードの配布により、ローリングデプロイなど複数のリモートサーバをまとめて管理することが可能。</li>
-</ul>
-</li>
-</ul>
+<p><strong>A. 以下の流れで処理されます。</strong></p>
+<pre tabindex="0"><code>アドレス変換失敗
+    ↓
+ページフォールト発生
+    ↓
+OS介入（ページイン処理）
+    ↓
+変換成功（メモリアクセス実行）
+</code></pre><hr>
 
-<h3 class="relative group">サーバテンプレーティングツール 
-    <div id="サーバテンプレーティングツール" class="anchor"></div>
+<h2 class="relative group">詳細：各処理とアドレス変換の関係 
+    <div id="詳細各処理とアドレス変換の関係" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%bc%e3%83%90%e3%83%86%e3%83%b3%e3%83%97%e3%83%ac%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>OSやソフトウェアをパッケージ化したイメージを作成し、そのイメージから環境を構築するツール</p>
-<ul>
-<li>例：Docker・Packer・Vagrant</li>
-<li>「スナップショット」と呼ばれるOSやソフトウェアなどを含んだイメージを作成して、このスナップショットを使ってサーバ環境を構築する</li>
-</ul>
-<p>イメージを扱うツールには大別すると2つのカテゴリがある。</p>
-<ul>
-<li>
-<p>仮想マシン</p>
-<ul>
-<li>ハードウェアを含むコンピュータシステム全体をエミュレートする仕組み</li>
-<li>例：VMware・VirtualBox</li>
-<li>ハイパーバイザを動かしてCPUやメモリなどを仮想化する
-<ul>
-<li>これによりハイパーバイザ上で動かす仮想マシンイメージからは仮想化されてハードウェアのみ見えるようになる。</li>
-<li>仮想環境とホストマシンを分離することが可能</li>
-</ul>
-</li>
-<li>仮想マシンイメージはPackerやVagrantなどのツールで定義可能</li>
-</ul>
-</li>
-<li>
-<p>コンテナ</p>
-<ul>
-<li>OSのユーザスペースをエミュレートする仕組み</li>
-<li>プロセスやメモリなどを分離するためにDockerなどのコンテナエンジンを動作させる必要がある</li>
-<li>コンテナはユーザスペースのみ見えるようになる。</li>
-</ul>
-</li>
-<li>
-<p>仮想マシンとコンテナの違い</p>
-<ul>
-<li>仮想マシン：ハードウェアレベルで仮想化・高度な分離性があり、セキュリティやコンプライアンス面で有利</li>
-<li>コンテナ：OSレベルで仮想化・メモリ消費が少ない</li>
-</ul>
-</li>
-<li>
-<p>イミュータブルインフラ
-一度構築・デプロイされたインフラ環境（サーバやコンテナなど）を変更せず、更新が必要な場合は新しい環境を丸ごと作り直して既存環境と入れ替える運用思想</p>
-<ul>
-<li>サーバテンプレーティングツールにおいて重要な考え</li>
-<li>プロビジョニングツール（Terraformなど）と組み合わせることで、インフラ全体のイミュータブル化も実現可能</li>
-</ul>
-</li>
-</ul>
-
-<h3 class="relative group">オーケストレーションツール 
-    <div id="オーケストレーションツール" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%bc%e3%82%b1%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>複数のシステムやサービス、アプリケーション間で行われる多数のタスクや
-ワークフローを自動的に統合・管理し、効率的に実行するためのソフトウェア</p>
-<ul>
-<li>例：Kubernetes</li>
-</ul>
-
-<h3 class="relative group">プロビジョニングツール 
-    <div id="プロビジョニングツール" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%83%93%e3%82%b8%e3%83%a7%e3%83%8b%e3%83%b3%e3%82%b0%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>サーバ自体を作成するようなツール</p>
-<ul>
-<li>インフラに関係しているたいていのものを作成できる（サーバ、データベース、ネットワーク構成、ロードバランサーなど）</li>
-<li>例：Terraform・CloudFormation</li>
-</ul>
-
-<h2 class="relative group">まとめ：IaCの概要 
-    <div id="まとめiacの概要" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81iac%e3%81%ae%e6%a6%82%e8%a6%81" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a9%b3%e7%b4%b0%e5%90%84%e5%87%a6%e7%90%86%e3%81%a8%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e5%a4%89%e6%8f%9b%e3%81%ae%e9%96%a2%e4%bf%82" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>IaCとは、インフラ環境をコードで記述・管理できるツール全般を指す。大別すると5つのカテゴリがある。</p>
 
-<h3 class="relative group">各ツールの特徴と使い分け 
-    <div id="各ツールの特徴と使い分け" class="anchor"></div>
+<h3 class="relative group">アドレス変換が行われるタイミング 
+    <div id="アドレス変換が行われるタイミング" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%90%84%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e7%89%b9%e5%be%b4%e3%81%a8%e4%bd%bf%e3%81%84%e5%88%86%e3%81%91" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e5%a4%89%e6%8f%9b%e3%81%8c%e8%a1%8c%e3%82%8f%e3%82%8c%e3%82%8b%e3%82%bf%e3%82%a4%e3%83%9f%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
+<p>CPUがプログラムを実行し、メモリアクセスするたびに<strong>MMU</strong>が論理アドレスを物理アドレスに変換します。これは主記憶上のページが存在する場合に毎回実行される高速処理です。</p>
+
+<h3 class="relative group">ページインとアドレス変換 
+    <div id="ページインとアドレス変換" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%a4%e3%83%b3%e3%81%a8%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e5%a4%89%e6%8f%9b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ページインは<strong>アドレス変換の失敗</strong>がきっかけで発生します。</p>
+<ol>
+<li>CPUが論理アドレスにアクセス → MMUがアドレス変換を試行</li>
+<li>ページが主記憶に存在しない → 変換失敗 → <strong>ページフォールト</strong>発生</li>
+<li>OSが補助記憶装置から必要なページを主記憶に読み込む（<strong>ページイン</strong>）</li>
+<li>ページテーブル更新</li>
+<li>中断していた命令を再開 → MMUが<strong>再度アドレス変換を試行</strong> → 成功</li>
+</ol>
+
+<h3 class="relative group">ページアウトとアドレス変換 
+    <div id="ページアウトとアドレス変換" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9a%e3%83%bc%e3%82%b8%e3%82%a2%e3%82%a6%e3%83%88%e3%81%a8%e3%82%a2%e3%83%89%e3%83%ac%e3%82%b9%e5%a4%89%e6%8f%9b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ページアウトは、ページインのための<strong>空き領域確保</strong>を目的としたOSのメモリ管理動作です。</p>
+<ol>
+<li>ページフォールト発生 → ページイン必要 → 主記憶に空きがない</li>
+<li>OSがページの置き換え対象を決定</li>
+<li>選ばれたページを補助記憶装置に書き出す（<strong>ページアウト</strong>）</li>
+</ol>
+<p>CPUによるアドレス変換処理そのものではありません。</p>
+<hr>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
 <table>
   <thead>
       <tr>
-          <th>ツール分類</th>
-          <th>主な用途</th>
-          <th>代表例</th>
-          <th>向いている場面</th>
+          <th>処理</th>
+          <th>役割</th>
+          <th>アドレス変換との関係</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>アドホックなスクリプト</td>
-          <td>シンプルな自動化</td>
-          <td>Bash, Python</td>
-          <td>1回限りの処理、単純な作業の自動化</td>
+          <td><strong>アドレス変換</strong></td>
+          <td>MMUによる論理→物理アドレス変換</td>
+          <td>主記憶アクセス時に毎回実行</td>
       </tr>
       <tr>
-          <td>設定管理ツール</td>
-          <td>既存サーバの設定・ソフトウェアインストール</td>
-          <td>Ansible, Chef, Puppet</td>
-          <td>複数サーバへのソフトウェアデプロイ、冪等性が必要な設定作業</td>
+          <td><strong>ページフォールト</strong></td>
+          <td>アドレス変換失敗時の例外</td>
+          <td>変換失敗の結果</td>
       </tr>
       <tr>
-          <td>サーバテンプレーティングツール</td>
-          <td>イメージからサーバ環境を構築</td>
-          <td>Docker, Packer, Vagrant</td>
-          <td>環境の再現性確保、イミュータブルインフラの実現</td>
+          <td><strong>ページイン</strong></td>
+          <td>補助記憶→主記憶へのページ読み込み</td>
+          <td>完了後に変換が再実行される</td>
       </tr>
       <tr>
-          <td>オーケストレーションツール</td>
-          <td>複数システム・サービスの統合管理</td>
-          <td>Kubernetes</td>
-          <td>コンテナの起動・停止・スケーリング、マイクロサービス管理</td>
-      </tr>
-      <tr>
-          <td>プロビジョニングツール</td>
-          <td>インフラ全体の作成・管理</td>
-          <td>Terraform, CloudFormation</td>
-          <td>サーバ・ネットワーク・DB等のインフラリソース作成</td>
+          <td><strong>ページアウト</strong></td>
+          <td>主記憶→補助記憶へのページ退避</td>
+          <td>変換処理ではない（メモリ管理）</td>
       </tr>
   </tbody>
 </table>
 
-<h3 class="relative group">ツール選択の基本方針 
-    <div id="ツール選択の基本方針" class="anchor"></div>
+<h3 class="relative group">仮想記憶の処理フロー 
+    <div id="仮想記憶の処理フロー" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%84%e3%83%bc%e3%83%ab%e9%81%b8%e6%8a%9e%e3%81%ae%e5%9f%ba%e6%9c%ac%e6%96%b9%e9%87%9d" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%ae%e6%83%b3%e8%a8%98%e6%86%b6%e3%81%ae%e5%87%a6%e7%90%86%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<ul>
-<li><strong>シンプルな自動化</strong>：アドホックなスクリプト</li>
-<li><strong>既存環境の設定変更</strong>：設定管理ツール</li>
-<li><strong>環境の再現性重視</strong>：サーバテンプレーティングツール</li>
-<li><strong>コンテナ管理</strong>：オーケストレーションツール</li>
-<li><strong>インフラ全体の構築</strong>：プロビジョニングツール（Terraform等）</li>
-</ul>
-<p>実際の開発現場では、これらのツールを組み合わせて使用することが多い。
-例：Terraformでインフラを構築 → Ansibleでソフトウェアをインストール → Dockerでアプリケーションを動かす → Kubernetesで管理</p>
+<pre tabindex="0"><code>1. アドレス変換の試行
+   ├─ 成功 → メモリアクセス実行
+   └─ 失敗 → 2へ
+
+2. ページフォールト発生（例外割り込み）
+   └─ OSに制御移行
+
+3. OS処理
+   ├─ ページ検索（補助記憶装置）
+   ├─ 空き領域確保（必要なら4へ）
+   └─ ページイン実行
+
+4. ページアウト（空き容量不足時）
+   ├─ 置き換え対象選択
+   └─ 補助記憶へ退避
+
+5. ページテーブル更新
+
+6. 処理再開 → 1へ戻る（今度は成功）
+</code></pre><p><strong>重要ポイント</strong>: ページイン・ページアウトは、アドレス変換を円滑に動かすためのOSによる裏方の管理作業です。</p>
 
           
           
@@ -1083,8 +1107,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251124162641_iac-five-classifications.md"
-          data-oid-likes="likes_posts/251124162641_iac-five-classifications.md"></script>
+          data-oid="views_posts/251129114929_virtual-memory-address-translation.md"
+          data-oid-likes="likes_posts/251129114929_virtual-memory-address-translation.md"></script>
       
 
     </section>
@@ -1099,7 +1123,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/">
+            <a class="flex group mr-3" href="/posts/251129112924_vscode-multi-cursor-editing/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1110,11 +1134,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >【読書メモ】BCGの育つ力・育てる力：スキルマニアからの脱却</span
+                  >VSCode_マルチカーソル編集</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-11-23T23:27:47&#43;09:00">2025年 11月 23日</time>
+                    <time datetime="2025-11-29T11:29:24&#43;09:00">2025年 11月 29日</time>
                   
                 </span>
               </span>
@@ -1123,14 +1147,14 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/251126031004_implement-custom-search-feature-in-chrome/">
+            <a class="flex text-right group ml-3" href="/posts/251129115424_cache-memory-address-mapping/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Chromeにカスタム検索機能を実装する方法</span
+                  >キャッシュメモリのアドレスマッピング方式</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-11-26T03:10:04&#43;09:00">2025年 11月 26日</time>
+                    <time datetime="2025-11-29T11:54:24&#43;09:00">2025年 11月 29日</time>
                   
                 </span>
               </span>

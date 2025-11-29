@@ -4,18 +4,36 @@
 
   <url>
     <loc>//localhost:1313/posts/</loc>
-    <lastmod>2025-11-29T11:29:24+09:00</lastmod>
+    <lastmod>2025-11-29T15:42:14+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</loc>
-    <lastmod>2025-11-29T11:29:24+09:00</lastmod>
+    <loc>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</loc>
+    <lastmod>2025-11-29T15:42:14+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-11-29T15:42:14+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251129115424_cache-memory-address-mapping/</loc>
+    <lastmod>2025-11-29T11:54:24+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251129114929_virtual-memory-address-translation/</loc>
+    <lastmod>2025-11-29T11:49:29+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</loc>
     <lastmod>2025-11-29T11:29:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Fri, 28 Nov 2025 00:43:23 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%85%A5%E9%96%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Nov 2025 11:54:24 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%85%A5%E9%96%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>キャッシュメモリのアドレスマッピング方式</title>
+      <link>//localhost:1313/posts/251129115424_cache-memory-address-mapping/</link>
+      <pubDate>Sat, 29 Nov 2025 11:54:24 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251129115424_cache-memory-address-mapping/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>TerraformでAWS環境を構築して削除するまで - 入門ハンズオン</title>

@@ -1,0 +1,1887 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>Terraformモジュールで再利用可能なインフラを作る &middot; 毎日.log</title>
+    <meta name="title" content="Terraformモジュールで再利用可能なインフラを作る &middot; 毎日.log">
+
+  
+  <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta name="keywords" content="インフラ,Terraform,AWS,ハンズオン,">
+  
+  
+  <link rel="canonical" href="//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.61491ede535d04b7d87b39e2413c19557ffdd98fcc24a7d789af1c8eaedd1cca90dc576e161fe1b308349ec7bf2741875c1f999febd9452ab7a97bd3dc3539f4.css"
+    integrity="sha512-YUke3lNdBLfYezniQTwZVX/92Y/MJKfXia8cjq7dHMqQ3FduFh/hswg0nse/J0GHXB&#43;Zn&#43;vZRSq3qXvT3DU59A==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.b363d716a7ea4bad623779c04878b62e384759903bf0e247658d199ca391ca711253abc6e0b593fe91b9cc9b7e1b36fb85730691a0d891ae9a8cfee6a986e58f.js"
+      integrity="sha512-s2PXFqfqS61iN3nASHi2LjhHWZA78OJHZY0ZnKORynESU6vG4LWT/pG5zJt&#43;Gzb7hXMGkaDYka6ajP7mqYbljw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/">
+  <meta property="og:site_name" content="毎日.log">
+  <meta property="og:title" content="Terraformモジュールで再利用可能なインフラを作る">
+  <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-29T15:42:14+09:00">
+    <meta property="article:modified_time" content="2025-11-29T15:42:14+09:00">
+    <meta property="article:tag" content="インフラ">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="ハンズオン">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terraformモジュールで再利用可能なインフラを作る">
+  <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Terraformモジュールで再利用可能なインフラを作る",
+    "headline": "Terraformモジュールで再利用可能なインフラを作る",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/posts\/251129154214_terraform-reusable-infrastructure-modules\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-11-29T15:42:14\u002b09:00",
+    "datePublished": "2025-11-29T15:42:14\u002b09:00",
+    
+    "dateModified": "2025-11-29T15:42:14\u002b09:00",
+    
+    "keywords": ["インフラ","Terraform","AWS","ハンズオン"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "689"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          毎日.log
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Terraformモジュールで再利用可能なインフラを作る
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-11-29T15:42:14&#43;09:00">2025年 11月 29日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    インフラ
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Terraform
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AWS
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ハンズオン
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#モジュールとは">モジュールとは</a>
+      <ul>
+        <li><a href="#基本構文">基本構文</a></li>
+      </ul>
+    </li>
+    <li><a href="#ディレクトリ構成の変更">ディレクトリ構成の変更</a></li>
+    <li><a href="#モジュールの構成要素">モジュールの構成要素</a>
+      <ul>
+        <li><a href="#参照方法の比較">参照方法の比較</a></li>
+      </ul>
+    </li>
+    <li><a href="#入力変数variable">入力変数（variable）</a>
+      <ul>
+        <li><a href="#なぜ必要か">なぜ必要か</a></li>
+        <li><a href="#定義例">定義例</a></li>
+        <li><a href="#呼び出し側での値の指定">呼び出し側での値の指定</a></li>
+      </ul>
+    </li>
+    <li><a href="#ローカル値locals">ローカル値（locals）</a>
+      <ul>
+        <li><a href="#variable-との違い">variable との違い</a></li>
+      </ul>
+    </li>
+    <li><a href="#出力output">出力（output）</a>
+      <ul>
+        <li><a href="#なぜ必要か-1">なぜ必要か</a></li>
+      </ul>
+    </li>
+    <li><a href="#注意点1-ファイルパス">注意点1: ファイルパス</a>
+      <ul>
+        <li><a href="#問題">問題</a></li>
+        <li><a href="#解決策-pathmodule">解決策: path.module</a></li>
+      </ul>
+    </li>
+    <li><a href="#注意点2-インラインブロック">注意点2: インラインブロック</a>
+      <ul>
+        <li><a href="#問題-1">問題</a></li>
+        <li><a href="#モジュールでは別リソースを推奨">モジュールでは別リソースを推奨</a></li>
+      </ul>
+    </li>
+    <li><a href="#モジュールのバージョン管理">モジュールのバージョン管理</a>
+      <ul>
+        <li><a href="#問題-2">問題</a></li>
+        <li><a href="#解決策-gitリポジトリとsemver">解決策: GitリポジトリとSemVer</a></li>
+        <li><a href="#セマンティックバージョニング">セマンティックバージョニング</a></li>
+      </ul>
+    </li>
+    <li><a href="#エラー対応メモ">エラー対応メモ</a>
+      <ul>
+        <li><a href="#terraform-init-の実行場所">terraform init の実行場所</a></li>
+        <li><a href="#backend設定がモジュール内に残っている">backend設定がモジュール内に残っている</a></li>
+      </ul>
+    </li>
+    <li><a href="#モジュールに含めるべきもの">モジュールに含めるべきもの</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#モジュール化のメリット">モジュール化のメリット</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#モジュールとは">モジュールとは</a>
+      <ul>
+        <li><a href="#基本構文">基本構文</a></li>
+      </ul>
+    </li>
+    <li><a href="#ディレクトリ構成の変更">ディレクトリ構成の変更</a></li>
+    <li><a href="#モジュールの構成要素">モジュールの構成要素</a>
+      <ul>
+        <li><a href="#参照方法の比較">参照方法の比較</a></li>
+      </ul>
+    </li>
+    <li><a href="#入力変数variable">入力変数（variable）</a>
+      <ul>
+        <li><a href="#なぜ必要か">なぜ必要か</a></li>
+        <li><a href="#定義例">定義例</a></li>
+        <li><a href="#呼び出し側での値の指定">呼び出し側での値の指定</a></li>
+      </ul>
+    </li>
+    <li><a href="#ローカル値locals">ローカル値（locals）</a>
+      <ul>
+        <li><a href="#variable-との違い">variable との違い</a></li>
+      </ul>
+    </li>
+    <li><a href="#出力output">出力（output）</a>
+      <ul>
+        <li><a href="#なぜ必要か-1">なぜ必要か</a></li>
+      </ul>
+    </li>
+    <li><a href="#注意点1-ファイルパス">注意点1: ファイルパス</a>
+      <ul>
+        <li><a href="#問題">問題</a></li>
+        <li><a href="#解決策-pathmodule">解決策: path.module</a></li>
+      </ul>
+    </li>
+    <li><a href="#注意点2-インラインブロック">注意点2: インラインブロック</a>
+      <ul>
+        <li><a href="#問題-1">問題</a></li>
+        <li><a href="#モジュールでは別リソースを推奨">モジュールでは別リソースを推奨</a></li>
+      </ul>
+    </li>
+    <li><a href="#モジュールのバージョン管理">モジュールのバージョン管理</a>
+      <ul>
+        <li><a href="#問題-2">問題</a></li>
+        <li><a href="#解決策-gitリポジトリとsemver">解決策: GitリポジトリとSemVer</a></li>
+        <li><a href="#セマンティックバージョニング">セマンティックバージョニング</a></li>
+      </ul>
+    </li>
+    <li><a href="#エラー対応メモ">エラー対応メモ</a>
+      <ul>
+        <li><a href="#terraform-init-の実行場所">terraform init の実行場所</a></li>
+        <li><a href="#backend設定がモジュール内に残っている">backend設定がモジュール内に残っている</a></li>
+      </ul>
+    </li>
+    <li><a href="#モジュールに含めるべきもの">モジュールに含めるべきもの</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#モジュール化のメリット">モジュール化のメリット</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">今日学んだこと 
+    <div id="今日学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%8a%e6%97%a5%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p><a
+  href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">前回の記事</a>でファイルレイアウトによる環境分離を学んだが、ステージングと本番で<strong>同じコードを重複して書く</strong>問題が残っていた。今回は<strong>Terraformモジュール</strong>を使って、DRY原則をインフラコードに適用する方法を学んだ。</p>
+<hr>
+
+<h2 class="relative group">モジュールとは 
+    <div id="モジュールとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<blockquote>
+<p><strong>フォルダ内にあるTerraform設定ファイル（.tfファイル）の集まり = モジュール</strong></p>
+</blockquote>
+<p>つまり、これまで作成してきたディレクトリも「モジュール」といえる。</p>
+<table>
+  <thead>
+      <tr>
+          <th>種類</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>ルートモジュール</strong></td>
+          <td><code>terraform apply</code>を直接実行するフォルダ</td>
+      </tr>
+      <tr>
+          <td><strong>再利用可能なモジュール</strong></td>
+          <td>他のモジュールから呼び出されるフォルダ</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">基本構文 
+    <div id="基本構文" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e6%a7%8b%e6%96%87" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">module</span> <span class="s2">&#34;&lt;NAME&gt;&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  source</span> <span class="o">=</span> <span class="s2">&#34;&lt;SOURCE&gt;&#34;</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # 設定（入力変数など）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
+</span></span></code></pre></div><p><code>source</code>にはローカルパス、GitHub URL、Terraform Registryなどを指定できる。</p>
+<hr>
+
+<h2 class="relative group">ディレクトリ構成の変更 
+    <div id="ディレクトリ構成の変更" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e6%a7%8b%e6%88%90%e3%81%ae%e5%a4%89%e6%9b%b4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>前回の<code>stage/</code>のみの構成から、モジュールを分離した構成に変更。</p>
+<pre tabindex="0"><code>ch4/
+├── modules/                      # 再利用可能なモジュール
+│   └── services/
+│       └── webserver-cluster/
+│           ├── main.tf
+│           ├── variables.tf
+│           ├── outputs.tf
+│           └── user-data.sh
+│
+└── live/
+    ├── stage/                    # ステージング環境
+    │   └── services/
+    │       └── webserver-cluster/
+    │           └── main.tf
+    └── prod/                     # 本番環境
+        └── services/
+            └── webserver-cluster/
+                └── main.tf
+</code></pre><table>
+  <thead>
+      <tr>
+          <th>ディレクトリ</th>
+          <th>役割</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>modules/</code></td>
+          <td>環境に依存しない再利用可能コード</td>
+      </tr>
+      <tr>
+          <td><code>live/stage/</code></td>
+          <td>ステージング環境のルートモジュール</td>
+      </tr>
+      <tr>
+          <td><code>live/prod/</code></td>
+          <td>本番環境のルートモジュール</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">モジュールの構成要素 
+    <div id="モジュールの構成要素" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ae%e6%a7%8b%e6%88%90%e8%a6%81%e7%b4%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>プログラミングの関数と対比すると理解しやすい。</p>
+<table>
+  <thead>
+      <tr>
+          <th>Terraformモジュール</th>
+          <th>プログラミング</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>モジュール</td>
+          <td>関数</td>
+          <td>再利用可能なコードの塊</td>
+      </tr>
+      <tr>
+          <td><code>variable</code></td>
+          <td>引数</td>
+          <td>モジュールに値を渡す</td>
+      </tr>
+      <tr>
+          <td><code>locals</code></td>
+          <td>ローカル変数</td>
+          <td>モジュール内部の計算・定数</td>
+      </tr>
+      <tr>
+          <td><code>output</code></td>
+          <td>戻り値</td>
+          <td>モジュールから値を返す</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">参照方法の比較 
+    <div id="参照方法の比較" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e7%85%a7%e6%96%b9%e6%b3%95%e3%81%ae%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>種類</th>
+          <th>文法</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>入力変数</td>
+          <td><code>var.&lt;NAME&gt;</code></td>
+          <td><code>var.cluster_name</code></td>
+      </tr>
+      <tr>
+          <td>ローカル値</td>
+          <td><code>local.&lt;NAME&gt;</code></td>
+          <td><code>local.http_port</code></td>
+      </tr>
+      <tr>
+          <td>モジュール出力</td>
+          <td><code>module.&lt;MODULE&gt;.&lt;OUTPUT&gt;</code></td>
+          <td><code>module.webserver_cluster.asg_name</code></td>
+      </tr>
+      <tr>
+          <td>パス参照</td>
+          <td><code>path.&lt;TYPE&gt;</code></td>
+          <td><code>path.module</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">入力変数（variable） 
+    <div id="入力変数variable" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%a5%e5%8a%9b%e5%a4%89%e6%95%b0variable" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">なぜ必要か 
+    <div id="なぜ必要か" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9c%e5%bf%85%e8%a6%81%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>前回のコードにはハードコードされた値が多い。</p>
+<table>
+  <thead>
+      <tr>
+          <th>ハードコード</th>
+          <th>問題</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>instance_type = &quot;t2.micro&quot;</code></td>
+          <td>prodでは大きいインスタンスが必要</td>
+      </tr>
+      <tr>
+          <td><code>min_size = 2</code></td>
+          <td>環境ごとにスケールを変えたい</td>
+      </tr>
+      <tr>
+          <td><code>key = &quot;stage/...&quot;</code></td>
+          <td>prodで使うとstageのDBを参照</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">定義例 
+    <div id="定義例" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9a%e7%be%a9%e4%be%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>modules/services/webserver-cluster/variables.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;cluster_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;クラスターリソースの名前&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;instance_type&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;起動するEC2タイプの種類&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;min_size&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;EC2インスタンスのASGの最小値&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">number</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;max_size&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;EC2インスタンスのASGの最大値&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">number</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_remote_state_bucket&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;S3バケットの名前（データベースのリモートステート）&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_remote_state_key&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;S3でのデータベースのリモートステートのパス&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>        <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">呼び出し側での値の指定 
+    <div id="呼び出し側での値の指定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e5%81%b4%e3%81%a7%e3%81%ae%e5%80%a4%e3%81%ae%e6%8c%87%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>live/stage/services/webserver-cluster/main.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">provider</span> <span class="s2">&#34;aws&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  region</span> <span class="o">=</span> <span class="s2">&#34;ap-northeast-1&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="s2">&#34;webserver_cluster&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  source</span> <span class="o">=</span> <span class="s2">&#34;../../../modules/services/webserver-cluster&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  cluster_name</span>           <span class="o">=</span> <span class="s2">&#34;webservers-stage&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_remote_state_bucket</span> <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_remote_state_key</span>    <span class="o">=</span> <span class="s2">&#34;stage/data-stores/mysql/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  instance_type</span> <span class="o">=</span> <span class="s2">&#34;t2.micro&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  min_size</span>      <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">  max_size</span>      <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>live/prod/services/webserver-cluster/main.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">module</span> <span class="s2">&#34;webserver_cluster&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  source</span> <span class="o">=</span> <span class="s2">&#34;../../../modules/services/webserver-cluster&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  cluster_name</span>           <span class="o">=</span> <span class="s2">&#34;webservers-prod&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_remote_state_bucket</span> <span class="o">=</span> <span class="s2">&#34;tf-state-backend-20251128&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_remote_state_key</span>    <span class="o">=</span> <span class="s2">&#34;prod/data-stores/mysql/terraform.tfstate&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  instance_type</span> <span class="o">=</span> <span class="s2">&#34;m4.large&#34;</span><span class="c1">  # より大きいインスタンス
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">  min_size</span>      <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">  max_size</span>      <span class="o">=</span> <span class="m">10</span><span class="c1">          # スケールアウト可能
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
+</span></span></code></pre></div><hr>
+
+<h2 class="relative group">ローカル値（locals） 
+    <div id="ローカル値locals" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%ab%e5%80%a4locals" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">variable との違い 
+    <div id="variable-との違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#variable-%e3%81%a8%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>種類</th>
+          <th style="text-align: center">外部から設定</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>variable</code></td>
+          <td style="text-align: center">可能</td>
+          <td>モジュールのAPI（外部に公開）</td>
+      </tr>
+      <tr>
+          <td><code>locals</code></td>
+          <td style="text-align: center">不可</td>
+          <td>モジュール内部の定数・計算</td>
+      </tr>
+  </tbody>
+</table>
+<p>ポート番号など<strong>変更されたくない値</strong>は<code>locals</code>で定義する。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">locals</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  http_port</span>    <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">  any_port</span>     <span class="o">=</span> <span class="m">0</span>
+</span></span><span class="line"><span class="cl"><span class="n">  any_protocol</span> <span class="o">=</span> <span class="s2">&#34;-1&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  tcp_protocol</span> <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  all_ips</span>      <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group_rule&#34; &#34;allow_http_inbound&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>              <span class="o">=</span> <span class="s2">&#34;ingress&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  security_group_id</span> <span class="o">=</span> <span class="k">aws_security_group</span><span class="p">.</span><span class="k">alb</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  from_port</span>         <span class="o">=</span> <span class="k">local</span><span class="p">.</span><span class="k">http_port</span><span class="c1">  # 80
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">  to_port</span>           <span class="o">=</span> <span class="k">local</span><span class="p">.</span><span class="k">http_port</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span>          <span class="o">=</span> <span class="k">local</span><span class="p">.</span><span class="k">tcp_protocol</span>
+</span></span><span class="line"><span class="cl"><span class="n">  cidr_blocks</span>       <span class="o">=</span> <span class="k">local</span><span class="p">.</span><span class="k">all_ips</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>マジックナンバー <code>80</code> より <code>local.http_port</code> の方が意図が明確。</p>
+<hr>
+
+<h2 class="relative group">出力（output） 
+    <div id="出力output" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%87%ba%e5%8a%9boutput" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">なぜ必要か 
+    <div id="なぜ必要か-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9c%e5%bf%85%e8%a6%81%e3%81%8b-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>本番環境のみにスケジュール設定を追加したい場合、モジュール内のASG名を外部から参照する必要がある。</p>
+<p><strong>modules/services/webserver-cluster/outputs.tf</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;asg_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_autoscaling_group</span><span class="p">.</span><span class="k">example</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;The name of the Auto Scaling Group&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;alb_security_group_id&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span>       <span class="o">=</span> <span class="k">aws_security_group</span><span class="p">.</span><span class="k">alb</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span> <span class="o">=</span> <span class="s2">&#34;ALBのセキュリティグループID&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>live/prod/main.tf</strong>（本番のみスケジュール追加）</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_autoscaling_schedule&#34; &#34;scale_out_during_business_hours&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  scheduled_action_name</span>  <span class="o">=</span> <span class="s2">&#34;scale-out-during-business-hours&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  min_size</span>               <span class="o">=</span> <span class="m">2</span>
+</span></span><span class="line"><span class="cl"><span class="n">  max_size</span>               <span class="o">=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">  desired_capacity</span>       <span class="o">=</span> <span class="m">10</span>
+</span></span><span class="line"><span class="cl"><span class="n">  recurrence</span>             <span class="o">=</span> <span class="s2">&#34;0 9 * * *&#34;</span><span class="c1">  # 毎日9時
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">  autoscaling_group_name</span> <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">webserver_cluster</span><span class="p">.</span><span class="k">asg_name</span><span class="c1">  # 出力を参照
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
+</span></span></code></pre></div><hr>
+
+<h2 class="relative group">注意点1: ファイルパス 
+    <div id="注意点1-ファイルパス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%b3%a8%e6%84%8f%e7%82%b91-%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%83%91%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">問題 
+    <div id="問題" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>相対パス <code>&quot;user-data.sh&quot;</code> は<strong>ルートモジュールからの相対パス</strong>として解釈される。モジュール内のファイルを参照できない。</p>
+
+<h3 class="relative group">解決策: path.module 
+    <div id="解決策-pathmodule" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b1%ba%e7%ad%96-pathmodule" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># Before（動かない）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">user_data</span> <span class="o">=</span> <span class="k">base64encode</span><span class="p">(</span><span class="k">templatefile</span><span class="p">(</span><span class="s2">&#34;user-data.sh&#34;</span><span class="p">,</span> { <span class="p">...</span> }<span class="p">))</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># After（正しく動く）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">user_data</span> <span class="o">=</span> <span class="k">base64encode</span><span class="p">(</span><span class="k">templatefile</span><span class="p">(</span><span class="s2">&#34;${path.module}/user-data.sh&#34;</span><span class="p">,</span> { <span class="p">...</span> }<span class="p">))</span>
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>パス参照</th>
+          <th>指す場所</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>path.module</code></td>
+          <td>モジュール定義があるディレクトリ</td>
+      </tr>
+      <tr>
+          <td><code>path.root</code></td>
+          <td>ルートモジュールのディレクトリ</td>
+      </tr>
+      <tr>
+          <td><code>path.cwd</code></td>
+          <td><code>terraform apply</code>を実行したディレクトリ</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">注意点2: インラインブロック 
+    <div id="注意点2-インラインブロック" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%b3%a8%e6%84%8f%e7%82%b92-%e3%82%a4%e3%83%b3%e3%83%a9%e3%82%a4%e3%83%b3%e3%83%96%e3%83%ad%e3%83%83%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">問題 
+    <div id="問題-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>セキュリティグループの<code>ingress</code>/<code>egress</code>には2つの書き方がある。</p>
+<p><strong>インラインブロック</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group&#34; &#34;alb&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;${var.cluster_name}-alb&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">ingress</span> {<span class="c1">  # リソース内に直接書く
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">    from_port</span>   <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">    to_port</span>     <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">    protocol</span>    <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    cidr_blocks</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>別リソース</strong></p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group&#34; &#34;alb&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;${var.cluster_name}-alb&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_security_group_rule&#34; &#34;allow_http&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>              <span class="o">=</span> <span class="s2">&#34;ingress&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  security_group_id</span> <span class="o">=</span> <span class="k">aws_security_group</span><span class="p">.</span><span class="k">alb</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  from_port</span>         <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">  to_port</span>           <span class="o">=</span> <span class="m">80</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span>          <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  cidr_blocks</span>       <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">モジュールでは別リソースを推奨 
+    <div id="モジュールでは別リソースを推奨" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%a7%e3%81%af%e5%88%a5%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e3%82%92%e6%8e%a8%e5%a5%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th style="text-align: center">柔軟性</th>
+          <th>理由</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>インラインブロック</td>
+          <td style="text-align: center">低</td>
+          <td>呼び出し側でルール追加不可</td>
+      </tr>
+      <tr>
+          <td>別リソース</td>
+          <td style="text-align: center">高</td>
+          <td>呼び出し側で追加ルール定義可能</td>
+      </tr>
+  </tbody>
+</table>
+<p>別リソースにすれば、ステージング環境のみテスト用ポートを追加、といったカスタマイズが可能。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># live/stage/main.tf - テスト用ポートを追加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_security_group_rule&#34; &#34;allow_testing&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>              <span class="o">=</span> <span class="s2">&#34;ingress&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  security_group_id</span> <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">webserver_cluster</span><span class="p">.</span><span class="k">alb_security_group_id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  from_port</span>         <span class="o">=</span> <span class="m">12345</span>
+</span></span><span class="line"><span class="cl"><span class="n">  to_port</span>           <span class="o">=</span> <span class="m">12345</span>
+</span></span><span class="line"><span class="cl"><span class="n">  protocol</span>          <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  cidr_blocks</span>       <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;0.0.0.0/0&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><hr>
+
+<h2 class="relative group">モジュールのバージョン管理 
+    <div id="モジュールのバージョン管理" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ae%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e7%ae%a1%e7%90%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">問題 
+    <div id="問題-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ローカルパス参照では、モジュールを変更すると<strong>全環境に即座に影響</strong>する。</p>
+
+<h3 class="relative group">解決策: GitリポジトリとSemVer 
+    <div id="解決策-gitリポジトリとsemver" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b1%ba%e7%ad%96-git%e3%83%aa%e3%83%9d%e3%82%b8%e3%83%88%e3%83%aa%e3%81%a8semver" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>モジュールを別リポジトリに分離</li>
+<li>Gitタグでバージョンを付与</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">git tag -a <span class="s2">&#34;v0.0.1&#34;</span> -m <span class="s2">&#34;First release&#34;</span>
+</span></span><span class="line"><span class="cl">git push --follow-tags
+</span></span></code></pre></div><ol start="3">
+<li>環境ごとに異なるバージョンを参照</li>
+</ol>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># stage: 新バージョンをテスト
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">source</span> <span class="o">=</span><span class="n"> &#34;github.com/user/modules//services/webserver-cluster?ref</span><span class="o">=</span><span class="k">v0</span><span class="p">.</span><span class="m">0</span><span class="p">.</span><span class="m">2</span><span class="err">&#34;</span><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># prod: 安定版を維持
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">source</span> <span class="o">=</span><span class="n"> &#34;github.com/user/modules//services/webserver-cluster?ref</span><span class="o">=</span><span class="k">v0</span><span class="p">.</span><span class="m">0</span><span class="p">.</span><span class="m">1</span><span class="err">&#34;</span>
+</span></span></code></pre></div><p><strong>GitHubでソースURL指定方法</strong>：<code>github.com/user/repo</code></p>
+
+<h3 class="relative group">セマンティックバージョニング 
+    <div id="セマンティックバージョニング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bb%e3%83%9e%e3%83%b3%e3%83%86%e3%82%a3%e3%83%83%e3%82%af%e3%83%90%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%8b%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>変更内容</th>
+          <th>バージョン</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>バグ修正</td>
+          <td>PATCH（v0.0.1 → v0.0.2）</td>
+      </tr>
+      <tr>
+          <td>後方互換のある機能追加</td>
+          <td>MINOR（v0.0.2 → v0.1.0）</td>
+      </tr>
+      <tr>
+          <td>破壊的変更</td>
+          <td>MAJOR（v0.1.0 → v1.0.0）</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">エラー対応メモ 
+    <div id="エラー対応メモ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a8%e3%83%a9%e3%83%bc%e5%af%be%e5%bf%9c%e3%83%a1%e3%83%a2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">terraform init の実行場所 
+    <div id="terraform-init-の実行場所" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform-init-%e3%81%ae%e5%ae%9f%e8%a1%8c%e5%a0%b4%e6%89%80" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>Terraform initialized in an empty directory!
+</code></pre><p>→ <code>.tf</code>ファイルがあるディレクトリ（ルートモジュール）で実行すること。</p>
+
+<h3 class="relative group">backend設定がモジュール内に残っている 
+    <div id="backend設定がモジュール内に残っている" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#backend%e8%a8%ad%e5%ae%9a%e3%81%8c%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e5%86%85%e3%81%ab%e6%ae%8b%e3%81%a3%e3%81%a6%e3%81%84%e3%82%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>Error: Failed to get existing workspaces: S3 bucket does not exist.
+</code></pre><p>→ <code>provider</code>と<code>terraform { backend }</code>はルートモジュールのみに書く。再利用可能なモジュールからは削除。</p>
+<hr>
+
+<h2 class="relative group">モジュールに含めるべきもの 
+    <div id="モジュールに含めるべきもの" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%81%ab%e5%90%ab%e3%82%81%e3%82%8b%e3%81%b9%e3%81%8d%e3%82%82%e3%81%ae" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>設定</th>
+          <th style="text-align: center">modules/</th>
+          <th style="text-align: center">live/</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>provider</code></td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">必須</td>
+      </tr>
+      <tr>
+          <td><code>terraform { backend }</code></td>
+          <td style="text-align: center">-</td>
+          <td style="text-align: center">必須</td>
+      </tr>
+      <tr>
+          <td><code>resource</code></td>
+          <td style="text-align: center">必須</td>
+          <td style="text-align: center">任意</td>
+      </tr>
+      <tr>
+          <td><code>variable</code></td>
+          <td style="text-align: center">必須</td>
+          <td style="text-align: center">任意</td>
+      </tr>
+      <tr>
+          <td><code>output</code></td>
+          <td style="text-align: center">必須</td>
+          <td style="text-align: center">任意</td>
+      </tr>
+      <tr>
+          <td><code>locals</code></td>
+          <td style="text-align: center">任意</td>
+          <td style="text-align: center">任意</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>学んだこと</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>モジュールの基礎</td>
+          <td>フォルダ = モジュール</td>
+      </tr>
+      <tr>
+          <td>入力変数（variable）</td>
+          <td>環境ごとの違いを吸収</td>
+      </tr>
+      <tr>
+          <td>ローカル値（locals）</td>
+          <td>変更されたくない内部定数</td>
+      </tr>
+      <tr>
+          <td>出力（output）</td>
+          <td>外部から参照可能な値</td>
+      </tr>
+      <tr>
+          <td>ファイルパス</td>
+          <td><code>path.module</code>で正しく参照</td>
+      </tr>
+      <tr>
+          <td>インラインブロック</td>
+          <td>別リソースの方が柔軟</td>
+      </tr>
+      <tr>
+          <td>バージョン管理</td>
+          <td>Git + SemVerで安全なデプロイ</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">モジュール化のメリット 
+    <div id="モジュール化のメリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e5%8c%96%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>DRY原則</strong>: 同じコードを複数環境で再利用</li>
+<li><strong>保守性</strong>: 1箇所の修正で全環境に反映</li>
+<li><strong>柔軟性</strong>: 入力変数で環境ごとのカスタマイズ</li>
+<li><strong>安全性</strong>: バージョン管理でテスト済みコードのみ本番適用</li>
+</ol>
+<hr>
+
+<h2 class="relative group">参考 
+    <div id="参考" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://www.oreilly.co.jp/books/9784814400522/"
+    target="_blank"
+  >詳解 Terraform 第3版</a> - Yevgeniy Brikman著、松浦隼人訳、オライリージャパン、2023年</li>
+<li><a
+  href="https://developer.hashicorp.com/terraform/docs"
+    target="_blank"
+  >Terraform公式ドキュメント</a></li>
+<li><a
+  href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">前回の記事: ファイルレイアウトとterraform_remote_state</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251129154214_terraform-reusable-infrastructure-modules.md"
+          data-oid-likes="likes_posts/251129154214_terraform-reusable-infrastructure-modules.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/251129115424_cache-memory-address-mapping/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >キャッシュメモリのアドレスマッピング方式</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-29T11:54:24&#43;09:00">2025年 11月 29日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
