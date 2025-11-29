@@ -3,7 +3,7 @@ id = "251127233855"
 date = '2025-11-27T23:38:55+09:00'
 draft = false
 title = 'Terraformとは？'
-tags = ["インフラ", "Terraform", "読書メモ", "入門"]
+tags = ["インフラ", "Terraform", "入門"]
 +++
 ## はじめに：Terraformとは？
 

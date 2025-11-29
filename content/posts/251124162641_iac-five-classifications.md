@@ -3,7 +3,7 @@ id = "251124162641"
 date = '2025-11-24T16:26:41+09:00'
 draft = false
 title = 'IaC（Infrastructure as Code）の5つの分類'
-tags = ["インフラ", "読書メモ", "Terraform", "入門", "まとめ"]
+tags = ["インフラ", "Terraform", "入門", "まとめ"]
 +++
 ## はじめに
 Terraformの勉強のために「詳解Terraform」を購入。
