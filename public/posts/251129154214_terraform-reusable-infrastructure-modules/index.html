@@ -19,7 +19,7 @@
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="インフラ,Terraform,AWS,ハンズオン,">
+  <meta name="keywords" content="インフラ,Terraform,AWS,実践,">
   
   
   <link rel="canonical" href="//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/">
@@ -111,7 +111,7 @@
     <meta property="article:tag" content="インフラ">
     <meta property="article:tag" content="Terraform">
     <meta property="article:tag" content="AWS">
-    <meta property="article:tag" content="ハンズオン">
+    <meta property="article:tag" content="実践">
 
   
   <meta name="twitter:card" content="summary">
@@ -139,10 +139,10 @@
     
     "dateModified": "2025-11-29T15:42:14\u002b09:00",
     
-    "keywords": ["インフラ","Terraform","AWS","ハンズオン"],
+    "keywords": ["インフラ","Terraform","AWS","実践"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "689"
+    "wordCount": "702"
   }]
   </script>
 
@@ -539,6 +539,8 @@
     <div class="flex flex-row flex-wrap items-center">
       
         
+      
+        
           
             
               <span
@@ -579,11 +581,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E5%AE%9F%E8%B7%B5/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ハンズオン
+    実践
   </span>
 </span>
 
@@ -643,18 +645,18 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#今日学んだこと">今日学んだこと</a>
+      <ul>
+        <li><a href="#モジュール化で得られるメリット">モジュール化で得られるメリット</a></li>
+      </ul>
+    </li>
     <li><a href="#モジュールとは">モジュールとは</a>
       <ul>
         <li><a href="#基本構文">基本構文</a></li>
       </ul>
     </li>
     <li><a href="#ディレクトリ構成の変更">ディレクトリ構成の変更</a></li>
-    <li><a href="#モジュールの構成要素">モジュールの構成要素</a>
-      <ul>
-        <li><a href="#参照方法の比較">参照方法の比較</a></li>
-      </ul>
-    </li>
+    <li><a href="#モジュールの構成要素">モジュールの構成要素</a></li>
     <li><a href="#入力変数variable">入力変数（variable）</a>
       <ul>
         <li><a href="#なぜ必要か">なぜ必要か</a></li>
@@ -698,6 +700,7 @@
       </ul>
     </li>
     <li><a href="#モジュールに含めるべきもの">モジュールに含めるべきもの</a></li>
+    <li><a href="#参照方法の比較">参照方法の比較</a></li>
     <li><a href="#まとめ">まとめ</a>
       <ul>
         <li><a href="#モジュール化のメリット">モジュール化のメリット</a></li>
@@ -717,18 +720,18 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#今日学んだこと">今日学んだこと</a>
+      <ul>
+        <li><a href="#モジュール化で得られるメリット">モジュール化で得られるメリット</a></li>
+      </ul>
+    </li>
     <li><a href="#モジュールとは">モジュールとは</a>
       <ul>
         <li><a href="#基本構文">基本構文</a></li>
       </ul>
     </li>
     <li><a href="#ディレクトリ構成の変更">ディレクトリ構成の変更</a></li>
-    <li><a href="#モジュールの構成要素">モジュールの構成要素</a>
-      <ul>
-        <li><a href="#参照方法の比較">参照方法の比較</a></li>
-      </ul>
-    </li>
+    <li><a href="#モジュールの構成要素">モジュールの構成要素</a></li>
     <li><a href="#入力変数variable">入力変数（variable）</a>
       <ul>
         <li><a href="#なぜ必要か">なぜ必要か</a></li>
@@ -772,6 +775,7 @@
       </ul>
     </li>
     <li><a href="#モジュールに含めるべきもの">モジュールに含めるべきもの</a></li>
+    <li><a href="#参照方法の比較">参照方法の比較</a></li>
     <li><a href="#まとめ">まとめ</a>
       <ul>
         <li><a href="#モジュール化のメリット">モジュール化のメリット</a></li>
@@ -892,6 +896,42 @@
 </h2>
 <p><a
   href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">前回の記事</a>でファイルレイアウトによる環境分離を学んだが、ステージングと本番で<strong>同じコードを重複して書く</strong>問題が残っていた。今回は<strong>Terraformモジュール</strong>を使って、DRY原則をインフラコードに適用する方法を学んだ。</p>
+
+<h3 class="relative group">モジュール化で得られるメリット 
+    <div id="モジュール化で得られるメリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e5%8c%96%e3%81%a7%e5%be%97%e3%82%89%e3%82%8c%e3%82%8b%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>メリット</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>DRY原則</strong></td>
+          <td>同じコードを複数環境で再利用</td>
+      </tr>
+      <tr>
+          <td><strong>保守性</strong></td>
+          <td>1箇所の修正で全環境に反映</td>
+      </tr>
+      <tr>
+          <td><strong>柔軟性</strong></td>
+          <td>入力変数で環境ごとのカスタマイズ</td>
+      </tr>
+      <tr>
+          <td><strong>安全性</strong></td>
+          <td>バージョン管理でテスト済みコードのみ本番適用</td>
+      </tr>
+  </tbody>
+</table>
 <hr>
 
 <h2 class="relative group">モジュールとは 
@@ -952,8 +992,7 @@
     
 </h2>
 <p>前回の<code>stage/</code>のみの構成から、モジュールを分離した構成に変更。</p>
-<pre tabindex="0"><code>ch4/
-├── modules/                      # 再利用可能なモジュール
+<pre tabindex="0"><code>├── modules/                      # 再利用可能なモジュール
 │   └── services/
 │       └── webserver-cluster/
 │           ├── main.tf
@@ -1035,47 +1074,7 @@
       </tr>
   </tbody>
 </table>
-
-<h3 class="relative group">参照方法の比較 
-    <div id="参照方法の比較" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e7%85%a7%e6%96%b9%e6%b3%95%e3%81%ae%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<table>
-  <thead>
-      <tr>
-          <th>種類</th>
-          <th>文法</th>
-          <th>例</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>入力変数</td>
-          <td><code>var.&lt;NAME&gt;</code></td>
-          <td><code>var.cluster_name</code></td>
-      </tr>
-      <tr>
-          <td>ローカル値</td>
-          <td><code>local.&lt;NAME&gt;</code></td>
-          <td><code>local.http_port</code></td>
-      </tr>
-      <tr>
-          <td>モジュール出力</td>
-          <td><code>module.&lt;MODULE&gt;.&lt;OUTPUT&gt;</code></td>
-          <td><code>module.webserver_cluster.asg_name</code></td>
-      </tr>
-      <tr>
-          <td>パス参照</td>
-          <td><code>path.&lt;TYPE&gt;</code></td>
-          <td><code>path.module</code></td>
-      </tr>
-  </tbody>
-</table>
+<p>以降のセクションで、それぞれの詳細と使い方を見ていく。</p>
 <hr>
 
 <h2 class="relative group">入力変数（variable） 
@@ -1614,6 +1613,49 @@
 </table>
 <hr>
 
+<h2 class="relative group">参照方法の比較 
+    <div id="参照方法の比較" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e7%85%a7%e6%96%b9%e6%b3%95%e3%81%ae%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>ここまで学んだ各要素の参照方法をまとめる。</p>
+<table>
+  <thead>
+      <tr>
+          <th>種類</th>
+          <th>文法</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>入力変数</td>
+          <td><code>var.&lt;NAME&gt;</code></td>
+          <td><code>var.cluster_name</code></td>
+      </tr>
+      <tr>
+          <td>ローカル値</td>
+          <td><code>local.&lt;NAME&gt;</code></td>
+          <td><code>local.http_port</code></td>
+      </tr>
+      <tr>
+          <td>モジュール出力</td>
+          <td><code>module.&lt;MODULE&gt;.&lt;OUTPUT&gt;</code></td>
+          <td><code>module.webserver_cluster.asg_name</code></td>
+      </tr>
+      <tr>
+          <td>パス参照</td>
+          <td><code>path.&lt;TYPE&gt;</code></td>
+          <td><code>path.module</code></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
     
@@ -1768,6 +1810,27 @@
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/251130065841_docker-environment-nodejs-basics-part1/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-30T06:58:41&#43;09:00">2025年 11月 30日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

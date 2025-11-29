@@ -1,0 +1,2928 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編 &middot; 毎日.log</title>
+    <meta name="title" content="Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編 &middot; 毎日.log">
+
+  
+  <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta name="keywords" content="ツール,Babel,Webpack,Vite,チュートリアル,">
+  
+  
+  <link rel="canonical" href="//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.61491ede535d04b7d87b39e2413c19557ffdd98fcc24a7d789af1c8eaedd1cca90dc576e161fe1b308349ec7bf2741875c1f999febd9452ab7a97bd3dc3539f4.css"
+    integrity="sha512-YUke3lNdBLfYezniQTwZVX/92Y/MJKfXia8cjq7dHMqQ3FduFh/hswg0nse/J0GHXB&#43;Zn&#43;vZRSq3qXvT3DU59A==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.b363d716a7ea4bad623779c04878b62e384759903bf0e247658d199ca391ca711253abc6e0b593fe91b9cc9b7e1b36fb85730691a0d891ae9a8cfee6a986e58f.js"
+      integrity="sha512-s2PXFqfqS61iN3nASHi2LjhHWZA78OJHZY0ZnKORynESU6vG4LWT/pG5zJt&#43;Gzb7hXMGkaDYka6ajP7mqYbljw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/">
+  <meta property="og:site_name" content="毎日.log">
+  <meta property="og:title" content="Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編">
+  <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-11-30T07:01:32+09:00">
+    <meta property="article:modified_time" content="2025-11-30T07:01:32+09:00">
+    <meta property="article:tag" content="ツール">
+    <meta property="article:tag" content="Babel">
+    <meta property="article:tag" content="Webpack">
+    <meta property="article:tag" content="Vite">
+    <meta property="article:tag" content="チュートリアル">
+      <meta property="og:see_also" content="//localhost:1313/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/">
+      <meta property="og:see_also" content="//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/">
+      <meta property="og:see_also" content="//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編">
+  <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編",
+    "headline": "Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編",
+    
+    
+    "inLanguage": "ja",
+    "url" : "\/\/localhost:1313\/posts\/251130070132_docker-environment-nodejs-frontend-dev-tools\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-11-30T07:01:32\u002b09:00",
+    "datePublished": "2025-11-30T07:01:32\u002b09:00",
+    
+    "dateModified": "2025-11-30T07:01:32\u002b09:00",
+    
+    "keywords": ["ツール","Babel","Webpack","Vite","チュートリアル"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1624"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          毎日.log
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-11-30T07:01:32&#43;09:00">2025年 11月 30日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%84%E3%83%BC%E3%83%AB/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ツール
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/babel/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Babel
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/webpack/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Webpack
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/vite/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Vite
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    チュートリアル
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#-このメモで理解すべき3つの要点">🎯 このメモで理解すべき3つの要点</a></li>
+        <li><a href="#-よくある初心者の間違い">⚠️ よくある初心者の間違い</a></li>
+        <li><a href="#-ツールの関係性">🔄 ツールの関係性</a></li>
+      </ul>
+    </li>
+    <li><a href="#前提条件">前提条件</a></li>
+    <li><a href="#section-1-babelトランスパイラ">Section 1: Babel（トランスパイラ）</a>
+      <ul>
+        <li><a href="#11-babelとは">1.1 Babelとは？</a>
+          <ul>
+            <li><a href="#なぜbabelが必要">なぜBabelが必要？</a></li>
+            <li><a href="#主な用途">主な用途</a></li>
+          </ul>
+        </li>
+        <li><a href="#12-ハンズオンbabel環境構築">1.2 ハンズオン：Babel環境構築</a>
+          <ul>
+            <li><a href="#学習用ディレクトリの作成">学習用ディレクトリの作成</a></li>
+            <li><a href="#プロジェクト初期化とbabelインストール">プロジェクト初期化とBabelインストール</a></li>
+            <li><a href="#パッケージの説明">パッケージの説明</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-babel設定ファイルの作成">1.3 Babel設定ファイルの作成</a>
+          <ul>
+            <li><a href="#プリセットpresetとは">プリセット（preset）とは？</a></li>
+          </ul>
+        </li>
+        <li><a href="#14-トランスパイルの実行">1.4 トランスパイルの実行</a>
+          <ul>
+            <li><a href="#ソースファイルの作成">ソースファイルの作成</a></li>
+            <li><a href="#トランスパイル実行">トランスパイル実行</a></li>
+            <li><a href="#期待される出力es5に変換済み">期待される出力（ES5に変換済み）</a></li>
+          </ul>
+        </li>
+        <li><a href="#15-packagejsonにスクリプトを追加">1.5 package.jsonにスクリプトを追加</a>
+          <ul>
+            <li><a href="#期待される出力">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#16-コンテナ終了と確認">1.6 コンテナ終了と確認</a></li>
+        <li><a href="#-このセクションで学んだこと">✅ このセクションで学んだこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-2-webpackモジュールバンドラー">Section 2: Webpack（モジュールバンドラー）</a>
+      <ul>
+        <li><a href="#21-webpackとは">2.1 Webpackとは？</a>
+          <ul>
+            <li><a href="#webpackの役割">Webpackの役割</a></li>
+            <li><a href="#なぜバンドルが必要">なぜバンドルが必要？</a></li>
+          </ul>
+        </li>
+        <li><a href="#22-ハンズオンwebpack環境構築">2.2 ハンズオン：Webpack環境構築</a>
+          <ul>
+            <li><a href="#学習用ディレクトリの作成-1">学習用ディレクトリの作成</a></li>
+            <li><a href="#プロジェクト初期化とwebpackインストール">プロジェクト初期化とWebpackインストール</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-ディレクトリ構造の作成">2.3 ディレクトリ構造の作成</a></li>
+        <li><a href="#24-webpack設定ファイルの作成">2.4 Webpack設定ファイルの作成</a>
+          <ul>
+            <li><a href="#設定項目の解説">設定項目の解説</a></li>
+          </ul>
+        </li>
+        <li><a href="#25-バンドル実行">2.5 バンドル実行</a>
+          <ul>
+            <li><a href="#期待される出力-1">期待される出力</a></li>
+            <li><a href="#期待される出力-2">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#26-cssのバンドル">2.6 CSSのバンドル</a>
+          <ul>
+            <li><a href="#ローダーのインストール">ローダーのインストール</a></li>
+            <li><a href="#cssファイルの作成">CSSファイルの作成</a></li>
+            <li><a href="#エントリーポイントでcssをインポート">エントリーポイントでCSSをインポート</a></li>
+            <li><a href="#webpack設定にローダーを追加">Webpack設定にローダーを追加</a></li>
+            <li><a href="#ローダーの処理順序">ローダーの処理順序</a></li>
+          </ul>
+        </li>
+        <li><a href="#27-ブラウザで確認オプション">2.7 ブラウザで確認（オプション）</a></li>
+        <li><a href="#28-コンテナ終了">2.8 コンテナ終了</a></li>
+        <li><a href="#-このセクションで学んだこと-1">✅ このセクションで学んだこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-3-vite次世代ビルドツール">Section 3: Vite（次世代ビルドツール）</a>
+      <ul>
+        <li><a href="#31-viteとは">3.1 Viteとは？</a>
+          <ul>
+            <li><a href="#viteとwebpackの違い">ViteとWebpackの違い</a></li>
+            <li><a href="#viteが高速な理由">Viteが高速な理由</a></li>
+          </ul>
+        </li>
+        <li><a href="#32-ハンズオンviteプロジェクト作成">3.2 ハンズオン：Viteプロジェクト作成</a>
+          <ul>
+            <li><a href="#学習用ディレクトリの作成-2">学習用ディレクトリの作成</a></li>
+            <li><a href="#viteプロジェクトの作成">Viteプロジェクトの作成</a></li>
+            <li><a href="#対話形式での選択">対話形式での選択</a></li>
+          </ul>
+        </li>
+        <li><a href="#33-プロジェクト構造の確認">3.3 プロジェクト構造の確認</a>
+          <ul>
+            <li><a href="#生成されるファイル構造">生成されるファイル構造</a></li>
+          </ul>
+        </li>
+        <li><a href="#34-依存関係のインストールと起動">3.4 依存関係のインストールと起動</a>
+          <ul>
+            <li><a href="#期待される出力-3">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#35-hmrhot-module-replacementの体験">3.5 HMR（Hot Module Replacement）の体験</a></li>
+        <li><a href="#36-本番用ビルド">3.6 本番用ビルド</a>
+          <ul>
+            <li><a href="#期待される出力-4">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#37-ビルド結果のプレビュー">3.7 ビルド結果のプレビュー</a></li>
+        <li><a href="#38-packagejsonのスクリプト確認">3.8 package.jsonのスクリプト確認</a></li>
+        <li><a href="#39-コンテナ終了">3.9 コンテナ終了</a></li>
+        <li><a href="#-このセクションで学んだこと-2">✅ このセクションで学んだこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-4-ツール比較と使い分け">Section 4: ツール比較と使い分け</a>
+      <ul>
+        <li><a href="#41-各ツールの役割まとめ">4.1 各ツールの役割まとめ</a></li>
+        <li><a href="#42-組み合わせパターン">4.2 組み合わせパターン</a></li>
+        <li><a href="#43-学習の優先順位">4.3 学習の優先順位</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#-学んだこと">🎯 学んだこと</a>
+          <ul>
+            <li><a href="#babel">Babel</a></li>
+            <li><a href="#webpack">Webpack</a></li>
+            <li><a href="#vite">Vite</a></li>
+          </ul>
+        </li>
+        <li><a href="#-次のステップ">📚 次のステップ</a></li>
+        <li><a href="#-クリーンアップ">🗑️ クリーンアップ</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#-このメモで理解すべき3つの要点">🎯 このメモで理解すべき3つの要点</a></li>
+        <li><a href="#-よくある初心者の間違い">⚠️ よくある初心者の間違い</a></li>
+        <li><a href="#-ツールの関係性">🔄 ツールの関係性</a></li>
+      </ul>
+    </li>
+    <li><a href="#前提条件">前提条件</a></li>
+    <li><a href="#section-1-babelトランスパイラ">Section 1: Babel（トランスパイラ）</a>
+      <ul>
+        <li><a href="#11-babelとは">1.1 Babelとは？</a>
+          <ul>
+            <li><a href="#なぜbabelが必要">なぜBabelが必要？</a></li>
+            <li><a href="#主な用途">主な用途</a></li>
+          </ul>
+        </li>
+        <li><a href="#12-ハンズオンbabel環境構築">1.2 ハンズオン：Babel環境構築</a>
+          <ul>
+            <li><a href="#学習用ディレクトリの作成">学習用ディレクトリの作成</a></li>
+            <li><a href="#プロジェクト初期化とbabelインストール">プロジェクト初期化とBabelインストール</a></li>
+            <li><a href="#パッケージの説明">パッケージの説明</a></li>
+          </ul>
+        </li>
+        <li><a href="#13-babel設定ファイルの作成">1.3 Babel設定ファイルの作成</a>
+          <ul>
+            <li><a href="#プリセットpresetとは">プリセット（preset）とは？</a></li>
+          </ul>
+        </li>
+        <li><a href="#14-トランスパイルの実行">1.4 トランスパイルの実行</a>
+          <ul>
+            <li><a href="#ソースファイルの作成">ソースファイルの作成</a></li>
+            <li><a href="#トランスパイル実行">トランスパイル実行</a></li>
+            <li><a href="#期待される出力es5に変換済み">期待される出力（ES5に変換済み）</a></li>
+          </ul>
+        </li>
+        <li><a href="#15-packagejsonにスクリプトを追加">1.5 package.jsonにスクリプトを追加</a>
+          <ul>
+            <li><a href="#期待される出力">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#16-コンテナ終了と確認">1.6 コンテナ終了と確認</a></li>
+        <li><a href="#-このセクションで学んだこと">✅ このセクションで学んだこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-2-webpackモジュールバンドラー">Section 2: Webpack（モジュールバンドラー）</a>
+      <ul>
+        <li><a href="#21-webpackとは">2.1 Webpackとは？</a>
+          <ul>
+            <li><a href="#webpackの役割">Webpackの役割</a></li>
+            <li><a href="#なぜバンドルが必要">なぜバンドルが必要？</a></li>
+          </ul>
+        </li>
+        <li><a href="#22-ハンズオンwebpack環境構築">2.2 ハンズオン：Webpack環境構築</a>
+          <ul>
+            <li><a href="#学習用ディレクトリの作成-1">学習用ディレクトリの作成</a></li>
+            <li><a href="#プロジェクト初期化とwebpackインストール">プロジェクト初期化とWebpackインストール</a></li>
+          </ul>
+        </li>
+        <li><a href="#23-ディレクトリ構造の作成">2.3 ディレクトリ構造の作成</a></li>
+        <li><a href="#24-webpack設定ファイルの作成">2.4 Webpack設定ファイルの作成</a>
+          <ul>
+            <li><a href="#設定項目の解説">設定項目の解説</a></li>
+          </ul>
+        </li>
+        <li><a href="#25-バンドル実行">2.5 バンドル実行</a>
+          <ul>
+            <li><a href="#期待される出力-1">期待される出力</a></li>
+            <li><a href="#期待される出力-2">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#26-cssのバンドル">2.6 CSSのバンドル</a>
+          <ul>
+            <li><a href="#ローダーのインストール">ローダーのインストール</a></li>
+            <li><a href="#cssファイルの作成">CSSファイルの作成</a></li>
+            <li><a href="#エントリーポイントでcssをインポート">エントリーポイントでCSSをインポート</a></li>
+            <li><a href="#webpack設定にローダーを追加">Webpack設定にローダーを追加</a></li>
+            <li><a href="#ローダーの処理順序">ローダーの処理順序</a></li>
+          </ul>
+        </li>
+        <li><a href="#27-ブラウザで確認オプション">2.7 ブラウザで確認（オプション）</a></li>
+        <li><a href="#28-コンテナ終了">2.8 コンテナ終了</a></li>
+        <li><a href="#-このセクションで学んだこと-1">✅ このセクションで学んだこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-3-vite次世代ビルドツール">Section 3: Vite（次世代ビルドツール）</a>
+      <ul>
+        <li><a href="#31-viteとは">3.1 Viteとは？</a>
+          <ul>
+            <li><a href="#viteとwebpackの違い">ViteとWebpackの違い</a></li>
+            <li><a href="#viteが高速な理由">Viteが高速な理由</a></li>
+          </ul>
+        </li>
+        <li><a href="#32-ハンズオンviteプロジェクト作成">3.2 ハンズオン：Viteプロジェクト作成</a>
+          <ul>
+            <li><a href="#学習用ディレクトリの作成-2">学習用ディレクトリの作成</a></li>
+            <li><a href="#viteプロジェクトの作成">Viteプロジェクトの作成</a></li>
+            <li><a href="#対話形式での選択">対話形式での選択</a></li>
+          </ul>
+        </li>
+        <li><a href="#33-プロジェクト構造の確認">3.3 プロジェクト構造の確認</a>
+          <ul>
+            <li><a href="#生成されるファイル構造">生成されるファイル構造</a></li>
+          </ul>
+        </li>
+        <li><a href="#34-依存関係のインストールと起動">3.4 依存関係のインストールと起動</a>
+          <ul>
+            <li><a href="#期待される出力-3">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#35-hmrhot-module-replacementの体験">3.5 HMR（Hot Module Replacement）の体験</a></li>
+        <li><a href="#36-本番用ビルド">3.6 本番用ビルド</a>
+          <ul>
+            <li><a href="#期待される出力-4">期待される出力</a></li>
+          </ul>
+        </li>
+        <li><a href="#37-ビルド結果のプレビュー">3.7 ビルド結果のプレビュー</a></li>
+        <li><a href="#38-packagejsonのスクリプト確認">3.8 package.jsonのスクリプト確認</a></li>
+        <li><a href="#39-コンテナ終了">3.9 コンテナ終了</a></li>
+        <li><a href="#-このセクションで学んだこと-2">✅ このセクションで学んだこと</a></li>
+      </ul>
+    </li>
+    <li><a href="#section-4-ツール比較と使い分け">Section 4: ツール比較と使い分け</a>
+      <ul>
+        <li><a href="#41-各ツールの役割まとめ">4.1 各ツールの役割まとめ</a></li>
+        <li><a href="#42-組み合わせパターン">4.2 組み合わせパターン</a></li>
+        <li><a href="#43-学習の優先順位">4.3 学習の優先順位</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#-学んだこと">🎯 学んだこと</a>
+          <ul>
+            <li><a href="#babel">Babel</a></li>
+            <li><a href="#webpack">Webpack</a></li>
+            <li><a href="#vite">Vite</a></li>
+          </ul>
+        </li>
+        <li><a href="#-次のステップ">📚 次のステップ</a></li>
+        <li><a href="#-クリーンアップ">🗑️ クリーンアップ</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 ml-0"
+    open>
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+    Docker環境でNode.jsを学ぼう -
+    この記事は連載の一部です
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251130065841_docker-environment-nodejs-basics-part1/">
+          パート 1:
+          Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        パート 2:
+        この記事
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251130070546_docker-environment-nodejs-code-quality-tools/">
+          パート 3:
+          Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/">
+          パート 4:
+          Docker環境でNode.jsを学ぼう_Part4_その他ツール編
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">はじめに 
+    <div id="はじめに" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">🎯 このメモで理解すべき3つの要点 
+    <div id="-このメモで理解すべき3つの要点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%81%93%e3%81%ae%e3%83%a1%e3%83%a2%e3%81%a7%e7%90%86%e8%a7%a3%e3%81%99%e3%81%b9%e3%81%8d3%e3%81%a4%e3%81%ae%e8%a6%81%e7%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>
+<p><strong>Babel：JavaScriptトランスパイラ</strong></p>
+<ul>
+<li>最新のJavaScript（ES2015+）を古いブラウザでも動くコードに変換</li>
+<li>プリセットで変換ルールを管理</li>
+</ul>
+</li>
+<li>
+<p><strong>Webpack：モジュールバンドラー</strong></p>
+<ul>
+<li>複数のファイル（JS、CSS、画像）を1つにまとめる</li>
+<li>ローダーで様々なファイル形式に対応</li>
+</ul>
+</li>
+<li>
+<p><strong>Vite：次世代ビルドツール</strong></p>
+<ul>
+<li>Webpackより高速な開発サーバー</li>
+<li>ESModulesを活用したモダンな設計</li>
+</ul>
+</li>
+</ol>
+
+<h3 class="relative group">⚠️ よくある初心者の間違い 
+    <div id="-よくある初心者の間違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%82%88%e3%81%8f%e3%81%82%e3%82%8b%e5%88%9d%e5%bf%83%e8%80%85%e3%81%ae%e9%96%93%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>❌ Babelの設定ファイル（<code>.babelrc</code>）を作り忘れてトランスパイルが動かない</li>
+<li>❌ Webpackのローダーの処理順序（右から左）を理解していない</li>
+<li>❌ 開発用（dev）と本番用（build）の違いを意識していない</li>
+</ul>
+
+<h3 class="relative group">🔄 ツールの関係性 
+    <div id="-ツールの関係性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e9%96%a2%e4%bf%82%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>【開発時の流れ】
+  ES2015+ JavaScript
+        ↓
+  [Babel] トランスパイル（変換）
+        ↓
+  ES5 JavaScript（古いブラウザ対応）
+        ↓
+  [Webpack/Vite] バンドル（まとめる）
+        ↓
+  bundle.js（本番用ファイル）
+</code></pre><hr>
+
+<h2 class="relative group">前提条件 
+    <div id="前提条件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%89%8d%e6%8f%90%e6%9d%a1%e4%bb%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><strong>Part 1</strong> を完了していること（Docker基礎、Node.js/npm基礎）</li>
+<li>Docker Desktopがインストールされていること</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Section 1: Babel（トランスパイラ） 
+    <div id="section-1-babelトランスパイラ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#section-1-babel%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b9%e3%83%91%e3%82%a4%e3%83%a9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">1.1 Babelとは？ 
+    <div id="11-babelとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#11-babel%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Babel</strong>は、JavaScriptのトランスパイラ（変換ツール）です。</p>
+
+<h4 class="relative group">なぜBabelが必要？ 
+    <div id="なぜbabelが必要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9cbabel%e3%81%8c%e5%bf%85%e8%a6%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="c1">// ES2015+（モダンな書き方）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kr">const</span> <span class="nx">greet</span> <span class="o">=</span> <span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">=&gt;</span> <span class="sb">`Hello, </span><span class="si">${</span><span class="nx">name</span><span class="si">}</span><span class="sb">!`</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kr">const</span> <span class="nx">doubled</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">n</span> <span class="p">=&gt;</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">);</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1">// ES5（古いブラウザ対応）に変換後
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="s2">&#34;Hello, &#34;</span> <span class="o">+</span> <span class="nx">name</span> <span class="o">+</span> <span class="s2">&#34;!&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">numbers</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">];</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">doubled</span> <span class="o">=</span> <span class="nx">numbers</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">n</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">n</span> <span class="o">*</span> <span class="mi">2</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">});</span>
+</span></span></code></pre></div>
+<h4 class="relative group">主な用途 
+    <div id="主な用途" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%b8%bb%e3%81%aa%e7%94%a8%e9%80%94" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>用途</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>ブラウザ互換性</strong></td>
+          <td>古いブラウザでも最新構文を使用可能に</td>
+      </tr>
+      <tr>
+          <td><strong>React JSX</strong></td>
+          <td>JSX構文を通常のJavaScriptに変換</td>
+      </tr>
+      <tr>
+          <td><strong>TypeScript</strong></td>
+          <td>TypeScriptからJavaScriptへの変換（※）</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>※TypeScript変換の注意点</strong>：Babelでの変換はトランスパイル（構文変換）のみで、型チェックは行われません。型チェックが必要な場合は<code>tsc</code>（TypeScriptコンパイラ）と併用するか、<code>tsc</code>単体での変換を検討してください。</p>
+
+<h3 class="relative group">1.2 ハンズオン：Babel環境構築 
+    <div id="12-ハンズオンbabel環境構築" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#12-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3babel%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">学習用ディレクトリの作成 
+    <div id="学習用ディレクトリの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e7%94%a8%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ローカルで作業ディレクトリを作成</span>
+</span></span><span class="line"><span class="cl">mkdir babel-study <span class="o">&amp;&amp;</span> <span class="nb">cd</span> babel-study
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Dockerコンテナを起動</span>
+</span></span><span class="line"><span class="cl">docker run -it --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/work -w /work node:20 bash
+</span></span></code></pre></div>
+<h4 class="relative group">プロジェクト初期化とBabelインストール 
+    <div id="プロジェクト初期化とbabelインストール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e5%88%9d%e6%9c%9f%e5%8c%96%e3%81%a8babel%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># コンテナ内で実行</span>
+</span></span><span class="line"><span class="cl">npm init -y
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Babel関連パッケージをインストール</span>
+</span></span><span class="line"><span class="cl">npm install --save-dev @babel/cli @babel/core @babel/preset-env
+</span></span></code></pre></div>
+<h4 class="relative group">パッケージの説明 
+    <div id="パッケージの説明" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%83%83%e3%82%b1%e3%83%bc%e3%82%b8%e3%81%ae%e8%aa%ac%e6%98%8e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>パッケージ</th>
+          <th>役割</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>@babel/core</code></td>
+          <td>Babel本体（変換エンジン）</td>
+      </tr>
+      <tr>
+          <td><code>@babel/cli</code></td>
+          <td>コマンドラインツール</td>
+      </tr>
+      <tr>
+          <td><code>@babel/preset-env</code></td>
+          <td>環境に応じた変換ルールセット</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">1.3 Babel設定ファイルの作成 
+    <div id="13-babel設定ファイルの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#13-babel%e8%a8%ad%e5%ae%9a%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># .babelrcファイルを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; .babelrc
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;presets&#34;: [&#34;@babel/preset-env&#34;]
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+<h4 class="relative group">プリセット（preset）とは？ 
+    <div id="プリセットpresetとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%aa%e3%82%bb%e3%83%83%e3%83%88preset%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>変換に必要なプラグインの集合体です。</p>
+<table>
+  <thead>
+      <tr>
+          <th>プリセット</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>@babel/preset-env</code></td>
+          <td>最新JS→ターゲット環境対応JS</td>
+      </tr>
+      <tr>
+          <td><code>@babel/preset-react</code></td>
+          <td>JSX→JavaScript変換</td>
+      </tr>
+      <tr>
+          <td><code>@babel/preset-typescript</code></td>
+          <td>TypeScript→JavaScript変換</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">1.4 トランスパイルの実行 
+    <div id="14-トランスパイルの実行" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#14-%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b9%e3%83%91%e3%82%a4%e3%83%ab%e3%81%ae%e5%ae%9f%e8%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">ソースファイルの作成 
+    <div id="ソースファイルの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bd%e3%83%bc%e3%82%b9%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ディレクトリ構造を作成</span>
+</span></span><span class="line"><span class="cl">mkdir src dist
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ES2015+のコードを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/app.js
+</span></span></span><span class="line"><span class="cl"><span class="s">// アロー関数
+</span></span></span><span class="line"><span class="cl"><span class="s">const greet = (name) =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="s">  console.log(`Hello, ${name}!`);
+</span></span></span><span class="line"><span class="cl"><span class="s">};
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// テンプレートリテラル
+</span></span></span><span class="line"><span class="cl"><span class="s">const message = `Current time: ${new Date().toLocaleString()}`;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// 分割代入
+</span></span></span><span class="line"><span class="cl"><span class="s">const user = { name: &#39;Alice&#39;, age: 25 };
+</span></span></span><span class="line"><span class="cl"><span class="s">const { name, age } = user;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// スプレッド構文
+</span></span></span><span class="line"><span class="cl"><span class="s">const numbers = [1, 2, 3];
+</span></span></span><span class="line"><span class="cl"><span class="s">const moreNumbers = [...numbers, 4, 5];
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// クラス構文
+</span></span></span><span class="line"><span class="cl"><span class="s">class Animal {
+</span></span></span><span class="line"><span class="cl"><span class="s">  constructor(name) {
+</span></span></span><span class="line"><span class="cl"><span class="s">    this.name = name;
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">  
+</span></span></span><span class="line"><span class="cl"><span class="s">  speak() {
+</span></span></span><span class="line"><span class="cl"><span class="s">    console.log(`${this.name} makes a sound.`);
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// 実行
+</span></span></span><span class="line"><span class="cl"><span class="s">greet(&#39;World&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(message);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(`User: ${name}, Age: ${age}`);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(&#39;Numbers:&#39;, moreNumbers);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">const dog = new Animal(&#39;Dog&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">dog.speak();
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+<h4 class="relative group">トランスパイル実行 
+    <div id="トランスパイル実行" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b9%e3%83%91%e3%82%a4%e3%83%ab%e5%ae%9f%e8%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Babelでトランスパイル</span>
+</span></span><span class="line"><span class="cl">npx babel src/app.js -o dist/app.js
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 結果を確認</span>
+</span></span><span class="line"><span class="cl">cat dist/app.js
+</span></span></code></pre></div>
+<h4 class="relative group">期待される出力（ES5に変換済み） 
+    <div id="期待される出力es5に変換済み" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%9f%e5%be%85%e3%81%95%e3%82%8c%e3%82%8b%e5%87%ba%e5%8a%9bes5%e3%81%ab%e5%a4%89%e6%8f%9b%e6%b8%88%e3%81%bf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="s2">&#34;use strict&#34;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">_typeof</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">_classCallCheck</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">n</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">_defineProperties</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">_createClass</span><span class="p">(</span><span class="nx">e</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">t</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">_toConsumableArray</span><span class="p">(</span><span class="nx">r</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* ... */</span> <span class="p">}</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">greet</span> <span class="o">=</span> <span class="kd">function</span> <span class="nx">greet</span><span class="p">(</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">&#34;Hello, &#34;</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="nx">name</span><span class="p">,</span> <span class="s2">&#34;!&#34;</span><span class="p">));</span>
+</span></span><span class="line"><span class="cl"><span class="p">};</span>
+</span></span><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">message</span> <span class="o">=</span> <span class="s2">&#34;Current time: &#34;</span><span class="p">.</span><span class="nx">concat</span><span class="p">(</span><span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">toLocaleString</span><span class="p">());</span>
+</span></span><span class="line"><span class="cl"><span class="c1">// ... 以下略
+</span></span></span></code></pre></div>
+<h3 class="relative group">1.5 package.jsonにスクリプトを追加 
+    <div id="15-packagejsonにスクリプトを追加" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#15-packagejson%e3%81%ab%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e3%82%92%e8%bf%bd%e5%8a%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># package.jsonを更新</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; package.json
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;name&#34;: &#34;babel-study&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;version&#34;: &#34;1.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;scripts&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;build&#34;: &#34;babel src -d dist&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;watch&#34;: &#34;babel src -d dist --watch&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;devDependencies&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;@babel/cli&#34;: &#34;^7.23.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;@babel/core&#34;: &#34;^7.23.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;@babel/preset-env&#34;: &#34;^7.23.0&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ビルド実行</span>
+</span></span><span class="line"><span class="cl">npm run build
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 変換後のコードを実行</span>
+</span></span><span class="line"><span class="cl">node dist/app.js
+</span></span></code></pre></div>
+<h4 class="relative group">期待される出力 
+    <div id="期待される出力" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%9f%e5%be%85%e3%81%95%e3%82%8c%e3%82%8b%e5%87%ba%e5%8a%9b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>Hello, World!
+Current time: 11/30/2025, 10:00:00 AM
+User: Alice, Age: 25
+Numbers: [ 1, 2, 3, 4, 5 ]
+Dog makes a sound.
+</code></pre>
+<h3 class="relative group">1.6 コンテナ終了と確認 
+    <div id="16-コンテナ終了と確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#16-%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e7%b5%82%e4%ba%86%e3%81%a8%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># コンテナを終了</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ローカルでファイル確認</span>
+</span></span><span class="line"><span class="cl">ls babel-study/
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: dist  node_modules  package-lock.json  package.json  src</span>
+</span></span></code></pre></div>
+<h3 class="relative group">✅ このセクションで学んだこと 
+    <div id="-このセクションで学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%81%93%e3%81%ae%e3%82%bb%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a7%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Babelは最新のJavaScriptを古いブラウザ対応のコードに変換するトランスパイラ</li>
+<li><code>@babel/preset-env</code>で環境に応じた変換ルールを適用</li>
+<li><code>npx babel src -d dist</code>でトランスパイル、<code>--watch</code>で変更監視</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Section 2: Webpack（モジュールバンドラー） 
+    <div id="section-2-webpackモジュールバンドラー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#section-2-webpack%e3%83%a2%e3%82%b8%e3%83%a5%e3%83%bc%e3%83%ab%e3%83%90%e3%83%b3%e3%83%89%e3%83%a9%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">2.1 Webpackとは？ 
+    <div id="21-webpackとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#21-webpack%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Webpack</strong>は、複数のファイルを1つにまとめる<strong>モジュールバンドラー</strong>です。</p>
+
+<h4 class="relative group">Webpackの役割 
+    <div id="webpackの役割" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#webpack%e3%81%ae%e5%bd%b9%e5%89%b2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>【バンドル前】
+  src/
+  ├── index.js      （エントリーポイント）
+  ├── utils.js      （ユーティリティ）
+  ├── api.js        （API処理）
+  └── style.css     （スタイル）
+
+【バンドル後】
+  dist/
+  └── bundle.js     （すべてまとまった1ファイル）
+</code></pre>
+<h4 class="relative group">なぜバンドルが必要？ 
+    <div id="なぜバンドルが必要" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9c%e3%83%90%e3%83%b3%e3%83%89%e3%83%ab%e3%81%8c%e5%bf%85%e8%a6%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>理由</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>HTTPリクエスト削減</strong></td>
+          <td>複数ファイル→1ファイルでリクエスト数減少</td>
+      </tr>
+      <tr>
+          <td><strong>依存関係解決</strong></td>
+          <td>モジュール間の依存を自動解決</td>
+      </tr>
+      <tr>
+          <td><strong>最適化</strong></td>
+          <td>コード圧縮、不要コード削除</td>
+      </tr>
+      <tr>
+          <td><strong>変換処理</strong></td>
+          <td>ローダーでCSS、画像なども処理可能</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">2.2 ハンズオン：Webpack環境構築 
+    <div id="22-ハンズオンwebpack環境構築" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#22-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3webpack%e7%92%b0%e5%a2%83%e6%a7%8b%e7%af%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">学習用ディレクトリの作成 
+    <div id="学習用ディレクトリの作成-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e7%94%a8%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ローカルで作業ディレクトリを作成</span>
+</span></span><span class="line"><span class="cl">mkdir webpack-study <span class="o">&amp;&amp;</span> <span class="nb">cd</span> webpack-study
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Dockerコンテナを起動</span>
+</span></span><span class="line"><span class="cl">docker run -it --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/work -w /work node:20 bash
+</span></span></code></pre></div>
+<h4 class="relative group">プロジェクト初期化とWebpackインストール 
+    <div id="プロジェクト初期化とwebpackインストール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e5%88%9d%e6%9c%9f%e5%8c%96%e3%81%a8webpack%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># コンテナ内で実行</span>
+</span></span><span class="line"><span class="cl">npm init -y
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Webpack関連パッケージをインストール</span>
+</span></span><span class="line"><span class="cl">npm install --save-dev webpack webpack-cli
+</span></span></code></pre></div>
+<h3 class="relative group">2.3 ディレクトリ構造の作成 
+    <div id="23-ディレクトリ構造の作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#23-%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e6%a7%8b%e9%80%a0%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ディレクトリとファイルを作成</span>
+</span></span><span class="line"><span class="cl">mkdir -p src/modules dist
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># モジュールファイルを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/modules/math.js
+</span></span></span><span class="line"><span class="cl"><span class="s">// 数学関連の関数
+</span></span></span><span class="line"><span class="cl"><span class="s">export const add = (a, b) =&gt; a + b;
+</span></span></span><span class="line"><span class="cl"><span class="s">export const subtract = (a, b) =&gt; a - b;
+</span></span></span><span class="line"><span class="cl"><span class="s">export const multiply = (a, b) =&gt; a * b;
+</span></span></span><span class="line"><span class="cl"><span class="s">export const divide = (a, b) =&gt; a / b;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/modules/greeting.js
+</span></span></span><span class="line"><span class="cl"><span class="s">// 挨拶関連の関数
+</span></span></span><span class="line"><span class="cl"><span class="s">export const hello = (name) =&gt; `Hello, ${name}!`;
+</span></span></span><span class="line"><span class="cl"><span class="s">export const goodbye = (name) =&gt; `Goodbye, ${name}!`;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># エントリーポイントを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/index.js
+</span></span></span><span class="line"><span class="cl"><span class="s">// モジュールをインポート
+</span></span></span><span class="line"><span class="cl"><span class="s">import { add, multiply } from &#39;./modules/math.js&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s">import { hello, goodbye } from &#39;./modules/greeting.js&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// 使用例
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(&#39;=== Math Operations ===&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(`5 + 3 = ${add(5, 3)}`);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(`5 * 3 = ${multiply(5, 3)}`);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(&#39;\n=== Greetings ===&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(hello(&#39;Webpack&#39;));
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(goodbye(&#39;Webpack&#39;));
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># HTMLファイルを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; dist/index.html
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;!DOCTYPE html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;html lang=&#34;ja&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;head&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;meta charset=&#34;UTF-8&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;title&gt;Webpack Study&lt;/title&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;/head&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;h1&gt;Webpack バンドルテスト&lt;/h1&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;p&gt;ブラウザのコンソールを確認してください&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;script src=&#34;bundle.js&#34;&gt;&lt;/script&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;/body&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">&lt;/html&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+<h3 class="relative group">2.4 Webpack設定ファイルの作成 
+    <div id="24-webpack設定ファイルの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#24-webpack%e8%a8%ad%e5%ae%9a%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># webpack.config.jsを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; webpack.config.js
+</span></span></span><span class="line"><span class="cl"><span class="s">const path = require(&#39;path&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">module.exports = {
+</span></span></span><span class="line"><span class="cl"><span class="s">  // モード: development（開発）または production（本番）
+</span></span></span><span class="line"><span class="cl"><span class="s">  mode: &#39;development&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  
+</span></span></span><span class="line"><span class="cl"><span class="s">  // エントリーポイント: バンドルの開始地点
+</span></span></span><span class="line"><span class="cl"><span class="s">  entry: &#39;./src/index.js&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  
+</span></span></span><span class="line"><span class="cl"><span class="s">  // 出力設定
+</span></span></span><span class="line"><span class="cl"><span class="s">  output: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    filename: &#39;bundle.js&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    path: path.resolve(__dirname, &#39;dist&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">};
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+<h4 class="relative group">設定項目の解説 
+    <div id="設定項目の解説" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%ae%9a%e9%a0%85%e7%9b%ae%e3%81%ae%e8%a7%a3%e8%aa%ac" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>説明</th>
+          <th>値</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>mode</strong></td>
+          <td>ビルドモード</td>
+          <td><code>development</code> / <code>production</code></td>
+      </tr>
+      <tr>
+          <td><strong>entry</strong></td>
+          <td>エントリーポイント</td>
+          <td><code>./src/index.js</code></td>
+      </tr>
+      <tr>
+          <td><strong>output.filename</strong></td>
+          <td>出力ファイル名</td>
+          <td><code>bundle.js</code></td>
+      </tr>
+      <tr>
+          <td><strong>output.path</strong></td>
+          <td>出力ディレクトリ</td>
+          <td><code>dist/</code></td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">2.5 バンドル実行 
+    <div id="25-バンドル実行" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#25-%e3%83%90%e3%83%b3%e3%83%89%e3%83%ab%e5%ae%9f%e8%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># package.jsonにスクリプトを追加</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; package.json
+</span></span></span><span class="line"><span class="cl"><span class="s">{
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;name&#34;: &#34;webpack-study&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;version&#34;: &#34;1.0.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;scripts&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;build&#34;: &#34;webpack&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;dev&#34;: &#34;webpack --mode development --watch&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  &#34;devDependencies&#34;: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;webpack&#34;: &#34;^5.89.0&#34;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    &#34;webpack-cli&#34;: &#34;^5.1.4&#34;
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ビルド実行</span>
+</span></span><span class="line"><span class="cl">npm run build
+</span></span></code></pre></div>
+<h4 class="relative group">期待される出力 
+    <div id="期待される出力-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%9f%e5%be%85%e3%81%95%e3%82%8c%e3%82%8b%e5%87%ba%e5%8a%9b-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>asset bundle.js 4.5 KiB [emitted] (name: main)
+runtime modules 670 bytes 3 modules
+cacheable modules 524 bytes
+  ./src/index.js 389 bytes [built] [code generated]
+  ./src/modules/math.js 178 bytes [built] [code generated]
+  ./src/modules/greeting.js 135 bytes [built] [code generated]
+webpack 5.89.0 compiled successfully in 150 ms
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># バンドル結果をNode.jsで実行</span>
+</span></span><span class="line"><span class="cl">node dist/bundle.js
+</span></span></code></pre></div>
+<h4 class="relative group">期待される出力 
+    <div id="期待される出力-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%9f%e5%be%85%e3%81%95%e3%82%8c%e3%82%8b%e5%87%ba%e5%8a%9b-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>=== Math Operations ===
+5 + 3 = 8
+5 * 3 = 15
+
+=== Greetings ===
+Hello, Webpack!
+Goodbye, Webpack!
+</code></pre>
+<h3 class="relative group">2.6 CSSのバンドル 
+    <div id="26-cssのバンドル" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#26-css%e3%81%ae%e3%83%90%e3%83%b3%e3%83%89%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">ローダーのインストール 
+    <div id="ローダーのインストール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%83%bc%e3%83%80%e3%83%bc%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># CSSローダーをインストール</span>
+</span></span><span class="line"><span class="cl">npm install --save-dev css-loader style-loader
+</span></span></code></pre></div>
+<h4 class="relative group">CSSファイルの作成 
+    <div id="cssファイルの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#css%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># CSSファイルを作成</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/style.css
+</span></span></span><span class="line"><span class="cl"><span class="s">body {
+</span></span></span><span class="line"><span class="cl"><span class="s">  font-family: Arial, sans-serif;
+</span></span></span><span class="line"><span class="cl"><span class="s">  background-color: #f0f0f0;
+</span></span></span><span class="line"><span class="cl"><span class="s">  margin: 0;
+</span></span></span><span class="line"><span class="cl"><span class="s">  padding: 20px;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">h1 {
+</span></span></span><span class="line"><span class="cl"><span class="s">  color: #333;
+</span></span></span><span class="line"><span class="cl"><span class="s">  border-bottom: 2px solid #007bff;
+</span></span></span><span class="line"><span class="cl"><span class="s">  padding-bottom: 10px;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">p {
+</span></span></span><span class="line"><span class="cl"><span class="s">  color: #666;
+</span></span></span><span class="line"><span class="cl"><span class="s">}
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+<h4 class="relative group">エントリーポイントでCSSをインポート 
+    <div id="エントリーポイントでcssをインポート" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a8%e3%83%b3%e3%83%88%e3%83%aa%e3%83%bc%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88%e3%81%a7css%e3%82%92%e3%82%a4%e3%83%b3%e3%83%9d%e3%83%bc%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># index.jsを更新</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/index.js
+</span></span></span><span class="line"><span class="cl"><span class="s">// CSSをインポート（Webpackが処理）
+</span></span></span><span class="line"><span class="cl"><span class="s">import &#39;./style.css&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// モジュールをインポート
+</span></span></span><span class="line"><span class="cl"><span class="s">import { add, multiply } from &#39;./modules/math.js&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s">import { hello, goodbye } from &#39;./modules/greeting.js&#39;;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// 使用例
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(&#39;=== Math Operations ===&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(`5 + 3 = ${add(5, 3)}`);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(`5 * 3 = ${multiply(5, 3)}`);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(&#39;\n=== Greetings ===&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(hello(&#39;Webpack&#39;));
+</span></span></span><span class="line"><span class="cl"><span class="s">console.log(goodbye(&#39;Webpack&#39;));
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">// DOM操作
+</span></span></span><span class="line"><span class="cl"><span class="s">document.addEventListener(&#39;DOMContentLoaded&#39;, () =&gt; {
+</span></span></span><span class="line"><span class="cl"><span class="s">  const result = document.createElement(&#39;div&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">  result.innerHTML = `
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;h2&gt;計算結果&lt;/h2&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;p&gt;5 + 3 = ${add(5, 3)}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;p&gt;5 × 3 = ${multiply(5, 3)}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">  `;
+</span></span></span><span class="line"><span class="cl"><span class="s">  document.body.appendChild(result);
+</span></span></span><span class="line"><span class="cl"><span class="s">});
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div>
+<h4 class="relative group">Webpack設定にローダーを追加 
+    <div id="webpack設定にローダーを追加" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#webpack%e8%a8%ad%e5%ae%9a%e3%81%ab%e3%83%ad%e3%83%bc%e3%83%80%e3%83%bc%e3%82%92%e8%bf%bd%e5%8a%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># webpack.config.jsを更新</span>
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; webpack.config.js
+</span></span></span><span class="line"><span class="cl"><span class="s">const path = require(&#39;path&#39;);
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">module.exports = {
+</span></span></span><span class="line"><span class="cl"><span class="s">  mode: &#39;development&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  entry: &#39;./src/index.js&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">  output: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    filename: &#39;bundle.js&#39;,
+</span></span></span><span class="line"><span class="cl"><span class="s">    path: path.resolve(__dirname, &#39;dist&#39;)
+</span></span></span><span class="line"><span class="cl"><span class="s">  },
+</span></span></span><span class="line"><span class="cl"><span class="s">  // モジュール設定（ローダー）
+</span></span></span><span class="line"><span class="cl"><span class="s">  module: {
+</span></span></span><span class="line"><span class="cl"><span class="s">    rules: [
+</span></span></span><span class="line"><span class="cl"><span class="s">      {
+</span></span></span><span class="line"><span class="cl"><span class="s">        test: /\.css$/,           // .cssファイルを対象
+</span></span></span><span class="line"><span class="cl"><span class="s">        use: [&#39;style-loader&#39;, &#39;css-loader&#39;]  // 右から左の順で処理
+</span></span></span><span class="line"><span class="cl"><span class="s">      }
+</span></span></span><span class="line"><span class="cl"><span class="s">    ]
+</span></span></span><span class="line"><span class="cl"><span class="s">  }
+</span></span></span><span class="line"><span class="cl"><span class="s">};
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 再ビルド</span>
+</span></span><span class="line"><span class="cl">npm run build
+</span></span></code></pre></div>
+<h4 class="relative group">ローダーの処理順序 
+    <div id="ローダーの処理順序" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%83%bc%e3%83%80%e3%83%bc%e3%81%ae%e5%87%a6%e7%90%86%e9%a0%86%e5%ba%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>【処理の流れ】
+  style.css
+      ↓
+  css-loader（CSSをJSで扱える形式に変換）
+      ↓
+  style-loader（&lt;style&gt;タグとしてHTMLに挿入）
+      ↓
+  bundle.js に含まれる
+</code></pre><p><strong>重要</strong>：<code>use</code>配列は<strong>右から左</strong>の順で処理されます。</p>
+
+<h3 class="relative group">2.7 ブラウザで確認（オプション） 
+    <div id="27-ブラウザで確認オプション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#27-%e3%83%96%e3%83%a9%e3%82%a6%e3%82%b6%e3%81%a7%e7%a2%ba%e8%aa%8d%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># コンテナを一度終了</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ポート公開で再起動（簡易サーバー用）</span>
+</span></span><span class="line"><span class="cl">docker run -it --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/work -w /work -p 8080:8080 node:20 bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 簡易サーバーをインストール・起動</span>
+</span></span><span class="line"><span class="cl">npm install --save-dev http-server
+</span></span><span class="line"><span class="cl">npx http-server dist -p <span class="m">8080</span>
+</span></span></code></pre></div><p>ブラウザで <code>http://localhost:8080</code> にアクセスして確認。</p>
+
+<h3 class="relative group">2.8 コンテナ終了 
+    <div id="28-コンテナ終了" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#28-%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e7%b5%82%e4%ba%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># Ctrl + C でサーバー停止</span>
+</span></span><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span></code></pre></div>
+<h3 class="relative group">✅ このセクションで学んだこと 
+    <div id="-このセクションで学んだこと-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%81%93%e3%81%ae%e3%82%bb%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a7%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>Webpackは複数のファイルを1つにまとめるモジュールバンドラー</li>
+<li><code>entry</code>でエントリーポイント、<code>output</code>で出力先を設定</li>
+<li>ローダー（css-loader、style-loaderなど）で様々なファイル形式に対応</li>
+<li>ローダーの処理順序は<code>use</code>配列の<strong>右から左</strong></li>
+</ul>
+<hr>
+
+<h2 class="relative group">Section 3: Vite（次世代ビルドツール） 
+    <div id="section-3-vite次世代ビルドツール" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#section-3-vite%e6%ac%a1%e4%b8%96%e4%bb%a3%e3%83%93%e3%83%ab%e3%83%89%e3%83%84%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">3.1 Viteとは？ 
+    <div id="31-viteとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#31-vite%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>Vite</strong>（ヴィート：フランス語で「速い」）は、Webpackより高速なフロントエンドビルドツールです。</p>
+
+<h4 class="relative group">ViteとWebpackの違い 
+    <div id="viteとwebpackの違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#vite%e3%81%a8webpack%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>Webpack</th>
+          <th>Vite</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>起動速度</strong></td>
+          <td>遅い（全体を事前バンドル）</td>
+          <td>速い（必要な部分だけ処理）</td>
+      </tr>
+      <tr>
+          <td><strong>HMR</strong></td>
+          <td>やや遅い</td>
+          <td>非常に高速</td>
+      </tr>
+      <tr>
+          <td><strong>設定</strong></td>
+          <td>複雑になりがち</td>
+          <td>シンプル</td>
+      </tr>
+      <tr>
+          <td><strong>本番ビルド</strong></td>
+          <td>独自バンドラー</td>
+          <td>Rollup使用</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">Viteが高速な理由 
+    <div id="viteが高速な理由" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#vite%e3%81%8c%e9%ab%98%e9%80%9f%e3%81%aa%e7%90%86%e7%94%b1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>【Webpack】
+  起動時: 全ファイルを解析 → バンドル → サーバー起動
+  
+【Vite】
+  起動時: サーバー起動 → リクエストに応じて必要なファイルだけ処理
+</code></pre>
+<h3 class="relative group">3.2 ハンズオン：Viteプロジェクト作成 
+    <div id="32-ハンズオンviteプロジェクト作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#32-%e3%83%8f%e3%83%b3%e3%82%ba%e3%82%aa%e3%83%b3vite%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">学習用ディレクトリの作成 
+    <div id="学習用ディレクトリの作成-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e7%94%a8%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e4%bd%9c%e6%88%90-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ローカルで作業ディレクトリを作成</span>
+</span></span><span class="line"><span class="cl">mkdir vite-study <span class="o">&amp;&amp;</span> <span class="nb">cd</span> vite-study
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># Dockerコンテナを起動（ポート公開）</span>
+</span></span><span class="line"><span class="cl">docker run -it --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/work -w /work -p 5173:5173 node:20 bash
+</span></span></code></pre></div>
+<h4 class="relative group">Viteプロジェクトの作成 
+    <div id="viteプロジェクトの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#vite%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># コンテナ内で実行</span>
+</span></span><span class="line"><span class="cl">npm create vite@latest my-vite-app
+</span></span></code></pre></div>
+<h4 class="relative group">対話形式での選択 
+    <div id="対話形式での選択" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%af%be%e8%a9%b1%e5%bd%a2%e5%bc%8f%e3%81%a7%e3%81%ae%e9%81%b8%e6%8a%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>? Select a framework: › Vanilla
+? Select a variant: › JavaScript
+</code></pre><p><strong>フレームワーク選択肢</strong>：</p>
+<ul>
+<li>Vanilla（素のJS）</li>
+<li>Vue</li>
+<li>React</li>
+<li>Svelte</li>
+<li>その他</li>
+</ul>
+
+<h3 class="relative group">3.3 プロジェクト構造の確認 
+    <div id="33-プロジェクト構造の確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#33-%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e6%a7%8b%e9%80%a0%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 作成されたディレクトリに移動</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> my-vite-app
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 構造を確認</span>
+</span></span><span class="line"><span class="cl">ls -la
+</span></span></code></pre></div>
+<h4 class="relative group">生成されるファイル構造 
+    <div id="生成されるファイル構造" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%94%9f%e6%88%90%e3%81%95%e3%82%8c%e3%82%8b%e3%83%95%e3%82%a1%e3%82%a4%e3%83%ab%e6%a7%8b%e9%80%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>my-vite-app/
+├── index.html          # エントリーHTML
+├── package.json        # プロジェクト設定
+├── public/             # 静的ファイル
+│   └── vite.svg
+├── src/                # ソースコード
+│   ├── counter.js
+│   ├── javascript.svg
+│   ├── main.js
+│   └── style.css
+└── vite.config.js      # Vite設定（オプション）
+</code></pre>
+<h3 class="relative group">3.4 依存関係のインストールと起動 
+    <div id="34-依存関係のインストールと起動" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#34-%e4%be%9d%e5%ad%98%e9%96%a2%e4%bf%82%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab%e3%81%a8%e8%b5%b7%e5%8b%95" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 依存関係をインストール</span>
+</span></span><span class="line"><span class="cl">npm install
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 開発サーバーを起動</span>
+</span></span><span class="line"><span class="cl">npm run dev -- --host
+</span></span></code></pre></div><p><strong><code>--host</code>オプション</strong>：Dockerコンテナ外からアクセス可能にする</p>
+
+<h4 class="relative group">期待される出力 
+    <div id="期待される出力-3" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%9f%e5%be%85%e3%81%95%e3%82%8c%e3%82%8b%e5%87%ba%e5%8a%9b-3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>  VITE v5.x.x  ready in xxx ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: http://172.x.x.x:5173/
+</code></pre><p>ブラウザで <code>http://localhost:5173</code> にアクセス。</p>
+
+<h3 class="relative group">3.5 HMR（Hot Module Replacement）の体験 
+    <div id="35-hmrhot-module-replacementの体験" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#35-hmrhot-module-replacement%e3%81%ae%e4%bd%93%e9%a8%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>開発サーバーを起動したまま、別のターミナルでファイルを編集：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 別のターミナルでコンテナに入る</span>
+</span></span><span class="line"><span class="cl">docker <span class="nb">exec</span> -it <span class="k">$(</span>docker ps -q<span class="k">)</span> bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># ファイルを編集</span>
+</span></span><span class="line"><span class="cl"><span class="nb">cd</span> /work/my-vite-app
+</span></span><span class="line"><span class="cl">cat <span class="s">&lt;&lt; &#39;EOF&#39; &gt; src/main.js
+</span></span></span><span class="line"><span class="cl"><span class="s">import &#39;./style.css&#39;
+</span></span></span><span class="line"><span class="cl"><span class="s">
+</span></span></span><span class="line"><span class="cl"><span class="s">document.querySelector(&#39;#app&#39;).innerHTML = `
+</span></span></span><span class="line"><span class="cl"><span class="s">  &lt;div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;h1&gt;Hello Vite!&lt;/h1&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;p&gt;ファイルを編集すると自動で反映されます&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">    &lt;p&gt;現在時刻: ${new Date().toLocaleString()}&lt;/p&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">  &lt;/div&gt;
+</span></span></span><span class="line"><span class="cl"><span class="s">`
+</span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
+</span></span></code></pre></div><p><strong>ブラウザを確認</strong>：ページをリロードせずに変更が反映されます。</p>
+
+<h3 class="relative group">3.6 本番用ビルド 
+    <div id="36-本番用ビルド" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#36-%e6%9c%ac%e7%95%aa%e7%94%a8%e3%83%93%e3%83%ab%e3%83%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 開発サーバーを停止（Ctrl + C）後</span>
+</span></span><span class="line"><span class="cl">npm run build
+</span></span></code></pre></div>
+<h4 class="relative group">期待される出力 
+    <div id="期待される出力-4" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%9f%e5%be%85%e3%81%95%e3%82%8c%e3%82%8b%e5%87%ba%e5%8a%9b-4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>vite v5.x.x building for production...
+✓ 2 modules transformed.
+dist/index.html                  0.xx kB │ gzip: 0.xx kB
+dist/assets/index-xxxxx.css      0.xx kB │ gzip: 0.xx kB
+dist/assets/index-xxxxx.js       0.xx kB │ gzip: 0.xx kB
+✓ built in xxxms
+</code></pre><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># ビルド結果を確認</span>
+</span></span><span class="line"><span class="cl">ls dist/
+</span></span><span class="line"><span class="cl"><span class="c1"># 出力: assets  index.html  vite.svg</span>
+</span></span></code></pre></div>
+<h3 class="relative group">3.7 ビルド結果のプレビュー 
+    <div id="37-ビルド結果のプレビュー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#37-%e3%83%93%e3%83%ab%e3%83%89%e7%b5%90%e6%9e%9c%e3%81%ae%e3%83%97%e3%83%ac%e3%83%93%e3%83%a5%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># プレビューサーバーを起動</span>
+</span></span><span class="line"><span class="cl">npm run preview -- --host
+</span></span></code></pre></div><p>ブラウザで <code>http://localhost:4173</code> にアクセス。</p>
+
+<h3 class="relative group">3.8 package.jsonのスクリプト確認 
+    <div id="38-packagejsonのスクリプト確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#38-packagejson%e3%81%ae%e3%82%b9%e3%82%af%e3%83%aa%e3%83%97%e3%83%88%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">cat package.json
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="line"><span class="cl"><span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;my-vite-app&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;private&#34;</span><span class="p">:</span> <span class="kc">true</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;version&#34;</span><span class="p">:</span> <span class="s2">&#34;0.0.0&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;type&#34;</span><span class="p">:</span> <span class="s2">&#34;module&#34;</span><span class="p">,</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;scripts&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;dev&#34;</span><span class="p">:</span> <span class="s2">&#34;vite&#34;</span><span class="p">,</span>           <span class="c1">// 開発サーバー起動
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;build&#34;</span><span class="p">:</span> <span class="s2">&#34;vite build&#34;</span><span class="p">,</span>   <span class="c1">// 本番用ビルド
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="nt">&#34;preview&#34;</span><span class="p">:</span> <span class="s2">&#34;vite preview&#34;</span> <span class="c1">// ビルド結果のプレビュー
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="p">},</span>
+</span></span><span class="line"><span class="cl">  <span class="nt">&#34;devDependencies&#34;</span><span class="p">:</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nt">&#34;vite&#34;</span><span class="p">:</span> <span class="s2">&#34;^5.0.0&#34;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+<h3 class="relative group">3.9 コンテナ終了 
+    <div id="39-コンテナ終了" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#39-%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e7%b5%82%e4%ba%86" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">exit</span>
+</span></span></code></pre></div>
+<h3 class="relative group">✅ このセクションで学んだこと 
+    <div id="-このセクションで学んだこと-2" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%81%93%e3%81%ae%e3%82%bb%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3%e3%81%a7%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8-2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>ViteはWebpackより高速な次世代ビルドツール</li>
+<li>ESModulesを活用し、必要なファイルだけを処理するため起動が速い</li>
+<li><code>npm run dev</code>で開発サーバー、<code>npm run build</code>で本番ビルド</li>
+<li>HMR（Hot Module Replacement）でファイル変更が即座に反映</li>
+</ul>
+<hr>
+
+<h2 class="relative group">Section 4: ツール比較と使い分け 
+    <div id="section-4-ツール比較と使い分け" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#section-4-%e3%83%84%e3%83%bc%e3%83%ab%e6%af%94%e8%bc%83%e3%81%a8%e4%bd%bf%e3%81%84%e5%88%86%e3%81%91" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">4.1 各ツールの役割まとめ 
+    <div id="41-各ツールの役割まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#41-%e5%90%84%e3%83%84%e3%83%bc%e3%83%ab%e3%81%ae%e5%bd%b9%e5%89%b2%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>ツール</th>
+          <th>カテゴリ</th>
+          <th>主な役割</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Babel</strong></td>
+          <td>トランスパイラ</td>
+          <td>新しいJS→古いJS変換</td>
+      </tr>
+      <tr>
+          <td><strong>Webpack</strong></td>
+          <td>バンドラー</td>
+          <td>複数ファイルを1つにまとめる</td>
+      </tr>
+      <tr>
+          <td><strong>Vite</strong></td>
+          <td>ビルドツール</td>
+          <td>高速な開発環境 + ビルド</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">4.2 組み合わせパターン 
+    <div id="42-組み合わせパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#42-%e7%b5%84%e3%81%bf%e5%90%88%e3%82%8f%e3%81%9b%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<pre tabindex="0"><code>【パターン1: Webpack + Babel（従来型）】
+  - 大規模プロジェクト
+  - 細かい設定が必要な場合
+  - レガシーブラウザ対応が必須
+
+【パターン2: Vite（モダン型）】
+  - 新規プロジェクト
+  - 高速な開発体験を重視
+  - モダンブラウザがターゲット
+
+【パターン3: フレームワークのCLI】
+  - React: Create React App / Next.js
+  - Vue: Vue CLI / Nuxt.js
+  - 内部でWebpackやViteを使用
+</code></pre>
+<h3 class="relative group">4.3 学習の優先順位 
+    <div id="43-学習の優先順位" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#43-%e5%ad%a6%e7%bf%92%e3%81%ae%e5%84%aa%e5%85%88%e9%a0%86%e4%bd%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>Vite</strong>（推奨）：新規プロジェクトならこれから始める</li>
+<li><strong>Webpack</strong>：既存プロジェクトで使われていることが多い</li>
+<li><strong>Babel</strong>：Webpackと組み合わせて使う、または単体で学ぶ</li>
+</ol>
+<hr>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">🎯 学んだこと 
+    <div id="-学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">Babel 
+    <div id="babel" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#babel" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>npx babel src -d dist</code></td>
+          <td>srcをdistにトランスパイル</td>
+      </tr>
+      <tr>
+          <td><code>npx babel src -d dist --watch</code></td>
+          <td>変更を監視して自動変換</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">Webpack 
+    <div id="webpack" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#webpack" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>npx webpack</code></td>
+          <td>バンドル実行</td>
+      </tr>
+      <tr>
+          <td><code>npx webpack --mode development</code></td>
+          <td>開発モードでビルド</td>
+      </tr>
+      <tr>
+          <td><code>npx webpack --mode production</code></td>
+          <td>本番モードでビルド</td>
+      </tr>
+      <tr>
+          <td><code>npx webpack --watch</code></td>
+          <td>変更を監視</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">Vite 
+    <div id="vite" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#vite" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>npm create vite@latest</code></td>
+          <td>プロジェクト作成</td>
+      </tr>
+      <tr>
+          <td><code>npm run dev</code></td>
+          <td>開発サーバー起動</td>
+      </tr>
+      <tr>
+          <td><code>npm run build</code></td>
+          <td>本番用ビルド</td>
+      </tr>
+      <tr>
+          <td><code>npm run preview</code></td>
+          <td>ビルド結果プレビュー</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">📚 次のステップ 
+    <div id="-次のステップ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e6%ac%a1%e3%81%ae%e3%82%b9%e3%83%86%e3%83%83%e3%83%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>Part 3</strong>: コード品質ツール編（ESLint、Prettier）</li>
+<li><strong>Part 4</strong>: その他ツール編（yarn、Sass、nvm/nodenv）</li>
+</ul>
+
+<h3 class="relative group">🗑️ クリーンアップ 
+    <div id="-クリーンアップ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#-%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 学習ディレクトリを削除</span>
+</span></span><span class="line"><span class="cl">rm -rf babel-study webpack-study vite-study
+</span></span></code></pre></div><hr>
+
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://babeljs.io/docs/"
+    target="_blank"
+  >Babel公式ドキュメント</a></li>
+<li><a
+  href="https://webpack.js.org/"
+    target="_blank"
+  >Webpack公式ドキュメント</a></li>
+<li><a
+  href="https://vitejs.dev/"
+    target="_blank"
+  >Vite公式ドキュメント</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+  <details class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 ml-0">
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+    Docker環境でNode.jsを学ぼう -
+    この記事は連載の一部です
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251130065841_docker-environment-nodejs-basics-part1/">
+          パート 1:
+          Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        パート 2:
+        この記事
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251130070546_docker-environment-nodejs-code-quality-tools/">
+          パート 3:
+          Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/">
+          パート 4:
+          Docker環境でNode.jsを学ぼう_Part4_その他ツール編
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251130070132_docker-environment-nodejs-frontend-dev-tools.md"
+          data-oid-likes="likes_posts/251130070132_docker-environment-nodejs-frontend-dev-tools.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/251130065841_docker-environment-nodejs-basics-part1/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-30T06:58:41&#43;09:00">2025年 11月 30日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/251130070546_docker-environment-nodejs-code-quality-tools/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-30T07:05:46&#43;09:00">2025年 11月 30日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="//localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

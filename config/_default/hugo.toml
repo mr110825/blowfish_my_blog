@@ -40,7 +40,8 @@ mainSections = ["posts"]
   tag = "tags"
   # category = "categories"
   # author = "authors"
-  # series = "series"
+  # `series`を有効化
+  series = "series"
 
 # サイトマップ設定
 [sitemap]
@@ -228,7 +229,7 @@ mainSections = ["posts"]
     showDraftLabel = true # ドラフトラベルを表示
     showEdit = false # 編集ボタンを非表示
     editAppendPath = true
-    seriesOpened = false
+    seriesOpened = true
     showHeadingAnchors = true # 見出しのアンカーリンクを表示
     showPagination = true # 前後の記事へのページネーションを表示
     invertPagination = false

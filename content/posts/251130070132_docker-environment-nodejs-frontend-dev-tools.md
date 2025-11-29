@@ -4,6 +4,8 @@ date = '2025-11-30T07:01:32+09:00'
 draft = false
 title = 'Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編'
 tags = ["ツール", "Babel", "Webpack", "Vite", "チュートリアル"]
+series = ["Docker環境でNode.jsを学ぼう"]
+series_order = 2
 +++
 ## はじめに
 
