@@ -4,18 +4,24 @@
 
   <url>
     <loc>//localhost:1313/posts/</loc>
-    <lastmod>2025-11-28T19:31:49+09:00</lastmod>
+    <lastmod>2025-11-29T11:29:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</loc>
-    <lastmod>2025-11-28T19:31:49+09:00</lastmod>
+    <loc>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</loc>
+    <lastmod>2025-11-29T11:29:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-11-29T11:29:24+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</loc>
     <lastmod>2025-11-28T19:31:49+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

@@ -234,7 +234,7 @@ mainSections = ["posts"]
     invertPagination = false
     showReadingTime = false # 読了時間を非表示
     showTableOfContents = true # 目次を表示
-    showTaxonomies = false # タクソノミー（タグなど）を非表示
+    showTaxonomies = true # タクソノミー（タグなど）を表示
     showCategoryOnly = false
     showAuthorsBadges = false
     showWordCount = false # 文字数を非表示
@@ -255,6 +255,7 @@ mainSections = ["posts"]
     cardView = false
     cardViewScreenWidth = false
     constrainItemsWidth = false
+    showTaxonomies = true # タクソノミー（タグなど）を表示
   # サイトマップから除外するページの種類
   [params.sitemap]
     excludedKinds = ["taxonomy", "term"]

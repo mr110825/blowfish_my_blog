@@ -309,7 +309,7 @@ terraform-project/
 
 分離したコンポーネント間（例: RDSとWebサーバー）で情報を共有するには、`terraform_remote_state`データソースを使用する。
 
-詳細な実装手順（RDS構築、terraform_remote_stateによる連携、templatefile関数の活用）は[Part2](/posts/251128193149_terraform-file-layout-separation/)で解説。
+詳細な実装手順（RDS構築、terraform_remote_stateによる連携、templatefile関数の活用）は[Part2]({{< ref "/posts/251128193149_terraform-file-layout-separation" >}})で解説。
 
 ---
 
@@ -437,7 +437,7 @@ terraform {
 1. **リモートバックエンド**: S3 + DynamoDBでステート管理とロックを実現
 2. **部分設定**: `backend.hcl`で共通設定を切り出してコピペを削減
 3. **ワークスペース**: 簡易な環境分離だが、可視性が低く誤操作リスクあり
-4. **ファイルレイアウト**: 本番環境の分離には環境ごとのディレクトリ分割が推奨（[Part2](/posts/251128193149_terraform-file-layout-separation/)で実践）
+4. **ファイルレイアウト**: 本番環境の分離には環境ごとのディレクトリ分割が推奨（[Part2]({{< ref "/posts/251128193149_terraform-file-layout-separation" >}})で実践）
 
 ### チェックリスト
 
@@ -455,4 +455,4 @@ terraform {
   - 出版社：オライリージャパン
   - 出版年：2023年
 - [Terraform公式ドキュメント](https://developer.hashicorp.com/terraform/docs)
-- [Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state](/posts/251128193149_terraform-file-layout-separation/)
+- [Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state]({{< ref "/posts/251128193149_terraform-file-layout-separation" >}})

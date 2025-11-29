@@ -142,7 +142,7 @@
     "keywords": ["インフラ","Terraform","AWS","ハンズオン"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "1732"
+    "wordCount": "1738"
   }]
   </script>
 
@@ -535,6 +535,64 @@
   
 
   
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    インフラ
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Terraform
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AWS
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ハンズオン
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+    </div>
   
 
   
@@ -1310,7 +1368,10 @@ terraform.tfstate                terraform.tfstate
 </span></span></span><span class="line"><span class="cl"><span class="s">&lt;p&gt;DB port: ${db_port}&lt;/p&gt;
 </span></span></span><span class="line"><span class="cl"><span class="s">EOF</span>
 </span></span><span class="line"><span class="cl">nohup python3 -m http.server <span class="si">${</span><span class="nv">server_port</span><span class="si">}</span> <span class="p">&amp;</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><blockquote>
+<p><strong>注意</strong>: このコードは <code>terraform_remote_state</code> の動作確認用サンプルです。ブラウザでアクセスするとDBの接続情報が画面に表示されます。実際の運用環境では、このような機密情報をHTMLページに表示せず、アプリケーション内部でのみ使用してください。</p>
+</blockquote>
+
 <h3 class="relative group">variables.tf 
     <div id="variablestf-1" class="anchor"></div>
     
@@ -2122,7 +2183,7 @@ terraform.tfstate                terraform.tfstate
     target="_blank"
   >Terraform公式ドキュメント</a></li>
 <li><a
-  href="/posts/251128185824_terraform-state-management-intro/">Part1: S3リモートバックエンドとワークスペース</a></li>
+  href="/posts/251128185824_terraform-state-management-intro/">Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース</a></li>
 </ul>
 
           
@@ -2192,6 +2253,27 @@ terraform.tfstate                terraform.tfstate
           
         </span>
         <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/251129112924_vscode-multi-cursor-editing/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >VSCode_マルチカーソル編集</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-11-29T11:29:24&#43;09:00">2025年 11月 29日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
           
         </span>
       </div>

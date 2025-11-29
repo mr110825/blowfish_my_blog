@@ -142,7 +142,7 @@
     "keywords": ["インフラ","Terraform","AWS","ハンズオン"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "683"
+    "wordCount": "687"
   }]
   </script>
 
@@ -535,6 +535,64 @@
   
 
   
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    インフラ
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Terraform
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AWS
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    ハンズオン
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+    </div>
   
 
   
@@ -1214,7 +1272,7 @@ ResourceNotFoundException: Requested resource not found
 └── prod/                             # 本番環境（完全に別管理）
 </code></pre><p>分離したコンポーネント間（例: RDSとWebサーバー）で情報を共有するには、<code>terraform_remote_state</code>データソースを使用する。</p>
 <p>詳細な実装手順（RDS構築、terraform_remote_stateによる連携、templatefile関数の活用）は<a
-  href="/posts/251128193149_terraform-file-layout-separation/">Part2</a>で解説。</p>
+  href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">Part2</a>で解説。</p>
 <hr>
 
 <h2 class="relative group">完成形のコード 
@@ -1357,7 +1415,7 @@ ResourceNotFoundException: Requested resource not found
 <li><strong>部分設定</strong>: <code>backend.hcl</code>で共通設定を切り出してコピペを削減</li>
 <li><strong>ワークスペース</strong>: 簡易な環境分離だが、可視性が低く誤操作リスクあり</li>
 <li><strong>ファイルレイアウト</strong>: 本番環境の分離には環境ごとのディレクトリ分割が推奨（<a
-  href="/posts/251128193149_terraform-file-layout-separation/">Part2</a>で実践）</li>
+  href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">Part2</a>で実践）</li>
 </ol>
 
 <h3 class="relative group">チェックリスト 
@@ -1401,6 +1459,8 @@ ResourceNotFoundException: Requested resource not found
   href="https://developer.hashicorp.com/terraform/docs"
     target="_blank"
   >Terraform公式ドキュメント</a></li>
+<li><a
+  href="//localhost:1313/posts/251128193149_terraform-file-layout-separation/">Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</a></li>
 </ul>
 
           

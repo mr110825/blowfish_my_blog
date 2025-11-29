@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 26 Nov 2025 03:10:04 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 29 Nov 2025 11:29:24 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>VSCode_マルチカーソル編集</title>
+      <link>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</link>
+      <pubDate>Sat, 29 Nov 2025 11:29:24 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Chromeにカスタム検索機能を実装する方法</title>
