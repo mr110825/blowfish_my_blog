@@ -3,7 +3,7 @@ id = "251128193149"
 date = '2025-11-28T19:31:49+09:00'
 draft = false
 title = 'Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state'
-tags = ["インフラ", "Terraform", "AWS", "ハンズオン"]
+tags = ["インフラ", "Terraform", "AWS", "ハンズオン・チュートリアル"]
 +++
 
 ## 今日学んだこと

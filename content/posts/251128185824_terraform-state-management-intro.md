@@ -3,7 +3,7 @@ id = "251128185824"
 date = '2025-11-28T18:58:24+09:00'
 draft = false
 title = 'Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース'
-tags = ["インフラ", "Terraform", "AWS", "ハンズオン"]
+tags = ["インフラ", "Terraform", "AWS", "ハンズオン・チュートリアル"]
 +++
 
 ## 今日学んだこと

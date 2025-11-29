@@ -3,7 +3,7 @@ id = "251130070546"
 date = '2025-11-30T07:05:46+09:00'
 draft = false
 title = 'Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編'
-tags = ["ツール", "ESLint", "Prettier", "チュートリアル"]
+tags = ["ツール", "ESLint", "Prettier", "ハンズオン・チュートリアル"]
 series = ["Docker環境でNode.jsを学ぼう"]
 series_order = 3
 +++
