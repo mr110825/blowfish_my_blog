@@ -12,7 +12,7 @@ tags = ["インフラ", "Terraform", "AWS", "ハンズオン"]
 
 ## 前回の振り返り: ワークスペースの限界
 
-[Part1](/posts/251128185824_terraform-state-management-intro/)でワークスペースの欠点を確認した。
+[Part1]({{< ref "/posts/251128185824_terraform-state-management-intro" >}})でワークスペースの欠点を確認した。
 
 | 欠点 | 説明 |
 |------|------|
