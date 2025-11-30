@@ -1,0 +1,33 @@
+{{ define "main" }}
+  {{ .Scratch.Set "scope" "list" }}
+  {{ if .Site.Params.taxonomy.showHero | default false }}
+    {{ $heroStyle := print "hero/" .Site.Params.taxonomy.heroStyle ".html" }}
+    {{ if templates.Exists ( printf "partials/%s" $heroStyle ) }}
+      {{ partial $heroStyle . }}
+    {{ else }}
+      {{ partial "hero/basic.html" . }}
+    {{ end }}
+  {{- end -}}
+
+  <header>
+    {{ if .Params.showBreadcrumbs | default (.Site.Params.taxonomy.showBreadcrumbs | default false) }}
+      {{ partial "breadcrumbs.html" . }}
+    {{ end }}
+    <h1 class="mt-5 text-4xl font-extrabold text-neutral-900 dark:text-neutral">{{ .Title }}</h1>
+  </header>
+
+  {{/* シリーズ一覧をシンプルなリスト形式で表示 */}}
+  <section class="mt-8 max-w-full">
+    <ul class="space-y-2">
+      {{ range .Data.Terms }}
+        <li class="border-b border-neutral-200 dark:border-neutral-700">
+          <a href="{{ .Page.RelPermalink }}" class="flex items-center justify-between py-3 px-2 hover:bg-neutral-100 dark:hover:bg-neutral-800 rounded transition-colors">
+            <span class="text-lg font-medium text-primary-600 dark:text-primary-400">{{ .Page.Title }}</span>
+            <span class="text-sm text-neutral-500 dark:text-neutral-400">{{ .Count }} posts</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+
+{{ end }}

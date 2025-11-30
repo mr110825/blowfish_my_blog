@@ -461,6 +461,30 @@ button[aria-expanded],
   will-change: transform;
 }
 
+/* シリーズページをシンプルなリスト形式に */
+.series-taxonomy section.flex {
+    flex-direction: column !important;
+    gap: 0.5rem !important;
+    max-width: 100% !important;
+}
+
+.series-taxonomy section.flex a {
+    display: block;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid rgba(128, 128, 128, 0.2);
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.series-taxonomy section.flex a:hover {
+    padding-left: 0.5rem;
+    background: rgba(79, 70, 229, 0.05);
+}
+
+html.dark .series-taxonomy section.flex a:hover {
+    background: rgba(129, 140, 248, 0.1);
+}
+
 /* モダンなタグページデザイン */
 
 /* カスタムプロパティ（CSS変数）定義 */

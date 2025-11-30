@@ -156,6 +156,10 @@ mainSections = ["posts"]
     pageRef = "posts" # `/posts` ページを参照
     weight = 10
   [[languages.ja.menu.main]]
+    name = "Series"
+    pageRef = "series" # `/series` ページを参照
+    weight = 15
+  [[languages.ja.menu.main]]
     name = "Tags"
     pageRef = "tags" # `/tags` ページを参照
     weight = 20
