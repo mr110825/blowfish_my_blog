@@ -9,16 +9,16 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 03 Aug 2025 01:55:16 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Dec 2025 08:03:29 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Github CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>//localhost:1313/posts/250803015516_how_to_download_github_issues/</link>
-      <pubDate>Sun, 03 Aug 2025 01:55:16 +0900</pubDate>
+      <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
+      <link>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/250803015516_how_to_download_github_issues/</guid>
+      <guid>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
       <description></description>
-      <media:content xmlns:media="http://search.yahoo.com/mrss/" url="//localhost:1313/posts/250803015516_how_to_download_github_issues/feature.jpg" />
+      
     </item>
     
   </channel>

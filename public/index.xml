@@ -9,7 +9,37 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 21:17:05 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Dec 2025 08:03:29 +0900</lastBuildDate><atom:link href="//localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
+      <link>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>1ビットを記憶する仕組み：NAND型RSフリップフロップ</title>
+      <link>//localhost:1313/posts/251201221916_nand-type-rs-flip-flop/</link>
+      <pubDate>Mon, 01 Dec 2025 22:19:16 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251201221916_nand-type-rs-flip-flop/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>読書メモ：指示通りができない人たち</title>
+      <link>//localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</link>
+      <pubDate>Mon, 01 Dec 2025 08:26:13 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>最高の勉強法：連続的再学習のすすめ</title>
