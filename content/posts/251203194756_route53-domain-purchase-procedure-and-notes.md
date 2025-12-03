@@ -40,15 +40,10 @@ Cloudflare等で購入してRoute53にDNS移管が必要になり、手間が増
 
 5. 購入手続きを実行
 
-### Step 3: メール承認（重要）
+### Step 3: メール承認
 
-購入後、以下のメールが届きます：
-
-| # | メール件名 | 対応 |
-|---|-----------|------|
-| 1 | Amazon Registrar にサインアップ〜 | 対応不要 |
-| 2 | [Action Required] Verify your email address for xxx.com | ⚠️ **要承認**（リンクをクリック） |
-| 3 | Registration of xxx.com succeeded | 対応不要（完了通知） |
+購入後、以下のメールが届きます。内容を確認して承認してください。
+> [Action Required] Verify your email address for xxx.com
 
 **注意**：承認メールが迷惑メールフォルダに入っていることがあります。（自分もそうでした。）
 

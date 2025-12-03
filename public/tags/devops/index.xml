@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DevOps on 毎日.log</title>
+    <link>//localhost:1313/tags/devops/</link>
+    <description>Recent content in DevOps on 毎日.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
+    <webMaster>ptin110825@gmail.com (フミ)</webMaster>
+    <copyright>© 2025 フミ</copyright>
+    <lastBuildDate>Tue, 02 Dec 2025 08:29:58 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/devops/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Terraformゼロダウンタイムデプロイの実現方法</title>
+      <link>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</link>
+      <pubDate>Tue, 02 Dec 2025 08:29:58 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

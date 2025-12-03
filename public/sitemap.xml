@@ -3,19 +3,73 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</loc>
-    <lastmod>2025-12-02T08:03:29+09:00</lastmod>
+    <loc>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</loc>
+    <lastmod>2025-12-03T19:49:06+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/posts/</loc>
-    <lastmod>2025-12-02T08:03:29+09:00</lastmod>
+    <lastmod>2025-12-03T19:49:06+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>//localhost:1313/</loc>
+    <lastmod>2025-12-03T19:49:06+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</loc>
+    <lastmod>2025-12-03T19:47:56+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</loc>
+    <lastmod>2025-12-03T19:45:15+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</loc>
+    <lastmod>2025-12-03T19:43:54+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</loc>
+    <lastmod>2025-12-02T08:31:21+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</loc>
+    <lastmod>2025-12-02T08:29:58+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</loc>
+    <lastmod>2025-12-02T08:28:29+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</loc>
+    <lastmod>2025-12-02T08:27:01+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251202082522_terraform-loops-count-and-for-each-usage/</loc>
+    <lastmod>2025-12-02T08:25:22+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</loc>
     <lastmod>2025-12-02T08:03:29+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

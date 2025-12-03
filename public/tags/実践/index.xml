@@ -9,7 +9,77 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Mon, 01 Dec 2025 08:26:13 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Dec 2025 19:49:06 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CloudFront &#43; ACM証明書でハマるus-east-1制約</title>
+      <link>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
+      <pubDate>Wed, 03 Dec 2025 19:49:06 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Route53でドメインを購入する手順と注意点</title>
+      <link>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
+      <pubDate>Wed, 03 Dec 2025 19:47:56 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraform tfstate管理の鶏と卵問題</title>
+      <link>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
+      <pubDate>Wed, 03 Dec 2025 19:45:15 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraform のつまずきポイントと回避策</title>
+      <link>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
+      <pubDate>Tue, 02 Dec 2025 08:31:21 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraformゼロダウンタイムデプロイの実現方法</title>
+      <link>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</link>
+      <pubDate>Tue, 02 Dec 2025 08:29:58 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Terraform条件分岐パターン集</title>
+      <link>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</link>
+      <pubDate>Tue, 02 Dec 2025 08:28:29 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
+      <link>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>読書メモ：指示通りができない人たち</title>

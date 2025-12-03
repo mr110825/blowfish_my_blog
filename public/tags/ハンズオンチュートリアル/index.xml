@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 07:07:10 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Dec 2025 08:03:29 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
+      <link>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part4_その他ツール編</title>
