@@ -3,211 +3,211 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</loc>
+    <loc>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</loc>
     <lastmod>2025-12-03T19:49:06+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/</loc>
+    <loc>/posts/</loc>
     <lastmod>2025-12-03T19:49:06+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/</loc>
+    <loc>/</loc>
     <lastmod>2025-12-03T19:49:06+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</loc>
+    <loc>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</loc>
     <lastmod>2025-12-03T19:47:56+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</loc>
+    <loc>/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</loc>
     <lastmod>2025-12-03T19:45:15+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</loc>
+    <loc>/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</loc>
     <lastmod>2025-12-03T19:43:54+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</loc>
+    <loc>/posts/251202083121_terraform-stumbling-points-and-solutions/</loc>
     <lastmod>2025-12-02T08:31:21+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</loc>
+    <loc>/posts/251202082958_terraform-zero-downtime-deployment-methods/</loc>
     <lastmod>2025-12-02T08:29:58+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</loc>
+    <loc>/posts/251202082829_terraform-conditional-branching-patterns/</loc>
     <lastmod>2025-12-02T08:28:29+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</loc>
+    <loc>/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</loc>
     <lastmod>2025-12-02T08:27:01+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251202082522_terraform-loops-count-and-for-each-usage/</loc>
+    <loc>/posts/251202082522_terraform-loops-count-and-for-each-usage/</loc>
     <lastmod>2025-12-02T08:25:22+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</loc>
+    <loc>/posts/251202080329_download-github-issues-as-markdown-files/</loc>
     <lastmod>2025-12-02T08:03:29+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251201221916_nand-type-rs-flip-flop/</loc>
+    <loc>/posts/251201221916_nand-type-rs-flip-flop/</loc>
     <lastmod>2025-12-01T22:19:16+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</loc>
+    <loc>/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</loc>
     <lastmod>2025-12-01T08:26:13+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251130211705_best-learning-method-continuous-relearning/</loc>
+    <loc>/posts/251130211705_best-learning-method-continuous-relearning/</loc>
     <lastmod>2025-11-30T21:17:05+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</loc>
+    <loc>/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</loc>
     <lastmod>2025-11-30T07:07:10+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</loc>
+    <loc>/posts/251130070546_docker-environment-nodejs-code-quality-tools/</loc>
     <lastmod>2025-11-30T07:05:46+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</loc>
+    <loc>/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</loc>
     <lastmod>2025-11-30T07:01:32+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</loc>
+    <loc>/posts/251130065841_docker-environment-nodejs-basics-part1/</loc>
     <lastmod>2025-11-30T06:58:41+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</loc>
+    <loc>/posts/251129154214_terraform-reusable-infrastructure-modules/</loc>
     <lastmod>2025-11-29T15:42:14+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251129115424_cache-memory-address-mapping/</loc>
+    <loc>/posts/251129115424_cache-memory-address-mapping/</loc>
     <lastmod>2025-11-29T11:54:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251129114929_virtual-memory-address-translation/</loc>
+    <loc>/posts/251129114929_virtual-memory-address-translation/</loc>
     <lastmod>2025-11-29T11:49:29+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</loc>
+    <loc>/posts/251129112924_vscode-multi-cursor-editing/</loc>
     <lastmod>2025-11-29T11:29:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</loc>
+    <loc>/posts/251128193149_terraform-file-layout-separation/</loc>
     <lastmod>2025-11-28T19:31:49+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251128185824_terraform-state-management-intro/</loc>
+    <loc>/posts/251128185824_terraform-state-management-intro/</loc>
     <lastmod>2025-11-28T18:58:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</loc>
+    <loc>/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</loc>
     <lastmod>2025-11-28T00:43:23+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251127233855_what-is-terraform/</loc>
+    <loc>/posts/251127233855_what-is-terraform/</loc>
     <lastmod>2025-11-27T23:38:55+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</loc>
+    <loc>/posts/251126031004_implement-custom-search-feature-in-chrome/</loc>
     <lastmod>2025-11-26T03:10:04+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251124162641_iac-five-classifications/</loc>
+    <loc>/posts/251124162641_iac-five-classifications/</loc>
     <lastmod>2025-11-24T16:26:41+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</loc>
+    <loc>/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</loc>
     <lastmod>2025-11-23T23:27:47+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</loc>
+    <loc>/posts/251123221331_log-investigation-more-less-grep-zgrep/</loc>
     <lastmod>2025-11-23T22:13:31+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/</loc>
+    <loc>/posts/251123211627_object-oriented-programming-introduction-memo/</loc>
     <lastmod>2025-11-23T21:16:27+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/</loc>
+    <loc>/posts/251120230822_take-notes-output-naturally-with-memos/</loc>
     <lastmod>2025-11-20T23:08:22+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251120225449_claude-specification-session-continuity-check/</loc>
+    <loc>/posts/251120225449_claude-specification-session-continuity-check/</loc>
     <lastmod>2025-11-20T22:54:49+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>//localhost:1313/posts/251120224617_git-change-check-commands/</loc>
+    <loc>/posts/251120224617_git-change-check-commands/</loc>
     <lastmod>2025-11-20T22:46:17+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>

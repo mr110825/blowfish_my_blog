@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Node.js on 毎日.log</title>
-    <link>//localhost:1313/tags/node.js/</link>
+    <link>/tags/node.js/</link>
     <description>Recent content in Node.js on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 06:58:41 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Nov 2025 06:58:41 +0900</lastBuildDate><atom:link href="/tags/node.js/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編</title>
-      <link>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
+      <link>/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
       <pubDate>Sun, 30 Nov 2025 06:58:41 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
+      <guid>/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
       <description></description>
       
     </item>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CloudFront on 毎日.log</title>
-    <link>//localhost:1313/tags/cloudfront/</link>
+    <link>/tags/cloudfront/</link>
     <description>Recent content in CloudFront on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 19:49:06 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/cloudfront/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Dec 2025 19:49:06 +0900</lastBuildDate><atom:link href="/tags/cloudfront/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CloudFront &#43; ACM証明書でハマるus-east-1制約</title>
-      <link>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
+      <link>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
       <pubDate>Wed, 03 Dec 2025 19:49:06 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
+      <guid>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
       <description></description>
       
     </item>

@@ -2,51 +2,51 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker環境でNode.jsを学ぼう on 毎日.log</title>
-    <link>//localhost:1313/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/</link>
+    <link>/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/</link>
     <description>Recent content in Docker環境でNode.jsを学ぼう on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 07:07:10 +0900</lastBuildDate><atom:link href="//localhost:1313/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Nov 2025 07:07:10 +0900</lastBuildDate><atom:link href="/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part4_その他ツール編</title>
-      <link>//localhost:1313/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</link>
+      <link>/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:07:10 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</guid>
+      <guid>/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編</title>
-      <link>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</link>
+      <link>/posts/251130070546_docker-environment-nodejs-code-quality-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:05:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</guid>
+      <guid>/posts/251130070546_docker-environment-nodejs-code-quality-tools/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編</title>
-      <link>//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</link>
+      <link>/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:01:32 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</guid>
+      <guid>/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編</title>
-      <link>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
+      <link>/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
       <pubDate>Sun, 30 Nov 2025 06:58:41 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
+      <guid>/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
       <description></description>
       
     </item>

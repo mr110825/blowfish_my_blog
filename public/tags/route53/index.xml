@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Route53 on 毎日.log</title>
-    <link>//localhost:1313/tags/route53/</link>
+    <link>/tags/route53/</link>
     <description>Recent content in Route53 on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 19:47:56 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/route53/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Dec 2025 19:47:56 +0900</lastBuildDate><atom:link href="/tags/route53/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Route53でドメインを購入する手順と注意点</title>
-      <link>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
+      <link>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
       <pubDate>Wed, 03 Dec 2025 19:47:56 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
+      <guid>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
       <description></description>
       
     </item>
