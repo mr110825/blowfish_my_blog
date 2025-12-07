@@ -2,161 +2,171 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>実践 on 毎日.log</title>
-    <link>/tags/%E5%AE%9F%E8%B7%B5/</link>
+    <link>//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/</link>
     <description>Recent content in 実践 on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 19:49:06 +0900</lastBuildDate><atom:link href="/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Dec 2025 17:53:53 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS Budgetsアラートを受信したときの対応フロー</title>
+      <link>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</link>
+      <pubDate>Sun, 07 Dec 2025 17:53:53 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>CloudFront &#43; ACM証明書でハマるus-east-1制約</title>
-      <link>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
+      <link>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
       <pubDate>Wed, 03 Dec 2025 19:49:06 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
+      <guid>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Route53でドメインを購入する手順と注意点</title>
-      <link>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
+      <link>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
       <pubDate>Wed, 03 Dec 2025 19:47:56 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
+      <guid>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform tfstate管理の鶏と卵問題</title>
-      <link>/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
+      <link>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
       <pubDate>Wed, 03 Dec 2025 19:45:15 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
+      <guid>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform のつまずきポイントと回避策</title>
-      <link>/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
+      <link>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
       <pubDate>Tue, 02 Dec 2025 08:31:21 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
+      <guid>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformゼロダウンタイムデプロイの実現方法</title>
-      <link>/posts/251202082958_terraform-zero-downtime-deployment-methods/</link>
+      <link>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</link>
       <pubDate>Tue, 02 Dec 2025 08:29:58 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202082958_terraform-zero-downtime-deployment-methods/</guid>
+      <guid>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform条件分岐パターン集</title>
-      <link>/posts/251202082829_terraform-conditional-branching-patterns/</link>
+      <link>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</link>
       <pubDate>Tue, 02 Dec 2025 08:28:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202082829_terraform-conditional-branching-patterns/</guid>
+      <guid>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <link>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
       <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202080329_download-github-issues-as-markdown-files/</guid>
+      <guid>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>読書メモ：指示通りができない人たち</title>
-      <link>/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</link>
+      <link>//localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</link>
       <pubDate>Mon, 01 Dec 2025 08:26:13 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</guid>
+      <guid>//localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>最高の勉強法：連続的再学習のすすめ</title>
-      <link>/posts/251130211705_best-learning-method-continuous-relearning/</link>
+      <link>//localhost:1313/posts/251130211705_best-learning-method-continuous-relearning/</link>
       <pubDate>Sun, 30 Nov 2025 21:17:05 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251130211705_best-learning-method-continuous-relearning/</guid>
+      <guid>//localhost:1313/posts/251130211705_best-learning-method-continuous-relearning/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformモジュールで再利用可能なインフラを作る</title>
-      <link>/posts/251129154214_terraform-reusable-infrastructure-modules/</link>
+      <link>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</link>
       <pubDate>Sat, 29 Nov 2025 15:42:14 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251129154214_terraform-reusable-infrastructure-modules/</guid>
+      <guid>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>VSCode_マルチカーソル編集</title>
-      <link>/posts/251129112924_vscode-multi-cursor-editing/</link>
+      <link>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</link>
       <pubDate>Sat, 29 Nov 2025 11:29:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251129112924_vscode-multi-cursor-editing/</guid>
+      <guid>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Chromeにカスタム検索機能を実装する方法</title>
-      <link>/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
+      <link>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
       <pubDate>Wed, 26 Nov 2025 03:10:04 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
+      <guid>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ログ調査_more・less・grep・zgrep</title>
-      <link>/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
+      <link>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
       <pubDate>Sun, 23 Nov 2025 22:13:31 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
+      <guid>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>【読書メモ】TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる</title>
-      <link>/posts/251120230822_take-notes-output-naturally-with-memos/</link>
+      <link>//localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/</link>
       <pubDate>Thu, 20 Nov 2025 23:08:22 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251120230822_take-notes-output-naturally-with-memos/</guid>
+      <guid>//localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Gitコミット前の変更確認ガイド</title>
-      <link>/posts/251120224617_git-change-check-commands/</link>
+      <link>//localhost:1313/posts/251120224617_git-change-check-commands/</link>
       <pubDate>Thu, 20 Nov 2025 22:46:17 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251120224617_git-change-check-commands/</guid>
+      <guid>//localhost:1313/posts/251120224617_git-change-check-commands/</guid>
       <description></description>
       
     </item>

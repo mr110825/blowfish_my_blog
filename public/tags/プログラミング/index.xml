@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>プログラミング on 毎日.log</title>
-    <link>/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+    <link>//localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
     <description>Recent content in プログラミング on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 23 Nov 2025 21:16:27 +0900</lastBuildDate><atom:link href="/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 23 Nov 2025 21:16:27 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>オブジェクト指向の入門用メモ</title>
-      <link>/posts/251123211627_object-oriented-programming-introduction-memo/</link>
+      <link>//localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/</link>
       <pubDate>Sun, 23 Nov 2025 21:16:27 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251123211627_object-oriented-programming-introduction-memo/</guid>
+      <guid>//localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/</guid>
       <description></description>
       
     </item>

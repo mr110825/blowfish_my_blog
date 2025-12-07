@@ -2,21 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>トラブルシューティング on 毎日.log</title>
-    <link>/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</link>
+    <link>//localhost:1313/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/</link>
     <description>Recent content in トラブルシューティング on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 02 Dec 2025 08:31:21 +0900</lastBuildDate><atom:link href="/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Dec 2025 17:53:53 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS Budgetsアラートを受信したときの対応フロー</title>
+      <link>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</link>
+      <pubDate>Sun, 07 Dec 2025 17:53:53 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Terraform のつまずきポイントと回避策</title>
-      <link>/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
+      <link>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
       <pubDate>Tue, 02 Dec 2025 08:31:21 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
+      <guid>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
       <description></description>
       
     </item>

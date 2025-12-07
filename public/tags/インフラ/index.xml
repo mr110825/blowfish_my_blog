@@ -2,181 +2,191 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>インフラ on 毎日.log</title>
-    <link>/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/</link>
+    <link>//localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/</link>
     <description>Recent content in インフラ on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 19:49:06 +0900</lastBuildDate><atom:link href="/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Dec 2025 17:53:53 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AWS Budgetsアラートを受信したときの対応フロー</title>
+      <link>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</link>
+      <pubDate>Sun, 07 Dec 2025 17:53:53 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>CloudFront &#43; ACM証明書でハマるus-east-1制約</title>
-      <link>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
+      <link>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
       <pubDate>Wed, 03 Dec 2025 19:49:06 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
+      <guid>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Route53でドメインを購入する手順と注意点</title>
-      <link>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
+      <link>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
       <pubDate>Wed, 03 Dec 2025 19:47:56 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
+      <guid>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform tfstate管理の鶏と卵問題</title>
-      <link>/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
+      <link>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
       <pubDate>Wed, 03 Dec 2025 19:45:15 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
+      <guid>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ACM証明書とは？SSL/TLS証明書の基礎からCloudFront連携まで</title>
-      <link>/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</link>
+      <link>//localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</link>
       <pubDate>Wed, 03 Dec 2025 19:43:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</guid>
+      <guid>//localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform のつまずきポイントと回避策</title>
-      <link>/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
+      <link>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</link>
       <pubDate>Tue, 02 Dec 2025 08:31:21 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
+      <guid>//localhost:1313/posts/251202083121_terraform-stumbling-points-and-solutions/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformゼロダウンタイムデプロイの実現方法</title>
-      <link>/posts/251202082958_terraform-zero-downtime-deployment-methods/</link>
+      <link>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</link>
       <pubDate>Tue, 02 Dec 2025 08:29:58 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202082958_terraform-zero-downtime-deployment-methods/</guid>
+      <guid>//localhost:1313/posts/251202082958_terraform-zero-downtime-deployment-methods/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform条件分岐パターン集</title>
-      <link>/posts/251202082829_terraform-conditional-branching-patterns/</link>
+      <link>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</link>
       <pubDate>Tue, 02 Dec 2025 08:28:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202082829_terraform-conditional-branching-patterns/</guid>
+      <guid>//localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform for式入門：リストとマップの変換テクニック</title>
-      <link>/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</link>
+      <link>//localhost:1313/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</link>
       <pubDate>Tue, 02 Dec 2025 08:27:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</guid>
+      <guid>//localhost:1313/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformループの基礎：countとfor_eachの使い分け</title>
-      <link>/posts/251202082522_terraform-loops-count-and-for-each-usage/</link>
+      <link>//localhost:1313/posts/251202082522_terraform-loops-count-and-for-each-usage/</link>
       <pubDate>Tue, 02 Dec 2025 08:25:22 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251202082522_terraform-loops-count-and-for-each-usage/</guid>
+      <guid>//localhost:1313/posts/251202082522_terraform-loops-count-and-for-each-usage/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformモジュールで再利用可能なインフラを作る</title>
-      <link>/posts/251129154214_terraform-reusable-infrastructure-modules/</link>
+      <link>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</link>
       <pubDate>Sat, 29 Nov 2025 15:42:14 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251129154214_terraform-reusable-infrastructure-modules/</guid>
+      <guid>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>キャッシュメモリのアドレスマッピング方式</title>
-      <link>/posts/251129115424_cache-memory-address-mapping/</link>
+      <link>//localhost:1313/posts/251129115424_cache-memory-address-mapping/</link>
       <pubDate>Sat, 29 Nov 2025 11:54:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251129115424_cache-memory-address-mapping/</guid>
+      <guid>//localhost:1313/posts/251129115424_cache-memory-address-mapping/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>仮想記憶のアドレス変換</title>
-      <link>/posts/251129114929_virtual-memory-address-translation/</link>
+      <link>//localhost:1313/posts/251129114929_virtual-memory-address-translation/</link>
       <pubDate>Sat, 29 Nov 2025 11:49:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251129114929_virtual-memory-address-translation/</guid>
+      <guid>//localhost:1313/posts/251129114929_virtual-memory-address-translation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</title>
-      <link>/posts/251128193149_terraform-file-layout-separation/</link>
+      <link>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</link>
       <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251128193149_terraform-file-layout-separation/</guid>
+      <guid>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース</title>
-      <link>/posts/251128185824_terraform-state-management-intro/</link>
+      <link>//localhost:1313/posts/251128185824_terraform-state-management-intro/</link>
       <pubDate>Fri, 28 Nov 2025 18:58:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251128185824_terraform-state-management-intro/</guid>
+      <guid>//localhost:1313/posts/251128185824_terraform-state-management-intro/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>TerraformでAWS環境を構築して削除するまで - 入門ハンズオン</title>
-      <link>/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</link>
+      <link>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</link>
       <pubDate>Fri, 28 Nov 2025 00:43:23 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</guid>
+      <guid>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformとは？</title>
-      <link>/posts/251127233855_what-is-terraform/</link>
+      <link>//localhost:1313/posts/251127233855_what-is-terraform/</link>
       <pubDate>Thu, 27 Nov 2025 23:38:55 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251127233855_what-is-terraform/</guid>
+      <guid>//localhost:1313/posts/251127233855_what-is-terraform/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>IaC（Infrastructure as Code）の5つの分類</title>
-      <link>/posts/251124162641_iac-five-classifications/</link>
+      <link>//localhost:1313/posts/251124162641_iac-five-classifications/</link>
       <pubDate>Mon, 24 Nov 2025 16:26:41 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>/posts/251124162641_iac-five-classifications/</guid>
+      <guid>//localhost:1313/posts/251124162641_iac-five-classifications/</guid>
       <description></description>
       
     </item>
