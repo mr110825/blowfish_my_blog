@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>AWS Budgetsアラートを受信したときの対応フロー &middot; 毎日.log</title>
-    <meta name="title" content="AWS Budgetsアラートを受信したときの対応フロー &middot; 毎日.log">
+  <title>CloudFront &#43; OACで個別ページが404になる問題の解決 &middot; 毎日.log</title>
+    <meta name="title" content="CloudFront &#43; OACで個別ページが404になる問題の解決 &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="インフラ,AWS,実践,トラブルシューティング,">
+  <meta name="keywords" content="インフラ,AWS,トラブルシューティング,実践,">
   
   
-  <link rel="canonical" href="//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/">
+  <link rel="canonical" href="//localhost:1313/posts/251207182151_cloudfront-oac-404-page-issue-resolution/">
   
   
   
@@ -99,23 +99,23 @@
   
 
   
-  <meta property="og:url" content="//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/">
+  <meta property="og:url" content="//localhost:1313/posts/251207182151_cloudfront-oac-404-page-issue-resolution/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="AWS Budgetsアラートを受信したときの対応フロー">
+  <meta property="og:title" content="CloudFront &#43; OACで個別ページが404になる問題の解決">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-07T17:53:53+09:00">
-    <meta property="article:modified_time" content="2025-12-07T17:53:53+09:00">
+    <meta property="article:published_time" content="2025-12-07T18:21:51+09:00">
+    <meta property="article:modified_time" content="2025-12-07T18:21:51+09:00">
     <meta property="article:tag" content="インフラ">
     <meta property="article:tag" content="AWS">
-    <meta property="article:tag" content="実践">
     <meta property="article:tag" content="トラブルシューティング">
+    <meta property="article:tag" content="実践">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="AWS Budgetsアラートを受信したときの対応フロー">
+  <meta name="twitter:title" content="CloudFront &#43; OACで個別ページが404になる問題の解決">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "AWS Budgetsアラートを受信したときの対応フロー",
-    "headline": "AWS Budgetsアラートを受信したときの対応フロー",
+    "name": "CloudFront \u002b OACで個別ページが404になる問題の解決",
+    "headline": "CloudFront \u002b OACで個別ページが404になる問題の解決",
     
     
     "inLanguage": "ja",
-    "url" : "\/\/localhost:1313\/posts\/251207175353_aws-budgets-alert-response-flow\/",
+    "url" : "\/\/localhost:1313\/posts\/251207182151_cloudfront-oac-404-page-issue-resolution\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-07T17:53:53\u002b09:00",
-    "datePublished": "2025-12-07T17:53:53\u002b09:00",
+    "dateCreated": "2025-12-07T18:21:51\u002b09:00",
+    "datePublished": "2025-12-07T18:21:51\u002b09:00",
     
-    "dateModified": "2025-12-07T17:53:53\u002b09:00",
+    "dateModified": "2025-12-07T18:21:51\u002b09:00",
     
-    "keywords": ["インフラ","AWS","実践","トラブルシューティング"],
+    "keywords": ["インフラ","AWS","トラブルシューティング","実践"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "197"
+    "wordCount": "321"
   }]
   </script>
 
@@ -477,7 +477,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        AWS Budgetsアラートを受信したときの対応フロー
+        CloudFront + OACで個別ページが404になる問題の解決
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -528,7 +528,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-07T17:53:53&#43;09:00">2025年 12月 7日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-07T18:21:51&#43;09:00">2025年 12月 7日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -599,11 +599,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E5%AE%9F%E8%B7%B5/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    実践
+    トラブルシューティング
   </span>
 </span>
 
@@ -611,11 +611,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%88%E3%83%A9%E3%83%96%E3%83%AB%E3%82%B7%E3%83%A5%E3%83%BC%E3%83%86%E3%82%A3%E3%83%B3%E3%82%B0/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E5%AE%9F%E8%B7%B5/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    トラブルシューティング
+    実践
   </span>
 </span>
 
@@ -678,27 +678,23 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#この記事を書いた経緯">この記事を書いた経緯</a></li>
-        <li><a href="#aws-budgetsとは">AWS Budgetsとは</a></li>
-        <li><a href="#aws-budgetsのアラート種別">AWS Budgetsのアラート種別</a></li>
-        <li><a href="#forecasted予測の限界">FORECASTED予測の限界</a></li>
-        <li><a href="#アラート対応フロー">アラート対応フロー</a>
+        <li><a href="#問題の発生状況">問題の発生状況</a></li>
+        <li><a href="#原因の特定">原因の特定</a></li>
+        <li><a href="#解決策の比較">解決策の比較</a></li>
+        <li><a href="#解決策cloudfront-functionによるurlリライト">解決策：CloudFront FunctionによるURLリライト</a>
           <ul>
-            <li><a href="#step-1-アラート種別の確認">Step 1: アラート種別の確認</a></li>
-            <li><a href="#step-2-cost-explorerで原因特定">Step 2: Cost Explorerで原因特定</a></li>
-            <li><a href="#step-3-原因の分類と対応">Step 3: 原因の分類と対応</a></li>
-            <li><a href="#step-4-リソース確認必要な場合のみ">Step 4: リソース確認（必要な場合のみ）</a></li>
+            <li><a href="#処理フローの図解">処理フローの図解</a></li>
           </ul>
         </li>
-        <li><a href="#aws-global-viewを使った全リージョン確認">AWS Global Viewを使った全リージョン確認</a>
+        <li><a href="#terraformでの実装">Terraformでの実装</a></li>
+        <li><a href="#デプロイと動作確認">デプロイと動作確認</a>
           <ul>
-            <li><a href="#aws-global-viewとは">AWS Global Viewとは</a></li>
-            <li><a href="#確認できるリソース">確認できるリソース</a></li>
-            <li><a href="#アクセス方法">アクセス方法</a></li>
-            <li><a href="#使い方">使い方</a></li>
+            <li><a href="#1-terraformでデプロイ">1. Terraformでデプロイ</a></li>
+            <li><a href="#2-cloudfrontキャッシュの無効化">2. CloudFrontキャッシュの無効化</a></li>
+            <li><a href="#3-動作確認">3. 動作確認</a></li>
           </ul>
         </li>
-        <li><a href="#運用上のポイント">運用上のポイント</a></li>
+        <li><a href="#cloudfront-function-vs-lambdaedge">CloudFront Function vs Lambda@Edge</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -719,27 +715,23 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#この記事を書いた経緯">この記事を書いた経緯</a></li>
-        <li><a href="#aws-budgetsとは">AWS Budgetsとは</a></li>
-        <li><a href="#aws-budgetsのアラート種別">AWS Budgetsのアラート種別</a></li>
-        <li><a href="#forecasted予測の限界">FORECASTED予測の限界</a></li>
-        <li><a href="#アラート対応フロー">アラート対応フロー</a>
+        <li><a href="#問題の発生状況">問題の発生状況</a></li>
+        <li><a href="#原因の特定">原因の特定</a></li>
+        <li><a href="#解決策の比較">解決策の比較</a></li>
+        <li><a href="#解決策cloudfront-functionによるurlリライト">解決策：CloudFront FunctionによるURLリライト</a>
           <ul>
-            <li><a href="#step-1-アラート種別の確認">Step 1: アラート種別の確認</a></li>
-            <li><a href="#step-2-cost-explorerで原因特定">Step 2: Cost Explorerで原因特定</a></li>
-            <li><a href="#step-3-原因の分類と対応">Step 3: 原因の分類と対応</a></li>
-            <li><a href="#step-4-リソース確認必要な場合のみ">Step 4: リソース確認（必要な場合のみ）</a></li>
+            <li><a href="#処理フローの図解">処理フローの図解</a></li>
           </ul>
         </li>
-        <li><a href="#aws-global-viewを使った全リージョン確認">AWS Global Viewを使った全リージョン確認</a>
+        <li><a href="#terraformでの実装">Terraformでの実装</a></li>
+        <li><a href="#デプロイと動作確認">デプロイと動作確認</a>
           <ul>
-            <li><a href="#aws-global-viewとは">AWS Global Viewとは</a></li>
-            <li><a href="#確認できるリソース">確認できるリソース</a></li>
-            <li><a href="#アクセス方法">アクセス方法</a></li>
-            <li><a href="#使い方">使い方</a></li>
+            <li><a href="#1-terraformでデプロイ">1. Terraformでデプロイ</a></li>
+            <li><a href="#2-cloudfrontキャッシュの無効化">2. CloudFrontキャッシュの無効化</a></li>
+            <li><a href="#3-動作確認">3. 動作確認</a></li>
           </ul>
         </li>
-        <li><a href="#運用上のポイント">運用上のポイント</a></li>
+        <li><a href="#cloudfront-function-vs-lambdaedge">CloudFront Function vs Lambda@Edge</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -856,7 +848,7 @@
     </span>        
     
 </h2>
-<p>AWS Budgetsでアラートを受信した際の対応フローを整理しました。実際にFORECASTEDアラートを受信して対応した経験から、今後も使えるベストプラクティスとしてまとめました。</p>
+<p>GitHub PagesからAWS（S3 + CloudFront）へブログを移行した際、トップページは表示されるが個別記事ページで404エラーが発生しました。原因はOAC（Origin Access Control）使用時にS3の静的ウェブサイトホスティング機能が使えず、<code>/posts/article/</code> → <code>/posts/article/index.html</code> の自動補完が効かないことでした。CloudFront Functionでviewer-request時にURLリライトを実装して解決しました。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -868,322 +860,312 @@
     
 </h2>
 
-<h3 class="relative group">この記事を書いた経緯 
-    <div id="この記事を書いた経緯" class="anchor"></div>
+<h3 class="relative group">問題の発生状況 
+    <div id="問題の発生状況" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%82%92%e6%9b%b8%e3%81%84%e3%81%9f%e7%b5%8c%e7%b7%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%95%8f%e9%a1%8c%e3%81%ae%e7%99%ba%e7%94%9f%e7%8a%b6%e6%b3%81" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>AWS Budgetsから予算超過のアラートメールを受信しました。調査の結果、過去のハンズオン環境のコストと一括費用（ドメイン購入）が原因と判明し、対応不要と判断できました。この対応フローは今後も役立つと考え、ベストプラクティスとして整理しました。</p>
-
-<h3 class="relative group">AWS Budgetsとは 
-    <div id="aws-budgetsとは" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws-budgets%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>AWS Budgetsは、AWSの利用コストを監視し、設定した予算を超えそうな場合にアラートを通知するサービスです。月額の予算を設定しておくと、実績や予測がしきい値を超えた際にメールで通知を受け取れます。</p>
-
-<h3 class="relative group">AWS Budgetsのアラート種別 
-    <div id="aws-budgetsのアラート種別" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws-budgets%e3%81%ae%e3%82%a2%e3%83%a9%e3%83%bc%e3%83%88%e7%a8%ae%e5%88%a5" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>AWS Budgetsには2種類のアラートがあります。</p>
+<p>GitHub Pagesで正常に動作していたHugoブログをAWSに移行したところ、以下の症状が発生しました。</p>
 <table>
   <thead>
       <tr>
-          <th>種別</th>
-          <th>意味</th>
+          <th>ページ</th>
+          <th>URL</th>
+          <th>結果</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>ACTUAL</td>
-          <td>実際にその金額を使った</td>
+          <td>トップ</td>
+          <td><code>https://example.com/</code></td>
+          <td>✅ 正常表示</td>
       </tr>
       <tr>
-          <td>FORECASTED</td>
-          <td>月末にその金額になりそう（予測）</td>
+          <td>記事一覧</td>
+          <td><code>https://example.com/posts/</code></td>
+          <td>❌ 404エラー</td>
+      </tr>
+      <tr>
+          <td>個別記事</td>
+          <td><code>https://example.com/posts/article-name/</code></td>
+          <td>❌ 404エラー</td>
       </tr>
   </tbody>
 </table>
-<p><strong>出典</strong>: <a
-  href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-best-practices.html"
-    target="_blank"
-  >AWS公式ドキュメント - Best practices for AWS Budgets</a></p>
 
-<h3 class="relative group">FORECASTED予測の限界 
-    <div id="forecasted予測の限界" class="anchor"></div>
+<h3 class="relative group">原因の特定 
+    <div id="原因の特定" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#forecasted%e4%ba%88%e6%b8%ac%e3%81%ae%e9%99%90%e7%95%8c" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8e%9f%e5%9b%a0%e3%81%ae%e7%89%b9%e5%ae%9a" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>FORECASTEDは「現在のペースが月末まで続く」と仮定した線形予測です。この予測方法には限界があります。</p>
+<p>S3へのアクセス方式の違いが原因でした。</p>
 <table>
   <thead>
       <tr>
-          <th>状況</th>
-          <th>予測の問題点</th>
+          <th>方式</th>
+          <th>index.html自動補完</th>
+          <th>セキュリティ</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>リソースを月の途中で削除した</td>
-          <td>削除後もコストが継続する前提で計算される</td>
+          <td>静的ウェブサイトホスティング</td>
+          <td>✅ あり</td>
+          <td>❌ パブリック公開が必要</td>
       </tr>
       <tr>
-          <td>ドメイン購入など一括費用が発生した</td>
-          <td>毎日同額が発生する前提で計算される</td>
-      </tr>
-      <tr>
-          <td>ハンズオン環境を短期間だけ使用した</td>
-          <td>月末まで使い続ける前提で計算される</td>
+          <td>OAC経由（今回の構成）</td>
+          <td>❌ なし</td>
+          <td>✅ S3は非公開のまま</td>
       </tr>
   </tbody>
 </table>
-<p>このため、FORECASTEDアラートは「参考程度」に捉え、ACTUALアラートを重視することをおすすめします。</p>
+<p>OACを使用する場合、S3はREST APIエンドポイントとしてアクセスされます。この場合、<code>/posts/</code> というリクエストは「<code>posts/</code>というオブジェクト」を探しに行くため、<code>posts/index.html</code> は見つかりません。</p>
 
-<h3 class="relative group">アラート対応フロー 
-    <div id="アラート対応フロー" class="anchor"></div>
+<h3 class="relative group">解決策の比較 
+    <div id="解決策の比較" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%a9%e3%83%bc%e3%83%88%e5%af%be%e5%bf%9c%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-
-<h4 class="relative group">Step 1: アラート種別の確認 
-    <div id="step-1-アラート種別の確認" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-%e3%82%a2%e3%83%a9%e3%83%bc%e3%83%88%e7%a8%ae%e5%88%a5%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>受信したメールでACTUAL/FORECASTEDを確認。</p>
-
-<h4 class="relative group">Step 2: Cost Explorerで原因特定 
-    <div id="step-2-cost-explorerで原因特定" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-cost-explorer%e3%81%a7%e5%8e%9f%e5%9b%a0%e7%89%b9%e5%ae%9a" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<ol>
-<li>Cost Explorerにアクセス</li>
-<li>期間を「今月（Month-to-date）」に設定</li>
-<li>Group byで「Service」を選択</li>
-<li>異常に高いサービスを特定</li>
-</ol>
-
-<h4 class="relative group">Step 3: 原因の分類と対応 
-    <div id="step-3-原因の分類と対応" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-%e5%8e%9f%e5%9b%a0%e3%81%ae%e5%88%86%e9%a1%9e%e3%81%a8%e5%af%be%e5%bf%9c" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<table>
-  <thead>
-      <tr>
-          <th>原因</th>
-          <th>対応</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>一時的な費用（ドメイン購入等）</td>
-          <td>対応不要、予測は無視</td>
-      </tr>
-      <tr>
-          <td>削除済みリソースの残存コスト</td>
-          <td>対応不要、来月から減る</td>
-      </tr>
-      <tr>
-          <td>起動中のリソース</td>
-          <td>不要なら即削除</td>
-      </tr>
-      <tr>
-          <td>想定内の増加</td>
-          <td>予算設定を見直し</td>
-      </tr>
-  </tbody>
-</table>
-
-<h4 class="relative group">Step 4: リソース確認（必要な場合のみ） 
-    <div id="step-4-リソース確認必要な場合のみ" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-4-%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9%e7%a2%ba%e8%aa%8d%e5%bf%85%e8%a6%81%e3%81%aa%e5%a0%b4%e5%90%88%e3%81%ae%e3%81%bf" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>原因が「起動中のリソース」の場合、以下のサービスを優先的に確認します。</p>
-<table>
-  <thead>
-      <tr>
-          <th>優先度</th>
-          <th>サービス</th>
-          <th>確認場所</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>高</td>
-          <td>NAT Gateway</td>
-          <td>VPCコンソール</td>
-      </tr>
-      <tr>
-          <td>高</td>
-          <td>EC2（全リージョン）</td>
-          <td>AWS Global View</td>
-      </tr>
-      <tr>
-          <td>高</td>
-          <td>RDS</td>
-          <td>RDSコンソール</td>
-      </tr>
-      <tr>
-          <td>高</td>
-          <td>ALB/ELB</td>
-          <td>EC2 → ロードバランサー</td>
-      </tr>
-      <tr>
-          <td>中</td>
-          <td>Elastic IP（未使用）</td>
-          <td>EC2 → Elastic IP</td>
-      </tr>
-  </tbody>
-</table>
-<p>これらのサービスは起動しているだけで課金が発生するため、不要であれば削除します。</p>
-
-<h3 class="relative group">AWS Global Viewを使った全リージョン確認 
-    <div id="aws-global-viewを使った全リージョン確認" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws-global-view%e3%82%92%e4%bd%bf%e3%81%a3%e3%81%9f%e5%85%a8%e3%83%aa%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>EC2インスタンスは通常、リージョンごとにしか確認できません。しかし、<strong>AWS Global View</strong>を使えば、全リージョンのリソースを一画面で確認できます。今回の対応で実際に使用し、非常に便利だと感じました。</p>
-
-<h4 class="relative group">AWS Global Viewとは 
-    <div id="aws-global-viewとは" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws-global-view%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>AWS Global Viewは、複数のAWSリージョンにまたがるEC2およびVPC関連リソースを単一のコンソールで表示できる機能です。</p>
-
-<h4 class="relative group">確認できるリソース 
-    <div id="確認できるリソース" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e7%a2%ba%e8%aa%8d%e3%81%a7%e3%81%8d%e3%82%8b%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<ul>
-<li>EC2インスタンス</li>
-<li>VPC</li>
-<li>サブネット</li>
-<li>セキュリティグループ</li>
-<li>EBSボリューム</li>
-<li>NAT Gateway</li>
-<li>Elastic IP</li>
-</ul>
-
-<h4 class="relative group">アクセス方法 
-    <div id="アクセス方法" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e6%96%b9%e6%b3%95" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<ol>
-<li>AWSコンソールで「AWS Global View」を検索</li>
-<li>または直接アクセス: <a
-  href="https://console.aws.amazon.com/ec2globalview/home"
-    target="_blank"
-  >https://console.aws.amazon.com/ec2globalview/home</a></li>
-</ol>
-
-<h4 class="relative group">使い方 
-    <div id="使い方" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%bf%e3%81%84%e6%96%b9" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<ol>
-<li>「リージョンエクスプローラー」タブを開く</li>
-<li>「リソースの概要」で全リージョンのインスタンス数を確認</li>
-<li>インスタンス数のリンクをクリックすると、全リージョンのインスタンス一覧が表示される</li>
-<li>不要なインスタンスがあれば、リソースIDをクリックして該当リージョンのコンソールに移動し、削除</li>
-</ol>
-<p>リージョンを切り替えながら確認する手間が省けるため、コスト調査の際に非常に便利です。</p>
-
-<h3 class="relative group">運用上のポイント 
-    <div id="運用上のポイント" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%81%8b%e7%94%a8%e4%b8%8a%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b1%ba%e7%ad%96%e3%81%ae%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 <table>
   <thead>
       <tr>
-          <th>ポイント</th>
-          <th>内容</th>
+          <th>解決策</th>
+          <th>実行場所</th>
+          <th>レイテンシ</th>
+          <th>コスト</th>
+          <th>採用</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>ハンズオン後の確認</td>
-          <td>リソース削除を忘れないこと</td>
+          <td>CloudFront Function</td>
+          <td>エッジ</td>
+          <td>極小</td>
+          <td>無料枠大</td>
+          <td>✅</td>
       </tr>
       <tr>
-          <td>古い設定の整理</td>
-          <td>不要なBudgetは削除する</td>
+          <td>Lambda@Edge</td>
+          <td>リージョン</td>
+          <td>小</td>
+          <td>従量課金</td>
+          <td>-</td>
       </tr>
       <tr>
-          <td>アラートの使い分け</td>
-          <td>ACTUALを重視、FORECASTEDは参考程度</td>
+          <td>S3静的ホスティング</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>❌ OAC不可</td>
       </tr>
   </tbody>
 </table>
+<p>CloudFront Functionを採用した理由は、単純なURLリライトには十分な機能があり、無料枠が大きく（月200万リクエスト）、エッジで実行されるためレイテンシへの影響が最小限だからです。</p>
+
+<h3 class="relative group">解決策：CloudFront FunctionによるURLリライト 
+    <div id="解決策cloudfront-functionによるurlリライト" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a7%a3%e6%b1%ba%e7%ad%96cloudfront-function%e3%81%ab%e3%82%88%e3%82%8burl%e3%83%aa%e3%83%a9%e3%82%a4%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>viewer-requestイベントでURLを書き換え、末尾に <code>index.html</code> を付与します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-javascript" data-lang="javascript"><span class="line"><span class="cl"><span class="kd">function</span> <span class="nx">handler</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">request</span> <span class="o">=</span> <span class="nx">event</span><span class="p">.</span><span class="nx">request</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="kd">var</span> <span class="nx">uri</span> <span class="o">=</span> <span class="nx">request</span><span class="p">.</span><span class="nx">uri</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="c1">// 末尾が `/` の場合 → `/index.html` を付与
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">if</span> <span class="p">(</span><span class="nx">uri</span><span class="p">.</span><span class="nx">endsWith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">request</span><span class="p">.</span><span class="nx">uri</span> <span class="o">+=</span> <span class="s1">&#39;index.html&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  <span class="c1">// 拡張子がない場合 → `/index.html` を付与
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="o">!</span><span class="nx">uri</span><span class="p">.</span><span class="nx">includes</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">))</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl">    <span class="nx">request</span><span class="p">.</span><span class="nx">uri</span> <span class="o">+=</span> <span class="s1">&#39;/index.html&#39;</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl">  <span class="p">}</span>
+</span></span><span class="line"><span class="cl">  
+</span></span><span class="line"><span class="cl">  <span class="k">return</span> <span class="nx">request</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div>
+<h4 class="relative group">処理フローの図解 
+    <div id="処理フローの図解" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%87%a6%e7%90%86%e3%83%95%e3%83%ad%e3%83%bc%e3%81%ae%e5%9b%b3%e8%a7%a3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<pre tabindex="0"><code>リクエスト: /posts/article/
+    ↓
+CloudFront Function（viewer-request）
+    ↓
+URI書き換え: /posts/article/index.html
+    ↓
+S3からオブジェクト取得
+    ↓
+レスポンス: 200 OK
+</code></pre>
+<h3 class="relative group">Terraformでの実装 
+    <div id="terraformでの実装" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#terraform%e3%81%a7%e3%81%ae%e5%ae%9f%e8%a3%85" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_function&#34; &#34;rewrite&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>    <span class="o">=</span> <span class="s2">&#34;url-rewrite&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  runtime</span> <span class="o">=</span> <span class="s2">&#34;cloudfront-js-2.0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  publish</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  code</span>    <span class="o">=</span> <span class="err">&lt;&lt;-</span><span class="k">EOF</span>
+</span></span><span class="line"><span class="cl">    <span class="k">function</span> <span class="k">handler</span><span class="p">(</span><span class="k">event</span><span class="p">)</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      var request</span> <span class="o">=</span> <span class="k">event</span><span class="p">.</span><span class="k">request</span><span class="err">;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      var uri</span> <span class="o">=</span> <span class="k">request</span><span class="p">.</span><span class="k">uri</span><span class="err">;</span>
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="k">if</span> <span class="p">(</span><span class="k">uri</span><span class="p">.</span><span class="k">endsWith</span><span class="p">(</span><span class="err">&#39;/&#39;</span><span class="p">))</span> {
+</span></span><span class="line"><span class="cl"><span class="n">        request.uri +</span><span class="o">=</span> <span class="err">&#39;</span><span class="k">index</span><span class="p">.</span><span class="k">html</span><span class="err">&#39;;</span>
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">      <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="err">!</span><span class="k">uri</span><span class="p">.</span><span class="k">includes</span><span class="p">(</span><span class="err">&#39;</span><span class="p">.</span><span class="err">&#39;</span><span class="p">))</span> {
+</span></span><span class="line"><span class="cl"><span class="n">        request.uri +</span><span class="o">=</span> <span class="err">&#39;/</span><span class="k">index</span><span class="p">.</span><span class="k">html</span><span class="err">&#39;;</span>
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">      
+</span></span><span class="line"><span class="cl">      <span class="k">return</span> <span class="k">request</span><span class="err">;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  <span class="k">EOF</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>CloudFront Distributionの <code>default_cache_behavior</code> 内で、このFunctionを <code>viewer-request</code> イベントに関連付けます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_distribution&#34; &#34;blog&#34;</span> {<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # ... 他の設定 ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">  <span class="k">default_cache_behavior</span> {<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">    # ... 他の設定 ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl">    <span class="k">function_association</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      event_type</span>   <span class="o">=</span> <span class="s2">&#34;viewer-request&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      function_arn</span> <span class="o">=</span> <span class="k">aws_cloudfront_function</span><span class="p">.</span><span class="k">rewrite</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">デプロイと動作確認 
+    <div id="デプロイと動作確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e3%81%a8%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">1. Terraformでデプロイ 
+    <div id="1-terraformでデプロイ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-terraform%e3%81%a7%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform plan   <span class="c1"># 変更内容を確認</span>
+</span></span><span class="line"><span class="cl">terraform apply  <span class="c1"># 適用</span>
+</span></span></code></pre></div>
+<h4 class="relative group">2. CloudFrontキャッシュの無効化 
+    <div id="2-cloudfrontキャッシュの無効化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-cloudfront%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%81%ae%e7%84%a1%e5%8a%b9%e5%8c%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>設定変更後、キャッシュが残っていると古い挙動が続く場合があります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aws cloudfront create-invalidation <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --distribution-id &lt;DISTRIBUTION_ID&gt; <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>  --paths <span class="s2">&#34;/*&#34;</span>
+</span></span></code></pre></div>
+<h4 class="relative group">3. 動作確認 
+    <div id="3-動作確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 末尾スラッシュありのURL</span>
+</span></span><span class="line"><span class="cl">curl -I https://example.com/posts/
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 末尾スラッシュなしのURL</span>
+</span></span><span class="line"><span class="cl">curl -I https://example.com/posts/article-name
+</span></span></code></pre></div><p>いずれも <code>HTTP/2 200</code> が返れば成功です。</p>
+
+<h3 class="relative group">CloudFront Function vs Lambda@Edge 
+    <div id="cloudfront-function-vs-lambdaedge" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cloudfront-function-vs-lambdaedge" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>CloudFront Function</th>
+          <th>Lambda@Edge</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>実行場所</td>
+          <td>全エッジロケーション</td>
+          <td>リージョンエッジキャッシュ</td>
+      </tr>
+      <tr>
+          <td>最大実行時間</td>
+          <td>1ms</td>
+          <td>5秒（viewer）/ 30秒（origin）</td>
+      </tr>
+      <tr>
+          <td>メモリ</td>
+          <td>2MB</td>
+          <td>128MB〜10GB</td>
+      </tr>
+      <tr>
+          <td>ネットワークアクセス</td>
+          <td>❌ 不可</td>
+          <td>✅ 可能</td>
+      </tr>
+      <tr>
+          <td>対応イベント</td>
+          <td>viewer-request/response</td>
+          <td>4種類すべて</td>
+      </tr>
+      <tr>
+          <td>料金</td>
+          <td>月200万リクエスト無料</td>
+          <td>リクエスト+実行時間課金</td>
+      </tr>
+  </tbody>
+</table>
+<p>単純なURLリライトであればCloudFront Functionで十分です。外部APIへのアクセスや複雑な処理が必要な場合はLambda@Edgeを検討してください。</p>
 
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -1195,11 +1177,10 @@
     
 </h2>
 <ul>
-<li>AWS Budgetsのアラートは ACTUAL（実績）と FORECASTED（予測）の2種類がある</li>
-<li>FORECASTED は線形予測のため、リソース削除や一括費用を考慮しない</li>
-<li>アラート受信時は Cost Explorer でサービス別に原因を特定する</li>
-<li>AWS Global View を使えば全リージョンのリソースを一画面で確認できる</li>
-<li>ハンズオン環境は使用後に必ずリソースを削除する</li>
+<li>OAC使用時はS3の「index.html自動補完」が効かない</li>
+<li>CloudFront Functionでviewer-request時にURLリライトを実装して解決</li>
+<li>単純なURL書き換えにはCloudFront Functionが最適（低コスト・低レイテンシ）</li>
+<li>設定変更後はキャッシュ無効化を忘れずに実行</li>
 </ul>
 
 <h2 class="relative group">参考 
@@ -1213,25 +1194,13 @@
 </h2>
 <ul>
 <li><a
-  href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html"
+  href="https://repost.aws/ja/knowledge-center/cloudfront-index-html"
     target="_blank"
-  >AWS Budgets</a></li>
+  >CloudFront Functions を使用して URL の末尾から index.html ファイルを表示する｜AWS re:Post</a></li>
 <li><a
-  href="https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-best-practices.html"
+  href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/create-function.html"
     target="_blank"
-  >Best practices for AWS Budgets</a></li>
-<li><a
-  href="https://docs.aws.amazon.com/aws-cost-management/latest/APIReference/API_budgets_Notification.html"
-    target="_blank"
-  >Budgets API Reference - Notification</a></li>
-<li><a
-  href="https://docs.aws.amazon.com/cost-management/latest/userguide/ce-what-is.html"
-    target="_blank"
-  >AWS Cost Explorer</a></li>
-<li><a
-  href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/global-view.html"
-    target="_blank"
-  >AWS Global View</a></li>
+  >CloudFront Functions の作成 - Amazon CloudFront</a></li>
 </ul>
 
           
@@ -1262,8 +1231,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251207175353_aws-budgets-alert-response-flow.md"
-          data-oid-likes="likes_posts/251207175353_aws-budgets-alert-response-flow.md"></script>
+          data-oid="views_posts/251207182151_cloudfront-oac-404-page-issue-resolution.md"
+          data-oid-likes="likes_posts/251207182151_cloudfront-oac-404-page-issue-resolution.md"></script>
       
 
     </section>
@@ -1278,7 +1247,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251204202004_why-address-specification-is-necessary/">
+            <a class="flex group mr-3" href="/posts/251207175353_aws-budgets-alert-response-flow/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1289,11 +1258,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >アドレス指定方法はなぜ必要？</span
+                  >AWS Budgetsアラートを受信したときの対応フロー</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-04T20:20:04&#43;09:00">2025年 12月 4日</time>
+                    <time datetime="2025-12-07T17:53:53&#43;09:00">2025年 12月 7日</time>
                   
                 </span>
               </span>
@@ -1301,27 +1270,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/251207182151_cloudfront-oac-404-page-issue-resolution/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >CloudFront + OACで個別ページが404になる問題の解決</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-12-07T18:21:51&#43;09:00">2025年 12月 7日</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
