@@ -2,71 +2,81 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>メモ on 毎日.log</title>
-    <link>https://fumi-til.com/tags/%E3%83%A1%E3%83%A2/</link>
+    <link>http://localhost:1313/tags/%E3%83%A1%E3%83%A2/</link>
     <description>Recent content in メモ on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 02 Dec 2025 08:28:29 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Dec 2025 23:37:15 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>GitHubプロフィールREADMEを作成してみた</title>
+      <link>http://localhost:1313/posts/251207233715_github-profile-readme-creation/</link>
+      <pubDate>Sun, 07 Dec 2025 23:37:15 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251207233715_github-profile-readme-creation/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Terraform条件分岐パターン集</title>
-      <link>https://fumi-til.com/posts/251202082829_terraform-conditional-branching-patterns/</link>
+      <link>http://localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</link>
       <pubDate>Tue, 02 Dec 2025 08:28:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251202082829_terraform-conditional-branching-patterns/</guid>
+      <guid>http://localhost:1313/posts/251202082829_terraform-conditional-branching-patterns/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>キャッシュメモリのアドレスマッピング方式</title>
-      <link>https://fumi-til.com/posts/251129115424_cache-memory-address-mapping/</link>
+      <link>http://localhost:1313/posts/251129115424_cache-memory-address-mapping/</link>
       <pubDate>Sat, 29 Nov 2025 11:54:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251129115424_cache-memory-address-mapping/</guid>
+      <guid>http://localhost:1313/posts/251129115424_cache-memory-address-mapping/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>VSCode_マルチカーソル編集</title>
-      <link>https://fumi-til.com/posts/251129112924_vscode-multi-cursor-editing/</link>
+      <link>http://localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</link>
       <pubDate>Sat, 29 Nov 2025 11:29:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251129112924_vscode-multi-cursor-editing/</guid>
+      <guid>http://localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ログ調査_more・less・grep・zgrep</title>
-      <link>https://fumi-til.com/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
+      <link>http://localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
       <pubDate>Sun, 23 Nov 2025 22:13:31 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
+      <guid>http://localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Claudeの仕様確認：前回のセッションは引き継げるのか？</title>
-      <link>https://fumi-til.com/posts/251120225449_claude-specification-session-continuity-check/</link>
+      <link>http://localhost:1313/posts/251120225449_claude-specification-session-continuity-check/</link>
       <pubDate>Thu, 20 Nov 2025 22:54:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251120225449_claude-specification-session-continuity-check/</guid>
+      <guid>http://localhost:1313/posts/251120225449_claude-specification-session-continuity-check/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Gitコミット前の変更確認ガイド</title>
-      <link>https://fumi-til.com/posts/251120224617_git-change-check-commands/</link>
+      <link>http://localhost:1313/posts/251120224617_git-change-check-commands/</link>
       <pubDate>Thu, 20 Nov 2025 22:46:17 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251120224617_git-change-check-commands/</guid>
+      <guid>http://localhost:1313/posts/251120224617_git-change-check-commands/</guid>
       <description></description>
       
     </item>
