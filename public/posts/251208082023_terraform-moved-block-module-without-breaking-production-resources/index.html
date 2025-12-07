@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>GitHub Actions &#43; OIDC認証でアクセスキー不要のAWS認証を実現する &middot; 毎日.log</title>
-    <meta name="title" content="GitHub Actions &#43; OIDC認証でアクセスキー不要のAWS認証を実現する &middot; 毎日.log">
+  <title>Terraform movedブロックでリソースを壊さずにmodule化する &middot; 毎日.log</title>
+    <meta name="title" content="Terraform movedブロックでリソースを壊さずにmodule化する &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="インフラ,AWS,GitHub,実践,">
+  <meta name="keywords" content="インフラ,Terraform,AWS,実践,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/251208075901_github-actions-oidc-aws-authentication/">
+  <link rel="canonical" href="http://localhost:1313/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
   
   
   
@@ -99,23 +99,23 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/251208075901_github-actions-oidc-aws-authentication/">
+  <meta property="og:url" content="http://localhost:1313/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="GitHub Actions &#43; OIDC認証でアクセスキー不要のAWS認証を実現する">
+  <meta property="og:title" content="Terraform movedブロックでリソースを壊さずにmodule化する">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-08T07:59:01+09:00">
-    <meta property="article:modified_time" content="2025-12-08T07:59:01+09:00">
+    <meta property="article:published_time" content="2025-12-08T08:20:23+09:00">
+    <meta property="article:modified_time" content="2025-12-08T08:20:23+09:00">
     <meta property="article:tag" content="インフラ">
+    <meta property="article:tag" content="Terraform">
     <meta property="article:tag" content="AWS">
-    <meta property="article:tag" content="GitHub">
     <meta property="article:tag" content="実践">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="GitHub Actions &#43; OIDC認証でアクセスキー不要のAWS認証を実現する">
+  <meta name="twitter:title" content="Terraform movedブロックでリソースを壊さずにmodule化する">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "GitHub Actions \u002b OIDC認証でアクセスキー不要のAWS認証を実現する",
-    "headline": "GitHub Actions \u002b OIDC認証でアクセスキー不要のAWS認証を実現する",
+    "name": "Terraform movedブロックでリソースを壊さずにmodule化する",
+    "headline": "Terraform movedブロックでリソースを壊さずにmodule化する",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/251208075901_github-actions-oidc-aws-authentication\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251208082023_terraform-moved-block-module-without-breaking-production-resources\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-08T07:59:01\u002b09:00",
-    "datePublished": "2025-12-08T07:59:01\u002b09:00",
+    "dateCreated": "2025-12-08T08:20:23\u002b09:00",
+    "datePublished": "2025-12-08T08:20:23\u002b09:00",
     
-    "dateModified": "2025-12-08T07:59:01\u002b09:00",
+    "dateModified": "2025-12-08T08:20:23\u002b09:00",
     
-    "keywords": ["インフラ","AWS","GitHub","実践"],
+    "keywords": ["インフラ","Terraform","AWS","実践"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "360"
+    "wordCount": "250"
   }]
   </script>
 
@@ -477,7 +477,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        GitHub Actions + OIDC認証でアクセスキー不要のAWS認証を実現する
+        Terraform movedブロックでリソースを壊さずにmodule化する
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -528,7 +528,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-08T07:59:01&#43;09:00">2025年 12月 8日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-08T08:20:23&#43;09:00">2025年 12月 8日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -587,11 +587,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    AWS
+    Terraform
   </span>
 </span>
 
@@ -599,11 +599,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/github/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    GitHub
+    AWS
   </span>
 </span>
 
@@ -678,25 +678,27 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#なぜoidc認証を選ぶのか">なぜOIDC認証を選ぶのか</a></li>
-        <li><a href="#oidcの認証フロー">OIDCの認証フロー</a></li>
-        <li><a href="#実装手順">実装手順</a>
+        <li><a href="#背景と課題">背景と課題</a></li>
+        <li><a href="#movedブロックとは">movedブロックとは</a></li>
+        <li><a href="#実践s3バケットのmodule化">実践：S3バケットのmodule化</a>
           <ul>
-            <li><a href="#step-1-共通設定oidc-provider--iamロール">Step 1: 共通設定（OIDC Provider + IAMロール）</a></li>
-            <li><a href="#step-2-デプロイ先に応じた権限設定iamポリシー">Step 2: デプロイ先に応じた権限設定（IAMポリシー）</a></li>
-            <li><a href="#step-3-github-actions側の設定">Step 3: GitHub Actions側の設定</a></li>
+            <li><a href="#step-1-moduleと呼び出し元の構成">Step 1: moduleと呼び出し元の構成</a></li>
+            <li><a href="#step-2-module呼び出しとmovedブロックを記述">Step 2: module呼び出しとmovedブロックを記述</a></li>
+            <li><a href="#step-3-terraform-planで確認">Step 3: terraform planで確認</a></li>
+            <li><a href="#step-4-terraform-apply">Step 4: terraform apply</a></li>
           </ul>
         </li>
-        <li><a href="#設計のポイント">設計のポイント</a>
+        <li><a href="#ハマったポイント">ハマったポイント</a>
           <ul>
-            <li><a href="#mainブランチのみに制限する理由">mainブランチのみに制限する理由</a></li>
-            <li><a href="#最小権限の原則">最小権限の原則</a></li>
+            <li><a href="#動的な名前生成による再作成">動的な名前生成による再作成</a></li>
+            <li><a href="#movedブロックはapply後に削除可能">movedブロックはapply後に削除可能</a></li>
+            <li><a href="#data-sourceはmovedブロック不要">data sourceはmovedブロック不要</a></li>
           </ul>
         </li>
-        <li><a href="#他のユースケースへの応用">他のユースケースへの応用</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#補足個人開発でmodule化は必要だったか">補足：個人開発でmodule化は必要だったか？</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -714,25 +716,27 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#なぜoidc認証を選ぶのか">なぜOIDC認証を選ぶのか</a></li>
-        <li><a href="#oidcの認証フロー">OIDCの認証フロー</a></li>
-        <li><a href="#実装手順">実装手順</a>
+        <li><a href="#背景と課題">背景と課題</a></li>
+        <li><a href="#movedブロックとは">movedブロックとは</a></li>
+        <li><a href="#実践s3バケットのmodule化">実践：S3バケットのmodule化</a>
           <ul>
-            <li><a href="#step-1-共通設定oidc-provider--iamロール">Step 1: 共通設定（OIDC Provider + IAMロール）</a></li>
-            <li><a href="#step-2-デプロイ先に応じた権限設定iamポリシー">Step 2: デプロイ先に応じた権限設定（IAMポリシー）</a></li>
-            <li><a href="#step-3-github-actions側の設定">Step 3: GitHub Actions側の設定</a></li>
+            <li><a href="#step-1-moduleと呼び出し元の構成">Step 1: moduleと呼び出し元の構成</a></li>
+            <li><a href="#step-2-module呼び出しとmovedブロックを記述">Step 2: module呼び出しとmovedブロックを記述</a></li>
+            <li><a href="#step-3-terraform-planで確認">Step 3: terraform planで確認</a></li>
+            <li><a href="#step-4-terraform-apply">Step 4: terraform apply</a></li>
           </ul>
         </li>
-        <li><a href="#設計のポイント">設計のポイント</a>
+        <li><a href="#ハマったポイント">ハマったポイント</a>
           <ul>
-            <li><a href="#mainブランチのみに制限する理由">mainブランチのみに制限する理由</a></li>
-            <li><a href="#最小権限の原則">最小権限の原則</a></li>
+            <li><a href="#動的な名前生成による再作成">動的な名前生成による再作成</a></li>
+            <li><a href="#movedブロックはapply後に削除可能">movedブロックはapply後に削除可能</a></li>
+            <li><a href="#data-sourceはmovedブロック不要">data sourceはmovedブロック不要</a></li>
           </ul>
         </li>
-        <li><a href="#他のユースケースへの応用">他のユースケースへの応用</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#補足個人開発でmodule化は必要だったか">補足：個人開発でmodule化は必要だったか？</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -846,7 +850,7 @@
     </span>        
     
 </h2>
-<p>GitHub Actions + OIDC認証を使うことで、アクセスキーを一切保存せずにAWSへ安全にアクセスできることを学びました。一時的な認証情報（15分で期限切れ）を使用するため、従来のアクセスキー方式と比べてセキュリティリスクを大幅に軽減できます。</p>
+<p>Terraform movedブロックを使って、既存のTerraformリソースをダウンタイムなしでmodule化しました。movedブロックはStateの参照先だけを変更し、実リソースには触れずにリファクタリングできる機能です。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -858,283 +862,174 @@
     
 </h2>
 
-<h3 class="relative group">なぜOIDC認証を選ぶのか 
-    <div id="なぜoidc認証を選ぶのか" class="anchor"></div>
+<h3 class="relative group">背景と課題 
+    <div id="背景と課題" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9coidc%e8%aa%8d%e8%a8%bc%e3%82%92%e9%81%b8%e3%81%b6%e3%81%ae%e3%81%8b" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%83%8c%e6%99%af%e3%81%a8%e8%aa%b2%e9%a1%8c" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>最初は「アクセスキーをGitHubのシークレットに保存すれば簡単」と考えましたが、調べていくうちにOIDC認証の方がセキュリティ面で優れていることがわかりました。</p>
-<table>
-  <thead>
-      <tr>
-          <th>観点</th>
-          <th>アクセスキー</th>
-          <th>OIDC</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>認証情報の保存</td>
-          <td>GitHubシークレットに保存が必要</td>
-          <td>保存不要</td>
-      </tr>
-      <tr>
-          <td>有効期限</td>
-          <td>無期限（手動でローテーション）</td>
-          <td>15分で自動期限切れ</td>
-      </tr>
-      <tr>
-          <td>漏洩リスク</td>
-          <td>シークレット漏洩で永続的なアクセス</td>
-          <td>トークンは短命で再利用不可</td>
-      </tr>
-      <tr>
-          <td>権限の粒度</td>
-          <td>IAMユーザー単位</td>
-          <td>リポジトリ・ブランチ単位で制限可能</td>
-      </tr>
-  </tbody>
-</table>
-<p>アクセスキーは「漏洩したら終わり」ですが、OIDCは最初から漏洩リスクがありません。AWS/GitHub公式もOIDCを推奨しています。</p>
+<p>個人プロジェクトで構築したAWSインフラ（S3、CloudFront、IAM等）をTerraform module化したいと考えました。最初は<code>environments/prod/</code>に全リソースをベタ書きしていましたが、再利用性と可読性のためにmodule構成に移行することにしました。</p>
+<p>しかし、単純にmoduleに移動すると、Terraformは「旧リソースを削除 → 新規作成」と判断します。本番稼働中のサイトでダウンタイムが発生してしまう問題がありました。</p>
 
-<h3 class="relative group">OIDCの認証フロー 
-    <div id="oidcの認証フロー" class="anchor"></div>
+<h3 class="relative group">movedブロックとは 
+    <div id="movedブロックとは" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#oidc%e3%81%ae%e8%aa%8d%e8%a8%bc%e3%83%95%e3%83%ad%e3%83%bc" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#moved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<pre tabindex="0"><code>1. GitHub Actions が GitHub OIDC Provider にトークンを要求
-                        ↓
-2. GitHub OIDC Provider がトークンを発行（リポジトリ名、ブランチ名を含む）
-                        ↓
-3. AWS STS がトークンを検証し、信頼ポリシーの条件を確認
-                        ↓
-4. 条件を満たせば、一時認証情報を発行（15分有効）
-                        ↓
-5. GitHub Actions が一時認証情報でAWSリソースにアクセス
-</code></pre><p>GitHub側でOIDCトークンが発行され、トークンには「どのリポジトリの、どのブランチから」という情報が含まれます。AWS側でその情報を検証し、条件を満たせば一時認証情報を発行します。</p>
-
-<h3 class="relative group">実装手順 
-    <div id="実装手順" class="anchor"></div>
+<p>Terraform 1.1で導入された機能です。Stateの参照先だけを変更し、実リソースには触らずにリファクタリングできます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">moved</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  from</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">content</span><span class="c1">                    # 旧パス
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">  to</span>   <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">s3_content</span><span class="p">.</span><span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">this</span><span class="c1">     # 新パス
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
+</span></span></code></pre></div>
+<h3 class="relative group">実践：S3バケットのmodule化 
+    <div id="実践s3バケットのmodule化" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%a3%85%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5s3%e3%83%90%e3%82%b1%e3%83%83%e3%83%88%e3%81%aemodule%e5%8c%96" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>OIDC認証の設定は「共通部分」と「デプロイ先に応じた権限設定」の2つに分かれます。</p>
 
-<h4 class="relative group">Step 1: 共通設定（OIDC Provider + IAMロール） 
-    <div id="step-1-共通設定oidc-provider--iamロール" class="anchor"></div>
+<h4 class="relative group">Step 1: moduleと呼び出し元の構成 
+    <div id="step-1-moduleと呼び出し元の構成" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-%e5%85%b1%e9%80%9a%e8%a8%ad%e5%ae%9aoidc-provider--iam%e3%83%ad%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-module%e3%81%a8%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e5%85%83%e3%81%ae%e6%a7%8b%e6%88%90" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<p>どのAWSサービスにアクセスする場合でも、この設定は共通です。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># 1. OIDC Provider（GitHubとAWSを繋ぐ設定）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_iam_openid_connect_provider&#34; &#34;github&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  url</span>             <span class="o">=</span> <span class="s2">&#34;https://token.actions.githubusercontent.com&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">  client_id_list</span>  <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;sts.amazonaws.com&#34;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">  thumbprint_list</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;ffffffffffffffffffffffffffffffffffffffff&#34;</span><span class="p">]</span>
+<pre tabindex="0"><code>├── environments/prod/
+│   └── main.tf              ← movedブロックを記述
+└── modules/s3-content/
+    ├── main.tf
+    ├── outputs.tf
+    └── variables.tf
+</code></pre>
+<h4 class="relative group">Step 2: module呼び出しとmovedブロックを記述 
+    <div id="step-2-module呼び出しとmovedブロックを記述" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-module%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e3%81%a8moved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%82%92%e8%a8%98%e8%bf%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># environments/prod/main.tf
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="s2">&#34;s3_content&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  source</span>      <span class="o">=</span> <span class="s2">&#34;../../modules/s3-content&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  bucket_name</span> <span class="o">=</span> <span class="s2">&#34;example-content&#34;</span>
 </span></span><span class="line"><span class="cl">}<span class="c1">
 </span></span></span><span class="line"><span class="cl"><span class="c1">
-</span></span></span><span class="line"><span class="cl"><span class="c1"># 2. IAMロール（GitHub Actionsが引き受けるロール）
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_iam_role&#34; &#34;github_actions&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;github-actions-deploy-role&#34;</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">  assume_role_policy</span> <span class="o">=</span> <span class="k">jsonencode</span><span class="p">(</span>{
-</span></span><span class="line"><span class="cl"><span class="n">    Version</span> <span class="o">=</span> <span class="s2">&#34;2012-10-17&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">    Statement</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">      {
-</span></span><span class="line"><span class="cl"><span class="n">        Effect</span> <span class="o">=</span> <span class="s2">&#34;Allow&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">        Principal</span> <span class="o">=</span> {
-</span></span><span class="line"><span class="cl"><span class="n">          Federated</span> <span class="o">=</span> <span class="k">aws_iam_openid_connect_provider</span><span class="p">.</span><span class="k">github</span><span class="p">.</span><span class="k">arn</span>
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl"><span class="n">        Action</span> <span class="o">=</span> <span class="s2">&#34;sts:AssumeRoleWithWebIdentity&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">        Condition</span> <span class="o">=</span> {
-</span></span><span class="line"><span class="cl"><span class="n">          StringEquals</span> <span class="o">=</span> {
-</span></span><span class="line"><span class="cl"><span class="n">            &#34;token.actions.githubusercontent.com:aud&#34;</span> <span class="o">=</span> <span class="s2">&#34;sts.amazonaws.com&#34;</span>
-</span></span><span class="line"><span class="cl">          }
-</span></span><span class="line"><span class="cl"><span class="n">          StringLike</span> <span class="o">=</span> {<span class="c1">
-</span></span></span><span class="line"><span class="cl"><span class="c1">            # リポジトリ・ブランチを制限
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">            &#34;token.actions.githubusercontent.com:sub&#34;</span> <span class="o">=</span> <span class="s2">&#34;repo:&lt;OWNER&gt;/&lt;REPO&gt;:ref:refs/heads/main&#34;</span>
-</span></span><span class="line"><span class="cl">          }
-</span></span><span class="line"><span class="cl">        }
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl">  }<span class="p">)</span>
+</span></span></span><span class="line"><span class="cl"><span class="c1"># State移行
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">moved</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  from</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">content</span>
+</span></span><span class="line"><span class="cl"><span class="n">  to</span>   <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">s3_content</span><span class="p">.</span><span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">this</span>
 </span></span><span class="line"><span class="cl">}
-</span></span></code></pre></div><p><strong>thumbprintについて</strong>：2023年7月以降、AWSはGitHub OIDCの証明書を自動検証するようになりました。そのため、任意の値でも動作します。</p>
-
-<h4 class="relative group">Step 2: デプロイ先に応じた権限設定（IAMポリシー） 
-    <div id="step-2-デプロイ先に応じた権限設定iamポリシー" class="anchor"></div>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">moved</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  from</span> <span class="o">=</span> <span class="k">aws_s3_bucket_public_access_block</span><span class="p">.</span><span class="k">content</span>
+</span></span><span class="line"><span class="cl"><span class="n">  to</span>   <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">s3_content</span><span class="p">.</span><span class="k">aws_s3_bucket_public_access_block</span><span class="p">.</span><span class="k">this</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h4 class="relative group">Step 3: terraform planで確認 
+    <div id="step-3-terraform-planで確認" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e5%85%88%e3%81%ab%e5%bf%9c%e3%81%98%e3%81%9f%e6%a8%a9%e9%99%90%e8%a8%ad%e5%ae%9aiam%e3%83%9d%e3%83%aa%e3%82%b7%e3%83%bc" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-terraform-plan%e3%81%a7%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<p>IAMポリシーはデプロイ先によって変わります。今回はS3 + CloudFrontへの静的サイト配信を例に説明します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_iam_role_policy&#34; &#34;github_actions&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;github-actions-deploy-policy&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">  role</span> <span class="o">=</span> <span class="k">aws_iam_role</span><span class="p">.</span><span class="k">github_actions</span><span class="p">.</span><span class="k">id</span>
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="n">  policy</span> <span class="o">=</span> <span class="k">jsonencode</span><span class="p">(</span>{
-</span></span><span class="line"><span class="cl"><span class="n">    Version</span> <span class="o">=</span> <span class="s2">&#34;2012-10-17&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">    Statement</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">      {
-</span></span><span class="line"><span class="cl"><span class="n">        Effect</span> <span class="o">=</span> <span class="s2">&#34;Allow&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">        Action</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;s3:PutObject&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;s3:GetObject&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;s3:DeleteObject&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;s3:ListBucket&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">        Resource</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;arn:aws:s3:::&lt;BUCKET_NAME&gt;&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;arn:aws:s3:::&lt;BUCKET_NAME&gt;/*&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]</span>
-</span></span><span class="line"><span class="cl">      }<span class="p">,</span>
-</span></span><span class="line"><span class="cl">      {
-</span></span><span class="line"><span class="cl"><span class="n">        Effect</span> <span class="o">=</span> <span class="s2">&#34;Allow&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">        Action</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">          <span class="s2">&#34;cloudfront:CreateInvalidation&#34;</span>
-</span></span><span class="line"><span class="cl">        <span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">        Resource</span> <span class="o">=</span> <span class="s2">&#34;arn:aws:cloudfront::&lt;ACCOUNT_ID&gt;:distribution/&lt;DISTRIBUTION_ID&gt;&#34;</span>
-</span></span><span class="line"><span class="cl">      }
-</span></span><span class="line"><span class="cl">    <span class="p">]</span>
-</span></span><span class="line"><span class="cl">  }<span class="p">)</span>
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></div><table>
-  <thead>
-      <tr>
-          <th>権限</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td><code>s3:PutObject</code></td>
-          <td>ファイルアップロード</td>
-      </tr>
-      <tr>
-          <td><code>s3:GetObject</code></td>
-          <td>sync時の差分比較</td>
-      </tr>
-      <tr>
-          <td><code>s3:DeleteObject</code></td>
-          <td><code>--delete</code>オプション</td>
-      </tr>
-      <tr>
-          <td><code>s3:ListBucket</code></td>
-          <td>バケット内一覧取得</td>
-      </tr>
-      <tr>
-          <td><code>cloudfront:CreateInvalidation</code></td>
-          <td>キャッシュ無効化</td>
-      </tr>
-  </tbody>
-</table>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ terraform plan
+</span></span><span class="line"><span class="cl"><span class="c1"># Terraform will perform the following actions:</span>
+</span></span><span class="line"><span class="cl"><span class="c1">#   # aws_s3_bucket.content has moved to module.s3_content.aws_s3_bucket.this</span>
+</span></span><span class="line"><span class="cl"><span class="c1"># Plan: 0 to add, 0 to change, 0 to destroy.</span>
+</span></span></code></pre></div><p><code>0 to add, 0 to change, 0 to destroy</code>と表示されれば成功です。Stateの参照が変わるだけで、S3バケット自体は変更されません。</p>
 
-<h4 class="relative group">Step 3: GitHub Actions側の設定 
-    <div id="step-3-github-actions側の設定" class="anchor"></div>
+<h4 class="relative group">Step 4: terraform apply 
+    <div id="step-4-terraform-apply" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-github-actions%e5%81%b4%e3%81%ae%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-4-terraform-apply" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-yaml" data-lang="yaml"><span class="line"><span class="cl"><span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to AWS</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">on</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">push</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">branches</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="l">main</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">permissions</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">id-token</span><span class="p">:</span><span class="w"> </span><span class="l">write  </span><span class="w"> </span><span class="c"># OIDCトークン取得に必須</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">contents</span><span class="p">:</span><span class="w"> </span><span class="l">read</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="nt">jobs</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nt">deploy</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">runs-on</span><span class="p">:</span><span class="w"> </span><span class="l">ubuntu-latest</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">    </span><span class="nt">steps</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Checkout</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">actions/checkout@v4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Configure AWS Credentials</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">uses</span><span class="p">:</span><span class="w"> </span><span class="l">aws-actions/configure-aws-credentials@v4</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">with</span><span class="p">:</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">role-to-assume</span><span class="p">:</span><span class="w"> </span><span class="l">arn:aws:iam::&lt;ACCOUNT_ID&gt;:role/github-actions-deploy-role</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">          </span><span class="nt">aws-region</span><span class="p">:</span><span class="w"> </span><span class="l">ap-northeast-1</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span><span class="c"># 以降、AWS CLIでデプロイ操作を実行</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">      </span>- <span class="nt">name</span><span class="p">:</span><span class="w"> </span><span class="l">Deploy to S3</span><span class="w">
-</span></span></span><span class="line"><span class="cl"><span class="w">        </span><span class="nt">run</span><span class="p">:</span><span class="w"> </span><span class="l">aws s3 sync public/ s3://&lt;BUCKET_NAME&gt;/ --delete</span><span class="w">
-</span></span></span></code></pre></div><p><code>permissions: id-token: write</code> を付けないと、GitHub Actionsがトークンを取得できずにエラーになります。</p>
-
-<h3 class="relative group">設計のポイント 
-    <div id="設計のポイント" class="anchor"></div>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ terraform apply
+</span></span><span class="line"><span class="cl">Apply complete! Resources: <span class="m">0</span> added, <span class="m">0</span> changed, <span class="m">0</span> destroyed.
+</span></span></code></pre></div>
+<h3 class="relative group">ハマったポイント 
+    <div id="ハマったポイント" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e8%a8%88%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8f%e3%83%9e%e3%81%a3%e3%81%9f%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 
-<h4 class="relative group">mainブランチのみに制限する理由 
-    <div id="mainブランチのみに制限する理由" class="anchor"></div>
+<h4 class="relative group">動的な名前生成による再作成 
+    <div id="動的な名前生成による再作成" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#main%e3%83%96%e3%83%a9%e3%83%b3%e3%83%81%e3%81%ae%e3%81%bf%e3%81%ab%e5%88%b6%e9%99%90%e3%81%99%e3%82%8b%e7%90%86%e7%94%b1" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8b%95%e7%9a%84%e3%81%aa%e5%90%8d%e5%89%8d%e7%94%9f%e6%88%90%e3%81%ab%e3%82%88%e3%82%8b%e5%86%8d%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="s2">&#34;token.actions.githubusercontent.com:sub&#34; = &#34;repo:&lt;OWNER&gt;/&lt;REPO&gt;:ref:refs/heads/main&#34;</span>
-</span></span></code></pre></div><p>もし <code>*</code>（ワイルドカード）にすると、任意のブランチやPRからデプロイ可能になります。悪意のあるPRがマージされる前にデプロイされるリスクを防ぐため、mainブランチのみに制限しました。</p>
-
-<h4 class="relative group">最小権限の原則 
-    <div id="最小権限の原則" class="anchor"></div>
+<p>module内でリソース名を動的生成すると、既存リソースと名前が変わって再作成が発生することがあります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># ❌ これだと再作成が発生する可能性
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_function&#34; &#34;this&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;${var.name_prefix}-url-rewrite&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>解決策として、変数で既存の名前を明示的に渡します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># ✅ 既存名を変数で渡す
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">variable</span> <span class="s2">&#34;function_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  type</span> <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_function&#34; &#34;this&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">function_name</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h4 class="relative group">movedブロックはapply後に削除可能 
+    <div id="movedブロックはapply後に削除可能" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9c%80%e5%b0%8f%e6%a8%a9%e9%99%90%e3%81%ae%e5%8e%9f%e5%89%87" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#moved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%81%afapply%e5%be%8c%e3%81%ab%e5%89%8a%e9%99%a4%e5%8f%af%e8%83%bd" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<p>IAMポリシーでは、必要なAWSサービス・リソースのみに権限を限定します。今回の例では特定のS3バケット・CloudFront Distributionのみを指定しています。</p>
+<p>movedブロックはapply後、Stateに反映済みであれば削除して問題ありません。残しておくとコードが煩雑になるため、適宜整理します。</p>
 
-<h3 class="relative group">他のユースケースへの応用 
-    <div id="他のユースケースへの応用" class="anchor"></div>
+<h4 class="relative group">data sourceはmovedブロック不要 
+    <div id="data-sourceはmovedブロック不要" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%96%e3%81%ae%e3%83%a6%e3%83%bc%e3%82%b9%e3%82%b1%e3%83%bc%e3%82%b9%e3%81%b8%e3%81%ae%e5%bf%9c%e7%94%a8" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#data-source%e3%81%afmoved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e4%b8%8d%e8%a6%81" aria-label="アンカー">#</a>
     </span>        
     
-</h3>
-<p>OIDC Provider + IAMロールの信頼ポリシー（Step 1）は共通で、IAMポリシー（Step 2）を変えるだけで他のAWSサービスにも応用できます。</p>
-<p>例えば、EC2へのデプロイであれば以下のような権限が必要になります。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="n">Action</span> <span class="o">=</span> <span class="p">[</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ec2:DescribeInstances&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ssm:SendCommand&#34;</span><span class="p">,</span>
-</span></span><span class="line"><span class="cl">  <span class="s2">&#34;ssm:GetCommandInvocation&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="p">]</span>
+</h4>
+<p>既存リソースを参照するだけの<code>data source</code>はState移行が不要です。そのままmodule化できます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># 参照のみなのでmovedブロック不要
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span> <span class="s2">&#34;aws_acm_certificate&#34; &#34;this&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  domain</span>      <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">domain_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  statuses</span>    <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;ISSUED&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl"><span class="n">  most_recent</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
 </span></span></code></pre></div>
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -1145,13 +1040,72 @@
     </span>        
     
 </h2>
-<ul>
-<li>OIDC認証はアクセスキー不要で、15分で自動期限切れのため安全</li>
-<li>設定は「共通部分（OIDC Provider + IAMロール）」と「デプロイ先に応じた権限（IAMポリシー）」に分かれる</li>
-<li>GitHub Actions側では <code>permissions: id-token: write</code> の設定が必須</li>
-<li>mainブランチのみに制限して本番環境を保護する</li>
-<li>IAMポリシーを変えれば、S3以外のAWSサービス（EC2等）にも応用可能</li>
-</ul>
+<table>
+  <thead>
+      <tr>
+          <th>ポイント</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>movedブロックの用途</td>
+          <td>既存リソースを壊さずにmodule化・リネーム</td>
+      </tr>
+      <tr>
+          <td>成功の確認方法</td>
+          <td><code>Plan: 0 to add, 0 to change, 0 to destroy</code></td>
+      </tr>
+      <tr>
+          <td>apply後の扱い</td>
+          <td>movedブロックは削除可能</td>
+      </tr>
+      <tr>
+          <td>data sourceの扱い</td>
+          <td>参照のみなのでState移行不要</td>
+      </tr>
+      <tr>
+          <td>名前変更に注意</td>
+          <td>動的生成で名前が変わると再作成される</td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">補足：個人開発でmodule化は必要だったか？ 
+    <div id="補足個人開発でmodule化は必要だったか" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a3%9c%e8%b6%b3%e5%80%8b%e4%ba%ba%e9%96%8b%e7%99%ba%e3%81%a7module%e5%8c%96%e3%81%af%e5%bf%85%e8%a6%81%e3%81%a0%e3%81%a3%e3%81%9f%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>正直、現段階のプロジェクトでは不要だったと思います。<br>
+今回はブログ環境をAWSへ移行するプロジェクトでmovedブロックを使用しました。<br>
+ただ、以下の理由でmodule化を選択しました。</p>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>理由</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>将来の拡張性</td>
+          <td>テスト実装やセキュリティスキャン導入時、module単位で検証できる</td>
+      </tr>
+      <tr>
+          <td>実務経験の代替</td>
+          <td>実務ではmodule化が一般的。設計パターンを経験しておきたかった</td>
+      </tr>
+      <tr>
+          <td>学習効果</td>
+          <td>movedブロック、マルチリージョンprovider、依存関係設計を一度に学べた</td>
+      </tr>
+  </tbody>
+</table>
+<p>「今必要か」だけでなく「将来拡張しやすいか」「学習として価値があるか」も判断軸に入れました。</p>
 
 <h2 class="relative group">参考 
     <div id="参考" class="anchor"></div>
@@ -1164,21 +1118,11 @@
 </h2>
 <ul>
 <li><a
-  href="https://aws.amazon.com/blogs/security/use-iam-roles-to-connect-github-actions-to-actions-in-aws/"
+  href="https://developer.hashicorp.com/terraform/language/modules/develop/refactoring"
     target="_blank"
-  >AWS Security Blog: Use IAM roles to connect GitHub Actions to actions in AWS</a></li>
+  >Refactoring - Terraform</a></li>
 <li><a
-  href="https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/about-security-hardening-with-openid-connect"
-    target="_blank"
-  >GitHub Docs: About security hardening with OpenID Connect</a></li>
-<li><a
-  href="https://docs.github.com/ja/actions/deployment/security-hardening-your-deployments/configuring-openid-connect-in-amazon-web-services"
-    target="_blank"
-  >GitHub Docs: Configuring OpenID Connect in Amazon Web Services</a></li>
-<li><a
-  href="https://github.com/aws-actions/configure-aws-credentials"
-    target="_blank"
-  >aws-actions/configure-aws-credentials</a></li>
+  href="/posts/251202083121_terraform-stumbling-points-and-solutions/">Terraform のつまずきポイントと回避策</a></li>
 </ul>
 
           
@@ -1209,8 +1153,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251208075901_github-actions-oidc-aws-authentication.md"
-          data-oid-likes="likes_posts/251208075901_github-actions-oidc-aws-authentication.md"></script>
+          data-oid="views_posts/251208082023_terraform-moved-block-module-without-breaking-production-resources.md"
+          data-oid-likes="likes_posts/251208082023_terraform-moved-block-module-without-breaking-production-resources.md"></script>
       
 
     </section>
@@ -1225,7 +1169,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251207233715_github-profile-readme-creation/">
+            <a class="flex group mr-3" href="/posts/251208075901_github-actions-oidc-aws-authentication/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1236,11 +1180,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >GitHubプロフィールREADMEを作成してみた</span
+                  >GitHub Actions + OIDC認証でアクセスキー不要のAWS認証を実現する</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-07T23:37:15&#43;09:00">2025年 12月 7日</time>
+                    <time datetime="2025-12-08T07:59:01&#43;09:00">2025年 12月 8日</time>
                   
                 </span>
               </span>
@@ -1248,27 +1192,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Terraform movedブロックでリソースを壊さずにmodule化する</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-12-08T08:20:23&#43;09:00">2025年 12月 8日</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>

@@ -3,19 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/posts/251208075901_github-actions-oidc-aws-authentication/</loc>
-    <lastmod>2025-12-08T07:59:01+09:00</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-12-08T08:20:23+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-12-08T07:59:01+09:00</lastmod>
+    <loc>http://localhost:1313/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/</loc>
+    <lastmod>2025-12-08T08:20:23+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-12-08T08:20:23+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251208075901_github-actions-oidc-aws-authentication/</loc>
     <lastmod>2025-12-08T07:59:01+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
