@@ -20,7 +20,7 @@ enableEmoji = true
 # ホームページの「最新記事」セクションに表示するコンテンツのセクションを指定します。
 mainSections = ["posts"]
 
-# baseURL = "https://your_domain.com/" # デプロイ先のURL。公開時にコメントを外して設定してください。
+baseURL = "https://fumi-til.com/"
 # pluralizeListTitles = "true" # 英語など、複数形が存在する言語でタイトルを自動的に複数形にします。
 # googleAnalytics = "G-XXXXXXXXX" # Google Analytics のトラッキングID。
 

@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ツール on 毎日.log</title>
-    <link>//localhost:1313/tags/%E3%83%84%E3%83%BC%E3%83%AB/</link>
+    <link>https://fumi-til.com/tags/%E3%83%84%E3%83%BC%E3%83%AB/</link>
     <description>Recent content in ツール on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 02 Dec 2025 08:03:29 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 02 Dec 2025 08:03:29 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <link>https://fumi-til.com/posts/251202080329_download-github-issues-as-markdown-files/</link>
       <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
+      <guid>https://fumi-til.com/posts/251202080329_download-github-issues-as-markdown-files/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part4_その他ツール編</title>
-      <link>//localhost:1313/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</link>
+      <link>https://fumi-til.com/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:07:10 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</guid>
+      <guid>https://fumi-til.com/posts/251130070710_docker-environment-nodejs-miscellaneous-tools/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編</title>
-      <link>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</link>
+      <link>https://fumi-til.com/posts/251130070546_docker-environment-nodejs-code-quality-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:05:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</guid>
+      <guid>https://fumi-til.com/posts/251130070546_docker-environment-nodejs-code-quality-tools/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part2_フロントエンド開発ツール編</title>
-      <link>//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</link>
+      <link>https://fumi-til.com/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:01:32 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</guid>
+      <guid>https://fumi-til.com/posts/251130070132_docker-environment-nodejs-frontend-dev-tools/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編</title>
-      <link>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
+      <link>https://fumi-til.com/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
       <pubDate>Sun, 30 Nov 2025 06:58:41 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
+      <guid>https://fumi-til.com/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>VSCode_マルチカーソル編集</title>
-      <link>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</link>
+      <link>https://fumi-til.com/posts/251129112924_vscode-multi-cursor-editing/</link>
       <pubDate>Sat, 29 Nov 2025 11:29:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251129112924_vscode-multi-cursor-editing/</guid>
+      <guid>https://fumi-til.com/posts/251129112924_vscode-multi-cursor-editing/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Chromeにカスタム検索機能を実装する方法</title>
-      <link>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
+      <link>https://fumi-til.com/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
       <pubDate>Wed, 26 Nov 2025 03:10:04 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
+      <guid>https://fumi-til.com/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ログ調査_more・less・grep・zgrep</title>
-      <link>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
+      <link>https://fumi-til.com/posts/251123221331_log-investigation-more-less-grep-zgrep/</link>
       <pubDate>Sun, 23 Nov 2025 22:13:31 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
+      <guid>https://fumi-til.com/posts/251123221331_log-investigation-more-less-grep-zgrep/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Claudeの仕様確認：前回のセッションは引き継げるのか？</title>
-      <link>//localhost:1313/posts/251120225449_claude-specification-session-continuity-check/</link>
+      <link>https://fumi-til.com/posts/251120225449_claude-specification-session-continuity-check/</link>
       <pubDate>Thu, 20 Nov 2025 22:54:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251120225449_claude-specification-session-continuity-check/</guid>
+      <guid>https://fumi-til.com/posts/251120225449_claude-specification-session-continuity-check/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Gitコミット前の変更確認ガイド</title>
-      <link>//localhost:1313/posts/251120224617_git-change-check-commands/</link>
+      <link>https://fumi-til.com/posts/251120224617_git-change-check-commands/</link>
       <pubDate>Thu, 20 Nov 2025 22:46:17 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251120224617_git-change-check-commands/</guid>
+      <guid>https://fumi-til.com/posts/251120224617_git-change-check-commands/</guid>
       <description></description>
       
     </item>

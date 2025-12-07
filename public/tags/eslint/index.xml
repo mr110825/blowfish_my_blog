@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ESLint on 毎日.log</title>
-    <link>//localhost:1313/tags/eslint/</link>
+    <link>https://fumi-til.com/tags/eslint/</link>
     <description>Recent content in ESLint on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 07:05:46 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/eslint/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 30 Nov 2025 07:05:46 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/eslint/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part3_コード品質ツール編</title>
-      <link>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</link>
+      <link>https://fumi-til.com/posts/251130070546_docker-environment-nodejs-code-quality-tools/</link>
       <pubDate>Sun, 30 Nov 2025 07:05:46 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251130070546_docker-environment-nodejs-code-quality-tools/</guid>
+      <guid>https://fumi-til.com/posts/251130070546_docker-environment-nodejs-code-quality-tools/</guid>
       <description></description>
       
     </item>

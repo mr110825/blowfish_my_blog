@@ -2,111 +2,111 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS on 毎日.log</title>
-    <link>//localhost:1313/tags/aws/</link>
+    <link>https://fumi-til.com/tags/aws/</link>
     <description>Recent content in AWS on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 07 Dec 2025 18:21:51 +0900</lastBuildDate><atom:link href="//localhost:1313/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 07 Dec 2025 18:21:51 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>CloudFront &#43; OACで個別ページが404になる問題の解決</title>
-      <link>//localhost:1313/posts/251207182151_cloudfront-oac-404-page-issue-resolution/</link>
+      <link>https://fumi-til.com/posts/251207182151_cloudfront-oac-404-page-issue-resolution/</link>
       <pubDate>Sun, 07 Dec 2025 18:21:51 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251207182151_cloudfront-oac-404-page-issue-resolution/</guid>
+      <guid>https://fumi-til.com/posts/251207182151_cloudfront-oac-404-page-issue-resolution/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>AWS Budgetsアラートを受信したときの対応フロー</title>
-      <link>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</link>
+      <link>https://fumi-til.com/posts/251207175353_aws-budgets-alert-response-flow/</link>
       <pubDate>Sun, 07 Dec 2025 17:53:53 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251207175353_aws-budgets-alert-response-flow/</guid>
+      <guid>https://fumi-til.com/posts/251207175353_aws-budgets-alert-response-flow/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>CloudFront &#43; ACM証明書でハマるus-east-1制約</title>
-      <link>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
+      <link>https://fumi-til.com/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</link>
       <pubDate>Wed, 03 Dec 2025 19:49:06 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
+      <guid>https://fumi-til.com/posts/251203194906_cloudfront-acm-certificate-us-east-1-constraint/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Route53でドメインを購入する手順と注意点</title>
-      <link>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
+      <link>https://fumi-til.com/posts/251203194756_route53-domain-purchase-procedure-and-notes/</link>
       <pubDate>Wed, 03 Dec 2025 19:47:56 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
+      <guid>https://fumi-til.com/posts/251203194756_route53-domain-purchase-procedure-and-notes/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform tfstate管理の鶏と卵問題</title>
-      <link>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
+      <link>https://fumi-til.com/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</link>
       <pubDate>Wed, 03 Dec 2025 19:45:15 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
+      <guid>https://fumi-til.com/posts/251203194515_terraform-tfstate-management-chicken-egg-problem/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>ACM証明書とは？SSL/TLS証明書の基礎からCloudFront連携まで</title>
-      <link>//localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</link>
+      <link>https://fumi-til.com/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</link>
       <pubDate>Wed, 03 Dec 2025 19:43:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</guid>
+      <guid>https://fumi-til.com/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformモジュールで再利用可能なインフラを作る</title>
-      <link>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</link>
+      <link>https://fumi-til.com/posts/251129154214_terraform-reusable-infrastructure-modules/</link>
       <pubDate>Sat, 29 Nov 2025 15:42:14 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251129154214_terraform-reusable-infrastructure-modules/</guid>
+      <guid>https://fumi-til.com/posts/251129154214_terraform-reusable-infrastructure-modules/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</title>
-      <link>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</link>
+      <link>https://fumi-til.com/posts/251128193149_terraform-file-layout-separation/</link>
       <pubDate>Fri, 28 Nov 2025 19:31:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251128193149_terraform-file-layout-separation/</guid>
+      <guid>https://fumi-til.com/posts/251128193149_terraform-file-layout-separation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース</title>
-      <link>//localhost:1313/posts/251128185824_terraform-state-management-intro/</link>
+      <link>https://fumi-til.com/posts/251128185824_terraform-state-management-intro/</link>
       <pubDate>Fri, 28 Nov 2025 18:58:24 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251128185824_terraform-state-management-intro/</guid>
+      <guid>https://fumi-til.com/posts/251128185824_terraform-state-management-intro/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>TerraformでAWS環境を構築して削除するまで - 入門ハンズオン</title>
-      <link>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</link>
+      <link>https://fumi-til.com/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</link>
       <pubDate>Fri, 28 Nov 2025 00:43:23 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>//localhost:1313/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</guid>
+      <guid>https://fumi-til.com/posts/251128004323_terraform-aws-environment-setup-and-teardown-hands-on/</guid>
       <description></description>
       
     </item>
