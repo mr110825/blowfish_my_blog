@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>Terraform movedブロックでリソースを壊さずにmodule化する &middot; 毎日.log</title>
-    <meta name="title" content="Terraform movedブロックでリソースを壊さずにmodule化する &middot; 毎日.log">
+  <title>draw.ioでAWSアーキテクチャ図を作成する &middot; 毎日.log</title>
+    <meta name="title" content="draw.ioでAWSアーキテクチャ図を作成する &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="インフラ,Terraform,AWS,実践,">
+  <meta name="keywords" content="ツール,AWS,インフラ,実践,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
+  <link rel="canonical" href="http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
   
   
   
@@ -99,23 +99,23 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
+  <meta property="og:url" content="http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="Terraform movedブロックでリソースを壊さずにmodule化する">
+  <meta property="og:title" content="draw.ioでAWSアーキテクチャ図を作成する">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-08T08:20:23+09:00">
-    <meta property="article:modified_time" content="2025-12-08T08:20:23+09:00">
-    <meta property="article:tag" content="インフラ">
-    <meta property="article:tag" content="Terraform">
+    <meta property="article:published_time" content="2025-12-09T23:17:24+09:00">
+    <meta property="article:modified_time" content="2025-12-09T23:17:24+09:00">
+    <meta property="article:tag" content="ツール">
     <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="インフラ">
     <meta property="article:tag" content="実践">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Terraform movedブロックでリソースを壊さずにmodule化する">
+  <meta name="twitter:title" content="draw.ioでAWSアーキテクチャ図を作成する">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Terraform movedブロックでリソースを壊さずにmodule化する",
-    "headline": "Terraform movedブロックでリソースを壊さずにmodule化する",
+    "name": "draw.ioでAWSアーキテクチャ図を作成する",
+    "headline": "draw.ioでAWSアーキテクチャ図を作成する",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/251208082023_terraform-moved-block-module-without-breaking-production-resources\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251209231724_create-aws-architecture-diagram-with-drawio\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-08T08:20:23\u002b09:00",
-    "datePublished": "2025-12-08T08:20:23\u002b09:00",
+    "dateCreated": "2025-12-09T23:17:24\u002b09:00",
+    "datePublished": "2025-12-09T23:17:24\u002b09:00",
     
-    "dateModified": "2025-12-08T08:20:23\u002b09:00",
+    "dateModified": "2025-12-09T23:17:24\u002b09:00",
     
-    "keywords": ["インフラ","Terraform","AWS","実践"],
+    "keywords": ["ツール","AWS","インフラ","実践"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "250"
+    "wordCount": "154"
   }]
   </script>
 
@@ -477,7 +477,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Terraform movedブロックでリソースを壊さずにmodule化する
+        draw.ioでAWSアーキテクチャ図を作成する
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -528,7 +528,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-08T08:20:23&#43;09:00">2025年 12月 8日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-09T23:17:24&#43;09:00">2025年 12月 9日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -575,23 +575,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%83%84%E3%83%BC%E3%83%AB/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    インフラ
-  </span>
-</span>
-
-              </span>
-            
-              <span
-                class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Terraform
+    ツール
   </span>
 </span>
 
@@ -604,6 +592,18 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     AWS
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    インフラ
   </span>
 </span>
 
@@ -678,27 +678,27 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#背景と課題">背景と課題</a></li>
-        <li><a href="#movedブロックとは">movedブロックとは</a></li>
-        <li><a href="#実践s3バケットのmodule化">実践：S3バケットのmodule化</a>
+        <li><a href="#なぜdrawioを選んだか">なぜdraw.ioを選んだか</a></li>
+        <li><a href="#aws公式アイコンの導入手順">AWS公式アイコンの導入手順</a></li>
+        <li><a href="#作成時に意識したポイント">作成時に意識したポイント</a>
           <ul>
-            <li><a href="#step-1-moduleと呼び出し元の構成">Step 1: moduleと呼び出し元の構成</a></li>
-            <li><a href="#step-2-module呼び出しとmovedブロックを記述">Step 2: module呼び出しとmovedブロックを記述</a></li>
-            <li><a href="#step-3-terraform-planで確認">Step 3: terraform planで確認</a></li>
-            <li><a href="#step-4-terraform-apply">Step 4: terraform apply</a></li>
+            <li><a href="#1-対象者を意識する">1. 対象者を意識する</a></li>
+            <li><a href="#2-矢印を交差させない">2. 矢印を交差させない</a></li>
+            <li><a href="#3-一貫した命名">3. 一貫した命名</a></li>
+            <li><a href="#4-凡例を追加する">4. 凡例を追加する</a></li>
           </ul>
         </li>
-        <li><a href="#ハマったポイント">ハマったポイント</a>
+        <li><a href="#メンターからのフィードバック">メンターからのフィードバック</a>
           <ul>
-            <li><a href="#動的な名前生成による再作成">動的な名前生成による再作成</a></li>
-            <li><a href="#movedブロックはapply後に削除可能">movedブロックはapply後に削除可能</a></li>
-            <li><a href="#data-sourceはmovedブロック不要">data sourceはmovedブロック不要</a></li>
+            <li><a href="#全体評価">全体評価</a></li>
+            <li><a href="#指摘された点">指摘された点</a></li>
           </ul>
         </li>
+        <li><a href="#修正内容">修正内容</a></li>
+        <li><a href="#説明順序">説明順序</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
-    <li><a href="#補足個人開発でmodule化は必要だったか">補足：個人開発でmodule化は必要だったか？</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -716,27 +716,27 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#背景と課題">背景と課題</a></li>
-        <li><a href="#movedブロックとは">movedブロックとは</a></li>
-        <li><a href="#実践s3バケットのmodule化">実践：S3バケットのmodule化</a>
+        <li><a href="#なぜdrawioを選んだか">なぜdraw.ioを選んだか</a></li>
+        <li><a href="#aws公式アイコンの導入手順">AWS公式アイコンの導入手順</a></li>
+        <li><a href="#作成時に意識したポイント">作成時に意識したポイント</a>
           <ul>
-            <li><a href="#step-1-moduleと呼び出し元の構成">Step 1: moduleと呼び出し元の構成</a></li>
-            <li><a href="#step-2-module呼び出しとmovedブロックを記述">Step 2: module呼び出しとmovedブロックを記述</a></li>
-            <li><a href="#step-3-terraform-planで確認">Step 3: terraform planで確認</a></li>
-            <li><a href="#step-4-terraform-apply">Step 4: terraform apply</a></li>
+            <li><a href="#1-対象者を意識する">1. 対象者を意識する</a></li>
+            <li><a href="#2-矢印を交差させない">2. 矢印を交差させない</a></li>
+            <li><a href="#3-一貫した命名">3. 一貫した命名</a></li>
+            <li><a href="#4-凡例を追加する">4. 凡例を追加する</a></li>
           </ul>
         </li>
-        <li><a href="#ハマったポイント">ハマったポイント</a>
+        <li><a href="#メンターからのフィードバック">メンターからのフィードバック</a>
           <ul>
-            <li><a href="#動的な名前生成による再作成">動的な名前生成による再作成</a></li>
-            <li><a href="#movedブロックはapply後に削除可能">movedブロックはapply後に削除可能</a></li>
-            <li><a href="#data-sourceはmovedブロック不要">data sourceはmovedブロック不要</a></li>
+            <li><a href="#全体評価">全体評価</a></li>
+            <li><a href="#指摘された点">指摘された点</a></li>
           </ul>
         </li>
+        <li><a href="#修正内容">修正内容</a></li>
+        <li><a href="#説明順序">説明順序</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
-    <li><a href="#補足個人開発でmodule化は必要だったか">補足：個人開発でmodule化は必要だったか？</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -850,7 +850,8 @@
     </span>        
     
 </h2>
-<p>Terraform movedブロックを使って、既存のTerraformリソースをダウンタイムなしでmodule化しました。movedブロックはStateの参照先だけを変更し、実リソースには触れずにリファクタリングできる機能です。</p>
+<p>個人プロジェクト（技術ブログのAWS移行）のアーキテクチャ図をdraw.ioで作成しました。<br>
+メンターレビューを通じて、「操作主体を明確にする」「分かりにくいフローは凡例で補足する」といった構成図作成のポイントを学びました。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -862,175 +863,257 @@
     
 </h2>
 
-<h3 class="relative group">背景と課題 
-    <div id="背景と課題" class="anchor"></div>
+<h3 class="relative group">なぜdraw.ioを選んだか 
+    <div id="なぜdrawioを選んだか" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%83%8c%e6%99%af%e3%81%a8%e8%aa%b2%e9%a1%8c" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9cdrawio%e3%82%92%e9%81%b8%e3%82%93%e3%81%a0%e3%81%8b" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>個人プロジェクトで構築したAWSインフラ（S3、CloudFront、IAM等）をTerraform module化したいと考えました。最初は<code>environments/prod/</code>に全リソースをベタ書きしていましたが、再利用性と可読性のためにmodule構成に移行することにしました。</p>
-<p>しかし、単純にmoduleに移動すると、Terraformは「旧リソースを削除 → 新規作成」と判断します。本番稼働中のサイトでダウンタイムが発生してしまう問題がありました。</p>
+<p>最初はMermaidで構成図を書いていましたが、面接での説明を考えてdraw.ioに変更しました。</p>
+<table>
+  <thead>
+      <tr>
+          <th>選択肢</th>
+          <th>メリット</th>
+          <th>デメリット</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Mermaid</td>
+          <td>コードで管理できる、GitHubで直接表示</td>
+          <td>AWSアイコンが使えない、見た目が簡素</td>
+      </tr>
+      <tr>
+          <td>draw.io</td>
+          <td>AWS公式アイコン、視覚的に分かりやすい</td>
+          <td>画像ファイルとして管理</td>
+      </tr>
+  </tbody>
+</table>
+<p>構成図を使った説明を求められる確率は高いため、AWS公式アイコンを使える<br>
+draw.io を選択しました。自分で配置を考えて書いた図なら、細部まで説明できます。</p>
 
-<h3 class="relative group">movedブロックとは 
-    <div id="movedブロックとは" class="anchor"></div>
+<h3 class="relative group">AWS公式アイコンの導入手順 
+    <div id="aws公式アイコンの導入手順" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#moved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws%e5%85%ac%e5%bc%8f%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e3%81%ae%e5%b0%8e%e5%85%a5%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>Terraform 1.1で導入された機能です。Stateの参照先だけを変更し、実リソースには触らずにリファクタリングできます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">moved</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  from</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">content</span><span class="c1">                    # 旧パス
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">  to</span>   <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">s3_content</span><span class="p">.</span><span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">this</span><span class="c1">     # 新パス
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
-</span></span></code></pre></div>
-<h3 class="relative group">実践：S3バケットのmodule化 
-    <div id="実践s3バケットのmodule化" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%b7%b5s3%e3%83%90%e3%82%b1%e3%83%83%e3%83%88%e3%81%aemodule%e5%8c%96" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
+<p>draw.ioでは「AWS 2025」のアイコンセットが使えます。</p>
+<ol>
+<li>draw.ioを開く（https://app.diagrams.net/）</li>
+<li>左側パネルの「+ More Shapes」をクリック</li>
+<li>「AWS」カテゴリから「AWS 2025」を選択</li>
+<li>「Apply」で追加完了</li>
+</ol>
+<p>これでS3、CloudFront、Route53などのAWSサービスアイコンが使えるようになります。</p>
 
-<h4 class="relative group">Step 1: moduleと呼び出し元の構成 
-    <div id="step-1-moduleと呼び出し元の構成" class="anchor"></div>
+<h3 class="relative group">作成時に意識したポイント 
+    <div id="作成時に意識したポイント" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-module%e3%81%a8%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e5%85%83%e3%81%ae%e6%a7%8b%e6%88%90" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<pre tabindex="0"><code>├── environments/prod/
-│   └── main.tf              ← movedブロックを記述
-└── modules/s3-content/
-    ├── main.tf
-    ├── outputs.tf
-    └── variables.tf
-</code></pre>
-<h4 class="relative group">Step 2: module呼び出しとmovedブロックを記述 
-    <div id="step-2-module呼び出しとmovedブロックを記述" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-module%e5%91%bc%e3%81%b3%e5%87%ba%e3%81%97%e3%81%a8moved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%82%92%e8%a8%98%e8%bf%b0" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># environments/prod/main.tf
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
-</span></span><span class="line"><span class="cl"><span class="k">module</span> <span class="s2">&#34;s3_content&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  source</span>      <span class="o">=</span> <span class="s2">&#34;../../modules/s3-content&#34;</span>
-</span></span><span class="line"><span class="cl"><span class="n">  bucket_name</span> <span class="o">=</span> <span class="s2">&#34;example-content&#34;</span>
-</span></span><span class="line"><span class="cl">}<span class="c1">
-</span></span></span><span class="line"><span class="cl"><span class="c1">
-</span></span></span><span class="line"><span class="cl"><span class="c1"># State移行
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">moved</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  from</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">content</span>
-</span></span><span class="line"><span class="cl"><span class="n">  to</span>   <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">s3_content</span><span class="p">.</span><span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">this</span>
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">moved</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  from</span> <span class="o">=</span> <span class="k">aws_s3_bucket_public_access_block</span><span class="p">.</span><span class="k">content</span>
-</span></span><span class="line"><span class="cl"><span class="n">  to</span>   <span class="o">=</span> <span class="k">module</span><span class="p">.</span><span class="k">s3_content</span><span class="p">.</span><span class="k">aws_s3_bucket_public_access_block</span><span class="p">.</span><span class="k">this</span>
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></div>
-<h4 class="relative group">Step 3: terraform planで確認 
-    <div id="step-3-terraform-planで確認" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-terraform-plan%e3%81%a7%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ terraform plan
-</span></span><span class="line"><span class="cl"><span class="c1"># Terraform will perform the following actions:</span>
-</span></span><span class="line"><span class="cl"><span class="c1">#   # aws_s3_bucket.content has moved to module.s3_content.aws_s3_bucket.this</span>
-</span></span><span class="line"><span class="cl"><span class="c1"># Plan: 0 to add, 0 to change, 0 to destroy.</span>
-</span></span></code></pre></div><p><code>0 to add, 0 to change, 0 to destroy</code>と表示されれば成功です。Stateの参照が変わるだけで、S3バケット自体は変更されません。</p>
-
-<h4 class="relative group">Step 4: terraform apply 
-    <div id="step-4-terraform-apply" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-4-terraform-apply" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ terraform apply
-</span></span><span class="line"><span class="cl">Apply complete! Resources: <span class="m">0</span> added, <span class="m">0</span> changed, <span class="m">0</span> destroyed.
-</span></span></code></pre></div>
-<h3 class="relative group">ハマったポイント 
-    <div id="ハマったポイント" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%8f%e3%83%9e%e3%81%a3%e3%81%9f%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%9c%e6%88%90%e6%99%82%e3%81%ab%e6%84%8f%e8%ad%98%e3%81%97%e3%81%9f%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 
-<h4 class="relative group">動的な名前生成による再作成 
-    <div id="動的な名前生成による再作成" class="anchor"></div>
+<h4 class="relative group">1. 対象者を意識する 
+    <div id="1-対象者を意識する" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8b%95%e7%9a%84%e3%81%aa%e5%90%8d%e5%89%8d%e7%94%9f%e6%88%90%e3%81%ab%e3%82%88%e3%82%8b%e5%86%8d%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e5%af%be%e8%b1%a1%e8%80%85%e3%82%92%e6%84%8f%e8%ad%98%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<p>module内でリソース名を動的生成すると、既存リソースと名前が変わって再作成が発生することがあります。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># ❌ これだと再作成が発生する可能性
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_function&#34; &#34;this&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;${var.name_prefix}-url-rewrite&#34;</span>
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></div><p>解決策として、変数で既存の名前を明示的に渡します。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># ✅ 既存名を変数で渡す
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">variable</span> <span class="s2">&#34;function_name&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  type</span> <span class="o">=</span> <span class="k">string</span>
-</span></span><span class="line"><span class="cl">}
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_function&#34; &#34;this&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">function_name</span>
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></div>
-<h4 class="relative group">movedブロックはapply後に削除可能 
-    <div id="movedブロックはapply後に削除可能" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#moved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e3%81%afapply%e5%be%8c%e3%81%ab%e5%89%8a%e9%99%a4%e5%8f%af%e8%83%bd" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>movedブロックはapply後、Stateに反映済みであれば削除して問題ありません。残しておくとコードが煩雑になるため、適宜整理します。</p>
+<p>この構成図を見る人は誰か（面接官、自分）を考え、過度に詳細にせず、主要なコンポーネントと流れが分かるレベルに留めました。</p>
 
-<h4 class="relative group">data sourceはmovedブロック不要 
-    <div id="data-sourceはmovedブロック不要" class="anchor"></div>
+<h4 class="relative group">2. 矢印を交差させない 
+    <div id="2-矢印を交差させない" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#data-source%e3%81%afmoved%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e4%b8%8d%e8%a6%81" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e7%9f%a2%e5%8d%b0%e3%82%92%e4%ba%a4%e5%b7%ae%e3%81%95%e3%81%9b%e3%81%aa%e3%81%84" aria-label="アンカー">#</a>
     </span>        
     
 </h4>
-<p>既存リソースを参照するだけの<code>data source</code>はState移行が不要です。そのままmodule化できます。</p>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># 参照のみなのでmovedブロック不要
-</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">data</span> <span class="s2">&#34;aws_acm_certificate&#34; &#34;this&#34;</span> {
-</span></span><span class="line"><span class="cl"><span class="n">  domain</span>      <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">domain_name</span>
-</span></span><span class="line"><span class="cl"><span class="n">  statuses</span>    <span class="o">=</span> <span class="p">[</span><span class="s2">&#34;ISSUED&#34;</span><span class="p">]</span>
-</span></span><span class="line"><span class="cl"><span class="n">  most_recent</span> <span class="o">=</span> <span class="kt">true</span>
-</span></span><span class="line"><span class="cl">}
-</span></span></code></pre></div>
+<p>矢印が交差すると、どこからどこへの通信か分かりにくくなります。配置を工夫して交差を避けました。</p>
+
+<h4 class="relative group">3. 一貫した命名 
+    <div id="3-一貫した命名" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e4%b8%80%e8%b2%ab%e3%81%97%e3%81%9f%e5%91%bd%e5%90%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>構成図内のラベルとTerraformのリソース名を一致させると、コードとの対応が取りやすくなります。</p>
+
+<h4 class="relative group">4. 凡例を追加する 
+    <div id="4-凡例を追加する" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e5%87%a1%e4%be%8b%e3%82%92%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>矢印の意味が自明でない場合は凡例で補足します。<br>
+今回は「データの流れ（実線）」「メトリクス/ログ（破線）」を左上に配置しました。</p>
+
+<h3 class="relative group">メンターからのフィードバック 
+    <div id="メンターからのフィードバック" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%83%b3%e3%82%bf%e3%83%bc%e3%81%8b%e3%82%89%e3%81%ae%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>所属しているスクール（RareTECH）でメンターにレビューを依頼しました。</p>
+
+<h4 class="relative group">全体評価 
+    <div id="全体評価" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%a8%e4%bd%93%e8%a9%95%e4%be%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<blockquote>
+<p>「とても綺麗」「このまま出しても違和感ない」</p>
+</blockquote>
+
+<h4 class="relative group">指摘された点 
+    <div id="指摘された点" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8c%87%e6%91%98%e3%81%95%e3%82%8c%e3%81%9f%e7%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>CI/CDフローの矢印が分かりにくい</strong></p>
+<p>
+
+
+
+
+
+
+<figure>
+      <img class="my-0 rounded-md" loading="lazy" alt="修正前の構成図" src="/img/architecture.svg">
+
+  
+</figure>
+</p>
+<p>修正前は「IAM → S3」「IAM → CloudFront」という矢印を引いていました。これだと「IAMがS3を操作する」ように見えてしまいます。</p>
+<p>実際の流れは以下の通りです。</p>
+<ol>
+<li>GitHub ActionsがIAMロールを引き受ける（OIDC認証）</li>
+<li>GitHub ActionsがS3にコンテンツを同期する</li>
+<li>GitHub ActionsがCloudFrontのキャッシュを無効化する</li>
+</ol>
+<table>
+  <thead>
+      <tr>
+          <th>コンポーネント</th>
+          <th>役割</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>GitHub Actions</td>
+          <td><strong>操作の実行主体</strong>（APIコールを行う）</td>
+      </tr>
+      <tr>
+          <td>IAM ロール</td>
+          <td>認証・認可（権限付与）</td>
+      </tr>
+      <tr>
+          <td>S3 / CloudFront</td>
+          <td>操作対象</td>
+      </tr>
+  </tbody>
+</table>
+<p>IAMは「鍵」であって「操作者」ではないため、矢印の起点を修正する必要がありました。</p>
+
+<h3 class="relative group">修正内容 
+    <div id="修正内容" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bf%ae%e6%ad%a3%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>修正項目</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>矢印削除</td>
+          <td>IAM → S3 / IAM → CloudFront</td>
+      </tr>
+      <tr>
+          <td>矢印追加</td>
+          <td>GitHub Actions → S3（コンテンツ同期）</td>
+      </tr>
+      <tr>
+          <td>矢印追加</td>
+          <td>GitHub Actions → CloudFront（キャッシュ無効化）</td>
+      </tr>
+      <tr>
+          <td>凡例追加</td>
+          <td>「GitHub ActionsはIAMによるOIDC認証後、S3・CloudFrontを操作」</td>
+      </tr>
+  </tbody>
+</table>
+<p>
+
+
+
+
+
+
+<figure>
+      <img class="my-0 rounded-md" loading="lazy" alt="修正後の構成図" src="/img/architecture20251209.svg">
+
+  
+</figure>
+</p>
+
+<h3 class="relative group">説明順序 
+    <div id="説明順序" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%aa%ac%e6%98%8e%e9%a0%86%e5%ba%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>構成図を使って説明するときの順序は下記。</p>
+<ol>
+<li><strong>メインフロー</strong>: ユーザー → Route53 → CloudFront → S3（コンテンツ配信の基本経路）</li>
+<li><strong>CI/CD</strong>: GitHub Actions → IAM（OIDC）→ S3/CloudFront（デプロイの流れ）</li>
+<li><strong>監視</strong>: CloudWatch → SNS → メール通知（運用視点）</li>
+</ol>
+<p>上から下、左から右に流れるように配置すると説明しやすくなります。</p>
+
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
     
@@ -1043,69 +1126,29 @@
 <table>
   <thead>
       <tr>
-          <th>ポイント</th>
-          <th>内容</th>
+          <th>学んだこと</th>
+          <th>詳細</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>movedブロックの用途</td>
-          <td>既存リソースを壊さずにmodule化・リネーム</td>
+          <td>操作主体を明確にする</td>
+          <td>「IAMがS3を操作」ではなく「GitHub ActionsがS3を操作」</td>
       </tr>
       <tr>
-          <td>成功の確認方法</td>
-          <td><code>Plan: 0 to add, 0 to change, 0 to destroy</code></td>
+          <td>凡例で補足する</td>
+          <td>分かりにくいフロー（CI/CD、認証）は説明文を追加</td>
       </tr>
       <tr>
-          <td>apply後の扱い</td>
-          <td>movedブロックは削除可能</td>
+          <td>レビューを依頼する</td>
+          <td>自分では気づかない指摘をもらえる</td>
       </tr>
       <tr>
-          <td>data sourceの扱い</td>
-          <td>参照のみなのでState移行不要</td>
-      </tr>
-      <tr>
-          <td>名前変更に注意</td>
-          <td>動的生成で名前が変わると再作成される</td>
+          <td>自分で書いた図は説明しやすい</td>
+          <td>「なぜこの配置にしたか」を説明できる</td>
       </tr>
   </tbody>
 </table>
-
-<h2 class="relative group">補足：個人開発でmodule化は必要だったか？ 
-    <div id="補足個人開発でmodule化は必要だったか" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a3%9c%e8%b6%b3%e5%80%8b%e4%ba%ba%e9%96%8b%e7%99%ba%e3%81%a7module%e5%8c%96%e3%81%af%e5%bf%85%e8%a6%81%e3%81%a0%e3%81%a3%e3%81%9f%e3%81%8b" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<p>正直、現段階のプロジェクトでは不要だったと思います。<br>
-今回はブログ環境をAWSへ移行するプロジェクトでmovedブロックを使用しました。<br>
-ただ、以下の理由でmodule化を選択しました。</p>
-<table>
-  <thead>
-      <tr>
-          <th>観点</th>
-          <th>理由</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>将来の拡張性</td>
-          <td>テスト実装やセキュリティスキャン導入時、module単位で検証できる</td>
-      </tr>
-      <tr>
-          <td>実務経験の代替</td>
-          <td>実務ではmodule化が一般的。設計パターンを経験しておきたかった</td>
-      </tr>
-      <tr>
-          <td>学習効果</td>
-          <td>movedブロック、マルチリージョンprovider、依存関係設計を一度に学べた</td>
-      </tr>
-  </tbody>
-</table>
-<p>「今必要か」だけでなく「将来拡張しやすいか」「学習として価値があるか」も判断軸に入れました。</p>
 
 <h2 class="relative group">参考 
     <div id="参考" class="anchor"></div>
@@ -1118,11 +1161,13 @@
 </h2>
 <ul>
 <li><a
-  href="https://developer.hashicorp.com/terraform/language/modules/develop/refactoring"
+  href="https://app.diagrams.net/"
     target="_blank"
-  >Refactoring - Terraform</a></li>
+  >draw.io公式</a></li>
 <li><a
-  href="/posts/251202083121_terraform-stumbling-points-and-solutions/">Terraform のつまずきポイントと回避策</a></li>
+  href="https://aws.amazon.com/architecture/icons/"
+    target="_blank"
+  >AWS Architecture Icons</a></li>
 </ul>
 
           
@@ -1153,8 +1198,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251208082023_terraform-moved-block-module-without-breaking-production-resources.md"
-          data-oid-likes="likes_posts/251208082023_terraform-moved-block-module-without-breaking-production-resources.md"></script>
+          data-oid="views_posts/251209231724_create-aws-architecture-diagram-with-drawio.md"
+          data-oid-likes="likes_posts/251209231724_create-aws-architecture-diagram-with-drawio.md"></script>
       
 
     </section>
@@ -1169,7 +1214,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251208075901_github-actions-oidc-aws-authentication/">
+            <a class="flex group mr-3" href="/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1180,11 +1225,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >GitHub Actions + OIDC認証でアクセスキー不要のAWS認証を実現する</span
+                  >Terraform movedブロックでリソースを壊さずにmodule化する</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-08T07:59:01&#43;09:00">2025年 12月 8日</time>
+                    <time datetime="2025-12-08T08:20:23&#43;09:00">2025年 12月 8日</time>
                   
                 </span>
               </span>
@@ -1192,27 +1237,6 @@
           
         </span>
         <span>
-          
-            <a class="flex text-right group ml-3" href="/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
-              <span class="flex flex-col">
-                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >draw.ioでAWSアーキテクチャ図を作成する</span
-                >
-                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
-                  
-                    <time datetime="2025-12-09T23:17:24&#43;09:00">2025年 12月 9日</time>
-                  
-                </span>
-              </span>
-              <span
-                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
-                >&rarr;</span
-              >
-              <span
-                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
-                >&larr;</span
-              >
-            </a>
           
         </span>
       </div>
