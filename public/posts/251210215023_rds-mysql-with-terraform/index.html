@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>draw.ioでAWSアーキテクチャ図を作成する &middot; 毎日.log</title>
-    <meta name="title" content="draw.ioでAWSアーキテクチャ図を作成する &middot; 毎日.log">
+  <title>RDS（MySQL）をTerraformで構築 &middot; 毎日.log</title>
+    <meta name="title" content="RDS（MySQL）をTerraformで構築 &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="ツール,AWS,インフラ,実践,">
+  <meta name="keywords" content="インフラ,AWS,Terraform,ハンズオン・チュートリアル,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
+  <link rel="canonical" href="http://localhost:1313/posts/251210215023_rds-mysql-with-terraform/">
   
   
   
@@ -99,23 +99,23 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
+  <meta property="og:url" content="http://localhost:1313/posts/251210215023_rds-mysql-with-terraform/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="draw.ioでAWSアーキテクチャ図を作成する">
+  <meta property="og:title" content="RDS（MySQL）をTerraformで構築">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-09T23:17:24+09:00">
-    <meta property="article:modified_time" content="2025-12-09T23:17:24+09:00">
-    <meta property="article:tag" content="ツール">
-    <meta property="article:tag" content="AWS">
+    <meta property="article:published_time" content="2025-12-10T21:50:23+09:00">
+    <meta property="article:modified_time" content="2025-12-10T21:50:23+09:00">
     <meta property="article:tag" content="インフラ">
-    <meta property="article:tag" content="実践">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="ハンズオン・チュートリアル">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="draw.ioでAWSアーキテクチャ図を作成する">
+  <meta name="twitter:title" content="RDS（MySQL）をTerraformで構築">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "draw.ioでAWSアーキテクチャ図を作成する",
-    "headline": "draw.ioでAWSアーキテクチャ図を作成する",
+    "name": "RDS（MySQL）をTerraformで構築",
+    "headline": "RDS（MySQL）をTerraformで構築",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/251209231724_create-aws-architecture-diagram-with-drawio\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251210215023_rds-mysql-with-terraform\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-09T23:17:24\u002b09:00",
-    "datePublished": "2025-12-09T23:17:24\u002b09:00",
+    "dateCreated": "2025-12-10T21:50:23\u002b09:00",
+    "datePublished": "2025-12-10T21:50:23\u002b09:00",
     
-    "dateModified": "2025-12-09T23:17:24\u002b09:00",
+    "dateModified": "2025-12-10T21:50:23\u002b09:00",
     
-    "keywords": ["ツール","AWS","インフラ","実践"],
+    "keywords": ["インフラ","AWS","Terraform","ハンズオン・チュートリアル"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "154"
+    "wordCount": "373"
   }]
   </script>
 
@@ -477,7 +477,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        draw.ioでAWSアーキテクチャ図を作成する
+        RDS（MySQL）をTerraformで構築
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -528,7 +528,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-09T23:17:24&#43;09:00">2025年 12月 9日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-10T21:50:23&#43;09:00">2025年 12月 10日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -575,11 +575,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%84%E3%83%BC%E3%83%AB/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ツール
+    インフラ
   </span>
 </span>
 
@@ -599,11 +599,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    インフラ
+    Terraform
   </span>
 </span>
 
@@ -611,11 +611,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E5%AE%9F%E8%B7%B5/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    実践
+    ハンズオン・チュートリアル
   </span>
 </span>
 
@@ -678,24 +678,28 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#なぜdrawioを選んだか">なぜdraw.ioを選んだか</a></li>
-        <li><a href="#aws公式アイコンの導入手順">AWS公式アイコンの導入手順</a></li>
-        <li><a href="#作成時に意識したポイント">作成時に意識したポイント</a>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#構築するリソース">構築するリソース</a></li>
+        <li><a href="#dbサブネットグループの作成">DBサブネットグループの作成</a></li>
+        <li><a href="#rdsインスタンスの作成">RDSインスタンスの作成</a></li>
+        <li><a href="#設定項目の解説">設定項目の解説</a>
           <ul>
-            <li><a href="#1-対象者を意識する">1. 対象者を意識する</a></li>
-            <li><a href="#2-矢印を交差させない">2. 矢印を交差させない</a></li>
-            <li><a href="#3-一貫した命名">3. 一貫した命名</a></li>
-            <li><a href="#4-凡例を追加する">4. 凡例を追加する</a></li>
+            <li><a href="#基本設定">基本設定</a></li>
+            <li><a href="#インスタンス設定">インスタンス設定</a></li>
+            <li><a href="#セキュリティ設定">セキュリティ設定</a></li>
           </ul>
         </li>
-        <li><a href="#メンターからのフィードバック">メンターからのフィードバック</a>
+        <li><a href="#学習用と本番用の設定の違い">学習用と本番用の設定の違い</a></li>
+        <li><a href="#パスワード管理本番向け">パスワード管理（本番向け）</a>
           <ul>
-            <li><a href="#全体評価">全体評価</a></li>
-            <li><a href="#指摘された点">指摘された点</a></li>
+            <li><a href="#方法1-変数で外部化">方法1: 変数で外部化</a></li>
+            <li><a href="#方法2-secrets-manager推奨">方法2: Secrets Manager（推奨）</a></li>
           </ul>
         </li>
-        <li><a href="#修正内容">修正内容</a></li>
-        <li><a href="#説明順序">説明順序</a></li>
+        <li><a href="#security-group設計復習">Security Group設計（復習）</a></li>
+        <li><a href="#作成にかかる時間">作成にかかる時間</a></li>
+        <li><a href="#接続確認">接続確認</a></li>
+        <li><a href="#ec2上のdb-vs-rds">EC2上のDB vs RDS</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -716,24 +720,28 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#なぜdrawioを選んだか">なぜdraw.ioを選んだか</a></li>
-        <li><a href="#aws公式アイコンの導入手順">AWS公式アイコンの導入手順</a></li>
-        <li><a href="#作成時に意識したポイント">作成時に意識したポイント</a>
+        <li><a href="#背景">背景</a></li>
+        <li><a href="#構築するリソース">構築するリソース</a></li>
+        <li><a href="#dbサブネットグループの作成">DBサブネットグループの作成</a></li>
+        <li><a href="#rdsインスタンスの作成">RDSインスタンスの作成</a></li>
+        <li><a href="#設定項目の解説">設定項目の解説</a>
           <ul>
-            <li><a href="#1-対象者を意識する">1. 対象者を意識する</a></li>
-            <li><a href="#2-矢印を交差させない">2. 矢印を交差させない</a></li>
-            <li><a href="#3-一貫した命名">3. 一貫した命名</a></li>
-            <li><a href="#4-凡例を追加する">4. 凡例を追加する</a></li>
+            <li><a href="#基本設定">基本設定</a></li>
+            <li><a href="#インスタンス設定">インスタンス設定</a></li>
+            <li><a href="#セキュリティ設定">セキュリティ設定</a></li>
           </ul>
         </li>
-        <li><a href="#メンターからのフィードバック">メンターからのフィードバック</a>
+        <li><a href="#学習用と本番用の設定の違い">学習用と本番用の設定の違い</a></li>
+        <li><a href="#パスワード管理本番向け">パスワード管理（本番向け）</a>
           <ul>
-            <li><a href="#全体評価">全体評価</a></li>
-            <li><a href="#指摘された点">指摘された点</a></li>
+            <li><a href="#方法1-変数で外部化">方法1: 変数で外部化</a></li>
+            <li><a href="#方法2-secrets-manager推奨">方法2: Secrets Manager（推奨）</a></li>
           </ul>
         </li>
-        <li><a href="#修正内容">修正内容</a></li>
-        <li><a href="#説明順序">説明順序</a></li>
+        <li><a href="#security-group設計復習">Security Group設計（復習）</a></li>
+        <li><a href="#作成にかかる時間">作成にかかる時間</a></li>
+        <li><a href="#接続確認">接続確認</a></li>
+        <li><a href="#ec2上のdb-vs-rds">EC2上のDB vs RDS</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -850,8 +858,7 @@
     </span>        
     
 </h2>
-<p>個人プロジェクト（技術ブログのAWS移行）のアーキテクチャ図をdraw.ioで作成しました。<br>
-メンターレビューを通じて、「操作主体を明確にする」「分かりにくいフローは凡例で補足する」といった構成図作成のポイントを学びました。</p>
+<p>TerraformでRDS（MySQL）を構築しました。DBサブネットグループにはシングルAZ構成でも2つの異なるAZのサブネットが必須であること、パスワード管理の本番向け手法を学びました。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -863,256 +870,424 @@
     
 </h2>
 
-<h3 class="relative group">なぜdraw.ioを選んだか 
-    <div id="なぜdrawioを選んだか" class="anchor"></div>
+<h3 class="relative group">背景 
+    <div id="背景" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9cdrawio%e3%82%92%e9%81%b8%e3%82%93%e3%81%a0%e3%81%8b" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%83%8c%e6%99%af" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>最初はMermaidで構成図を書いていましたが、面接での説明を考えてdraw.ioに変更しました。</p>
-<table>
-  <thead>
-      <tr>
-          <th>選択肢</th>
-          <th>メリット</th>
-          <th>デメリット</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Mermaid</td>
-          <td>コードで管理できる、GitHubで直接表示</td>
-          <td>AWSアイコンが使えない、見た目が簡素</td>
-      </tr>
-      <tr>
-          <td>draw.io</td>
-          <td>AWS公式アイコン、視覚的に分かりやすい</td>
-          <td>画像ファイルとして管理</td>
-      </tr>
-  </tbody>
-</table>
-<p>構成図を使った説明を求められる確率は高いため、AWS公式アイコンを使える<br>
-draw.io を選択しました。自分で配置を考えて書いた図なら、細部まで説明できます。</p>
+<p>「Amazon Web Services 基礎からのネットワーク&amp;サーバー構築」ではEC2上にMariaDBを構築していましたが、実務ではマネージドサービスのRDSを使うことが多いため、Terraformで構築しました。</p>
 
-<h3 class="relative group">AWS公式アイコンの導入手順 
-    <div id="aws公式アイコンの導入手順" class="anchor"></div>
+<h3 class="relative group">構築するリソース 
+    <div id="構築するリソース" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws%e5%85%ac%e5%bc%8f%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e3%81%ae%e5%b0%8e%e5%85%a5%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>draw.ioでは「AWS 2025」のアイコンセットが使えます。</p>
-<ol>
-<li>draw.ioを開く（https://app.diagrams.net/）</li>
-<li>左側パネルの「+ More Shapes」をクリック</li>
-<li>「AWS」カテゴリから「AWS 2025」を選択</li>
-<li>「Apply」で追加完了</li>
-</ol>
-<p>これでS3、CloudFront、Route53などのAWSサービスアイコンが使えるようになります。</p>
-
-<h3 class="relative group">作成時に意識したポイント 
-    <div id="作成時に意識したポイント" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%9c%e6%88%90%e6%99%82%e3%81%ab%e6%84%8f%e8%ad%98%e3%81%97%e3%81%9f%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-
-<h4 class="relative group">1. 対象者を意識する 
-    <div id="1-対象者を意識する" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e5%af%be%e8%b1%a1%e8%80%85%e3%82%92%e6%84%8f%e8%ad%98%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>この構成図を見る人は誰か（面接官、自分）を考え、過度に詳細にせず、主要なコンポーネントと流れが分かるレベルに留めました。</p>
-
-<h4 class="relative group">2. 矢印を交差させない 
-    <div id="2-矢印を交差させない" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e7%9f%a2%e5%8d%b0%e3%82%92%e4%ba%a4%e5%b7%ae%e3%81%95%e3%81%9b%e3%81%aa%e3%81%84" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>矢印が交差すると、どこからどこへの通信か分かりにくくなります。配置を工夫して交差を避けました。</p>
-
-<h4 class="relative group">3. 一貫した命名 
-    <div id="3-一貫した命名" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e4%b8%80%e8%b2%ab%e3%81%97%e3%81%9f%e5%91%bd%e5%90%8d" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>構成図内のラベルとTerraformのリソース名を一致させると、コードとの対応が取りやすくなります。</p>
-
-<h4 class="relative group">4. 凡例を追加する 
-    <div id="4-凡例を追加する" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e5%87%a1%e4%be%8b%e3%82%92%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>矢印の意味が自明でない場合は凡例で補足します。<br>
-今回は「データの流れ（実線）」「メトリクス/ログ（破線）」を左上に配置しました。</p>
-
-<h3 class="relative group">メンターからのフィードバック 
-    <div id="メンターからのフィードバック" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%83%b3%e3%82%bf%e3%83%bc%e3%81%8b%e3%82%89%e3%81%ae%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>所属しているスクール（RareTECH）でメンターにレビューを依頼しました。</p>
-
-<h4 class="relative group">全体評価 
-    <div id="全体評価" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%a8%e4%bd%93%e8%a9%95%e4%be%a1" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<blockquote>
-<p>「とても綺麗」「このまま出しても違和感ない」</p>
-</blockquote>
-
-<h4 class="relative group">指摘された点 
-    <div id="指摘された点" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8c%87%e6%91%98%e3%81%95%e3%82%8c%e3%81%9f%e7%82%b9" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p><strong>CI/CDフローの矢印が分かりにくい</strong></p>
-<p>
-
-
-
-
-
-
-<figure>
-      <img class="my-0 rounded-md" loading="lazy" alt="修正前の構成図" src="/img/architecture.svg">
-
-  
-</figure>
-</p>
-<p>修正前は「IAM → S3」「IAM → CloudFront」という矢印を引いていました。これだと「IAMがS3を操作する」ように見えてしまいます。</p>
-<p>実際の流れは以下の通りです。</p>
-<ol>
-<li>GitHub ActionsがIAMロールを引き受ける（OIDC認証）</li>
-<li>GitHub ActionsがS3にコンテンツを同期する</li>
-<li>GitHub ActionsがCloudFrontのキャッシュを無効化する</li>
-</ol>
-<table>
-  <thead>
-      <tr>
-          <th>コンポーネント</th>
-          <th>役割</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>GitHub Actions</td>
-          <td><strong>操作の実行主体</strong>（APIコールを行う）</td>
-      </tr>
-      <tr>
-          <td>IAM ロール</td>
-          <td>認証・認可（権限付与）</td>
-      </tr>
-      <tr>
-          <td>S3 / CloudFront</td>
-          <td>操作対象</td>
-      </tr>
-  </tbody>
-</table>
-<p>IAMは「鍵」であって「操作者」ではないため、矢印の起点を修正する必要がありました。</p>
-
-<h3 class="relative group">修正内容 
-    <div id="修正内容" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bf%ae%e6%ad%a3%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a7%8b%e7%af%89%e3%81%99%e3%82%8b%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 <table>
   <thead>
       <tr>
-          <th>修正項目</th>
-          <th>内容</th>
+          <th>リソース</th>
+          <th>名前</th>
+          <th>説明</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>矢印削除</td>
-          <td>IAM → S3 / IAM → CloudFront</td>
+          <td>DB Subnet Group</td>
+          <td>practice-db-subnet-group</td>
+          <td>RDS配置用（2AZ必須）</td>
       </tr>
       <tr>
-          <td>矢印追加</td>
-          <td>GitHub Actions → S3（コンテンツ同期）</td>
-      </tr>
-      <tr>
-          <td>矢印追加</td>
-          <td>GitHub Actions → CloudFront（キャッシュ無効化）</td>
-      </tr>
-      <tr>
-          <td>凡例追加</td>
-          <td>「GitHub ActionsはIAMによるOIDC認証後、S3・CloudFrontを操作」</td>
+          <td>RDS Instance</td>
+          <td>practice-db-instance</td>
+          <td>MySQL 8.0</td>
       </tr>
   </tbody>
 </table>
-<p>
 
-
-
-
-
-
-<figure>
-      <img class="my-0 rounded-md" loading="lazy" alt="修正後の構成図" src="/img/architecture20251209.svg">
-
-  
-</figure>
-</p>
-
-<h3 class="relative group">説明順序 
-    <div id="説明順序" class="anchor"></div>
+<h3 class="relative group">DBサブネットグループの作成 
+    <div id="dbサブネットグループの作成" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%aa%ac%e6%98%8e%e9%a0%86%e5%ba%8f" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#db%e3%82%b5%e3%83%96%e3%83%8d%e3%83%83%e3%83%88%e3%82%b0%e3%83%ab%e3%83%bc%e3%83%97%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>構成図を使って説明するときの順序は下記。</p>
-<ol>
-<li><strong>メインフロー</strong>: ユーザー → Route53 → CloudFront → S3（コンテンツ配信の基本経路）</li>
-<li><strong>CI/CD</strong>: GitHub Actions → IAM（OIDC）→ S3/CloudFront（デプロイの流れ）</li>
-<li><strong>監視</strong>: CloudWatch → SNS → メール通知（運用視点）</li>
-</ol>
-<p>上から下、左から右に流れるように配置すると説明しやすくなります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_db_subnet_group&#34; &#34;main&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>       <span class="o">=</span> <span class="s2">&#34;practice-db-subnet-group&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  subnet_ids</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_subnet</span><span class="p">.</span><span class="k">private_1</span><span class="p">.</span><span class="k">id</span><span class="p">,</span> <span class="k">aws_subnet</span><span class="p">.</span><span class="k">private_2</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;practice-db-subnet-group&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>RDSはDBサブネットグループに最低2つの異なるAZのサブネットを要求します。これはマルチAZ配置でなくても必須です。</p>
+<table>
+  <thead>
+      <tr>
+          <th>設定</th>
+          <th>サブネット要件</th>
+          <th>理由</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>シングルAZ</td>
+          <td>2AZ必須</td>
+          <td>将来のマルチAZ化に備えた設計</td>
+      </tr>
+      <tr>
+          <td>マルチAZ</td>
+          <td>2AZ必須</td>
+          <td>スタンバイを別AZに配置</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">RDSインスタンスの作成 
+    <div id="rdsインスタンスの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rds%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_db_instance&#34; &#34;main&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  identifier</span>     <span class="o">=</span> <span class="s2">&#34;practice-db-instance&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  engine</span>         <span class="o">=</span> <span class="s2">&#34;mysql&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  engine_version</span> <span class="o">=</span> <span class="s2">&#34;8.0&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  instance_class</span>    <span class="o">=</span> <span class="s2">&#34;db.t3.micro&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  allocated_storage</span> <span class="o">=</span> <span class="m">20</span>
+</span></span><span class="line"><span class="cl"><span class="n">  storage_type</span>      <span class="o">=</span> <span class="s2">&#34;gp2&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  db_name</span>  <span class="o">=</span> <span class="s2">&#34;wordpress&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  username</span> <span class="o">=</span> <span class="s2">&#34;admin&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  password</span> <span class="o">=</span> <span class="s2">&#34;YourPassword123!&#34;</span><span class="c1">  # 学習用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">  db_subnet_group_name</span>   <span class="o">=</span> <span class="k">aws_db_subnet_group</span><span class="p">.</span><span class="k">main</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl"><span class="n">  vpc_security_group_ids</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_security_group</span><span class="p">.</span><span class="k">rds</span><span class="p">.</span><span class="k">id</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  publicly_accessible</span> <span class="o">=</span> <span class="kt">false</span>
+</span></span><span class="line"><span class="cl"><span class="n">  skip_final_snapshot</span> <span class="o">=</span> <span class="kt">true</span><span class="c1">  # 学習用
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;practice-db-instance&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">設定項目の解説 
+    <div id="設定項目の解説" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%a8%ad%e5%ae%9a%e9%a0%85%e7%9b%ae%e3%81%ae%e8%a7%a3%e8%aa%ac" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">基本設定 
+    <div id="基本設定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>値</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>identifier</td>
+          <td>practice-db-instance</td>
+          <td>RDSの識別子（エンドポイント名に使用）</td>
+      </tr>
+      <tr>
+          <td>engine</td>
+          <td>mysql</td>
+          <td>DBエンジン（mysql, postgres, mariadb等）</td>
+      </tr>
+      <tr>
+          <td>engine_version</td>
+          <td>8.0</td>
+          <td>メジャーバージョン指定（マイナーは自動）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">インスタンス設定 
+    <div id="インスタンス設定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a4%e3%83%b3%e3%82%b9%e3%82%bf%e3%83%b3%e3%82%b9%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>値</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>instance_class</td>
+          <td>db.t3.micro</td>
+          <td>インスタンスタイプ（無料枠対象）</td>
+      </tr>
+      <tr>
+          <td>allocated_storage</td>
+          <td>20</td>
+          <td>ストレージ容量（GB）</td>
+      </tr>
+      <tr>
+          <td>storage_type</td>
+          <td>gp2</td>
+          <td>汎用SSD（gp3も選択可）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">セキュリティ設定 
+    <div id="セキュリティ設定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bb%e3%82%ad%e3%83%a5%e3%83%aa%e3%83%86%e3%82%a3%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>値</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>publicly_accessible</td>
+          <td>false</td>
+          <td>インターネットから直接アクセス不可</td>
+      </tr>
+      <tr>
+          <td>vpc_security_group_ids</td>
+          <td>[rds-sg]</td>
+          <td>SGでアクセス制御</td>
+      </tr>
+  </tbody>
+</table>
+<p><code>publicly_accessible = false</code> を設定するとパブリックIPが付与されず、VPC内からのみ接続可能になります。本番環境では基本的にfalseを設定します。</p>
+
+<h3 class="relative group">学習用と本番用の設定の違い 
+    <div id="学習用と本番用の設定の違い" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e7%94%a8%e3%81%a8%e6%9c%ac%e7%95%aa%e7%94%a8%e3%81%ae%e8%a8%ad%e5%ae%9a%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>学習用</th>
+          <th>本番推奨</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>password</td>
+          <td>直書き</td>
+          <td>Secrets Manager or 変数</td>
+      </tr>
+      <tr>
+          <td>skip_final_snapshot</td>
+          <td>true</td>
+          <td>false（削除時にスナップショット作成）</td>
+      </tr>
+      <tr>
+          <td>deletion_protection</td>
+          <td>なし</td>
+          <td>true（誤削除防止）</td>
+      </tr>
+      <tr>
+          <td>multi_az</td>
+          <td>false</td>
+          <td>true（高可用性）</td>
+      </tr>
+      <tr>
+          <td>backup_retention_period</td>
+          <td>0</td>
+          <td>7以上（自動バックアップ）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">パスワード管理（本番向け） 
+    <div id="パスワード管理本番向け" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%91%e3%82%b9%e3%83%af%e3%83%bc%e3%83%89%e7%ae%a1%e7%90%86%e6%9c%ac%e7%95%aa%e5%90%91%e3%81%91" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">方法1: 変数で外部化 
+    <div id="方法1-変数で外部化" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%951-%e5%a4%89%e6%95%b0%e3%81%a7%e5%a4%96%e9%83%a8%e5%8c%96" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">variable</span> <span class="s2">&#34;db_password&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  type</span>      <span class="o">=</span> <span class="k">string</span>
+</span></span><span class="line"><span class="cl"><span class="n">  sensitive</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_db_instance&#34; &#34;main&#34;</span> {<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">  password</span> <span class="o">=</span> <span class="k">var</span><span class="p">.</span><span class="k">db_password</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 実行時に指定</span>
+</span></span><span class="line"><span class="cl">terraform apply -var<span class="o">=</span><span class="s2">&#34;db_password=SecurePassword123!&#34;</span>
+</span></span></code></pre></div>
+<h4 class="relative group">方法2: Secrets Manager（推奨） 
+    <div id="方法2-secrets-manager推奨" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%96%b9%e6%b3%952-secrets-manager%e6%8e%a8%e5%a5%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">data</span> <span class="s2">&#34;aws_secretsmanager_secret_version&#34; &#34;db&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  secret_id</span> <span class="o">=</span> <span class="s2">&#34;prod/db/password&#34;</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_db_instance&#34; &#34;main&#34;</span> {<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # ...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="n">  password</span> <span class="o">=</span> <span class="k">jsondecode</span><span class="p">(</span><span class="k">data</span><span class="p">.</span><span class="k">aws_secretsmanager_secret_version</span><span class="p">.</span><span class="k">db</span><span class="p">.</span><span class="k">secret_string</span><span class="p">)[</span><span class="s2">&#34;password&#34;</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">Security Group設計（復習） 
+    <div id="security-group設計復習" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#security-group%e8%a8%ad%e8%a8%88%e5%be%a9%e7%bf%92" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_vpc_security_group_ingress_rule&#34; &#34;rds_mysql&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  security_group_id</span>            <span class="o">=</span> <span class="k">aws_security_group</span><span class="p">.</span><span class="k">rds</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  description</span>                  <span class="o">=</span> <span class="s2">&#34;MySQL from web server&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  from_port</span>                    <span class="o">=</span> <span class="m">3306</span>
+</span></span><span class="line"><span class="cl"><span class="n">  to_port</span>                      <span class="o">=</span> <span class="m">3306</span>
+</span></span><span class="line"><span class="cl"><span class="n">  ip_protocol</span>                  <span class="o">=</span> <span class="s2">&#34;tcp&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  referenced_security_group_id</span> <span class="o">=</span> <span class="k">aws_security_group</span><span class="p">.</span><span class="k">web</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>WebサーバーのSGをソースに指定することで、Webサーバーからのみ接続を許可します。</p>
+
+<h3 class="relative group">作成にかかる時間 
+    <div id="作成にかかる時間" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%9c%e6%88%90%e3%81%ab%e3%81%8b%e3%81%8b%e3%82%8b%e6%99%82%e9%96%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>RDSは作成に5〜10分かかります。<code>terraform apply</code> 実行後、気長に待ちます。</p>
+<pre tabindex="0"><code>aws_db_instance.main: Still creating... [5m0s elapsed]
+aws_db_instance.main: Still creating... [5m10s elapsed]
+aws_db_instance.main: Creation complete after 5m15s
+</code></pre>
+<h3 class="relative group">接続確認 
+    <div id="接続確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8e%a5%e7%b6%9a%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>WebサーバーからRDSに接続します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># WebサーバーにSSH接続後</span>
+</span></span><span class="line"><span class="cl">mysql -h practice-db-instance.xxxxx.ap-northeast-1.rds.amazonaws.com <span class="se">\
+</span></span></span><span class="line"><span class="cl"><span class="se"></span>      -u admin -p
+</span></span><span class="line"><span class="cl"><span class="c1"># パスワード入力後</span>
+</span></span><span class="line"><span class="cl">mysql&gt; use wordpress<span class="p">;</span>
+</span></span></code></pre></div><p>エンドポイントは <code>terraform output</code> またはAWSコンソールで確認できます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;rds_endpoint&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span> <span class="o">=</span> <span class="k">aws_db_instance</span><span class="p">.</span><span class="k">main</span><span class="p">.</span><span class="k">endpoint</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">EC2上のDB vs RDS 
+    <div id="ec2上のdb-vs-rds" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#ec2%e4%b8%8a%e3%81%aedb-vs-rds" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>EC2上のDB</th>
+          <th>RDS</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>管理負担</td>
+          <td>高（パッチ、バックアップ自前）</td>
+          <td>低（マネージド）</td>
+      </tr>
+      <tr>
+          <td>可用性</td>
+          <td>自前で構築</td>
+          <td>マルチAZオプションあり</td>
+      </tr>
+      <tr>
+          <td>コスト</td>
+          <td>低め</td>
+          <td>高め</td>
+      </tr>
+      <tr>
+          <td>柔軟性</td>
+          <td>高（何でもできる）</td>
+          <td>制限あり</td>
+      </tr>
+  </tbody>
+</table>
+<p>基本はRDS推奨です。特殊な要件がある場合のみEC2を検討します。</p>
 
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -1126,26 +1301,30 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
 <table>
   <thead>
       <tr>
-          <th>学んだこと</th>
-          <th>詳細</th>
+          <th>トピック</th>
+          <th>内容</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>操作主体を明確にする</td>
-          <td>「IAMがS3を操作」ではなく「GitHub ActionsがS3を操作」</td>
+          <td>DBサブネットグループ</td>
+          <td>2AZ必須（シングルAZ構成でも）</td>
       </tr>
       <tr>
-          <td>凡例で補足する</td>
-          <td>分かりにくいフロー（CI/CD、認証）は説明文を追加</td>
+          <td>publicly_accessible</td>
+          <td>false でVPC内からのみ接続</td>
       </tr>
       <tr>
-          <td>レビューを依頼する</td>
-          <td>自分では気づかない指摘をもらえる</td>
+          <td>skip_final_snapshot</td>
+          <td>学習用はtrue、本番はfalse</td>
       </tr>
       <tr>
-          <td>自分で書いた図は説明しやすい</td>
-          <td>「なぜこの配置にしたか」を説明できる</td>
+          <td>パスワード管理</td>
+          <td>直書きは学習のみ。本番はSecrets Manager</td>
+      </tr>
+      <tr>
+          <td>作成時間</td>
+          <td>5〜10分かかる</td>
       </tr>
   </tbody>
 </table>
@@ -1161,13 +1340,21 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
 </h2>
 <ul>
 <li><a
-  href="https://app.diagrams.net/"
+  href="https://www.nikkeibp.co.jp/atclpubmkt/book/22/295640/"
     target="_blank"
-  >draw.io公式</a></li>
+  >Amazon Web Services 基礎からのネットワーク＆サーバー構築 改訂4版</a></li>
 <li><a
-  href="https://aws.amazon.com/architecture/icons/"
+  href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_instance"
     target="_blank"
-  >AWS Architecture Icons</a></li>
+  >Terraform AWS Provider - RDS Instance</a></li>
+<li><a
+  href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/db_subnet_group"
+    target="_blank"
+  >Terraform AWS Provider - DB Subnet Group</a></li>
+<li><a
+  href="https://docs.aws.amazon.com/ja_jp/AmazonRDS/latest/UserGuide/Welcome.html"
+    target="_blank"
+  >AWS RDS ドキュメント</a></li>
 </ul>
 
           
@@ -1198,8 +1385,8 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251209231724_create-aws-architecture-diagram-with-drawio.md"
-          data-oid-likes="likes_posts/251209231724_create-aws-architecture-diagram-with-drawio.md"></script>
+          data-oid="views_posts/251210215023_rds-mysql-with-terraform.md"
+          data-oid-likes="likes_posts/251210215023_rds-mysql-with-terraform.md"></script>
       
 
     </section>
@@ -1214,7 +1401,7 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
+            <a class="flex group mr-3" href="/posts/251210214738_nat-gateway-with-terraform/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1225,11 +1412,11 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Terraform movedブロックでリソースを壊さずにmodule化する</span
+                  >NAT GatewayをTerraformで構築</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-08T08:20:23&#43;09:00">2025年 12月 8日</time>
+                    <time datetime="2025-12-10T21:47:38&#43;09:00">2025年 12月 10日</time>
                   
                 </span>
               </span>
@@ -1238,14 +1425,14 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/251210142726_raycast-windows-installation-and-5-core-features/">
+            <a class="flex text-right group ml-3" href="/posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Raycast Windows版の導入と基本機能5つ</span
+                  >Terraformチートシート：コマンド・構文・関数クイックリファレンス</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-10T14:27:26&#43;09:00">2025年 12月 10日</time>
+                    <time datetime="2025-12-10T22:11:00&#43;09:00">2025年 12月 10日</time>
                   
                 </span>
               </span>

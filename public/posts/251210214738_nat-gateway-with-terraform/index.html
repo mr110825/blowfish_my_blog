@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>draw.ioでAWSアーキテクチャ図を作成する &middot; 毎日.log</title>
-    <meta name="title" content="draw.ioでAWSアーキテクチャ図を作成する &middot; 毎日.log">
+  <title>NAT GatewayをTerraformで構築 &middot; 毎日.log</title>
+    <meta name="title" content="NAT GatewayをTerraformで構築 &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="ツール,AWS,インフラ,実践,">
+  <meta name="keywords" content="インフラ,AWS,Terraform,ハンズオン・チュートリアル,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
+  <link rel="canonical" href="http://localhost:1313/posts/251210214738_nat-gateway-with-terraform/">
   
   
   
@@ -99,23 +99,23 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/">
+  <meta property="og:url" content="http://localhost:1313/posts/251210214738_nat-gateway-with-terraform/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="draw.ioでAWSアーキテクチャ図を作成する">
+  <meta property="og:title" content="NAT GatewayをTerraformで構築">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-09T23:17:24+09:00">
-    <meta property="article:modified_time" content="2025-12-09T23:17:24+09:00">
-    <meta property="article:tag" content="ツール">
-    <meta property="article:tag" content="AWS">
+    <meta property="article:published_time" content="2025-12-10T21:47:38+09:00">
+    <meta property="article:modified_time" content="2025-12-10T21:47:38+09:00">
     <meta property="article:tag" content="インフラ">
-    <meta property="article:tag" content="実践">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="ハンズオン・チュートリアル">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="draw.ioでAWSアーキテクチャ図を作成する">
+  <meta name="twitter:title" content="NAT GatewayをTerraformで構築">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "draw.ioでAWSアーキテクチャ図を作成する",
-    "headline": "draw.ioでAWSアーキテクチャ図を作成する",
+    "name": "NAT GatewayをTerraformで構築",
+    "headline": "NAT GatewayをTerraformで構築",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/251209231724_create-aws-architecture-diagram-with-drawio\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251210214738_nat-gateway-with-terraform\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-09T23:17:24\u002b09:00",
-    "datePublished": "2025-12-09T23:17:24\u002b09:00",
+    "dateCreated": "2025-12-10T21:47:38\u002b09:00",
+    "datePublished": "2025-12-10T21:47:38\u002b09:00",
     
-    "dateModified": "2025-12-09T23:17:24\u002b09:00",
+    "dateModified": "2025-12-10T21:47:38\u002b09:00",
     
-    "keywords": ["ツール","AWS","インフラ","実践"],
+    "keywords": ["インフラ","AWS","Terraform","ハンズオン・チュートリアル"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "154"
+    "wordCount": "250"
   }]
   </script>
 
@@ -477,7 +477,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        draw.ioでAWSアーキテクチャ図を作成する
+        NAT GatewayをTerraformで構築
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -528,7 +528,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-09T23:17:24&#43;09:00">2025年 12月 9日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-10T21:47:38&#43;09:00">2025年 12月 10日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -575,11 +575,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%84%E3%83%BC%E3%83%AB/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ツール
+    インフラ
   </span>
 </span>
 
@@ -599,11 +599,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    インフラ
+    Terraform
   </span>
 </span>
 
@@ -611,11 +611,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E5%AE%9F%E8%B7%B5/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%83%8F%E3%83%B3%E3%82%BA%E3%82%AA%E3%83%B3%E3%83%81%E3%83%A5%E3%83%BC%E3%83%88%E3%83%AA%E3%82%A2%E3%83%AB/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    実践
+    ハンズオン・チュートリアル
   </span>
 </span>
 
@@ -678,24 +678,15 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#なぜdrawioを選んだか">なぜdraw.ioを選んだか</a></li>
-        <li><a href="#aws公式アイコンの導入手順">AWS公式アイコンの導入手順</a></li>
-        <li><a href="#作成時に意識したポイント">作成時に意識したポイント</a>
-          <ul>
-            <li><a href="#1-対象者を意識する">1. 対象者を意識する</a></li>
-            <li><a href="#2-矢印を交差させない">2. 矢印を交差させない</a></li>
-            <li><a href="#3-一貫した命名">3. 一貫した命名</a></li>
-            <li><a href="#4-凡例を追加する">4. 凡例を追加する</a></li>
-          </ul>
-        </li>
-        <li><a href="#メンターからのフィードバック">メンターからのフィードバック</a>
-          <ul>
-            <li><a href="#全体評価">全体評価</a></li>
-            <li><a href="#指摘された点">指摘された点</a></li>
-          </ul>
-        </li>
-        <li><a href="#修正内容">修正内容</a></li>
-        <li><a href="#説明順序">説明順序</a></li>
+        <li><a href="#nat-gatewayの役割">NAT Gatewayの役割</a></li>
+        <li><a href="#構築するリソース">構築するリソース</a></li>
+        <li><a href="#elastic-ipの作成">Elastic IPの作成</a></li>
+        <li><a href="#nat-gatewayの作成">NAT Gatewayの作成</a></li>
+        <li><a href="#プライベートルートテーブルにルート追加">プライベートルートテーブルにルート追加</a></li>
+        <li><a href="#depends_onの意味">depends_onの意味</a></li>
+        <li><a href="#コストに注意">コストに注意</a></li>
+        <li><a href="#代替手段との比較">代替手段との比較</a></li>
+        <li><a href="#動作確認">動作確認</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -716,24 +707,15 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#なぜdrawioを選んだか">なぜdraw.ioを選んだか</a></li>
-        <li><a href="#aws公式アイコンの導入手順">AWS公式アイコンの導入手順</a></li>
-        <li><a href="#作成時に意識したポイント">作成時に意識したポイント</a>
-          <ul>
-            <li><a href="#1-対象者を意識する">1. 対象者を意識する</a></li>
-            <li><a href="#2-矢印を交差させない">2. 矢印を交差させない</a></li>
-            <li><a href="#3-一貫した命名">3. 一貫した命名</a></li>
-            <li><a href="#4-凡例を追加する">4. 凡例を追加する</a></li>
-          </ul>
-        </li>
-        <li><a href="#メンターからのフィードバック">メンターからのフィードバック</a>
-          <ul>
-            <li><a href="#全体評価">全体評価</a></li>
-            <li><a href="#指摘された点">指摘された点</a></li>
-          </ul>
-        </li>
-        <li><a href="#修正内容">修正内容</a></li>
-        <li><a href="#説明順序">説明順序</a></li>
+        <li><a href="#nat-gatewayの役割">NAT Gatewayの役割</a></li>
+        <li><a href="#構築するリソース">構築するリソース</a></li>
+        <li><a href="#elastic-ipの作成">Elastic IPの作成</a></li>
+        <li><a href="#nat-gatewayの作成">NAT Gatewayの作成</a></li>
+        <li><a href="#プライベートルートテーブルにルート追加">プライベートルートテーブルにルート追加</a></li>
+        <li><a href="#depends_onの意味">depends_onの意味</a></li>
+        <li><a href="#コストに注意">コストに注意</a></li>
+        <li><a href="#代替手段との比較">代替手段との比較</a></li>
+        <li><a href="#動作確認">動作確認</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -850,8 +832,7 @@
     </span>        
     
 </h2>
-<p>個人プロジェクト（技術ブログのAWS移行）のアーキテクチャ図をdraw.ioで作成しました。<br>
-メンターレビューを通じて、「操作主体を明確にする」「分かりにくいフローは凡例で補足する」といった構成図作成のポイントを学びました。</p>
+<p>プライベートサブネットのEC2からインターネットにアクセスするためのNAT GatewayをTerraformで構築しました。NAT Gatewayはパブリックサブネットに配置する必要があること、<code>depends_on</code> で暗黙的な依存関係を明示する必要があることを学びました。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -863,257 +844,261 @@
     
 </h2>
 
-<h3 class="relative group">なぜdraw.ioを選んだか 
-    <div id="なぜdrawioを選んだか" class="anchor"></div>
+<h3 class="relative group">NAT Gatewayの役割 
+    <div id="nat-gatewayの役割" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9cdrawio%e3%82%92%e9%81%b8%e3%82%93%e3%81%a0%e3%81%8b" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nat-gateway%e3%81%ae%e5%bd%b9%e5%89%b2" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>最初はMermaidで構成図を書いていましたが、面接での説明を考えてdraw.ioに変更しました。</p>
-<table>
-  <thead>
-      <tr>
-          <th>選択肢</th>
-          <th>メリット</th>
-          <th>デメリット</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Mermaid</td>
-          <td>コードで管理できる、GitHubで直接表示</td>
-          <td>AWSアイコンが使えない、見た目が簡素</td>
-      </tr>
-      <tr>
-          <td>draw.io</td>
-          <td>AWS公式アイコン、視覚的に分かりやすい</td>
-          <td>画像ファイルとして管理</td>
-      </tr>
-  </tbody>
-</table>
-<p>構成図を使った説明を求められる確率は高いため、AWS公式アイコンを使える<br>
-draw.io を選択しました。自分で配置を考えて書いた図なら、細部まで説明できます。</p>
+<pre tabindex="0"><code>プライベートサブネットのEC2
+    ↓ (送信)
+NAT Gateway（パブリックサブネット）
+    ↓
+Internet Gateway
+    ↓
+インターネット
+</code></pre><ul>
+<li><strong>アウトバウンド</strong>: プライベート → インターネット（許可）</li>
+<li><strong>インバウンド</strong>: インターネット → プライベート（拒否）</li>
+</ul>
+<p>プライベートサブネットのEC2からyum/dnf update等を実行したいが、インターネットからの直接アクセスは許可したくない場合に使用します。</p>
 
-<h3 class="relative group">AWS公式アイコンの導入手順 
-    <div id="aws公式アイコンの導入手順" class="anchor"></div>
+<h3 class="relative group">構築するリソース 
+    <div id="構築するリソース" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#aws%e5%85%ac%e5%bc%8f%e3%82%a2%e3%82%a4%e3%82%b3%e3%83%b3%e3%81%ae%e5%b0%8e%e5%85%a5%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>draw.ioでは「AWS 2025」のアイコンセットが使えます。</p>
-<ol>
-<li>draw.ioを開く（https://app.diagrams.net/）</li>
-<li>左側パネルの「+ More Shapes」をクリック</li>
-<li>「AWS」カテゴリから「AWS 2025」を選択</li>
-<li>「Apply」で追加完了</li>
-</ol>
-<p>これでS3、CloudFront、Route53などのAWSサービスアイコンが使えるようになります。</p>
-
-<h3 class="relative group">作成時に意識したポイント 
-    <div id="作成時に意識したポイント" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%9c%e6%88%90%e6%99%82%e3%81%ab%e6%84%8f%e8%ad%98%e3%81%97%e3%81%9f%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-
-<h4 class="relative group">1. 対象者を意識する 
-    <div id="1-対象者を意識する" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e5%af%be%e8%b1%a1%e8%80%85%e3%82%92%e6%84%8f%e8%ad%98%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>この構成図を見る人は誰か（面接官、自分）を考え、過度に詳細にせず、主要なコンポーネントと流れが分かるレベルに留めました。</p>
-
-<h4 class="relative group">2. 矢印を交差させない 
-    <div id="2-矢印を交差させない" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e7%9f%a2%e5%8d%b0%e3%82%92%e4%ba%a4%e5%b7%ae%e3%81%95%e3%81%9b%e3%81%aa%e3%81%84" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>矢印が交差すると、どこからどこへの通信か分かりにくくなります。配置を工夫して交差を避けました。</p>
-
-<h4 class="relative group">3. 一貫した命名 
-    <div id="3-一貫した命名" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e4%b8%80%e8%b2%ab%e3%81%97%e3%81%9f%e5%91%bd%e5%90%8d" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>構成図内のラベルとTerraformのリソース名を一致させると、コードとの対応が取りやすくなります。</p>
-
-<h4 class="relative group">4. 凡例を追加する 
-    <div id="4-凡例を追加する" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e5%87%a1%e4%be%8b%e3%82%92%e8%bf%bd%e5%8a%a0%e3%81%99%e3%82%8b" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>矢印の意味が自明でない場合は凡例で補足します。<br>
-今回は「データの流れ（実線）」「メトリクス/ログ（破線）」を左上に配置しました。</p>
-
-<h3 class="relative group">メンターからのフィードバック 
-    <div id="メンターからのフィードバック" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a1%e3%83%b3%e3%82%bf%e3%83%bc%e3%81%8b%e3%82%89%e3%81%ae%e3%83%95%e3%82%a3%e3%83%bc%e3%83%89%e3%83%90%e3%83%83%e3%82%af" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>所属しているスクール（RareTECH）でメンターにレビューを依頼しました。</p>
-
-<h4 class="relative group">全体評価 
-    <div id="全体評価" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%85%a8%e4%bd%93%e8%a9%95%e4%be%a1" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<blockquote>
-<p>「とても綺麗」「このまま出しても違和感ない」</p>
-</blockquote>
-
-<h4 class="relative group">指摘された点 
-    <div id="指摘された点" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%8c%87%e6%91%98%e3%81%95%e3%82%8c%e3%81%9f%e7%82%b9" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p><strong>CI/CDフローの矢印が分かりにくい</strong></p>
-<p>
-
-
-
-
-
-
-<figure>
-      <img class="my-0 rounded-md" loading="lazy" alt="修正前の構成図" src="/img/architecture.svg">
-
-  
-</figure>
-</p>
-<p>修正前は「IAM → S3」「IAM → CloudFront」という矢印を引いていました。これだと「IAMがS3を操作する」ように見えてしまいます。</p>
-<p>実際の流れは以下の通りです。</p>
-<ol>
-<li>GitHub ActionsがIAMロールを引き受ける（OIDC認証）</li>
-<li>GitHub ActionsがS3にコンテンツを同期する</li>
-<li>GitHub ActionsがCloudFrontのキャッシュを無効化する</li>
-</ol>
-<table>
-  <thead>
-      <tr>
-          <th>コンポーネント</th>
-          <th>役割</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>GitHub Actions</td>
-          <td><strong>操作の実行主体</strong>（APIコールを行う）</td>
-      </tr>
-      <tr>
-          <td>IAM ロール</td>
-          <td>認証・認可（権限付与）</td>
-      </tr>
-      <tr>
-          <td>S3 / CloudFront</td>
-          <td>操作対象</td>
-      </tr>
-  </tbody>
-</table>
-<p>IAMは「鍵」であって「操作者」ではないため、矢印の起点を修正する必要がありました。</p>
-
-<h3 class="relative group">修正内容 
-    <div id="修正内容" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bf%ae%e6%ad%a3%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%a7%8b%e7%af%89%e3%81%99%e3%82%8b%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 <table>
   <thead>
       <tr>
-          <th>修正項目</th>
-          <th>内容</th>
+          <th>リソース</th>
+          <th>名前</th>
+          <th>説明</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>矢印削除</td>
-          <td>IAM → S3 / IAM → CloudFront</td>
+          <td>Elastic IP</td>
+          <td>practice-nat-eip</td>
+          <td>NAT Gateway用の固定IP</td>
       </tr>
       <tr>
-          <td>矢印追加</td>
-          <td>GitHub Actions → S3（コンテンツ同期）</td>
+          <td>NAT Gateway</td>
+          <td>practice-nat</td>
+          <td>パブリックサブネットに配置</td>
       </tr>
       <tr>
-          <td>矢印追加</td>
-          <td>GitHub Actions → CloudFront（キャッシュ無効化）</td>
-      </tr>
-      <tr>
-          <td>凡例追加</td>
-          <td>「GitHub ActionsはIAMによるOIDC認証後、S3・CloudFrontを操作」</td>
+          <td>Route</td>
+          <td>-</td>
+          <td>プライベートRT → NAT Gateway</td>
       </tr>
   </tbody>
 </table>
-<p>
 
-
-
-
-
-
-<figure>
-      <img class="my-0 rounded-md" loading="lazy" alt="修正後の構成図" src="/img/architecture20251209.svg">
-
-  
-</figure>
-</p>
-
-<h3 class="relative group">説明順序 
-    <div id="説明順序" class="anchor"></div>
+<h3 class="relative group">Elastic IPの作成 
+    <div id="elastic-ipの作成" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%aa%ac%e6%98%8e%e9%a0%86%e5%ba%8f" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#elastic-ip%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>構成図を使って説明するときの順序は下記。</p>
-<ol>
-<li><strong>メインフロー</strong>: ユーザー → Route53 → CloudFront → S3（コンテンツ配信の基本経路）</li>
-<li><strong>CI/CD</strong>: GitHub Actions → IAM（OIDC）→ S3/CloudFront（デプロイの流れ）</li>
-<li><strong>監視</strong>: CloudWatch → SNS → メール通知（運用視点）</li>
-</ol>
-<p>上から下、左から右に流れるように配置すると説明しやすくなります。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_eip&#34; &#34;nat&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  domain</span> <span class="o">=</span> <span class="s2">&#34;vpc&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;practice-nat-eip&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  depends_on</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_internet_gateway</span><span class="p">.</span><span class="k">main</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><code>domain = &quot;vpc&quot;</code> でVPC用のElastic IPを作成します。旧構文の <code>vpc = true</code> は非推奨です。</p>
 
+<h3 class="relative group">NAT Gatewayの作成 
+    <div id="nat-gatewayの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#nat-gateway%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_nat_gateway&#34; &#34;main&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  allocation_id</span> <span class="o">=</span> <span class="k">aws_eip</span><span class="p">.</span><span class="k">nat</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  subnet_id</span>     <span class="o">=</span> <span class="k">aws_subnet</span><span class="p">.</span><span class="k">public</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;practice-nat&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  depends_on</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_internet_gateway</span><span class="p">.</span><span class="k">main</span><span class="p">]</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>NAT GatewayはInternet Gateway（IGW）経由でインターネットに接続するため、IGWがアタッチされたVPC内のパブリックサブネットに配置する必要があります。</p>
+
+<h3 class="relative group">プライベートルートテーブルにルート追加 
+    <div id="プライベートルートテーブルにルート追加" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%a9%e3%82%a4%e3%83%99%e3%83%bc%e3%83%88%e3%83%ab%e3%83%bc%e3%83%88%e3%83%86%e3%83%bc%e3%83%96%e3%83%ab%e3%81%ab%e3%83%ab%e3%83%bc%e3%83%88%e8%bf%bd%e5%8a%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_route&#34; &#34;private_nat&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  route_table_id</span>         <span class="o">=</span> <span class="k">aws_route_table</span><span class="p">.</span><span class="k">private</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  destination_cidr_block</span> <span class="o">=</span> <span class="s2">&#34;0.0.0.0/0&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  nat_gateway_id</span>         <span class="o">=</span> <span class="k">aws_nat_gateway</span><span class="p">.</span><span class="k">main</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>ルートテーブル</th>
+          <th>0.0.0.0/0 の宛先</th>
+          <th>結果</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>パブリック</td>
+          <td>Internet Gateway</td>
+          <td>直接インターネット通信</td>
+      </tr>
+      <tr>
+          <td>プライベート</td>
+          <td>NAT Gateway</td>
+          <td>NAT経由でインターネット通信</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">depends_onの意味 
+    <div id="depends_onの意味" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#depends_on%e3%81%ae%e6%84%8f%e5%91%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="n">depends_on</span> <span class="o">=</span> <span class="p">[</span><span class="k">aws_internet_gateway</span><span class="p">.</span><span class="k">main</span><span class="p">]</span>
+</span></span></code></pre></div><p>Terraformは通常、リソース間の依存関係を自動検出します。しかし、NAT Gateway → IGWの依存関係は暗黙的（コード上の参照がない）なため、明示的に指定する必要があります。</p>
+<table>
+  <thead>
+      <tr>
+          <th>状況</th>
+          <th>depends_onの要否</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>subnet_id = aws_subnet.public.id</code></td>
+          <td>不要（参照あり）</td>
+      </tr>
+      <tr>
+          <td>IGWが存在しないとNATが動作しない</td>
+          <td>必要（参照なし）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">コストに注意 
+    <div id="コストに注意" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%82%b9%e3%83%88%e3%81%ab%e6%b3%a8%e6%84%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>料金（東京リージョン、2024年12月時点）</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>NAT Gateway時間料金</td>
+          <td>約$0.062/時（約$45/月）</td>
+      </tr>
+      <tr>
+          <td>データ処理料金</td>
+          <td>$0.062/GB</td>
+      </tr>
+  </tbody>
+</table>
+<p>学習環境では使わない時間帯は <code>terraform destroy</code> で削除することを推奨します。</p>
+
+<h3 class="relative group">代替手段との比較 
+    <div id="代替手段との比較" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%a3%e6%9b%bf%e6%89%8b%e6%ae%b5%e3%81%a8%e3%81%ae%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>方法</th>
+          <th>コスト</th>
+          <th>管理負担</th>
+          <th>可用性</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>NAT Gateway</td>
+          <td>高</td>
+          <td>低（マネージド）</td>
+          <td>高</td>
+      </tr>
+      <tr>
+          <td>NATインスタンス</td>
+          <td>低</td>
+          <td>高（自前EC2）</td>
+          <td>中</td>
+      </tr>
+      <tr>
+          <td>VPCエンドポイント</td>
+          <td>低</td>
+          <td>低</td>
+          <td>高（AWSサービスのみ）</td>
+      </tr>
+  </tbody>
+</table>
+<p>本番環境ではNAT Gateway推奨、学習/開発でコスト重視ならNATインスタンスも選択肢になります。S3/DynamoDB等のAWSサービスのみならVPCエンドポイントで十分です。</p>
+
+<h3 class="relative group">動作確認 
+    <div id="動作確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8b%95%e4%bd%9c%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>プライベートサブネットのEC2にSSH接続（踏み台経由）して確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># インターネット接続確認</span>
+</span></span><span class="line"><span class="cl">ping -c <span class="m">3</span> google.com
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># NAT Gateway経由で通信していることを確認</span>
+</span></span><span class="line"><span class="cl">curl ifconfig.me
+</span></span><span class="line"><span class="cl"><span class="c1"># → Elastic IPが表示されればNAT Gateway経由</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># パッケージ更新が可能か確認</span>
+</span></span><span class="line"><span class="cl">sudo dnf check-update
+</span></span></code></pre></div>
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
     
@@ -1126,26 +1111,30 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
 <table>
   <thead>
       <tr>
-          <th>学んだこと</th>
-          <th>詳細</th>
+          <th>トピック</th>
+          <th>内容</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>操作主体を明確にする</td>
-          <td>「IAMがS3を操作」ではなく「GitHub ActionsがS3を操作」</td>
+          <td>NAT Gatewayの配置</td>
+          <td>パブリックサブネット（IGWへのルートが必要）</td>
       </tr>
       <tr>
-          <td>凡例で補足する</td>
-          <td>分かりにくいフロー（CI/CD、認証）は説明文を追加</td>
+          <td>depends_on</td>
+          <td>暗黙的な依存関係を明示的に指定</td>
       </tr>
       <tr>
-          <td>レビューを依頼する</td>
-          <td>自分では気づかない指摘をもらえる</td>
+          <td>Elastic IP</td>
+          <td><code>domain = &quot;vpc&quot;</code> で作成</td>
       </tr>
       <tr>
-          <td>自分で書いた図は説明しやすい</td>
-          <td>「なぜこの配置にしたか」を説明できる</td>
+          <td>コスト</td>
+          <td>約$45/月。学習時は削除推奨</td>
+      </tr>
+      <tr>
+          <td>代替手段</td>
+          <td>NATインスタンス、VPCエンドポイント</td>
       </tr>
   </tbody>
 </table>
@@ -1161,13 +1150,21 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
 </h2>
 <ul>
 <li><a
-  href="https://app.diagrams.net/"
+  href="https://www.nikkeibp.co.jp/atclpubmkt/book/22/295640/"
     target="_blank"
-  >draw.io公式</a></li>
+  >Amazon Web Services 基礎からのネットワーク＆サーバー構築 改訂4版</a></li>
 <li><a
-  href="https://aws.amazon.com/architecture/icons/"
+  href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/nat_gateway"
     target="_blank"
-  >AWS Architecture Icons</a></li>
+  >Terraform AWS Provider - NAT Gateway</a></li>
+<li><a
+  href="https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/vpc-nat-gateway.html"
+    target="_blank"
+  >AWS NAT Gateway ドキュメント</a></li>
+<li><a
+  href="https://aws.amazon.com/jp/vpc/pricing/"
+    target="_blank"
+  >NAT Gateway 料金</a></li>
 </ul>
 
           
@@ -1198,8 +1195,8 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251209231724_create-aws-architecture-diagram-with-drawio.md"
-          data-oid-likes="likes_posts/251209231724_create-aws-architecture-diagram-with-drawio.md"></script>
+          data-oid="views_posts/251210214738_nat-gateway-with-terraform.md"
+          data-oid-likes="likes_posts/251210214738_nat-gateway-with-terraform.md"></script>
       
 
     </section>
@@ -1214,7 +1211,7 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251208082023_terraform-moved-block-module-without-breaking-production-resources/">
+            <a class="flex group mr-3" href="/posts/251210213639_ec2-startup-apache-auto-install-with-user-data/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1225,11 +1222,11 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Terraform movedブロックでリソースを壊さずにmodule化する</span
+                  >user_dataでEC2起動時にApacheを自動インストール</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-08T08:20:23&#43;09:00">2025年 12月 8日</time>
+                    <time datetime="2025-12-10T21:36:39&#43;09:00">2025年 12月 10日</time>
                   
                 </span>
               </span>
@@ -1238,14 +1235,14 @@ draw.io を選択しました。自分で配置を考えて書いた図なら、
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/251210142726_raycast-windows-installation-and-5-core-features/">
+            <a class="flex text-right group ml-3" href="/posts/251210215023_rds-mysql-with-terraform/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Raycast Windows版の導入と基本機能5つ</span
+                  >RDS（MySQL）をTerraformで構築</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-10T14:27:26&#43;09:00">2025年 12月 10日</time>
+                    <time datetime="2025-12-10T21:50:23&#43;09:00">2025年 12月 10日</time>
                   
                 </span>
               </span>

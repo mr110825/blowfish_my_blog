@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 09 Dec 2025 23:17:24 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Dec 2025 21:36:39 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>user_dataでEC2起動時にApacheを自動インストール</title>
+      <link>http://localhost:1313/posts/251210213639_ec2-startup-apache-auto-install-with-user-data/</link>
+      <pubDate>Wed, 10 Dec 2025 21:36:39 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251210213639_ec2-startup-apache-auto-install-with-user-data/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>draw.ioでAWSアーキテクチャ図を作成する</title>

@@ -1,0 +1,1905 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>Terraformチートシート：コマンド・構文・関数クイックリファレンス &middot; 毎日.log</title>
+    <meta name="title" content="Terraformチートシート：コマンド・構文・関数クイックリファレンス &middot; 毎日.log">
+
+  
+  <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8ad216a212cef2ff398faed9ea7271f7766bc039d78aefb8f08e3270e028c2de33370d62df40395b48d396bdccb2ef8e245e6ca08ae3ec79067996559b110f67.css"
+    integrity="sha512-itIWohLO8v85j67Z6nJx93ZrwDnXiu&#43;48I4ycOAowt4zNw1i30A5W0jTlr3Msu&#43;OJF5soIrj7HkGeZZVmxEPZw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.b363d716a7ea4bad623779c04878b62e384759903bf0e247658d199ca391ca711253abc6e0b593fe91b9cc9b7e1b36fb85730691a0d891ae9a8cfee6a986e58f.js"
+      integrity="sha512-s2PXFqfqS61iN3nASHi2LjhHWZA78OJHZY0ZnKORynESU6vG4LWT/pG5zJt&#43;Gzb7hXMGkaDYka6ajP7mqYbljw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference/">
+  <meta property="og:site_name" content="毎日.log">
+  <meta property="og:title" content="Terraformチートシート：コマンド・構文・関数クイックリファレンス">
+  <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-10T22:11:00+09:00">
+    <meta property="article:modified_time" content="2025-12-10T22:11:00+09:00">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Terraformチートシート：コマンド・構文・関数クイックリファレンス">
+  <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "Terraformチートシート：コマンド・構文・関数クイックリファレンス",
+    "headline": "Terraformチートシート：コマンド・構文・関数クイックリファレンス",
+    
+    
+    "inLanguage": "ja",
+    "url" : "http:\/\/localhost:1313\/posts\/251210221100_terraform-cheatsheet-commands-syntax-quick-reference\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-10T22:11:00\u002b09:00",
+    "datePublished": "2025-12-10T22:11:00\u002b09:00",
+    
+    "dateModified": "2025-12-10T22:11:00\u002b09:00",
+    
+    
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1056"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          毎日.log
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/series/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Series
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/series/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Series
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        Terraformチートシート：コマンド・構文・関数クイックリファレンス
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-10T22:11:00&#43;09:00">2025年 12月 10日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#学習内容">学習内容</a>
+      <ul>
+        <li><a href="#基本コマンド">基本コマンド</a></li>
+        <li><a href="#ブロック構文">ブロック構文</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#よく使う型">よく使う型</a></li>
+        <li><a href="#よく使う関数">よく使う関数</a></li>
+        <li><a href="#条件分岐ループ">条件分岐・ループ</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#注意点ベストプラクティス">注意点・ベストプラクティス</a>
+          <ul>
+            <li><a href="#やるべきこと">やるべきこと</a></li>
+            <li><a href="#避けるべきこと">避けるべきこと</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#学習内容">学習内容</a>
+      <ul>
+        <li><a href="#基本コマンド">基本コマンド</a></li>
+        <li><a href="#ブロック構文">ブロック構文</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#よく使う型">よく使う型</a></li>
+        <li><a href="#よく使う関数">よく使う関数</a></li>
+        <li><a href="#条件分岐ループ">条件分岐・ループ</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#注意点ベストプラクティス">注意点・ベストプラクティス</a>
+          <ul>
+            <li><a href="#やるべきこと">やるべきこと</a></li>
+            <li><a href="#避けるべきこと">避けるべきこと</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考">参考</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">今日学んだこと 
+    <div id="今日学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%8a%e6%97%a5%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Terraformを使う上で頻繁に参照するコマンド、ブロック構文、関数、パターンを1つの記事にまとめました。作業中に「あれ、どう書くんだっけ？」となったときにすぐ参照できるチートシートです。</p>
+
+<h2 class="relative group">学習内容 
+    <div id="学習内容" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">基本コマンド 
+    <div id="基本コマンド" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9f%ba%e6%9c%ac%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>初期化・実行コマンド</summary>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>説明</th>
+          <th>よく使うオプション</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>terraform init</code></td>
+          <td>初期化（Provider取得）</td>
+          <td><code>-upgrade</code>（Provider更新）</td>
+      </tr>
+      <tr>
+          <td><code>terraform plan</code></td>
+          <td>差分確認（ドライラン）</td>
+          <td><code>-out=plan.tfplan</code>（計画を保存）</td>
+      </tr>
+      <tr>
+          <td><code>terraform apply</code></td>
+          <td>変更を適用</td>
+          <td><code>-auto-approve</code>（確認スキップ）</td>
+      </tr>
+      <tr>
+          <td><code>terraform destroy</code></td>
+          <td>全リソース削除</td>
+          <td><code>-target=xxx</code>（特定リソースのみ）</td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<details>
+<summary>確認・検証コマンド</summary>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>terraform validate</code></td>
+          <td>構文チェック</td>
+      </tr>
+      <tr>
+          <td><code>terraform fmt</code></td>
+          <td>コード整形（インデント等）</td>
+      </tr>
+      <tr>
+          <td><code>terraform fmt -check</code></td>
+          <td>整形が必要か確認のみ</td>
+      </tr>
+      <tr>
+          <td><code>terraform show</code></td>
+          <td>現在のStateを表示</td>
+      </tr>
+      <tr>
+          <td><code>terraform output</code></td>
+          <td>Output値を表示</td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<details>
+<summary>State操作コマンド</summary>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>terraform state list</code></td>
+          <td>管理中リソース一覧</td>
+      </tr>
+      <tr>
+          <td><code>terraform state show &lt;リソース&gt;</code></td>
+          <td>特定リソースの詳細</td>
+      </tr>
+      <tr>
+          <td><code>terraform state rm &lt;リソース&gt;</code></td>
+          <td>Stateから削除（実リソースは残る）</td>
+      </tr>
+      <tr>
+          <td><code>terraform state mv &lt;旧&gt; &lt;新&gt;</code></td>
+          <td>リソース名変更</td>
+      </tr>
+      <tr>
+          <td><code>terraform force-unlock &lt;LOCK_ID&gt;</code></td>
+          <td>ロック強制解除</td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<details>
+<summary>その他のコマンド</summary>
+<table>
+  <thead>
+      <tr>
+          <th>コマンド</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>terraform graph</code></td>
+          <td>依存関係をDOT形式で出力</td>
+      </tr>
+      <tr>
+          <td><code>terraform console</code></td>
+          <td>対話モード（式の評価テスト）</td>
+      </tr>
+      <tr>
+          <td><code>terraform import &lt;リソース&gt; &lt;ID&gt;</code></td>
+          <td>既存リソースをStateに取り込み</td>
+      </tr>
+      <tr>
+          <td><code>terraform apply -replace=&lt;リソース&gt;</code></td>
+          <td>次回apply時に再作成対象にする</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>Note</strong>: <code>terraform taint</code>は非推奨。<code>-replace</code>オプションを使用する。</p>
+</blockquote>
+</details>
+<hr>
+
+<h3 class="relative group">ブロック構文 
+    <div id="ブロック構文" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%ad%e3%83%83%e3%82%af%e6%a7%8b%e6%96%87" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>terraform ブロック（設定）</summary>
+```hcl
+terraform {
+  required_version = ">= 1.0.0"
+<p>required_providers {
+aws = {
+source  = &ldquo;hashicorp/aws&rdquo;
+version = &ldquo;~&gt; 5.0&rdquo;
+}
+}</p>
+<p>backend &ldquo;s3&rdquo; {
+bucket         = &ldquo;my-tfstate-bucket&rdquo;
+key            = &ldquo;terraform.tfstate&rdquo;
+region         = &ldquo;ap-northeast-1&rdquo;
+dynamodb_table = &ldquo;my-tfstate-lock&rdquo;
+encrypt        = true
+}
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;provider ブロック&lt;/summary&gt;
+```hcl
+provider &#34;aws&#34; {
+  region = &#34;ap-northeast-1&#34;
+
+  default_tags {
+    tags = {
+      Project   = &#34;my-project&#34;
+      ManagedBy = &#34;terraform&#34;
+    }
+  }
+}
+
+# 複数リージョン対応（alias）
+provider &#34;aws&#34; {
+  alias  = &#34;us_east_1&#34;
+  region = &#34;us-east-1&#34;
+}
+</code></pre></details>
+<details>
+<summary>resource ブロック</summary>
+```hcl
+resource "aws_instance" "web" {
+  ami           = "ami-12345678"
+  instance_type = "t3.micro"
+  subnet_id     = aws_subnet.public.id
+<p>tags = {
+Name = &ldquo;web-server&rdquo;
+}</p>
+<p>depends_on = [aws_internet_gateway.main]</p>
+<p>lifecycle {
+create_before_destroy = true
+prevent_destroy       = false
+ignore_changes        = [tags]
+}
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;data ブロック（既存リソース参照）&lt;/summary&gt;
+```hcl
+data &#34;aws_ami&#34; &#34;amazon_linux&#34; {
+  most_recent = true
+  owners      = [&#34;amazon&#34;]
+
+  filter {
+    name   = &#34;name&#34;
+    values = [&#34;al2023-ami-*-x86_64&#34;]
+  }
+}
+
+resource &#34;aws_instance&#34; &#34;web&#34; {
+  ami = data.aws_ami.amazon_linux.id
+}
+</code></pre></details>
+<details>
+<summary>variable ブロック（入力変数）</summary>
+```hcl
+variable "instance_type" {
+  type        = string
+  default     = "t3.micro"
+  description = "EC2 instance type"
+}
+<p>variable &ldquo;environment&rdquo; {
+type = string
+validation {
+condition     = contains([&ldquo;dev&rdquo;, &ldquo;stg&rdquo;, &ldquo;prod&rdquo;], var.environment)
+error_message = &ldquo;environment must be dev, stg, or prod&rdquo;
+}
+}</p>
+<p>variable &ldquo;password&rdquo; {
+type      = string
+sensitive = true
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;output / locals ブロック&lt;/summary&gt;
+```hcl
+output &#34;instance_id&#34; {
+  value       = aws_instance.web.id
+  description = &#34;EC2 instance ID&#34;
+}
+
+output &#34;db_password&#34; {
+  value     = aws_db_instance.main.password
+  sensitive = true
+}
+
+locals {
+  common_tags = {
+    Project     = var.project_name
+    Environment = var.environment
+    ManagedBy   = &#34;terraform&#34;
+  }
+  name_prefix = &#34;${var.project_name}-${var.environment}&#34;
+}
+</code></pre></details>
+<details>
+<summary>module ブロック</summary>
+```hcl
+module "vpc" {
+  source = "./modules/vpc"
+<p>vpc_cidr    = &ldquo;10.0.0.0/16&rdquo;
+environment = var.environment
+}</p>
+<p>module &ldquo;s3&rdquo; {
+source  = &ldquo;terraform-aws-modules/s3-bucket/aws&rdquo;
+version = &ldquo;3.0.0&rdquo;</p>
+<p>bucket = &ldquo;my-bucket&rdquo;
+}</p>
+
+<h1 class="relative group">マルチリージョンプロバイダーを渡す 
+    <div id="マルチリージョンプロバイダーを渡す" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9e%e3%83%ab%e3%83%81%e3%83%aa%e3%83%bc%e3%82%b8%e3%83%a7%e3%83%b3%e3%83%97%e3%83%ad%e3%83%90%e3%82%a4%e3%83%80%e3%83%bc%e3%82%92%e6%b8%a1%e3%81%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h1>
+<p>module &ldquo;acm&rdquo; {
+source = &ldquo;./modules/acm&rdquo;</p>
+<p>providers = {
+aws = aws.us_east_1
+}
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;moved ブロック（リファクタリング）&lt;/summary&gt;
+```hcl
+moved {
+  from = aws_s3_bucket.content
+  to   = module.s3_content.aws_s3_bucket.this
+}
+
+moved {
+  from = aws_instance.web
+  to   = aws_instance.web_server
+}
+</code></pre></details>
+<hr>
+
+<h3 class="relative group">よく使う型 
+    <div id="よく使う型" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e5%9e%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>型</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>string</code></td>
+          <td><code>&quot;hello&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>number</code></td>
+          <td><code>123</code></td>
+      </tr>
+      <tr>
+          <td><code>bool</code></td>
+          <td><code>true</code>, <code>false</code></td>
+      </tr>
+      <tr>
+          <td><code>list(string)</code></td>
+          <td><code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code></td>
+      </tr>
+      <tr>
+          <td><code>set(string)</code></td>
+          <td><code>toset([&quot;a&quot;, &quot;b&quot;])</code></td>
+      </tr>
+      <tr>
+          <td><code>map(string)</code></td>
+          <td><code>{ key1 = &quot;value1&quot;, key2 = &quot;value2&quot; }</code></td>
+      </tr>
+      <tr>
+          <td><code>object({...})</code></td>
+          <td><code>{ name = string, port = number }</code></td>
+      </tr>
+      <tr>
+          <td><code>any</code></td>
+          <td>任意の型</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">よく使う関数 
+    <div id="よく使う関数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e9%96%a2%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>文字列関数</summary>
+<table>
+  <thead>
+      <tr>
+          <th>関数</th>
+          <th>説明</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>format()</code></td>
+          <td>書式化</td>
+          <td><code>format(&quot;Hello, %s!&quot;, var.name)</code></td>
+      </tr>
+      <tr>
+          <td><code>join()</code></td>
+          <td>結合</td>
+          <td><code>join(&quot;, &quot;, [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;])</code> → <code>&quot;a, b, c&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>split()</code></td>
+          <td>分割</td>
+          <td><code>split(&quot;,&quot;, &quot;a,b,c&quot;)</code> → <code>[&quot;a&quot;, &quot;b&quot;, &quot;c&quot;]</code></td>
+      </tr>
+      <tr>
+          <td><code>lower()</code></td>
+          <td>小文字化</td>
+          <td><code>lower(&quot;HELLO&quot;)</code> → <code>&quot;hello&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>upper()</code></td>
+          <td>大文字化</td>
+          <td><code>upper(&quot;hello&quot;)</code> → <code>&quot;HELLO&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>replace()</code></td>
+          <td>置換</td>
+          <td><code>replace(&quot;hello&quot;, &quot;l&quot;, &quot;L&quot;)</code></td>
+      </tr>
+      <tr>
+          <td><code>trimspace()</code></td>
+          <td>空白除去</td>
+          <td><code>trimspace(&quot;  hello  &quot;)</code> → <code>&quot;hello&quot;</code></td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<details>
+<summary>コレクション関数</summary>
+<table>
+  <thead>
+      <tr>
+          <th>関数</th>
+          <th>説明</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>length()</code></td>
+          <td>要素数</td>
+          <td><code>length([&quot;a&quot;, &quot;b&quot;])</code> → <code>2</code></td>
+      </tr>
+      <tr>
+          <td><code>element()</code></td>
+          <td>インデックス参照</td>
+          <td><code>element([&quot;a&quot;, &quot;b&quot;], 0)</code> → <code>&quot;a&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>concat()</code></td>
+          <td>リスト結合</td>
+          <td><code>concat([&quot;a&quot;], [&quot;b&quot;])</code> → <code>[&quot;a&quot;, &quot;b&quot;]</code></td>
+      </tr>
+      <tr>
+          <td><code>flatten()</code></td>
+          <td>ネスト解除</td>
+          <td><code>flatten([[&quot;a&quot;], [&quot;b&quot;]])</code> → <code>[&quot;a&quot;, &quot;b&quot;]</code></td>
+      </tr>
+      <tr>
+          <td><code>merge()</code></td>
+          <td>マップ結合</td>
+          <td><code>merge({a=1}, {b=2})</code> → <code>{a=1, b=2}</code></td>
+      </tr>
+      <tr>
+          <td><code>lookup()</code></td>
+          <td>マップ検索</td>
+          <td><code>lookup({a=1}, &quot;a&quot;, 0)</code> → <code>1</code></td>
+      </tr>
+      <tr>
+          <td><code>keys()</code></td>
+          <td>キー一覧</td>
+          <td><code>keys({a=1, b=2})</code> → <code>[&quot;a&quot;, &quot;b&quot;]</code></td>
+      </tr>
+      <tr>
+          <td><code>values()</code></td>
+          <td>値一覧</td>
+          <td><code>values({a=1, b=2})</code> → <code>[1, 2]</code></td>
+      </tr>
+      <tr>
+          <td><code>contains()</code></td>
+          <td>要素存在確認</td>
+          <td><code>contains([&quot;a&quot;, &quot;b&quot;], &quot;a&quot;)</code> → <code>true</code></td>
+      </tr>
+      <tr>
+          <td><code>distinct()</code></td>
+          <td>重複除去</td>
+          <td><code>distinct([&quot;a&quot;, &quot;a&quot;, &quot;b&quot;])</code> → <code>[&quot;a&quot;, &quot;b&quot;]</code></td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<details>
+<summary>ファイル関数</summary>
+<table>
+  <thead>
+      <tr>
+          <th>関数</th>
+          <th>説明</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>file()</code></td>
+          <td>ファイル読み込み</td>
+          <td><code>file(&quot;./scripts/init.sh&quot;)</code></td>
+      </tr>
+      <tr>
+          <td><code>pathexpand()</code></td>
+          <td><code>~</code>をホームパスに展開</td>
+          <td><code>pathexpand(&quot;~/.ssh/id_rsa.pub&quot;)</code></td>
+      </tr>
+      <tr>
+          <td><code>filebase64()</code></td>
+          <td>Base64で読み込み</td>
+          <td><code>filebase64(&quot;image.png&quot;)</code></td>
+      </tr>
+      <tr>
+          <td><code>templatefile()</code></td>
+          <td>テンプレート適用</td>
+          <td><code>templatefile(&quot;user_data.sh&quot;, {name = &quot;web&quot;})</code></td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<details>
+<summary>条件・型変換関数</summary>
+<table>
+  <thead>
+      <tr>
+          <th>関数</th>
+          <th>説明</th>
+          <th>例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>coalesce()</code></td>
+          <td>最初の非null値</td>
+          <td><code>coalesce(null, &quot;default&quot;)</code> → <code>&quot;default&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>try()</code></td>
+          <td>エラー時のフォールバック</td>
+          <td><code>try(var.optional, &quot;default&quot;)</code></td>
+      </tr>
+      <tr>
+          <td><code>tostring()</code></td>
+          <td>文字列変換</td>
+          <td><code>tostring(123)</code> → <code>&quot;123&quot;</code></td>
+      </tr>
+      <tr>
+          <td><code>tonumber()</code></td>
+          <td>数値変換</td>
+          <td><code>tonumber(&quot;123&quot;)</code> → <code>123</code></td>
+      </tr>
+      <tr>
+          <td><code>tobool()</code></td>
+          <td>真偽値変換</td>
+          <td><code>tobool(&quot;true&quot;)</code> → <code>true</code></td>
+      </tr>
+      <tr>
+          <td><code>tolist()</code></td>
+          <td>リスト変換</td>
+          <td><code>tolist(toset([&quot;a&quot;, &quot;b&quot;]))</code></td>
+      </tr>
+      <tr>
+          <td><code>toset()</code></td>
+          <td>セット変換</td>
+          <td><code>toset([&quot;a&quot;, &quot;a&quot;, &quot;b&quot;])</code></td>
+      </tr>
+  </tbody>
+</table>
+</details>
+<hr>
+
+<h3 class="relative group">条件分岐・ループ 
+    <div id="条件分岐ループ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9d%a1%e4%bb%b6%e5%88%86%e5%b2%90%e3%83%ab%e3%83%bc%e3%83%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<details>
+<summary>三項演算子・count</summary>
+```hcl
+# 三項演算子
+instance_type = var.environment == "prod" ? "t3.large" : "t3.micro"
+
+<h1 class="relative group">count（インデックスベース） 
+    <div id="countインデックスベース" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#count%e3%82%a4%e3%83%b3%e3%83%87%e3%83%83%e3%82%af%e3%82%b9%e3%83%99%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h1>
+<p>resource &ldquo;aws_instance&rdquo; &ldquo;web&rdquo; {
+count = 3
+tags = {
+Name = &ldquo;web-${count.index}&rdquo;
+}
+}</p>
+
+<h1 class="relative group">条件付き作成 
+    <div id="条件付き作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%9d%a1%e4%bb%b6%e4%bb%98%e3%81%8d%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h1>
+<p>resource &ldquo;aws_eip&rdquo; &ldquo;nat&rdquo; {
+count = var.create_nat ? 1 : 0
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;for_each&lt;/summary&gt;
+```hcl
+# マップ
+resource &#34;aws_subnet&#34; &#34;private&#34; {
+  for_each = {
+    &#34;a&#34; = &#34;10.0.1.0/24&#34;
+    &#34;c&#34; = &#34;10.0.2.0/24&#34;
+  }
+
+  availability_zone = &#34;ap-northeast-1${each.key}&#34;
+  cidr_block        = each.value
+}
+
+# セット
+resource &#34;aws_security_group_rule&#34; &#34;ports&#34; {
+  for_each = toset([&#34;80&#34;, &#34;443&#34;, &#34;22&#34;])
+
+  from_port = tonumber(each.value)
+  to_port   = tonumber(each.value)
+}
+</code></pre></details>
+<details>
+<summary>for式・dynamic ブロック</summary>
+```hcl
+# for式
+locals {
+  upper_names = [for name in var.names : upper(name)]
+  instance_ids = {for inst in aws_instance.web : inst.tags.Name => inst.id}
+  prod_instances = [for inst in var.instances : inst if inst.env == "prod"]
+}
+
+<h1 class="relative group">dynamic ブロック 
+    <div id="dynamic-ブロック" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dynamic-%e3%83%96%e3%83%ad%e3%83%83%e3%82%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h1>
+<p>resource &ldquo;aws_security_group&rdquo; &ldquo;main&rdquo; {
+name = &ldquo;main&rdquo;</p>
+<p>dynamic &ldquo;ingress&rdquo; {
+for_each = var.ingress_rules
+content {
+from_port   = ingress.value.from_port
+to_port     = ingress.value.to_port
+protocol    = ingress.value.protocol
+cidr_blocks = ingress.value.cidr_blocks
+}
+}
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+---
+
+### ディレクトリ構成例
+
+&lt;details&gt;
+&lt;summary&gt;シンプル構成&lt;/summary&gt;
+</code></pre><p>project/
+├── main.tf
+├── variables.tf
+├── outputs.tf
+├── versions.tf
+└── terraform.tfvars</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;モジュール構成&lt;/summary&gt;
+</code></pre><p>project/
+├── modules/
+│   ├── vpc/
+│   │   ├── main.tf
+│   │   ├── variables.tf
+│   │   └── outputs.tf
+│   └── ec2/
+├── environments/
+│   ├── dev/
+│   │   ├── main.tf
+│   │   ├── backend.tf
+│   │   └── terraform.tfvars
+│   └── prod/
+└── backend-setup/
+└── main.tf</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+---
+
+### よく使うパターン
+
+&lt;details&gt;
+&lt;summary&gt;タグの共通化&lt;/summary&gt;
+```hcl
+locals {
+  common_tags = {
+    Project     = &#34;my-project&#34;
+    Environment = var.environment
+    ManagedBy   = &#34;terraform&#34;
+  }
+}
+
+resource &#34;aws_instance&#34; &#34;web&#34; {
+  tags = merge(local.common_tags, {
+    Name = &#34;web-server&#34;
+    Role = &#34;web&#34;
+  })
+}
+</code></pre></details>
+<details>
+<summary>条件付きリソース作成</summary>
+```hcl
+resource "aws_nat_gateway" "main" {
+  count = var.enable_nat_gateway ? 1 : 0
+<p>allocation_id = aws_eip.nat[0].id
+subnet_id     = aws_subnet.public.id
+}</p>
+<p>output &ldquo;nat_gateway_id&rdquo; {
+value = var.enable_nat_gateway ? aws_nat_gateway.main[0].id : null
+}</p>
+<pre tabindex="0"><code>
+&lt;/details&gt;
+
+&lt;details&gt;
+&lt;summary&gt;user_data / セキュリティグループ参照&lt;/summary&gt;
+```hcl
+# user_data
+resource &#34;aws_instance&#34; &#34;web&#34; {
+  user_data = &lt;&lt;-EOF
+              #!/bin/bash
+              dnf update -y
+              dnf install -y httpd
+              systemctl start httpd
+              EOF
+}
+
+# SGをソースに指定
+resource &#34;aws_vpc_security_group_ingress_rule&#34; &#34;rds&#34; {
+  security_group_id            = aws_security_group.rds.id
+  referenced_security_group_id = aws_security_group.web.id
+  from_port                    = 3306
+  to_port                      = 3306
+  ip_protocol                  = &#34;tcp&#34;
+}
+</code></pre></details>
+<hr>
+
+<h3 class="relative group">注意点・ベストプラクティス 
+    <div id="注意点ベストプラクティス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%b3%a8%e6%84%8f%e7%82%b9%e3%83%99%e3%82%b9%e3%83%88%e3%83%97%e3%83%a9%e3%82%af%e3%83%86%e3%82%a3%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">やるべきこと 
+    <div id="やるべきこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%84%e3%82%8b%e3%81%b9%e3%81%8d%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li><code>terraform fmt</code> でコード整形</li>
+<li><code>terraform validate</code> で構文チェック</li>
+<li><code>.terraform.lock.hcl</code> をGit管理（Providerバージョン固定）</li>
+<li><code>terraform.tfvars</code> はGit管理外（機密情報含む場合）</li>
+<li><code>sensitive = true</code> でパスワード等をマスク</li>
+<li>リモートバックエンド（S3 + DynamoDB）で状態管理</li>
+</ul>
+
+<h4 class="relative group">避けるべきこと 
+    <div id="避けるべきこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%81%bf%e3%81%91%e3%82%8b%e3%81%b9%e3%81%8d%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<ul>
+<li>本番環境で <code>-auto-approve</code> を使わない</li>
+<li>ハードコードされたAMI ID（data sourceで取得）</li>
+<li>ハードコードされたパスワード（variables or Secrets Manager）</li>
+<li><code>terraform state rm</code> の安易な使用</li>
+<li><code>force-unlock</code> は他の操作がないことを確認してから</li>
+</ul>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<table>
+  <thead>
+      <tr>
+          <th>用途</th>
+          <th>参照セクション</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>コマンドを調べたい</td>
+          <td>基本コマンド</td>
+      </tr>
+      <tr>
+          <td>書き方を確認したい</td>
+          <td>ブロック構文</td>
+      </tr>
+      <tr>
+          <td>関数の使い方を調べたい</td>
+          <td>よく使う関数</td>
+      </tr>
+      <tr>
+          <td>ループの書き方を確認したい</td>
+          <td>条件分岐・ループ</td>
+      </tr>
+      <tr>
+          <td>実装パターンを参考にしたい</td>
+          <td>よく使うパターン</td>
+      </tr>
+  </tbody>
+</table>
+<ul>
+<li><code>terraform init</code> → <code>plan</code> → <code>apply</code> が基本フロー</li>
+<li><code>count</code>はインデックス、<code>for_each</code>はキーでリソースを識別</li>
+<li><code>locals</code>で共通値を定義、<code>merge()</code>でタグを結合</li>
+</ul>
+
+<h2 class="relative group">参考 
+    <div id="参考" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://developer.hashicorp.com/terraform/docs"
+    target="_blank"
+  >Terraform公式ドキュメント</a></li>
+<li><a
+  href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs"
+    target="_blank"
+  >AWS Provider</a></li>
+<li><a
+  href="https://developer.hashicorp.com/terraform/language/functions"
+    target="_blank"
+  >Terraform関数一覧</a></li>
+<li><a
+  href="https://www.terraform-best-practices.com/"
+    target="_blank"
+  >Terraform Best Practices</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference.md"
+          data-oid-likes="likes_posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/251210215023_rds-mysql-with-terraform/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >RDS（MySQL）をTerraformで構築</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-12-10T21:50:23&#43;09:00">2025年 12月 10日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

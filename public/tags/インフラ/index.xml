@@ -9,7 +9,57 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 09 Dec 2025 23:17:24 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 10 Dec 2025 21:50:23 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>RDS（MySQL）をTerraformで構築</title>
+      <link>http://localhost:1313/posts/251210215023_rds-mysql-with-terraform/</link>
+      <pubDate>Wed, 10 Dec 2025 21:50:23 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251210215023_rds-mysql-with-terraform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>NAT GatewayをTerraformで構築</title>
+      <link>http://localhost:1313/posts/251210214738_nat-gateway-with-terraform/</link>
+      <pubDate>Wed, 10 Dec 2025 21:47:38 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251210214738_nat-gateway-with-terraform/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>user_dataでEC2起動時にApacheを自動インストール</title>
+      <link>http://localhost:1313/posts/251210213639_ec2-startup-apache-auto-install-with-user-data/</link>
+      <pubDate>Wed, 10 Dec 2025 21:36:39 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251210213639_ec2-startup-apache-auto-install-with-user-data/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>EC2 &#43; Security GroupをTerraformで構築</title>
+      <link>http://localhost:1313/posts/251210212221_ec2-security-group-terraform-setup/</link>
+      <pubDate>Wed, 10 Dec 2025 21:22:21 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251210212221_ec2-security-group-terraform-setup/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>VPCとサブネット設計をTerraformで構築する</title>
+      <link>http://localhost:1313/posts/251210211505_vpc-and-subnet-design-with-terraform/</link>
+      <pubDate>Wed, 10 Dec 2025 21:15:05 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251210211505_vpc-and-subnet-design-with-terraform/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>draw.ioでAWSアーキテクチャ図を作成する</title>

@@ -3,19 +3,61 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/</loc>
-    <lastmod>2025-12-09T23:17:24+09:00</lastmod>
+    <loc>http://localhost:1313/posts/</loc>
+    <lastmod>2025-12-10T22:11:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>http://localhost:1313/posts/</loc>
-    <lastmod>2025-12-09T23:17:24+09:00</lastmod>
+    <loc>http://localhost:1313/posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference/</loc>
+    <lastmod>2025-12-10T22:11:00+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2025-12-10T22:11:00+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251210215023_rds-mysql-with-terraform/</loc>
+    <lastmod>2025-12-10T21:50:23+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251210214738_nat-gateway-with-terraform/</loc>
+    <lastmod>2025-12-10T21:47:38+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251210213639_ec2-startup-apache-auto-install-with-user-data/</loc>
+    <lastmod>2025-12-10T21:36:39+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251210212221_ec2-security-group-terraform-setup/</loc>
+    <lastmod>2025-12-10T21:22:21+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251210211505_vpc-and-subnet-design-with-terraform/</loc>
+    <lastmod>2025-12-10T21:15:05+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251210142726_raycast-windows-installation-and-5-core-features/</loc>
+    <lastmod>2025-12-10T14:27:26+09:00</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>http://localhost:1313/posts/251209231724_create-aws-architecture-diagram-with-drawio/</loc>
     <lastmod>2025-12-09T23:17:24+09:00</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.5</priority>
