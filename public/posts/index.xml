@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 14 Dec 2025 21:11:09 +0900</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Dec 2025 21:52:49 +0900</lastBuildDate><atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Dockerで勉強用の使い捨て環境を構築する</title>
+      <link>http://localhost:1313/posts/251214215249_docker-disposable-study-environment/</link>
+      <pubDate>Sun, 14 Dec 2025 21:52:49 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251214215249_docker-disposable-study-environment/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Tailwind CSS とは何か？従来のCSSと何が違うのか？</title>
