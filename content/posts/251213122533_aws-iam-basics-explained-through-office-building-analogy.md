@@ -84,5 +84,5 @@ IAMを運用する際は、以下の原則を意識しましょう。
 
 ## 参考
 
-- [AWS運用入門 改訂第2版 押さえておきたいAWSの基本と運用ノウハウ](https://www.sbcr.jp/product/4815631086/)
+- 『AWS運用入門 改訂第2版 押さえておきたいAWSの基本と運用ノウハウ』山﨑翔平・小倉大・峯侑資 著/SBクリエイティブ（2025年）
 - [IAM チュートリアル - AWS公式](https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/tutorials.html)
