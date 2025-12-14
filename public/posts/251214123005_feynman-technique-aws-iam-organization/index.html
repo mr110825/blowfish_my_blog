@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測 &middot; 毎日.log</title>
-    <meta name="title" content="Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測 &middot; 毎日.log">
+  <title>ファインマンテクニックでAWS IAMを整理してみた &middot; 毎日.log</title>
+    <meta name="title" content="ファインマンテクニックでAWS IAMを整理してみた &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="ツール,Raycast,実践,">
+  <meta name="keywords" content="インフラ,AWS,実践,メモ,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/">
+  <link rel="canonical" href="http://localhost:1313/posts/251214123005_feynman-technique-aws-iam-organization/">
   
   
   
@@ -99,22 +99,23 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/">
+  <meta property="og:url" content="http://localhost:1313/posts/251214123005_feynman-technique-aws-iam-organization/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測">
+  <meta property="og:title" content="ファインマンテクニックでAWS IAMを整理してみた">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-12T23:10:19+09:00">
-    <meta property="article:modified_time" content="2025-12-12T23:10:19+09:00">
-    <meta property="article:tag" content="ツール">
-    <meta property="article:tag" content="Raycast">
+    <meta property="article:published_time" content="2025-12-14T12:30:05+09:00">
+    <meta property="article:modified_time" content="2025-12-14T12:30:05+09:00">
+    <meta property="article:tag" content="インフラ">
+    <meta property="article:tag" content="AWS">
     <meta property="article:tag" content="実践">
+    <meta property="article:tag" content="メモ">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測">
+  <meta name="twitter:title" content="ファインマンテクニックでAWS IAMを整理してみた">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -122,26 +123,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Raycast for Windows \u002b Toggl Track拡張でホットキーから時間計測",
-    "headline": "Raycast for Windows \u002b Toggl Track拡張でホットキーから時間計測",
+    "name": "ファインマンテクニックでAWS IAMを整理してみた",
+    "headline": "ファインマンテクニックでAWS IAMを整理してみた",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251214123005_feynman-technique-aws-iam-organization\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-12T23:10:19\u002b09:00",
-    "datePublished": "2025-12-12T23:10:19\u002b09:00",
+    "dateCreated": "2025-12-14T12:30:05\u002b09:00",
+    "datePublished": "2025-12-14T12:30:05\u002b09:00",
     
-    "dateModified": "2025-12-12T23:10:19\u002b09:00",
+    "dateModified": "2025-12-14T12:30:05\u002b09:00",
     
-    "keywords": ["ツール","Raycast","実践"],
+    "keywords": ["インフラ","AWS","実践","メモ"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "89"
+    "wordCount": "148"
   }]
   </script>
 
@@ -476,7 +477,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Raycast for Windows + Toggl Track拡張でホットキーから時間計測
+        ファインマンテクニックでAWS IAMを整理してみた
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -527,7 +528,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-12T23:10:19&#43;09:00">2025年 12月 12日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-14T12:30:05&#43;09:00">2025年 12月 14日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -574,11 +575,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%84%E3%83%BC%E3%83%AB/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%82%A4%E3%83%B3%E3%83%95%E3%83%A9/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ツール
+    インフラ
   </span>
 </span>
 
@@ -586,11 +587,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/raycast/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Raycast
+    AWS
   </span>
 </span>
 
@@ -603,6 +604,18 @@
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
     実践
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%A1%E3%83%A2/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    メモ
   </span>
 </span>
 
@@ -665,15 +678,18 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#背景">背景</a></li>
-        <li><a href="#セットアップ手順">セットアップ手順</a>
+        <li><a href="#ファインマンテクニックとは">ファインマンテクニックとは</a></li>
+        <li><a href="#step-1--2最初の説明を書く">Step 1 &amp; 2：最初の説明を書く</a></li>
+        <li><a href="#step-3ギャップの特定">Step 3：ギャップの特定</a>
           <ul>
-            <li><a href="#step-1-toggl-track拡張のインストール">Step 1: Toggl Track拡張のインストール</a></li>
-            <li><a href="#step-2-apiトークンの設定">Step 2: APIトークンの設定</a></li>
-            <li><a href="#step-3-ホットキーの設定">Step 3: ホットキーの設定</a></li>
+            <li><a href="#ギャップ1への対応誰がの範囲を広げる">ギャップ1への対応：「誰が」の範囲を広げる</a></li>
+            <li><a href="#ギャップ2への対応4概念の追加">ギャップ2への対応：4概念の追加</a></li>
+            <li><a href="#ギャップ3への対応アナロジーの追加">ギャップ3への対応：アナロジーの追加</a></li>
+            <li><a href="#追加の修正iamを使わないとどうなるか">追加の修正：IAMを使わないとどうなるか</a></li>
           </ul>
         </li>
-        <li><a href="#使い方">使い方</a></li>
+        <li><a href="#step-4完成版">Step 4：完成版</a></li>
+        <li><a href="#before--after-比較">Before / After 比較</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -694,15 +710,18 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#背景">背景</a></li>
-        <li><a href="#セットアップ手順">セットアップ手順</a>
+        <li><a href="#ファインマンテクニックとは">ファインマンテクニックとは</a></li>
+        <li><a href="#step-1--2最初の説明を書く">Step 1 &amp; 2：最初の説明を書く</a></li>
+        <li><a href="#step-3ギャップの特定">Step 3：ギャップの特定</a>
           <ul>
-            <li><a href="#step-1-toggl-track拡張のインストール">Step 1: Toggl Track拡張のインストール</a></li>
-            <li><a href="#step-2-apiトークンの設定">Step 2: APIトークンの設定</a></li>
-            <li><a href="#step-3-ホットキーの設定">Step 3: ホットキーの設定</a></li>
+            <li><a href="#ギャップ1への対応誰がの範囲を広げる">ギャップ1への対応：「誰が」の範囲を広げる</a></li>
+            <li><a href="#ギャップ2への対応4概念の追加">ギャップ2への対応：4概念の追加</a></li>
+            <li><a href="#ギャップ3への対応アナロジーの追加">ギャップ3への対応：アナロジーの追加</a></li>
+            <li><a href="#追加の修正iamを使わないとどうなるか">追加の修正：IAMを使わないとどうなるか</a></li>
           </ul>
         </li>
-        <li><a href="#使い方">使い方</a></li>
+        <li><a href="#step-4完成版">Step 4：完成版</a></li>
+        <li><a href="#before--after-比較">Before / After 比較</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -819,7 +838,7 @@
     </span>        
     
 </h2>
-<p>Raycast for WindowsにToggl Track拡張を導入し、ホットキー一発で時間計測の開始・停止ができるようになりました。ブラウザを開く手間がなくなり、計測開始のハードルが下がりました。</p>
+<p>ファインマンテクニックを使ってAWS IAMを整理しました。「12歳にも分かるように説明する」というプロセスを通じて、自分の理解が曖昧だった部分（IAMロールの対象、4概念の関係性）が明確になりました。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -831,155 +850,259 @@
     
 </h2>
 
-<h3 class="relative group">背景 
-    <div id="背景" class="anchor"></div>
+<h3 class="relative group">ファインマンテクニックとは 
+    <div id="ファインマンテクニックとは" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%83%8c%e6%99%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%95%e3%82%a1%e3%82%a4%e3%83%b3%e3%83%9e%e3%83%b3%e3%83%86%e3%82%af%e3%83%8b%e3%83%83%e3%82%af%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>Toggl Trackで学習時間を記録していたが、毎回ブラウザを開いて操作するのが面倒だった。ショートカットキーで計測を開始・停止できる環境を作りたいと考えた。</p>
-
-<h3 class="relative group">セットアップ手順 
-    <div id="セットアップ手順" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%bb%e3%83%83%e3%83%88%e3%82%a2%e3%83%83%e3%83%97%e6%89%8b%e9%a0%86" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-
-<h4 class="relative group">Step 1: Toggl Track拡張のインストール 
-    <div id="step-1-toggl-track拡張のインストール" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-toggl-track%e6%8b%a1%e5%bc%b5%e3%81%ae%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<ol>
-<li>Raycastを開き「Store」と入力</li>
-<li>「Toggl Track」を検索してインストール</li>
-</ol>
-
-<h4 class="relative group">Step 2: APIトークンの設定 
-    <div id="step-2-apiトークンの設定" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-api%e3%83%88%e3%83%bc%e3%82%af%e3%83%b3%e3%81%ae%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<ol>
-<li><a
-  href="https://track.toggl.com/profile"
-    target="_blank"
-  >https://track.toggl.com/profile</a> にアクセス</li>
-<li>ページ下部の「API Token」をコピー</li>
-<li>Raycast → 拡張機能の設定 → Toggl Track → APIトークンを貼り付け</li>
-</ol>
-<p>
-
-
-
-
-
-
-<figure>
-      <img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="low"
-    alt="Raycast StoreのToggl Track拡張機能ページ"
-    srcset="
-      /img/raycast_toggle_hu14665020427336499818.png  330w,
-      /img/raycast_toggle_hu5268550658131771955.png  660w,
-      /img/raycast_toggle_hu9256961726834723399.png 1280w
-    "
-    data-zoom-src="/img/raycast_toggle.png"
-    src="/img/raycast_toggle.png">
-
-  
-</figure>
-
-<em>「Configure Extension」を選択するとAPIトークンの設定画面に進めます</em></p>
-
-<h4 class="relative group">Step 3: ホットキーの設定 
-    <div id="step-3-ホットキーの設定" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-%e3%83%9b%e3%83%83%e3%83%88%e3%82%ad%e3%83%bc%e3%81%ae%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
-    </span>        
-    
-</h4>
-<p>Raycast Settings → Extensions → Toggl Track → Commands で設定。</p>
+<p>ノーベル物理学賞を受賞したリチャード・ファインマンに由来する学習法です。「専門用語を使わずに説明できなければ、本当に理解していない」という考えに基づいています。</p>
 <table>
   <thead>
       <tr>
-          <th>コマンド</th>
-          <th>設定例</th>
+          <th>ステップ</th>
+          <th>内容</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>Start/Stop Time Entry</td>
-          <td><code>Ctrl+Shift+T</code></td>
+          <td>Step 1</td>
+          <td>学びたい概念を選ぶ</td>
+      </tr>
+      <tr>
+          <td>Step 2</td>
+          <td>12歳でも分かるように説明を書く</td>
+      </tr>
+      <tr>
+          <td>Step 3</td>
+          <td>説明に詰まった箇所（ギャップ）を特定し、学び直す</td>
+      </tr>
+      <tr>
+          <td>Step 4</td>
+          <td>説明を改訂し、シンプルにする</td>
       </tr>
   </tbody>
 </table>
-<p>
 
-
-
-
-
-
-<figure>
-      <img
-    class="my-0 rounded-md"
-    loading="lazy"
-    decoding="async"
-    fetchpriority="low"
-    alt="ホットキーの設定"
-    srcset="
-      /img/hotkey_20251212_hu16284578508673543933.png  330w,
-      /img/hotkey_20251212_hu16957582345989003653.png  660w,
-      /img/hotkey_20251212_hu18060212487262815363.png 1280w
-    "
-    data-zoom-src="/img/hotkey_20251212.png"
-    src="/img/hotkey_20251212.png">
-
-  
-</figure>
-</p>
-
-<h3 class="relative group">使い方 
-    <div id="使い方" class="anchor"></div>
+<h3 class="relative group">Step 1 &amp; 2：最初の説明を書く 
+    <div id="step-1--2最初の説明を書く" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%bf%e3%81%84%e6%96%b9" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1--2%e6%9c%80%e5%88%9d%e3%81%ae%e8%aa%ac%e6%98%8e%e3%82%92%e6%9b%b8%e3%81%8f" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p><strong>計測開始:</strong></p>
-<ol>
-<li><code>Ctrl+Shift+T</code> を押す</li>
-<li>過去のエントリー一覧が表示される</li>
-<li>再開したいエントリーを選択、または「Create a new time entry」で新規作成</li>
-</ol>
-<p><strong>計測停止:</strong></p>
-<ol>
-<li><code>Ctrl+Shift+T</code> を押す</li>
-<li>一番上に表示される実行中エントリーを選択してEnter</li>
-</ol>
+<p>AWS IAMについて、専門用語を避けて説明を書いてみました。</p>
+<blockquote>
+<p>IAMというのはAWSリソースへのアクセスを管理する仕組みです。</p>
+<p>AWSというのはAmazonが管理しているクラウドサービスの集まり。パソコンからいろいろ便利なサービスを利用できます。このとき注意しないといけないのは、<strong>誰が・どのサービスを・何処まで</strong>触ってよいのかということです。AWSではサービスや設定を簡単にいじることができます。そうすると、不必要なお金がかかったり、サービスが正しく運用できなくなります。</p>
+<p>このトラブルをあらかじめ防ぐためにIAMがあります。
+それぞれの作業者や社員にIAMで権限を管理することで、AWSへのリソースやサービスへの接続を管理します。</p>
+</blockquote>
+
+<h3 class="relative group">Step 3：ギャップの特定 
+    <div id="step-3ギャップの特定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3%e3%82%ae%e3%83%a3%e3%83%83%e3%83%97%e3%81%ae%e7%89%b9%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>書いた説明を見直すと、以下の3つのギャップが見つかりました。</p>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>ギャップ</th>
+          <th>具体的に何が足りない？</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>「誰が」が浅い</td>
+          <td>人間だけでなく、プログラム（EC2、Lambda）も権限管理の対象という視点が抜けている</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>「どうやって」がない</td>
+          <td>ポリシー・ユーザー・グループ・ロールの使い分けが説明されていない</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>アナロジーがない</td>
+          <td>12歳でも分かる比喩があると定着する</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">ギャップ1への対応：「誰が」の範囲を広げる 
+    <div id="ギャップ1への対応誰がの範囲を広げる" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ae%e3%83%a3%e3%83%83%e3%83%971%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c%e8%aa%b0%e3%81%8c%e3%81%ae%e7%af%84%e5%9b%b2%e3%82%92%e5%ba%83%e3%81%92%e3%82%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>「作業者や社員」という表現では、人間しかイメージできません。実際にはEC2やLambdaといったAWSサービス自身も、他のAWSリソースにアクセスする際に権限が必要です。</p>
+<p><strong>修正内容</strong></p>
+<ul>
+<li>Before：「それぞれの作業者や社員に」</li>
+<li>After：「ユーザーやサービス（EC2・Lambda）による」</li>
+</ul>
+
+<h4 class="relative group">ギャップ2への対応：4概念の追加 
+    <div id="ギャップ2への対応4概念の追加" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ae%e3%83%a3%e3%83%83%e3%83%972%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c4%e6%a6%82%e5%bf%b5%e3%81%ae%e8%bf%bd%e5%8a%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>IAMの「どうやって」を説明するため、4つの概念を整理しました。</p>
+<p><strong>最初に書いた定義</strong></p>
+<ul>
+<li>IAMポリシー：IAMにおいて、操作や接続を認可するための仕組み</li>
+<li>IAMユーザー：IAMによって発行されたユーザーアカウント</li>
+<li>IAMグループ：IAMユーザーをグループ単位で管理するための仕組み</li>
+<li>IAMロール：各種AWSリソースに対して他のAWSリソースへの操作や接続を認可する仕組み</li>
+</ul>
+<p><strong>見直して気づいた問題</strong></p>
+<p>IAMロールの説明が「リソース間」に限定されていました。実際には人間がIAMロールを引き受ける（AssumeRole）こともあります。例えば、別のAWSアカウントに一時的にアクセスするケースです。</p>
+<p><strong>修正後の定義</strong></p>
+<ul>
+<li>IAMポリシー：「何を許可/拒否するか」を定義したルール</li>
+<li>IAMユーザー：個人に紐づくアカウント</li>
+<li>IAMグループ：ユーザーをまとめて同じルールを適用</li>
+<li>IAMロール：人間やサービスに一時的に権限を与える仕組み</li>
+</ul>
+
+<h4 class="relative group">ギャップ3への対応：アナロジーの追加 
+    <div id="ギャップ3への対応アナロジーの追加" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ae%e3%83%a3%e3%83%83%e3%83%973%e3%81%b8%e3%81%ae%e5%af%be%e5%bf%9c%e3%82%a2%e3%83%8a%e3%83%ad%e3%82%b8%e3%83%bc%e3%81%ae%e8%bf%bd%e5%8a%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>会社のオフィスビルに例えると、各概念がイメージしやすくなりました。</p>
+<table>
+  <thead>
+      <tr>
+          <th>IAMの概念</th>
+          <th>オフィスビルで例えると</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>IAMポリシー</td>
+          <td>「3階の会議室は入れるが、サーバールームは入れない」というルール</td>
+      </tr>
+      <tr>
+          <td>IAMユーザー</td>
+          <td>社員証（個人を識別）</td>
+      </tr>
+      <tr>
+          <td>IAMグループ</td>
+          <td>「営業部」「開発部」といった部署単位でルールをまとめて適用</td>
+      </tr>
+      <tr>
+          <td>IAMロール</td>
+          <td>清掃業者用の一時入館証（人ではなく役割に紐づく）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">追加の修正：IAMを使わないとどうなるか 
+    <div id="追加の修正iamを使わないとどうなるか" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%bf%bd%e5%8a%a0%e3%81%ae%e4%bf%ae%e6%ad%a3iam%e3%82%92%e4%bd%bf%e3%82%8f%e3%81%aa%e3%81%84%e3%81%a8%e3%81%a9%e3%81%86%e3%81%aa%e3%82%8b%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>最初の説明では「不必要なお金がかかる」という例を挙げていましたが、これはIAMで防げる問題ではありませんでした。IAMは「誰が何をできるか」を制限するもので、「どのスペックを選ぶか」は制限できません。</p>
+<p><strong>修正内容</strong></p>
+<ul>
+<li>Before：「要件以上スペック（オーバースペック）などを設定すると…」</li>
+<li>After：「退職者など想定していないユーザーがサービスなどへ接続したり、リソースを削除する…」</li>
+</ul>
+
+<h3 class="relative group">Step 4：完成版 
+    <div id="step-4完成版" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-4%e5%ae%8c%e6%88%90%e7%89%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>反復改善を経て、以下の説明が完成しました。</p>
+<blockquote>
+<p>AWS IAMとは、ユーザーやサービス（EC2・Lambda）による「AWSのリソースやサービス」へのアクセスを管理する仕組みです。</p>
+<p>AWSとはAmazonが提供しているクラウドサービスの総称であり、コンピュータから便利なサービスを利用することが可能です。</p>
+<p>AWSを利用する際の注意点として、「誰が・どのサービスを・何処まで」アクセスしてよいか制限する必要があります。
+IAMによる管理を実施しない場合、退職者など想定していないユーザーがサービスなどへ接続したり、リソースを削除するような危険性があります。</p>
+<p>このとき、IAMの用語として、「IAMポリシー」・「IAMユーザー」・「IAMグループ」・「IAMロール」があります。
+AWSの環境を会社のビルに例えると、それぞれは下記に例えられます。</p>
+<ul>
+<li>IAMポリシー：「何を許可/拒否するか」を定義したルール</li>
+<li>IAMユーザー：個人に紐づくアカウント（社員証）</li>
+<li>IAMグループ：ユーザーをまとめて同じルールを適用（部署単位）</li>
+<li>IAMロール：人間やサービスに一時的に権限を与える仕組み（一時入館証）</li>
+</ul>
+<p>IAMユーザー・グループ・ロールにIAMポリシーを付与することで、権限を管理します。
+上記のようなトラブルをAWS IAMによって適切な権限を設定することで防ぐことが可能になり、適切なAWSの運用が可能になります。</p>
+</blockquote>
+
+<h3 class="relative group">Before / After 比較 
+    <div id="before--after-比較" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#before--after-%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>ギャップ</th>
+          <th>Before</th>
+          <th>After</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>「誰が」が浅い</td>
+          <td>人間（作業者・社員）のみ</td>
+          <td>ユーザーやサービス（EC2・Lambda）</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>「どうやって」がない</td>
+          <td>説明なし</td>
+          <td>4概念（ポリシー・ユーザー・グループ・ロール）を正確に説明</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>アナロジーがない</td>
+          <td>なし</td>
+          <td>会社のビル（社員証・部署・一時入館証）で例示</td>
+      </tr>
+  </tbody>
+</table>
 
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -991,9 +1114,11 @@
     
 </h2>
 <ul>
-<li>Raycast for WindowsはToggl Track拡張に対応している</li>
-<li>APIトークンを設定するだけで連携可能</li>
-<li>ホットキー設定で、任意のキーから計測開始・停止ができる</li>
+<li>ファインマンテクニックは「説明できない箇所 = 理解が曖昧な箇所」を特定するのに有効</li>
+<li>IAMの権限管理対象は人間だけでなく、EC2・Lambdaなどのサービスも含む</li>
+<li>IAMロールは「リソース間の権限付与」だけでなく「人間への一時的な権限付与」にも使う</li>
+<li>アナロジー（オフィスビルの例）を使うと、抽象的な概念が具体的になる</li>
+<li>「IAMで防げる問題は何か」を正確に理解することが重要</li>
 </ul>
 
 <h2 class="relative group">参考 
@@ -1006,10 +1131,11 @@
     
 </h2>
 <ul>
+<li>『AWS運用入門 改訂第2版 押さえておきたいAWSの基本と運用ノウハウ』山﨑翔平・小倉大・峯侑資 著/SBクリエイティブ（2025年）</li>
 <li><a
-  href="https://www.raycast.com/franzwilhelm/toggl-track"
+  href="https://docs.aws.amazon.com/ja_jp/IAM/latest/UserGuide/tutorials.html"
     target="_blank"
-  >Raycast Store: Toggl Track</a></li>
+  >IAM チュートリアル - AWS公式</a></li>
 </ul>
 
           
@@ -1040,8 +1166,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking.md"
-          data-oid-likes="likes_posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking.md"></script>
+          data-oid="views_posts/251214123005_feynman-technique-aws-iam-organization.md"
+          data-oid-likes="likes_posts/251214123005_feynman-technique-aws-iam-organization.md"></script>
       
 
     </section>
@@ -1056,7 +1182,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251210221100_terraform-cheatsheet-commands-syntax-quick-reference/">
+            <a class="flex group mr-3" href="/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1067,11 +1193,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Terraformチートシート：コマンド・構文・関数クイックリファレンス</span
+                  >AWS IAMの基礎：4つの概念をオフィスビルで例える</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-10T22:11:00&#43;09:00">2025年 12月 10日</time>
+                    <time datetime="2025-12-13T12:25:33&#43;09:00">2025年 12月 13日</time>
                   
                 </span>
               </span>
@@ -1080,14 +1206,14 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/">
+            <a class="flex text-right group ml-3" href="/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >AWS IAMの基礎：4つの概念をオフィスビルで例える</span
+                  >Tailwind CSS とは何か？従来のCSSと何が違うのか？</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-13T12:25:33&#43;09:00">2025年 12月 13日</time>
+                    <time datetime="2025-12-14T21:11:09&#43;09:00">2025年 12月 14日</time>
                   
                 </span>
               </span>

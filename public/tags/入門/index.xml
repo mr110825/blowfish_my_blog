@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 10 Dec 2025 14:27:26 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%85%A5%E9%96%80/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Dec 2025 21:11:09 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%85%A5%E9%96%80/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tailwind CSS とは何か？従来のCSSと何が違うのか？</title>
+      <link>http://localhost:1313/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</link>
+      <pubDate>Sun, 14 Dec 2025 21:11:09 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>AWS IAMの基礎：4つの概念をオフィスビルで例える</title>
+      <link>http://localhost:1313/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/</link>
+      <pubDate>Sat, 13 Dec 2025 12:25:33 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Raycast Windows版の導入と基本機能5つ</title>

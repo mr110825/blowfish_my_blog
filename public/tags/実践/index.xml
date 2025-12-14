@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 10 Dec 2025 21:36:39 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Dec 2025 12:30:05 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E5%AE%9F%E8%B7%B5/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>ファインマンテクニックでAWS IAMを整理してみた</title>
+      <link>http://localhost:1313/posts/251214123005_feynman-technique-aws-iam-organization/</link>
+      <pubDate>Sun, 14 Dec 2025 12:30:05 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251214123005_feynman-technique-aws-iam-organization/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測</title>
+      <link>http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</link>
+      <pubDate>Fri, 12 Dec 2025 23:10:19 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>user_dataでEC2起動時にApacheを自動インストール</title>

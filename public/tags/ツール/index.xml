@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 10 Dec 2025 14:27:26 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Dec 2025 21:11:09 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%83%84%E3%83%BC%E3%83%AB/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tailwind CSS とは何か？従来のCSSと何が違うのか？</title>
+      <link>http://localhost:1313/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</link>
+      <pubDate>Sun, 14 Dec 2025 21:11:09 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測</title>
+      <link>http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</link>
+      <pubDate>Fri, 12 Dec 2025 23:10:19 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Raycast Windows版の導入と基本機能5つ</title>
