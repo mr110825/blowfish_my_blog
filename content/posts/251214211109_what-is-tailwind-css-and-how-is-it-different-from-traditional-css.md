@@ -60,6 +60,37 @@ Tailwind CSSの根底にある考え方が「ユーティリティファース�
 - スタイルの定義と適用箇所が同じ場所にある（コロケーション）ため、直感的に理解しやすい
 - 共通スタイルはコンポーネント化や`@apply`で管理可能
 
+### 自分の言葉でまとめる
+
+Tailwind CSS とは、ユーティリティファーストのCSSフレームワークである。
+従来のCSSでは、HTMLとCSSを別ファイルに分離して管理していた。
+しかし、実際の開発ではHTMLとCSSを常にセットで変更することが多く、
+ファイル間の追跡が困難という課題があった。
+
+Tailwind CSSでは`bg-blue-500` や `text-white` などの
+小さなユーティリティクラスをHTMLに直接記述する。これにより、
+スタイルの定義と適用箇所が同じ場所にある（コロケーション）ため、直感的に理解しやすい。
+
+また、共通スタイルの一括管理はコンポーネント化や@applyで対応可能である。
+Tailwind CSSにおいては「ユーティリティファースト」という考えが根底にある。
+「1つのCSSプロパティだけを持つ小さなクラス」であるユーティリティクラスを
+最優先に使用することで、CSSの肥大化などを防ぐことが可能。
+
+```css
+/* 従来のCSS */
+.primary-button {
+background-color: blue;
+color: white;
+padding: 8px 16px;
+border-radius: 4px;
+}
+```
+
+```html
+<!-- Tailwind CSS（HTMLに直接記述） -->
+<button class="bg-blue-500 text-white px-4 py-2 rounded">
+```
+
 ## 参考
 
 - [Tailwind CSS公式ドキュメント](https://tailwindcss.com/docs)

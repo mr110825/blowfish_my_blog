@@ -142,7 +142,7 @@
     "keywords": ["ツール","Tailwind CSS","CSS","入門"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "65"
+    "wordCount": "110"
   }]
   </script>
 
@@ -683,7 +683,11 @@
         <li><a href="#ユーティリティファーストとは">ユーティリティファーストとは</a></li>
       </ul>
     </li>
-    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#自分の言葉でまとめる">自分の言葉でまとめる</a></li>
+      </ul>
+    </li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -706,7 +710,11 @@
         <li><a href="#ユーティリティファーストとは">ユーティリティファーストとは</a></li>
       </ul>
     </li>
-    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#自分の言葉でまとめる">自分の言葉でまとめる</a></li>
+      </ul>
+    </li>
     <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
@@ -896,6 +904,36 @@
 <li>共通スタイルはコンポーネント化や<code>@apply</code>で管理可能</li>
 </ul>
 
+<h3 class="relative group">自分の言葉でまとめる 
+    <div id="自分の言葉でまとめる" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e8%87%aa%e5%88%86%e3%81%ae%e8%a8%80%e8%91%89%e3%81%a7%e3%81%be%e3%81%a8%e3%82%81%e3%82%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>Tailwind CSS とは、ユーティリティファーストのCSSフレームワークである。
+従来のCSSでは、HTMLとCSSを別ファイルに分離して管理していた。
+しかし、実際の開発ではHTMLとCSSを常にセットで変更することが多く、
+ファイル間の追跡が困難という課題があった。</p>
+<p>Tailwind CSSでは<code>bg-blue-500</code> や <code>text-white</code> などの
+小さなユーティリティクラスをHTMLに直接記述する。これにより、
+スタイルの定義と適用箇所が同じ場所にある（コロケーション）ため、直感的に理解しやすい。</p>
+<p>また、共通スタイルの一括管理はコンポーネント化や@applyで対応可能である。
+Tailwind CSSにおいては「ユーティリティファースト」という考えが根底にある。
+「1つのCSSプロパティだけを持つ小さなクラス」であるユーティリティクラスを
+最優先に使用することで、CSSの肥大化などを防ぐことが可能。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-css" data-lang="css"><span class="line"><span class="cl"><span class="c">/* 従来のCSS */</span>
+</span></span><span class="line"><span class="cl"><span class="p">.</span><span class="nc">primary-button</span> <span class="p">{</span>
+</span></span><span class="line"><span class="cl"><span class="k">background-color</span><span class="p">:</span> <span class="kc">blue</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">color</span><span class="p">:</span> <span class="kc">white</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">padding</span><span class="p">:</span> <span class="mi">8</span><span class="kt">px</span> <span class="mi">16</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="k">border-radius</span><span class="p">:</span> <span class="mi">4</span><span class="kt">px</span><span class="p">;</span>
+</span></span><span class="line"><span class="cl"><span class="p">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="line"><span class="cl"><span class="c">&lt;!-- Tailwind CSS（HTMLに直接記述） --&gt;</span>
+</span></span><span class="line"><span class="cl"><span class="p">&lt;</span><span class="nt">button</span> <span class="na">class</span><span class="o">=</span><span class="s">&#34;bg-blue-500 text-white px-4 py-2 rounded&#34;</span><span class="p">&gt;</span>
+</span></span></code></pre></div>
 <h2 class="relative group">参考 
     <div id="参考" class="anchor"></div>
     
