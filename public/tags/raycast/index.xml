@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Raycast on 毎日.log</title>
-    <link>http://localhost:1313/tags/raycast/</link>
+    <link>https://fumi-til.com/tags/raycast/</link>
     <description>Recent content in Raycast on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Fri, 12 Dec 2025 23:10:19 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/raycast/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 12 Dec 2025 23:10:19 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/raycast/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Raycast for Windows &#43; Toggl Track拡張でホットキーから時間計測</title>
-      <link>http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</link>
+      <link>https://fumi-til.com/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</link>
       <pubDate>Fri, 12 Dec 2025 23:10:19 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</guid>
+      <guid>https://fumi-til.com/posts/251212231019_raycast-windows-toggl-track-extension-hotkey-time-tracking/</guid>
       <description></description>
       
     </item>

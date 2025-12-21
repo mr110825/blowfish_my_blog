@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GitHub on 毎日.log</title>
-    <link>http://localhost:1313/tags/github/</link>
+    <link>https://fumi-til.com/tags/github/</link>
     <description>Recent content in GitHub on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Mon, 08 Dec 2025 07:59:01 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/github/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 08 Dec 2025 07:59:01 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>GitHub Actions &#43; OIDC認証でアクセスキー不要のAWS認証を実現する</title>
-      <link>http://localhost:1313/posts/251208075901_github-actions-oidc-aws-authentication/</link>
+      <link>https://fumi-til.com/posts/251208075901_github-actions-oidc-aws-authentication/</link>
       <pubDate>Mon, 08 Dec 2025 07:59:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251208075901_github-actions-oidc-aws-authentication/</guid>
+      <guid>https://fumi-til.com/posts/251208075901_github-actions-oidc-aws-authentication/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>GitHubプロフィールREADMEを作成してみた</title>
-      <link>http://localhost:1313/posts/251207233715_github-profile-readme-creation/</link>
+      <link>https://fumi-til.com/posts/251207233715_github-profile-readme-creation/</link>
       <pubDate>Sun, 07 Dec 2025 23:37:15 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251207233715_github-profile-readme-creation/</guid>
+      <guid>https://fumi-til.com/posts/251207233715_github-profile-readme-creation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Github-CLIでIssuesをMarkdownファイルとしてダウンロードする方法</title>
-      <link>http://localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</link>
+      <link>https://fumi-til.com/posts/251202080329_download-github-issues-as-markdown-files/</link>
       <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251202080329_download-github-issues-as-markdown-files/</guid>
+      <guid>https://fumi-til.com/posts/251202080329_download-github-issues-as-markdown-files/</guid>
       <description></description>
       
     </item>
