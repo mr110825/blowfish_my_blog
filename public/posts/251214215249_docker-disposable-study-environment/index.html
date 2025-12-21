@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="false"><head>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="ja">
@@ -22,7 +22,7 @@
   <meta name="keywords" content="ツール,Docker,ハンズオン・チュートリアル,入門,">
   
   
-  <link rel="canonical" href="https://fumi-til.com/posts/251214215249_docker-disposable-study-environment/">
+  <link rel="canonical" href="http://localhost:1313/posts/251214215249_docker-disposable-study-environment/">
   
   
   
@@ -99,7 +99,7 @@
   
 
   
-  <meta property="og:url" content="https://fumi-til.com/posts/251214215249_docker-disposable-study-environment/">
+  <meta property="og:url" content="http://localhost:1313/posts/251214215249_docker-disposable-study-environment/">
   <meta property="og:site_name" content="毎日.log">
   <meta property="og:title" content="Dockerで勉強用の使い捨て環境を構築する">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
@@ -128,7 +128,7 @@
     
     
     "inLanguage": "ja",
-    "url" : "https:\/\/fumi-til.com\/posts\/251214215249_docker-disposable-study-environment\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251214215249_docker-disposable-study-environment\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
@@ -142,7 +142,7 @@
     "keywords": ["ツール","Docker","ハンズオン・チュートリアル","入門"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "321"
+    "wordCount": "422"
   }]
   </script>
 
@@ -683,9 +683,17 @@
         <li><a href="#nodejs環境">Node.js環境</a></li>
         <li><a href="#python環境">Python環境</a></li>
         <li><a href="#mysql環境">MySQL環境</a></li>
+        <li><a href="#linux基礎ubuntu環境">Linux基礎（Ubuntu）環境</a></li>
         <li><a href="#docker-compose複数コンテナ連携">Docker Compose（複数コンテナ連携）</a></li>
         <li><a href="#dockerfileで環境を固定">Dockerfileで環境を固定</a></li>
         <li><a href="#学習例babelのトランスパイル">学習例：Babelのトランスパイル</a></li>
+        <li><a href="#クリーンアップ">クリーンアップ</a>
+          <ul>
+            <li><a href="#1-作業ディレクトリの削除">1. 作業ディレクトリの削除</a></li>
+            <li><a href="#2-dockerイメージの削除">2. Dockerイメージの削除</a></li>
+            <li><a href="#3-まとめて掃除する場合">3. まとめて掃除する場合</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -711,9 +719,17 @@
         <li><a href="#nodejs環境">Node.js環境</a></li>
         <li><a href="#python環境">Python環境</a></li>
         <li><a href="#mysql環境">MySQL環境</a></li>
+        <li><a href="#linux基礎ubuntu環境">Linux基礎（Ubuntu）環境</a></li>
         <li><a href="#docker-compose複数コンテナ連携">Docker Compose（複数コンテナ連携）</a></li>
         <li><a href="#dockerfileで環境を固定">Dockerfileで環境を固定</a></li>
         <li><a href="#学習例babelのトランスパイル">学習例：Babelのトランスパイル</a></li>
+        <li><a href="#クリーンアップ">クリーンアップ</a>
+          <ul>
+            <li><a href="#1-作業ディレクトリの削除">1. 作業ディレクトリの削除</a></li>
+            <li><a href="#2-dockerイメージの削除">2. Dockerイメージの削除</a></li>
+            <li><a href="#3-まとめて掃除する場合">3. まとめて掃除する場合</a></li>
+          </ul>
+        </li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -975,6 +991,33 @@
 </span></span><span class="line"><span class="cl"><span class="c1"># 終了時</span>
 </span></span><span class="line"><span class="cl">docker stop mysql-study
 </span></span></code></pre></div>
+<h3 class="relative group">Linux基礎（Ubuntu）環境 
+    <div id="linux基礎ubuntu環境" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#linux%e5%9f%ba%e7%a4%8eubuntu%e7%92%b0%e5%a2%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -it --rm ubuntu:24.04 bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># コンテナ内でパッケージをインストール</span>
+</span></span><span class="line"><span class="cl">apt update
+</span></span><span class="line"><span class="cl">apt install -y curl vim tree
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># コマンド練習</span>
+</span></span><span class="line"><span class="cl">ls -la /
+</span></span><span class="line"><span class="cl">cat /etc/os-release
+</span></span></code></pre></div><p>ファイル操作の練習をする場合：</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">docker run -it --rm -v <span class="k">$(</span><span class="nb">pwd</span><span class="k">)</span>:/work -w /work ubuntu:24.04 bash
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># コンテナ内</span>
+</span></span><span class="line"><span class="cl">mkdir -p dir1/dir2
+</span></span><span class="line"><span class="cl">touch dir1/file1.txt dir1/dir2/file2.txt
+</span></span><span class="line"><span class="cl">tree dir1
+</span></span><span class="line"><span class="cl">find dir1 -name <span class="s2">&#34;*.txt&#34;</span>
+</span></span></code></pre></div>
 <h3 class="relative group">Docker Compose（複数コンテナ連携） 
     <div id="docker-compose複数コンテナ連携" class="anchor"></div>
     
@@ -1051,6 +1094,65 @@
 </span></span><span class="line"><span class="cl">cat dist/app.js
 </span></span><span class="line"><span class="cl"><span class="nb">exit</span>
 </span></span></code></pre></div><p>マウントしたファイルは手元に残ります。不要になったら<code>babel-study</code>ディレクトリごと削除すればクリーンアップ完了です。</p>
+
+<h3 class="relative group">クリーンアップ 
+    <div id="クリーンアップ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%83%aa%e3%83%bc%e3%83%b3%e3%82%a2%e3%83%83%e3%83%97" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>学習が終わったら以下の手順で環境を削除します。</p>
+
+<h4 class="relative group">1. 作業ディレクトリの削除 
+    <div id="1-作業ディレクトリの削除" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e4%bd%9c%e6%a5%ad%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e3%81%ae%e5%89%8a%e9%99%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>マウントしたディレクトリが不要になったら削除します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">rm -rf babel-study  <span class="c1"># 作成したディレクトリごと削除</span>
+</span></span></code></pre></div>
+<h4 class="relative group">2. Dockerイメージの削除 
+    <div id="2-dockerイメージの削除" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-docker%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8%e3%81%ae%e5%89%8a%e9%99%a4" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>ダウンロードしたイメージが不要になったら削除します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># イメージ一覧を確認</span>
+</span></span><span class="line"><span class="cl">docker images
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 個別に削除</span>
+</span></span><span class="line"><span class="cl">docker rmi node:20
+</span></span><span class="line"><span class="cl">docker rmi python:3.12
+</span></span><span class="line"><span class="cl">docker rmi mysql:8.0
+</span></span><span class="line"><span class="cl">docker rmi ubuntu:24.04
+</span></span></code></pre></div>
+<h4 class="relative group">3. まとめて掃除する場合 
+    <div id="3-まとめて掃除する場合" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%81%be%e3%81%a8%e3%82%81%e3%81%a6%e6%8e%83%e9%99%a4%e3%81%99%e3%82%8b%e5%a0%b4%e5%90%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 未使用のイメージ・コンテナ・ネットワークを一括削除</span>
+</span></span><span class="line"><span class="cl">docker system prune
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="c1"># 確認メッセージが表示されるので y を入力</span>
+</span></span></code></pre></div><blockquote>
+<p><strong>Note:</strong> <code>docker system prune</code>は他のプロジェクトで使用中のリソースには影響しませんが、複数プロジェクトでDockerを使っている場合は<code>docker rmi</code>で個別削除が安全です。</p>
+</blockquote>
 
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -1274,7 +1376,7 @@
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="https://fumi-til.com/">
+  data-url="http://localhost:1313/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

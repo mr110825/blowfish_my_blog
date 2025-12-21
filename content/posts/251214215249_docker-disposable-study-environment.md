@@ -74,6 +74,32 @@ docker exec -it mysql-study mysql -uroot -proot
 docker stop mysql-study
 ```
 
+### Linux基礎（Ubuntu）環境
+
+```bash
+docker run -it --rm ubuntu:24.04 bash
+
+# コンテナ内でパッケージをインストール
+apt update
+apt install -y curl vim tree
+
+# コマンド練習
+ls -la /
+cat /etc/os-release
+```
+
+ファイル操作の練習をする場合：
+
+```bash
+docker run -it --rm -v $(pwd):/work -w /work ubuntu:24.04 bash
+
+# コンテナ内
+mkdir -p dir1/dir2
+touch dir1/file1.txt dir1/dir2/file2.txt
+tree dir1
+find dir1 -name "*.txt"
+```
+
 ### Docker Compose（複数コンテナ連携）
 
 アプリとDBなど複数コンテナを扱う場合に便利です。
@@ -145,6 +171,44 @@ exit
 ```
 
 マウントしたファイルは手元に残ります。不要になったら`babel-study`ディレクトリごと削除すればクリーンアップ完了です。
+
+### クリーンアップ
+
+学習が終わったら以下の手順で環境を削除します。
+
+#### 1. 作業ディレクトリの削除
+
+マウントしたディレクトリが不要になったら削除します。
+
+```bash
+rm -rf babel-study  # 作成したディレクトリごと削除
+```
+
+#### 2. Dockerイメージの削除
+
+ダウンロードしたイメージが不要になったら削除します。
+
+```bash
+# イメージ一覧を確認
+docker images
+
+# 個別に削除
+docker rmi node:20
+docker rmi python:3.12
+docker rmi mysql:8.0
+docker rmi ubuntu:24.04
+```
+
+#### 3. まとめて掃除する場合
+
+```bash
+# 未使用のイメージ・コンテナ・ネットワークを一括削除
+docker system prune
+
+# 確認メッセージが表示されるので y を入力
+```
+
+> **Note:** `docker system prune`は他のプロジェクトで使用中のリソースには影響しませんが、複数プロジェクトでDockerを使っている場合は`docker rmi`で個別削除が安全です。
 
 ## まとめ
 

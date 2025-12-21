@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on 毎日.log</title>
+    <link>http://localhost:1313/tags/linux/</link>
+    <description>Recent content in Linux on 毎日.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
+    <webMaster>ptin110825@gmail.com (フミ)</webMaster>
+    <copyright>© 2025 フミ</copyright>
+    <lastBuildDate>Mon, 22 Dec 2025 01:04:59 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>treeコマンド：ディレクトリ構造を可視化する</title>
+      <link>http://localhost:1313/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</link>
+      <pubDate>Mon, 22 Dec 2025 01:04:59 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>
