@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>VSCode Dev Containersでコンテナ内開発環境を構築する &middot; 毎日.log</title>
-    <meta name="title" content="VSCode Dev Containersでコンテナ内開発環境を構築する &middot; 毎日.log">
+  <title>treeコマンド：ディレクトリ構造を可視化する &middot; 毎日.log</title>
+    <meta name="title" content="treeコマンド：ディレクトリ構造を可視化する &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="ツール,Docker,VSCode,実践,">
+  <meta name="keywords" content="TIL,Linux,CLI,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/251219202830_vscode-dev-containers-container-development-environment/">
+  <link rel="canonical" href="http://localhost:1313/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B/">
   
   
   
@@ -99,23 +99,22 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/251219202830_vscode-dev-containers-container-development-environment/">
+  <meta property="og:url" content="http://localhost:1313/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="VSCode Dev Containersでコンテナ内開発環境を構築する">
+  <meta property="og:title" content="treeコマンド：ディレクトリ構造を可視化する">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2025-12-19T20:28:30+09:00">
-    <meta property="article:modified_time" content="2025-12-19T20:28:30+09:00">
-    <meta property="article:tag" content="ツール">
-    <meta property="article:tag" content="Docker">
-    <meta property="article:tag" content="VSCode">
-    <meta property="article:tag" content="実践">
+    <meta property="article:published_time" content="2025-12-22T01:04:59+09:00">
+    <meta property="article:modified_time" content="2025-12-22T01:04:59+09:00">
+    <meta property="article:tag" content="TIL">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="CLI">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="VSCode Dev Containersでコンテナ内開発環境を構築する">
+  <meta name="twitter:title" content="treeコマンド：ディレクトリ構造を可視化する">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -123,26 +122,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "VSCode Dev Containersでコンテナ内開発環境を構築する",
-    "headline": "VSCode Dev Containersでコンテナ内開発環境を構築する",
+    "name": "treeコマンド：ディレクトリ構造を可視化する",
+    "headline": "treeコマンド：ディレクトリ構造を可視化する",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/251219202830_vscode-dev-containers-container-development-environment\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2025",
-    "dateCreated": "2025-12-19T20:28:30\u002b09:00",
-    "datePublished": "2025-12-19T20:28:30\u002b09:00",
+    "dateCreated": "2025-12-22T01:04:59\u002b09:00",
+    "datePublished": "2025-12-22T01:04:59\u002b09:00",
     
-    "dateModified": "2025-12-19T20:28:30\u002b09:00",
+    "dateModified": "2025-12-22T01:04:59\u002b09:00",
     
-    "keywords": ["ツール","Docker","VSCode","実践"],
+    "keywords": ["TIL","Linux","CLI"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "91"
+    "wordCount": "137"
   }]
   </script>
 
@@ -477,7 +476,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        VSCode Dev Containersでコンテナ内開発環境を構築する
+        treeコマンド：ディレクトリ構造を可視化する
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -528,7 +527,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2025-12-19T20:28:30&#43;09:00">2025年 12月 19日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2025-12-22T01:04:59&#43;09:00">2025年 12月 22日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -575,11 +574,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%84%E3%83%BC%E3%83%AB/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/til/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    ツール
+    TIL
   </span>
 </span>
 
@@ -587,11 +586,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/docker/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Docker
+    Linux
   </span>
 </span>
 
@@ -599,23 +598,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/vscode/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/cli/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    VSCode
-  </span>
-</span>
-
-              </span>
-            
-              <span
-                class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E5%AE%9F%E8%B7%B5/&#34;,'_self');return false;">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    実践
+    CLI
   </span>
 </span>
 
@@ -678,12 +665,10 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#dev-containersとは">Dev Containersとは</a></li>
-        <li><a href="#step-1-インストール">Step 1: インストール</a></li>
-        <li><a href="#step-2-実行中のコンテナにアタッチ">Step 2: 実行中のコンテナにアタッチ</a></li>
-        <li><a href="#step-3-フォルダを開く">Step 3: フォルダを開く</a></li>
-        <li><a href="#dev-containersのメリット">Dev Containersのメリット</a></li>
-        <li><a href="#関連拡張機能">関連拡張機能</a></li>
+        <li><a href="#step1-インストール">Step1: インストール</a></li>
+        <li><a href="#step2-基本的な使い方">Step2: 基本的な使い方</a></li>
+        <li><a href="#step3-よく使うオプション">Step3: よく使うオプション</a></li>
+        <li><a href="#ユースケースhugoプロジェクトの構造確認">ユースケース：Hugoプロジェクトの構造確認</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -704,12 +689,10 @@
     <li><a href="#今日学んだこと">今日学んだこと</a></li>
     <li><a href="#学習内容">学習内容</a>
       <ul>
-        <li><a href="#dev-containersとは">Dev Containersとは</a></li>
-        <li><a href="#step-1-インストール">Step 1: インストール</a></li>
-        <li><a href="#step-2-実行中のコンテナにアタッチ">Step 2: 実行中のコンテナにアタッチ</a></li>
-        <li><a href="#step-3-フォルダを開く">Step 3: フォルダを開く</a></li>
-        <li><a href="#dev-containersのメリット">Dev Containersのメリット</a></li>
-        <li><a href="#関連拡張機能">関連拡張機能</a></li>
+        <li><a href="#step1-インストール">Step1: インストール</a></li>
+        <li><a href="#step2-基本的な使い方">Step2: 基本的な使い方</a></li>
+        <li><a href="#step3-よく使うオプション">Step3: よく使うオプション</a></li>
+        <li><a href="#ユースケースhugoプロジェクトの構造確認">ユースケース：Hugoプロジェクトの構造確認</a></li>
       </ul>
     </li>
     <li><a href="#まとめ">まとめ</a></li>
@@ -826,7 +809,7 @@
     </span>        
     
 </h2>
-<p>VSCode Dev Containersを使うと、Dockerコンテナ内でVSCodeを直接開いて編集できることを学びました。ホスト側とコンテナ側の権限問題を回避でき、コンテナ内の環境でそのまま作業できます。</p>
+<p><code>tree</code>コマンドを使うと、ディレクトリ構造をツリー形式で表示できます。階層の深さ制限や除外パターンを指定することで、必要な情報だけを確認できます。</p>
 
 <h2 class="relative group">学習内容 
     <div id="学習内容" class="anchor"></div>
@@ -838,123 +821,107 @@
     
 </h2>
 
-<h3 class="relative group">Dev Containersとは 
-    <div id="dev-containersとは" class="anchor"></div>
+<h3 class="relative group">Step1: インストール 
+    <div id="step1-インストール" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dev-containers%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step1-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<p>Dockerコンテナ内でVSCodeを直接開き、コンテナ内のファイルを編集できるVSCode拡張機能です。</p>
-
-<h3 class="relative group">Step 1: インストール 
-    <div id="step-1-インストール" class="anchor"></div>
+<p>Ubuntuではデフォルトでインストールされていないため、aptでインストールします。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">sudo apt update
+</span></span><span class="line"><span class="cl">sudo apt install tree
+</span></span></code></pre></div>
+<h3 class="relative group">Step2: 基本的な使い方 
+    <div id="step2-基本的な使い方" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-1-%e3%82%a4%e3%83%b3%e3%82%b9%e3%83%88%e3%83%bc%e3%83%ab" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step2-%e5%9f%ba%e6%9c%ac%e7%9a%84%e3%81%aa%e4%bd%bf%e3%81%84%e6%96%b9" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<ol>
-<li>VSCodeの拡張機能で「Dev Containers」を検索</li>
-<li>Microsoft製の拡張機能をインストール</li>
-</ol>
-<p>拡張機能ID: <code>ms-vscode-remote.remote-containers</code></p>
-
-<h3 class="relative group">Step 2: 実行中のコンテナにアタッチ 
-    <div id="step-2-実行中のコンテナにアタッチ" class="anchor"></div>
+<p>引数なしで実行すると、カレントディレクトリ以下のすべてのファイル・ディレクトリが表示されます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">tree
+</span></span></code></pre></div><p>ただし、階層が深かったりファイル数が多いと出力が膨大になります。<code>-L</code>オプションで表示する階層の深さを制限できます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 2階層まで表示</span>
+</span></span><span class="line"><span class="cl">tree -L <span class="m">2</span>
+</span></span></code></pre></div>
+<h3 class="relative group">Step3: よく使うオプション 
+    <div id="step3-よく使うオプション" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-2-%e5%ae%9f%e8%a1%8c%e4%b8%ad%e3%81%ae%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%81%ab%e3%82%a2%e3%82%bf%e3%83%83%e3%83%81" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<ol>
-<li>コンテナを起動しておく（<code>docker compose up -d</code> など）</li>
-<li>VSCodeで <code>Ctrl + Shift + P</code>（コマンドパレット）</li>
-<li><code>Dev Containers: Attach to Running Container...</code> を選択</li>
-<li>対象のコンテナを選択</li>
-</ol>
-<p>新しいVSCodeウィンドウが開き、コンテナ内で直接編集できます。</p>
-
-<h3 class="relative group">Step 3: フォルダを開く 
-    <div id="step-3-フォルダを開く" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step-3-%e3%83%95%e3%82%a9%e3%83%ab%e3%83%80%e3%82%92%e9%96%8b%e3%81%8f" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<p>アタッチ後、以下の手順でコンテナ内のフォルダを開きます。</p>
-<ol>
-<li><code>ファイル &gt; フォルダを開く</code></li>
-<li>コンテナ内のパス（例：<code>/workspace/</code>）を指定</li>
-</ol>
-
-<h3 class="relative group">Dev Containersのメリット 
-    <div id="dev-containersのメリット" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#dev-containers%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#step3-%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e3%82%aa%e3%83%97%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
 <table>
   <thead>
       <tr>
-          <th>メリット</th>
+          <th>オプション</th>
           <th>説明</th>
+          <th>例</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>権限問題の解消</td>
-          <td>rootで作成したファイルも編集可能</td>
+          <td><code>-L &lt;n&gt;</code></td>
+          <td>表示する階層の深さを指定</td>
+          <td><code>tree -L 2</code></td>
       </tr>
       <tr>
-          <td>環境の一致</td>
-          <td>コンテナ内の環境でそのまま作業</td>
+          <td><code>-d</code></td>
+          <td>ディレクトリのみ表示</td>
+          <td><code>tree -d</code></td>
       </tr>
       <tr>
-          <td>拡張機能の分離</td>
-          <td>コンテナごとに拡張機能を管理可能</td>
+          <td><code>-I &lt;pattern&gt;</code></td>
+          <td>指定パターンを除外</td>
+          <td><code>tree -I &quot;node_modules&quot;</code></td>
       </tr>
   </tbody>
 </table>
-
-<h3 class="relative group">関連拡張機能 
-    <div id="関連拡張機能" class="anchor"></div>
+<p>オプションは組み合わせて使えます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># 3階層まで、ディレクトリのみ、node_modulesを除外</span>
+</span></span><span class="line"><span class="cl">tree -L <span class="m">3</span> -d -I <span class="s2">&#34;node_modules&#34;</span>
+</span></span></code></pre></div>
+<h3 class="relative group">ユースケース：Hugoプロジェクトの構造確認 
+    <div id="ユースケースhugoプロジェクトの構造確認" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%96%a2%e9%80%a3%e6%8b%a1%e5%bc%b5%e6%a9%9f%e8%83%bd" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a6%e3%83%bc%e3%82%b9%e3%82%b1%e3%83%bc%e3%82%b9hugo%e3%83%97%e3%83%ad%e3%82%b8%e3%82%a7%e3%82%af%e3%83%88%e3%81%ae%e6%a7%8b%e9%80%a0%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
     </span>        
     
 </h3>
-<table>
-  <thead>
-      <tr>
-          <th>拡張機能</th>
-          <th>用途</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>Dev Containers</td>
-          <td>コンテナ内でVSCodeを開く</td>
-      </tr>
-      <tr>
-          <td>Docker</td>
-          <td>コンテナの管理・ログ確認</td>
-      </tr>
-  </tbody>
-</table>
+<p>Hugoブログのプロジェクトで<code>tree -L 2</code>を実行すると、主要なディレクトリ構成がひと目で把握できます。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">$ tree -L <span class="m">2</span>
+</span></span><span class="line"><span class="cl">.
+</span></span><span class="line"><span class="cl">├── archetypes
+</span></span><span class="line"><span class="cl">│   └── default.md
+</span></span><span class="line"><span class="cl">├── assets
+</span></span><span class="line"><span class="cl">│   ├── css
+</span></span><span class="line"><span class="cl">│   ├── img
+</span></span><span class="line"><span class="cl">│   └── js
+</span></span><span class="line"><span class="cl">├── config
+</span></span><span class="line"><span class="cl">│   └── _default
+</span></span><span class="line"><span class="cl">├── content
+</span></span><span class="line"><span class="cl">│   └── posts
+</span></span><span class="line"><span class="cl">├── layouts
+</span></span><span class="line"><span class="cl">│   ├── partials
+</span></span><span class="line"><span class="cl">│   └── series
+</span></span><span class="line"><span class="cl">├── public
+</span></span><span class="line"><span class="cl">│   ├── css
+</span></span><span class="line"><span class="cl">│   ├── posts
+</span></span><span class="line"><span class="cl">│   └── ...
+</span></span><span class="line"><span class="cl">├── static
+</span></span><span class="line"><span class="cl">│   └── ...
+</span></span><span class="line"><span class="cl">└── themes
+</span></span><span class="line"><span class="cl">    └── blowfish
+</span></span></code></pre></div><p><code>ls</code>だけでは把握しづらい入れ子構造も、treeなら一発で確認できます。</p>
 
 <h2 class="relative group">まとめ 
     <div id="まとめ" class="anchor"></div>
@@ -966,10 +933,10 @@
     
 </h2>
 <ul>
-<li>Dev ContainersはDockerコンテナ内でVSCodeを直接開ける拡張機能</li>
-<li><code>Attach to Running Container</code>で実行中のコンテナにアタッチ</li>
-<li>ホスト側とコンテナ側の権限問題を回避できる</li>
-<li>コンテナごとに拡張機能を分離して管理可能</li>
+<li><code>tree</code>はディレクトリ構造をツリー形式で表示するコマンド</li>
+<li><code>-L &lt;n&gt;</code>で階層の深さを制限できる</li>
+<li><code>-d</code>でディレクトリのみ、<code>-I</code>で除外パターンを指定可能</li>
+<li>プロジェクト全体の構造把握に便利</li>
 </ul>
 
 <h2 class="relative group">参考 
@@ -983,9 +950,9 @@
 </h2>
 <ul>
 <li><a
-  href="https://code.visualstudio.com/docs/devcontainers/containers"
+  href="https://linux.die.net/man/1/tree"
     target="_blank"
-  >Developing inside a Container - VSCode公式ドキュメント</a></li>
+  >tree(1) - Linux man page</a></li>
 </ul>
 
           
@@ -1016,8 +983,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/251219202830_vscode-dev-containers-container-development-environment.md"
-          data-oid-likes="likes_posts/251219202830_vscode-dev-containers-container-development-environment.md"></script>
+          data-oid="views_posts/251222010445_treeコマンド：ディレクトリ構造を可視化する.md"
+          data-oid-likes="likes_posts/251222010445_treeコマンド：ディレクトリ構造を可視化する.md"></script>
       
 
     </section>
@@ -1032,7 +999,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/251214215249_docker-disposable-study-environment/">
+            <a class="flex group mr-3" href="/posts/251219202830_vscode-dev-containers-container-development-environment/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -1043,11 +1010,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Dockerで勉強用の使い捨て環境を構築する</span
+                  >VSCode Dev Containersでコンテナ内開発環境を構築する</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-14T21:52:49&#43;09:00">2025年 12月 14日</time>
+                    <time datetime="2025-12-19T20:28:30&#43;09:00">2025年 12月 19日</time>
                   
                 </span>
               </span>
@@ -1056,14 +1023,14 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B/">
+            <a class="flex text-right group ml-3" href="/posts/251227153436_%E5%BF%9C%E7%94%A8%E6%83%85%E5%A0%B1%E6%8A%80%E8%A1%93%E8%80%85%E8%A9%A6%E9%A8%93%E3%81%AE%E6%8C%AF%E3%82%8A%E8%BF%94%E3%82%8A%E3%81%A8%E3%82%82%E3%81%86%E4%B8%80%E5%BA%A6%E5%8F%97%E9%A8%93%E3%81%99%E3%82%8B%E3%81%AA%E3%82%89%E3%81%A9%E3%81%86%E3%81%99%E3%82%8B%E3%81%8B/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >treeコマンド：ディレクトリ構造を可視化する</span
+                  >応用情報技術者試験の振り返りともう一度受験するならどうするか</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2025-12-22T01:04:59&#43;09:00">2025年 12月 22日</time>
+                    <time datetime="2025-12-27T15:34:37&#43;09:00">2025年 12月 27日</time>
                   
                 </span>
               </span>
