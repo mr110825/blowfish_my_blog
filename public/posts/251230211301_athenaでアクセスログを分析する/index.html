@@ -1,0 +1,2584 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>【Hugo×AWS】Athenaでアクセスログを分析する &middot; 毎日.log</title>
+    <meta name="title" content="【Hugo×AWS】Athenaでアクセスログを分析する &middot; 毎日.log">
+
+  
+  <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta name="keywords" content="学習・作業ログ,AWS,Terraform,Hugo,">
+  
+  
+  <link rel="canonical" href="https://fumi-til.com/posts/251230211301_athena%E3%81%A7%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8ad216a212cef2ff398faed9ea7271f7766bc039d78aefb8f08e3270e028c2de33370d62df40395b48d396bdccb2ef8e245e6ca08ae3ec79067996559b110f67.css"
+    integrity="sha512-itIWohLO8v85j67Z6nJx93ZrwDnXiu&#43;48I4ycOAowt4zNw1i30A5W0jTlr3Msu&#43;OJF5soIrj7HkGeZZVmxEPZw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.b363d716a7ea4bad623779c04878b62e384759903bf0e247658d199ca391ca711253abc6e0b593fe91b9cc9b7e1b36fb85730691a0d891ae9a8cfee6a986e58f.js"
+      integrity="sha512-s2PXFqfqS61iN3nASHi2LjhHWZA78OJHZY0ZnKORynESU6vG4LWT/pG5zJt&#43;Gzb7hXMGkaDYka6ajP7mqYbljw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="https://fumi-til.com/posts/251230211301_athena%E3%81%A7%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B/">
+  <meta property="og:site_name" content="毎日.log">
+  <meta property="og:title" content="【Hugo×AWS】Athenaでアクセスログを分析する">
+  <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-12-30T21:13:01+09:00">
+    <meta property="article:modified_time" content="2025-12-30T21:13:01+09:00">
+    <meta property="article:tag" content="学習・作業ログ">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="Terraform">
+    <meta property="article:tag" content="Hugo">
+      <meta property="og:see_also" content="https://fumi-til.com/posts/251230211322_%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8Broute53-acm/">
+      <meta property="og:see_also" content="https://fumi-til.com/posts/251230211232_cloudwatch-sns%E3%81%A7%E7%9B%A3%E8%A6%96%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E9%80%9A%E7%9F%A5/">
+      <meta property="og:see_also" content="https://fumi-til.com/posts/251230211150_github_actions-oidc%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4/">
+      <meta property="og:see_also" content="https://fumi-til.com/posts/251230210947_hugo-s3-cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="【Hugo×AWS】Athenaでアクセスログを分析する">
+  <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "【Hugo×AWS】Athenaでアクセスログを分析する",
+    "headline": "【Hugo×AWS】Athenaでアクセスログを分析する",
+    
+    
+    "inLanguage": "ja",
+    "url" : "https:\/\/fumi-til.com\/posts\/251230211301_athena%E3%81%A7%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2025",
+    "dateCreated": "2025-12-30T21:13:01\u002b09:00",
+    "datePublished": "2025-12-30T21:13:01\u002b09:00",
+    
+    "dateModified": "2025-12-30T21:13:01\u002b09:00",
+    
+    "keywords": ["学習・作業ログ","AWS","Terraform","Hugo"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "1312"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          毎日.log
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/series/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Series
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/series/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Series
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        【Hugo×AWS】Athenaでアクセスログを分析する
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2025-12-30T21:13:01&#43;09:00">2025年 12月 30日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学習・作業ログ
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/aws/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    AWS
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/terraform/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Terraform
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/hugo/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    Hugo
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#この記事で構築するもの">この記事で構築するもの</a></li>
+        <li><a href="#想定する読者">想定する読者</a></li>
+      </ul>
+    </li>
+    <li><a href="#完成イメージ">完成イメージ</a></li>
+    <li><a href="#シリーズ全体像">シリーズ全体像</a></li>
+    <li><a href="#なぜathenaを選んだのか">なぜAthenaを選んだのか</a>
+      <ul>
+        <li><a href="#athenaのメリット">Athenaのメリット</a></li>
+      </ul>
+    </li>
+    <li><a href="#前提条件">前提条件</a>
+      <ul>
+        <li><a href="#必要な環境">必要な環境</a></li>
+        <li><a href="#必要な情報">必要な情報</a></li>
+      </ul>
+    </li>
+    <li><a href="#ログ用s3バケットの作成">ログ用S3バケットの作成</a>
+      <ul>
+        <li><a href="#ディレクトリ構成">ディレクトリ構成</a></li>
+        <li><a href="#logstf">logs.tf</a></li>
+        <li><a href="#コード解説">コード解説</a>
+          <ul>
+            <li><a href="#ライフサイクル設定">ライフサイクル設定</a></li>
+            <li><a href="#バケット所有者の強制">バケット所有者の強制</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#cloudfrontのログ設定">CloudFrontのログ設定</a>
+      <ul>
+        <li><a href="#maintf-の修正">main.tf の修正</a></li>
+        <li><a href="#実行">実行</a></li>
+        <li><a href="#ログ出力の確認">ログ出力の確認</a></li>
+      </ul>
+    </li>
+    <li><a href="#athena環境の構築">Athena環境の構築</a>
+      <ul>
+        <li><a href="#athenatf">athena.tf</a></li>
+        <li><a href="#コード解説-1">コード解説</a>
+          <ul>
+            <li><a href="#athena-workgroup">Athena Workgroup</a></li>
+            <li><a href="#glue-data-catalogとは">Glue Data Catalogとは</a></li>
+            <li><a href="#cloudfrontログのカラム定義">CloudFrontログのカラム定義</a></li>
+          </ul>
+        </li>
+        <li><a href="#実行-1">実行</a></li>
+      </ul>
+    </li>
+    <li><a href="#分析クエリの実行">分析クエリの実行</a>
+      <ul>
+        <li><a href="#workgroupの選択">Workgroupの選択</a></li>
+        <li><a href="#クエリ1-データ確認">クエリ1: データ確認</a></li>
+        <li><a href="#クエリ2-人気ページランキング">クエリ2: 人気ページランキング</a></li>
+        <li><a href="#クエリ3-キャッシュヒット率">クエリ3: キャッシュヒット率</a></li>
+        <li><a href="#クエリ4-エッジロケーション別アクセス">クエリ4: エッジロケーション別アクセス</a></li>
+        <li><a href="#クエリ5-日別アクセス数">クエリ5: 日別アクセス数</a></li>
+        <li><a href="#クエリ6-httpステータス別集計">クエリ6: HTTPステータス別集計</a></li>
+      </ul>
+    </li>
+    <li><a href="#コストについて">コストについて</a>
+      <ul>
+        <li><a href="#個人ブログの場合">個人ブログの場合</a></li>
+        <li><a href="#コスト最適化のポイント">コスト最適化のポイント</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
+      <ul>
+        <li><a href="#クエリ結果が0件">クエリ結果が0件</a></li>
+        <li><a href="#hive_cursor_error">HIVE_CURSOR_ERROR</a></li>
+        <li><a href="#クエリ結果の保存先が不明">クエリ結果の保存先が不明</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#作成したリソース">作成したリソース</a></li>
+        <li><a href="#分析でわかること">分析でわかること</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#はじめに">はじめに</a>
+      <ul>
+        <li><a href="#この記事で構築するもの">この記事で構築するもの</a></li>
+        <li><a href="#想定する読者">想定する読者</a></li>
+      </ul>
+    </li>
+    <li><a href="#完成イメージ">完成イメージ</a></li>
+    <li><a href="#シリーズ全体像">シリーズ全体像</a></li>
+    <li><a href="#なぜathenaを選んだのか">なぜAthenaを選んだのか</a>
+      <ul>
+        <li><a href="#athenaのメリット">Athenaのメリット</a></li>
+      </ul>
+    </li>
+    <li><a href="#前提条件">前提条件</a>
+      <ul>
+        <li><a href="#必要な環境">必要な環境</a></li>
+        <li><a href="#必要な情報">必要な情報</a></li>
+      </ul>
+    </li>
+    <li><a href="#ログ用s3バケットの作成">ログ用S3バケットの作成</a>
+      <ul>
+        <li><a href="#ディレクトリ構成">ディレクトリ構成</a></li>
+        <li><a href="#logstf">logs.tf</a></li>
+        <li><a href="#コード解説">コード解説</a>
+          <ul>
+            <li><a href="#ライフサイクル設定">ライフサイクル設定</a></li>
+            <li><a href="#バケット所有者の強制">バケット所有者の強制</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#cloudfrontのログ設定">CloudFrontのログ設定</a>
+      <ul>
+        <li><a href="#maintf-の修正">main.tf の修正</a></li>
+        <li><a href="#実行">実行</a></li>
+        <li><a href="#ログ出力の確認">ログ出力の確認</a></li>
+      </ul>
+    </li>
+    <li><a href="#athena環境の構築">Athena環境の構築</a>
+      <ul>
+        <li><a href="#athenatf">athena.tf</a></li>
+        <li><a href="#コード解説-1">コード解説</a>
+          <ul>
+            <li><a href="#athena-workgroup">Athena Workgroup</a></li>
+            <li><a href="#glue-data-catalogとは">Glue Data Catalogとは</a></li>
+            <li><a href="#cloudfrontログのカラム定義">CloudFrontログのカラム定義</a></li>
+          </ul>
+        </li>
+        <li><a href="#実行-1">実行</a></li>
+      </ul>
+    </li>
+    <li><a href="#分析クエリの実行">分析クエリの実行</a>
+      <ul>
+        <li><a href="#workgroupの選択">Workgroupの選択</a></li>
+        <li><a href="#クエリ1-データ確認">クエリ1: データ確認</a></li>
+        <li><a href="#クエリ2-人気ページランキング">クエリ2: 人気ページランキング</a></li>
+        <li><a href="#クエリ3-キャッシュヒット率">クエリ3: キャッシュヒット率</a></li>
+        <li><a href="#クエリ4-エッジロケーション別アクセス">クエリ4: エッジロケーション別アクセス</a></li>
+        <li><a href="#クエリ5-日別アクセス数">クエリ5: 日別アクセス数</a></li>
+        <li><a href="#クエリ6-httpステータス別集計">クエリ6: HTTPステータス別集計</a></li>
+      </ul>
+    </li>
+    <li><a href="#コストについて">コストについて</a>
+      <ul>
+        <li><a href="#個人ブログの場合">個人ブログの場合</a></li>
+        <li><a href="#コスト最適化のポイント">コスト最適化のポイント</a></li>
+      </ul>
+    </li>
+    <li><a href="#トラブルシューティング">トラブルシューティング</a>
+      <ul>
+        <li><a href="#クエリ結果が0件">クエリ結果が0件</a></li>
+        <li><a href="#hive_cursor_error">HIVE_CURSOR_ERROR</a></li>
+        <li><a href="#クエリ結果の保存先が不明">クエリ結果の保存先が不明</a></li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a>
+      <ul>
+        <li><a href="#作成したリソース">作成したリソース</a></li>
+        <li><a href="#分析でわかること">分析でわかること</a></li>
+      </ul>
+    </li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+  <details
+    class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 ml-0"
+    open>
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+    Hugo-S3-CloudFrontで技術ブログを公開する -
+    この記事は連載の一部です
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230210947_hugo-s3-cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/">
+          パート 1:
+          【Hugo×AWS】Hugo&#43;S3&#43;CloudFrontで技術ブログを公開する
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230211150_github_actions-oidc%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4/">
+          パート 2:
+          【Hugo×AWS】GitHub_Actions&#43;OIDCで自動デプロイ
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230211232_cloudwatch-sns%E3%81%A7%E7%9B%A3%E8%A6%96%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E9%80%9A%E7%9F%A5/">
+          パート 3:
+          【Hugo×AWS】CloudWatch&#43;SNSで監視・アラート通知
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        パート 4:
+        この記事
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230211322_%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8Broute53-acm/">
+          パート 5:
+          【Hugo×AWS】独自ドメインを設定する（Route53&#43;ACM）
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">はじめに 
+    <div id="はじめに" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%af%e3%81%98%e3%82%81%e3%81%ab" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>この記事では、CloudFrontのアクセスログをAthenaでSQL分析できる環境を構築します。
+サーバーレスでインフラ管理不要、S3のログファイルを直接クエリできるため、個人ブログのログ分析に最適です。</p>
+
+<h3 class="relative group">この記事で構築するもの 
+    <div id="この記事で構築するもの" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%93%e3%81%ae%e8%a8%98%e4%ba%8b%e3%81%a7%e6%a7%8b%e7%af%89%e3%81%99%e3%82%8b%e3%82%82%e3%81%ae" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>CloudFrontログの出力設定（S3バケット）</li>
+<li>Athenaクエリ環境（Workgroup、Glue Database/Table）</li>
+<li>サンプルクエリ（人気ページ、キャッシュヒット率、エッジロケーション分析）</li>
+</ul>
+
+<h3 class="relative group">想定する読者 
+    <div id="想定する読者" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e6%83%b3%e5%ae%9a%e3%81%99%e3%82%8b%e8%aa%ad%e8%80%85" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>前回までの記事でS3 + CloudFront + 監視環境を構築済みの方</li>
+<li>CloudFrontのアクセスログを分析したい方</li>
+<li>SQLでログ分析したい方</li>
+</ul>
+
+<h2 class="relative group">完成イメージ 
+    <div id="完成イメージ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%8c%e6%88%90%e3%82%a4%e3%83%a1%e3%83%bc%e3%82%b8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>
+
+
+
+
+
+
+<figure>
+    <img class="my-0 rounded-md" loading="lazy" alt="Athenaでアクセスログを分析する" src="/img/Athena%E3%81%A7%E3%82%A2%E3%82%AF%E3%82%BB%E3%82%B9%E3%83%AD%E3%82%B0%E3%82%92%E5%88%86%E6%9E%90%E3%81%99%E3%82%8B.drawio.png">
+
+  
+</figure>
+</p>
+<p>AthenaでSQLクエリを実行するだけで、以下のような分析ができるようになります。</p>
+<ul>
+<li>人気ページランキング</li>
+<li>キャッシュヒット率</li>
+<li>エッジロケーション別アクセス数</li>
+<li>エラー発生状況</li>
+</ul>
+
+<h2 class="relative group">シリーズ全体像 
+    <div id="シリーズ全体像" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b7%e3%83%aa%e3%83%bc%e3%82%ba%e5%85%a8%e4%bd%93%e5%83%8f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>【Hugo×AWS】シリーズ全体で5記事投稿予定です。今回の記事は4本目です。</p>
+<table>
+  <thead>
+      <tr>
+          <th>#</th>
+          <th>タイトル</th>
+          <th>内容</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1</td>
+          <td>Hugo + S3 + CloudFrontで技術ブログを公開する</td>
+          <td>Hugo環境構築〜手動デプロイまで</td>
+      </tr>
+      <tr>
+          <td>2</td>
+          <td>GitHub Actions + OIDCで自動デプロイ</td>
+          <td>CI/CD構築、アクセスキー不要の認証</td>
+      </tr>
+      <tr>
+          <td>3</td>
+          <td>CloudWatch + SNSで監視・アラート通知</td>
+          <td>ダッシュボード、エラー率アラーム</td>
+      </tr>
+      <tr>
+          <td><strong>4</strong></td>
+          <td><strong>Athenaでアクセスログを分析する</strong></td>
+          <td><strong>CloudFrontログのSQL分析</strong></td>
+      </tr>
+      <tr>
+          <td>5</td>
+          <td>独自ドメインを設定する（Route53 + ACM）</td>
+          <td>カスタムドメイン、HTTPS</td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">なぜAthenaを選んだのか 
+    <div id="なぜathenaを選んだのか" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%aa%e3%81%9cathena%e3%82%92%e9%81%b8%e3%82%93%e3%81%a0%e3%81%ae%e3%81%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>ログ分析サービスの比較です。</p>
+<table>
+  <thead>
+      <tr>
+          <th>サービス</th>
+          <th>特徴</th>
+          <th>月額コスト</th>
+          <th>個人ブログに適切か</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>Athena</strong></td>
+          <td>サーバーレス、S3直接クエリ</td>
+          <td>数円〜数十円</td>
+          <td>✅ 最適</td>
+      </tr>
+      <tr>
+          <td>Redshift</td>
+          <td>大規模データウェアハウス</td>
+          <td>数万円〜</td>
+          <td>❌ 過剰</td>
+      </tr>
+      <tr>
+          <td>Elasticsearch</td>
+          <td>全文検索、リアルタイム分析</td>
+          <td>数千円〜</td>
+          <td>❌ 過剰</td>
+      </tr>
+      <tr>
+          <td>CloudWatch Logs Insights</td>
+          <td>CloudWatchログ専用</td>
+          <td>従量課金</td>
+          <td>△ 可能だが機能限定</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">Athenaのメリット 
+    <div id="athenaのメリット" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#athena%e3%81%ae%e3%83%a1%e3%83%aa%e3%83%83%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li><strong>サーバーレス</strong>: インフラ管理不要、クエリ実行時のみ起動</li>
+<li><strong>S3直接クエリ</strong>: データ移動不要、S3のログをそのまま分析可能</li>
+<li><strong>コスト効率</strong>: スキャンしたデータ量に対して$5/TB（個人ブログなら月数円以下）</li>
+<li><strong>標準SQL</strong>: 特別な言語を覚える必要がない</li>
+</ul>
+
+<h2 class="relative group">前提条件 
+    <div id="前提条件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%89%8d%e6%8f%90%e6%9d%a1%e4%bb%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">必要な環境 
+    <div id="必要な環境" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%bf%85%e8%a6%81%e3%81%aa%e7%92%b0%e5%a2%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>本記事は、これまでの記事で以下が構築済みであることを前提としています。</p>
+<ul>
+<li>CloudFront Distribution</li>
+<li>Terraformプロジェクト</li>
+</ul>
+
+<h3 class="relative group">必要な情報 
+    <div id="必要な情報" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%bf%85%e8%a6%81%e3%81%aa%e6%83%85%e5%a0%b1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="nb">cd</span> hugo-s3-demo-infra/prod
+</span></span><span class="line"><span class="cl">terraform output
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">cloudfront_distribution_id = &#34;E2XXXXXXXXXX&#34;
+</span></span></code></pre></div>
+<h2 class="relative group">ログ用S3バケットの作成 
+    <div id="ログ用s3バケットの作成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%82%b0%e7%94%a8s3%e3%83%90%e3%82%b1%e3%83%83%e3%83%88%e3%81%ae%e4%bd%9c%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>CloudFrontのアクセスログを保存するS3バケットを作成します。</p>
+
+<h3 class="relative group">ディレクトリ構成 
+    <div id="ディレクトリ構成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%82%a3%e3%83%ac%e3%82%af%e3%83%88%e3%83%aa%e6%a7%8b%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">hugo-s3-demo-infra/
+</span></span><span class="line"><span class="cl">└── prod/
+</span></span><span class="line"><span class="cl">    ├── versions.tf
+</span></span><span class="line"><span class="cl">    ├── backend.tf
+</span></span><span class="line"><span class="cl">    ├── variables.tf
+</span></span><span class="line"><span class="cl">    ├── main.tf
+</span></span><span class="line"><span class="cl">    ├── iam.tf
+</span></span><span class="line"><span class="cl">    ├── sns.tf
+</span></span><span class="line"><span class="cl">    ├── cloudwatch.tf
+</span></span><span class="line"><span class="cl">    ├── budgets.tf
+</span></span><span class="line"><span class="cl">    ├── outputs.tf
+</span></span><span class="line"><span class="cl">    └── logs.tf      ← 新規作成
+</span></span></code></pre></div>
+<h3 class="relative group">logs.tf 
+    <div id="logstf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#logstf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ログ用S3バケット
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span> <span class="o">=</span> <span class="s2">&#34;${var.project_name}-logs-${random_id.suffix.hex}&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;${var.project_name}-logs&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># パブリックアクセスブロック
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_public_access_block&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span>                  <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  block_public_acls</span>       <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  block_public_policy</span>     <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  ignore_public_acls</span>      <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  restrict_public_buckets</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># CloudFrontからのログ書き込みを許可するバケットポリシー
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_policy&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  policy</span> <span class="o">=</span> <span class="k">jsonencode</span><span class="p">(</span>{
+</span></span><span class="line"><span class="cl"><span class="n">    Version</span> <span class="o">=</span> <span class="s2">&#34;2012-10-17&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    Statement</span> <span class="o">=</span> <span class="p">[</span>
+</span></span><span class="line"><span class="cl">      {
+</span></span><span class="line"><span class="cl"><span class="n">        Sid</span>    <span class="o">=</span> <span class="s2">&#34;AllowCloudFrontLogs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">        Effect</span> <span class="o">=</span> <span class="s2">&#34;Allow&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">        Principal</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">          Service</span> <span class="o">=</span> <span class="s2">&#34;cloudfront.amazonaws.com&#34;</span>
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl"><span class="n">        Action</span>   <span class="o">=</span> <span class="s2">&#34;s3:PutObject&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">        Resource</span> <span class="o">=</span> <span class="s2">&#34;${aws_s3_bucket.logs.arn}/cloudfront/*&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">        Condition</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">          StringEquals</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">            &#34;AWS:SourceArn&#34;</span> <span class="o">=</span> <span class="k">aws_cloudfront_distribution</span><span class="p">.</span><span class="k">main</span><span class="p">.</span><span class="k">arn</span>
+</span></span><span class="line"><span class="cl">          }
+</span></span><span class="line"><span class="cl">        }
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    <span class="p">]</span>
+</span></span><span class="line"><span class="cl">  }<span class="p">)</span>
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ログのライフサイクル設定（90日で削除）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_lifecycle_configuration&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">rule</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    id</span>     <span class="o">=</span> <span class="s2">&#34;delete-old-logs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    status</span> <span class="o">=</span> <span class="s2">&#34;Enabled&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">expiration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      days</span> <span class="o">=</span> <span class="m">90</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">filter</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      prefix</span> <span class="o">=</span> <span class="s2">&#34;cloudfront/&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># バケット所有者の強制（ACL無効化）
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_ownership_controls&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">rule</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    object_ownership</span> <span class="o">=</span> <span class="s2">&#34;BucketOwnerEnforced&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;logs_bucket_name&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">bucket</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div>
+<h3 class="relative group">コード解説 
+    <div id="コード解説" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%bc%e3%83%89%e8%a7%a3%e8%aa%ac" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">ライフサイクル設定 
+    <div id="ライフサイクル設定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a9%e3%82%a4%e3%83%95%e3%82%b5%e3%82%a4%e3%82%af%e3%83%ab%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_lifecycle_configuration&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">rule</span> {
+</span></span><span class="line"><span class="cl">    <span class="k">expiration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      days</span> <span class="o">=</span> <span class="m">90</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>90日経過したログファイルを自動削除します。
+ログを永続保存するとコストがかかるため、個人ブログでは90日程度が適切です。</p>
+
+<h4 class="relative group">バケット所有者の強制 
+    <div id="バケット所有者の強制" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%90%e3%82%b1%e3%83%83%e3%83%88%e6%89%80%e6%9c%89%e8%80%85%e3%81%ae%e5%bc%b7%e5%88%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_ownership_controls&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">rule</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    object_ownership</span> <span class="o">=</span> <span class="s2">&#34;BucketOwnerEnforced&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>CloudFrontが書き込んだログファイルの所有権を、バケット所有者（自分）に強制します。
+これにより、ACL（アクセスコントロールリスト）を使わずにバケットポリシーだけでアクセス制御できます。</p>
+
+<h2 class="relative group">CloudFrontのログ設定 
+    <div id="cloudfrontのログ設定" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cloudfront%e3%81%ae%e3%83%ad%e3%82%b0%e8%a8%ad%e5%ae%9a" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>CloudFront Distributionにログ出力設定を追加します。</p>
+
+<h3 class="relative group">main.tf の修正 
+    <div id="maintf-の修正" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#maintf-%e3%81%ae%e4%bf%ae%e6%ad%a3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>aws_cloudfront_distribution</code> リソースに <code>logging_config</code> を追加します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_cloudfront_distribution&#34; &#34;main&#34;</span> {<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # ...既存の設定...
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # ログ設定を追加
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>  <span class="k">logging_config</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    bucket</span>          <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">bucket_regional_domain_name</span>
+</span></span><span class="line"><span class="cl"><span class="n">    prefix</span>          <span class="o">=</span> <span class="s2">&#34;cloudfront/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    include_cookies</span> <span class="o">=</span> <span class="kt">false</span>
+</span></span><span class="line"><span class="cl">  }<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">  # ...既存の設定...
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>}
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>bucket</code></td>
+          <td>ログ出力先のS3バケット（リージョナルドメイン名を指定）</td>
+      </tr>
+      <tr>
+          <td><code>prefix</code></td>
+          <td>ログファイルのプレフィックス</td>
+      </tr>
+      <tr>
+          <td><code>include_cookies</code></td>
+          <td>Cookieをログに含めるか（プライバシーに配慮して<code>false</code>）</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">実行 
+    <div id="実行" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform apply
+</span></span></code></pre></div><p>:::message
+ログが出力されるまで数分〜数十分かかります。
+しばらくアクセスしてから、S3バケットを確認してください。
+:::</p>
+
+<h3 class="relative group">ログ出力の確認 
+    <div id="ログ出力の確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%ad%e3%82%b0%e5%87%ba%e5%8a%9b%e3%81%ae%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">aws s3 ls s3://hugo-s3-demo-logs/cloudfront/ --recursive <span class="p">|</span> head -10
+</span></span></code></pre></div><p>以下のようなファイルが出力されていればOKです。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">2025-12-04 09:49:29  673 cloudfront/E2XXXXXXXXXX.2025-12-04-00.29cc3bb9.gz
+</span></span><span class="line"><span class="cl">2025-12-04 13:49:30  580 cloudfront/E2XXXXXXXXXX.2025-12-04-04.74d28fa3.gz
+</span></span></code></pre></div>
+<h2 class="relative group">Athena環境の構築 
+    <div id="athena環境の構築" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#athena%e7%92%b0%e5%a2%83%e3%81%ae%e6%a7%8b%e7%af%89" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">athena.tf 
+    <div id="athenatf" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#athenatf" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><code>athena.tf</code> を新規作成します。</p>
+<p>:::details athena.tf の全体</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Athenaクエリ結果用S3バケット
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket&#34; &#34;athena_results&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span> <span class="o">=</span> <span class="s2">&#34;${var.project_name}-athena-results-${random_id.suffix.hex}&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;${var.project_name}-athena-results&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_public_access_block&#34; &#34;athena_results&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span>                  <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">athena_results</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl"><span class="n">  block_public_acls</span>       <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  block_public_policy</span>     <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  ignore_public_acls</span>      <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">  restrict_public_buckets</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># クエリ結果は7日で削除
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_s3_bucket_lifecycle_configuration&#34; &#34;athena_results&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  bucket</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">athena_results</span><span class="p">.</span><span class="k">id</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">rule</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    id</span>     <span class="o">=</span> <span class="s2">&#34;delete-query-results&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    status</span> <span class="o">=</span> <span class="s2">&#34;Enabled&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">expiration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      days</span> <span class="o">=</span> <span class="m">7</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">filter</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      prefix</span> <span class="o">=</span> <span class="s2">&#34;query-results/&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Athena Workgroup
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_athena_workgroup&#34; &#34;main&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="s2">&#34;${var.project_name}-workgroup&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">configuration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    enforce_workgroup_configuration</span>    <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">    publish_cloudwatch_metrics_enabled</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">result_configuration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      output_location</span> <span class="o">=</span> <span class="s2">&#34;s3://${aws_s3_bucket.athena_results.bucket}/query-results/&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  tags</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    Name</span> <span class="o">=</span> <span class="s2">&#34;${var.project_name}-workgroup&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Glue Database
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_glue_catalog_database&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">replace</span><span class="p">(</span><span class="s2">&#34;${var.project_name}_logs&#34;, &#34;-&#34;, &#34;_&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Glue Table（CloudFrontログ用）
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">resource</span> <span class="s2">&#34;aws_glue_catalog_table&#34; &#34;cloudfront_logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span>          <span class="o">=</span> <span class="s2">&#34;cloudfront_logs&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">  database_name</span> <span class="o">=</span> <span class="k">aws_glue_catalog_database</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  table_type</span> <span class="o">=</span> <span class="s2">&#34;EXTERNAL_TABLE&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="n">  parameters</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    &#34;skip.header.line.count&#34;</span> <span class="o">=</span> <span class="s2">&#34;2&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    &#34;EXTERNAL&#34;</span>               <span class="o">=</span> <span class="s2">&#34;TRUE&#34;</span>
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">  <span class="k">storage_descriptor</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    location</span>      <span class="o">=</span> <span class="s2">&#34;s3://${aws_s3_bucket.logs.bucket}/cloudfront/&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    input_format</span>  <span class="o">=</span> <span class="s2">&#34;org.apache.hadoop.mapred.TextInputFormat&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">    output_format</span> <span class="o">=</span> <span class="s2">&#34;org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat&#34;</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">ser_de_info</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      serialization_library</span> <span class="o">=</span> <span class="s2">&#34;org.apache.hadoop.hive.serde2.lazy.LazySimpleSerDe&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      parameters</span> <span class="o">=</span> {
+</span></span><span class="line"><span class="cl"><span class="n">        &#34;field.delim&#34;</span>            <span class="o">=</span> <span class="s2">&#34;\t&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">        &#34;serialization.format&#34;</span>   <span class="o">=</span> <span class="s2">&#34;\t&#34;</span>
+</span></span><span class="line"><span class="cl">      }
+</span></span><span class="line"><span class="cl">    }<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">    # CloudFrontログの33カラム定義
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span>    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;date&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;date&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;time&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_edge_location&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;sc_bytes&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;bigint&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;c_ip&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_method&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_host&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_uri_stem&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;sc_status&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;int&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_referer&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_user_agent&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_uri_query&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_cookie&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_edge_result_type&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_edge_request_id&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_host_header&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_protocol&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_bytes&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;bigint&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;time_taken&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;float&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_forwarded_for&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;ssl_protocol&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;ssl_cipher&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_edge_response_result_type&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;cs_protocol_version&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;fle_status&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;fle_encrypted_fields&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;int&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;c_port&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;int&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;time_to_first_byte&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;float&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;x_edge_detailed_result_type&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;sc_content_type&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;string&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;sc_content_len&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;bigint&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;sc_range_start&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;bigint&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">    <span class="k">columns</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      name</span> <span class="o">=</span> <span class="s2">&#34;sc_range_end&#34;</span>
+</span></span><span class="line"><span class="cl"><span class="n">      type</span> <span class="o">=</span> <span class="s2">&#34;bigint&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}<span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1">
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"># Outputs
+</span></span></span><span class="line"><span class="cl"><span class="c1"># ===========================================
+</span></span></span><span class="line"><span class="cl"><span class="c1"></span><span class="k">output</span> <span class="s2">&#34;athena_workgroup&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span> <span class="o">=</span> <span class="k">aws_athena_workgroup</span><span class="p">.</span><span class="k">main</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;athena_database&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span> <span class="o">=</span> <span class="k">aws_glue_catalog_database</span><span class="p">.</span><span class="k">logs</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;athena_table&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span> <span class="o">=</span> <span class="k">aws_glue_catalog_table</span><span class="p">.</span><span class="k">cloudfront_logs</span><span class="p">.</span><span class="k">name</span>
+</span></span><span class="line"><span class="cl">}
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl"><span class="k">output</span> <span class="s2">&#34;athena_results_bucket&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  value</span> <span class="o">=</span> <span class="k">aws_s3_bucket</span><span class="p">.</span><span class="k">athena_results</span><span class="p">.</span><span class="k">bucket</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p>:::</p>
+
+<h3 class="relative group">コード解説 
+    <div id="コード解説-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%bc%e3%83%89%e8%a7%a3%e8%aa%ac-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">Athena Workgroup 
+    <div id="athena-workgroup" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#athena-workgroup" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_athena_workgroup&#34; &#34;main&#34;</span> {
+</span></span><span class="line"><span class="cl">  <span class="k">configuration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">    enforce_workgroup_configuration</span>    <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl"><span class="n">    publish_cloudwatch_metrics_enabled</span> <span class="o">=</span> <span class="kt">true</span>
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">    <span class="k">result_configuration</span> {
+</span></span><span class="line"><span class="cl"><span class="n">      output_location</span> <span class="o">=</span> <span class="s2">&#34;s3://${aws_s3_bucket.athena_results.bucket}/query-results/&#34;</span>
+</span></span><span class="line"><span class="cl">    }
+</span></span><span class="line"><span class="cl">  }
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>属性</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>enforce_workgroup_configuration</code></td>
+          <td>Workgroupの設定を強制（ユーザーが上書きできない）</td>
+      </tr>
+      <tr>
+          <td><code>publish_cloudwatch_metrics_enabled</code></td>
+          <td>クエリメトリクスをCloudWatchに出力</td>
+      </tr>
+      <tr>
+          <td><code>output_location</code></td>
+          <td>クエリ結果の保存先</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">Glue Data Catalogとは 
+    <div id="glue-data-catalogとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#glue-data-catalog%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-hcl" data-lang="hcl"><span class="line"><span class="cl"><span class="k">resource</span> <span class="s2">&#34;aws_glue_catalog_database&#34; &#34;logs&#34;</span> {
+</span></span><span class="line"><span class="cl"><span class="n">  name</span> <span class="o">=</span> <span class="k">replace</span><span class="p">(</span><span class="s2">&#34;${var.project_name}_logs&#34;, &#34;-&#34;, &#34;_&#34;</span><span class="p">)</span>
+</span></span><span class="line"><span class="cl">}
+</span></span></code></pre></div><p><strong>Glue Data Catalog</strong>は、AWSのメタデータカタログサービスです。
+Athenaはこれを参照してテーブル定義（スキーマ）を取得します。</p>
+<pre tabindex="0"><code>Athena → Glue Data Catalog（テーブル定義）→ S3（実データ）
+</code></pre><p>:::message
+Glueのデータベース名にはハイフン <code>-</code> を使用できません。
+<code>replace()</code> 関数でアンダースコア <code>_</code> に置換しています。
+:::</p>
+
+<h4 class="relative group">CloudFrontログのカラム定義 
+    <div id="cloudfrontログのカラム定義" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cloudfront%e3%83%ad%e3%82%b0%e3%81%ae%e3%82%ab%e3%83%a9%e3%83%a0%e5%ae%9a%e7%be%a9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>CloudFrontの標準ログは33カラムのTSV（タブ区切り）形式です。
+各カラムの意味は<a
+  href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html#LogFileFormat"
+    target="_blank"
+  >AWS公式ドキュメント</a>を参照してください。</p>
+<p>主要なカラムは以下の通りです。</p>
+<table>
+  <thead>
+      <tr>
+          <th>カラム名</th>
+          <th>説明</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>date</code>, <code>time</code></td>
+          <td>リクエスト日時</td>
+      </tr>
+      <tr>
+          <td><code>x_edge_location</code></td>
+          <td>エッジロケーション（NRT=東京など）</td>
+      </tr>
+      <tr>
+          <td><code>cs_uri_stem</code></td>
+          <td>リクエストされたパス</td>
+      </tr>
+      <tr>
+          <td><code>sc_status</code></td>
+          <td>HTTPステータスコード</td>
+      </tr>
+      <tr>
+          <td><code>x_edge_result_type</code></td>
+          <td>キャッシュヒット/ミス</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">実行 
+    <div id="実行-1" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ae%9f%e8%a1%8c-1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl">terraform apply
+</span></span></code></pre></div>
+<h2 class="relative group">分析クエリの実行 
+    <div id="分析クエリの実行" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%86%e6%9e%90%e3%82%af%e3%82%a8%e3%83%aa%e3%81%ae%e5%ae%9f%e8%a1%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>AWSコンソールでAthenaを開き、クエリを実行します。</p>
+
+<h3 class="relative group">Workgroupの選択 
+    <div id="workgroupの選択" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#workgroup%e3%81%ae%e9%81%b8%e6%8a%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li>Athenaコンソールを開く</li>
+<li>右上の「Workgroup」で作成したWorkgroup（<code>hugo-s3-demo-workgroup</code>）を選択</li>
+<li>左側のデータベースで作成したデータベース（<code>hugo_s3_demo_logs</code>）を選択</li>
+</ol>
+
+<h3 class="relative group">クエリ1: データ確認 
+    <div id="クエリ1-データ確認" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa1-%e3%83%87%e3%83%bc%e3%82%bf%e7%a2%ba%e8%aa%8d" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>まずテーブルにデータが入っているか確認します。</p>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="k">FROM</span><span class="w"> </span><span class="n">hugo_s3_demo_logs</span><span class="p">.</span><span class="n">cloudfront_logs</span><span class="w"> </span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>33カラムのデータが表示されればOKです。</p>
+
+<h3 class="relative group">クエリ2: 人気ページランキング 
+    <div id="クエリ2-人気ページランキング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa2-%e4%ba%ba%e6%b0%97%e3%83%9a%e3%83%bc%e3%82%b8%e3%83%a9%e3%83%b3%e3%82%ad%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">cs_uri_stem</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">path</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">views</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">hugo_s3_demo_logs</span><span class="p">.</span><span class="n">cloudfront_logs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">WHERE</span><span class="w"> </span><span class="n">sc_status</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">200</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">cs_uri_stem</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%.js&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">cs_uri_stem</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%.css&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">cs_uri_stem</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%.png&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">cs_uri_stem</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%.jpg&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">AND</span><span class="w"> </span><span class="n">cs_uri_stem</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">LIKE</span><span class="w"> </span><span class="s1">&#39;%.ico&#39;</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">cs_uri_stem</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">views</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>静的アセット（JS/CSS/画像）を除外して、ページのアクセス数をランキング表示します。</p>
+
+<h3 class="relative group">クエリ3: キャッシュヒット率 
+    <div id="クエリ3-キャッシュヒット率" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa3-%e3%82%ad%e3%83%a3%e3%83%83%e3%82%b7%e3%83%a5%e3%83%92%e3%83%83%e3%83%88%e7%8e%87" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">x_edge_result_type</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">result_type</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">count</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">ROUND</span><span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="o">*</span><span class="w"> </span><span class="mi">100</span><span class="p">.</span><span class="mi">0</span><span class="w"> </span><span class="o">/</span><span class="w"> </span><span class="k">SUM</span><span class="p">(</span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">))</span><span class="w"> </span><span class="n">OVER</span><span class="w"> </span><span class="p">(),</span><span class="w"> </span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">percentage</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">hugo_s3_demo_logs</span><span class="p">.</span><span class="n">cloudfront_logs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">x_edge_result_type</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">count</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><table>
+  <thead>
+      <tr>
+          <th>結果タイプ</th>
+          <th>意味</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><code>Hit</code></td>
+          <td>キャッシュヒット（エッジから配信）</td>
+      </tr>
+      <tr>
+          <td><code>Miss</code></td>
+          <td>キャッシュミス（オリジンから取得）</td>
+      </tr>
+      <tr>
+          <td><code>Error</code></td>
+          <td>エラー発生</td>
+      </tr>
+      <tr>
+          <td><code>Redirect</code></td>
+          <td>リダイレクト</td>
+      </tr>
+  </tbody>
+</table>
+<p>キャッシュヒット率が高いほど、CDNが効率的に動作しています。</p>
+
+<h3 class="relative group">クエリ4: エッジロケーション別アクセス 
+    <div id="クエリ4-エッジロケーション別アクセス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa4-%e3%82%a8%e3%83%83%e3%82%b8%e3%83%ad%e3%82%b1%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e5%88%a5%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">x_edge_location</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">edge</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">requests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">hugo_s3_demo_logs</span><span class="p">.</span><span class="n">cloudfront_logs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">x_edge_location</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">requests</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">10</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>どのエッジロケーションからのアクセスが多いかを確認できます。</p>
+<table>
+  <thead>
+      <tr>
+          <th>エッジコード</th>
+          <th>場所</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>NRT</td>
+          <td>東京</td>
+      </tr>
+      <tr>
+          <td>KIX</td>
+          <td>大阪</td>
+      </tr>
+      <tr>
+          <td>SEA</td>
+          <td>シアトル</td>
+      </tr>
+      <tr>
+          <td>SIN</td>
+          <td>シンガポール</td>
+      </tr>
+      <tr>
+          <td>FRA</td>
+          <td>フランクフルト</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">クエリ5: 日別アクセス数 
+    <div id="クエリ5-日別アクセス数" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa5-%e6%97%a5%e5%88%a5%e3%82%a2%e3%82%af%e3%82%bb%e3%82%b9%e6%95%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="nb">date</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">requests</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">hugo_s3_demo_logs</span><span class="p">.</span><span class="n">cloudfront_logs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="nb">date</span><span class="w"> </span><span class="k">DESC</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">LIMIT</span><span class="w"> </span><span class="mi">30</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div>
+<h3 class="relative group">クエリ6: HTTPステータス別集計 
+    <div id="クエリ6-httpステータス別集計" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa6-http%e3%82%b9%e3%83%86%e3%83%bc%e3%82%bf%e3%82%b9%e5%88%a5%e9%9b%86%e8%a8%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-sql" data-lang="sql"><span class="line"><span class="cl"><span class="k">SELECT</span><span class="w"> 
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="n">sc_status</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="n">status</span><span class="p">,</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w">  </span><span class="k">COUNT</span><span class="p">(</span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="k">count</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">FROM</span><span class="w"> </span><span class="n">hugo_s3_demo_logs</span><span class="p">.</span><span class="n">cloudfront_logs</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">GROUP</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="n">sc_status</span><span class="w">
+</span></span></span><span class="line"><span class="cl"><span class="w"></span><span class="k">ORDER</span><span class="w"> </span><span class="k">BY</span><span class="w"> </span><span class="k">count</span><span class="w"> </span><span class="k">DESC</span><span class="p">;</span><span class="w">
+</span></span></span></code></pre></div><p>4xx/5xxエラーが多い場合は、サイトに問題がある可能性があります。</p>
+
+<h2 class="relative group">コストについて 
+    <div id="コストについて" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%82%b9%e3%83%88%e3%81%ab%e3%81%a4%e3%81%84%e3%81%a6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>Athenaの料金は、スキャンしたデータ量に対して**$5/TB**です。</p>
+
+<h3 class="relative group">個人ブログの場合 
+    <div id="個人ブログの場合" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%80%8b%e4%ba%ba%e3%83%96%e3%83%ad%e3%82%b0%e3%81%ae%e5%a0%b4%e5%90%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>項目</th>
+          <th>概算</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>1日のログサイズ</td>
+          <td>約100KB〜1MB</td>
+      </tr>
+      <tr>
+          <td>1ヶ月のログサイズ</td>
+          <td>約3MB〜30MB</td>
+      </tr>
+      <tr>
+          <td>1クエリあたりのコスト</td>
+          <td>約$0.00001〜$0.0001</td>
+      </tr>
+      <tr>
+          <td>月間クエリコスト</td>
+          <td><strong>数円程度</strong></td>
+      </tr>
+  </tbody>
+</table>
+<p>個人ブログ規模であれば、月額数円〜数十円で収まります。</p>
+
+<h3 class="relative group">コスト最適化のポイント 
+    <div id="コスト最適化のポイント" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%82%b9%e3%83%88%e6%9c%80%e9%81%a9%e5%8c%96%e3%81%ae%e3%83%9d%e3%82%a4%e3%83%b3%e3%83%88" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ol>
+<li><strong>不要なカラムを除外</strong>: <code>SELECT *</code> ではなく必要なカラムのみ指定</li>
+<li><strong>WHERE句で絞り込み</strong>: 日付範囲を指定してスキャン量を削減</li>
+<li><strong>パーティション</strong>: 大規模データの場合は日付でパーティション分割（本記事では省略）</li>
+</ol>
+
+<h2 class="relative group">トラブルシューティング 
+    <div id="トラブルシューティング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%88%e3%83%a9%e3%83%96%e3%83%ab%e3%82%b7%e3%83%a5%e3%83%bc%e3%83%86%e3%82%a3%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">クエリ結果が0件 
+    <div id="クエリ結果が0件" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa%e7%b5%90%e6%9e%9c%e3%81%8c0%e4%bb%b6" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>原因</strong>: ログがまだ出力されていない、またはテーブル定義が間違っている</p>
+<p><strong>確認ポイント</strong>:</p>
+<ol>
+<li>S3バケットにログファイルがあるか確認</li>
+<li>ログファイルのパスとGlue Tableの<code>location</code>が一致しているか確認</li>
+<li><code>skip.header.line.count</code> が <code>2</code> になっているか確認（CloudFrontログは2行のヘッダーがある）</li>
+</ol>
+
+<h3 class="relative group">HIVE_CURSOR_ERROR 
+    <div id="hive_cursor_error" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#hive_cursor_error" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>原因</strong>: カラム定義とログ形式の不一致</p>
+<p><strong>対処法</strong>: Glue Tableのカラム定義を確認し、CloudFrontログの形式と一致させる</p>
+
+<h3 class="relative group">クエリ結果の保存先が不明 
+    <div id="クエリ結果の保存先が不明" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%af%e3%82%a8%e3%83%aa%e7%b5%90%e6%9e%9c%e3%81%ae%e4%bf%9d%e5%ad%98%e5%85%88%e3%81%8c%e4%b8%8d%e6%98%8e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p><strong>原因</strong>: Workgroupの設定が適用されていない</p>
+<p><strong>対処法</strong>: Athenaコンソールで正しいWorkgroupを選択しているか確認</p>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>本記事では、以下を構築しました。</p>
+<ul>
+<li><strong>ログ用S3バケット</strong>: CloudFrontログの保存先（90日で自動削除）</li>
+<li><strong>CloudFrontログ設定</strong>: アクセスログの出力</li>
+<li><strong>Athena環境</strong>: Workgroup、Glue Database/Table</li>
+<li><strong>分析クエリ</strong>: 人気ページ、キャッシュヒット率、エッジロケーション分析</li>
+</ul>
+
+<h3 class="relative group">作成したリソース 
+    <div id="作成したリソース" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bd%9c%e6%88%90%e3%81%97%e3%81%9f%e3%83%aa%e3%82%bd%e3%83%bc%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>リソース</th>
+          <th>用途</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>S3バケット（logs）</td>
+          <td>CloudFrontログ保存</td>
+      </tr>
+      <tr>
+          <td>S3バケット（athena-results）</td>
+          <td>Athenaクエリ結果保存</td>
+      </tr>
+      <tr>
+          <td>Athena Workgroup</td>
+          <td>クエリ実行環境</td>
+      </tr>
+      <tr>
+          <td>Glue Database</td>
+          <td>メタデータカタログ</td>
+      </tr>
+      <tr>
+          <td>Glue Table</td>
+          <td>CloudFrontログのスキーマ定義</td>
+      </tr>
+  </tbody>
+</table>
+
+<h3 class="relative group">分析でわかること 
+    <div id="分析でわかること" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%86%e6%9e%90%e3%81%a7%e3%82%8f%e3%81%8b%e3%82%8b%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<table>
+  <thead>
+      <tr>
+          <th>分析項目</th>
+          <th>活用例</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>人気ページ</td>
+          <td>コンテンツ戦略の参考</td>
+      </tr>
+      <tr>
+          <td>キャッシュヒット率</td>
+          <td>CDN設定の最適化</td>
+      </tr>
+      <tr>
+          <td>エッジロケーション</td>
+          <td>ユーザーの地理的分布</td>
+      </tr>
+      <tr>
+          <td>HTTPステータス</td>
+          <td>エラー発生状況の把握</td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://docs.aws.amazon.com/ja_jp/athena/latest/ug/what-is.html"
+    target="_blank"
+  >Amazon Athena - AWS公式</a></li>
+<li><a
+  href="https://docs.aws.amazon.com/ja_jp/glue/latest/dg/catalog-and-crawler.html"
+    target="_blank"
+  >AWS Glue Data Catalog - AWS公式</a></li>
+<li><a
+  href="https://docs.aws.amazon.com/ja_jp/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html#LogFileFormat"
+    target="_blank"
+  >CloudFrontログの形式 - AWS公式</a></li>
+<li><a
+  href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/athena_workgroup"
+    target="_blank"
+  >Terraform aws_athena_workgroup</a></li>
+<li><a
+  href="https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/glue_catalog_table"
+    target="_blank"
+  >Terraform aws_glue_catalog_table</a></li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+  <details class="mt-2 mb-5 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 ml-0">
+    
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-primary-200 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-primary-800 dark:text-neutral-100">
+    Hugo-S3-CloudFrontで技術ブログを公開する -
+    この記事は連載の一部です
+  </summary>
+  
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230210947_hugo-s3-cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/">
+          パート 1:
+          【Hugo×AWS】Hugo&#43;S3&#43;CloudFrontで技術ブログを公開する
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230211150_github_actions-oidc%E3%81%A7%E8%87%AA%E5%8B%95%E3%83%87%E3%83%97%E3%83%AD%E3%82%A4/">
+          パート 2:
+          【Hugo×AWS】GitHub_Actions&#43;OIDCで自動デプロイ
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230211232_cloudwatch-sns%E3%81%A7%E7%9B%A3%E8%A6%96%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E9%80%9A%E7%9F%A5/">
+          パート 3:
+          【Hugo×AWS】CloudWatch&#43;SNSで監視・アラート通知
+        </a>
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        パート 4:
+        この記事
+      </div>
+    
+  
+    
+      <div
+        class="py-1 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+        <a href="/posts/251230211322_%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8Broute53-acm/">
+          パート 5:
+          【Hugo×AWS】独自ドメインを設定する（Route53&#43;ACM）
+        </a>
+      </div>
+    
+  
+
+
+  </details>
+
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/251230211301_Athenaでアクセスログを分析する.md"
+          data-oid-likes="likes_posts/251230211301_Athenaでアクセスログを分析する.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/251230211232_cloudwatch-sns%E3%81%A7%E7%9B%A3%E8%A6%96%E3%82%A2%E3%83%A9%E3%83%BC%E3%83%88%E9%80%9A%E7%9F%A5/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >【Hugo×AWS】CloudWatch+SNSで監視・アラート通知</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-12-30T21:12:32&#43;09:00">2025年 12月 30日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+            <a class="flex text-right group ml-3" href="/posts/251230211322_%E7%8B%AC%E8%87%AA%E3%83%89%E3%83%A1%E3%82%A4%E3%83%B3%E3%82%92%E8%A8%AD%E5%AE%9A%E3%81%99%E3%82%8Broute53-acm/">
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >【Hugo×AWS】独自ドメインを設定する（Route53+ACM）</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2025-12-30T21:13:22&#43;09:00">2025年 12月 30日</time>
+                  
+                </span>
+              </span>
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+            </a>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2025
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="https://fumi-til.com/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>

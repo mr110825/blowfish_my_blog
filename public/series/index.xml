@@ -2,31 +2,31 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Series on 毎日.log</title>
-    <link>http://localhost:1313/series/</link>
+    <link>https://fumi-til.com/series/</link>
     <description>Recent content in Series on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 21:13:22 +0900</lastBuildDate><atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Dec 2025 21:13:22 +0900</lastBuildDate><atom:link href="https://fumi-til.com/series/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>Hugo&#43;S3&#43;CloudFrontで技術ブログを公開する</title>
-      <link>http://localhost:1313/series/hugo&#43;s3&#43;cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</link>
+      <title>Hugo-S3-CloudFrontで技術ブログを公開する</title>
+      <link>https://fumi-til.com/series/hugo-s3-cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</link>
       <pubDate>Tue, 30 Dec 2025 21:13:22 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/series/hugo&#43;s3&#43;cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</guid>
+      <guid>https://fumi-til.com/series/hugo-s3-cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう</title>
-      <link>http://localhost:1313/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/</link>
+      <link>https://fumi-til.com/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/</link>
       <pubDate>Sun, 30 Nov 2025 07:07:10 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/</guid>
+      <guid>https://fumi-til.com/series/docker%E7%92%B0%E5%A2%83%E3%81%A7node.js%E3%82%92%E5%AD%A6%E3%81%BC%E3%81%86/</guid>
       <description></description>
       
     </item>

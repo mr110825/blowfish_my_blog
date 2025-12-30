@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ACM on 毎日.log</title>
-    <link>http://localhost:1313/tags/acm/</link>
+    <link>https://fumi-til.com/tags/acm/</link>
     <description>Recent content in ACM on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Wed, 03 Dec 2025 19:43:54 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/acm/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 03 Dec 2025 19:43:54 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/acm/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ACM証明書とは？SSL/TLS証明書の基礎からCloudFront連携まで</title>
-      <link>http://localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</link>
+      <link>https://fumi-til.com/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</link>
       <pubDate>Wed, 03 Dec 2025 19:43:54 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</guid>
+      <guid>https://fumi-til.com/posts/251203194354_acm-certificate-ssl-tls-basics-cloudfront-integration/</guid>
       <description></description>
       
     </item>
