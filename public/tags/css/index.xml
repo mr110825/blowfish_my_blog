@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CSS on 毎日.log</title>
-    <link>https://fumi-til.com/tags/css/</link>
+    <link>http://localhost:1313/tags/css/</link>
     <description>Recent content in CSS on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 14 Dec 2025 21:11:09 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/css/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 14 Dec 2025 21:11:09 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/css/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Tailwind CSS とは何か？従来のCSSと何が違うのか？</title>
-      <link>https://fumi-til.com/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</link>
+      <link>http://localhost:1313/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</link>
       <pubDate>Sun, 14 Dec 2025 21:11:09 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</guid>
+      <guid>http://localhost:1313/posts/251214211109_what-is-tailwind-css-and-how-is-it-different-from-traditional-css/</guid>
       <description></description>
       
     </item>

@@ -27,7 +27,7 @@ OIDC（OpenID Connect）認証を使用することで、アクセスキーを�
 
 ## 完成イメージ
 
-![GitHub_Actions+OIDCで自動デプロイ.drawio](/img/GitHub_Actions+OIDCで自動デプロイ.drawio.png)
+![GitHub_Actions+OIDCで自動デプロイ.drawio](/img/hugo-aws-2.png)
 
 mainブランチにpushするだけで、以下が自動実行されます。
 

@@ -28,7 +28,7 @@ CloudWatchでメトリクスを可視化し、エラー率が閾値を超えた�
 
 ## 完成イメージ
 
-![CloudWatch+SNSで監視・アラート通知](/img/CloudWatch+SNSで監視・アラート通知.drawio.png)
+![CloudWatch+SNSで監視・アラート通知](/img/hugo-aws-3.png)
 
 「何か問題があったらメールで知らせてくれる」仕組みを構築します。
 

@@ -2,61 +2,61 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>読書メモ on 毎日.log</title>
-    <link>https://fumi-til.com/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
+    <link>http://localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
     <description>Recent content in 読書メモ on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 05:59:43 +0900</lastBuildDate><atom:link href="https://fumi-til.com/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Dec 2025 05:59:43 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>ウルトララーニングとは？</title>
-      <link>https://fumi-til.com/posts/251230055935_%E3%82%A6%E3%83%AB%E3%83%88%E3%83%A9%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8%E3%81%AF/</link>
+      <link>http://localhost:1313/posts/251230055935_%E3%82%A6%E3%83%AB%E3%83%88%E3%83%A9%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8%E3%81%AF/</link>
       <pubDate>Tue, 30 Dec 2025 05:59:43 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251230055935_%E3%82%A6%E3%83%AB%E3%83%88%E3%83%A9%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8%E3%81%AF/</guid>
+      <guid>http://localhost:1313/posts/251230055935_%E3%82%A6%E3%83%AB%E3%83%88%E3%83%A9%E3%83%A9%E3%83%BC%E3%83%8B%E3%83%B3%E3%82%B0%E3%81%A8%E3%81%AF/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>読書メモ：指示通りができない人たち</title>
-      <link>https://fumi-til.com/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</link>
+      <link>http://localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</link>
       <pubDate>Mon, 01 Dec 2025 08:26:13 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</guid>
+      <guid>http://localhost:1313/posts/251201082613_reading-memo-people-who-cant-follow-instructions/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>最高の勉強法：連続的再学習のすすめ</title>
-      <link>https://fumi-til.com/posts/251130211705_best-learning-method-continuous-relearning/</link>
+      <link>http://localhost:1313/posts/251130211705_best-learning-method-continuous-relearning/</link>
       <pubDate>Sun, 30 Nov 2025 21:17:05 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251130211705_best-learning-method-continuous-relearning/</guid>
+      <guid>http://localhost:1313/posts/251130211705_best-learning-method-continuous-relearning/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>【読書メモ】BCGの育つ力・育てる力：スキルマニアからの脱却</title>
-      <link>https://fumi-til.com/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</link>
+      <link>http://localhost:1313/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</link>
       <pubDate>Sun, 23 Nov 2025 23:27:47 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</guid>
+      <guid>http://localhost:1313/posts/251123232747_bcg-ikiru-chikara-sodateru-chikara-skill-mania-karano-dasshutsu/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>【読書メモ】TAKE NOTES!――メモで、あなただけのアウトプットが自然にできるようになる</title>
-      <link>https://fumi-til.com/posts/251120230822_take-notes-output-naturally-with-memos/</link>
+      <link>http://localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/</link>
       <pubDate>Thu, 20 Nov 2025 23:08:22 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>https://fumi-til.com/posts/251120230822_take-notes-output-naturally-with-memos/</guid>
+      <guid>http://localhost:1313/posts/251120230822_take-notes-output-naturally-with-memos/</guid>
       <description></description>
       
     </item>

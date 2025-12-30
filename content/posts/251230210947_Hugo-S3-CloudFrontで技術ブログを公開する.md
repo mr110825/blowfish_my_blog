@@ -25,7 +25,7 @@ Terraformを使ってインフラをコード化し、手動デプロイまで�
 
 ## 完成イメージ
 
-![S3+CloudFront構成図](/img/S3+CloudFront構成図_はじめ.drawio.png)
+![S3+CloudFront構成図](/img/hugo-aws-1.png)
 
 - 本記事の完了後、CloudFrontのデフォルトドメイン（`https://dxxxxx.cloudfront.net`）でブログにアクセスできるようになります。
 - CloudFrontからS3へのアクセスにはOAC（Origin Access Control）を使用し、S3バケットへの直接アクセスを禁止します。
