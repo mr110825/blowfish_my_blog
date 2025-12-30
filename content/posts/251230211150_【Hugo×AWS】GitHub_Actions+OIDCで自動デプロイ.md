@@ -3,9 +3,9 @@ id: "251230211150"
 title: "【Hugo×AWS】GitHub_Actions+OIDCで自動デプロイ"
 date: 2025-12-30T21:11:50+09:00
 draft: false
-tags: []
-series = ["【Hugo×AWS】Hugo+S3+CloudFrontで技術ブログを公開する"]
-series_order = 2
+tags: ["学習・作業ログ", "AWS", "Terraform", "Hugo"]
+series: [Hugo+S3+CloudFrontで技術ブログを公開する]
+series_order: 2
 ---
 
 ## はじめに
@@ -27,7 +27,7 @@ OIDC（OpenID Connect）認証を使用することで、アクセスキーを�
 
 ## 完成イメージ
 
-![GitHub_Actions+OIDCで自動デプロイ.drawio](/images/GitHub_Actions+OIDCで自動デプロイ.drawio.png)
+![GitHub_Actions+OIDCで自動デプロイ.drawio](/img/GitHub_Actions+OIDCで自動デプロイ.drawio.png)
 
 mainブランチにpushするだけで、以下が自動実行されます。
 

@@ -3,9 +3,9 @@ id: "251230211301"
 title: "【Hugo×AWS】Athenaでアクセスログを分析する"
 date: 2025-12-30T21:13:01+09:00
 draft: false
-tags: []
-series = ["【Hugo×AWS】Hugo+S3+CloudFrontで技術ブログを公開する"]
-series_order = 4
+tags: ["学習・作業ログ", "AWS", "Terraform", "Hugo"]
+series: [Hugo+S3+CloudFrontで技術ブログを公開する]
+series_order: 4
 ---
 
 ## はじめに
@@ -27,7 +27,7 @@ series_order = 4
 
 ## 完成イメージ
 
-![Athenaでアクセスログを分析する](/images/Athenaでアクセスログを分析する.drawio.png)
+![Athenaでアクセスログを分析する](/img/Athenaでアクセスログを分析する.drawio.png)
 
 AthenaでSQLクエリを実行するだけで、以下のような分析ができるようになります。
 
@@ -114,7 +114,7 @@ hugo-s3-demo-infra/
 # ログ用S3バケット
 # ===========================================
 resource "aws_s3_bucket" "logs" {
-  bucket = "${var.project_name}-logs"
+  bucket = "${var.project_name}-logs-${random_id.suffix.hex}"
 
   tags = {
     Name = "${var.project_name}-logs"
@@ -283,7 +283,7 @@ aws s3 ls s3://hugo-s3-demo-logs/cloudfront/ --recursive | head -10
 # Athenaクエリ結果用S3バケット
 # ===========================================
 resource "aws_s3_bucket" "athena_results" {
-  bucket = "${var.project_name}-athena-results"
+  bucket = "${var.project_name}-athena-results-${random_id.suffix.hex}"
 
   tags = {
     Name = "${var.project_name}-athena-results"

@@ -9,7 +9,27 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Tue, 30 Dec 2025 05:19:23 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Dec 2025 05:59:43 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>学習法</title>
+      <link>http://localhost:1313/tags/%E5%AD%A6%E7%BF%92%E6%B3%95/</link>
+      <pubDate>Tue, 30 Dec 2025 05:59:43 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E5%AD%A6%E7%BF%92%E6%B3%95/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>読書メモ</title>
+      <link>http://localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
+      <pubDate>Tue, 30 Dec 2025 05:59:43 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>学習・作業ログ</title>
@@ -327,16 +347,6 @@
       <pubDate>Mon, 01 Dec 2025 22:19:16 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>http://localhost:1313/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%9B%9E%E8%B7%AF/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>読書メモ</title>
-      <link>http://localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</link>
-      <pubDate>Mon, 01 Dec 2025 08:26:13 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/tags/%E8%AA%AD%E6%9B%B8%E3%83%A1%E3%83%A2/</guid>
       <description></description>
       
     </item>

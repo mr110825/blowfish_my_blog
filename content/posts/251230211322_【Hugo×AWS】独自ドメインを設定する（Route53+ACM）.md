@@ -3,9 +3,9 @@ id: "251230211322"
 title: "【Hugo×AWS】独自ドメインを設定する（Route53+ACM）"
 date: 2025-12-30T21:13:22+09:00
 draft: false
-tags: []
-series = ["【Hugo×AWS】Hugo+S3+CloudFrontで技術ブログを公開する"]
-series_order = 5
+tags: ["学習・作業ログ", "AWS", "Terraform", "Hugo"]
+series: [Hugo+S3+CloudFrontで技術ブログを公開する]
+series_order: 5
 ---
 
 ## はじめに
@@ -28,7 +28,7 @@ Route53でドメインを購入し、ACM（AWS Certificate Manager）でSSL/TLS�
 
 ## 完成イメージ
 
-![独自ドメインを設定する（Route53+ACM）](/images/独自ドメインを設定する（Route53+ACM）.drawio.png)
+![独自ドメインを設定する（Route53+ACM）](/img/独自ドメインを設定する（Route53+ACM）.drawio.png)
 
 ```text
 【変更前】

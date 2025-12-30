@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Sun, 30 Nov 2025 07:07:10 +0900</lastBuildDate><atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Dec 2025 21:13:22 +0900</lastBuildDate><atom:link href="http://localhost:1313/series/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Hugo&#43;S3&#43;CloudFrontで技術ブログを公開する</title>
+      <link>http://localhost:1313/series/hugo&#43;s3&#43;cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</link>
+      <pubDate>Tue, 30 Dec 2025 21:13:22 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/series/hugo&#43;s3&#43;cloudfront%E3%81%A7%E6%8A%80%E8%A1%93%E3%83%96%E3%83%AD%E3%82%B0%E3%82%92%E5%85%AC%E9%96%8B%E3%81%99%E3%82%8B/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう</title>

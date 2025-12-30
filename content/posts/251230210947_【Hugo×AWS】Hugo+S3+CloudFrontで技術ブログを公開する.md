@@ -3,9 +3,9 @@ id: "251230210947"
 title: "【Hugo×AWS】Hugo+S3+CloudFrontで技術ブログを公開する"
 date: 2025-12-30T21:09:47+09:00
 draft: false
-tags: []
-series = ["【Hugo×AWS】Hugo+S3+CloudFrontで技術ブログを公開する"]
-series_order = 1
+tags: ["学習・作業ログ", "AWS", "Terraform", "Hugo"]
+series: [Hugo+S3+CloudFrontで技術ブログを公開する]
+series_order: 1
 ---
 
 ## はじめに
@@ -25,7 +25,7 @@ Terraformを使ってインフラをコード化し、手動デプロイまで�
 
 ## 完成イメージ
 
-![S3+CloudFront構成図](/images/S3+CloudFront構成図_はじめ.drawio.png)
+![S3+CloudFront構成図](/img/S3+CloudFront構成図_はじめ.drawio.png)
 
 - 本記事の完了後、CloudFrontのデフォルトドメイン（`https://dxxxxx.cloudfront.net`）でブログにアクセスできるようになります。
 - CloudFrontからS3へのアクセスにはOAC（Origin Access Control）を使用し、S3バケットへの直接アクセスを禁止します。

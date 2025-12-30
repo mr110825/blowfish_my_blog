@@ -3,9 +3,9 @@ id: "251230211232"
 title: "【Hugo×AWS】CloudWatch+SNSで監視・アラート通知"
 date: 2025-12-30T21:12:32+09:00
 draft: false
-tags: []
-series = ["【Hugo×AWS】Hugo+S3+CloudFrontで技術ブログを公開する"]
-series_order = 3
+tags: ["学習・作業ログ", "AWS", "Terraform", "Hugo"]
+series: [Hugo+S3+CloudFrontで技術ブログを公開する]
+series_order: 3
 ---
 
 ## はじめに
@@ -28,7 +28,7 @@ CloudWatchでメトリクスを可視化し、エラー率が閾値を超えた�
 
 ## 完成イメージ
 
-![CloudWatch+SNSで監視・アラート通知](/images/CloudWatch+SNSで監視・アラート通知.drawio.png)
+![CloudWatch+SNSで監視・アラート通知](/img/CloudWatch+SNSで監視・アラート通知.drawio.png)
 
 「何か問題があったらメールで知らせてくれる」仕組みを構築します。
 
