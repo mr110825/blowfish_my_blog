@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>デジタル回路 on 毎日.log</title>
-    <link>http://localhost:1313/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%9B%9E%E8%B7%AF/</link>
+    <link>http://localhost:46853/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%9B%9E%E8%B7%AF/</link>
     <description>Recent content in デジタル回路 on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
-    <copyright>© 2025 フミ</copyright>
-    <lastBuildDate>Mon, 01 Dec 2025 22:19:16 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%9B%9E%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
+    <copyright>© 2026 フミ</copyright>
+    <lastBuildDate>Mon, 01 Dec 2025 22:19:16 +0900</lastBuildDate><atom:link href="http://localhost:46853/tags/%E3%83%87%E3%82%B8%E3%82%BF%E3%83%AB%E5%9B%9E%E8%B7%AF/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>1ビットを記憶する仕組み：NAND型RSフリップフロップ</title>
-      <link>http://localhost:1313/posts/251201221916_nand-type-rs-flip-flop/</link>
+      <link>http://localhost:46853/posts/251201221916_nand-type-rs-flip-flop/</link>
       <pubDate>Mon, 01 Dec 2025 22:19:16 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251201221916_nand-type-rs-flip-flop/</guid>
+      <guid>http://localhost:46853/posts/251201221916_nand-type-rs-flip-flop/</guid>
       <description></description>
       
     </item>
