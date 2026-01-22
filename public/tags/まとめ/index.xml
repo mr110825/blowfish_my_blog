@@ -2,71 +2,71 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>まとめ on 毎日.log</title>
-    <link>http://localhost:46853/tags/%E3%81%BE%E3%81%A8%E3%82%81/</link>
+    <link>http://localhost:1313/tags/%E3%81%BE%E3%81%A8%E3%82%81/</link>
     <description>Recent content in まとめ on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Sat, 13 Dec 2025 12:25:33 +0900</lastBuildDate><atom:link href="http://localhost:46853/tags/%E3%81%BE%E3%81%A8%E3%82%81/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 13 Dec 2025 12:25:33 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%81%BE%E3%81%A8%E3%82%81/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>AWS IAMの基礎：4つの概念をオフィスビルで例える</title>
-      <link>http://localhost:46853/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/</link>
+      <link>http://localhost:1313/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/</link>
       <pubDate>Sat, 13 Dec 2025 12:25:33 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/</guid>
+      <guid>http://localhost:1313/posts/251213122533_aws-iam-basics-explained-through-office-building-analogy/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraform for式入門：リストとマップの変換テクニック</title>
-      <link>http://localhost:46853/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</link>
+      <link>http://localhost:1313/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</link>
       <pubDate>Tue, 02 Dec 2025 08:27:01 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</guid>
+      <guid>http://localhost:1313/posts/251202082701_terraform-for-expression-list-and-map-conversion-techniques/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Terraformループの基礎：countとfor_eachの使い分け</title>
-      <link>http://localhost:46853/posts/251202082522_terraform-loops-count-and-for-each-usage/</link>
+      <link>http://localhost:1313/posts/251202082522_terraform-loops-count-and-for-each-usage/</link>
       <pubDate>Tue, 02 Dec 2025 08:25:22 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251202082522_terraform-loops-count-and-for-each-usage/</guid>
+      <guid>http://localhost:1313/posts/251202082522_terraform-loops-count-and-for-each-usage/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>仮想記憶のアドレス変換</title>
-      <link>http://localhost:46853/posts/251129114929_virtual-memory-address-translation/</link>
+      <link>http://localhost:1313/posts/251129114929_virtual-memory-address-translation/</link>
       <pubDate>Sat, 29 Nov 2025 11:49:29 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251129114929_virtual-memory-address-translation/</guid>
+      <guid>http://localhost:1313/posts/251129114929_virtual-memory-address-translation/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>IaC（Infrastructure as Code）の5つの分類</title>
-      <link>http://localhost:46853/posts/251124162641_iac-five-classifications/</link>
+      <link>http://localhost:1313/posts/251124162641_iac-five-classifications/</link>
       <pubDate>Mon, 24 Nov 2025 16:26:41 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251124162641_iac-five-classifications/</guid>
+      <guid>http://localhost:1313/posts/251124162641_iac-five-classifications/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>オブジェクト指向の入門用メモ</title>
-      <link>http://localhost:46853/posts/251123211627_object-oriented-programming-introduction-memo/</link>
+      <link>http://localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/</link>
       <pubDate>Sun, 23 Nov 2025 21:16:27 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251123211627_object-oriented-programming-introduction-memo/</guid>
+      <guid>http://localhost:1313/posts/251123211627_object-oriented-programming-introduction-memo/</guid>
       <description></description>
       
     </item>

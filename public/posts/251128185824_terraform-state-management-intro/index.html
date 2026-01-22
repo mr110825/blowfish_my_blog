@@ -4,7 +4,7 @@
   dir="ltr"
   class="scroll-smooth"
   data-default-appearance="dark"
-  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=46853&amp;path=livereload" data-no-instant defer></script>
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
   <meta charset="utf-8">
   
     <meta http-equiv="content-language" content="ja">
@@ -22,7 +22,7 @@
   <meta name="keywords" content="インフラ,Terraform,AWS,ハンズオン・チュートリアル,">
   
   
-  <link rel="canonical" href="http://localhost:46853/posts/251128185824_terraform-state-management-intro/">
+  <link rel="canonical" href="http://localhost:1313/posts/251128185824_terraform-state-management-intro/">
   
   
   
@@ -99,7 +99,7 @@
   
 
   
-  <meta property="og:url" content="http://localhost:46853/posts/251128185824_terraform-state-management-intro/">
+  <meta property="og:url" content="http://localhost:1313/posts/251128185824_terraform-state-management-intro/">
   <meta property="og:site_name" content="毎日.log">
   <meta property="og:title" content="Terraformステート管理 Part1 - S3リモートバックエンドとワークスペース">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
@@ -128,7 +128,7 @@
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:46853\/posts\/251128185824_terraform-state-management-intro\/",
+    "url" : "http:\/\/localhost:1313\/posts\/251128185824_terraform-state-management-intro\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
@@ -1304,7 +1304,7 @@ ResourceNotFoundException: Requested resource not found
 └── prod/                             # 本番環境（完全に別管理）
 </code></pre><p>分離したコンポーネント間（例: RDSとWebサーバー）で情報を共有するには、<code>terraform_remote_state</code>データソースを使用する。</p>
 <p>詳細な実装手順（RDS構築、terraform_remote_stateによる連携、templatefile関数の活用）は<a
-  href="http://localhost:46853/posts/251128193149_terraform-file-layout-separation/">Part2</a>で解説。</p>
+  href="http://localhost:1313/posts/251128193149_terraform-file-layout-separation/">Part2</a>で解説。</p>
 <hr>
 
 <h2 class="relative group">完成形のコード 
@@ -1447,7 +1447,7 @@ ResourceNotFoundException: Requested resource not found
 <li><strong>部分設定</strong>: <code>backend.hcl</code>で共通設定を切り出してコピペを削減</li>
 <li><strong>ワークスペース</strong>: 簡易な環境分離だが、可視性が低く誤操作リスクあり</li>
 <li><strong>ファイルレイアウト</strong>: 本番環境の分離には環境ごとのディレクトリ分割が推奨（<a
-  href="http://localhost:46853/posts/251128193149_terraform-file-layout-separation/">Part2</a>で実践）</li>
+  href="http://localhost:1313/posts/251128193149_terraform-file-layout-separation/">Part2</a>で実践）</li>
 </ol>
 
 <h3 class="relative group">チェックリスト 
@@ -1492,7 +1492,7 @@ ResourceNotFoundException: Requested resource not found
     target="_blank"
   >Terraform公式ドキュメント</a></li>
 <li><a
-  href="http://localhost:46853/posts/251128193149_terraform-file-layout-separation/">Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</a></li>
+  href="http://localhost:1313/posts/251128193149_terraform-file-layout-separation/">Terraformステート管理 Part2 - ファイルレイアウトとterraform_remote_state</a></li>
 </ul>
 
           
@@ -1651,7 +1651,7 @@ ResourceNotFoundException: Requested resource not found
 <div
   id="search-wrapper"
   class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
-  data-url="http://localhost:46853/">
+  data-url="http://localhost:1313/">
   <div
     id="search-modal"
     class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">

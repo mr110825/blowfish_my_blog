@@ -2,41 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Docker on 毎日.log</title>
-    <link>http://localhost:46853/tags/docker/</link>
+    <link>http://localhost:1313/tags/docker/</link>
     <description>Recent content in Docker on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Fri, 19 Dec 2025 20:28:30 +0900</lastBuildDate><atom:link href="http://localhost:46853/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Dec 2025 20:28:30 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/docker/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>VSCode Dev Containersでコンテナ内開発環境を構築する</title>
-      <link>http://localhost:46853/posts/251219202830_vscode-dev-containers-container-development-environment/</link>
+      <link>http://localhost:1313/posts/251219202830_vscode-dev-containers-container-development-environment/</link>
       <pubDate>Fri, 19 Dec 2025 20:28:30 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251219202830_vscode-dev-containers-container-development-environment/</guid>
+      <guid>http://localhost:1313/posts/251219202830_vscode-dev-containers-container-development-environment/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Dockerで勉強用の使い捨て環境を構築する</title>
-      <link>http://localhost:46853/posts/251214215249_docker-disposable-study-environment/</link>
+      <link>http://localhost:1313/posts/251214215249_docker-disposable-study-environment/</link>
       <pubDate>Sun, 14 Dec 2025 21:52:49 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251214215249_docker-disposable-study-environment/</guid>
+      <guid>http://localhost:1313/posts/251214215249_docker-disposable-study-environment/</guid>
       <description></description>
       
     </item>
     
     <item>
       <title>Docker環境でNode.jsを学ぼう_Part1_Node.js基礎編</title>
-      <link>http://localhost:46853/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
+      <link>http://localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</link>
       <pubDate>Sun, 30 Nov 2025 06:58:41 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
+      <guid>http://localhost:1313/posts/251130065841_docker-environment-nodejs-basics-part1/</guid>
       <description></description>
       
     </item>

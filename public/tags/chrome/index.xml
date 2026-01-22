@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Chrome on 毎日.log</title>
-    <link>http://localhost:46853/tags/chrome/</link>
+    <link>http://localhost:1313/tags/chrome/</link>
     <description>Recent content in Chrome on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Wed, 26 Nov 2025 03:10:04 +0900</lastBuildDate><atom:link href="http://localhost:46853/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 26 Nov 2025 03:10:04 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/chrome/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Chromeにカスタム検索機能を実装する方法</title>
-      <link>http://localhost:46853/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
+      <link>http://localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</link>
       <pubDate>Wed, 26 Nov 2025 03:10:04 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:46853/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
+      <guid>http://localhost:1313/posts/251126031004_implement-custom-search-feature-in-chrome/</guid>
       <description></description>
       
     </item>
