@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>アーキテクチャ on 毎日.log</title>
+    <link>http://localhost:1313/tags/%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3/</link>
+    <description>Recent content in アーキテクチャ on 毎日.log</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ja</language>
+    <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
+    <webMaster>ptin110825@gmail.com (フミ)</webMaster>
+    <copyright>© 2026 フミ</copyright>
+    <lastBuildDate>Sat, 24 Jan 2026 14:04:55 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>マイクロサービスアーキテクチャ入門_混同しやすい概念の整理</title>
+      <link>http://localhost:1313/posts/260124140455_%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%85%A5%E9%96%80_%E6%B7%B7%E5%90%8C%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E6%A6%82%E5%BF%B5%E3%81%AE%E6%95%B4%E7%90%86/</link>
+      <pubDate>Sat, 24 Jan 2026 14:04:55 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/260124140455_%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%85%A5%E9%96%80_%E6%B7%B7%E5%90%8C%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E6%A6%82%E5%BF%B5%E3%81%AE%E6%95%B4%E7%90%86/</guid>
+      <description></description>
+      
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,2419 @@
+<!doctype html>
+<html
+  lang="ja"
+  dir="ltr"
+  class="scroll-smooth"
+  data-default-appearance="dark"
+  data-auto-appearance="false"><head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  
+    <meta http-equiv="content-language" content="ja">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <meta name="theme-color">
+
+  
+  <title>マイクロサービスアーキテクチャ入門_混同しやすい概念の整理 &middot; 毎日.log</title>
+    <meta name="title" content="マイクロサービスアーキテクチャ入門_混同しやすい概念の整理 &middot; 毎日.log">
+
+  
+  <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta name="keywords" content="学習・作業ログ,マイクロサービス,アーキテクチャ,分散システム,">
+  
+  
+  <link rel="canonical" href="http://localhost:1313/posts/260124140455_%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%85%A5%E9%96%80_%E6%B7%B7%E5%90%8C%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E6%A6%82%E5%BF%B5%E3%81%AE%E6%95%B4%E7%90%86/">
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+  
+  
+    
+    
+  
+  
+  <link
+    type="text/css"
+    rel="stylesheet"
+    href="/css/main.bundle.min.8ad216a212cef2ff398faed9ea7271f7766bc039d78aefb8f08e3270e028c2de33370d62df40395b48d396bdccb2ef8e245e6ca08ae3ec79067996559b110f67.css"
+    integrity="sha512-itIWohLO8v85j67Z6nJx93ZrwDnXiu&#43;48I4ycOAowt4zNw1i30A5W0jTlr3Msu&#43;OJF5soIrj7HkGeZZVmxEPZw==">
+
+  
+  
+  <script
+    type="text/javascript"
+    src="/js/appearance.min.516a16745bea5a9bd011138d254cc0fd3973cd55ce6e15f3dec763e7c7c2c7448f8fe7b54cca811cb821b0c7e12cd161caace1dd794ac3d34d40937cbcc9ee12.js"
+    integrity="sha512-UWoWdFvqWpvQERONJUzA/TlzzVXObhXz3sdj58fCx0SPj&#43;e1TMqBHLghsMfhLNFhyqzh3XlKw9NNQJN8vMnuEg=="></script>
+  
+    
+    
+    
+  
+  
+    
+    
+  
+  
+  
+  
+  
+  
+  
+  
+  
+    
+    <script
+      defer
+      type="text/javascript"
+      id="script-bundle"
+      src="/js/main.bundle.min.b363d716a7ea4bad623779c04878b62e384759903bf0e247658d199ca391ca711253abc6e0b593fe91b9cc9b7e1b36fb85730691a0d891ae9a8cfee6a986e58f.js"
+      integrity="sha512-s2PXFqfqS61iN3nASHi2LjhHWZA78OJHZY0ZnKORynESU6vG4LWT/pG5zJt&#43;Gzb7hXMGkaDYka6ajP7mqYbljw=="
+      data-copy="コピー"
+      data-copied="コピーしました"></script>
+  
+  
+    
+    <script src="/lib/zoom/zoom.min.umd.a527109b68c082a70f3697716dd72a9d5aa8b545cf800cecbbc7399f2ca6f6e0ce3e431f2062b48bbfa47c9ea42822714060bef309be073f49b9c0e30d318d7b.js" integrity="sha512-pScQm2jAgqcPNpdxbdcqnVqotUXPgAzsu8c5nyym9uDOPkMfIGK0i7&#43;kfJ6kKCJxQGC&#43;8wm&#43;Bz9JucDjDTGNew=="></script>
+  
+
+  
+  
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+  
+
+  
+  
+  
+  
+  
+  
+
+  
+  <meta property="og:url" content="http://localhost:1313/posts/260124140455_%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%85%A5%E9%96%80_%E6%B7%B7%E5%90%8C%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E6%A6%82%E5%BF%B5%E3%81%AE%E6%95%B4%E7%90%86/">
+  <meta property="og:site_name" content="毎日.log">
+  <meta property="og:title" content="マイクロサービスアーキテクチャ入門_混同しやすい概念の整理">
+  <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+  <meta property="og:locale" content="ja">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2026-01-24T14:04:55+09:00">
+    <meta property="article:modified_time" content="2026-01-24T14:04:55+09:00">
+    <meta property="article:tag" content="学習・作業ログ">
+    <meta property="article:tag" content="マイクロサービス">
+    <meta property="article:tag" content="アーキテクチャ">
+    <meta property="article:tag" content="分散システム">
+
+  
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="マイクロサービスアーキテクチャ入門_混同しやすい概念の整理">
+  <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
+
+  <script type="application/ld+json">
+  [{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "articleSection": "Posts",
+    "name": "マイクロサービスアーキテクチャ入門_混同しやすい概念の整理",
+    "headline": "マイクロサービスアーキテクチャ入門_混同しやすい概念の整理",
+    
+    
+    "inLanguage": "ja",
+    "url" : "http:\/\/localhost:1313\/posts\/260124140455_%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3%E5%85%A5%E9%96%80_%E6%B7%B7%E5%90%8C%E3%81%97%E3%82%84%E3%81%99%E3%81%84%E6%A6%82%E5%BF%B5%E3%81%AE%E6%95%B4%E7%90%86\/",
+    "author" : {
+      "@type": "Person",
+      "name": "フミ"
+    },
+    "copyrightYear": "2026",
+    "dateCreated": "2026-01-24T14:04:55\u002b09:00",
+    "datePublished": "2026-01-24T14:04:55\u002b09:00",
+    
+    "dateModified": "2026-01-24T14:04:55\u002b09:00",
+    
+    "keywords": ["学習・作業ログ","マイクロサービス","アーキテクチャ","分散システム"],
+    
+    "mainEntityOfPage": "true",
+    "wordCount": "721"
+  }]
+  </script>
+
+
+
+  
+  
+    <meta name="author" content="フミ">
+  
+  
+    
+      
+        
+          <link href="https://zenn.dev/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://github.com/mr110825" rel="me">
+        
+      
+    
+      
+        
+          <link href="https://x.com/mr110825" rel="me">
+        
+      
+    
+  
+
+  
+  
+
+<script src="/lib/jquery/jquery.slim.min.b0dca576e87d7eaa5850ae4e61759c065786cdb6489d68fcc82240539eebd5da522bdb4fda085ffd245808c8fe2acb2516408eb774ef26b5f6015fc6737c0ea8.js" integrity="sha512-sNylduh9fqpYUK5OYXWcBleGzbZInWj8yCJAU57r1dpSK9tP2ghf/SRYCMj&#43;KsslFkCOt3TvJrX2AV/Gc3wOqA=="></script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+    <meta name="google-site-verification" content="VEDDB6ukVd0l3kqAWxosjFeo8rsh1be5xRFlmvNDILA" />
+  
+
+  
+  
+
+  
+  
+
+  
+  
+</head>
+<body
+    class="flex flex-col h-screen px-6 m-auto text-lg leading-7 max-w-7xl bg-neutral text-neutral-900 dark:bg-neutral-800 dark:text-neutral sm:px-14 md:px-24 lg:px-32 scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600">
+    <div id="the-top" class="absolute flex self-center">
+      <a
+        class="px-3 py-1 text-sm -translate-y-8 rounded-b-lg bg-primary-200 focus:translate-y-0 dark:bg-neutral-600"
+        href="#main-content"
+        ><span class="font-bold text-primary-600 ltr:pr-2 rtl:pl-2 dark:text-primary-400">&darr;</span>メインコンテンツへスキップ</a
+      >
+    </div>
+    
+    
+      
+
+
+
+
+
+
+
+
+
+
+
+<div
+  class="main-menu flex items-center justify-between px-4 py-6 sm:px-6 md:justify-start gap-x-3 pt-[2px] pr-0 pb-[3px] pl-0">
+  
+  
+
+  <div class="flex flex-1 items-center justify-between">
+    <nav class="flex space-x-3">
+      
+        <a href="/" class="text-base font-medium text-gray-500 hover:text-gray-900">
+          毎日.log
+        </a>
+      
+    </nav>
+    
+  <nav class="hidden md:flex items-center gap-x-5 md:ml-12 h-12">
+    
+      
+        
+  <a
+  href="/posts/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Posts
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/series/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Series
+  </p>
+</a>
+
+
+
+      
+        
+  <a
+  href="/tags/"
+  
+  class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+  
+  <p class="text-base font-medium" title="">
+    Tags
+  </p>
+</a>
+
+
+
+      
+    
+
+    
+
+
+    
+      <button
+        id="search-button"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </nav>
+
+    
+  <div class="flex md:hidden items-center gap-x-5 md:ml-12 h-12">
+    <span></span>
+
+    
+
+    
+      <button
+        id="search-button-mobile"
+        aria-label="Search"
+        class="text-base hover:text-primary-600 dark:hover:text-primary-400"
+        title="検索 (/)">
+        
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+      </button>
+    
+
+    
+  </div>
+
+  </div>
+  
+  <div class="-my-2 md:hidden">
+    <div id="menu-button" class="block">
+      
+        <div class="cursor-pointer hover:text-primary-600 dark:hover:text-primary-400">
+          
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><path fill="currentColor" d="M0 96C0 78.33 14.33 64 32 64H416C433.7 64 448 78.33 448 96C448 113.7 433.7 128 416 128H32C14.33 128 0 113.7 0 96zM0 256C0 238.3 14.33 224 32 224H416C433.7 224 448 238.3 448 256C448 273.7 433.7 288 416 288H32C14.33 288 0 273.7 0 256zM416 448H32C14.33 448 0 433.7 0 416C0 398.3 14.33 384 32 384H416C433.7 384 448 398.3 448 416C448 433.7 433.7 448 416 448z"/></svg>
+
+  </span>
+
+
+        </div>
+        <div
+          id="menu-wrapper"
+          class="fixed inset-0 z-30 invisible w-screen h-screen m-0 overflow-auto transition-opacity opacity-0 cursor-default bg-neutral-100/50 backdrop-blur-sm dark:bg-neutral-900/50 pt-[5px]">
+          <ul
+            class="flex space-y-2 mt-3 flex-col items-end w-full px-6 py-6 mx-auto overflow-visible list-none ltr:text-right rtl:text-left max-w-7xl">
+            <li id="menu-close-button">
+              <span
+                class="cursor-pointer inline-block align-text-bottom hover:text-primary-600 dark:hover:text-primary-400">
+                
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+              </span>
+            </li>
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/posts/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Posts
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/series/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Series
+    </p>
+  </a>
+</li>
+
+
+
+            
+              
+  <li class="mt-1">
+  <a
+    href="/tags/"
+    
+    class="flex items-center text-gray-500 hover:text-primary-600 dark:hover:text-primary-400">
+    
+    <p class="text-bg font-bg" title="">
+      Tags
+    </p>
+  </a>
+</li>
+
+
+
+            
+
+          </ul>
+          
+        </div>
+      
+    </div>
+  </div>
+
+</div>
+
+
+
+
+
+    
+    <div class="relative flex flex-col grow">
+      <main id="main-content" class="grow">
+        
+  
+
+
+  <article>
+    
+      
+      
+      
+      
+        
+ 
+
+
+
+      
+    
+
+
+    <header id="single_header" class="mt-5 max-w-prose">
+      
+      <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
+        マイクロサービスアーキテクチャ入門_混同しやすい概念の整理
+      </h1>
+      <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
+        
+
+
+
+
+
+  
+  
+
+
+
+  
+
+  
+  
+  
+
+  
+  
+    
+  
+
+  
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+  <div class="flex flex-row flex-wrap items-center">
+    
+    
+      <time datetime="2026-01-24T14:04:55&#43;09:00">2026年 1月 24日</time><span class="px-2 text-primary-500">&middot;</span>
+
+
+
+<script
+  type="text/javascript"
+  src="/js/zen-mode.min.2a0a1375509c03daf41c53a9831aa2d560895b7a2528c3eb3b56e7b11a135c7529e49727162a053b6193be8340270a8342f42c69f3d7e262ae54bc248eaac8f5.js"
+  integrity="sha512-KgoTdVCcA9r0HFOpgxqi1WCJW3olKMPrO1bnsRoTXHUp5JcnFioFO2GTvoNAJwqDQvQsafPX4mKuVLwkjqrI9Q=="></script>
+
+<span class="mb-[2px]">
+  <span
+    id="zen-mode-button"
+    class="text-lg hover:text-primary-500"
+    title="Zenモードを有効にする"
+    data-title-i18n-disable="Zenモードを有効にする"
+    data-title-i18n-enable="Zenモードを無効にする">
+    <span class="inline-block align-text-bottom">
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+    <path fill="currentColor" d="M 12.980469 4 C 9.1204688 4 5.9804688 7.14 5.9804688 11 L 6 26 L 9.9804688 26 L 9.9804688 11 C 9.9804688 9.35 11.320469 8 12.980469 8 L 40.019531 8 C 41.679531 8 43.019531 9.35 43.019531 11 L 43.019531 39 C 43.019531 40.65 41.679531 42 40.019531 42 L 29 42 C 29 43.54 28.420938 44.94 27.460938 46 L 40.019531 46 C 43.879531 46 47.019531 42.86 47.019531 39 L 47.019531 11 C 47.019531 7.14 43.879531 4 40.019531 4 L 12.980469 4 z M 7 28 C 4.794 28 3 29.794 3 32 L 3 42 C 3 44.206 4.794 46 7 46 L 23 46 C 25.206 46 27 44.206 27 42 L 27 32 C 27 29.794 25.206 28 23 28 L 7 28 z M 7 32 L 23 32 L 23.001953 42 L 7 42 L 7 32 z"/>
+</svg>
+  </span>
+
+</span>
+  </span>
+</span>
+
+    
+
+    
+    
+  </div>
+
+  
+
+  
+  
+    <div class="flex flex-row flex-wrap items-center">
+      
+        
+      
+        
+          
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    学習・作業ログ
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    マイクロサービス
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E3%82%A2%E3%83%BC%E3%82%AD%E3%83%86%E3%82%AF%E3%83%81%E3%83%A3/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    アーキテクチャ
+  </span>
+</span>
+
+              </span>
+            
+              <span
+                class="mr-2 mt-[0.5rem]"
+                onclick="window.open(&#34;/tags/%E5%88%86%E6%95%A3%E3%82%B7%E3%82%B9%E3%83%86%E3%83%A0/&#34;,'_self');return false;">
+                <span class="flex cursor-pointer">
+  <span
+    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
+    分散システム
+  </span>
+</span>
+
+              </span>
+            
+          
+        
+      
+    </div>
+  
+
+  
+  
+
+
+
+      </div>
+
+      
+      
+      
+      
+      
+
+      
+
+      
+
+        
+
+        
+
+        
+
+      
+
+    </header>
+
+    <section class="flex flex-col max-w-full mt-0 prose dark:prose-invert lg:flex-row">
+      
+        <div class="order-first lg:ml-auto px-0 lg:order-last ltr:lg:pl-8 rtl:lg:pr-8">
+          <div
+            class="toc ltr:pl-5 rtl:pr-5 print:hidden lg:sticky 
+              lg:top-10
+            
+            ">
+            
+              <details
+  open
+  id="TOCView"
+  class="toc-right mt-0 overflow-y-auto overscroll-contain scrollbar-thin scrollbar-track-neutral-200 scrollbar-thumb-neutral-400 dark:scrollbar-track-neutral-800 dark:scrollbar-thumb-neutral-600 rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 hidden lg:block">
+  <summary
+    class="block py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#学習内容">学習内容</a>
+      <ul>
+        <li><a href="#このメモの構成">このメモの構成</a></li>
+        <li><a href="#1-基礎概念アーキテクチャ比較">1. 基礎概念・アーキテクチャ比較</a>
+          <ul>
+            <li><a href="#マイクロサービスとは">マイクロサービスとは</a></li>
+            <li><a href="#モノリシック-vs-マイクロサービス">モノリシック vs マイクロサービス</a></li>
+            <li><a href="#soa-vs-マイクロサービス">SOA vs マイクロサービス</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-コンテナ技術">2. コンテナ技術</a>
+          <ul>
+            <li><a href="#docker-compose">Docker Compose</a></li>
+            <li><a href="#kubernetes">Kubernetes</a></li>
+            <li><a href="#docker-compose-vs-kubernetes">Docker Compose vs Kubernetes</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-コンテナパターン">3. コンテナパターン</a>
+          <ul>
+            <li><a href="#サイドカーパターン">サイドカーパターン</a></li>
+            <li><a href="#アンバサダーパターン">アンバサダーパターン</a></li>
+            <li><a href="#アダプターパターン">アダプターパターン</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-サービス間通信">4. サービス間通信</a>
+          <ul>
+            <li><a href="#同期-vs-非同期">同期 vs 非同期</a></li>
+            <li><a href="#rest">REST</a></li>
+            <li><a href="#grpc">gRPC</a></li>
+            <li><a href="#rest-vs-grpc">REST vs gRPC</a></li>
+            <li><a href="#protocol-buffer">Protocol Buffer</a></li>
+            <li><a href="#ブローカーメッセージング">ブローカーメッセージング</a></li>
+            <li><a href="#ブローカーレスメッセージング">ブローカーレスメッセージング</a></li>
+            <li><a href="#ブローカー有-vs-ブローカーレス">ブローカー有 vs ブローカーレス</a></li>
+          </ul>
+        </li>
+        <li><a href="#5-サービス管理発見">5. サービス管理・発見</a>
+          <ul>
+            <li><a href="#api-gateway">API Gateway</a></li>
+            <li><a href="#サービスディスカバリ">サービスディスカバリ</a></li>
+            <li><a href="#サービスレジストリ">サービスレジストリ</a></li>
+            <li><a href="#サービスメッシュ">サービスメッシュ</a></li>
+            <li><a href="#bffbackend-for-frontend">BFF（Backend for Frontend）</a></li>
+          </ul>
+        </li>
+        <li><a href="#6-データ管理トランザクション">6. データ管理・トランザクション</a>
+          <ul>
+            <li><a href="#database-per-service">Database per Service</a></li>
+            <li><a href="#sagaパターン">SAGAパターン</a></li>
+            <li><a href="#オーケストレーション型">オーケストレーション型</a></li>
+            <li><a href="#コレオグラフィ型">コレオグラフィ型</a></li>
+            <li><a href="#オーケストレーション-vs-コレオグラフィ">オーケストレーション vs コレオグラフィ</a></li>
+            <li><a href="#2pctwo-phase-commit--分散トランザクション">2PC（Two-Phase Commit / 分散トランザクション）</a></li>
+            <li><a href="#イベントソーシング">イベントソーシング</a></li>
+          </ul>
+        </li>
+        <li><a href="#7-クエリパターン">7. クエリパターン</a>
+          <ul>
+            <li><a href="#cqrscommand-query-responsibility-segregation">CQRS（Command Query Responsibility Segregation）</a></li>
+            <li><a href="#apiコンポジションパターン">APIコンポジションパターン</a></li>
+            <li><a href="#cqrs-vs-apiコンポジション">CQRS vs APIコンポジション</a></li>
+          </ul>
+        </li>
+        <li><a href="#8-耐障害性可観測性">8. 耐障害性・可観測性</a>
+          <ul>
+            <li><a href="#サーキットブレーカー">サーキットブレーカー</a></li>
+            <li><a href="#分散トレーシング">分散トレーシング</a></li>
+            <li><a href="#その他の可観測性パターン">その他の可観測性パターン</a></li>
+          </ul>
+        </li>
+        <li><a href="#9-デプロイcicd">9. デプロイ・CI/CD</a>
+          <ul>
+            <li><a href="#cicd">CI/CD</a></li>
+            <li><a href="#デプロイ戦略">デプロイ戦略</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+<details class="toc-inside mt-0 overflow-hidden rounded-lg ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 lg:hidden">
+  <summary
+    class="py-1 text-lg font-semibold cursor-pointer bg-neutral-100 text-neutral-800 ltr:-ml-5 ltr:pl-5 rtl:-mr-5 rtl:pr-5 dark:bg-neutral-700 dark:text-neutral-100 lg:hidden">
+    目次
+  </summary>
+  <div
+    class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#今日学んだこと">今日学んだこと</a></li>
+    <li><a href="#学習内容">学習内容</a>
+      <ul>
+        <li><a href="#このメモの構成">このメモの構成</a></li>
+        <li><a href="#1-基礎概念アーキテクチャ比較">1. 基礎概念・アーキテクチャ比較</a>
+          <ul>
+            <li><a href="#マイクロサービスとは">マイクロサービスとは</a></li>
+            <li><a href="#モノリシック-vs-マイクロサービス">モノリシック vs マイクロサービス</a></li>
+            <li><a href="#soa-vs-マイクロサービス">SOA vs マイクロサービス</a></li>
+          </ul>
+        </li>
+        <li><a href="#2-コンテナ技術">2. コンテナ技術</a>
+          <ul>
+            <li><a href="#docker-compose">Docker Compose</a></li>
+            <li><a href="#kubernetes">Kubernetes</a></li>
+            <li><a href="#docker-compose-vs-kubernetes">Docker Compose vs Kubernetes</a></li>
+          </ul>
+        </li>
+        <li><a href="#3-コンテナパターン">3. コンテナパターン</a>
+          <ul>
+            <li><a href="#サイドカーパターン">サイドカーパターン</a></li>
+            <li><a href="#アンバサダーパターン">アンバサダーパターン</a></li>
+            <li><a href="#アダプターパターン">アダプターパターン</a></li>
+          </ul>
+        </li>
+        <li><a href="#4-サービス間通信">4. サービス間通信</a>
+          <ul>
+            <li><a href="#同期-vs-非同期">同期 vs 非同期</a></li>
+            <li><a href="#rest">REST</a></li>
+            <li><a href="#grpc">gRPC</a></li>
+            <li><a href="#rest-vs-grpc">REST vs gRPC</a></li>
+            <li><a href="#protocol-buffer">Protocol Buffer</a></li>
+            <li><a href="#ブローカーメッセージング">ブローカーメッセージング</a></li>
+            <li><a href="#ブローカーレスメッセージング">ブローカーレスメッセージング</a></li>
+            <li><a href="#ブローカー有-vs-ブローカーレス">ブローカー有 vs ブローカーレス</a></li>
+          </ul>
+        </li>
+        <li><a href="#5-サービス管理発見">5. サービス管理・発見</a>
+          <ul>
+            <li><a href="#api-gateway">API Gateway</a></li>
+            <li><a href="#サービスディスカバリ">サービスディスカバリ</a></li>
+            <li><a href="#サービスレジストリ">サービスレジストリ</a></li>
+            <li><a href="#サービスメッシュ">サービスメッシュ</a></li>
+            <li><a href="#bffbackend-for-frontend">BFF（Backend for Frontend）</a></li>
+          </ul>
+        </li>
+        <li><a href="#6-データ管理トランザクション">6. データ管理・トランザクション</a>
+          <ul>
+            <li><a href="#database-per-service">Database per Service</a></li>
+            <li><a href="#sagaパターン">SAGAパターン</a></li>
+            <li><a href="#オーケストレーション型">オーケストレーション型</a></li>
+            <li><a href="#コレオグラフィ型">コレオグラフィ型</a></li>
+            <li><a href="#オーケストレーション-vs-コレオグラフィ">オーケストレーション vs コレオグラフィ</a></li>
+            <li><a href="#2pctwo-phase-commit--分散トランザクション">2PC（Two-Phase Commit / 分散トランザクション）</a></li>
+            <li><a href="#イベントソーシング">イベントソーシング</a></li>
+          </ul>
+        </li>
+        <li><a href="#7-クエリパターン">7. クエリパターン</a>
+          <ul>
+            <li><a href="#cqrscommand-query-responsibility-segregation">CQRS（Command Query Responsibility Segregation）</a></li>
+            <li><a href="#apiコンポジションパターン">APIコンポジションパターン</a></li>
+            <li><a href="#cqrs-vs-apiコンポジション">CQRS vs APIコンポジション</a></li>
+          </ul>
+        </li>
+        <li><a href="#8-耐障害性可観測性">8. 耐障害性・可観測性</a>
+          <ul>
+            <li><a href="#サーキットブレーカー">サーキットブレーカー</a></li>
+            <li><a href="#分散トレーシング">分散トレーシング</a></li>
+            <li><a href="#その他の可観測性パターン">その他の可観測性パターン</a></li>
+          </ul>
+        </li>
+        <li><a href="#9-デプロイcicd">9. デプロイ・CI/CD</a>
+          <ul>
+            <li><a href="#cicd">CI/CD</a></li>
+            <li><a href="#デプロイ戦略">デプロイ戦略</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#まとめ">まとめ</a></li>
+    <li><a href="#参考資料">参考資料</a></li>
+  </ul>
+</nav>
+  </div>
+</details>
+
+
+<script>
+  (function () {
+    'use strict'
+
+    const SCROLL_OFFSET_RATIO = 0.33
+    const TOC_SELECTOR = '#TableOfContents'
+    const ANCHOR_SELECTOR = '.anchor'
+    const TOC_LINK_SELECTOR = 'a[href^="#"]'
+    const NESTED_LIST_SELECTOR = 'li ul'
+    const ACTIVE_CLASS = 'active'
+
+    function getActiveAnchorId(anchors, offsetRatio) {
+      const threshold = window.scrollY + window.innerHeight * offsetRatio
+      const tocLinks = [...document.querySelectorAll('#TableOfContents a[href^="#"]')]
+      const tocIds = new Set(tocLinks.map(link => link.getAttribute('href').substring(1)))
+
+      for (let i = anchors.length - 1; i >= 0; i--) {
+        const top = anchors[i].getBoundingClientRect().top + window.scrollY
+        if (top <= threshold && tocIds.has(anchors[i].id)) {
+          return anchors[i].id
+        }
+      }
+      return anchors.find(anchor => tocIds.has(anchor.id))?.id || ''
+    }
+
+    function updateTOC({ toc, anchors, links, scrollOffset, collapseInactive }) {
+      const activeId = getActiveAnchorId(anchors, scrollOffset)
+      if (!activeId) return
+
+      links.forEach(link => {
+        const isActive = link.getAttribute('href') === `#${activeId}`
+        link.classList.toggle(ACTIVE_CLASS, isActive)
+
+        if (collapseInactive) {
+          const ul = link.closest('li')?.querySelector('ul')
+          if (ul) ul.style.display = isActive ? '' : 'none'
+        }
+      })
+
+      if (collapseInactive) {
+        const activeLink = toc.querySelector(`a[href="#${CSS.escape(activeId)}"]`)
+        let el = activeLink
+        while (el && el !== toc) {
+          if (el.tagName === 'UL') el.style.display = ''
+          if (el.tagName === 'LI') el.querySelector('ul')?.style.setProperty('display', '')
+          el = el.parentElement
+        }
+      }
+    }
+
+    function initTOC() {
+      const toc = document.querySelector(TOC_SELECTOR)
+      if (!toc) return
+
+      const collapseInactive = false
+      const anchors = [...document.querySelectorAll(ANCHOR_SELECTOR)]
+      const links = [...toc.querySelectorAll(TOC_LINK_SELECTOR)]
+
+      if (collapseInactive) {
+        toc.querySelectorAll(NESTED_LIST_SELECTOR).forEach(ul => ul.style.display = 'none')
+      }
+
+      const config = {
+        toc,
+        anchors,
+        links,
+        scrollOffset: SCROLL_OFFSET_RATIO,
+        collapseInactive
+      }
+
+      window.addEventListener('scroll', () => updateTOC(config), { passive: true })
+      window.addEventListener('hashchange', () => updateTOC(config), { passive: true })
+
+      updateTOC(config)
+    }
+
+    document.readyState === 'loading'
+      ? document.addEventListener('DOMContentLoaded', initTOC)
+      : initTOC()
+  })()
+</script>
+
+
+            
+            
+          </div>
+        </div>
+      
+
+
+      <div class="min-w-0 min-h-0 max-w-fit">
+        
+
+
+
+        <div class="article-content max-w-prose mb-20">
+          
+<h2 class="relative group">今日学んだこと 
+    <div id="今日学んだこと" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e4%bb%8a%e6%97%a5%e5%ad%a6%e3%82%93%e3%81%a0%e3%81%93%e3%81%a8" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>マイクロサービスアーキテクチャの基礎概念から運用パターンまでを体系的に整理しました。
+特に、試験や実務で混同しやすいポイント（SAGAと2PC、ブローカー有無、オーケストレーションとコレオグラフィなど）を重点的にまとめています。</p>
+
+<h2 class="relative group">学習内容 
+    <div id="学習内容" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%ad%a6%e7%bf%92%e5%86%85%e5%ae%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">このメモの構成 
+    <div id="このメモの構成" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%93%e3%81%ae%e3%83%a1%e3%83%a2%e3%81%ae%e6%a7%8b%e6%88%90" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>マイクロサービスアーキテクチャを理解するために、以下の流れで概念を整理します。</p>
+<ol>
+<li><strong>基礎概念</strong>：マイクロサービスとは何か、従来のアーキテクチャとの違い</li>
+<li><strong>実行基盤</strong>：サービスを動かすコンテナ技術とそのパターン</li>
+<li><strong>通信</strong>：分離されたサービス同士がどう連携するか</li>
+<li><strong>管理</strong>：多数のサービスをどう発見・管理するか</li>
+<li><strong>データ</strong>：サービスごとに分かれたデータの整合性をどう保つか</li>
+<li><strong>運用</strong>：障害対策、監視、デプロイの自動化</li>
+</ol>
+<hr>
+
+<h3 class="relative group">1. 基礎概念・アーキテクチャ比較 
+    <div id="1-基礎概念アーキテクチャ比較" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#1-%e5%9f%ba%e7%a4%8e%e6%a6%82%e5%bf%b5%e3%82%a2%e3%83%bc%e3%82%ad%e3%83%86%e3%82%af%e3%83%81%e3%83%a3%e6%af%94%e8%bc%83" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+
+<h4 class="relative group">マイクロサービスとは 
+    <div id="マイクロサービスとは" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>独立してデプロイ可能で、ビジネスドメインに基づいてモデル化されたサービスの集合体で構成されるアーキテクチャ</p>
+<p><strong>ポイント1：独立デプロイ可能性</strong></p>
+<ul>
+<li>他のサービスを変更せずに、単独でデプロイできる</li>
+<li>変更のリスクが局所化され、リリース頻度を上げられる</li>
+<li>実現のためには疎結合が必須（サービス間の依存を最小限に）</li>
+</ul>
+<p><strong>ポイント2: ビジネスドメインに基づくモデル化</strong></p>
+<p>技術的な境界ではなく、ビジネスの境界でサービスを分割
+マイクロサービスで最も難しいのは「サービス境界をどこに引くか」。
+ここで**DDD（ドメイン駆動設計）**の考え方がガイドとして使われます。</p>
+<p><strong>DDDとは</strong>: 業務（ビジネス）の理解を中心においてソフトウェアを設計・実装する考え方。
+「機能単位」ではなく「業務の概念単位」でモデルを作ります。</p>
+<p><strong>その他の特徴</strong></p>
+<ul>
+<li>サービスごとに異なる技術スタック（言語・フレームワーク）を選択可能</li>
+<li>サービス間はAPI（REST、gRPC等）やメッセージングで通信</li>
+<li>各サービスが自身の状態（データ）をカプセル化</li>
+</ul>
+
+<h4 class="relative group">モノリシック vs マイクロサービス 
+    <div id="モノリシック-vs-マイクロサービス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%a2%e3%83%8e%e3%83%aa%e3%82%b7%e3%83%83%e3%82%af-vs-%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>モノリシックアーキテクチャ</strong>とは、アプリケーション全体を<strong>単一のデプロイ単位</strong>として構築するアーキテクチャ。
+すべての機能が1つのコードベースに含まれ、まとめてビルド・デプロイされます。</p>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>モノリシック</th>
+          <th>マイクロサービス</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>デプロイ単位</td>
+          <td>アプリ全体</td>
+          <td>サービス単位</td>
+      </tr>
+      <tr>
+          <td>スケーリング</td>
+          <td>アプリ全体をスケール</td>
+          <td><strong>サービスごとにスケール可能</strong></td>
+      </tr>
+      <tr>
+          <td>障害影響</td>
+          <td>全体に波及しやすい</td>
+          <td>障害を局所化できる</td>
+      </tr>
+      <tr>
+          <td>開発速度</td>
+          <td>初期は速い</td>
+          <td>初期は遅いが長期的に有利</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>ポイント</strong>: MSAのメリットは「<strong>サービスごとにスケーリングできるため、リソースの無駄がなくなりスケーリング速度が上がる</strong>」。レスポンスタイム向上やデータ管理が容易になるわけではありません。</p>
+
+<h4 class="relative group">SOA vs マイクロサービス 
+    <div id="soa-vs-マイクロサービス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#soa-vs-%e3%83%9e%e3%82%a4%e3%82%af%e3%83%ad%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>SOA（サービス指向アーキテクチャ）<strong>とは、ビジネス機能を</strong>サービス</strong>として分離し、それらを組み合わせてシステムを構築するアーキテクチャ。マイクロサービスの前身とも言える考え方ですが、いくつかの違いがあります。</p>
+<blockquote>
+<p><strong>注</strong>: 『マイクロサービスアーキテクチャ 第2版』では、マイクロサービスアーキテクチャはSOAの一種（SOAへの特定のアプローチ）として位置づけられています。本メモでは便宜上、両者を別のアーキテクチャとして比較します。</p>
+</blockquote>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>SOA</th>
+          <th>マイクロサービス</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>データベース</td>
+          <td><strong>共有データベース</strong></td>
+          <td><strong>サービスごとに専用DB</strong></td>
+      </tr>
+      <tr>
+          <td>通信</td>
+          <td>ESB（重量級）</td>
+          <td>軽量プロトコル（REST、gRPC）</td>
+      </tr>
+      <tr>
+          <td>サービス粒度</td>
+          <td>比較的大きい</td>
+          <td>小さい</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>ESB（Enterprise Service Bus）とは</strong>: サービス間の通信を仲介する中央集権的なミドルウェア。メッセージのルーティング、プロトコル変換、データ変換などを一手に担う。機能が豊富な反面、複雑化・肥大化しやすく、単一障害点になりやすいという課題がある。</p>
+</blockquote>
+<hr>
+
+<h3 class="relative group">2. コンテナ技術 
+    <div id="2-コンテナ技術" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2-%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e6%8a%80%e8%a1%93" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>マイクロサービスの基本概念を理解したところで、次は「サービスをどう動かすか」という実行基盤の話に移ります。</p>
+<p>マイクロサービスは複数の小さなサービスで構成されるため、各サービスを<strong>コンテナ</strong>としてパッケージングし、複数のコンテナを効率的に管理・運用する仕組みが必要になります。</p>
+<ul>
+<li><strong>Docker Compose</strong>: 開発環境や小規模環境向けのコンテナ管理ツール</li>
+<li><strong>Kubernetes</strong>: 本番環境や大規模環境向けのコンテナオーケストレーション基盤</li>
+</ul>
+
+<h4 class="relative group">Docker Compose 
+    <div id="docker-compose" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#docker-compose" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>複数のコンテナから成るサービスを構築・実行する手順を自動化</strong>する機能です。</p>
+<p><strong>できること</strong>：</p>
+<ul>
+<li>複数コンテナの一括管理（起動・停止・削除）</li>
+<li>パッケージなどの依存をカプセル化</li>
+<li><strong>単一ホスト</strong>での実行</li>
+</ul>
+<p><strong>できないこと</strong>：</p>
+<ul>
+<li>セルフヒーリング（自動復旧）</li>
+<li>マルチホスト（複数マシン間）での管理</li>
+<li>オートスケール</li>
+</ul>
+<p><strong>ポイント</strong>:</p>
+<ul>
+<li>「開発環境専用」ではない（本番でも使える）</li>
+<li>起動・停止・削除は<strong>まとめて操作可能</strong>（個別操作のみではない）</li>
+</ul>
+
+<h4 class="relative group">Kubernetes 
+    <div id="kubernetes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#kubernetes" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>コンテナオーケストレーションプラットフォームです。</p>
+<p><strong>基本用語</strong>：</p>
+<ul>
+<li><strong>Node</strong>: Kubernetesクラスタを構成する物理/仮想マシン（サーバー）</li>
+<li><strong>Pod</strong>: コンテナの実行単位。1つ以上のコンテナをまとめたもので、Node上で動作する</li>
+</ul>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">クラスタ
+</span></span><span class="line"><span class="cl">├── Node（マシン1）
+</span></span><span class="line"><span class="cl">│   ├── Pod（コンテナA）
+</span></span><span class="line"><span class="cl">│   └── Pod（コンテナB）
+</span></span><span class="line"><span class="cl">└── Node（マシン2）
+</span></span><span class="line"><span class="cl">    └── Pod（コンテナC）
+</span></span></code></pre></div><p><strong>主な機能</strong>：</p>
+<ul>
+<li><strong>セルフヒーリング</strong>: Pod障害時に<strong>指定数を満たすよう自動でPodを起動</strong></li>
+<li>マルチノード管理</li>
+<li>オートスケール</li>
+<li>ローリングアップデート</li>
+</ul>
+<p><strong>ポイント</strong>:</p>
+<ul>
+<li>セルフヒーリングは<strong>Pod単位</strong>（Node単位ではない）</li>
+<li>Nodeに障害が発生しても、別Nodeで<strong>Podを再起動</strong>する（Nodeは作成しない）</li>
+<li><code>kubectl set</code>で変更した設定が自動で戻る機能は<strong>ない</strong></li>
+</ul>
+
+<h4 class="relative group">Docker Compose vs Kubernetes 
+    <div id="docker-compose-vs-kubernetes" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#docker-compose-vs-kubernetes" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>機能</th>
+          <th>Docker Compose</th>
+          <th>Kubernetes</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>複数コンテナ管理</td>
+          <td>○</td>
+          <td>○</td>
+      </tr>
+      <tr>
+          <td>依存カプセル化</td>
+          <td>○</td>
+          <td>○</td>
+      </tr>
+      <tr>
+          <td>セルフヒーリング</td>
+          <td><strong>×</strong></td>
+          <td><strong>○</strong></td>
+      </tr>
+      <tr>
+          <td>マルチホスト</td>
+          <td><strong>×</strong></td>
+          <td><strong>○</strong></td>
+      </tr>
+      <tr>
+          <td>オートスケール</td>
+          <td><strong>×</strong></td>
+          <td><strong>○</strong></td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">3. コンテナパターン 
+    <div id="3-コンテナパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#3-%e3%82%b3%e3%83%b3%e3%83%86%e3%83%8a%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>コンテナ技術の基礎を押さえたところで、コンテナを効果的に構成するためのデザインパターンを見ていきます。
+これらのパターンは、サービスに機能を追加したり外部システムと連携したりする際の設計指針となります。</p>
+
+<h4 class="relative group">サイドカーパターン 
+    <div id="サイドカーパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%82%a4%e3%83%89%e3%82%ab%e3%83%bc%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>メインコンテナに<strong>補助的な機能を追加</strong>するコンテナを同じPodに配置します。</p>
+<p><strong>具体例</strong>：</p>
+<ul>
+<li>ログ転送コンテナ（メインアプリ + Fluentd）</li>
+<li>監視エージェント（メインアプリ + Prometheus exporter）</li>
+</ul>
+<p><strong>特徴</strong>: メインの機能を<strong>拡張・補助</strong>する</p>
+
+<h4 class="relative group">アンバサダーパターン 
+    <div id="アンバサダーパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%b3%e3%83%90%e3%82%b5%e3%83%80%e3%83%bc%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>メインコンテナが<strong>外部システムと接続する際の中継</strong>を行うコンテナです。</p>
+<p><strong>具体例</strong>：</p>
+<ul>
+<li>DB接続先の抽象化（開発/本番で接続先が異なる場合でも、メインコンテナからは同じアドレスを参照）</li>
+<li>外部APIへのプロキシ</li>
+</ul>
+<p><strong>特徴</strong>: 外部接続を<strong>中継</strong>し、疎結合を実現</p>
+
+<h4 class="relative group">アダプターパターン 
+    <div id="アダプターパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a2%e3%83%80%e3%83%97%e3%82%bf%e3%83%bc%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>外部からのリクエストに対して<strong>データフォーマットを変換</strong>するコンテナです。</p>
+<p><strong>具体例</strong>：</p>
+<ul>
+<li>監視ソフトウェア用にメトリクスを整形</li>
+<li>レガシーシステムとの連携でデータ形式を変換</li>
+</ul>
+<p><strong>特徴</strong>: データの<strong>フォーマット変換</strong></p>
+<hr>
+
+<h3 class="relative group">4. サービス間通信 
+    <div id="4-サービス間通信" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#4-%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e9%96%93%e9%80%9a%e4%bf%a1" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>サービスが独立したコンテナとして動作するようになったら、次に考えるべきは「サービス同士がどうやって連携するか」という通信の問題です。ここではプロトコルの選択やメッセージングの方式について整理します。</p>
+
+<h4 class="relative group">同期 vs 非同期 
+    <div id="同期-vs-非同期" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%90%8c%e6%9c%9f-vs-%e9%9d%9e%e5%90%8c%e6%9c%9f" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>方式</th>
+          <th>特徴</th>
+          <th>ユースケース</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>同期</td>
+          <td>レスポンスを待つ、即時性</td>
+          <td>ユーザーへの即時応答が必要</td>
+      </tr>
+      <tr>
+          <td>非同期</td>
+          <td>レスポンスを待たない、疎結合</td>
+          <td>バックグラウンド処理、イベント駆動</td>
+      </tr>
+  </tbody>
+</table>
+
+<h4 class="relative group">REST 
+    <div id="rest" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rest" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>RE</strong>presentational <strong>S</strong>tate <strong>T</strong>ransferの略。HTTPメソッド（GET、POST、PUT、DELETE等）を使ってリソースを操作するAPIの設計スタイル。WebAPIの事実上の標準として広く普及しています。</p>
+
+<h4 class="relative group">gRPC 
+    <div id="grpc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#grpc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>Googleが開発した高性能なRPC（Remote Procedure Call）フレームワーク。リモートのサービスをあたかもローカルの関数のように呼び出せる仕組みを提供します。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>HTTP/2による高速通信（多重化、ヘッダ圧縮）</li>
+<li>Protocol Bufferによるバイナリシリアライズ（JSONより軽量・高速）</li>
+<li>双方向ストリーミング対応</li>
+<li>多言語対応（クライアント/サーバーを異なる言語で実装可能）</li>
+</ul>
+
+<h4 class="relative group">REST vs gRPC 
+    <div id="rest-vs-grpc" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#rest-vs-grpc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>REST</th>
+          <th>gRPC</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>プロトコル</td>
+          <td>HTTP/1.x or HTTP/2</td>
+          <td><strong>HTTP/2</strong></td>
+      </tr>
+      <tr>
+          <td>データ形式</td>
+          <td>JSON（テキスト）</td>
+          <td>Protocol Buffer（バイナリ）</td>
+      </tr>
+      <tr>
+          <td>用途</td>
+          <td><strong>外部公開API</strong></td>
+          <td><strong>内部サービス間通信</strong>（高速）</td>
+      </tr>
+      <tr>
+          <td>ブラウザ対応</td>
+          <td>○</td>
+          <td>△（要プロキシ）</td>
+      </tr>
+  </tbody>
+</table>
+<blockquote>
+<p><strong>補足</strong>: RESTはHTTPのバージョンに依存しない設計スタイルのため、HTTP/2上でも動作します。一方、gRPCはHTTP/2の機能（多重化、ストリーミング等）を前提としているため、HTTP/1とのネイティブな互換性はありません（gRPC-Webを使えば制限付きで動作可能）。</p>
+</blockquote>
+
+<h4 class="relative group">Protocol Buffer 
+    <div id="protocol-buffer" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#protocol-buffer" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>gRPCで使用されるIDL（Interface Definition Language：サービス間のインターフェースを言語に依存しない形式で定義するための言語）。データ構造やAPIの仕様を<code>.proto</code>ファイルに記述し、各言語用のコードを自動生成します。</p>
+<p><strong>重要な特徴</strong>：</p>
+<ul>
+<li>フィールドは<strong>番号で管理</strong></li>
+<li>更新時は<strong>新しい番号を割り当て</strong></li>
+<li>古いフィールドの番号は<strong>reservedで残す</strong>（再利用禁止）</li>
+<li><strong>言語非依存</strong>だが、全言語対応ではなく<strong>主要言語でスタブ生成可能</strong></li>
+</ul>
+<p><strong>ポイント</strong>: フィールド番号の管理とreservedが重要。</p>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× 全てのプログラミング言語でスタブ生成可能（主要言語のみ）</li>
+<li>× HTTP/1とネイティブに互換性あり（HTTP/2専用。gRPC-Web経由なら制限付きで動作可能）</li>
+</ul>
+
+<h4 class="relative group">ブローカーメッセージング 
+    <div id="ブローカーメッセージング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%bc%e3%83%a1%e3%83%83%e3%82%bb%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>メッセージブローカー（Kafka、RabbitMQ等）を介した通信です。</p>
+<blockquote>
+<p><strong>メッセージブローカーとは</strong>: 送信側と受信側の間に立ち、メッセージの受け渡しを仲介するミドルウェア。送信側はブローカーにメッセージを送るだけでよく、受信側の存在を知る必要がない。メッセージの一時保管（キュー）、複数の受信者への配信、配信保証などの機能を提供する。</p>
+</blockquote>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li><strong>バッファリング可能</strong>（一時的な負荷を吸収）</li>
+<li><strong>疎結合</strong>（送信側と受信側が直接知らない）</li>
+<li>配信保証が容易</li>
+<li>可用性が高い</li>
+</ul>
+
+<h4 class="relative group">ブローカーレスメッセージング 
+    <div id="ブローカーレスメッセージング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%bc%e3%83%ac%e3%82%b9%e3%83%a1%e3%83%83%e3%82%bb%e3%83%bc%e3%82%b8%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>メッセージブローカーを介さない直接通信（ZeroMQ等）です。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li><strong>低レイテンシ</strong>（ブローカー経由しない）</li>
+<li><strong>単一障害点がない</strong>（ブローカーがないため）</li>
+<li><strong>配信保証が難しい</strong></li>
+<li><strong>密結合</strong>（サービスを直接参照）</li>
+</ul>
+<p><strong>ポイント</strong>: ブローカーレスは「疎結合」ではなく**「密結合」**。直接参照するためです。</p>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× 疎結合を保てる（直接参照するため<strong>密結合</strong>）</li>
+<li>× バッファリング可能（できない、それはブローカー有り）</li>
+</ul>
+
+<h4 class="relative group">ブローカー有 vs ブローカーレス 
+    <div id="ブローカー有-vs-ブローカーレス" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%96%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%bc%e6%9c%89-vs-%e3%83%96%e3%83%ad%e3%83%bc%e3%82%ab%e3%83%bc%e3%83%ac%e3%82%b9" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>ブローカー有</th>
+          <th>ブローカーレス</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>結合度</td>
+          <td><strong>疎結合</strong></td>
+          <td><strong>密結合</strong></td>
+      </tr>
+      <tr>
+          <td>レイテンシ</td>
+          <td>高め</td>
+          <td><strong>低い</strong></td>
+      </tr>
+      <tr>
+          <td>単一障害点</td>
+          <td>あり（ブローカー）</td>
+          <td><strong>なし</strong></td>
+      </tr>
+      <tr>
+          <td>配信保証</td>
+          <td>容易</td>
+          <td><strong>難しい</strong></td>
+      </tr>
+      <tr>
+          <td>バッファリング</td>
+          <td><strong>可能</strong></td>
+          <td>不可</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">5. サービス管理・発見 
+    <div id="5-サービス管理発見" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#5-%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e7%ae%a1%e7%90%86%e7%99%ba%e8%a6%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>サービス間通信の方法が決まったら、次は「多数のサービスをどう管理し、お互いをどう見つけるか」という問題に対処する必要があります。サービス数が増えると、手動での管理は現実的ではなくなります。</p>
+
+<h4 class="relative group">API Gateway 
+    <div id="api-gateway" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#api-gateway" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>クライアントからのリクエストを受け、適切なサービスにルーティングします。</p>
+<p><strong>機能</strong>：</p>
+<ul>
+<li>ルーティング</li>
+<li>認証・認可の一元化</li>
+<li>レート制限</li>
+<li>リクエスト/レスポンス変換</li>
+</ul>
+
+<h4 class="relative group">サービスディスカバリ 
+    <div id="サービスディスカバリ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%83%87%e3%82%a3%e3%82%b9%e3%82%ab%e3%83%90%e3%83%aa" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>動的に変化するサービスの場所（IP/ポート）を発見する仕組みです。</p>
+<p><strong>仕組み</strong>：</p>
+<ol>
+<li>サービスが起動時に<strong>サービスレジストリに登録</strong></li>
+<li>クライアントが<strong>サービスレジストリから送信先を選択</strong></li>
+</ol>
+<p><strong>ポイント</strong>:</p>
+<ul>
+<li>サービスディスカバリは「<strong>発見</strong>」。負荷分散ではない</li>
+<li>IPアドレスを<strong>静的に設定</strong>するのではなく、<strong>動的に</strong>発見する</li>
+<li>DockerやKubernetesなどのプラットフォームでもサポートされている</li>
+</ul>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× IPアドレスを静的に設定する（動的に発見する）</li>
+<li>× アプリケーション側で必ずAPIコールが必要（プラットフォームでサポート）</li>
+</ul>
+
+<h4 class="relative group">サービスレジストリ 
+    <div id="サービスレジストリ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%83%ac%e3%82%b8%e3%82%b9%e3%83%88%e3%83%aa" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>サービスのIP/ポート情報を保持するデータベースです。</p>
+<p><strong>代表例</strong>: Consul, etcd, ZooKeeper</p>
+
+<h4 class="relative group">サービスメッシュ 
+    <div id="サービスメッシュ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%bc%e3%83%93%e3%82%b9%e3%83%a1%e3%83%83%e3%82%b7%e3%83%a5" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>サービス間通信を管理するインフラストラクチャ層です。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li><strong>サービスの外側</strong>（サイドカープロキシ）で実装</li>
+<li>サービスコードを変更せずに機能追加</li>
+<li>内側から外側へのリクエストにも利用可能</li>
+</ul>
+<p><strong>提供機能</strong>：</p>
+<ul>
+<li>サービスディスカバリ</li>
+<li>分散トレーシング</li>
+<li>サーキットブレーカー</li>
+<li>mTLS（相互TLS認証：クライアントとサーバーが互いに証明書を検証し合う認証方式。サービス間の通信を暗号化し、なりすましを防ぐ）</li>
+</ul>
+<p><strong>代表例</strong>: Istio, Linkerd</p>
+<p><strong>ポイント</strong>:</p>
+<ul>
+<li>サービスの**「外側」**で実装（内側ではない）</li>
+<li>サーキットブレーカー「のみ」ではない（<strong>多機能</strong>）</li>
+</ul>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× サービスの内側で実装（外側、サイドカープロキシ）</li>
+<li>× サーキットブレーカーのみ（サービスディスカバリ、分散トレーシング等も含む）</li>
+<li>× 外から内へのリクエストのみ（内から外へも利用可能）</li>
+</ul>
+
+<h4 class="relative group">BFF（Backend for Frontend） 
+    <div id="bffbackend-for-frontend" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#bffbackend-for-frontend" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>クライアントの種類ごと</strong>にAPIゲートウェイを作成するパターンです。</p>
+<p><strong>具体例</strong>：</p>
+<ul>
+<li>Webアプリ用BFF</li>
+<li>モバイルアプリ用BFF</li>
+<li>IoTデバイス用BFF</li>
+</ul>
+<p><strong>メリット</strong>: クライアント固有のデータ加工処理を分離し、バックエンドとフロントエンドの複雑な処理を緩和</p>
+<p><strong>ポイント</strong>: BFFは「マイクロサービスごと」ではなく「<strong>クライアントごと</strong>」。</p>
+<hr>
+
+<h3 class="relative group">6. データ管理・トランザクション 
+    <div id="6-データ管理トランザクション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#6-%e3%83%87%e3%83%bc%e3%82%bf%e7%ae%a1%e7%90%86%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b6%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>サービスの発見・管理の仕組みを整えたら、次は最も難しい課題の一つ「データ」に向き合います。マイクロサービスでは各サービスが専用のデータベースを持つため、サービス間でデータ整合性をどう保つかが重要なテーマとなります。</p>
+<blockquote>
+<p><strong>トランザクションとは</strong>: 「全部成功するか、全部失敗するか」のどちらかを保証するデータ操作の単位。例えば銀行振込では「送金元の残高減少」と「送金先の残高増加」が必ずセットで成功/失敗する必要があります。</p>
+</blockquote>
+
+<h4 class="relative group">Database per Service 
+    <div id="database-per-service" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#database-per-service" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>各サービスが<strong>専用のデータベース</strong>を持つパターンです。</p>
+<p><strong>メリット</strong>: サービス間の独立性、スキーマ変更の自由
+<strong>デメリット</strong>: サービス間のデータ整合性が複雑</p>
+
+<h4 class="relative group">SAGAパターン 
+    <div id="sagaパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#saga%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>各サービスのローカルトランザクションを非同期メッセージで繋げる</strong>ことで整合性を取るワークフローパターンです。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>分散トランザクション（2PC）を<strong>使わない</strong></li>
+<li>失敗時は<strong>補償トランザクション</strong>で取り消し</li>
+</ul>
+<blockquote>
+<p><strong>補償トランザクションとは</strong>: すでにコミットされた処理を「論理的に取り消す」ための逆操作。例えば「在庫を減らす」処理が完了した後に後続処理が失敗した場合、「在庫を戻す」という補償トランザクションを実行して整合性を回復する。物理的なロールバックではなく、新たな処理として実行される点が特徴。</p>
+</blockquote>
+<p><strong>ポイント</strong>: SAGAは「分散トランザクション」ではない。ローカルTx + 非同期メッセージ。</p>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× 分散トランザクションを使う（使わない、それは2PC）</li>
+<li>× コーディネータがロックする（ロックしない）</li>
+</ul>
+
+<h4 class="relative group">オーケストレーション型 
+    <div id="オーケストレーション型" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%bc%e3%82%b1%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3%e5%9e%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>**中央のコントローラー（オーケストレーター）**がトランザクションを管理します。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>指揮者のように各サービスに指示</li>
+<li>ワークフローが明確</li>
+<li>補償トランザクションを使った障害復旧機能を持つ</li>
+<li><strong>単一障害点になる懸念あり</strong></li>
+</ul>
+
+<h4 class="relative group">コレオグラフィ型 
+    <div id="コレオグラフィ型" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%ac%e3%82%aa%e3%82%b0%e3%83%a9%e3%83%95%e3%82%a3%e5%9e%8b" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>各サービスがイベントを発火</strong>し、他サービスがそれに反応します。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>自律分散（指揮者なし）</li>
+<li><strong>単一障害点がない</strong></li>
+<li>ワークフローが追いにくい</li>
+</ul>
+
+<h4 class="relative group">オーケストレーション vs コレオグラフィ 
+    <div id="オーケストレーション-vs-コレオグラフィ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%aa%e3%83%bc%e3%82%b1%e3%82%b9%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%a7%e3%83%b3-vs-%e3%82%b3%e3%83%ac%e3%82%aa%e3%82%b0%e3%83%a9%e3%83%95%e3%82%a3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>オーケストレーション</th>
+          <th>コレオグラフィ</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>制御方式</td>
+          <td><strong>中央集権的</strong></td>
+          <td><strong>自律分散</strong></td>
+      </tr>
+      <tr>
+          <td>単一障害点</td>
+          <td><strong>あり</strong></td>
+          <td><strong>なし</strong></td>
+      </tr>
+      <tr>
+          <td>ワークフロー</td>
+          <td>明確</td>
+          <td>追いにくい</td>
+      </tr>
+      <tr>
+          <td>障害復旧</td>
+          <td>補償トランザクションで対応</td>
+          <td>各サービスで対応</td>
+      </tr>
+  </tbody>
+</table>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× オーケストレーションは単一障害点がない（ある）</li>
+<li>× コレオグラフィは中央制御（自律分散）</li>
+</ul>
+
+<h4 class="relative group">2PC（Two-Phase Commit / 分散トランザクション） 
+    <div id="2pctwo-phase-commit--分散トランザクション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#2pctwo-phase-commit--%e5%88%86%e6%95%a3%e3%83%88%e3%83%a9%e3%83%b3%e3%82%b6%e3%82%af%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>コーディネータ</strong>が複数サービスのトランザクションを<strong>同期的に</strong>管理します。</p>
+<p><strong>フェーズ</strong>：</p>
+<ol>
+<li>Prepare: 各サービスにコミット可能か確認、<strong>ロック</strong></li>
+<li>Commit/Rollback: 全サービスがOKならコミット、NGならロールバック</li>
+</ol>
+<p><strong>ポイント</strong>: 2PCは「同期」「ロック」。SAGAは「非同期」「ロックなし」。</p>
+
+<h4 class="relative group">イベントソーシング 
+    <div id="イベントソーシング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%a4%e3%83%99%e3%83%b3%e3%83%88%e3%82%bd%e3%83%bc%e3%82%b7%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p>現在の状態ではなく、<strong>状態変更のイベント（履歴）を保存</strong>するパターンです。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>データが更新されるたびにイベントがパブリッシュされる</li>
+<li>監査ログが自動的に残る</li>
+<li>任意の時点の状態を再現可能</li>
+<li><strong>同じイベントが複数回発火する可能性</strong>があるため、<strong>冪等なロジックが必要</strong></li>
+</ul>
+<p><strong>ポイント</strong>: イベントは「必ず1度だけ」ではない。<strong>冪等性が必須</strong>。</p>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× イベントは必ず1度だけ届く（複数回届く可能性あり）</li>
+</ul>
+<hr>
+
+<h3 class="relative group">7. クエリパターン 
+    <div id="7-クエリパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#7-%e3%82%af%e3%82%a8%e3%83%aa%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>データ管理の基本が分かったところで、「複数サービスにまたがるデータをどう取得するか」というクエリの問題を扱います。サービスごとにDBが分かれているため、従来のJOINは使えません。</p>
+
+<h4 class="relative group">CQRS（Command Query Responsibility Segregation） 
+    <div id="cqrscommand-query-responsibility-segregation" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cqrscommand-query-responsibility-segregation" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>書き込み（Command）と読み取り（Query）でモデルを分離</strong>するパターンです。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>複雑なクエリにも対応可能</li>
+<li>読み取り側を最適化できる</li>
+<li><strong>結果整合性になる</strong>（書き込みと読み取りの同期にタイムラグ）</li>
+<li>設計が複雑</li>
+</ul>
+<p><strong>ポイント</strong>: CQRSは「読み書き分離」→「<strong>結果整合性</strong>」。リアルタイムではない。</p>
+<p><strong>よくある誤解</strong>:</p>
+<ul>
+<li>× リアルタイムにデータ取得可能（結果整合性のためタイムラグあり）</li>
+<li>× APIコンポジションより効率的にリアルタイム取得（逆）</li>
+</ul>
+
+<h4 class="relative group">APIコンポジションパターン 
+    <div id="apiコンポジションパターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#api%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>複数サービスを呼び出し、メモリ内でデータを結合</strong>してクエリを実現します。</p>
+<p><strong>特徴</strong>：</p>
+<ul>
+<li>シンプルな実装</li>
+<li><strong>オーバーヘッドが大きい</strong>（複数サービス呼び出し）</li>
+<li><strong>非効率なメモリ内結合</strong></li>
+<li>リアルタイムにデータ取得可能</li>
+</ul>
+<p><strong>ポイント</strong>: APIコンポジションは「シンプル」だが「オーバーヘッド大」「メモリ内結合」。</p>
+
+<h4 class="relative group">CQRS vs APIコンポジション 
+    <div id="cqrs-vs-apiコンポジション" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cqrs-vs-api%e3%82%b3%e3%83%b3%e3%83%9d%e3%82%b8%e3%82%b7%e3%83%a7%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>観点</th>
+          <th>CQRS</th>
+          <th>APIコンポジション</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>設計</td>
+          <td><strong>複雑</strong></td>
+          <td><strong>シンプル</strong></td>
+      </tr>
+      <tr>
+          <td>パフォーマンス</td>
+          <td>読み取り最適化可能</td>
+          <td>オーバーヘッド大</td>
+      </tr>
+      <tr>
+          <td>整合性</td>
+          <td><strong>結果整合性</strong></td>
+          <td><strong>リアルタイム可能</strong></td>
+      </tr>
+      <tr>
+          <td>用途</td>
+          <td>複雑なクエリ</td>
+          <td>シンプルな結合</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">8. 耐障害性・可観測性 
+    <div id="8-耐障害性可観測性" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#8-%e8%80%90%e9%9a%9c%e5%ae%b3%e6%80%a7%e5%8f%af%e8%a6%b3%e6%b8%ac%e6%80%a7" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>ここまでで設計と実装の話が一段落しました。ここからは運用面の話に入ります。分散システムでは障害は避けられません。障害発生時の影響を最小化する仕組みと、問題を素早く検知するための可観測性が重要になります。</p>
+
+<h4 class="relative group">サーキットブレーカー 
+    <div id="サーキットブレーカー" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b5%e3%83%bc%e3%82%ad%e3%83%83%e3%83%88%e3%83%96%e3%83%ac%e3%83%bc%e3%82%ab%e3%83%bc" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>エラーレートが閾値を超えた場合</strong>、それ以降のリクエストを<strong>即エラーとして返す</strong>パターンです。</p>
+<p><strong>3つの状態</strong>：</p>
+<ol>
+<li><strong>Closed</strong>: 正常。リクエストを通す</li>
+<li><strong>Open</strong>: 障害検知。リクエストを<strong>即エラー</strong>で返す</li>
+<li><strong>Half-Open</strong>: 試験的にリクエストを通し、成功すればClosedへ</li>
+</ol>
+<p><strong>ポイント</strong>:</p>
+<ul>
+<li>「キューに入れて後で処理」ではない → <strong>即エラー</strong></li>
+<li>「秒間リクエスト数の上限」ではない → <strong>エラーレートの閾値</strong></li>
+</ul>
+
+<h4 class="relative group">分散トレーシング 
+    <div id="分散トレーシング" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%88%86%e6%95%a3%e3%83%88%e3%83%ac%e3%83%bc%e3%82%b7%e3%83%b3%e3%82%b0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>一意のID（Trace ID）をリクエストに付与</strong>し、サービス間を伝播させることでリクエストの流れを追跡します。</p>
+<p><strong>構成要素</strong>：</p>
+<ul>
+<li><strong>Trace</strong>: 1つのリクエスト全体</li>
+<li><strong>Span</strong>: 各サービスでの処理単位</li>
+</ul>
+<p><strong>代表ツール</strong>: Jaeger, Zipkin</p>
+<p><strong>ポイント</strong>: 個々のリクエストに<strong>一意のIDを付与し伝播</strong>させるのが特徴。</p>
+
+<h4 class="relative group">その他の可観測性パターン 
+    <div id="その他の可観測性パターン" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%9d%e3%81%ae%e4%bb%96%e3%81%ae%e5%8f%af%e8%a6%b3%e6%b8%ac%e6%80%a7%e3%83%91%e3%82%bf%e3%83%bc%e3%83%b3" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>パターン</th>
+          <th>役割</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>分散トレーシング</td>
+          <td>リクエストの流れを追跡（ID伝播）</td>
+      </tr>
+      <tr>
+          <td>エクセプショントラッキング</td>
+          <td>例外・エラーの追跡</td>
+      </tr>
+      <tr>
+          <td>アプリケーションメトリクス</td>
+          <td>CPU、メモリ、レイテンシ等の数値監視</td>
+      </tr>
+      <tr>
+          <td>ログ集約</td>
+          <td>複数サービスのログを一元管理</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h3 class="relative group">9. デプロイ・CI/CD 
+    <div id="9-デプロイcicd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#9-%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4cicd" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<p>障害対策と監視の仕組みが整ったら、最後はデプロイの自動化です。マイクロサービスはサービス数が多いため、手動デプロイは現実的ではありません。CI/CDパイプラインとデプロイ戦略が運用の要となります。</p>
+
+<h4 class="relative group">CI/CD 
+    <div id="cicd" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#cicd" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<p><strong>CI（Continuous Integration）</strong>: コードの統合・ビルド・テストを自動化
+<strong>CD（Continuous Delivery/Deployment）</strong>: デプロイを自動化</p>
+<p><strong>メリット</strong>：</p>
+<ul>
+<li><strong>ヒューマンエラーの回避</strong></li>
+<li><strong>工数削減</strong></li>
+<li>迅速なフィードバック</li>
+</ul>
+<p><strong>ポイント</strong>:</p>
+<ul>
+<li>「コード記述量を減らす」ではない</li>
+<li>「インフラ構成管理で冪等性を担保」ではない（それはIaC）</li>
+</ul>
+
+<h4 class="relative group">デプロイ戦略 
+    <div id="デプロイ戦略" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%97%e3%83%ad%e3%82%a4%e6%88%a6%e7%95%a5" aria-label="アンカー">#</a>
+    </span>        
+    
+</h4>
+<table>
+  <thead>
+      <tr>
+          <th>戦略</th>
+          <th>特徴</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>カナリアデプロイ</td>
+          <td>一部のユーザーにのみ新バージョンをリリース</td>
+      </tr>
+      <tr>
+          <td>ブルーグリーンデプロイ</td>
+          <td>2つの同一環境を切り替え、瞬時のロールバック可能</td>
+      </tr>
+      <tr>
+          <td>ローリングデプロイ</td>
+          <td>インスタンスを順次置き換え</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>最後に、全概念を一覧表で総復習します。「正しい理解」と「よくある誤解」を対比させることで、試験や実務でのミスを防ぎます。</p>
+<table>
+  <thead>
+      <tr>
+          <th>概念</th>
+          <th>正しい理解</th>
+          <th>よくある誤解</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>セルフヒーリング</td>
+          <td><strong>Pod数</strong>を維持するよう自動起動</td>
+          <td>Node作成 ×</td>
+      </tr>
+      <tr>
+          <td>Docker Compose</td>
+          <td>起動・停止・削除を<strong>まとめて操作可能</strong></td>
+          <td>個別操作のみ ×</td>
+      </tr>
+      <tr>
+          <td>サイドカー</td>
+          <td><strong>補助機能</strong>を追加</td>
+          <td>中継 ×、変換 ×</td>
+      </tr>
+      <tr>
+          <td>アンバサダー</td>
+          <td>外部接続を<strong>中継</strong></td>
+          <td>補助 ×、変換 ×</td>
+      </tr>
+      <tr>
+          <td>アダプター</td>
+          <td>データを<strong>変換・整形</strong></td>
+          <td>補助 ×、中継 ×</td>
+      </tr>
+      <tr>
+          <td>gRPC</td>
+          <td><strong>HTTP/2</strong>、フィールド番号管理</td>
+          <td>HTTP/1互換 ×</td>
+      </tr>
+      <tr>
+          <td>サーキットブレーカー</td>
+          <td><strong>エラーレート閾値</strong>で<strong>即エラー</strong></td>
+          <td>キュー待機 ×、秒間リクエスト上限 ×</td>
+      </tr>
+      <tr>
+          <td>サーガ</td>
+          <td><strong>ローカルTx</strong> + <strong>非同期メッセージ</strong></td>
+          <td>分散トランザクション ×</td>
+      </tr>
+      <tr>
+          <td>オーケストレーション</td>
+          <td>中央集権、<strong>単一障害点あり</strong></td>
+          <td>単一障害点なし ×</td>
+      </tr>
+      <tr>
+          <td>コレオグラフィ</td>
+          <td>自律分散、<strong>単一障害点なし</strong></td>
+          <td>中央制御 ×</td>
+      </tr>
+      <tr>
+          <td>CQRS</td>
+          <td>読み書き分離、<strong>結果整合性</strong></td>
+          <td>リアルタイム ×</td>
+      </tr>
+      <tr>
+          <td>APIコンポジション</td>
+          <td><strong>シンプル</strong>、オーバーヘッド大</td>
+          <td>効率的 ×</td>
+      </tr>
+      <tr>
+          <td>ブローカーレス</td>
+          <td><strong>密結合</strong>、低レイテンシ</td>
+          <td>疎結合 ×</td>
+      </tr>
+      <tr>
+          <td>サービスディスカバリ</td>
+          <td>レジストリから<strong>動的に選択</strong></td>
+          <td>静的IP設定 ×</td>
+      </tr>
+      <tr>
+          <td>サービスメッシュ</td>
+          <td>サービスの<strong>外側</strong>で実装、<strong>多機能</strong></td>
+          <td>内側 ×、サーキットブレーカーのみ ×</td>
+      </tr>
+      <tr>
+          <td>BFF</td>
+          <td><strong>クライアント別</strong>にゲートウェイ</td>
+          <td>サービス別 ×</td>
+      </tr>
+      <tr>
+          <td>イベントソーシング</td>
+          <td><strong>冪等なロジック</strong>が必要</td>
+          <td>1度だけ届く ×</td>
+      </tr>
+      <tr>
+          <td>CI/CD</td>
+          <td><strong>ヒューマンエラー回避</strong>、工数削減</td>
+          <td>コード記述量削減 ×、インフラ構成管理 ×</td>
+      </tr>
+      <tr>
+          <td>SOA vs MSA</td>
+          <td>SOAは<strong>共有DB</strong>、MSAは<strong>専用DB</strong></td>
+          <td>逆 ×</td>
+      </tr>
+  </tbody>
+</table>
+
+<h2 class="relative group">参考資料 
+    <div id="参考資料" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83%e8%b3%87%e6%96%99" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li><a
+  href="https://www.oreilly.co.jp/books/9784814400010/"
+    target="_blank"
+  >マイクロサービスアーキテクチャ 第2版</a>
+<ul>
+<li>著者：Sam Newman</li>
+<li>監訳：佐藤直生</li>
+<li>訳者：木下哲也</li>
+<li>出版社：オライリージャパン</li>
+<li>出版年：2022年</li>
+</ul>
+</li>
+</ul>
+
+          
+          
+          
+        </div>
+
+        
+
+        
+
+        
+
+        
+
+      </div>
+
+      
+      
+        
+        
+          
+          
+        
+        
+        
+        <script
+          type="text/javascript"
+          src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
+          integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
+          data-oid="views_posts/260124140455_マイクロサービスアーキテクチャ入門_混同しやすい概念の整理.md"
+          data-oid-likes="likes_posts/260124140455_マイクロサービスアーキテクチャ入門_混同しやすい概念の整理.md"></script>
+      
+
+    </section>
+    <footer class="pt-8 max-w-prose print:hidden">
+      
+  
+    
+    
+    
+    <div class="pt-8">
+      <hr class="border-dotted border-neutral-300 dark:border-neutral-600">
+      <div class="flex justify-between pt-3">
+        <span>
+          
+            <a class="flex group mr-3" href="/posts/260122212824_%E3%83%95%E3%83%AC%E3%83%BC%E3%83%A0%E3%83%AF%E3%83%BC%E3%82%AF%E3%81%A8%E3%81%AF%E3%83%A9%E3%82%A4%E3%83%96%E3%83%A9%E3%83%AA%E3%81%A8%E3%81%AE%E9%81%95%E3%81%84%E3%82%92%E7%90%86%E8%A7%A3%E3%81%99%E3%82%8B/">
+              <span
+                class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
+                >&larr;</span
+              >
+              <span
+                class="ml-3 text-neutral-700 group-hover:text-primary-600 ltr:hidden rtl:inline dark:text-neutral dark:group-hover:text-primary-400"
+                >&rarr;</span
+              >
+              <span class="flex flex-col">
+                <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
+                  >フレームワークとは？ライブラリとの違いを理解する</span
+                >
+                <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
+                  
+                    <time datetime="2026-01-22T21:28:24&#43;09:00">2026年 1月 22日</time>
+                  
+                </span>
+              </span>
+            </a>
+          
+        </span>
+        <span>
+          
+        </span>
+      </div>
+    </div>
+  
+
+
+      
+    </footer>
+  </article>
+
+        <div id="top-scroller" class="pointer-events-none absolute top-[110vh] bottom-0 w-12 ltr:right-0 rtl:left-0">
+  <a
+    href="#the-top"
+    class="pointer-events-auto sticky top-[calc(100vh-5.5rem)] flex h-12 w-12 mb-16 items-center justify-center rounded-full bg-neutral/50 text-xl text-neutral-700 hover:text-primary-600 dark:bg-neutral-800/50 dark:text-neutral dark:hover:text-primary-400"
+    aria-label="TOPへスクロール"
+    title="TOPへスクロール">
+    &uarr;
+  </a>
+</div>
+
+      </main><footer id="site-footer" class="py-10 print:hidden">
+  
+  
+    
+  
+  <div class="flex items-center justify-between">
+    
+    
+      <p class="text-sm text-neutral-500 dark:text-neutral-400">
+          &copy;
+          2026
+          フミ
+      </p>
+    
+
+    
+    
+      <p class="text-xs text-neutral-500 dark:text-neutral-400">
+        
+        
+        <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://gohugo.io/" target="_blank" rel="noopener noreferrer">Hugo</a> &amp; <a class="hover:underline hover:decoration-primary-400 hover:text-primary-500"
+          href="https://blowfish.page/" target="_blank" rel="noopener noreferrer">Blowfish</a> で構築されています
+      </p>
+    
+
+  </div>
+  <script>
+    
+    mediumZoom(document.querySelectorAll("img:not(.nozoom)"), {
+      margin: 24,
+      background: 'rgba(0,0,0,0.5)',
+      scrollOffset: 0,
+    })
+    
+  </script> 
+  
+  <script
+    type="text/javascript"
+    src="/js/process.min.ee03488f19c93c2efb199e2e3014ea5f3cb2ce7d45154adb3399a158cac27ca52831db249ede5bb602700ef87eb02434139de0858af1818ab0fb4182472204a4.js"
+    integrity="sha512-7gNIjxnJPC77GZ4uMBTqXzyyzn1FFUrbM5mhWMrCfKUoMdsknt5btgJwDvh&#43;sCQ0E53ghYrxgYqw&#43;0GCRyIEpA=="></script>
+  
+  
+</footer>
+<div
+  id="search-wrapper"
+  class="invisible fixed inset-0 flex h-screen w-screen cursor-default flex-col bg-neutral-500/50 p-4 backdrop-blur-sm dark:bg-neutral-900/50 sm:p-6 md:p-[10vh] lg:p-[12vh] z-500"
+  data-url="http://localhost:1313/">
+  <div
+    id="search-modal"
+    class="flex flex-col w-full max-w-3xl min-h-0 mx-auto border rounded-md shadow-lg top-20 border-neutral-200 bg-neutral dark:border-neutral-700 dark:bg-neutral-800">
+    <header class="relative z-10 flex items-center justify-between flex-none px-2">
+      <form class="flex items-center flex-auto min-w-0">
+        <div class="flex items-center justify-center w-8 h-8 text-neutral-400">
+          
+
+  <span class="relative block icon">
+    <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="search" class="svg-inline--fa fa-search fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M505 442.7L405.3 343c-4.5-4.5-10.6-7-17-7H372c27.6-35.3 44-79.7 44-128C416 93.1 322.9 0 208 0S0 93.1 0 208s93.1 208 208 208c48.3 0 92.7-16.4 128-44v16.3c0 6.4 2.5 12.5 7 17l99.7 99.7c9.4 9.4 24.6 9.4 33.9 0l28.3-28.3c9.4-9.4 9.4-24.6.1-34zM208 336c-70.7 0-128-57.2-128-128 0-70.7 57.2-128 128-128 70.7 0 128 57.2 128 128 0 70.7-57.2 128-128 128z"/></svg>
+
+  </span>
+
+
+        </div>
+        <input
+          type="search"
+          id="search-query"
+          class="flex flex-auto h-12 mx-1 bg-transparent appearance-none focus:outline-dotted focus:outline-2 focus:outline-transparent"
+          placeholder="検索"
+          tabindex="0">
+      </form>
+      <button
+        id="close-search-button"
+        class="flex items-center justify-center w-8 h-8 text-neutral-700 hover:text-primary-600 dark:text-neutral dark:hover:text-primary-400"
+        title="閉じる (Esc)">
+        
+
+  <span class="relative block icon">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M310.6 361.4c12.5 12.5 12.5 32.75 0 45.25C304.4 412.9 296.2 416 288 416s-16.38-3.125-22.62-9.375L160 301.3L54.63 406.6C48.38 412.9 40.19 416 32 416S15.63 412.9 9.375 406.6c-12.5-12.5-12.5-32.75 0-45.25l105.4-105.4L9.375 150.6c-12.5-12.5-12.5-32.75 0-45.25s32.75-12.5 45.25 0L160 210.8l105.4-105.4c12.5-12.5 32.75-12.5 45.25 0s12.5 32.75 0 45.25l-105.4 105.4L310.6 361.4z"/></svg>
+
+  </span>
+
+
+      </button>
+    </header>
+    <section class="flex-auto px-2 overflow-auto">
+      <ul id="search-results">
+        
+      </ul>
+    </section>
+  </div>
+</div>
+
+    </div>
+  </body>
+  
+</html>
