@@ -9,7 +9,37 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Sat, 31 Jan 2026 03:57:38 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jan 2026 09:19:58 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Linux</title>
+      <link>http://localhost:1313/tags/linux/</link>
+      <pubDate>Sat, 31 Jan 2026 09:19:58 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>デーモン</title>
+      <link>http://localhost:1313/tags/%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3/</link>
+      <pubDate>Sat, 31 Jan 2026 09:19:58 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>プロセス</title>
+      <link>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9/</link>
+      <pubDate>Sat, 31 Jan 2026 09:19:58 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Docker</title>
@@ -207,16 +237,6 @@
       <pubDate>Mon, 22 Dec 2025 01:04:59 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>http://localhost:1313/tags/cli/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>http://localhost:1313/tags/linux/</link>
-      <pubDate>Mon, 22 Dec 2025 01:04:59 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/tags/linux/</guid>
       <description></description>
       
     </item>

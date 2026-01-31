@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Linux on 毎日.log</title>
-    <link>http://localhost:1313/tags/linux/</link>
-    <description>Recent content in Linux on 毎日.log</description>
+    <title>デーモン on 毎日.log</title>
+    <link>http://localhost:1313/tags/%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3/</link>
+    <description>Recent content in デーモン on 毎日.log</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ja</language>
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Sat, 31 Jan 2026 09:19:58 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 31 Jan 2026 09:19:58 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Linuxにおけるプロセスとデーモンについて</title>
@@ -17,16 +17,6 @@
       <pubDate>Sat, 31 Jan 2026 09:19:58 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>http://localhost:1313/posts/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>treeコマンド：ディレクトリ構造を可視化する</title>
-      <link>http://localhost:1313/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B/</link>
-      <pubDate>Mon, 22 Dec 2025 01:04:59 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/posts/251222010445_tree%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%83%87%E3%82%A3%E3%83%AC%E3%82%AF%E3%83%88%E3%83%AA%E6%A7%8B%E9%80%A0%E3%82%92%E5%8F%AF%E8%A6%96%E5%8C%96%E3%81%99%E3%82%8B/</guid>
       <description></description>
       
     </item>
