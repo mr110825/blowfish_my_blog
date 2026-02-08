@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>Linuxにおけるプロセスとデーモンについて &middot; 毎日.log</title>
-    <meta name="title" content="Linuxにおけるプロセスとデーモンについて &middot; 毎日.log">
+  <title>カーネルとは？ &middot; 毎日.log</title>
+    <meta name="title" content="カーネルとは？ &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="Linux,プロセス,デーモン,">
+  <meta name="keywords" content="学習・作業ログ,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">
+  <link rel="canonical" href="http://localhost:1313/posts/260204150519_%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E3%81%A8%E3%81%AF/">
   
   
   
@@ -99,22 +99,20 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">
+  <meta property="og:url" content="http://localhost:1313/posts/260204150519_%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E3%81%A8%E3%81%AF/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="Linuxにおけるプロセスとデーモンについて">
+  <meta property="og:title" content="カーネルとは？">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-01-31T09:19:58+09:00">
-    <meta property="article:modified_time" content="2026-01-31T09:19:58+09:00">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="プロセス">
-    <meta property="article:tag" content="デーモン">
+    <meta property="article:published_time" content="2026-02-04T15:05:19+09:00">
+    <meta property="article:modified_time" content="2026-02-04T15:05:19+09:00">
+    <meta property="article:tag" content="学習・作業ログ">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linuxにおけるプロセスとデーモンについて">
+  <meta name="twitter:title" content="カーネルとは？">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -122,26 +120,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Linuxにおけるプロセスとデーモンについて",
-    "headline": "Linuxにおけるプロセスとデーモンについて",
+    "name": "カーネルとは？",
+    "headline": "カーネルとは？",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6\/",
+    "url" : "http:\/\/localhost:1313\/posts\/260204150519_%E3%82%AB%E3%83%BC%E3%83%8D%E3%83%AB%E3%81%A8%E3%81%AF\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-01-31T09:19:58\u002b09:00",
-    "datePublished": "2026-01-31T09:19:58\u002b09:00",
+    "dateCreated": "2026-02-04T15:05:19\u002b09:00",
+    "datePublished": "2026-02-04T15:05:19\u002b09:00",
     
-    "dateModified": "2026-01-31T09:19:58\u002b09:00",
+    "dateModified": "2026-02-04T15:05:19\u002b09:00",
     
-    "keywords": ["Linux","プロセス","デーモン"],
+    "keywords": ["学習・作業ログ"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "54"
+    "wordCount": "83"
   }]
   </script>
 
@@ -476,7 +474,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Linuxにおけるプロセスとデーモンについて
+        カーネルとは？
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -527,7 +525,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-31T09:19:58&#43;09:00">2026年 1月 31日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2026-02-04T15:05:19&#43;09:00">2026年 2月 4日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -574,35 +572,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Linux
-  </span>
-</span>
-
-              </span>
-            
-              <span
-                class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9/&#34;,'_self');return false;">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    プロセス
-  </span>
-</span>
-
-              </span>
-            
-              <span
-                class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3/&#34;,'_self');return false;">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    デーモン
+    学習・作業ログ
   </span>
 </span>
 
@@ -662,18 +636,17 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#プロセスとは">プロセスとは</a>
+    <li><a href="#カーネルとは">カーネルとは？</a></li>
+    <li><a href="#カーネルの主な役割">カーネルの主な役割</a></li>
+    <li><a href="#カーネルの種類">カーネルの種類</a></li>
+    <li><a href="#カーネルとシェルの関係">カーネルとシェルの関係</a>
       <ul>
-        <li><a href="#よく使うコマンド">よく使うコマンド</a></li>
-      </ul>
-    </li>
-    <li><a href="#デーモンとは">デーモンとは</a>
-      <ul>
-        <li><a href="#デーモンの起動方式">デーモンの起動方式</a></li>
+        <li><a href="#osの階層構造">OSの階層構造</a></li>
+        <li><a href="#シェルの役割">シェルの役割</a></li>
+        <li><a href="#コマンド実行の流れ">コマンド実行の流れ</a></li>
       </ul>
     </li>
     <li><a href="#振り返りポイント">振り返りポイント</a></li>
-    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
@@ -687,18 +660,17 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#プロセスとは">プロセスとは</a>
+    <li><a href="#カーネルとは">カーネルとは？</a></li>
+    <li><a href="#カーネルの主な役割">カーネルの主な役割</a></li>
+    <li><a href="#カーネルの種類">カーネルの種類</a></li>
+    <li><a href="#カーネルとシェルの関係">カーネルとシェルの関係</a>
       <ul>
-        <li><a href="#よく使うコマンド">よく使うコマンド</a></li>
-      </ul>
-    </li>
-    <li><a href="#デーモンとは">デーモンとは</a>
-      <ul>
-        <li><a href="#デーモンの起動方式">デーモンの起動方式</a></li>
+        <li><a href="#osの階層構造">OSの階層構造</a></li>
+        <li><a href="#シェルの役割">シェルの役割</a></li>
+        <li><a href="#コマンド実行の流れ">コマンド実行の流れ</a></li>
       </ul>
     </li>
     <li><a href="#振り返りポイント">振り返りポイント</a></li>
-    <li><a href="#参考">参考</a></li>
   </ul>
 </nav>
   </div>
@@ -802,85 +774,148 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h2 class="relative group">プロセスとは 
-    <div id="プロセスとは" class="anchor"></div>
+<h2 class="relative group">カーネルとは？ 
+    <div id="カーネルとは" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>プロセス（処理＝process）とは、Linuxにおける実行中のプログラムのことを指します。
-各プロセスにはPIDという一意のIDが割り振られ管理されます。
-（<code>ps</code>コマンドや<code>kill</code>コマンド実行時にこのPIDなどを指定することが可能）</p>
-<p>同じプログラムでも、実行するたびに別のプロセスが生成される。
-このとき、もともと動いていて新しいプロセスを生み出した側を親プロセス、そのとき生成された側を子プロセスと呼ぶ（<code>pstree</code> などで親子関係を確認できる）。</p>
+<p>ハードウェアとソフトウェアの間の仲介役を担うOSの中心部</p>
 
-<h3 class="relative group">よく使うコマンド 
-    <div id="よく使うコマンド" class="anchor"></div>
+<h2 class="relative group">カーネルの主な役割 
+    <div id="カーネルの主な役割" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># プロセス一覧を表示</span>
-</span></span><span class="line"><span class="cl">ps aux
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># プロセスの親子関係を表示</span>
-</span></span><span class="line"><span class="cl">pstree
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 特定のプロセスを終了（PIDを指定）</span>
-</span></span><span class="line"><span class="cl"><span class="nb">kill</span> <span class="m">1234</span>
-</span></span></code></pre></div>
-<h2 class="relative group">デーモンとは 
-    <div id="デーモンとは" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%bc%e3%83%a2%e3%83%b3%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e3%81%ae%e4%b8%bb%e3%81%aa%e5%bd%b9%e5%89%b2" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>プロセスの中には、「バックグラウンドで動き続け、ユーザーと対話せずにサービスを提供する」タイプのものがあり、これをデーモンと呼ぶ。例として、Webサーバ（<code>httpd</code> / <code>nginx</code>）、SSHサーバ（<code>sshd</code>）、ジョブスケジューラ（<code>cron</code>）などがある。</p>
-
-<h3 class="relative group">デーモンの起動方式 
-    <div id="デーモンの起動方式" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%bc%e3%83%a2%e3%83%b3%e3%81%ae%e8%b5%b7%e5%8b%95%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
 <table>
   <thead>
       <tr>
-          <th>方式</th>
-          <th>特徴</th>
-          <th>メリット</th>
-          <th>デメリット</th>
+          <th>役割</th>
+          <th>説明</th>
       </tr>
   </thead>
   <tbody>
       <tr>
-          <td>スタンドアロン</td>
-          <td>常に単体で常駐</td>
-          <td>応答が速い</td>
-          <td>リソースを常に消費</td>
+          <td><strong>プロセス管理</strong></td>
+          <td>プロセスの作成・スケジューリング・終了を管理</td>
       </tr>
       <tr>
-          <td>スーパーサーバー（<code>inetd</code>等）</td>
-          <td>接続時に起動</td>
-          <td>リソース節約</td>
-          <td>初回応答が遅い</td>
+          <td><strong>メモリ管理</strong></td>
+          <td>システムメモリの割り当てと回収</td>
+      </tr>
+      <tr>
+          <td><strong>デバイスドライバ管理</strong></td>
+          <td>キーボード、マウス、ストレージ等との通信を管理</td>
+      </tr>
+      <tr>
+          <td><strong>システムコール</strong></td>
+          <td>アプリケーションがシステムリソースを安全に使用するためのインターフェース提供</td>
+      </tr>
+      <tr>
+          <td><strong>セキュリティ</strong></td>
+          <td>不正アクセスやマルウェアからシステムを保護</td>
       </tr>
   </tbody>
 </table>
-<p>デーモンは常に稼働・待機するため、待ち受ける種類が多いとリソース消費が増える。スーパーサーバーはこの問題を解決するため、接続を受けたタイミングで必要なサーバプロセスを起動する。</p>
 
+<h2 class="relative group">カーネルの種類 
+    <div id="カーネルの種類" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e3%81%ae%e7%a8%ae%e9%a1%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<ul>
+<li>モノリシックカーネル
+<ul>
+<li>全てのシステムサービスとドライバが単一の大きなプロセスとして実行</li>
+<li>例: Linux, Unix</li>
+</ul>
+</li>
+<li>マイクロカーネル
+<ul>
+<li>カーネル自体は最小限の機能のみ</li>
+<li>残りのサービスはユーザースペースで別プロセスとして実行</li>
+<li>例: MINIX, QNX）</li>
+</ul>
+</li>
+<li>ハイブリッドカーネル
+<ul>
+<li>モノリシックとマイクロの中間に位置する設計</li>
+<li>例: Windows NT, macOS</li>
+</ul>
+</li>
+<li>エクソカーネル
+<ul>
+<li>アプリケーションにより多くの制御を提供・非常に抽象化されたカーネル設計</li>
+</ul>
+</li>
+</ul>
+
+<h2 class="relative group">カーネルとシェルの関係 
+    <div id="カーネルとシェルの関係" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%ab%e3%83%bc%e3%83%8d%e3%83%ab%e3%81%a8%e3%82%b7%e3%82%a7%e3%83%ab%e3%81%ae%e9%96%a2%e4%bf%82" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+
+<h3 class="relative group">OSの階層構造 
+    <div id="osの階層構造" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#os%e3%81%ae%e9%9a%8e%e5%b1%a4%e6%a7%8b%e9%80%a0" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">ユーザー → シェル → カーネル → ハードウェア
+</span></span></code></pre></div><ul>
+<li><strong>シェル（shell = 殻）</strong>: カーネルを包む外側の層</li>
+<li><strong>カーネル（kernel = 核）</strong>: OSの中心部</li>
+</ul>
+
+<h3 class="relative group">シェルの役割 
+    <div id="シェルの役割" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b7%e3%82%a7%e3%83%ab%e3%81%ae%e5%bd%b9%e5%89%b2" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<ul>
+<li>ユーザーのコマンドを解釈してカーネルに伝える「窓口」</li>
+<li>カーネルに直接触れることなく、システムを操作可能にする</li>
+</ul>
+
+<h3 class="relative group">コマンド実行の流れ 
+    <div id="コマンド実行の流れ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89%e5%ae%9f%e8%a1%8c%e3%81%ae%e6%b5%81%e3%82%8c" aria-label="アンカー">#</a>
+    </span>        
+    
+</h3>
+<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-text" data-lang="text"><span class="line"><span class="cl">例: ls コマンド実行時
+</span></span><span class="line"><span class="cl">1. ユーザーが「ls」と入力
+</span></span><span class="line"><span class="cl">2. シェルがコマンドを解釈
+</span></span><span class="line"><span class="cl">3. シェルがカーネルにシステムコール（readdir等）を発行
+</span></span><span class="line"><span class="cl">4. カーネルがハードウェア（ストレージ）にアクセス
+</span></span><span class="line"><span class="cl">5. 結果がシェル経由でユーザーに表示
+</span></span></code></pre></div>
 <h2 class="relative group">振り返りポイント 
     <div id="振り返りポイント" class="anchor"></div>
     
@@ -891,45 +926,11 @@
     
 </h2>
 <ul>
-<li>プロセスとは
-<ul>
-<li>PIDとは</li>
-<li>親・子プロセスとは</li>
-</ul>
-</li>
-<li>デーモンとは
-<ul>
-<li>スーパーサーバーはデーモンのどんな問題をどのように解決している？</li>
-</ul>
-</li>
-</ul>
-
-<h2 class="relative group">参考 
-    <div id="参考" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8f%82%e8%80%83" aria-label="アンカー">#</a>
-    </span>        
-    
-</h2>
-<ul>
-<li><a
-  href="https://www.infra-manual.com/linux-deamon/"
-    target="_blank"
-  >インフラマニュアル：Linuxにおけるデーモンとは？その役割と管理方法を解説</a></li>
-<li><a
-  href="https://eng-entrance.com/linux-process"
-    target="_blank"
-  >エンジニアの入り口：【初心者向け】Linuxのプロセスについて一通りわかる！</a></li>
-<li><a
-  href="https://www.miraiserver.ne.jp/column/linux_process/"
-    target="_blank"
-  >ミライサーバー：Linuxのプロセスとは。psコマンドやkillコマンドの使い方も解説</a></li>
-<li><a
-  href="https://envader.plus/course/12/scenario/1147"
-    target="_blank"
-  >エンベーダー：システムの空いているポートについて</a></li>
+<li>カーネルとは？</li>
+<li>カーネルの5つの役割は？</li>
+<li>モノリシックカーネルとマイクロカーネルの違いは？</li>
+<li>シェルとカーネルの関係を階層構造で説明できるか？</li>
+<li><code>ls</code>コマンド実行時の流れを追えるか？</li>
 </ul>
 
           
@@ -960,8 +961,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/260131091958_Linuxにおけるプロセスとデーモンについて.md"
-          data-oid-likes="likes_posts/260131091958_Linuxにおけるプロセスとデーモンについて.md"></script>
+          data-oid="views_posts/260204150519_カーネルとは？.md"
+          data-oid-likes="likes_posts/260204150519_カーネルとは？.md"></script>
       
 
     </section>
@@ -976,7 +977,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/260131035738_docker%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E6%8A%80%E8%A1%93%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A8%E3%83%87%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F%E7%90%86%E7%94%B1/">
+            <a class="flex group mr-3" href="/posts/260204130405_lsof%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8%E3%81%AF/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -987,11 +988,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Dockerとは何か？コンテナ技術の基礎と、デファクトスタンダードになった理由</span
+                  >lsofコマンドとは</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2026-01-31T03:57:38&#43;09:00">2026年 1月 31日</time>
+                    <time datetime="2026-02-04T13:04:05&#43;09:00">2026年 2月 4日</time>
                   
                 </span>
               </span>
@@ -1000,14 +1001,14 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/260202205516_%E3%82%BD%E3%82%B1%E3%83%83%E3%83%88%E3%81%A8%E3%81%AF/">
+            <a class="flex text-right group ml-3" href="/posts/260204180351_%E8%A6%9A%E3%81%88%E3%81%A6%E3%81%8A%E3%81%8D%E3%81%9F%E3%81%84%E3%82%BF%E3%83%BC%E3%83%9F%E3%83%8A%E3%83%AB%E3%82%B7%E3%83%A7%E3%83%BC%E3%83%88%E3%82%AB%E3%83%83%E3%83%88/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >ソケットとは？</span
+                  >覚えておきたいターミナルショートカット</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2026-02-02T20:55:16&#43;09:00">2026年 2月 2日</time>
+                    <time datetime="2026-02-04T18:03:51&#43;09:00">2026年 2月 4日</time>
                   
                 </span>
               </span>

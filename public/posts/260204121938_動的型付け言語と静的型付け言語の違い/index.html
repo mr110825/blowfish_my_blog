@@ -14,15 +14,15 @@
   <meta name="theme-color">
 
   
-  <title>Linuxにおけるプロセスとデーモンについて &middot; 毎日.log</title>
-    <meta name="title" content="Linuxにおけるプロセスとデーモンについて &middot; 毎日.log">
+  <title>動的型付け言語と静的型付け言語の違い &middot; 毎日.log</title>
+    <meta name="title" content="動的型付け言語と静的型付け言語の違い &middot; 毎日.log">
 
   
   <meta name="description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
-  <meta name="keywords" content="Linux,プロセス,デーモン,">
+  <meta name="keywords" content="学習・作業ログ,プログラミング,">
   
   
-  <link rel="canonical" href="http://localhost:1313/posts/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">
+  <link rel="canonical" href="http://localhost:1313/posts/260204121938_%E5%8B%95%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%A8%E9%9D%99%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%AE%E9%81%95%E3%81%84/">
   
   
   
@@ -99,22 +99,21 @@
   
 
   
-  <meta property="og:url" content="http://localhost:1313/posts/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6/">
+  <meta property="og:url" content="http://localhost:1313/posts/260204121938_%E5%8B%95%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%A8%E9%9D%99%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%AE%E9%81%95%E3%81%84/">
   <meta property="og:site_name" content="毎日.log">
-  <meta property="og:title" content="Linuxにおけるプロセスとデーモンについて">
+  <meta property="og:title" content="動的型付け言語と静的型付け言語の違い">
   <meta property="og:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
   <meta property="og:locale" content="ja">
   <meta property="og:type" content="article">
     <meta property="article:section" content="posts">
-    <meta property="article:published_time" content="2026-01-31T09:19:58+09:00">
-    <meta property="article:modified_time" content="2026-01-31T09:19:58+09:00">
-    <meta property="article:tag" content="Linux">
-    <meta property="article:tag" content="プロセス">
-    <meta property="article:tag" content="デーモン">
+    <meta property="article:published_time" content="2026-02-04T12:19:38+09:00">
+    <meta property="article:modified_time" content="2026-02-04T12:19:38+09:00">
+    <meta property="article:tag" content="学習・作業ログ">
+    <meta property="article:tag" content="プログラミング">
 
   
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Linuxにおけるプロセスとデーモンについて">
+  <meta name="twitter:title" content="動的型付け言語と静的型付け言語の違い">
   <meta name="twitter:description" content="SESエンジニアの日々の技術学習ログ。Today I Learned形式で小さな学びを積み重ね、知識を定着させるためのアウトプット記録。">
 
   <script type="application/ld+json">
@@ -122,26 +121,26 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "articleSection": "Posts",
-    "name": "Linuxにおけるプロセスとデーモンについて",
-    "headline": "Linuxにおけるプロセスとデーモンについて",
+    "name": "動的型付け言語と静的型付け言語の違い",
+    "headline": "動的型付け言語と静的型付け言語の違い",
     
     
     "inLanguage": "ja",
-    "url" : "http:\/\/localhost:1313\/posts\/260131091958_linux%E3%81%AB%E3%81%8A%E3%81%91%E3%82%8B%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9%E3%81%A8%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6\/",
+    "url" : "http:\/\/localhost:1313\/posts\/260204121938_%E5%8B%95%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%A8%E9%9D%99%E7%9A%84%E5%9E%8B%E4%BB%98%E3%81%91%E8%A8%80%E8%AA%9E%E3%81%AE%E9%81%95%E3%81%84\/",
     "author" : {
       "@type": "Person",
       "name": "フミ"
     },
     "copyrightYear": "2026",
-    "dateCreated": "2026-01-31T09:19:58\u002b09:00",
-    "datePublished": "2026-01-31T09:19:58\u002b09:00",
+    "dateCreated": "2026-02-04T12:19:38\u002b09:00",
+    "datePublished": "2026-02-04T12:19:38\u002b09:00",
     
-    "dateModified": "2026-01-31T09:19:58\u002b09:00",
+    "dateModified": "2026-02-04T12:19:38\u002b09:00",
     
-    "keywords": ["Linux","プロセス","デーモン"],
+    "keywords": ["学習・作業ログ","プログラミング"],
     
     "mainEntityOfPage": "true",
-    "wordCount": "54"
+    "wordCount": "52"
   }]
   </script>
 
@@ -476,7 +475,7 @@
     <header id="single_header" class="mt-5 max-w-prose">
       
       <h1 class="mt-0 text-4xl font-extrabold text-neutral-900 dark:text-neutral">
-        Linuxにおけるプロセスとデーモンについて
+        動的型付け言語と静的型付け言語の違い
       </h1>
       <div class="mt-1 mb-6 text-base text-neutral-500 dark:text-neutral-400 print:hidden">
         
@@ -527,7 +526,7 @@
   <div class="flex flex-row flex-wrap items-center">
     
     
-      <time datetime="2026-01-31T09:19:58&#43;09:00">2026年 1月 31日</time><span class="px-2 text-primary-500">&middot;</span>
+      <time datetime="2026-02-04T12:19:38&#43;09:00">2026年 2月 4日</time><span class="px-2 text-primary-500">&middot;</span>
 
 
 
@@ -574,11 +573,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/linux/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    Linux
+    学習・作業ログ
   </span>
 </span>
 
@@ -586,23 +585,11 @@
             
               <span
                 class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%97%E3%83%AD%E3%82%BB%E3%82%B9/&#34;,'_self');return false;">
+                onclick="window.open(&#34;/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/&#34;,'_self');return false;">
                 <span class="flex cursor-pointer">
   <span
     class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    プロセス
-  </span>
-</span>
-
-              </span>
-            
-              <span
-                class="mr-2 mt-[0.5rem]"
-                onclick="window.open(&#34;/tags/%E3%83%87%E3%83%BC%E3%83%A2%E3%83%B3/&#34;,'_self');return false;">
-                <span class="flex cursor-pointer">
-  <span
-    class="rounded-md border border-primary-400 px-1 py-[1px] text-xs font-normal text-primary-700 dark:border-primary-600 dark:text-primary-400">
-    デーモン
+    プログラミング
   </span>
 </span>
 
@@ -662,16 +649,11 @@
     class="min-w-[220px] py-2 border-dotted ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#プロセスとは">プロセスとは</a>
-      <ul>
-        <li><a href="#よく使うコマンド">よく使うコマンド</a></li>
-      </ul>
-    </li>
-    <li><a href="#デーモンとは">デーモンとは</a>
-      <ul>
-        <li><a href="#デーモンの起動方式">デーモンの起動方式</a></li>
-      </ul>
-    </li>
+    <li><a href="#型とは何かなぜ必要なのか">「型」とは何か？なぜ必要なのか？</a></li>
+    <li><a href="#動的型付けと静的型付けの違い">動的型付けと静的型付けの違い</a></li>
+    <li><a href="#動的型付け言語">動的型付け言語</a></li>
+    <li><a href="#静的型付け言語">静的型付け言語</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
     <li><a href="#振り返りポイント">振り返りポイント</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
@@ -687,16 +669,11 @@
     class="py-2 border-dotted border-neutral-300 ltr:-ml-5 ltr:border-l ltr:pl-5 rtl:-mr-5 rtl:border-r rtl:pr-5 dark:border-neutral-600">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#プロセスとは">プロセスとは</a>
-      <ul>
-        <li><a href="#よく使うコマンド">よく使うコマンド</a></li>
-      </ul>
-    </li>
-    <li><a href="#デーモンとは">デーモンとは</a>
-      <ul>
-        <li><a href="#デーモンの起動方式">デーモンの起動方式</a></li>
-      </ul>
-    </li>
+    <li><a href="#型とは何かなぜ必要なのか">「型」とは何か？なぜ必要なのか？</a></li>
+    <li><a href="#動的型付けと静的型付けの違い">動的型付けと静的型付けの違い</a></li>
+    <li><a href="#動的型付け言語">動的型付け言語</a></li>
+    <li><a href="#静的型付け言語">静的型付け言語</a></li>
+    <li><a href="#まとめ">まとめ</a></li>
     <li><a href="#振り返りポイント">振り返りポイント</a></li>
     <li><a href="#参考">参考</a></li>
   </ul>
@@ -802,84 +779,91 @@
 
         <div class="article-content max-w-prose mb-20">
           
-<h2 class="relative group">プロセスとは 
-    <div id="プロセスとは" class="anchor"></div>
+<h2 class="relative group">「型」とは何か？なぜ必要なのか？ 
+    <div id="型とは何かなぜ必要なのか" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%97%e3%83%ad%e3%82%bb%e3%82%b9%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%9e%8b%e3%81%a8%e3%81%af%e4%bd%95%e3%81%8b%e3%81%aa%e3%81%9c%e5%bf%85%e8%a6%81%e3%81%aa%e3%81%ae%e3%81%8b" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>プロセス（処理＝process）とは、Linuxにおける実行中のプログラムのことを指します。
-各プロセスにはPIDという一意のIDが割り振られ管理されます。
-（<code>ps</code>コマンドや<code>kill</code>コマンド実行時にこのPIDなどを指定することが可能）</p>
-<p>同じプログラムでも、実行するたびに別のプロセスが生成される。
-このとき、もともと動いていて新しいプロセスを生み出した側を親プロセス、そのとき生成された側を子プロセスと呼ぶ（<code>pstree</code> などで親子関係を確認できる）。</p>
+<p>プログラムには数値や文字列などさまざまなデータが記述されるが、コンピュータにとってはすべて数字の羅列に過ぎない。
+そこで「このデータは数値である」「このデータは文字列である」といったデータの種類を示す情報が必要になる。これが「型」である。</p>
+<p>型が必要な理由は、コンピュータの物理メモリに上限があるためだ。
+プログラムを実行する際、各データがどれくらいのメモリ領域を使用するかを知る必要がある（例：char型なら1byte、int型なら4byte）。
+型情報があることで、コンピュータは適切なメモリ領域を割り当て、データを正しく処理できるようになる。</p>
 
-<h3 class="relative group">よく使うコマンド 
-    <div id="よく使うコマンド" class="anchor"></div>
+<h2 class="relative group">動的型付けと静的型付けの違い 
+    <div id="動的型付けと静的型付けの違い" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%82%88%e3%81%8f%e4%bd%bf%e3%81%86%e3%82%b3%e3%83%9e%e3%83%b3%e3%83%89" aria-label="アンカー">#</a>
-    </span>        
-    
-</h3>
-<div class="highlight"><pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="line"><span class="cl"><span class="c1"># プロセス一覧を表示</span>
-</span></span><span class="line"><span class="cl">ps aux
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># プロセスの親子関係を表示</span>
-</span></span><span class="line"><span class="cl">pstree
-</span></span><span class="line"><span class="cl">
-</span></span><span class="line"><span class="cl"><span class="c1"># 特定のプロセスを終了（PIDを指定）</span>
-</span></span><span class="line"><span class="cl"><span class="nb">kill</span> <span class="m">1234</span>
-</span></span></code></pre></div>
-<h2 class="relative group">デーモンとは 
-    <div id="デーモンとは" class="anchor"></div>
-    
-    <span
-        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%bc%e3%83%a2%e3%83%b3%e3%81%a8%e3%81%af" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8b%95%e7%9a%84%e5%9e%8b%e4%bb%98%e3%81%91%e3%81%a8%e9%9d%99%e7%9a%84%e5%9e%8b%e4%bb%98%e3%81%91%e3%81%ae%e9%81%95%e3%81%84" aria-label="アンカー">#</a>
     </span>        
     
 </h2>
-<p>プロセスの中には、「バックグラウンドで動き続け、ユーザーと対話せずにサービスを提供する」タイプのものがあり、これをデーモンと呼ぶ。例として、Webサーバ（<code>httpd</code> / <code>nginx</code>）、SSHサーバ（<code>sshd</code>）、ジョブスケジューラ（<code>cron</code>）などがある。</p>
+<p>この「型」をいつ・誰が決めるかによって、プログラミング言語は大きく2つに分かれる。</p>
+<ul>
+<li><strong>静的型付け</strong>：開発者がソースコードを書く時点で、あらかじめ変数や関数に型を指定する</li>
+<li><strong>動的型付け</strong>：ソースコードには型を書かず、プログラムの実行時にインタプリタが自動的に型を判別・付与する</li>
+</ul>
+<p>これが動的型付け言語と静的型付け言語の本質的な違いである。</p>
 
-<h3 class="relative group">デーモンの起動方式 
-    <div id="デーモンの起動方式" class="anchor"></div>
+<h2 class="relative group">動的型付け言語 
+    <div id="動的型付け言語" class="anchor"></div>
     
     <span
         class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
-        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%83%87%e3%83%bc%e3%83%a2%e3%83%b3%e3%81%ae%e8%b5%b7%e5%8b%95%e6%96%b9%e5%bc%8f" aria-label="アンカー">#</a>
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e5%8b%95%e7%9a%84%e5%9e%8b%e4%bb%98%e3%81%91%e8%a8%80%e8%aa%9e" aria-label="アンカー">#</a>
     </span>        
     
-</h3>
-<table>
-  <thead>
-      <tr>
-          <th>方式</th>
-          <th>特徴</th>
-          <th>メリット</th>
-          <th>デメリット</th>
-      </tr>
-  </thead>
-  <tbody>
-      <tr>
-          <td>スタンドアロン</td>
-          <td>常に単体で常駐</td>
-          <td>応答が速い</td>
-          <td>リソースを常に消費</td>
-      </tr>
-      <tr>
-          <td>スーパーサーバー（<code>inetd</code>等）</td>
-          <td>接続時に起動</td>
-          <td>リソース節約</td>
-          <td>初回応答が遅い</td>
-      </tr>
-  </tbody>
-</table>
-<p>デーモンは常に稼働・待機するため、待ち受ける種類が多いとリソース消費が増える。スーパーサーバーはこの問題を解決するため、接続を受けたタイミングで必要なサーバプロセスを起動する。</p>
+</h2>
+<p>代表例：Python、Ruby、JavaScript、PHP</p>
+<p>ソースコードに型情報を記載する必要がなく、プログラムの実行時にインタプリタが各行を解釈して動的に型を付与する。
+型の宣言が不要なため、ソースコードが簡潔になりやすく、開発速度が速い。</p>
+<p>一方で、以下のデメリットがある。</p>
+<ul>
+<li>インタプリタ方式で実行されることが多く、また実行時の型チェックのオーバーヘッドもあり、実行速度は静的型付け言語と比較して遅くなる傾向にある</li>
+<li>ソースコードだけでは型情報を確認できないため、プログラムの設計や型の仕様が把握しづらい。特に他人が書いたコードやコード量が膨大になった場合に問題となる</li>
+<li>型の不整合によるエラーが実行時まで発見できない</li>
+</ul>
+<p>なお、Pythonでは「型ヒント」という機能により、ソースコードに注釈として型情報を記載することも可能である。
+これはあくまで注釈であり実行時の型チェックは行われないが、エディタや静的解析ツールによる事前チェックが可能になる。</p>
+<p><strong>向いているプロジェクト</strong>：小規模・個人の開発、開発速度が求められるスタートアップ、設計変更が頻繁に起こるアジャイル開発など。</p>
+
+<h2 class="relative group">静的型付け言語 
+    <div id="静的型付け言語" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e9%9d%99%e7%9a%84%e5%9e%8b%e4%bb%98%e3%81%91%e8%a8%80%e8%aa%9e" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>代表例：C言語、C#、Java、Swift、Go</p>
+<p>開発者がソースコードの時点で変数や関数に型を明示的に指定する。
+型が事前に定義されているため、実行時に1行ずつ型を解釈する必要がなく、コンパイル方式（ソースコードを一括で機械語に変換する方式）が採用される傾向にある。
+このため、実行速度は動的型付け言語よりも速い。</p>
+<p>また、コンパイル時に型の整合性がチェックされるため、プログラムの実行前にバグやエラーを発見できるという大きなメリットがある。
+型情報がコード上に明示されていることで、複数人での開発時にもコードの意図が伝わりやすい。</p>
+<p>一方で、すべての変数に型を宣言する必要があるため、コードの記述量が増え、コーディングの簡潔さでは動的型付け言語に劣る。
+ただし、近年では「型推論」という機能により、必要最小限の型指定からコンパイラが残りの型を推論してくれる言語も増えている。</p>
+<p><strong>向いているプロジェクト</strong>：大規模なシステム開発、実行速度や保守性が求められるプロジェクト（ゲーム開発、金融系など）。</p>
+
+<h2 class="relative group">まとめ 
+    <div id="まとめ" class="anchor"></div>
+    
+    <span
+        class="absolute top-0 w-6 transition-opacity opacity-0 ltr:-left-6 rtl:-right-6 not-prose group-hover:opacity-100">
+        <a class="group-hover:text-primary-300 dark:group-hover:text-neutral-700 !no-underline" href="#%e3%81%be%e3%81%a8%e3%82%81" aria-label="アンカー">#</a>
+    </span>        
+    
+</h2>
+<p>動的型付け言語と静的型付け言語の本質的な違いは、<strong>型をいつ決めるか</strong>にある。
+実行時に動的に決めるか、ソースコードの記述時に静的に決めるか、この違いが実行方式（インタプリタ／コンパイル）やメリット・デメリットの差を生んでいる。</p>
+<p>ただし、Pythonの型ヒントやJavaScriptに静的型付けを加えたTypeScript、静的型付け言語の型推論など、両者の境界は年々曖昧になってきている。
+言語を選定する際には、静的・動的という分類だけでなく、プロジェクトの規模・求められる速度・チーム体制などを多角的に考慮することが大切である。</p>
 
 <h2 class="relative group">振り返りポイント 
     <div id="振り返りポイント" class="anchor"></div>
@@ -891,17 +875,10 @@
     
 </h2>
 <ul>
-<li>プロセスとは
-<ul>
-<li>PIDとは</li>
-<li>親・子プロセスとは</li>
-</ul>
-</li>
-<li>デーモンとは
-<ul>
-<li>スーパーサーバーはデーモンのどんな問題をどのように解決している？</li>
-</ul>
-</li>
+<li>型とは何か</li>
+<li>動的型付けと静的型付けについて、型はいつ決めるか</li>
+<li>動的型付け言語の特徴は</li>
+<li>静的型付け言語の特徴は</li>
 </ul>
 
 <h2 class="relative group">参考 
@@ -915,21 +892,13 @@
 </h2>
 <ul>
 <li><a
-  href="https://www.infra-manual.com/linux-deamon/"
+  href="https://envader.plus/article/79"
     target="_blank"
-  >インフラマニュアル：Linuxにおけるデーモンとは？その役割と管理方法を解説</a></li>
+  >エンベーダー：動的型付け言語の解説、メリットや適したプロジェクトについて</a></li>
 <li><a
-  href="https://eng-entrance.com/linux-process"
+  href="https://envader.plus/article/78"
     target="_blank"
-  >エンジニアの入り口：【初心者向け】Linuxのプロセスについて一通りわかる！</a></li>
-<li><a
-  href="https://www.miraiserver.ne.jp/column/linux_process/"
-    target="_blank"
-  >ミライサーバー：Linuxのプロセスとは。psコマンドやkillコマンドの使い方も解説</a></li>
-<li><a
-  href="https://envader.plus/course/12/scenario/1147"
-    target="_blank"
-  >エンベーダー：システムの空いているポートについて</a></li>
+  >エンベーダー：静的型付け言語とは何か？特徴や適したプロジェクトを解説</a></li>
 </ul>
 
           
@@ -960,8 +929,8 @@
           type="text/javascript"
           src="/js/page.min.54b6f4371722649edbe871e431d8670d670878c22be8f36e229fe53cc9b786fe25a834def5e6de621f7a3e37b72bc8cd73839aa5ed907ed6cbd45cd3e1b0fa20.js"
           integrity="sha512-VLb0NxciZJ7b6HHkMdhnDWcIeMIr6PNuIp/lPMm3hv4lqDTe9ebeYh96Pje3K8jNc4Oape2QftbL1FzT4bD6IA=="
-          data-oid="views_posts/260131091958_Linuxにおけるプロセスとデーモンについて.md"
-          data-oid-likes="likes_posts/260131091958_Linuxにおけるプロセスとデーモンについて.md"></script>
+          data-oid="views_posts/260204121938_動的型付け言語と静的型付け言語の違い.md"
+          data-oid-likes="likes_posts/260204121938_動的型付け言語と静的型付け言語の違い.md"></script>
       
 
     </section>
@@ -976,7 +945,7 @@
       <div class="flex justify-between pt-3">
         <span>
           
-            <a class="flex group mr-3" href="/posts/260131035738_docker%E3%81%A8%E3%81%AF%E4%BD%95%E3%81%8B%E3%82%B3%E3%83%B3%E3%83%86%E3%83%8A%E6%8A%80%E8%A1%93%E3%81%AE%E5%9F%BA%E7%A4%8E%E3%81%A8%E3%83%87%E3%83%95%E3%82%A1%E3%82%AF%E3%83%88%E3%82%B9%E3%82%BF%E3%83%B3%E3%83%80%E3%83%BC%E3%83%89%E3%81%AB%E3%81%AA%E3%81%A3%E3%81%9F%E7%90%86%E7%94%B1/">
+            <a class="flex group mr-3" href="/posts/260204085550_httpie%E3%81%A8%E3%81%AF/">
               <span
                 class="mr-3 text-neutral-700 group-hover:text-primary-600 ltr:inline rtl:hidden dark:text-neutral dark:group-hover:text-primary-400"
                 >&larr;</span
@@ -987,11 +956,11 @@
               >
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >Dockerとは何か？コンテナ技術の基礎と、デファクトスタンダードになった理由</span
+                  >HTTPieとは</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2026-01-31T03:57:38&#43;09:00">2026年 1月 31日</time>
+                    <time datetime="2026-02-04T08:55:50&#43;09:00">2026年 2月 4日</time>
                   
                 </span>
               </span>
@@ -1000,14 +969,14 @@
         </span>
         <span>
           
-            <a class="flex text-right group ml-3" href="/posts/260202205516_%E3%82%BD%E3%82%B1%E3%83%83%E3%83%88%E3%81%A8%E3%81%AF/">
+            <a class="flex text-right group ml-3" href="/posts/260204130405_lsof%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8%E3%81%AF/">
               <span class="flex flex-col">
                 <span class="mt-[0.1rem] leading-6 group-hover:underline group-hover:decoration-primary-500"
-                  >ソケットとは？</span
+                  >lsofコマンドとは</span
                 >
                 <span class="mt-[0.1rem] text-xs text-neutral-500 dark:text-neutral-400">
                   
-                    <time datetime="2026-02-02T20:55:16&#43;09:00">2026年 2月 2日</time>
+                    <time datetime="2026-02-04T13:04:05&#43;09:00">2026年 2月 4日</time>
                   
                 </span>
               </span>

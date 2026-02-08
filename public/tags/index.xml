@@ -9,14 +9,84 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Sat, 31 Jan 2026 09:19:58 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 08 Feb 2026 16:29:19 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>CI/CD</title>
+      <link>http://localhost:1313/tags/ci/cd/</link>
+      <pubDate>Sun, 08 Feb 2026 16:29:19 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/ci/cd/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>DevOps</title>
+      <link>http://localhost:1313/tags/devops/</link>
+      <pubDate>Sun, 08 Feb 2026 16:29:19 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/devops/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>チートシート</title>
+      <link>http://localhost:1313/tags/%E3%83%81%E3%83%BC%E3%83%88%E3%82%B7%E3%83%BC%E3%83%88/</link>
+      <pubDate>Sat, 07 Feb 2026 08:17:56 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E3%83%81%E3%83%BC%E3%83%88%E3%82%B7%E3%83%BC%E3%83%88/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>学習・作業ログ</title>
+      <link>http://localhost:1313/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/</link>
+      <pubDate>Sat, 07 Feb 2026 08:17:56 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Linux</title>
       <link>http://localhost:1313/tags/linux/</link>
-      <pubDate>Sat, 31 Jan 2026 09:19:58 +0900</pubDate>
+      <pubDate>Wed, 04 Feb 2026 13:04:05 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>http://localhost:1313/tags/linux/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>コマンド</title>
+      <link>http://localhost:1313/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</link>
+      <pubDate>Wed, 04 Feb 2026 13:04:05 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>プログラミング</title>
+      <link>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
+      <pubDate>Wed, 04 Feb 2026 12:19:38 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
+      <description></description>
+      
+    </item>
+    
+    <item>
+      <title>ネットワーク</title>
+      <link>http://localhost:1313/tags/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF/</link>
+      <pubDate>Mon, 02 Feb 2026 20:55:16 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/tags/%E3%83%8D%E3%83%83%E3%83%88%E3%83%AF%E3%83%BC%E3%82%AF/</guid>
       <description></description>
       
     </item>
@@ -87,16 +157,6 @@
       <pubDate>Sat, 24 Jan 2026 14:04:55 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>http://localhost:1313/tags/%E3%83%9E%E3%82%A4%E3%82%AF%E3%83%AD%E3%82%B5%E3%83%BC%E3%83%93%E3%82%B9/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>学習・作業ログ</title>
-      <link>http://localhost:1313/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/</link>
-      <pubDate>Sat, 24 Jan 2026 14:04:55 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/tags/%E5%AD%A6%E7%BF%92%E4%BD%9C%E6%A5%AD%E3%83%AD%E3%82%B0/</guid>
       <description></description>
       
     </item>
@@ -422,16 +482,6 @@
     </item>
     
     <item>
-      <title>DevOps</title>
-      <link>http://localhost:1313/tags/devops/</link>
-      <pubDate>Tue, 02 Dec 2025 08:29:58 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/tags/devops/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
       <title>Git</title>
       <link>http://localhost:1313/tags/git/</link>
       <pubDate>Tue, 02 Dec 2025 08:03:29 +0900</pubDate>
@@ -537,16 +587,6 @@
       <pubDate>Wed, 26 Nov 2025 03:10:04 +0900</pubDate>
       <author>ptin110825@gmail.com (フミ)</author>
       <guid>http://localhost:1313/tags/chrome/</guid>
-      <description></description>
-      
-    </item>
-    
-    <item>
-      <title>プログラミング</title>
-      <link>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</link>
-      <pubDate>Sun, 23 Nov 2025 21:16:27 +0900</pubDate>
-      <author>ptin110825@gmail.com (フミ)</author>
-      <guid>http://localhost:1313/tags/%E3%83%97%E3%83%AD%E3%82%B0%E3%83%A9%E3%83%9F%E3%83%B3%E3%82%B0/</guid>
       <description></description>
       
     </item>

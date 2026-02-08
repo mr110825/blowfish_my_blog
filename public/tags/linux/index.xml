@@ -9,7 +9,17 @@
     <managingEditor>ptin110825@gmail.com (フミ)</managingEditor>
     <webMaster>ptin110825@gmail.com (フミ)</webMaster>
     <copyright>© 2026 フミ</copyright>
-    <lastBuildDate>Sat, 31 Jan 2026 09:19:58 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 04 Feb 2026 13:04:05 +0900</lastBuildDate><atom:link href="http://localhost:1313/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>lsofコマンドとは</title>
+      <link>http://localhost:1313/posts/260204130405_lsof%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8%E3%81%AF/</link>
+      <pubDate>Wed, 04 Feb 2026 13:04:05 +0900</pubDate>
+      <author>ptin110825@gmail.com (フミ)</author>
+      <guid>http://localhost:1313/posts/260204130405_lsof%E3%82%B3%E3%83%9E%E3%83%B3%E3%83%89%E3%81%A8%E3%81%AF/</guid>
+      <description></description>
+      
+    </item>
     
     <item>
       <title>Linuxにおけるプロセスとデーモンについて</title>
